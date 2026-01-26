@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全景学术集团 | 柏林</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 引入 Noto Serif SC 用于中文衬线体，Roboto 用于无衬线 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        :root { scroll-behavior: smooth; }
+        /* 中文版字体栈调整 */
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #ffffff; color: #1e1e1e; line-height: 1.8; }
+        .serif-brand { font-family: 'Noto Serif SC', serif; }
+        
+        /* Harvard Crimson Color Utility */
+        .text-crimson { color: #A51C30; }
+        .bg-crimson { background-color: #A51C30; }
+        .border-crimson { border-color: #A51C30; }
+        .hover-text-crimson:hover { color: #A51C30; }
+        .hover-bg-crimson:hover { background-color: #A51C30; }
+        
+        /* Hero Section Texture */
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.92)), 
+                        url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1600');
+            background-size: cover; background-position: center;
+        }
+
+        /* --- 期刊卡片新设计 (New Journal Card Design) --- */
+        .journal-card { 
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid #e2e8f0;
+            background: white;
+            position: relative;
+            transform: translateY(0);
+        }
+
+        .journal-card:hover { 
+            transform: translateY(-6px);
+            border-color: #A51C30; 
+            box-shadow: 0 20px 40px -10px rgba(165, 28, 48, 0.1); 
+        }
+
+        .card-image-container {
+            width: 100%;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .arrow-icon { transition: transform 0.3s ease; }
+        .journal-card:hover .arrow-icon { transform: translateX(6px); }
+
+        /* Section Header Decoration */
+        .section-header::after {
+            content: ''; display: block; width: 60px; height: 4px; 
+            background: #A51C30; margin-top: 15px;
+        }
+        
+        /* Nav Link Underline Animation */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: #A51C30; transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* 中文版特定的微调 */
+        .tracking-widest-cn { letter-spacing: 0.15em; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Top Bar -->
+    <div class="bg-neutral-900 py-3 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <span class="flex items-center"><i class="fas fa-map-marker-alt text-crimson mr-2"></i>德国 • 柏林</span>
+                <a href="mailto:contact@panorama-sg.com" class="hover:text-white transition"><i class="fas fa-envelope text-crimson mr-2"></i>contact@panorama-sg.com</a>
+            </div>
+            <div class="text-white italic serif-brand">立足柏林 • 全球视野</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md py-5 sticky top-0 z-50 border-b-4 border-crimson shadow-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-12 w-auto">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-black tracking-tight text-neutral-900 serif-brand uppercase leading-none">Panorama</span>
+                    <span class="text-[10px] font-bold text-neutral-500 tracking-[0.2em] uppercase mt-1">Scholarly Group</span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-800">
+                <a href="#home" class="nav-link hover:text-crimson transition">首页</a>
+                <a href="#journals" class="nav-link hover:text-crimson transition">期刊矩阵</a>
+                <a href="#about" class="nav-link hover:text-crimson transition">关于我们</a>
+                <a href="#impact" class="nav-link hover:text-crimson transition">影响力</a>
+                
+                <!-- 语言切换 -->
+                <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3">
+                    <a href="Panorama_Berlin_Redesign.html" class="text-neutral-400 hover:text-crimson transition font-sans">EN</a>
+                    <span class="text-crimson font-bold font-sans">中文</span>
+                </div>
+
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-6 py-2 bg-crimson text-white hover:bg-neutral-900 transition duration-300 tracking-widest-cn">投稿</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section text-neutral-900 py-48 px-6 text-left border-b border-neutral-200">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-crimson font-bold tracking-[0.2em] text-sm mb-6 flex items-center gap-3">
+                <span class="w-8 h-[2px] bg-crimson"></span> 德国 • 柏林
+            </h2>
+            <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-[1.3] tracking-tight serif-brand text-neutral-900">
+                推进全球<br>
+                <span class="italic text-crimson">学术对话</span> 与科研创新
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-12 max-w-3xl text-neutral-600 leading-relaxed serif-brand">
+                出版一系列杰出的严谨同行评审期刊，架设人文、科学与社会治理的桥梁。
+            </p>
+            <div class="flex flex-wrap gap-6">
+                <a href="#journals" class="bg-crimson hover:bg-neutral-900 text-white px-10 py-4 font-bold text-sm tracking-widest-cn transition shadow-lg">浏览期刊</a>
+                <a href="#about" class="px-10 py-4 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white text-neutral-900 font-bold text-sm tracking-widest-cn transition">机构简介</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Statistics Section -->
+    <section id="impact" class="bg-neutral-900 py-24 px-6 relative overflow-hidden text-white">
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
+                <div class="p-4">
+                    <div class="text-6xl font-black text-white serif-brand mb-2">120+</div>
+                    <div class="text-crimson font-bold text-sm tracking-widest-cn">已发表文章</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-6xl font-black text-white serif-brand mb-2">350+</div>
+                    <div class="text-crimson font-bold text-sm tracking-widest-cn">全球作者</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-6xl font-black text-white serif-brand mb-2">100%</div>
+                    <div class="text-crimson font-bold text-sm tracking-widest-cn">开放获取 (Open Access)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journal List Section -->
+    <main id="journals" class="py-32 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="mb-20">
+                <h2 class="text-crimson font-bold text-xs tracking-[0.5em] uppercase mb-4">Publications</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-neutral-900 serif-brand section-header">期刊矩阵</h3>
+                <p class="mt-6 text-neutral-600 max-w-2xl text-lg text-justify">
+                    我们的多学科组合涵盖了一系列经同行评审的学术期刊，致力于推动人文、社会科学、法学、工程学及健康科学领域的前沿研究。
+                </p>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                
+                <!-- 1. AI & Future Society -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/AFS'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/AI%20%26%20Future%20Society.png?raw=true" class="w-full h-full object-cover" alt="AI & Future Society Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]"> 
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">科技与伦理</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">人工智能与未来社会</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            探讨人工智能驱动的社会转型，聚焦伦理、监管、以人为本及未来导向的维度。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. Computational Social Sciences Review -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/CSSR'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/cssr.png?raw=true" class="w-full h-full object-cover" alt="CSSR Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">数据科学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">计算社会科学评论</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            推进利用机器学习和分析技术理解人类行为和社会系统的计算与数据驱动方法。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. Global Review of Humanities, Arts, and Society -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/files'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/grhas.png?raw=true" class="w-full h-full object-cover" alt="Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">人文学科</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">全球人文、艺术与社会评论</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            推动人文、艺术和社会探究领域的理论创新与反思性实践。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. Health Nexus -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/HealthNexus'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png?raw=true" class="w-full h-full object-cover" alt="Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">健康科学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">健康枢纽</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            推进跨学科医学研究，特别关注西方医学与传统中医之间的整合性对话。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. International Review of Education and Learning Sciences -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/IRELS'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/IRELS.png?raw=true" class="w-full h-full object-cover" alt="IRELS Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">教育学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">国际教育与学习科学评论</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            致力于推进全生命周期的教育、学习科学及相关领域的跨学科研究。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. Journal of Engineering Systems and Applications -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/JESA'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JESA.png?raw=true" class="w-full h-full object-cover" alt="Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">工程学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">工程系统与应用期刊</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            强调跨学科整合，连接理论发展、实验探究与技术创新。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. Journal of Law, Psychology, and Communication Studies -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/JLPCS'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JLPCS.png?raw=true" class="w-full h-full object-cover" alt="Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">法学与心理学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">法律、心理学与传播学研究</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            探索法律体系、心理过程与传播实践之间的交叉领域。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- 8. PoliEcoM Administration Review -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/PEMR'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/REMR.png?raw=true" class="w-full h-full object-cover" alt="Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">社会科学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">政治、经济与管理行政评论</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            促进关于政策制定、制度治理、财政监管及公共部门改革的跨学科对话。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 9. Resonance: Journal of Global Music Studies -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/Resonance'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Resonance.png?raw=true" class="w-full h-full object-cover" alt="Resonance Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">音乐学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">共鸣：全球音乐研究</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            致力于跨文化音乐研究的国际期刊。接受英语、中文、德语、意大利语和俄语投稿。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10. Rural Governance and Green Development -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/RGGD'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Rural%20Governance%20and%20Green%20Development.png?raw=true" class="w-full h-full object-cover" alt="Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">环境科学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">乡村治理与绿色发展</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            促进关于可持续乡村发展、绿色转型及环境治理的学术对话。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 11. Three Teachings Studies -->
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/TTS'">
+                    <div class="card-image-container aspect-[210/297]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/tts.png?raw=true" class="w-full h-full object-cover" alt="Cover">
+                    </div>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">哲学</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">三教研究</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4 text-justify">
+                            致力于东亚儒家、道家和佛教的研究，促进跨传统与跨学科的对话。
+                        </p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            查看期刊 <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 bg-white border-t border-neutral-100">
+        <div class="container mx-auto px-6 max-w-5xl text-center">
+            <h2 class="text-crimson font-bold text-xs tracking-[0.5em] uppercase mb-8">关于 Panorama</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-10 serif-brand section-header mx-auto" style="width: fit-content;">严谨的学术标准</h3>
+            <p class="text-neutral-600 text-lg leading-relaxed mb-12 italic serif-brand">
+                "我们通过前瞻性的科学研究，为全球社会面临的复杂挑战提供创新解决方案，构建开放、协作的知识生态系统。"
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                <div class="p-8 border-l-4 border-crimson bg-neutral-50">
+                    <h4 class="font-bold text-neutral-900 uppercase tracking-widest-cn mb-4 text-sm">我们的使命</h4>
+                    <p class="text-sm text-neutral-600">从柏林总部出发，促进跨文化智识对话，向世界传播高质量的研究成果。</p>
+                </div>
+                <div class="p-8 border-l-4 border-neutral-900 bg-neutral-50">
+                    <h4 class="font-bold text-neutral-900 uppercase tracking-widest-cn mb-4 text-sm">柏林传承</h4>
+                    <p class="text-sm text-neutral-600">植根于德国严谨的学术传统，我们秉持最高标准的同行评审与出版伦理。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 py-24 px-6 border-t border-white/5 text-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div class="space-y-8">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold tracking-tight serif-brand uppercase">Panorama Scholarly Group</span>
+                        <span class="text-[10px] font-bold text-crimson tracking-[0.4em] mt-2 uppercase">立足柏林 • 全球视野</span>
+                    </div>
+                    <p class="text-neutral-400 text-sm leading-relaxed max-w-md text-justify">
+                        总部位于柏林的新锐开放获取 (Open Access) 学术出版机构，致力于通过严谨的同行评审和数字时代的加速传播，推动全球学术发展与高影响力研究的普及。
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h4 class="text-white font-bold text-xs uppercase tracking-widest-cn border-b border-crimson pb-2 inline-block">总部信息</h4>
+                        <p class="text-sm text-neutral-400 leading-relaxed"><i class="fas fa-map-marker-alt mr-3 text-crimson"></i>德国，柏林</p>
+                        <p class="text-sm text-neutral-400 leading-relaxed"><i class="fas fa-envelope mr-3 text-crimson"></i>contact@panorama-sg.com</p>
+                    </div>
+                    <div class="space-y-6 text-sm">
+                        <h4 class="text-white font-bold text-xs uppercase tracking-widest-cn border-b border-crimson pb-2 inline-block">快速链接</h4>
+                        <div class="flex flex-col space-y-3 text-neutral-400 font-medium">
+                            <a href="#journals" class="hover:text-crimson transition">旗下期刊</a>
+                            <a href="publication-ethics.html" class="hover:text-crimson transition">出版伦理</a>
+                            <a href="open-access.html" class="hover:text-crimson transition">开放获取政策</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold text-neutral-500 uppercase tracking-[0.2em]">
+                <p>© 2025-2026 PANORAMA SCHOLARLY GROUP. BERLIN.</p>
+                <p class="mt-4 md:mt-0 text-neutral-400">保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
