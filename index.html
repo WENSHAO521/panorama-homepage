@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panorama Scholarly Group | Berlin</title>
     
-    <!-- 添加 Favicon 图标 -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,40 +24,48 @@
         .hover-text-crimson:hover { color: #A51C30; }
         .hover-bg-crimson:hover { background-color: #A51C30; }
         
-        /* 英雄区：使用经典的图书馆/学术纹理 */
+        /* Hero Section Texture */
         .hero-section {
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)), 
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.92)), 
                         url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1600');
             background-size: cover; background-position: center;
         }
 
-        /* 哈佛风格卡片：直角、锐利、边框强调 */
-        /* 修改：移除默认的 transform，改用更细腻的过渡 */
+        /* --- 期刊卡片新设计 (New Journal Card Design) --- */
         .journal-card { 
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); /* 更平滑的过渡曲线 */
             border: 1px solid #e2e8f0;
             background: white;
             position: relative;
-            top: 0;
+            transform: translateY(0);
         }
-        /* 悬浮效果：轻微上浮 + 更有质感的阴影 */
+
+        /* 悬停状态：边框变红，轻微上浮，阴影加深 (No Zoom, just elegant lift) */
         .journal-card:hover { 
-            top: -4px;
-            box-shadow: 0 15px 30px -5px rgba(165, 28, 48, 0.15); 
+            transform: translateY(-6px); /* 垂直上浮 */
             border-color: #A51C30; 
+            box-shadow: 0 20px 40px -10px rgba(165, 28, 48, 0.1); 
         }
 
-        /* 箭头动画类 */
-        .arrow-icon { transition: transform 0.3s ease; }
-        .journal-card:hover .arrow-icon { transform: translateX(4px); }
+        /* 图片容器：确保图片清晰，无遮挡 */
+        .card-image-container {
+            width: 100%;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            border-bottom: 1px solid #f0f0f0;
+        }
 
-        /* 装饰性分割线 - 红色 */
+        /* 箭头动画 */
+        .arrow-icon { transition: transform 0.3s ease; }
+        .journal-card:hover .arrow-icon { transform: translateX(6px); }
+
+        /* Section Header Decoration */
         .section-header::after {
             content: ''; display: block; width: 60px; height: 4px; 
             background: #A51C30; margin-top: 15px;
         }
         
-        /* 导航栏下划线动画 */
+        /* Nav Link Underline Animation */
         .nav-link { position: relative; }
         .nav-link::after {
             content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
@@ -68,7 +76,7 @@
 </head>
 <body class="antialiased">
 
-    <!-- 顶部黑条：联系信息 -->
+    <!-- Top Bar -->
     <div class="bg-neutral-900 py-3 border-b border-neutral-800 hidden lg:block text-[11px] font-bold tracking-[0.1em] text-neutral-400">
         <div class="container mx-auto px-6 flex justify-between items-center uppercase">
             <div class="flex items-center space-x-8">
@@ -79,11 +87,10 @@
         </div>
     </div>
 
-    <!-- 导航栏：白底黑字红线 -->
+    <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md py-5 sticky top-0 z-50 border-b-4 border-crimson shadow-sm">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <!-- Logo -->
                 <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-12 w-auto">
                 <div class="flex flex-col">
                     <span class="text-xl md:text-2xl font-black tracking-tight text-neutral-900 serif-brand uppercase leading-none">Panorama</span>
@@ -100,7 +107,7 @@
         </div>
     </nav>
 
-    <!-- Hero 区域：哈佛风格 -->
+    <!-- Hero Section -->
     <header id="home" class="hero-section text-neutral-900 py-48 px-6 text-left border-b border-neutral-200">
         <div class="container mx-auto max-w-6xl">
             <h2 class="text-crimson font-bold tracking-[0.2em] uppercase text-sm mb-6 flex items-center gap-3">
@@ -120,7 +127,7 @@
         </div>
     </header>
 
-    <!-- 统计数据 (Impact) -->
+    <!-- Statistics Section -->
     <section id="impact" class="bg-neutral-900 py-24 px-6 relative overflow-hidden text-white">
         <div class="container mx-auto max-w-6xl relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
@@ -140,7 +147,7 @@
         </div>
     </section>
 
-    <!-- 期刊列表区域 -->
+    <!-- Journal List Section -->
     <main id="journals" class="py-32 bg-slate-50">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="mb-20">
@@ -149,150 +156,196 @@
                 <p class="mt-6 text-neutral-600 max-w-2xl text-lg">Our multidisciplinary portfolio spans 11 peer-reviewed journals, dedicated to advancing research across the Humanities, Social Sciences, Law, Engineering, and Health Sciences.</p>
             </div>
 
-            <!-- 网格布局：适应11本期刊 -->
+            <!-- Grid Layout -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 
                 <!-- 1. AI & Future Society -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/AFS'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/AI%20%26%20Future%20Society.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="AI & Future Society Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Technology</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/AFS'">
+                    <!-- 图片区：无标签，无缩放，纯净展示 -->
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/AI%20%26%20Future%20Society.png?raw=true" class="w-full h-full object-cover" alt="AI & Future Society Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">AI & Future Society</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Examining societal transformations driven by AI, focusing on ethical, regulatory, human-centered, and future-oriented dimensions.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <!-- 内容区：标签移至此处 -->
+                    <div class="p-6 flex flex-col h-[260px]"> <!-- 固定高度确保对齐 -->
+                        <!-- 标签：红色，小字，位于标题上方 -->
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Technology</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">AI & Future Society</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Examining societal transformations driven by AI, focusing on ethical, regulatory, human-centered, and future-oriented dimensions.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 2. Computational Social Sciences Review -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/CSSR'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/cssr.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="CSSR Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Data Science</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/CSSR'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/cssr.png?raw=true" class="w-full h-full object-cover" alt="CSSR Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Computational Social Sciences Review</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Advancing computational and data-driven approaches to understanding human behavior and social systems using machine learning and analytics.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Data Science</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Computational Social Sciences Review</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Advancing computational and data-driven approaches to understanding human behavior and social systems using machine learning and analytics.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 3. Global Review of Humanities, Arts, and Society -->
-                <!-- 更新了链接地址 -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/files'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/grhas.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cover">
-                        <div class="absolute top-0 right-0 bg-crimson text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Humanities</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/files'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/grhas.png?raw=true" class="w-full h-full object-cover" alt="Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Global Review of Humanities, Arts, and Society</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Advancing theoretical innovation and reflective practice across the humanities, arts, and social inquiry.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Humanities</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Global Review of Humanities, Arts, and Society</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Advancing theoretical innovation and reflective practice across the humanities, arts, and social inquiry.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 4. Health Nexus -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/HealthNexus'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Health</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/HealthNexus'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png?raw=true" class="w-full h-full object-cover" alt="Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Health Nexus</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Advancing interdisciplinary medical research with a focus on integrative dialogue between Western medicine and Traditional Chinese Medicine.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Health</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Health Nexus</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Advancing interdisciplinary medical research with a focus on integrative dialogue between Western medicine and Traditional Chinese Medicine.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 5. International Review of Education and Learning Sciences -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/IRELS'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/IRELS.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="IRELS Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Education</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/IRELS'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/IRELS.png?raw=true" class="w-full h-full object-cover" alt="IRELS Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">International Review of Education and Learning Sciences</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Dedicated to advancing interdisciplinary research in education, learning sciences, and related fields across the lifespan.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Education</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">International Review of Education and Learning Sciences</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Dedicated to advancing interdisciplinary research in education, learning sciences, and related fields across the lifespan.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 6. Journal of Engineering Systems and Applications -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/JESA'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JESA.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Engineering</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/JESA'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JESA.png?raw=true" class="w-full h-full object-cover" alt="Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Journal of Engineering Systems and Applications</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Emphasizing interdisciplinary integration, JESA connects theoretical development, experimental investigation, and technological innovation.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Engineering</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Journal of Engineering Systems and Applications</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Emphasizing interdisciplinary integration, JESA connects theoretical development, experimental investigation, and technological innovation.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 7. Journal of Law, Psychology, and Communication Studies -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/JLPCS'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JLPCS.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Law</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/JLPCS'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JLPCS.png?raw=true" class="w-full h-full object-cover" alt="Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Journal of Law, Psychology, and Communication Studies</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Exploring the intersections of legal systems, psychological processes, and communication practices.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Law & Psychology</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Journal of Law, Psychology, and Communication Studies</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Exploring the intersections of legal systems, psychological processes, and communication practices.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
                 
                 <!-- 8. PoliEcoM Administration Review -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/PEMR'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/REMR.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Social Sci</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/PEMR'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/REMR.png?raw=true" class="w-full h-full object-cover" alt="Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">PoliEcoM Administration Review</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Promotes interdisciplinary dialogue on policy-making, institutional governance, fiscal regulation, and public sector reform.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Social Sci</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">PoliEcoM Administration Review</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Promotes interdisciplinary dialogue on policy-making, institutional governance, fiscal regulation, and public sector reform.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 9. Resonance: Journal of Global Music Studies -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/Resonance'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Resonance.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Resonance Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Musicology</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/Resonance'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Resonance.png?raw=true" class="w-full h-full object-cover" alt="Resonance Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Resonance: Journal of Global Music Studies</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">An international journal dedicated to the study of music across cultures. Accepting submissions in English, Chinese, German, Italian, and Russian.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Musicology</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Resonance: Journal of Global Music Studies</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">An international journal dedicated to the study of music across cultures. Accepting submissions in English, Chinese, German, Italian, and Russian.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 10. Rural Governance and Green Development -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/RGGD'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Rural%20Governance%20and%20Green%20Development.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Environment</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/RGGD'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Rural%20Governance%20and%20Green%20Development.png?raw=true" class="w-full h-full object-cover" alt="Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Rural Governance and Green Development</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Fostering scholarly dialogue on sustainable rural development, green transformation, and environmental governance.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Environment</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Rural Governance and Green Development</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Fostering scholarly dialogue on sustainable rural development, green transformation, and environmental governance.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
                 <!-- 11. Three Teachings Studies -->
-                <article class="journal-card p-8 flex flex-col group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/TTS'">
-                    <div class="aspect-[3/4] w-full bg-neutral-100 mb-6 overflow-hidden relative">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/tts.png?raw=true" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Cover">
-                        <div class="absolute top-0 right-0 bg-neutral-800 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Philosophy</div>
+                <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/TTS'">
+                    <div class="card-image-container aspect-[3/4]">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/tts.png?raw=true" class="w-full h-full object-cover" alt="Cover">
                     </div>
-                    <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Three Teachings Studies</h3>
-                    <p class="text-xs text-neutral-500 mb-6 flex-grow leading-relaxed">Dedicated to the study of Confucianism, Daoism, and Buddhism in East Asia, fostering dialogue across traditions and disciplines.</p>
-                    <div class="text-xs font-bold uppercase tracking-widest text-crimson flex items-center gap-2 mt-auto">
-                        View Journal <i class="fas fa-arrow-right arrow-icon"></i>
+                    <div class="p-6 flex flex-col h-[260px]">
+                        <div class="mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Philosophy</span>
+                        </div>
+                        <h3 class="serif-brand text-lg font-bold mb-3 leading-tight text-neutral-900 group-hover:text-crimson transition-colors duration-300">Three Teachings Studies</h3>
+                        <p class="text-xs text-neutral-500 mb-4 flex-grow leading-relaxed line-clamp-4">Dedicated to the study of Confucianism, Daoism, and Buddhism in East Asia, fostering dialogue across traditions and disciplines.</p>
+                        <div class="text-xs font-bold uppercase tracking-widest text-neutral-900 group-hover:text-crimson transition-colors flex items-center gap-2 mt-auto border-t border-neutral-100 pt-4">
+                            View Journal <i class="fas fa-arrow-right arrow-icon text-crimson"></i>
+                        </div>
                     </div>
                 </article>
 
@@ -300,7 +353,7 @@
         </div>
     </main>
 
-    <!-- 关于我们 -->
+    <!-- About Section -->
     <section id="about" class="py-32 bg-white border-t border-neutral-100">
         <div class="container mx-auto px-6 max-w-5xl text-center">
             <h2 class="text-crimson font-bold text-xs tracking-[0.5em] uppercase mb-8">About Panorama</h2>
@@ -321,7 +374,7 @@
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- Footer -->
     <footer class="bg-neutral-900 py-24 px-6 border-t border-white/5 text-white">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
