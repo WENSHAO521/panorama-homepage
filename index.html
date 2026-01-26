@@ -31,23 +31,21 @@
             background-size: cover; background-position: center;
         }
 
-        /* --- 期刊卡片新设计 (New Journal Card Design) --- */
+        /* --- New Journal Card Design --- */
         .journal-card { 
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); /* 更平滑的过渡曲线 */
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             border: 1px solid #e2e8f0;
             background: white;
             position: relative;
             transform: translateY(0);
         }
 
-        /* 悬停状态：边框变红，轻微上浮，阴影加深 (No Zoom, just elegant lift) */
         .journal-card:hover { 
-            transform: translateY(-6px); /* 垂直上浮 */
+            transform: translateY(-6px);
             border-color: #A51C30; 
             box-shadow: 0 20px 40px -10px rgba(165, 28, 48, 0.1); 
         }
 
-        /* 图片容器：确保图片清晰，无遮挡 */
         .card-image-container {
             width: 100%;
             background-color: #f5f5f5;
@@ -55,7 +53,6 @@
             border-bottom: 1px solid #f0f0f0;
         }
 
-        /* 箭头动画 */
         .arrow-icon { transition: transform 0.3s ease; }
         .journal-card:hover .arrow-icon { transform: translateX(6px); }
 
@@ -97,11 +94,18 @@
                     <span class="text-[10px] font-bold text-neutral-500 tracking-[0.3em] uppercase mt-1">Scholarly Group</span>
                 </div>
             </div>
-            <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-neutral-800">
+            <div class="hidden md:flex items-center space-x-8 text-[12px] font-bold uppercase tracking-widest text-neutral-800">
                 <a href="#home" class="nav-link hover:text-crimson transition">Home</a>
                 <a href="#journals" class="nav-link hover:text-crimson transition">Journals</a>
                 <a href="#about" class="nav-link hover:text-crimson transition">About</a>
                 <a href="#impact" class="nav-link hover:text-crimson transition">Impact</a>
+                
+                <!-- Language Switcher -->
+                <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 normal-case">
+                    <span class="text-crimson font-bold font-sans">EN</span>
+                    <a href="Panorama_Berlin_Redesign_CN.html" class="text-neutral-400 hover:text-crimson transition font-sans">中文</a>
+                </div>
+
                 <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 bg-crimson text-white hover:bg-neutral-900 transition duration-300">Submit</a>
             </div>
         </div>
@@ -127,7 +131,7 @@
         </div>
     </header>
 
-    <!-- Statistics Section -->
+    <!-- Statistics Section (Updated) -->
     <section id="impact" class="bg-neutral-900 py-24 px-6 relative overflow-hidden text-white">
         <div class="container mx-auto max-w-6xl relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/20">
@@ -161,12 +165,11 @@
                 
                 <!-- 1. AI & Future Society -->
                 <article class="journal-card group cursor-pointer" onclick="window.location.href='https://grhas.centraluniteduniversity.de/index.php/AFS'">
-                    <!-- 图片区：修改为 A4 比例 (210/297) -->
+                    <!-- A4 Ratio -->
                     <div class="card-image-container aspect-[210/297]">
                         <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/AI%20%26%20Future%20Society.png?raw=true" class="w-full h-full object-cover" alt="AI & Future Society Cover">
                     </div>
-                    <!-- 内容区 -->
-                    <div class="p-6 flex flex-col h-[260px]"> <!-- 固定高度确保对齐 -->
+                    <div class="p-6 flex flex-col h-[260px]">
                         <div class="mb-2">
                             <span class="text-[10px] font-bold uppercase tracking-widest text-crimson">Technology</span>
                         </div>
@@ -413,6 +416,5 @@
 
 </body>
 </html>
-
 
 
