@@ -11,13 +11,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* 引入 Noto Serif SC 用于中文衬线体，Roboto 用于无衬线 */
+        /* 引入 Noto Serif SC (宋体风格) 和 Noto Sans SC (黑体风格) */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
         :root { scroll-behavior: smooth; }
-        /* 中文版字体栈调整 */
+        
+        /* 字体策略：正文用黑体易读，标题和品牌用宋体/衬线体体现学术感 */
         body { font-family: 'Noto Sans SC', sans-serif; background-color: #ffffff; color: #1e1e1e; line-height: 1.8; }
-        .serif-brand { font-family: 'Noto Serif SC', serif; }
+        
+        /* 品牌专用字体类 */
+        .serif-brand { font-family: 'Merriweather', 'Noto Serif SC', serif; }
+        .serif-cn { font-family: 'Noto Serif SC', serif; }
         
         /* Harvard Crimson Color Utility */
         .text-crimson { color: #A51C30; }
@@ -28,12 +33,12 @@
         
         /* Hero Section Texture */
         .hero-section {
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.92)), 
+            background: linear-gradient(rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.93)), 
                         url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&auto=format&fit=crop&q=80&w=1600');
             background-size: cover; background-position: center;
         }
 
-        /* --- 期刊卡片新设计 (New Journal Card Design) --- */
+        /* --- Journal Card Design --- */
         .journal-card { 
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             border: 1px solid #e2e8f0;
@@ -72,8 +77,9 @@
         }
         .nav-link:hover::after { width: 100%; }
 
-        /* 中文版特定的微调 */
+        /* 中文版特定的字间距调整，增加呼吸感 */
         .tracking-widest-cn { letter-spacing: 0.15em; }
+        .tracking-super-wide { letter-spacing: 0.4em; }
     </style>
 </head>
 <body class="antialiased">
@@ -85,33 +91,43 @@
                 <span class="flex items-center"><i class="fas fa-map-marker-alt text-crimson mr-2"></i>德国 • 柏林</span>
                 <a href="mailto:contact@panorama-sg.com" class="hover:text-white transition"><i class="fas fa-envelope text-crimson mr-2"></i>contact@panorama-sg.com</a>
             </div>
-            <div class="text-white italic serif-brand">立足柏林 • 全球视野</div>
+            <div class="text-white italic serif-brand text-[11px]">BERLIN BASED • GLOBAL IMPACT</div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-md py-5 sticky top-0 z-50 border-b-4 border-crimson shadow-sm">
+    <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b-4 border-crimson shadow-sm">
         <div class="container mx-auto px-6 flex justify-between items-center">
+            
+            <!-- Logo Area: 优化后的出版社标识设计 -->
             <div class="flex items-center gap-4">
                 <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-12 w-auto">
-                <div class="flex flex-col">
-                    <span class="text-xl md:text-2xl font-black tracking-tight text-neutral-900 serif-brand uppercase leading-none">全景</span>
-                    <span class="text-[10px] font-bold text-neutral-500 tracking-[0.2em] uppercase mt-1">学术集团</span>
+                <div class="flex flex-col justify-center">
+                    <!-- 第一行：英文品牌（保留国际感） -->
+                    <span class="text-xl md:text-2xl font-black tracking-tighter text-neutral-900 serif-brand uppercase leading-none">
+                        Panorama
+                    </span>
+                    <!-- 第二行：中文全称（极简风格，字间距拉大以对齐上方） -->
+                    <span class="text-[10px] font-bold text-neutral-500 tracking-[0.3em] mt-1 pl-[1px]">
+                        全景学术集团
+                    </span>
                 </div>
             </div>
-            <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-800">
-                <a href="#home" class="nav-link hover:text-crimson transition">首页</a>
+
+            <!-- Nav Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-800 tracking-widest-cn">
+                <a href="#home" class="nav-link hover:text-crimson transition">主页</a>
                 <a href="#journals" class="nav-link hover:text-crimson transition">期刊矩阵</a>
-                <a href="#about" class="nav-link hover:text-crimson transition">关于我们</a>
-                <a href="#impact" class="nav-link hover:text-crimson transition">影响力</a>
+                <a href="#about" class="nav-link hover:text-crimson transition">机构概况</a>
+                <a href="#impact" class="nav-link hover:text-crimson transition">学术影响</a>
                 
                 <!-- 语言切换 -->
-                <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3">
-                    <a href="Panorama_Berlin_Redesign.html" class="text-neutral-400 hover:text-crimson transition font-sans">EN</a>
+                <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
+                    <a href="Panorama_Berlin_Redesign.html" class="text-neutral-400 hover:text-crimson transition font-sans font-bold">EN</a>
                     <span class="text-crimson font-bold font-sans">中文</span>
                 </div>
 
-                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-6 py-2 bg-crimson text-white hover:bg-neutral-900 transition duration-300 tracking-widest-cn">投稿</a>
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-6 py-2 bg-crimson text-white hover:bg-neutral-900 transition duration-300">投稿</a>
             </div>
         </div>
     </nav>
@@ -124,9 +140,9 @@
             </h2>
             <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-[1.3] tracking-tight serif-brand text-neutral-900">
                 推进全球<br>
-                <span class="italic text-crimson">学术对话</span> 与科研创新
+                <span class="italic text-crimson serif-cn">学术对话</span> 与科研创新
             </h1>
-            <p class="text-lg md:text-xl font-light mb-12 max-w-3xl text-neutral-600 leading-relaxed serif-brand">
+            <p class="text-lg md:text-xl font-light mb-12 max-w-3xl text-neutral-600 leading-relaxed serif-cn">
                 出版一系列杰出的严谨同行评审期刊，架设人文、科学与社会治理的桥梁。
             </p>
             <div class="flex flex-wrap gap-6">
@@ -162,7 +178,7 @@
             <div class="mb-20">
                 <h2 class="text-crimson font-bold text-xs tracking-[0.5em] uppercase mb-4">Publications</h2>
                 <h3 class="text-4xl md:text-5xl font-bold text-neutral-900 serif-brand section-header">期刊矩阵</h3>
-                <p class="mt-6 text-neutral-600 max-w-2xl text-lg text-justify">
+                <p class="mt-6 text-neutral-600 max-w-2xl text-lg text-justify leading-relaxed">
                     我们的多学科组合涵盖了一系列经同行评审的学术期刊，致力于推动人文、社会科学、法学、工程学及健康科学领域的前沿研究。
                 </p>
             </div>
@@ -443,6 +459,6 @@
     </footer>
 
 </body>
-
 </html>
+
 
