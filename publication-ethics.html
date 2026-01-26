@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publication Ethics | Panorama Scholarly Group</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:wght@300;400;600;700&display=swap');
+        
+        :root { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; background-color: #ffffff; color: #1e1e1e; line-height: 1.8; }
+        .serif-brand { font-family: 'Merriweather', serif; }
+        
+        /* Harvard Crimson Utilities */
+        .text-crimson { color: #A51C30; }
+        .bg-crimson { background-color: #A51C30; }
+        .border-crimson { border-color: #A51C30; }
+        .hover-text-crimson:hover { color: #A51C30; }
+        .hover-bg-crimson:hover { background-color: #A51C30; }
+        
+        /* Typography for Policy Text */
+        .policy-content h2 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: #1e1e1e;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        .policy-content h3 {
+            font-weight: 700;
+            color: #2d3748;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .policy-content p {
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+
+        .policy-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+        
+        .policy-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Nav Link Hover Effect */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: #A51C30; transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        /* Active Link Style for Current Page */
+        .nav-link.active { color: #A51C30; }
+        .nav-link.active::after { width: 100%; }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- 顶部黑条：与 index.html 保持一致 -->
+    <div class="bg-neutral-900 py-3 border-b border-neutral-800 hidden lg:block text-[11px] font-bold tracking-[0.1em] text-neutral-400">
+        <div class="container mx-auto px-6 flex justify-between items-center uppercase">
+            <div class="flex items-center space-x-8">
+                <span class="flex items-center"><i class="fas fa-map-marker-alt text-crimson mr-2"></i>Berlin, Germany</span>
+                <a href="mailto:contact@panorama-sg.com" class="hover:text-white transition"><i class="fas fa-envelope text-crimson mr-2"></i>contact@panorama-sg.com</a>
+            </div>
+            <div class="text-white italic serif-brand">Berlin Based • Global Impact</div>
+        </div>
+    </div>
+
+    <!-- 导航栏：与 index.html 保持一致 -->
+    <nav class="bg-white/95 backdrop-blur-md py-5 sticky top-0 z-50 border-b-4 border-crimson shadow-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
+                <!-- Logo -->
+                <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-12 w-auto">
+                <div class="flex flex-col">
+                    <span class="text-xl md:text-2xl font-black tracking-tight text-neutral-900 serif-brand uppercase leading-none">Panorama</span>
+                    <span class="text-[10px] font-bold text-neutral-500 tracking-[0.3em] uppercase mt-1">Scholarly Group</span>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-10 text-[12px] font-bold uppercase tracking-widest text-neutral-800">
+                <a href="index.html#home" class="nav-link hover:text-crimson transition">Home</a>
+                <a href="index.html#journals" class="nav-link hover:text-crimson transition">Journals</a>
+                <!-- 当前页面高亮 -->
+                <a href="#" class="nav-link active hover:text-crimson transition">Ethics</a>
+                <a href="open-access.html" class="nav-link hover:text-crimson transition">Open Access</a>
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 bg-crimson text-white hover:bg-neutral-900 transition duration-300">Submit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="bg-neutral-50 py-20 border-b border-neutral-200">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-crimson font-bold text-xs tracking-[0.5em] uppercase mb-4">Academic Integrity</h2>
+            <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 serif-brand mb-6">Publication Ethics</h1>
+            <p class="text-lg text-neutral-600 font-light max-w-2xl mx-auto">
+                Adhering to the core practices of the Committee on Publication Ethics (COPE) to ensure the highest standards of transparency and rigor.
+            </p>
+        </div>
+    </header>
+
+    <!-- Policy Content -->
+    <main class="flex-grow container mx-auto px-6 max-w-4xl py-16 policy-content">
+        
+        <h2>1. Duties of Editors</h2>
+        <p>
+            Editors are responsible for deciding which of the articles submitted to the journal should be published. The validation of the work in question and its importance to researchers and readers must always drive such decisions.
+        </p>
+        <h3>Fair Play</h3>
+        <p>Editors evaluate manuscripts for their intellectual content without regard to race, gender, sexual orientation, religious belief, ethnic origin, citizenship, or political philosophy of the authors.</p>
+        <h3>Confidentiality</h3>
+        <p>The editor and any editorial staff must not disclose any information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, other editorial advisers, and the publisher, as appropriate.</p>
+
+        <h2>2. Duties of Reviewers</h2>
+        <p>
+            Peer review assists the editor in making editorial decisions and through the editorial communications with the author may also assist the author in improving the paper.
+        </p>
+        <ul>
+            <li><strong>Promptness:</strong> Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and excuse himself from the review process.</li>
+            <li><strong>Confidentiality:</strong> Any manuscripts received for review must be treated as confidential documents.</li>
+            <li><strong>Standards of Objectivity:</strong> Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.</li>
+        </ul>
+
+        <h2>3. Duties of Authors</h2>
+        <h3>Reporting Standards</h3>
+        <p>Authors of reports of original research should present an accurate account of the work performed as well as an objective discussion of its significance.</p>
+        <h3>Originality and Plagiarism</h3>
+        <p>The authors should ensure that they have written entirely original works, and if the authors have used the work and/or words of others, that this has been appropriately cited or quoted.</p>
+        <h3>Multiple, Redundant or Concurrent Publication</h3>
+        <p>An author should not in general publish manuscripts describing essentially the same research in more than one journal or primary publication.</p>
+
+        <h2>4. Malpractice Statement</h2>
+        <p>
+            Panorama Scholarly Group is committed to upholding the integrity of the academic record. We will take all necessary steps to prevent the publication of papers where research misconduct has occurred, including plagiarism, citation manipulation, and data falsification. In the event that we are made aware of any allegation of research misconduct, we will deal with allegations appropriately in accordance with COPE guidelines.
+        </p>
+
+    </main>
+
+    <!-- 页脚：与 index.html 保持一致 -->
+    <footer class="bg-neutral-900 py-24 px-6 border-t border-white/5 text-white mt-auto">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div class="space-y-8">
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-bold tracking-tight serif-brand uppercase">Panorama Scholarly Group</span>
+                        <span class="text-[10px] font-bold text-crimson tracking-[0.4em] mt-2 uppercase">Berlin Based • Global Reach</span>
+                    </div>
+                    <p class="text-neutral-400 text-sm leading-relaxed max-w-md">
+                        A distinguished academic publisher based in Berlin, dedicated to disseminating rigorous research and fostering cross-cultural intellectual dialogue.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] border-b border-crimson pb-2 inline-block">Headquarters</h4>
+                        <p class="text-sm text-neutral-400 leading-relaxed"><i class="fas fa-map-marker-alt mr-3 text-crimson"></i>Berlin, Germany</p>
+                        <p class="text-sm text-neutral-400 leading-relaxed"><i class="fas fa-envelope mr-3 text-crimson"></i>contact@panorama-sg.com</p>
+                    </div>
+                    <div class="space-y-6 text-sm">
+                        <h4 class="text-white font-bold text-xs uppercase tracking-[0.2em] border-b border-crimson pb-2 inline-block">Quick Links</h4>
+                        <div class="flex flex-col space-y-3 text-neutral-400 font-medium">
+                            <a href="index.html#journals" class="hover:text-crimson transition">Our Journals</a>
+                            <!-- 指向当前页面 -->
+                            <a href="#" class="text-crimson transition cursor-default">Publication Ethics</a>
+                            <a href="open-access.html" class="hover:text-crimson transition">Open Access Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold text-neutral-500 uppercase tracking-[0.2em]">
+                <p>© 2025-2026 PANORAMA SCHOLARLY GROUP. BERLIN.</p>
+                <p class="mt-4 md:mt-0 text-neutral-400">All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
