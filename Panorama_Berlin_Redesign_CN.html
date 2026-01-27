@@ -46,6 +46,47 @@
         .section-header::after { content: ''; display: block; width: 60px; height: 4px; background: #A51C30; margin-top: 15px; }
         .tracking-widest-cn { letter-spacing: 0.1em; }
 
+        /* Partner Logos Clean Style */
+        .partner-category-title {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+            margin-top: 40px;
+            position: relative;
+        }
+        .partner-category-title::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: #e2e8f0;
+            margin: 8px auto 0;
+        }
+        .partner-logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px; 
+            margin-bottom: 20px;
+        }
+        .partner-logo { 
+            height: 32px; 
+            width: auto; 
+            filter: grayscale(100%); 
+            opacity: 0.5; 
+            transition: all 0.3s ease; 
+        }
+        .partner-logo:hover { 
+            filter: grayscale(0%); 
+            opacity: 1; 
+            transform: scale(1.05);
+        }
+
         /* Widget Styles */
         .widget-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; pointer-events: none; display: flex; justify-content: flex-end; align-items: flex-end; }
         .widget-card { width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom right; opacity: 1; transform: scale(1); pointer-events: auto; }
@@ -63,6 +104,7 @@
         @media (max-width: 768px) {
             .hero-overlay { background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.5) 100%); }
             .widget-card { width: 280px; }
+            .partner-logo { height: 24px; gap: 20px; }
         }
     </style>
 </head>
@@ -175,7 +217,6 @@
                             <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">人工智能</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
                             <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">人工智能与未来社会</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">探讨人工智能驱动的社会转型，聚焦伦理、监管、以人为本及未来导向的维度。</p>
-                            <!-- CORRECTED: text-[10px] text-neutral-400 font-mono -->
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-4011 • 半年刊</div>
                         </div>
                         <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
@@ -185,7 +226,7 @@
                     </div>
                 </article>
 
-                <!-- 2. CSSR (FIXED STYLE) -->
+                <!-- 2. CSSR -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
                     <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/cssr.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
@@ -193,7 +234,6 @@
                             <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">数据科学</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
                             <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">计算社会科学评论</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">推进利用机器学习和分析技术理解人类行为和社会系统的计算与数据驱动方法。</p>
-                            <!-- CORRECTED: text-[10px] text-neutral-400 font-mono -->
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 申请中 • 季刊</div>
                         </div>
                         <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
@@ -355,7 +395,6 @@
                         </div>
                     </div>
                 </article>
-
             </div>
         </div>
     </main>
@@ -380,6 +419,64 @@
             </div>
         </div>
     </section>
+
+    <!-- Partners Section (Clean Style) -->
+    <div class="bg-slate-50 border-t border-gray-200 py-16">
+        <div class="container mx-auto max-w-5xl px-6">
+            <h4 class="text-center text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 mb-10">合作伙伴与学术生态</h4>
+
+            <!-- 1. Standards & Identifiers -->
+            <div class="partner-category-title">标准与标识符</div>
+            <div class="partner-logo-container">
+                <img src="https://assets.crossref.org/logo/crossref-logo-200.svg" class="partner-logo" alt="Crossref">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" class="partner-logo" alt="DOI">
+                <img src="https://portal.issn.org/sites/all/themes/customissn/img/img_0160x0050px_logo_issn.svg" class="partner-logo" alt="ISSN">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/800px-ISNI_logo_recreation.svg.png?20250816195445" class="partner-logo" alt="ISNI">
+            </div>
+
+            <!-- 2. Indexing & Abstracting -->
+            <div class="partner-category-title">收录与索引</div>
+            <div class="partner-logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="partner-logo" alt="Google Scholar">
+                <img src="https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg" class="partner-logo" alt="Scilit">
+                <img src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" class="partner-logo" alt="Dimensions">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" class="partner-logo" alt="Semantic Scholar">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Open_Ukrainian_Citation_Index_logo.png/330px-Open_Ukrainian_Citation_Index_logo.png" class="partner-logo" alt="OUCI">
+                <img src="https://journals.indexcopernicus.com/img/ici2.png" class="partner-logo" alt="ICI">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="partner-logo" alt="BASE">
+                <img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="partner-logo" alt="OpenAlex">
+                <img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="partner-logo" alt="CJWK">
+            </div>
+
+            <!-- 3. Discovery & Visibility -->
+            <div class="partner-category-title">发现与可见性平台</div>
+            <div class="partner-logo-container">
+                <img src="https://search.worldcat.org/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F29926%2F1603118905-worldcat-logo.png&w=1920&q=75" class="partner-logo" alt="WorldCat">
+                <img src="https://www.openaire.eu/templates/yootheme/cache/27/Logo_Horizontal-27555593.webp" class="partner-logo" alt="OpenAIRE">
+                <img src="https://pkp.sfu.ca/wp-content/uploads/2022/10/logo.svg" class="partner-logo" alt="PKP">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/ResearchGate_logo.svg/330px-ResearchGate_logo.svg.png" class="partner-logo" alt="ResearchGate">
+                <img src="https://www.csi.minesparis.psl.eu/wp-content/uploads/2023/09/MATILDA_Didier-Torny.jpg" class="partner-logo" alt="MATILDA">
+                <img src="https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/Indexed/wos.png" class="partner-logo" alt="WoS Research Commons">
+            </div>
+
+            <!-- 4. Archiving & Preservation -->
+            <div class="partner-category-title">归档与数字保存</div>
+            <div class="partner-logo-container">
+                <img src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" class="partner-logo" alt="CLOCKSS">
+                <img src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" class="partner-logo" alt="LOCKSS">
+                <img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" class="partner-logo" alt="DNB">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/220px-Zenodo-gradient-square.svg.png?20230831200321" class="partner-logo" alt="Zenodo">
+                <img src="https://library.harvard.edu/themes/custom/harvard/assets/images/logo-final.svg" class="partner-logo" alt="Harvard Library">
+                <img src="https://toolkit.library.columbia.edu/v3/img/cu-blue-logo.svg" class="partner-logo" alt="Columbia Library">
+                <img src="https://library.dctabudhabi.ae/sites/default/files/homepage/Maktaba_Logo_white_1_0.png" class="partner-logo" style="filter: brightness(0); opacity: 0.6;" alt="Abu Dhabi Library">
+                <img src="https://openucla-static.library.ucla.edu/images/logos/ucla-library-logo-wht_resized.svg" class="partner-logo" style="filter: brightness(0); opacity: 0.6;" alt="UCLA Library">
+            </div>
+
+            <p class="text-[10px] text-neutral-400 mt-12 text-justify leading-relaxed border-t border-gray-200 pt-6 max-w-4xl mx-auto">
+                <strong>免责声明：</strong> 上述服务中包含的内容表明期刊内容的可发现性、可用性或长期保存状态。这并不意味着被 Web of Science 核心合集或 Scopus 等评价或排名数据库正式收录。
+            </p>
+        </div>
+    </div>
 
     <!-- Widget -->
     <div class="widget-container">
@@ -407,26 +504,48 @@
     <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Intro + SDG -->
                 <div class="col-span-1 md:col-span-2">
                     <span class="text-xl font-bold tracking-tight serif-brand uppercase block mb-4">Panorama Scholarly Group</span>
-                    <p class="text-neutral-400 leading-relaxed max-w-sm text-justify">
+                    <p class="text-neutral-400 leading-relaxed max-w-sm text-justify mb-6">
                         总部位于柏林的新锐开放获取 (Open Access) 学术出版机构，致力于通过严谨的同行评审和数字时代的加速传播，推动全球学术发展与高影响力研究的普及。
                     </p>
+                    
+                    <!-- SDG Logo Section -->
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">致力于联合国 2030 可持续发展目标 (SDGs)</p>
+                        <img src="https://github.com/WENSHAO521/GRHAS/blob/main/rggd/E_SDG_logo_without_UN_emblem_horizontal_CMYK_Transparent.png?raw=true" alt="UN SDG" class="h-12 opacity-90 hover:opacity-100 transition">
+                    </div>
                 </div>
+
+                <!-- Column 2: Contact -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">联系我们</h4>
-                    <p class="text-neutral-400 mb-2">德国，柏林</p>
+                    <p class="text-neutral-400 mb-2">地址：德国，柏林</p>
                     <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition">contact@panorama-sg.com</a>
                 </div>
+
+                <!-- Column 3: Resources & Collaboration -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">资源</h4>
-                    <ul class="space-y-2 text-neutral-400">
+                    <ul class="space-y-2 text-neutral-400 mb-6">
                         <li><a href="ag-cn.html" class="hover:text-white transition">作者指南</a></li>
                         <li><a href="RR-CN.html" class="hover:text-white transition">审稿人资源</a></li>
                         <li><a href="Publication_Ethics_CN.html" class="hover:text-white transition">出版伦理</a></li>
                     </ul>
+                    
+                    <!-- ORCID Section -->
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">学术标准与互联</h4>
+                        <div class="flex items-center">
+                             <img src="https://github.com/WENSHAO521/GRHAS/raw/bb657b890c3c6c3ab1ee6562b899f3ec72dcdcb0/ORCID_logo.svg_.png" alt="ORCID" class="h-6 mr-2 bg-white rounded-full p-[2px]">
+                             <span class="text-xs text-neutral-400">支持 ORCID</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Bottom Footer -->
             <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider">
                 <p>&copy; 2025-2026 PANORAMA SCHOLARLY GROUP. BERLIN. 保留所有权利</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
