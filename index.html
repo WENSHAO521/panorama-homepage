@@ -19,139 +19,60 @@
         body { font-family: 'Open Sans', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; }
         .serif-brand { font-family: 'Merriweather', serif; }
         
-        /* Harvard Crimson Color Utility */
+        /* Colors */
         .text-crimson { color: #A51C30; }
         .bg-crimson { background-color: #A51C30; }
         .border-crimson { border-color: #A51C30; }
         .hover-text-crimson:hover { color: #A51C30; }
-        .hover-bg-crimson:hover { background-color: #A51C30; }
         
-        /* Hero Section Styling */
-        .hero-section {
-            position: relative;
-            background-color: #f1f5f9; 
-            overflow: hidden;
+        /* Active Button State */
+        .sort-btn.active {
+            background-color: #A51C30;
+            color: white;
+            border-color: #A51C30;
         }
 
-        /* Hero Background Slider */
-        .hero-bg-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
+        /* Hero Section */
+        .hero-section { position: relative; background-color: #f1f5f9; overflow: hidden; }
+        .hero-bg-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .hero-bg-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 2.0s ease-in-out; 
-            transform: scale(1.05);
-            filter: saturate(0.9); 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; transition: opacity 2.0s ease-in-out; transform: scale(1.05); filter: saturate(0.9);
         }
-
-        .hero-bg-slide.active {
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 2.0s ease-in-out, transform 8s ease-out;
-        }
-
-        /* WOS Style Gradient Overlay */
+        .hero-bg-slide.active { opacity: 1; transform: scale(1); transition: opacity 2.0s ease-in-out, transform 8s ease-out; }
         .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background: linear-gradient(90deg, 
-                rgba(255, 255, 255, 1) 0%, 
-                rgba(255, 255, 255, 0.95) 35%, 
-                rgba(255, 255, 255, 0.6) 60%, 
-                rgba(255, 255, 255, 0.1) 100%
-            );
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.95) 35%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.1) 100%);
         }
-        
-        @media (max-width: 768px) {
-            .hero-overlay {
-                background: linear-gradient(180deg, 
-                    rgba(255, 255, 255, 0.98) 0%, 
-                    rgba(255, 255, 255, 0.95) 50%, 
-                    rgba(255, 255, 255, 0.5) 100%
-                );
-            }
-        }
+        .hero-content { position: relative; z-index: 10; }
 
-        /* Hero Content z-index adjustment */
-        .hero-content {
-            position: relative;
-            z-index: 10;
-        }
+        /* Journal Rows */
+        .journal-row { transition: all 0.2s ease-in-out; background: white; border: 1px solid #e2e8f0; display: flex; }
+        .journal-row:hover { border-color: #cbd5e1; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); transform: translateY(-2px); }
+        .journal-cover-wrapper { flex-shrink: 0; width: 150px; background-color: #f8fafc; display: flex; align-items: flex-start; justify-content: center; padding: 16px; border-right: 1px solid #f1f5f9; }
+        .journal-cover-img { width: 100%; height: auto; object-fit: contain; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); background-color: white; }
 
-        /* --- Journal Catalog Row Style (Fixed Visibility) --- */
-        .journal-row {
-            transition: all 0.2s ease-in-out;
-            background: white;
-            border: 1px solid #e2e8f0;
-            display: flex; /* Ensure horizontal layout */
-        }
-        
-        .journal-row:hover {
-            border-color: #cbd5e1;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-            transform: translateY(-2px);
-        }
-
-        /* Wrapper for the cover image */
-        .journal-cover-wrapper {
-            flex-shrink: 0;
-            width: 150px; /* Fixed width column */
-            background-color: #f8fafc; /* Light gray background to contrast with white page */
-            display: flex;
-            align-items: flex-start; /* Align image to top */
-            justify-content: center;
-            padding: 16px; /* Padding to ensure image doesn't touch edges */
-            border-right: 1px solid #f1f5f9;
-        }
-
-        /* The Journal Cover Image Itself */
-        .journal-cover-img {
-            width: 100%;
-            height: auto;
-            object-fit: contain; /* CRITICAL: Ensures full image is visible, no cropping */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Drop shadow for depth */
-            background-color: white; /* Ensure transparent PNGs look okay */
-        }
-
-        /* Nav Link Underline Animation */
+        /* Navigation */
         .nav-link { position: relative; }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
-            background-color: #A51C30; transition: width 0.3s;
-        }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #A51C30; transition: width 0.3s; }
         .nav-link:hover::after { width: 100%; }
 
-        /* Section Header */
-        .section-header::after {
-            content: ''; display: block; width: 60px; height: 4px; 
-            background: #A51C30; margin-top: 15px;
-        }
-
-        /* Mobile Menu Animation */
-        .mobile-menu-enter {
-            animation: fadeInDown 0.3s ease-out forwards;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Widget Styles */
+        .widget-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; pointer-events: none; display: flex; justify-content: flex-end; align-items: flex-end; }
+        .widget-card { width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom right; opacity: 1; transform: scale(1); pointer-events: auto; }
+        .widget-card.hidden-state { opacity: 0; transform: scale(0.8) translateY(20px); pointer-events: none; position: absolute; bottom: 0; right: 0; }
+        .widget-fab { width: 56px; height: 56px; background: #A51C30; border-radius: 50%; box-shadow: 0 4px 15px rgba(165, 28, 48, 0.4); color: white; font-size: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; position: absolute; bottom: 0; right: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform: scale(0) rotate(-90deg); opacity: 0; pointer-events: none; }
+        .widget-fab.visible-state { transform: scale(1) rotate(0deg); opacity: 1; pointer-events: auto; }
+        .widget-header { background: linear-gradient(135deg, #A51C30 0%, #7e1625 100%); color: white; padding: 16px; display: flex; justify-content: space-between; align-items: flex-start; }
+        .close-icon-btn { background: rgba(255,255,255,0.2); border: none; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+        .close-icon-btn:hover { background: rgba(255,255,255,0.4); }
+        .widget-option { display: flex; align-items: center; padding: 12px; margin: 0 16px 12px 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; color: inherit; transition: all 0.2s; }
+        .widget-option:hover { border-color: #A51C30; background: #fff; transform: translateX(-2px); box-shadow: 0 4px 12px rgba(165, 28, 48, 0.1); }
+        .pulse-ring { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #A51C30; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
+        
+        @media (max-width: 768px) { .widget-card { width: 280px; } }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
@@ -171,7 +92,6 @@
     <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm">
         <div class="container mx-auto px-6 relative">
             <div class="flex justify-between items-center">
-                <!-- Logo -->
                 <div class="flex items-center gap-4">
                     <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-10 md:h-12 w-auto">
                     <div class="flex flex-col">
@@ -179,30 +99,21 @@
                         <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] uppercase mt-1">Scholarly Group</span>
                     </div>
                 </div>
-
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-700">
                     <a href="#home" class="nav-link hover:text-crimson transition">Home</a>
                     <a href="#journals" class="nav-link hover:text-crimson transition">Journals</a>
                     <a href="#about" class="nav-link hover:text-crimson transition">About</a>
-                    
-                    <!-- Language Switcher -->
                     <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3">
                         <span class="text-crimson font-bold">EN</span>
                         <a href="Panorama_Berlin_Redesign_CN.html" class="text-neutral-400 hover:text-crimson transition">中文</a>
                     </div>
-
                     <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">Login / Register</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-neutral-900 hover:text-crimson focus:outline-none p-2 transition-colors">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center mobile-menu-enter">
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center">
                 <a href="#home" class="text-sm font-bold uppercase tracking-widest text-neutral-800 hover:text-crimson py-2">Home</a>
                 <a href="#journals" class="text-sm font-bold uppercase tracking-widest text-neutral-800 hover:text-crimson py-2">Journals</a>
                 <a href="#about" class="text-sm font-bold uppercase tracking-widest text-neutral-800 hover:text-crimson py-2">About</a>
@@ -239,38 +150,14 @@
         </div>
     </header>
 
-    <!-- Stats Bar (Similar to Elsevier/WOS) -->
+    <!-- Stats Bar -->
     <div class="bg-white border-b border-gray-200 py-8">
         <div class="container mx-auto max-w-7xl px-6">
             <div class="flex flex-wrap justify-between items-center gap-8 text-neutral-600">
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-book-open text-2xl text-crimson"></i>
-                    <div>
-                        <span class="block text-2xl font-bold text-neutral-900 leading-none">120+</span>
-                        <span class="text-xs font-bold uppercase tracking-wider">Articles</span>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-users text-2xl text-crimson"></i>
-                    <div>
-                        <span class="block text-2xl font-bold text-neutral-900 leading-none">350+</span>
-                        <span class="text-xs font-bold uppercase tracking-wider">Authors</span>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <i class="fas fa-globe-europe text-2xl text-crimson"></i>
-                    <div>
-                        <span class="block text-2xl font-bold text-neutral-900 leading-none">100%</span>
-                        <span class="text-xs font-bold uppercase tracking-wider">Open Access</span>
-                    </div>
-                </div>
-                 <div class="flex items-center gap-3">
-                    <i class="fas fa-check-circle text-2xl text-crimson"></i>
-                    <div>
-                        <span class="block text-2xl font-bold text-neutral-900 leading-none">Blind</span>
-                        <span class="text-xs font-bold uppercase tracking-wider">Peer Review</span>
-                    </div>
-                </div>
+                <div class="flex items-center gap-3"><i class="fas fa-book-open text-2xl text-crimson"></i><div><span class="block text-2xl font-bold text-neutral-900 leading-none">120+</span><span class="text-xs font-bold uppercase tracking-wider">Articles</span></div></div>
+                <div class="flex items-center gap-3"><i class="fas fa-users text-2xl text-crimson"></i><div><span class="block text-2xl font-bold text-neutral-900 leading-none">350+</span><span class="text-xs font-bold uppercase tracking-wider">Authors</span></div></div>
+                <div class="flex items-center gap-3"><i class="fas fa-globe-europe text-2xl text-crimson"></i><div><span class="block text-2xl font-bold text-neutral-900 leading-none">100%</span><span class="text-xs font-bold uppercase tracking-wider">Open Access</span></div></div>
+                <div class="flex items-center gap-3"><i class="fas fa-check-circle text-2xl text-crimson"></i><div><span class="block text-2xl font-bold text-neutral-900 leading-none">Blind</span><span class="text-xs font-bold uppercase tracking-wider">Peer Review</span></div></div>
             </div>
         </div>
     </div>
@@ -284,29 +171,23 @@
                     <h2 class="text-crimson font-bold text-xs tracking-[0.2em] uppercase mb-2">Publications Catalog</h2>
                     <h3 class="text-3xl md:text-4xl font-bold text-neutral-900 serif-brand">Browse Journals</h3>
                 </div>
-                <!-- Filter Mockup -->
+                <!-- Filter Buttons (Now Active) -->
                 <div class="mt-4 md:mt-0 flex gap-2">
-                    <button class="px-4 py-2 bg-white border border-gray-300 text-xs font-bold uppercase tracking-wide hover:border-crimson text-neutral-600 transition">A-Z</button>
-                    <button class="px-4 py-2 bg-white border border-gray-300 text-xs font-bold uppercase tracking-wide hover:border-crimson text-neutral-600 transition">By Subject</button>
+                    <button id="btn-az" onclick="sortJournals('az')" class="sort-btn active px-4 py-2 bg-white border border-gray-300 text-xs font-bold uppercase tracking-wide hover:border-crimson text-neutral-600 transition">A-Z</button>
+                    <button id="btn-subject" onclick="sortJournals('subject')" class="sort-btn px-4 py-2 bg-white border border-gray-300 text-xs font-bold uppercase tracking-wide hover:border-crimson text-neutral-600 transition">By Subject</button>
                 </div>
             </div>
 
-            <!-- Journals Grid - International Catalog Style -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Journals Grid (Added ID for Sorting) -->
+            <div id="journals-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-                <!-- 1. AI & Future Society -->
+                <!-- 1. AI -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <!-- FIX: object-contain to ensure full cover visibility -->
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/AI%20%26%20Future%20Society.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/AI%20%26%20Future%20Society.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Technology</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">AI & Future Society</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Technology</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">AI & Future Society</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Examining societal transformations driven by AI, focusing on ethical, regulatory, human-centered, and future-oriented dimensions.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-4011 • Bi-Annual</div>
                         </div>
@@ -317,19 +198,14 @@
                     </div>
                 </article>
 
-                <!-- 2. Computational Social Sciences Review -->
+                <!-- 2. CSSR -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/cssr.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/cssr.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Data Science</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Computational Social Sciences Review</h3>
-                            <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Advancing computational and data-driven approaches to understanding human behavior and social systems using machine learning and analytics.</p>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Data Science</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Computational Social Sciences Review</h3>
+                            <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Advancing computational and data-driven approaches to understanding human behavior and social systems.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: Pending • Quarterly</div>
                         </div>
                         <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
@@ -339,18 +215,13 @@
                     </div>
                 </article>
 
-                <!-- 3. Global Review of Humanities, Arts, and Society -->
+                 <!-- 3. GRHAS -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/grhas.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/grhas.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Humanities</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Global Review of Humanities, Arts, and Society</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Humanities</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Global Review of Humanities, Arts, and Society</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Advancing theoretical innovation and reflective practice across the humanities, arts, and social inquiry.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3052-539X • Bi-Monthly</div>
                         </div>
@@ -361,18 +232,13 @@
                     </div>
                 </article>
 
-                <!-- 4. Health Nexus -->
+                <!-- 4. Health -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Health Sci</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Health Nexus</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Health Sci</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Health Nexus</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Advancing interdisciplinary medical research with a focus on integrative dialogue between Western medicine and Traditional Chinese Medicine.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-7037 • Annual</div>
                         </div>
@@ -383,18 +249,13 @@
                     </div>
                 </article>
 
-                <!-- 5. International Review of Education -->
+                <!-- 5. Education -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/IRELS.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/IRELS.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Education</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">International Review of Education and Learning Sciences</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Education</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">International Review of Education and Learning Sciences</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Dedicated to advancing interdisciplinary research in education, learning sciences, and related fields across the lifespan.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: Pending • Bi-Annual</div>
                         </div>
@@ -405,18 +266,13 @@
                     </div>
                 </article>
 
-                <!-- 6. JESA -->
+                <!-- 6. Engineering -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JESA.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JESA.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Engineering</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Journal of Engineering Systems and Applications</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Engineering</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Journal of Engineering Systems and Applications</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Emphasizing interdisciplinary integration, JESA connects theoretical development, experimental investigation, and technological innovation.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-478X • Annual</div>
                         </div>
@@ -427,18 +283,13 @@
                     </div>
                 </article>
 
-                <!-- 7. JLPCS -->
+                <!-- 7. Law -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JLPCS.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/JLPCS.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Law</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Journal of Law, Psychology, and Communication Studies</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Law</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Journal of Law, Psychology, and Communication Studies</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Exploring the intersections of legal systems, psychological processes, and communication practices.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3052-9654 • Bi-Annual</div>
                         </div>
@@ -449,18 +300,13 @@
                     </div>
                 </article>
 
-                <!-- 8. PoliEcoM -->
+                <!-- 8. Social Sci -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/REMR.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/REMR.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Social Sci</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">PoliEcoM Administration Review</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Social Sci</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">PoliEcoM Administration Review</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Promotes interdisciplinary dialogue on policy-making, institutional governance, fiscal regulation, and public sector reform.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-3597 • Bi-Annual</div>
                         </div>
@@ -471,18 +317,13 @@
                     </div>
                 </article>
 
-                <!-- 9. Resonance -->
+                <!-- 9. Musicology -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Resonance.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Resonance.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Musicology</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Resonance: Journal of Global Music Studies</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Musicology</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Resonance: Journal of Global Music Studies</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">An international journal dedicated to the study of music across cultures. Accepting submissions in English, Chinese, German, Italian, and Russian.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-4410 • Bi-Annual</div>
                         </div>
@@ -493,18 +334,13 @@
                     </div>
                 </article>
 
-                <!-- 10. Rural Governance -->
+                <!-- 10. Environment -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Rural%20Governance%20and%20Green%20Development.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Rural%20Governance%20and%20Green%20Development.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Environment</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Rural Governance and Green Development</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Environment</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Rural Governance and Green Development</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Fostering scholarly dialogue on sustainable rural development, green transformation, and environmental governance.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-7282 • Annual</div>
                         </div>
@@ -515,18 +351,13 @@
                     </div>
                 </article>
 
-                <!-- 11. Three Teachings -->
+                <!-- 11. Philosophy -->
                 <article class="journal-row rounded-sm overflow-hidden h-full">
-                    <div class="journal-cover-wrapper">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/tts.png?raw=true" class="journal-cover-img" alt="Cover">
-                    </div>
+                    <div class="journal-cover-wrapper"><img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/tts.png?raw=true" class="journal-cover-img" alt="Cover"></div>
                     <div class="p-5 flex flex-col justify-between flex-grow bg-white">
                         <div>
-                            <div class="flex justify-between items-start mb-2">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Philosophy</span>
-                                <span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span>
-                            </div>
-                            <h3 class="serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Three Teachings Studies</h3>
+                            <div class="flex justify-between items-start mb-2"><span class="journal-subject text-[10px] font-bold uppercase tracking-wider text-crimson bg-crimson/5 px-2 py-1 rounded-sm">Philosophy</span><span class="text-[10px] font-bold text-green-700 border border-green-600 px-1 rounded-sm">OPEN ACCESS</span></div>
+                            <h3 class="journal-title serif-brand text-lg font-bold text-neutral-900 leading-tight mb-2 hover:text-crimson cursor-pointer transition">Three Teachings Studies</h3>
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3">Dedicated to the study of Confucianism, Daoism, and Buddhism in East Asia, fostering dialogue across traditions and disciplines.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-6553 • Annual</div>
                         </div>
@@ -541,15 +372,53 @@
         </div>
     </main>
 
+    <!-- ========== INTERACTIVE WIDGET ========== -->
+    <div class="widget-container">
+        <div id="join-card" class="widget-card">
+            <div class="widget-header">
+                <div>
+                    <h3 class="font-bold text-sm mb-1 serif-brand">Join Our Academic Team</h3>
+                    <p class="text-xs text-white/80">Panorama Scholarly Group</p>
+                </div>
+                <button onclick="minimizeWidget()" class="close-icon-btn" title="Minimize">
+                    <i class="fas fa-minus text-xs"></i>
+                </button>
+            </div>
+            <div class="p-4">
+                <p class="text-xs text-neutral-500 mb-3 px-1">We invite scholars worldwide to contribute.</p>
+                <a href="YOUR_GOOGLE_FORM_LINK_FOR_REVIEWERS" target="_blank" class="widget-option group">
+                    <div class="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center mr-3 group-hover:bg-crimson group-hover:text-white transition">
+                        <i class="fas fa-user-check text-crimson text-xs group-hover:text-white"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-neutral-800">Apply as Reviewer</div>
+                        <div class="text-[10px] text-neutral-500">Peer Review Expert</div>
+                    </div>
+                </a>
+                <a href="YOUR_GOOGLE_FORM_LINK_FOR_EDITORS" target="_blank" class="widget-option group mb-0">
+                    <div class="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center mr-3 group-hover:bg-crimson group-hover:text-white transition">
+                        <i class="fas fa-user-tie text-crimson text-xs group-hover:text-white"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-neutral-800">Editorial Board</div>
+                        <div class="text-[10px] text-neutral-500">Shape Journal Strategy</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="join-fab" class="widget-fab" onclick="maximizeWidget()" title="Expand">
+            <div class="pulse-ring"></div>
+            <i class="fas fa-users"></i>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-2">
                     <span class="text-xl font-bold tracking-tight serif-brand uppercase block mb-4">Panorama Scholarly Group</span>
-                    <p class="text-neutral-400 leading-relaxed max-w-sm">
-                        Berlin-based Open Access publisher committed to rigorous peer review and global knowledge dissemination.
-                    </p>
+                    <p class="text-neutral-400 leading-relaxed max-w-sm">Berlin-based Open Access publisher committed to rigorous peer review and global knowledge dissemination.</p>
                 </div>
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Contact</h4>
@@ -578,55 +447,85 @@
 
     <!-- Scripts -->
     <script>
-        // --- Mobile Menu Logic ---
+        // --- Mobile Menu ---
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = menuBtn.querySelector('i');
-
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.classList.remove('fa-times');
-                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times'); menuIcon.classList.add('fa-bars');
             } else {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times');
+                menuIcon.classList.remove('fa-bars'); menuIcon.classList.add('fa-times');
             }
         });
 
-        // --- Background Slider Logic ---
+        // --- Slider ---
         document.addEventListener('DOMContentLoaded', () => {
             const sliderContainer = document.getElementById('hero-slider');
-            
-            // Modern, Abstract, WOS/Elsevier style Images
             const images = [
-                'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600', // Globe/Network
-                'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600', // Clean Office/Structure
-                'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1600', // Lab/Science
-                'https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&q=80&w=1600', // Server/Data
-                'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600'  // Modern Building
+                'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600',
+                'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600',
+                'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1600',
+                'https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&q=80&w=1600',
+                'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600'
             ];
-
             images.forEach((imgUrl, index) => {
                 const div = document.createElement('div');
                 div.className = `hero-bg-slide ${index === 0 ? 'active' : ''}`;
                 div.style.backgroundImage = `url('${imgUrl}')`;
                 sliderContainer.appendChild(div);
             });
-
             let currentIndex = 0;
             const slides = document.querySelectorAll('.hero-bg-slide');
             const totalSlides = slides.length;
-
             setInterval(() => {
                 slides[currentIndex].classList.remove('active');
                 currentIndex = (currentIndex + 1) % totalSlides;
                 slides[currentIndex].classList.add('active');
             }, 6000); 
         });
+
+        // --- Widget Logic ---
+        const card = document.getElementById('join-card');
+        const fab = document.getElementById('join-fab');
+        function minimizeWidget() { card.classList.add('hidden-state'); fab.classList.add('visible-state'); }
+        function maximizeWidget() { card.classList.remove('hidden-state'); fab.classList.remove('visible-state'); }
+
+        // --- Sorting Logic ---
+        function sortJournals(type) {
+            const container = document.getElementById('journals-grid');
+            const journals = Array.from(container.children);
+            
+            // Sort
+            journals.sort((a, b) => {
+                let valA, valB;
+                if (type === 'az') {
+                    // Sort by Title
+                    valA = a.querySelector('.journal-title').innerText.trim();
+                    valB = b.querySelector('.journal-title').innerText.trim();
+                } else {
+                    // Sort by Subject
+                    valA = a.querySelector('.journal-subject').innerText.trim();
+                    valB = b.querySelector('.journal-subject').innerText.trim();
+                }
+                return valA.localeCompare(valB);
+            });
+
+            // Re-append in new order
+            journals.forEach(node => container.appendChild(node));
+
+            // Update Buttons State
+            const btnAz = document.getElementById('btn-az');
+            const btnSub = document.getElementById('btn-subject');
+            if (type === 'az') {
+                btnAz.classList.add('active');
+                btnSub.classList.remove('active');
+            } else {
+                btnSub.classList.add('active');
+                btnAz.classList.remove('active');
+            }
+        }
     </script>
 </body>
 </html>
-
-
-
