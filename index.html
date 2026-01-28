@@ -104,54 +104,6 @@
             .widget-card { width: 280px; }
             .partner-logo { height: 24px; gap: 20px; }
         }
-
-        /* ===== Mobile & Tablet Optimizations ===== */
-        @media (max-width: 640px) {
-            .journal-row { flex-direction: column; }
-            .journal-cover-wrapper { 
-                width: 100%; border-right: none; 
-                border-bottom: 1px solid #f1f5f9;
-                padding: 20px; align-items: center;
-            }
-            .journal-cover-img { width: 140px; }
-            .btn-journal-action { flex: 1; font-size: 10px; padding: 8px 10px; }
-            .hero-section { padding: 60px 16px !important; }
-            .container { padding-left: 16px; padding-right: 16px; }
-        }
-
-        @media (min-width: 641px) and (max-width: 1024px) {
-            .journal-cover-wrapper { width: 130px; }
-            .partner-logo { height: 28px; }
-        }
-
-        /* ===== Language Selector Styles ===== */
-        .lang-switcher { position: relative; display: inline-block; }
-        .lang-current {
-            display: flex; align-items: center; gap: 6px;
-            padding: 6px 12px; border: 1px solid #e2e8f0;
-            border-radius: 4px; background: white;
-            cursor: pointer; transition: all 0.2s;
-            font-size: 12px; font-weight: 600;
-        }
-        .lang-current:hover { border-color: #A51C30; background: #fef2f2; }
-        .lang-dropdown {
-            position: absolute; top: calc(100% + 6px); right: 0;
-            background: white; border: 1px solid #e2e8f0;
-            border-radius: 6px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            min-width: 160px; opacity: 0; visibility: hidden;
-            transform: translateY(-8px); transition: all 0.3s;
-            z-index: 1000; max-height: 360px; overflow-y: auto;
-        }
-        .lang-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
-        .lang-item {
-            display: flex; align-items: center; padding: 9px 16px;
-            cursor: pointer; transition: all 0.2s; font-size: 13px;
-            border-bottom: 1px solid #f8fafc;
-        }
-        .lang-item:last-child { border-bottom: none; }
-        .lang-item:hover { background: #fef2f2; color: #A51C30; }
-        .lang-item.active { background: #fff0f2; color: #A51C30; font-weight: 700; }
-
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
@@ -182,52 +134,9 @@
                     <a href="#home" class="nav-link hover:text-crimson transition">HOME</a>
                     <a href="#journals" class="nav-link hover:text-crimson transition">JOURNALS</a>
                     <a href="about.html" class="nav-link hover:text-crimson transition">ABOUT</a>
-                    <div class="lang-switcher">
-                        <div class="lang-current" onclick="toggleLang()">
-                            <span id="curr-lang">English</span>
-                            <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
-                        </div>
-                        <div class="lang-dropdown" id="lang-dropdown">
-                            <div class="lang-item active" onclick="switchLang('en', 'English')">
-                                <span>English</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('zh-CN', '简体中文')">
-                                <span>简体中文</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('zh-TW', '繁體中文')">
-                                <span>繁體中文</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('de', 'Deutsch')">
-                                <span>Deutsch</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('fr', 'Français')">
-                                <span>Français</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('es', 'Español')">
-                                <span>Español</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ja', '日本語')">
-                                <span>日本語</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ko', '한국어')">
-                                <span>한국어</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ru', 'Русский')">
-                                <span>Русский</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('it', 'Italiano')">
-                                <span>Italiano</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('pt', 'Português')">
-                                <span>Português</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ar', 'العربية')">
-                                <span>العربية</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('hi', 'हिन्दी')">
-                                <span>हिन्दी</span>
-                            </div>
-                        </div>
+                    <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
+                        <span class="text-crimson font-bold">EN</span>
+                        <a href="zh-CN.html" class="text-neutral-400 hover:text-crimson transition font-bold font-sans">中文</a>
                     </div>
                     <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">Login / Register</a>
                 </div>
@@ -576,11 +485,11 @@
             </div>
             <div class="p-4">
                 <p class="text-xs text-neutral-500 mb-3 px-1">We invite global scholars to join us.</p>
-                <a href="https://forms.gle/gkRTtkbaVNs21HdXA" target="_blank" class="widget-option group">
+                <a href="YOUR_GOOGLE_FORM_LINK_FOR_REVIEWERS" target="_blank" class="widget-option group">
                     <div class="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center mr-3 group-hover:bg-crimson group-hover:text-white transition"><i class="fas fa-user-check text-crimson text-xs group-hover:text-white"></i></div>
                     <div><div class="text-xs font-bold text-neutral-800">Apply as Reviewer</div><div class="text-[10px] text-neutral-500">Peer Review Expert</div></div>
                 </a>
-                <a href="https://forms.gle/gkRTtkbaVNs21HdXA" target="_blank" class="widget-option group mb-0">
+                <a href="YOUR_GOOGLE_FORM_LINK_FOR_EDITORS" target="_blank" class="widget-option group mb-0">
                     <div class="w-8 h-8 rounded-full bg-crimson/10 flex items-center justify-center mr-3 group-hover:bg-crimson group-hover:text-white transition"><i class="fas fa-user-tie text-crimson text-xs group-hover:text-white"></i></div>
                     <div><div class="text-xs font-bold text-neutral-800">Apply as Editor</div><div class="text-[10px] text-neutral-500">Editorial Board Member</div></div>
                 </a>
@@ -709,34 +618,6 @@
             const btnAz = document.getElementById('btn-az'); const btnSub = document.getElementById('btn-subject');
             if (type === 'az') { btnAz.classList.add('active'); btnSub.classList.remove('active'); } else { btnSub.classList.add('active'); btnAz.classList.remove('active'); }
         }
-
-
-        // Language Switcher
-        function toggleLang() {
-            document.getElementById('lang-dropdown').classList.toggle('show');
-        }
-
-        function switchLang(code, name) {
-            document.getElementById('curr-lang').textContent = name;
-            document.querySelectorAll('.lang-item').forEach(item => item.classList.remove('active'));
-            event.target.closest('.lang-item').classList.add('active');
-            document.getElementById('lang-dropdown').classList.remove('show');
-
-            // Language switching logic
-            if (code === 'zh-CN' || code === 'zh-TW') {
-                window.location.href = 'zh-CN.html';
-            } else if (code !== 'en') {
-                console.log('Switching to language:', code, name);
-            }
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.lang-switcher')) {
-                document.getElementById('lang-dropdown').classList.remove('show');
-            }
-        });
-
     </script>
 </body>
 </html>
