@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* Typography: Merriweather for headings (Serif), Noto Sans for body (Sans-serif) */
+        /* 引入与主页完全一致的字体库 */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
         
         :root { scroll-behavior: smooth; }
-        body { font-family: 'Merriweather', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
-        .sans-brand { font-family: 'Noto Sans SC', sans-serif; }
+        /* 核心调整：正文使用 Noto Sans 以确保阅读清晰度，标题使用 Merriweather 保持学术感 */
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
+        .serif-brand { font-family: 'Merriweather', serif; }
         
         /* Brand Colors */
         .text-crimson { color: #A51C30; }
@@ -26,70 +27,84 @@
         .border-crimson { border-color: #A51C30; }
         .hover-text-crimson:hover { color: #A51C30; }
         
-        /* --- Academic Policy Typography --- */
+        /* --- Policy Content Styling (美化部分) --- */
+        .policy-card {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
         .policy-content h2 {
             font-family: 'Merriweather', serif;
-            font-weight: 700;
+            font-weight: 800;
             color: #1e293b;
-            font-size: 1.5rem;
-            margin-top: 3rem;
-            margin-bottom: 1.25rem;
+            font-size: 1.6rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
-            border-bottom: 2px solid #e2e8f0;
-            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
         }
         
-        .policy-content h2::after {
+        /* 标题前的红色装饰块 */
+        .policy-content h2::before {
             content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
+            display: inline-block;
+            width: 6px;
+            height: 24px;
             background-color: #A51C30;
+            margin-right: 12px;
+            border-radius: 2px;
         }
+        
+        .policy-content h2:first-of-type { margin-top: 0; }
 
         .policy-content h3 {
             font-family: 'Merriweather', serif;
-            font-weight: 600;
+            font-weight: 700;
             color: #334155;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         
         .policy-content p {
             margin-bottom: 1.5rem;
             color: #475569;
             text-align: justify;
-            font-family: 'Noto Sans SC', sans-serif; /* Body text in Sans */
+            font-size: 0.95rem;
         }
 
+        /* 列表美化 */
         .policy-content ul {
-            list-style-type: none; 
-            margin-left: 0;
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-            font-family: 'Noto Sans SC', sans-serif;
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 2rem;
         }
         
         .policy-content li {
-            margin-bottom: 0.75rem;
-            color: #475569;
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #475569;
+            font-size: 0.95rem;
         }
 
+        /* 列表项前的红色箭头 */
         .policy-content li::before {
-            content: '\\f054'; /* FontAwesome Chevron Right */
+            content: '\f054'; /* FontAwesome chevron-right */
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
-            color: #A51C30;
             position: absolute;
             left: 0;
-            top: 4px;
-            font-size: 0.7rem;
+            top: 6px;
+            font-size: 10px;
+            color: #A51C30;
         }
+        
+        .policy-content strong { color: #1e293b; font-weight: 700; }
 
         /* Nav Link Underline Animation */
         .nav-link { position: relative; }
@@ -99,16 +114,12 @@
         }
         .nav-link:hover::after { width: 100%; }
         
-        /* Mobile Menu Animation */
-        .mobile-menu-enter { animation: fadeInDown 0.3s ease-out forwards; }
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        
         .tracking-widest-cn { letter-spacing: 0.1em; }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- Top Bar: Updated text to match Index "German Origins" -->
+    <!-- Top Bar: 与主页完全一致 -->
     <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400 font-sans">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-8">
@@ -124,7 +135,7 @@
         <div class="container mx-auto px-6 relative">
             <div class="flex justify-between items-center">
                 
-                <!-- Logo -->
+                <!-- Logo: 点击返回主页 -->
                 <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
                     <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-10 md:h-12 w-auto">
                     <div class="flex flex-col">
@@ -155,7 +166,7 @@
             </div>
 
             <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center mobile-menu-enter">
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center">
                 <a href="index.html#home" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">HOME</a>
                 <a href="index.html#journals" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">JOURNALS</a>
                 <a href="index.html#about" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">ABOUT</a>
@@ -165,72 +176,78 @@
         </div>
     </nav>
 
-    <!-- Page Header (WOS/Academic Style) -->
-    <header class="bg-white border-b border-gray-200 py-16 font-sans">
+    <!-- Page Header (Clean & Academic) -->
+    <header class="bg-white border-b border-gray-200 py-20 font-sans">
         <div class="container mx-auto px-6 max-w-4xl text-center">
-            <div class="inline-block mb-4 px-3 py-1 bg-crimson/5 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
+            <div class="inline-block mb-6 px-3 py-1 bg-crimson/10 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
                 Integrity & Rigor
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 mb-6" style="font-family: 'Merriweather', serif;">Publication Ethics</h1>
-            <p class="text-lg text-neutral-500 font-light max-w-2xl mx-auto leading-relaxed">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-6 serif-brand">Publication Ethics</h1>
+            <p class="text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
                 Adhering to the core practices of the Committee on Publication Ethics (COPE) to ensure the highest standards of transparency and academic integrity.
             </p>
         </div>
     </header>
 
-    <!-- Policy Content Container -->
-    <main class="flex-grow container mx-auto px-6 max-w-4xl py-16 bg-white shadow-sm border-x border-gray-100 -mt-1 rounded-b-sm policy-content">
-        
-        <h2>1. Duties of Editors</h2>
-        <p>
-            Editors are responsible for deciding which of the articles submitted to the journal should be published. The validation of the work in question and its importance to researchers and readers must always drive such decisions.
-        </p>
-        
-        <h3>Fair Play</h3>
-        <p>
-            Editors evaluate manuscripts for their intellectual content without regard to race, gender, sexual orientation, religious belief, ethnic origin, citizenship, or political philosophy of the authors.
-        </p>
-        
-        <h3>Confidentiality</h3>
-        <p>
-            The editor and any editorial staff must not disclose any information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, other editorial advisers, and the publisher, as appropriate.
-        </p>
+    <!-- Policy Content Container (Improved Layout) -->
+    <main class="flex-grow container mx-auto px-6 max-w-4xl -mt-10 mb-20 relative z-10">
+        <div class="policy-card policy-content">
+            
+            <h2>1. Duties of Editors</h2>
+            <p>
+                Editors are responsible for deciding which of the articles submitted to the journal should be published. The validation of the work in question and its importance to researchers and readers must always drive such decisions.
+            </p>
+            
+            <h3>Fair Play</h3>
+            <p>
+                Editors evaluate manuscripts for their intellectual content without regard to race, gender, sexual orientation, religious belief, ethnic origin, citizenship, or political philosophy of the authors.
+            </p>
+            
+            <h3>Confidentiality</h3>
+            <p>
+                The editor and any editorial staff must not disclose any information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, other editorial advisers, and the publisher, as appropriate.
+            </p>
 
-        <h2>2. Duties of Reviewers</h2>
-        <p>
-            Peer review assists the editor in making editorial decisions and through the editorial communications with the author may also assist the author in improving the paper.
-        </p>
-        <ul>
-            <li><strong>Promptness:</strong> Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and excuse himself from the review process.</li>
-            <li><strong>Confidentiality:</strong> Any manuscripts received for review must be treated as confidential documents. They must not be shown to or discussed with others except as authorized by the editor.</li>
-            <li><strong>Standards of Objectivity:</strong> Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.</li>
-        </ul>
+            <h2>2. Duties of Reviewers</h2>
+            <p>
+                Peer review assists the editor in making editorial decisions and through the editorial communications with the author may also assist the author in improving the paper.
+            </p>
+            <ul>
+                <li><strong>Promptness:</strong> Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and excuse himself from the review process.</li>
+                <li><strong>Confidentiality:</strong> Any manuscripts received for review must be treated as confidential documents. They must not be shown to or discussed with others except as authorized by the editor.</li>
+                <li><strong>Standards of Objectivity:</strong> Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.</li>
+            </ul>
 
-        <h2>3. Duties of Authors</h2>
-        
-        <h3>Reporting Standards</h3>
-        <p>
-            Authors of reports of original research should present an accurate account of the work performed as well as an objective discussion of its significance. Underlying data should be represented accurately in the paper. A paper should contain sufficient detail and references to permit others to replicate the work.
-        </p>
-        
-        <h3>Originality and Plagiarism</h3>
-        <p>
-            The authors should ensure that they have written entirely original works, and if the authors have used the work and/or words of others, that this has been appropriately cited or quoted. Plagiarism in all its forms constitutes unethical publishing behavior and is unacceptable.
-        </p>
-        
-        <h3>Multiple, Redundant or Concurrent Publication</h3>
-        <p>
-            An author should not in general publish manuscripts describing essentially the same research in more than one journal or primary publication. Submitting the same manuscript to more than one journal concurrently constitutes unethical publishing behavior and is unacceptable.
-        </p>
+            <h2>3. Duties of Authors</h2>
+            
+            <h3>Reporting Standards</h3>
+            <p>
+                Authors of reports of original research should present an accurate account of the work performed as well as an objective discussion of its significance. Underlying data should be represented accurately in the paper. A paper should contain sufficient detail and references to permit others to replicate the work.
+            </p>
+            
+            <h3>Originality and Plagiarism</h3>
+            <p>
+                The authors should ensure that they have written entirely original works, and if the authors have used the work and/or words of others, that this has been appropriately cited or quoted. Plagiarism in all its forms constitutes unethical publishing behavior and is unacceptable.
+            </p>
+            
+            <h3>Multiple, Redundant or Concurrent Publication</h3>
+            <p>
+                An author should not in general publish manuscripts describing essentially the same research in more than one journal or primary publication. Submitting the same manuscript to more than one journal concurrently constitutes unethical publishing behavior and is unacceptable.
+            </p>
 
-        <h2>4. Malpractice Statement</h2>
-        <p>
-            Panorama Scholarly Group is committed to upholding the integrity of the academic record. We will take all necessary steps to prevent the publication of papers where research misconduct has occurred, including plagiarism, citation manipulation, and data falsification. In the event that we are made aware of any allegation of research misconduct, we will deal with allegations appropriately in accordance with COPE guidelines.
-        </p>
-
+            <h2>4. Malpractice Statement</h2>
+            <p>
+                Panorama Scholarly Group is committed to upholding the integrity of the academic record. We will take all necessary steps to prevent the publication of papers where research misconduct has occurred, including plagiarism, citation manipulation, and data falsification. In the event that we are made aware of any allegation of research misconduct, we will deal with allegations appropriately in accordance with COPE guidelines.
+            </p>
+            
+            <!-- Update Indicator -->
+            <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+                <p class="text-[10px] text-neutral-400 uppercase tracking-widest">Last Updated: January 2026</p>
+            </div>
+        </div>
     </main>
 
-    <!-- Footer: Dual Location Layout (Matching Index) -->
+    <!-- Footer: Dual Location Layout (Perfectly Matched) -->
     <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm font-sans">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -279,6 +296,7 @@
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Resources</h4>
                     <ul class="space-y-2 text-neutral-400 mb-6">
+                        <!-- 您的指定链接 -->
                         <li><a href="Author-Guidelines.html" class="hover:text-white transition">Author Guidelines</a></li>
                         <li><a href="Reviewer-Resources.html" class="hover:text-white transition">Reviewer Resources</a></li>
                         <li><a href="#" class="text-white font-bold transition">Publication Ethics</a></li>
@@ -307,7 +325,6 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
