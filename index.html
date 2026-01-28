@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panorama Scholarly Group | Berlin</title>
+    <title>Panorama Scholarly Group | Connecting Global Knowledge</title>
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true">
+    
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
+        /* Typography: Merriweather for headings (Serif), Noto Sans for body (Sans-serif) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
+        
         :root { scroll-behavior: smooth; }
         body { font-family: 'Merriweather', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.6; }
         .sans-brand { font-family: 'Noto Sans SC', sans-serif; }
         
+        /* Brand Colors */
         .text-crimson { color: #A51C30; }
         .bg-crimson { background-color: #A51C30; }
         .border-crimson { border-color: #A51C30; }
         .hover-text-crimson:hover { color: #A51C30; }
         .sort-btn.active { background-color: #A51C30; color: white; border-color: #A51C30; }
         
+        /* Hero Section Animation */
         .hero-section { position: relative; background-color: #f1f5f9; overflow: hidden; }
         .hero-bg-slider { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .hero-bg-slide {
@@ -34,10 +41,31 @@
         }
         .hero-content { position: relative; z-index: 10; }
 
+        /* Journal Card Styling (Matching Chinese Version) */
         .journal-row { transition: all 0.2s ease-in-out; background: white; border: 1px solid #e2e8f0; display: flex; }
-        .journal-row:hover { border-color: #cbd5e1; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); transform: translateY(-2px); }
+        .journal-row:hover { border-color: #A51C30; box-shadow: 0 15px 30px -5px rgba(165, 28, 48, 0.08); transform: translateY(-3px); }
         .journal-cover-wrapper { flex-shrink: 0; width: 150px; background-color: #f8fafc; display: flex; align-items: flex-start; justify-content: center; padding: 16px; border-right: 1px solid #f1f5f9; }
-        .journal-cover-img { width: 100%; height: auto; object-fit: contain; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); background-color: white; }
+        .journal-cover-img { width: 100%; height: auto; object-fit: contain; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); background-color: white; transition: transform 0.3s; }
+        .journal-row:hover .journal-cover-img { transform: scale(1.03); }
+
+        /* Action Buttons (New!) */
+        .btn-journal-action {
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .btn-view { background: #f1f5f9; color: #475569; }
+        .btn-view:hover { background: #e2e8f0; color: #0f172a; }
+        .btn-submit { background: #fff0f2; color: #A51C30; border: 1px solid #fecdd3; }
+        .btn-submit:hover { background: #A51C30; color: white; border-color: #A51C30; }
 
         .nav-link { position: relative; }
         .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: #A51C30; transition: width 0.3s; }
@@ -46,50 +74,20 @@
         .section-header::after { content: ''; display: block; width: 60px; height: 4px; background: #A51C30; margin-top: 15px; }
         .tracking-widest-cn { letter-spacing: 0.1em; }
 
-        /* Partner Logos Clean Style */
+        /* Partner Logos */
         .partner-category-title {
-            text-align: center;
-            font-size: 11px;
-            font-weight: 700;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 24px;
-            margin-top: 40px;
-            position: relative;
+            text-align: center; font-size: 11px; font-weight: 700; color: #94a3b8;
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px; margin-top: 40px; position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
         }
-        .partner-category-title::after {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 2px;
-            background: #e2e8f0;
-            margin: 8px auto 0;
-        }
-        .partner-logo-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px; 
-            margin-bottom: 20px;
-        }
-        .partner-logo { 
-            height: 32px; 
-            width: auto; 
-            filter: grayscale(100%); 
-            opacity: 0.5; 
-            transition: all 0.3s ease; 
-        }
-        .partner-logo:hover { 
-            filter: grayscale(0%); 
-            opacity: 1; 
-            transform: scale(1.05);
-        }
+        .partner-category-title::after { content: ''; display: block; width: 30px; height: 2px; background: #e2e8f0; margin: 8px auto 0; }
+        .partner-logo-container { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; margin-bottom: 20px; }
+        .partner-logo { height: 32px; width: auto; filter: grayscale(100%); opacity: 0.5; transition: all 0.3s ease; }
+        .partner-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
         /* Widget Styles */
         .widget-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; pointer-events: none; display: flex; justify-content: flex-end; align-items: flex-end; }
-        .widget-card { width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom right; opacity: 1; transform: scale(1); pointer-events: auto; }
+        .widget-card { width: 300px; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform-origin: bottom right; opacity: 1; transform: scale(1); pointer-events: auto; font-family: 'Noto Sans SC', sans-serif; }
         .widget-card.hidden-state { opacity: 0; transform: scale(0.8) translateY(20px); pointer-events: none; position: absolute; bottom: 0; right: 0; }
         .widget-fab { width: 56px; height: 56px; background: #A51C30; border-radius: 50%; box-shadow: 0 4px 15px rgba(165, 28, 48, 0.4); color: white; font-size: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; position: absolute; bottom: 0; right: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform: scale(0) rotate(-90deg); opacity: 0; pointer-events: none; }
         .widget-fab.visible-state { transform: scale(1) rotate(0deg); opacity: 1; pointer-events: auto; }
@@ -110,12 +108,12 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- Top Bar -->
+    <!-- Top Bar: Updated text to match Chinese version "German Origins" -->
     <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400 font-sans">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-8">
                 <span class="flex items-center"><i class="fas fa-globe text-crimson mr-2"></i>Global Scholarly Network</span>
-                <span class="flex items-center"><i class="fas fa-map-marker-alt text-crimson mr-2"></i>Germany HQ • Berlin</span>
+                <span class="flex items-center"><i class="fas fa-check-circle text-crimson mr-2"></i>German Origins • Global Reach</span>
             </div>
             <div class="text-white italic text-[11px]">PSG • ADVANCING KNOWLEDGE</div>
         </div>
@@ -138,7 +136,6 @@
                     <a href="#about" class="nav-link hover:text-crimson transition">ABOUT</a>
                     <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
                         <span class="text-crimson font-bold">EN</span>
-                        <!-- 这里的链接已经修改为您指定的文件名 -->
                         <a href="Panorama_Berlin_Redesign_CN.html" class="text-neutral-400 hover:text-crimson transition font-bold font-sans">中文</a>
                     </div>
                     <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">Login / Register</a>
@@ -163,7 +160,7 @@
         <div class="hero-overlay"></div>
         <div class="container mx-auto max-w-7xl hero-content">
             <h2 class="text-crimson font-bold tracking-[0.2em] text-xs mb-6 flex items-center gap-3 font-sans">
-                <span class="w-8 h-[2px] bg-crimson"></span> GERMANY • BERLIN • GLOBAL PUBLISHING
+                <span class="w-8 h-[2px] bg-crimson"></span> GERMAN ACADEMIC TRADITION • GLOBAL VISION
             </h2>
             <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-[1.3] tracking-tight text-neutral-900 max-w-4xl">
                 Connecting Science, <br><span class="italic text-crimson">Society</span>, and Innovation
@@ -220,9 +217,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Exploring AI-driven societal transformations with a focus on ethics, regulation, human-centric approaches, and future-oriented dimensions.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-4011 • Semiannual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/AFS" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/AFS" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -237,9 +234,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Advancing computational and data-driven approaches to understanding human behavior and social systems using machine learning and analytics.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: Pending • Quarterly</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/CSSR" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/CSSR" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -254,9 +251,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Fostering theoretical innovation and reflective practice across humanities, arts, and social inquiry.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3052-539X • Bimonthly</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/files" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/files" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -271,9 +268,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Advancing interdisciplinary medical research with a specific focus on integrative dialogue between Western medicine and Traditional Chinese Medicine.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-7037 • Annual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/HealthNexus" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/HealthNexus" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -288,9 +285,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Dedicated to advancing interdisciplinary research in education, learning sciences, and related fields across the lifespan.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: Pending • Semiannual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/IRELS" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/IRELS" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -305,9 +302,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Emphasizing interdisciplinary integration, connecting theoretical development, experimental inquiry, and technological innovation.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-478X • Annual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/JESA" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/JESA" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -322,9 +319,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Exploring the intersections between legal systems, psychological processes, and communicative practices.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3052-9654 • Semiannual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/JLPCS" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/JLPCS" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -339,9 +336,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Promoting interdisciplinary dialogue on policymaking, institutional governance, financial regulation, and public sector reform.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-3597 • Semiannual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/PEMR" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/PEMR" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -356,9 +353,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">An international journal dedicated to cross-cultural music research. Accepting submissions in English, Chinese, German, Italian, and Russian.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-4410 • Semiannual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/Resonance" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/Resonance" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -373,9 +370,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Fostering scholarly dialogue on sustainable rural development, green transition, and environmental governance.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-7282 • Annual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/RGGD" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/RGGD" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -390,9 +387,9 @@
                             <p class="text-xs text-neutral-500 line-clamp-3 mb-3 text-justify">Dedicated to the study of East Asian Confucianism, Daoism, and Buddhism, promoting cross-traditional and interdisciplinary dialogue.</p>
                             <div class="text-[10px] text-neutral-400 font-mono mb-2">ISSN: 3053-6553 • Annual</div>
                         </div>
-                        <div class="flex gap-3 mt-2 pt-3 border-t border-gray-100">
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/TTS" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
-                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="text-xs font-bold text-neutral-700 hover:text-crimson transition flex items-center"><i class="fas fa-upload mr-2"></i> SUBMIT</a>
+                        <div class="flex gap-2 mt-2 pt-3 border-t border-gray-100">
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/TTS" class="btn-journal-action btn-view"><i class="fas fa-eye mr-2"></i> VIEW JOURNAL</a>
+                            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="btn-journal-action btn-submit"><i class="fas fa-paper-plane mr-2"></i> SUBMIT</a>
                         </div>
                     </div>
                 </article>
@@ -411,11 +408,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left font-sans">
                 <div class="p-8 border-l-4 border-crimson bg-neutral-50">
                     <h4 class="font-bold text-neutral-900 uppercase tracking-widest-cn mb-4 text-sm">Our Mission</h4>
-                    <p class="text-sm text-neutral-600">Starting from our Berlin headquarters, we facilitate cross-cultural intellectual dialogue and disseminate high-quality research results to the world.</p>
+                    <p class="text-sm text-neutral-600">Facilitating cross-cultural intellectual dialogue and disseminating high-quality research results to the global academic community.</p>
                 </div>
                 <div class="p-8 border-l-4 border-neutral-900 bg-neutral-50">
-                    <h4 class="font-bold text-neutral-900 uppercase tracking-widest-cn mb-4 text-sm">Berlin Heritage</h4>
-                    <p class="text-sm text-neutral-600">Rooted in the rigorous German academic tradition, we uphold the highest standards of peer review and publishing ethics.</p>
+                    <h4 class="font-bold text-neutral-900 uppercase tracking-widest-cn mb-4 text-sm">Academic Heritage</h4>
+                    <p class="text-sm text-neutral-600">Upholding rigorous German academic publishing standards, we are committed to the highest quality of peer review and publication ethics.</p>
                 </div>
             </div>
         </div>
@@ -501,7 +498,7 @@
         <div id="join-fab" class="widget-fab" onclick="maximizeWidget()" title="Expand"><div class="pulse-ring"></div><i class="fas fa-users"></i></div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer: Dual Location Layout (Matching Chinese Version) -->
     <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm font-sans">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -509,21 +506,41 @@
                 <div class="col-span-1 md:col-span-2">
                     <span class="text-xl font-bold tracking-tight uppercase block mb-4" style="font-family: 'Merriweather', serif;">Panorama Scholarly Group</span>
                     <p class="text-neutral-400 leading-relaxed max-w-sm text-justify mb-6">
-                        An emerging Open Access scholarly publisher headquartered in Berlin, dedicated to advancing global scholarship and the dissemination of high-impact research through rigorous peer review and digital acceleration.
+                        An emerging Open Access scholarly publisher rooted in German academic tradition, dedicated to advancing global scholarship and the dissemination of high-impact research through rigorous peer review and digital acceleration.
                     </p>
                     
                     <!-- SDG Logo Section -->
                     <div>
-                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Committed to the UN Sustainable Development Goals (SDGs)</p>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Committed to UN Sustainable Development Goals (SDGs)</p>
                         <img src="https://github.com/WENSHAO521/GRHAS/blob/main/rggd/E_SDG_logo_without_UN_emblem_horizontal_CMYK_Transparent.png?raw=true" alt="UN SDG" class="h-12 opacity-90 hover:opacity-100 transition">
                     </div>
                 </div>
 
-                <!-- Column 2: Contact -->
+                <!-- Column 2: Dual Locations (Upgraded Visuals) -->
                 <div>
-                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Contact Us</h4>
-                    <p class="text-neutral-400 mb-2">Address: Germany, Berlin</p>
-                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition">contact@panorama-sg.com</a>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Global Operations & Contact</h4>
+                    
+                    <!-- Academic Headquarters -->
+                    <div class="mb-4 flex items-start">
+                        <div class="mr-3 mt-1 text-neutral-500"><i class="fas fa-landmark text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Academic Headquarters</p>
+                            <p class="text-white text-xs font-bold">Berlin, Germany</p>
+                        </div>
+                    </div>
+
+                    <!-- Operations Center -->
+                    <div class="mb-4 flex items-start">
+                         <div class="mr-3 mt-1 text-neutral-500"><i class="fas fa-building text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Operations Center</p>
+                            <p class="text-white text-xs font-bold">Hong Kong, China</p>
+                        </div>
+                    </div>
+
+                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition text-xs border-t border-neutral-800 pt-3 mt-2 flex items-center">
+                         <i class="fas fa-envelope mr-2 text-crimson"></i> contact@panorama-sg.com
+                    </a>
                 </div>
 
                 <!-- Column 3: Resources & Standards -->
@@ -537,7 +554,7 @@
                     
                     <!-- ORCID Section -->
                     <div>
-                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">Academic Standards & Interconnectivity</h4>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">Academic Standards</h4>
                         <div class="flex items-center">
                              <img src="https://github.com/WENSHAO521/GRHAS/raw/bb657b890c3c6c3ab1ee6562b899f3ec72dcdcb0/ORCID_logo.svg_.png" alt="ORCID" class="h-6 mr-2 bg-white rounded-full p-[2px]">
                              <span class="text-xs text-neutral-400">Supporting ORCID</span>
@@ -548,7 +565,7 @@
             
             <!-- Bottom Footer -->
             <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider">
-                <p>&copy; 2025-2026 PANORAMA SCHOLARLY GROUP. BERLIN. ALL RIGHTS RESERVED.</p>
+                <p>&copy; 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
