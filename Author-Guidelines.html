@@ -13,92 +13,77 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:wght@300;400;600;700&display=swap');
+        /* 字体：Noto Sans SC (正文) + Merriweather (标题) */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
         
         :root { scroll-behavior: smooth; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
         .serif-brand { font-family: 'Merriweather', serif; }
         
-        /* Harvard Crimson Color Utility */
+        /* Brand Colors */
         .text-crimson { color: #A51C30; }
         .bg-crimson { background-color: #A51C30; }
         .border-crimson { border-color: #A51C30; }
         .hover-text-crimson:hover { color: #A51C30; }
-        .hover-bg-crimson:hover { background-color: #A51C30; }
         
-        /* --- Academic Content Typography --- */
+        /* --- 卡片式内容容器 --- */
+        .guideline-card {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
         .guideline-content h2 {
             font-family: 'Merriweather', serif;
-            font-weight: 700;
+            font-weight: 800;
             color: #1e293b;
-            font-size: 1.5rem;
-            margin-top: 3rem;
-            margin-bottom: 1.25rem;
+            font-size: 1.6rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
-            border-bottom: 2px solid #e2e8f0;
-            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
         }
         
-        .guideline-content h2::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: #A51C30;
+        .guideline-content h2::before {
+            content: ''; display: inline-block; width: 6px; height: 24px;
+            background-color: #A51C30; margin-right: 12px; border-radius: 2px;
         }
+        
+        .guideline-content h2:first-of-type { margin-top: 0; }
 
         .guideline-content h3 {
             font-family: 'Merriweather', serif;
-            font-weight: 600;
+            font-weight: 700;
             color: #334155;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         
         .guideline-content p {
-            margin-bottom: 1.5rem;
-            color: #475569;
-            text-align: justify;
+            margin-bottom: 1.5rem; color: #475569; text-align: justify; font-size: 0.95rem;
         }
 
-        .guideline-content ul {
-            list-style-type: none;
-            margin-left: 0;
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-        }
-        
-        .guideline-content li {
-            margin-bottom: 0.75rem;
-            color: #475569;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
+        .guideline-content ul { list-style: none; padding-left: 0; margin-bottom: 2rem; }
+        .guideline-content li { position: relative; padding-left: 24px; margin-bottom: 12px; color: #475569; font-size: 0.95rem; }
         .guideline-content li::before {
-            content: '\f054'; /* Chevron Right */
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: #A51C30;
-            position: absolute;
-            left: 0;
-            top: 4px;
-            font-size: 0.7rem;
+            content: '\f054'; font-family: 'Font Awesome 5 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 6px; font-size: 10px; color: #A51C30;
         }
 
-        /* Alert Box for Journal Specifics */
+        /* Alert Box */
         .alert-box {
             background-color: #fff5f5;
             border-left: 4px solid #A51C30;
             padding: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             border-radius: 0 4px 4px 0;
+            box-shadow: 0 2px 4px rgba(165, 28, 48, 0.05);
         }
 
-        /* Nav Link Underline Animation */
         .nav-link { position: relative; }
         .nav-link::after {
             content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
@@ -106,190 +91,215 @@
         }
         .nav-link:hover::after { width: 100%; }
         
-        /* Mobile Menu Animation */
-        .mobile-menu-enter {
-            animation: fadeInDown 0.3s ease-out forwards;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .tracking-widest-cn { letter-spacing: 0.1em; }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
     <!-- Top Bar -->
-    <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[11px] font-bold tracking-[0.1em] text-neutral-400">
-        <div class="container mx-auto px-6 flex justify-between items-center uppercase">
+    <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400 font-sans">
+        <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-8">
-                <a href="index.html" class="hover:text-white transition flex items-center"><i class="fas fa-arrow-left text-crimson mr-2"></i> Back to Home</a>
-                <span class="flex items-center"><i class="fas fa-globe text-crimson mr-2"></i>Global Academic Network</span>
+                <span class="flex items-center"><i class="fas fa-globe text-crimson mr-2"></i>Global Scholarly Network</span>
+                <span class="flex items-center"><i class="fas fa-check-circle text-crimson mr-2"></i>German Origins • Global Reach</span>
             </div>
-            <div class="text-white italic serif-brand">PSG • Advancing Knowledge</div>
+            <div class="text-white italic text-[11px]">PSG • ADVANCING KNOWLEDGE</div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+    <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm font-sans">
         <div class="container mx-auto px-6 relative">
             <div class="flex justify-between items-center">
-                
-                <!-- Logo -->
                 <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
                     <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-10 md:h-12 w-auto">
                     <div class="flex flex-col">
-                        <span class="text-lg md:text-2xl font-black tracking-tight text-neutral-900 serif-brand uppercase leading-none">Panorama</span>
-                        <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] uppercase mt-1">Scholarly Group</span>
+                        <span class="text-lg md:text-2xl font-black tracking-tighter text-neutral-900 uppercase leading-none" style="font-family: 'Merriweather', serif;">Panorama</span>
+                        <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] mt-1 pl-[1px]">SCHOLARLY GROUP</span>
                     </div>
                 </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-700">
-                    <a href="index.html#home" class="nav-link hover:text-crimson transition">Home</a>
-                    <a href="index.html#journals" class="nav-link hover:text-crimson transition">Journals</a>
-                    <a href="index.html#about" class="nav-link hover:text-crimson transition">About</a>
-                    
-                    <!-- Language Switcher -->
-                    <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3">
+                <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-700 tracking-widest-cn">
+                    <a href="index.html#home" class="nav-link hover:text-crimson transition">HOME</a>
+                    <a href="index.html#journals" class="nav-link hover:text-crimson transition">JOURNALS</a>
+                    <a href="index.html#about" class="nav-link hover:text-crimson transition">ABOUT</a>
+                    <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
                         <span class="text-crimson font-bold">EN</span>
-                        <a href="#" class="text-neutral-400 hover:text-crimson transition">中文</a>
+                        <a href="ag-cn.html" class="text-neutral-400 hover:text-crimson transition font-bold font-sans">中文</a>
                     </div>
-
                     <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">Login / Register</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-neutral-900 hover:text-crimson focus:outline-none p-2 transition-colors">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center mobile-menu-enter">
-                <a href="index.html#home" class="text-sm font-bold uppercase tracking-widest text-neutral-800 hover:text-crimson py-2">Home</a>
-                <a href="index.html#journals" class="text-sm font-bold uppercase tracking-widest text-neutral-800 hover:text-crimson py-2">Journals</a>
-                <a href="index.html#about" class="text-sm font-bold uppercase tracking-widest text-neutral-800 hover:text-crimson py-2">About</a>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center">
+                <a href="index.html#home" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">HOME</a>
+                <a href="index.html#journals" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">JOURNALS</a>
+                <a href="index.html#about" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">ABOUT</a>
                 <div class="h-px bg-gray-100 w-full"></div>
-                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="block w-full py-3 bg-crimson text-white font-bold uppercase tracking-widest text-xs hover:bg-neutral-900 transition shadow-md">Login</a>
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="block w-full py-3 bg-crimson text-white font-bold text-xs hover:bg-neutral-900 transition shadow-md">LOGIN SYSTEM</a>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <header class="bg-white border-b border-gray-200 py-16">
+    <header class="bg-white border-b border-gray-200 py-20 font-sans">
         <div class="container mx-auto px-6 max-w-4xl text-center">
-            <div class="inline-block mb-4 px-3 py-1 bg-crimson/5 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
+            <div class="inline-block mb-6 px-3 py-1 bg-crimson/10 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
                 Submission Protocols
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 serif-brand mb-6">Author Guidelines</h1>
-            <p class="text-lg text-neutral-500 font-light max-w-2xl mx-auto leading-relaxed">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-6 serif-brand">Author Guidelines</h1>
+            <p class="text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
                 General principles for preparing and submitting your manuscript to Panorama Scholarly Group journals.
             </p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-6 max-w-4xl py-16 bg-white shadow-sm border-x border-gray-100 -mt-1 rounded-b-sm guideline-content">
-        
-        <!-- Important Note Box -->
-        <div class="alert-box">
-            <h3 class="text-crimson mt-0 mb-2 font-bold flex items-center">
-                <i class="fas fa-info-circle mr-2"></i> Important: Journal-Specific Requirements
-            </h3>
-            <p class="text-neutral-700 text-sm mb-0">
-                While Panorama Scholarly Group maintains high overarching standards, submission requirements (including reference styles, word counts, and specific scope) vary by discipline. 
-                <strong>Authors are strictly advised to consult the specific "Guide for Authors" on the individual homepage of their target journal before submission.</strong>
+    <!-- Main Content (Card Style) -->
+    <main class="flex-grow container mx-auto px-6 max-w-4xl -mt-10 mb-20 relative z-10">
+        <div class="guideline-card guideline-content">
+            
+            <!-- Important Note Box -->
+            <div class="alert-box">
+                <h3 class="text-crimson mt-0 mb-2 font-bold flex items-center !text-lg">
+                    <i class="fas fa-info-circle mr-3"></i> Important: Journal-Specific Requirements
+                </h3>
+                <p class="text-neutral-700 text-sm mb-4">
+                    While Panorama Scholarly Group maintains high overarching standards, submission requirements (including reference styles, word counts, and specific scope) vary by discipline. 
+                    <strong>Authors are strictly advised to consult the specific "Guide for Authors" on the individual homepage of their target journal before submission.</strong>
+                </p>
+                <div>
+                    <a href="index.html#journals" class="text-xs font-bold uppercase tracking-wider text-white bg-crimson px-5 py-2.5 rounded-sm hover:bg-neutral-900 transition inline-block">
+                        Find Your Journal <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <h2>1. General Submission Criteria</h2>
+            <p>
+                Manuscripts submitted to PSG journals must be original, unpublished works that are not under consideration for publication elsewhere. We accept research articles, review papers, case studies, and book reviews depending on the journal's scope.
             </p>
-            <div class="mt-4">
-                <a href="index.html#journals" class="text-xs font-bold uppercase tracking-wider text-white bg-crimson px-4 py-2 rounded-sm hover:bg-neutral-900 transition inline-block">
-                    Find Your Journal <i class="fas fa-arrow-right ml-1"></i>
+            <ul>
+                <li><strong>Language:</strong> Submissions must be in grammatically correct English or the specific language accepted by the journal (e.g., German, Chinese, etc.).</li>
+                <li><strong>Format:</strong> Files should be submitted in Microsoft Word (.doc, .docx) or LaTeX formats.</li>
+                <li><strong>Anonymity:</strong> For journals practicing double-blind peer review, please ensure the manuscript file is anonymized.</li>
+            </ul>
+
+            <h2>2. Manuscript Structure</h2>
+            <p>
+                Although specific structure may vary, a standard research article should generally include the following sections in order:
+            </p>
+            <h3>Title Page</h3>
+            <p>Should include the full title, author names, affiliations, and the contact information of the corresponding author. (Submit as a separate file if blind review is required).</p>
+            
+            <h3>Abstract & Keywords</h3>
+            <p>A concise abstract (typically 150–250 words) summarizing the objectives, methods, results, and conclusions. Provide 3–6 keywords for indexing purposes.</p>
+
+            <h3>Main Text</h3>
+            <p>Typically structured as Introduction, Methodology, Results, Discussion, and Conclusion.</p>
+
+            <h3>References</h3>
+            <p>
+                Citations must be rigorous and accurate. <strong>Please note that reference styles (APA, MLA, IEEE, Chicago, etc.) differ by journal.</strong> Check the specific journal's sidebar or "Author Guide" section for the required style.
+            </p>
+
+            <h2>3. Ethical Compliance</h2>
+            <p>
+                Authors must adhere to high ethical standards. Any potential conflict of interest, funding sources, and statements regarding human/animal rights must be clearly disclosed. Plagiarism is strictly prohibited and will result in immediate rejection. Please refer to our <a href="publication-ethics.html" class="text-crimson font-bold hover:underline">Publication Ethics</a> page for detailed policies.
+            </p>
+
+            <h2>4. Submission Process</h2>
+            <p>
+                All manuscripts must be submitted via the Panorama Open Journal System (OJS). Manuscripts sent via email will not be processed.
+            </p>
+            <p>
+                During submission, you will be required to:
+            </p>
+            <ul>
+                <li>Register an account or log in.</li>
+                <li>Select the appropriate journal and section.</li>
+                <li>Upload your manuscript and supplementary files.</li>
+                <li>Confirm the submission checklist.</li>
+            </ul>
+
+            <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+                <p class="mb-4 font-bold text-neutral-900 text-sm tracking-wide">READY TO SUBMIT?</p>
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="inline-block px-8 py-3 bg-neutral-900 text-white font-bold uppercase tracking-widest text-xs hover:bg-crimson transition shadow-lg rounded-sm">
+                    Go to Submission Portal
                 </a>
             </div>
+
         </div>
-
-        <h2>1. General Submission Criteria</h2>
-        <p>
-            Manuscripts submitted to PSG journals must be original, unpublished works that are not under consideration for publication elsewhere. We accept research articles, review papers, case studies, and book reviews depending on the journal's scope.
-        </p>
-        <ul>
-            <li><strong>Language:</strong> Submissions must be in grammatically correct English or the specific language accepted by the journal (e.g., German, Chinese, etc.).</li>
-            <li><strong>Format:</strong> Files should be submitted in Microsoft Word (.doc, .docx) or LaTeX formats.</li>
-            <li><strong>Anonymity:</strong> For journals practicing double-blind peer review, please ensure the manuscript file is anonymized.</li>
-        </ul>
-
-        <h2>2. Manuscript Structure</h2>
-        <p>
-            Although specific structure may vary, a standard research article should generally include the following sections in order:
-        </p>
-        <h3>Title Page</h3>
-        <p>Should include the full title, author names, affiliations, and the contact information of the corresponding author. (Submit as a separate file if blind review is required).</p>
-        
-        <h3>Abstract & Keywords</h3>
-        <p>A concise abstract (typically 150–250 words) summarizing the objectives, methods, results, and conclusions. Provide 3–6 keywords for indexing purposes.</p>
-
-        <h3>Main Text</h3>
-        <p> typically structured as Introduction, Methodology, Results, Discussion, and Conclusion.</p>
-
-        <h3>References</h3>
-        <p>
-            Citations must be rigorous and accurate. <strong>Please note that reference styles (APA, MLA, IEEE, Chicago, etc.) differ by journal.</strong> Check the specific journal's sidebar or "Author Guide" section for the required style.
-        </p>
-
-        <h2>3. Ethical Compliance</h2>
-        <p>
-            Authors must adhere to high ethical standards. Any potential conflict of interest, funding sources, and statements regarding human/animal rights must be clearly disclosed. Plagiarism is strictly prohibited and will result in immediate rejection. Please refer to our <a href="publication-ethics.html" class="text-crimson font-bold hover:underline">Publication Ethics</a> page for detailed policies.
-        </p>
-
-        <h2>4. Submission Process</h2>
-        <p>
-            All manuscripts must be submitted via the Panorama Open Journal System (OJS). Manuscripts sent via email will not be processed.
-        </p>
-        <p>
-            During submission, you will be required to:
-        </p>
-        <ul>
-            <li>Register an account or log in.</li>
-            <li>Select the appropriate journal and section.</li>
-            <li>Upload your manuscript and supplementary files.</li>
-            <li>Confirm the submission checklist.</li>
-        </ul>
-
-        <div class="mt-8 pt-8 border-t border-gray-100 text-center">
-            <p class="mb-4 font-bold text-neutral-900">Ready to submit?</p>
-            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="inline-block px-8 py-3 bg-neutral-900 text-white font-bold uppercase tracking-widest text-sm hover:bg-crimson transition shadow-lg">
-                Go to Submission Portal
-            </a>
-        </div>
-
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm">
+    <!-- Footer: 完美对齐修复版 -->
+    <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm font-sans">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1 -->
                 <div class="col-span-1 md:col-span-2">
-                    <span class="text-xl font-bold tracking-tight serif-brand uppercase block mb-4">Panorama Scholarly Group</span>
-                    <p class="text-neutral-400 leading-relaxed max-w-sm">
-                        Berlin-based Open Access publisher committed to rigorous peer review and global knowledge dissemination.
+                    <span class="text-xl font-bold tracking-tight uppercase block mb-4" style="font-family: 'Merriweather', serif;">Panorama Scholarly Group</span>
+                    <p class="text-neutral-400 leading-relaxed max-w-sm text-justify mb-6">
+                        An emerging Open Access scholarly publisher rooted in German academic tradition, dedicated to advancing global scholarship and the dissemination of high-impact research through rigorous peer review and digital acceleration.
                     </p>
+                    
+                    <!-- SDG Logo -->
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Committed to UN Sustainable Development Goals (SDGs)</p>
+                        <img src="https://github.com/WENSHAO521/GRHAS/blob/main/rggd/E_SDG_logo_without_UN_emblem_horizontal_CMYK_Transparent.png?raw=true" alt="UN SDG" class="h-12 opacity-90 hover:opacity-100 transition">
+                    </div>
                 </div>
+
+                <!-- Column 2: 双地址 (Fixed Width 修复版) -->
                 <div>
-                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Contact</h4>
-                    <p class="text-neutral-400 mb-2">Berlin, Germany</p>
-                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition">contact@panorama-sg.com</a>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Global Operations & Contact</h4>
+                    
+                    <!-- Academic Headquarters -->
+                    <div class="mb-4 flex items-start gap-3">
+                        <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-landmark text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Academic Headquarters</p>
+                            <p class="text-white text-xs font-bold">Berlin, Germany</p>
+                        </div>
+                    </div>
+
+                    <!-- Operations Center -->
+                    <div class="mb-4 flex items-start gap-3">
+                         <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-building text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Operations Center</p>
+                            <p class="text-white text-xs font-bold">Hong Kong, China</p>
+                        </div>
+                    </div>
+
+                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition text-xs border-t border-neutral-800 pt-3 mt-2 flex items-center">
+                         <i class="fas fa-envelope mr-2 text-crimson"></i> contact@panorama-sg.com
+                    </a>
                 </div>
+
+                <!-- Column 3: 指定链接 -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Resources</h4>
-                    <ul class="space-y-2 text-neutral-400">
-                        <!-- Active Link -->
+                    <ul class="space-y-2 text-neutral-400 mb-6">
+                        <!-- Active State -->
                         <li><a href="#" class="text-white transition font-bold">For Authors</a></li>
                         <li><a href="Reviewer-Resources.html" class="hover:text-white transition">For Reviewers</a></li>
                         <li><a href="publication-ethics.html" class="hover:text-white transition">Ethics Policy</a></li>
                     </ul>
+                    
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">Academic Standards</h4>
+                        <div class="flex items-center">
+                             <img src="https://github.com/WENSHAO521/GRHAS/raw/bb657b890c3c6c3ab1ee6562b899f3ec72dcdcb0/ORCID_logo.svg_.png" alt="ORCID" class="h-6 mr-2 bg-white rounded-full p-[2px]">
+                             <span class="text-xs text-neutral-400">Supporting ORCID</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Bottom Footer -->
             <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider">
-                <p>&copy; 2025-2026 Panorama Scholarly Group. All Rights Reserved.</p>
+                <p>&copy; 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
@@ -307,7 +317,6 @@
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            
             if (mobileMenu.classList.contains('hidden')) {
                 menuIcon.classList.remove('fa-times');
                 menuIcon.classList.add('fa-bars');
