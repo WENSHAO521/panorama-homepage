@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机构概况 | 全景学术集团</title>
+    
+    <link rel="icon" type="image/png" href="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
+        
+        :root { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
+        .serif-brand { font-family: 'Merriweather', 'Noto Serif SC', serif; }
+        .serif-cn { font-family: 'Noto Serif SC', serif; }
+        
+        .text-crimson { color: #A51C30; }
+        .bg-crimson { background-color: #A51C30; }
+        
+        /* Card Style */
+        .about-card {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-weight: 800;
+            color: #1e293b;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-content h2::before {
+            content: ''; display: inline-block; width: 6px; height: 24px;
+            background-color: #A51C30; margin-right: 12px; border-radius: 2px;
+        }
+
+        .about-content p { margin-bottom: 1.5rem; text-align: justify; color: #475569; }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: #A51C30; transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .tracking-widest-cn { letter-spacing: 0.1em; }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Top Bar -->
+    <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400 font-sans">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <span class="flex items-center"><i class="fas fa-globe text-crimson mr-2"></i>全球学术网络</span>
+                <span class="flex items-center"><i class="fas fa-check-circle text-crimson mr-2"></i>源于德国 • 立足全球</span>
+            </div>
+            <div class="text-white italic serif-brand text-[11px]">PSG • ADVANCING KNOWLEDGE</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm font-sans">
+        <div class="container mx-auto px-6 relative">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='Panorama_Berlin_Redesign_CN.html'">
+                    <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-10 md:h-12 w-auto">
+                    <div class="flex flex-col">
+                        <span class="text-lg md:text-2xl font-black tracking-tighter text-neutral-900 serif-brand uppercase leading-none">Panorama</span>
+                        <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] mt-1 pl-[1px]">全景学术集团</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-700 tracking-widest-cn">
+                    <a href="Panorama_Berlin_Redesign_CN.html#home" class="nav-link hover:text-crimson transition">主页</a>
+                    <a href="Panorama_Berlin_Redesign_CN.html#journals" class="nav-link hover:text-crimson transition">期刊矩阵</a>
+                    <a href="#" class="text-crimson transition font-bold">机构概况</a>
+                    <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
+                        <a href="about.html" class="text-neutral-400 hover:text-crimson transition font-bold font-sans">EN</a>
+                        <span class="text-crimson font-bold">中文</span>
+                    </div>
+                    <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">登录 / 注册</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-neutral-900 hover:text-crimson focus:outline-none p-2 transition-colors">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+             <!-- Mobile Menu Dropdown -->
+             <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center">
+                <a href="Panorama_Berlin_Redesign_CN.html#home" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">主页</a>
+                <a href="Panorama_Berlin_Redesign_CN.html#journals" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">期刊矩阵</a>
+                <a href="#" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">机构概况</a>
+                <div class="h-px bg-gray-100 w-full"></div>
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="block w-full py-3 bg-crimson text-white font-bold text-xs hover:bg-neutral-900 transition shadow-md">登录系统</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 py-20 font-sans">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <div class="inline-block mb-6 px-3 py-1 bg-crimson/10 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
+                成立于 2025 年
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-6 serif-cn">关于全景学术</h1>
+            <p class="text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed serif-cn">
+                融合德国严谨传统与全球创新活力的现代化数字学术出版平台。
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 max-w-5xl -mt-10 mb-20 relative z-10 about-content">
+        
+        <!-- Section 1: Who We Are -->
+        <div class="about-card">
+            <h2>我们是谁</h2>
+            <p>
+                <strong>全景学术集团 (Panorama Scholarly Group, PSG)</strong> 成立于 2025 年，是一家极具前瞻性的学术出版机构，致力于推动人文、社会科学及理工科领域高质量研究成果的全球传播。
+            </p>
+            <p>
+                秉承重塑数字时代学术交流模式的愿景，PSG 实行<strong>德国柏林</strong>与<strong>中国香港</strong>双总部运营架构。这一独特的地理定位使我们能够将欧洲学术界的严谨传统与亚洲科研环境的蓬勃活力有机结合，构建起连接东西方学者的沟通桥梁。
+            </p>
+        </div>
+
+        <!-- Section 2: What We Do (Grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="about-card !mb-0 flex flex-col justify-center">
+                <div class="text-crimson text-3xl mb-4"><i class="fas fa-book-open"></i></div>
+                <h3 class="text-xl font-bold text-neutral-900 mb-3 serif-cn">学术期刊</h3>
+                <p class="text-sm !mb-0">
+                    我们拥有不断壮大的开放获取 (Open Access) 期刊矩阵。所有期刊均实行严格的双盲同行评审制度，以确保已发表成果的科学有效性与学术价值。
+                </p>
+            </div>
+            <div class="about-card !mb-0 flex flex-col justify-center">
+                <div class="text-crimson text-3xl mb-4"><i class="fas fa-swatchbook"></i></div>
+                <h3 class="text-xl font-bold text-neutral-900 mb-3 serif-cn">学术图书</h3>
+                <p class="text-sm !mb-0">
+                    除连续出版物外，PSG 同样致力于学术专著与编著的出版。我们为作者提供专业的编辑支持、ISBN 注册以及覆盖全球的图书分发渠道。
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 3: Our Mission -->
+        <div class="about-card">
+            <h2>愿景与使命</h2>
+            <p>
+                在信息爆炸的时代，我们的使命是成为值得信赖的知识策展人。我们坚信，科学发现与人文思想应当跨越壁垒，惠及全球。
+            </p>
+            <ul class="space-y-4 mt-6">
+                <li class="flex items-start">
+                    <i class="fas fa-check text-crimson mt-1.5 mr-3"></i>
+                    <div>
+                        <strong class="text-neutral-900">开放获取：</strong> 我们积极倡导开放获取运动，确保研究成果能无障碍地被全球社群访问与引用。
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-crimson mt-1.5 mr-3"></i>
+                    <div>
+                        <strong class="text-neutral-900">诚信至上：</strong> 我们严格遵循国际出版伦理委员会 (COPE) 的指导原则，维护学术出版的纯洁性。
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-crimson mt-1.5 mr-3"></i>
+                    <div>
+                        <strong class="text-neutral-900">数字加速：</strong> 利用先进的在线投审稿系统 (OJS)，在保证质量的前提下，加速稿件的提交、评审与发表周期。
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm font-sans">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1 -->
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-xl font-bold tracking-tight uppercase block mb-4 serif-brand">Panorama Scholarly Group</span>
+                    <p class="text-neutral-400 leading-relaxed max-w-sm text-justify mb-6">
+                        立足于德国学术传统的新锐开放获取 (Open Access) 出版机构，致力于通过严谨的同行评审和数字时代的加速传播，推动全球学术发展与高影响力研究的普及。
+                    </p>
+                    
+                    <!-- SDG Logo -->
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">致力于联合国 2030 可持续发展目标 (SDGs)</p>
+                        <img src="https://github.com/WENSHAO521/GRHAS/blob/main/rggd/E_SDG_logo_without_UN_emblem_horizontal_CMYK_Transparent.png?raw=true" alt="UN SDG" class="h-12 opacity-90 hover:opacity-100 transition">
+                    </div>
+                </div>
+
+                <!-- Column 2: Fixed Width Icons -->
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">全球运营与联系</h4>
+                    <div class="mb-4 flex items-start gap-3">
+                        <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-landmark text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">学术总部 (Academic HQ)</p>
+                            <p class="text-white text-xs font-bold">德国，柏林</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-start gap-3">
+                         <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-building text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">运营中心 (Operations Center)</p>
+                            <p class="text-white text-xs font-bold">中国，香港</p>
+                        </div>
+                    </div>
+                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition text-xs border-t border-neutral-800 pt-3 mt-2 flex items-center">
+                         <i class="fas fa-envelope mr-2 text-crimson"></i> contact@panorama-sg.com
+                    </a>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">资源</h4>
+                    <ul class="space-y-2 text-neutral-400 mb-6">
+                        <li><a href="ag-cn.html" class="hover:text-white transition">作者指南</a></li>
+                        <li><a href="RR-CN.html" class="hover:text-white transition">审稿人资源</a></li>
+                        <li><a href="Publication_Ethics_CN.html" class="hover:text-white transition">出版伦理</a></li>
+                    </ul>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">学术标准与互联</h4>
+                        <div class="flex items-center">
+                             <img src="https://github.com/WENSHAO521/GRHAS/raw/bb657b890c3c6c3ab1ee6562b899f3ec72dcdcb0/ORCID_logo.svg_.png" alt="ORCID" class="h-6 mr-2 bg-white rounded-full p-[2px]">
+                             <span class="text-xs text-neutral-400">支持 ORCID</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider">
+                <p>&copy; 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
