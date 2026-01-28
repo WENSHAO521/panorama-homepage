@@ -13,93 +13,71 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* 引入简体中文字体栈：Noto Serif SC (宋体/标题) + Noto Sans SC (黑体/正文) */
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
+        /* 引入与主页一致的字体库：标题用宋体，正文用黑体 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
         
         :root { scroll-behavior: smooth; }
         body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
-        
-        /* 品牌字体定义 */
         .serif-brand { font-family: 'Merriweather', 'Noto Serif SC', serif; }
-        .serif-cn { font-family: 'Noto Serif SC', serif; }
         
-        /* Harvard Crimson Color Utility */
+        /* 品牌色 */
         .text-crimson { color: #A51C30; }
         .bg-crimson { background-color: #A51C30; }
         .border-crimson { border-color: #A51C30; }
         .hover-text-crimson:hover { color: #A51C30; }
-        .hover-bg-crimson:hover { background-color: #A51C30; }
         
-        /* --- Academic Content Typography (WOS Style) --- */
+        /* --- 卡片式内容容器 --- */
+        .resource-card {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
         .resource-content h2 {
             font-family: 'Noto Serif SC', serif;
-            font-weight: 700;
+            font-weight: 800;
             color: #1e293b;
-            font-size: 1.5rem;
-            margin-top: 3rem;
-            margin-bottom: 1.25rem;
+            font-size: 1.6rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
-            border-bottom: 2px solid #e2e8f0;
-            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
         }
         
-        .resource-content h2::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: #A51C30;
+        /* 红色装饰块 */
+        .resource-content h2::before {
+            content: ''; display: inline-block; width: 6px; height: 24px;
+            background-color: #A51C30; margin-right: 12px; border-radius: 2px;
         }
+        
+        .resource-content h2:first-of-type { margin-top: 0; }
 
         .resource-content h3 {
             font-family: 'Noto Serif SC', serif;
-            font-weight: 600;
+            font-weight: 700;
             color: #334155;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         
         .resource-content p {
-            margin-bottom: 1.5rem;
-            color: #475569;
-            text-align: justify;
+            margin-bottom: 1.5rem; color: #475569; text-align: justify; font-size: 0.95rem;
         }
 
-        .resource-content ul {
-            list-style-type: none;
-            margin-left: 0;
-            margin-bottom: 1.5rem;
-            padding-left: 1rem;
-        }
-        
-        .resource-content li {
-            margin-bottom: 0.75rem;
-            color: #475569;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        /* Custom Bullet */
+        .resource-content ul { list-style: none; padding-left: 0; margin-bottom: 2rem; }
+        .resource-content li { position: relative; padding-left: 24px; margin-bottom: 12px; color: #475569; font-size: 0.95rem; }
+        /* 列表前的红色箭头 */
         .resource-content li::before {
-            content: '\f054'; /* Chevron Right */
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: #A51C30;
-            position: absolute;
-            left: 0;
-            top: 6px;
-            font-size: 0.6rem;
+            content: '\f054'; font-family: 'Font Awesome 5 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 6px; font-size: 10px; color: #A51C30;
         }
 
-        .resource-content strong {
-            color: #1e293b;
-            font-weight: 700;
-        }
+        .resource-content strong { color: #1e293b; font-weight: 700; }
 
-        /* Nav Link Underline Animation */
         .nav-link { position: relative; }
         .nav-link::after {
             content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
@@ -107,183 +85,205 @@
         }
         .nav-link:hover::after { width: 100%; }
         
-        /* 字间距微调 */
         .tracking-widest-cn { letter-spacing: 0.1em; }
-
-        /* Mobile Menu Animation */
-        .mobile-menu-enter {
-            animation: fadeInDown 0.3s ease-out forwards;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- Top Bar (Synced with Index) -->
-    <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400">
+    <!-- Top Bar -->
+    <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400 font-sans">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-8">
-                <a href="Panorama_Berlin_Redesign_CN.html" class="hover:text-white transition flex items-center"><i class="fas fa-arrow-left text-crimson mr-2"></i> 返回主页</a>
                 <span class="flex items-center"><i class="fas fa-globe text-crimson mr-2"></i>全球学术网络</span>
+                <span class="flex items-center"><i class="fas fa-check-circle text-crimson mr-2"></i>源于德国 • 立足全球</span>
             </div>
             <div class="text-white italic serif-brand text-[11px]">PSG • ADVANCING KNOWLEDGE</div>
         </div>
     </div>
 
-    <!-- Navigation (Synced: Only Home/Journals/About) -->
-    <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm font-sans">
         <div class="container mx-auto px-6 relative">
             <div class="flex justify-between items-center">
-                
-                <!-- Logo -->
                 <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='Panorama_Berlin_Redesign_CN.html'">
                     <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-10 md:h-12 w-auto">
-                    <div class="flex flex-col justify-center">
-                        <span class="text-lg md:text-2xl font-black tracking-tighter text-neutral-900 serif-brand uppercase leading-none">
-                            Panorama
-                        </span>
-                        <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] mt-1 pl-[1px]">
-                            全景学术集团
-                        </span>
+                    <div class="flex flex-col">
+                        <span class="text-lg md:text-2xl font-black tracking-tighter text-neutral-900 serif-brand uppercase leading-none">Panorama</span>
+                        <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] mt-1 pl-[1px]">全景学术集团</span>
                     </div>
                 </div>
-
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-700 tracking-widest-cn">
                     <a href="Panorama_Berlin_Redesign_CN.html#home" class="nav-link hover:text-crimson transition">主页</a>
                     <a href="Panorama_Berlin_Redesign_CN.html#journals" class="nav-link hover:text-crimson transition">期刊矩阵</a>
                     <a href="Panorama_Berlin_Redesign_CN.html#about" class="nav-link hover:text-crimson transition">机构概况</a>
-                    
-                    <!-- Language Switcher -->
                     <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
-                        <a href="reviewer-resources.html" class="text-neutral-400 hover:text-crimson transition font-sans font-bold">EN</a>
-                        <span class="text-crimson font-bold font-sans">中文</span>
+                        <a href="Reviewer-Resources.html" class="text-neutral-400 hover:text-crimson transition font-bold font-sans">EN</a>
+                        <span class="text-crimson font-bold">中文</span>
                     </div>
-
                     <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">登录 / 注册</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-neutral-900 hover:text-crimson focus:outline-none p-2 transition-colors">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-
-            <!-- Mobile Menu Dropdown -->
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center mobile-menu-enter">
-                <a href="Panorama_Berlin_Redesign_CN.html#home" class="text-sm font-bold tracking-widest-cn text-neutral-800 hover:text-crimson py-2">主页</a>
-                <a href="Panorama_Berlin_Redesign_CN.html#journals" class="text-sm font-bold tracking-widest-cn text-neutral-800 hover:text-crimson py-2">期刊矩阵</a>
-                <a href="Panorama_Berlin_Redesign_CN.html#about" class="text-sm font-bold tracking-widest-cn text-neutral-800 hover:text-crimson py-2">机构概况</a>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center">
+                <a href="Panorama_Berlin_Redesign_CN.html#home" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">主页</a>
+                <a href="Panorama_Berlin_Redesign_CN.html#journals" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">期刊矩阵</a>
+                <a href="Panorama_Berlin_Redesign_CN.html#about" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">机构概况</a>
                 <div class="h-px bg-gray-100 w-full"></div>
-                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="block w-full py-3 bg-crimson text-white font-bold tracking-widest-cn text-xs hover:bg-neutral-900 transition shadow-md">登录系统</a>
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="block w-full py-3 bg-crimson text-white font-bold text-xs hover:bg-neutral-900 transition shadow-md">登录系统</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header (WOS/Academic Style) -->
-    <header class="bg-white border-b border-gray-200 py-16">
+    <!-- Page Header -->
+    <header class="bg-white border-b border-gray-200 py-20 font-sans">
         <div class="container mx-auto px-6 max-w-4xl text-center">
-            <div class="inline-block mb-4 px-3 py-1 bg-crimson/5 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
-                致审稿人
+            <div class="inline-block mb-6 px-3 py-1 bg-crimson/10 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
+                For Reviewers
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 serif-cn mb-6">审稿人资源</h1>
-            <p class="text-lg text-neutral-500 font-light max-w-2xl mx-auto leading-relaxed serif-cn">
-                同行评审是学术出版的基石。我们致力于为审稿人提供清晰的指引与认可，以支持您在学术生态中的重要贡献。
+            <h1 class="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-6 serif-brand">审稿人资源</h1>
+            <p class="text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+                同行评审专家是学术出版的基石。我们致力于为审稿人提供清晰的指引与认可，以感谢您的辛勤付出。
             </p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-6 max-w-4xl py-16 bg-white shadow-sm border-x border-gray-100 -mt-1 rounded-b-sm resource-content">
-        
-        <h2>1. 同行评审的重要性 (The Importance of Peer Review)</h2>
-        <p>
-            同行评审对于科学和学术交流的完整性至关重要。通过提供批判性、建设性和公正的反馈，审稿人帮助作者改进其工作，并确保仅发表高质量的研究。全景学术集团 (PSG) 对旗下大多数期刊坚持严格的双盲同行评审流程。
-        </p>
+    <!-- Main Content (Card Style) -->
+    <main class="flex-grow container mx-auto px-6 max-w-4xl -mt-10 mb-20 relative z-10">
+        <div class="resource-card resource-content">
+            
+            <h2>1. 同行评审的重要性</h2>
+            <p>
+                同行评审是科学与学术交流完整性的核心。通过提供批判性、建设性和公正的反馈，审稿人帮助作者改进其工作，并确保只有高质量的研究得以发表。全景学术集团（Panorama Scholarly Group）对其旗下期刊实行严格的双盲同行评审制度。
+            </p>
 
-        <h2>2. 伦理准则 (Ethical Guidelines - COPE)</h2>
-        <p>
-            我们严格遵守 <strong>COPE 审稿人伦理准则</strong>。在接受评审邀请之前，请确保您：
-        </p>
-        <ul>
-            <li><strong>无利益冲突：</strong> 与作者或研究内容没有任何竞争性利益（财务、机构、合作或其他）。</li>
-            <li><strong>保密性：</strong> 将稿件和评审过程视为严格机密。不得与他人分享或讨论稿件内容。</li>
-            <li><strong>及时性：</strong> 仅在能够在规定时间内完成评审的情况下接受邀请。</li>
-        </ul>
+            <h2>2. 伦理准则 (COPE)</h2>
+            <p>
+                我们严格遵守 **国际出版伦理委员会 (COPE)** 针对同行评审人的伦理指南。在接受审稿邀请之前，请确保您：
+            </p>
+            <ul>
+                <li><strong>无利益冲突：</strong> 与作者或该研究不存在任何竞争性利益（财务、机构、合作或其他方面）。</li>
+                <li><strong>保密性：</strong> 将稿件及评审过程视为严格保密。不得与他人分享或讨论稿件内容。</li>
+                <li><strong>时效性：</strong> 仅在您确信能于规定时间内完成评审时接受邀请。</li>
+            </ul>
 
-        <h2>3. 进行评审 (Conducting a Review)</h2>
-        <p>
-            在评估稿件时，请考虑以下关键标准：
-        </p>
-        
-        <h3>原创性与重要性</h3>
-        <p>该论文是否为该领域贡献了新知识或新视角？研究问题是否重要且定义清晰？</p>
+            <h2>3. 如何开展评审</h2>
+            <p>
+                在评估稿件时，请考虑以下关键标准：
+            </p>
+            
+            <h3>原创性与重要性</h3>
+            <p>该论文是否为该领域贡献了新知识或新视角？研究问题是否重要且定义清晰？</p>
 
-        <h3>方法论</h3>
-        <p>研究方法是否适当、严谨且描述清晰？根据提供的信息，研究是否可复现？</p>
+            <h3>方法论</h3>
+            <p>研究方法是否适当、严谨且描述清晰？根据提供的信息，该研究是否可复现？</p>
 
-        <h3>清晰度与结构</h3>
-        <p>论证是否逻辑严密、结构良好？写作是否清晰易懂？图表是否具有信息量？</p>
+            <h3>清晰度与结构</h3>
+            <p>论证是否合乎逻辑且结构良好？写作是否清晰易懂？图表是否具有信息量？</p>
 
-        <h3>伦理合规</h3>
-        <p>研究是否遵守有关人类或动物受试者的伦理标准？是否有剽窃或数据操纵的证据？</p>
+            <h3>伦理合规性</h3>
+            <p>研究是否遵守关于人类或动物受试者的伦理标准？是否存在剽窃或数据操纵的迹象？</p>
 
-        <h2>4. 提交报告 (Submitting Your Report)</h2>
-        <p>
-            审稿意见应通过我们的在线投稿系统提交。您的报告应包括：
-        </p>
-        <ul>
-            <li><strong>摘要：</strong> 对论文贡献的简要概述。</li>
-            <li><strong>主要意见：</strong> 必须解决的有关方法论、分析或论证的重大问题。</li>
-            <li><strong>次要意见：</strong> 改进清晰度、风格或纠正细微错误的建议。</li>
-            <li><strong>推荐建议：</strong> 接受 (Accept)、小修 (Minor Revision)、大修 (Major Revision) 或 拒稿 (Reject)。</li>
-        </ul>
-        <p>
-            请确保您的语气具有建设性和专业性。避免对作者进行人身攻击。
-        </p>
+            <h2>4. 提交审稿报告</h2>
+            <p>
+                评审意见应通过我们的在线投稿系统提交。您的报告应包括：
+            </p>
+            <ul>
+                <li><strong>摘要：</strong> 对论文贡献的简要概述。</li>
+                <li><strong>主要意见：</strong> 涉及方法论、分析或论证且必须解决的重大问题。</li>
+                <li><strong>次要意见：</strong> 关于改进清晰度、格式或纠正小错误的建议。</li>
+                <li><strong>推荐意见：</strong> 接收 (Accept)、小修 (Minor Revision)、大修 (Major Revision) 或 拒稿 (Reject)。</li>
+            </ul>
+            <p>
+                请确保您的语气具有建设性和专业性。避免对作者进行人身攻击。
+            </p>
 
-        <h2>5. 审稿人认可 (Reviewer Recognition)</h2>
-        <p>
-            我们珍视审稿人的辛勤工作。为了表彰您的贡献，全景学术集团提供：
-        </p>
-        <ul>
-            <li><strong>证书：</strong> 可应要求提供个性化的审稿人证书。</li>
-            <li><strong>折扣：</strong> 为您未来向我们期刊投稿提供文章处理费 (APC) 减免或折扣。</li>
-            <li><strong>公开致谢：</strong> 年度发布审稿人名单（需获得许可）。</li>
-        </ul>
+            <h2>5. 审稿人认可</h2>
+            <p>
+                我们珍视审稿人的辛勤工作。为了表彰您的贡献，全景学术集团提供：
+            </p>
+            <ul>
+                <li><strong>证书：</strong> 可根据要求提供个性化的审稿人证书。</li>
+                <li><strong>折扣：</strong> 未来向我们期刊投稿时可享受文章处理费 (APC) 的减免或折扣。</li>
+                <li><strong>公开致谢：</strong> 年度公布审稿人名单（需获许可）。</li>
+            </ul>
 
+            <!-- Update Indicator -->
+            <div class="mt-12 pt-8 border-t border-gray-100 text-center">
+                <p class="text-[10px] text-neutral-400 uppercase tracking-widest">最后更新：2026年1月</p>
+            </div>
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm">
+    <!-- Footer: 完美对齐修复版 -->
+    <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm font-sans">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1 -->
                 <div class="col-span-1 md:col-span-2">
-                    <span class="text-xl font-bold tracking-tight serif-brand uppercase block mb-4">Panorama Scholarly Group</span>
-                    <p class="text-neutral-400 leading-relaxed max-w-sm text-justify">
-                        总部位于柏林的新锐开放获取 (Open Access) 学术出版机构，致力于通过严谨的同行评审和数字时代的加速传播，推动全球学术发展与高影响力研究的普及。
+                    <span class="text-xl font-bold tracking-tight uppercase block mb-4 serif-brand">Panorama Scholarly Group</span>
+                    <p class="text-neutral-400 leading-relaxed max-w-sm text-justify mb-6">
+                        立足于德国学术传统的新锐开放获取 (Open Access) 出版机构，致力于通过严谨的同行评审和数字时代的加速传播，推动全球学术发展与高影响力研究的普及。
                     </p>
+                    
+                    <!-- SDG Logo -->
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">致力于联合国 2030 可持续发展目标 (SDGs)</p>
+                        <img src="https://github.com/WENSHAO521/GRHAS/blob/main/rggd/E_SDG_logo_without_UN_emblem_horizontal_CMYK_Transparent.png?raw=true" alt="UN SDG" class="h-12 opacity-90 hover:opacity-100 transition">
+                    </div>
                 </div>
+
+                <!-- Column 2: 双地址 (Fixed Width 修复版) -->
                 <div>
-                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">联系我们</h4>
-                    <p class="text-neutral-400 mb-2">德国，柏林</p>
-                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition">contact@panorama-sg.com</a>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">全球运营与联系</h4>
+                    
+                    <!-- Academic Headquarters -->
+                    <div class="mb-4 flex items-start gap-3">
+                        <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-landmark text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">学术总部 (Academic HQ)</p>
+                            <p class="text-white text-xs font-bold">德国，柏林</p>
+                        </div>
+                    </div>
+
+                    <!-- Operations Center -->
+                    <div class="mb-4 flex items-start gap-3">
+                         <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-building text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">运营中心 (Operations Center)</p>
+                            <p class="text-white text-xs font-bold">中国，香港</p>
+                        </div>
+                    </div>
+
+                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition text-xs border-t border-neutral-800 pt-3 mt-2 flex items-center">
+                         <i class="fas fa-envelope mr-2 text-crimson"></i> contact@panorama-sg.com
+                    </a>
                 </div>
+
+                <!-- Column 3: 指定链接 -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">资源</h4>
-                    <ul class="space-y-2 text-neutral-400">
+                    <ul class="space-y-2 text-neutral-400 mb-6">
                         <li><a href="ag-cn.html" class="hover:text-white transition">作者指南</a></li>
-                        <!-- Active Link -->
+                        <!-- Active State -->
                         <li><a href="#" class="text-white transition font-bold">审稿人资源</a></li>
                         <li><a href="Publication_Ethics_CN.html" class="hover:text-white transition">出版伦理</a></li>
                     </ul>
+                    
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">学术标准与互联</h4>
+                        <div class="flex items-center">
+                             <img src="https://github.com/WENSHAO521/GRHAS/raw/bb657b890c3c6c3ab1ee6562b899f3ec72dcdcb0/ORCID_logo.svg_.png" alt="ORCID" class="h-6 mr-2 bg-white rounded-full p-[2px]">
+                             <span class="text-xs text-neutral-400">支持 ORCID</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <!-- Bottom Footer -->
             <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider">
-                <p>&copy; 2025-2026 Panorama Scholarly Group. 保留所有权利。</p>
+                <p>&copy; 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
@@ -301,7 +301,6 @@
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            
             if (mobileMenu.classList.contains('hidden')) {
                 menuIcon.classList.remove('fa-times');
                 menuIcon.classList.add('fa-bars');
