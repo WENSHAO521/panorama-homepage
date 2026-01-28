@@ -13,11 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* 引入与主页完全一致的字体库 */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
         
         :root { scroll-behavior: smooth; }
-        /* 核心调整：正文使用 Noto Sans 以确保阅读清晰度，标题使用 Merriweather 保持学术感 */
         body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
         .serif-brand { font-family: 'Merriweather', serif; }
         
@@ -27,7 +25,7 @@
         .border-crimson { border-color: #A51C30; }
         .hover-text-crimson:hover { color: #A51C30; }
         
-        /* --- Policy Content Styling (美化部分) --- */
+        /* --- Policy Content Styling --- */
         .policy-card {
             background: white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
@@ -48,15 +46,9 @@
             align-items: center;
         }
         
-        /* 标题前的红色装饰块 */
         .policy-content h2::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 24px;
-            background-color: #A51C30;
-            margin-right: 12px;
-            border-radius: 2px;
+            content: ''; display: inline-block; width: 6px; height: 24px;
+            background-color: #A51C30; margin-right: 12px; border-radius: 2px;
         }
         
         .policy-content h2:first-of-type { margin-top: 0; }
@@ -71,42 +63,16 @@
         }
         
         .policy-content p {
-            margin-bottom: 1.5rem;
-            color: #475569;
-            text-align: justify;
-            font-size: 0.95rem;
+            margin-bottom: 1.5rem; color: #475569; text-align: justify; font-size: 0.95rem;
         }
 
-        /* 列表美化 */
-        .policy-content ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 2rem;
-        }
-        
-        .policy-content li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 12px;
-            color: #475569;
-            font-size: 0.95rem;
-        }
-
-        /* 列表项前的红色箭头 */
+        .policy-content ul { list-style: none; padding-left: 0; margin-bottom: 2rem; }
+        .policy-content li { position: relative; padding-left: 24px; margin-bottom: 12px; color: #475569; font-size: 0.95rem; }
         .policy-content li::before {
-            content: '\f054'; /* FontAwesome chevron-right */
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 6px;
-            font-size: 10px;
-            color: #A51C30;
+            content: '\f054'; font-family: 'Font Awesome 5 Free'; font-weight: 900;
+            position: absolute; left: 0; top: 6px; font-size: 10px; color: #A51C30;
         }
         
-        .policy-content strong { color: #1e293b; font-weight: 700; }
-
-        /* Nav Link Underline Animation */
         .nav-link { position: relative; }
         .nav-link::after {
             content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
@@ -119,7 +85,7 @@
 </head>
 <body class="antialiased flex flex-col min-h-screen">
 
-    <!-- Top Bar: 与主页完全一致 -->
+    <!-- Top Bar -->
     <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400 font-sans">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center space-x-8">
@@ -134,8 +100,6 @@
     <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm font-sans">
         <div class="container mx-auto px-6 relative">
             <div class="flex justify-between items-center">
-                
-                <!-- Logo: 点击返回主页 -->
                 <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
                     <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-10 md:h-12 w-auto">
                     <div class="flex flex-col">
@@ -143,29 +107,20 @@
                         <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] mt-1 pl-[1px]">SCHOLARLY GROUP</span>
                     </div>
                 </div>
-
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-700 tracking-widest-cn">
                     <a href="index.html#home" class="nav-link hover:text-crimson transition">HOME</a>
                     <a href="index.html#journals" class="nav-link hover:text-crimson transition">JOURNALS</a>
                     <a href="index.html#about" class="nav-link hover:text-crimson transition">ABOUT</a>
-                    
-                    <!-- Language Switcher -->
                     <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
                         <span class="text-crimson font-bold">EN</span>
                         <a href="Publication_Ethics_CN.html" class="text-neutral-400 hover:text-crimson transition font-bold font-sans">中文</a>
                     </div>
-
                     <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">Login / Register</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="md:hidden text-neutral-900 hover:text-crimson focus:outline-none p-2 transition-colors">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-
-            <!-- Mobile Menu Dropdown -->
             <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center">
                 <a href="index.html#home" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">HOME</a>
                 <a href="index.html#journals" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">JOURNALS</a>
@@ -176,7 +131,7 @@
         </div>
     </nav>
 
-    <!-- Page Header (Clean & Academic) -->
+    <!-- Page Header -->
     <header class="bg-white border-b border-gray-200 py-20 font-sans">
         <div class="container mx-auto px-6 max-w-4xl text-center">
             <div class="inline-block mb-6 px-3 py-1 bg-crimson/10 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
@@ -189,7 +144,7 @@
         </div>
     </header>
 
-    <!-- Policy Content Container (Improved Layout) -->
+    <!-- Policy Content Container -->
     <main class="flex-grow container mx-auto px-6 max-w-4xl -mt-10 mb-20 relative z-10">
         <div class="policy-card policy-content">
             
@@ -240,38 +195,38 @@
                 Panorama Scholarly Group is committed to upholding the integrity of the academic record. We will take all necessary steps to prevent the publication of papers where research misconduct has occurred, including plagiarism, citation manipulation, and data falsification. In the event that we are made aware of any allegation of research misconduct, we will deal with allegations appropriately in accordance with COPE guidelines.
             </p>
             
-            <!-- Update Indicator -->
             <div class="mt-12 pt-8 border-t border-gray-100 text-center">
                 <p class="text-[10px] text-neutral-400 uppercase tracking-widest">Last Updated: January 2026</p>
             </div>
         </div>
     </main>
 
-    <!-- Footer: Dual Location Layout (Perfectly Matched) -->
+    <!-- Footer: 完美对齐修复版 -->
     <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm font-sans">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <!-- Column 1: Intro + SDG -->
+                <!-- Column 1 -->
                 <div class="col-span-1 md:col-span-2">
                     <span class="text-xl font-bold tracking-tight uppercase block mb-4" style="font-family: 'Merriweather', serif;">Panorama Scholarly Group</span>
                     <p class="text-neutral-400 leading-relaxed max-w-sm text-justify mb-6">
                         An emerging Open Access scholarly publisher rooted in German academic tradition, dedicated to advancing global scholarship and the dissemination of high-impact research through rigorous peer review and digital acceleration.
                     </p>
                     
-                    <!-- SDG Logo Section -->
+                    <!-- SDG Logo -->
                     <div>
                         <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Committed to UN Sustainable Development Goals (SDGs)</p>
                         <img src="https://github.com/WENSHAO521/GRHAS/blob/main/rggd/E_SDG_logo_without_UN_emblem_horizontal_CMYK_Transparent.png?raw=true" alt="UN SDG" class="h-12 opacity-90 hover:opacity-100 transition">
                     </div>
                 </div>
 
-                <!-- Column 2: Dual Locations -->
+                <!-- Column 2: 双地址 (关键修改：增加 gap-3 和 fixed width w-5) -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Global Operations & Contact</h4>
                     
                     <!-- Academic Headquarters -->
-                    <div class="mb-4 flex items-start">
-                        <div class="mr-3 mt-1 text-neutral-500"><i class="fas fa-landmark text-sm"></i></div>
+                    <div class="mb-4 flex items-start gap-3">
+                        <!-- 图标容器固定宽度 w-5 确保对齐 -->
+                        <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-landmark text-sm"></i></div>
                         <div>
                             <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Academic Headquarters</p>
                             <p class="text-white text-xs font-bold">Berlin, Germany</p>
@@ -279,8 +234,9 @@
                     </div>
 
                     <!-- Operations Center -->
-                    <div class="mb-4 flex items-start">
-                         <div class="mr-3 mt-1 text-neutral-500"><i class="fas fa-building text-sm"></i></div>
+                    <div class="mb-4 flex items-start gap-3">
+                        <!-- 图标容器固定宽度 w-5 确保对齐 -->
+                         <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-building text-sm"></i></div>
                         <div>
                             <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Operations Center</p>
                             <p class="text-white text-xs font-bold">Hong Kong, China</p>
@@ -292,17 +248,15 @@
                     </a>
                 </div>
 
-                <!-- Column 3: Resources (Links Preserved) -->
+                <!-- Column 3 -->
                 <div>
                     <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Resources</h4>
                     <ul class="space-y-2 text-neutral-400 mb-6">
-                        <!-- 您的指定链接 -->
                         <li><a href="Author-Guidelines.html" class="hover:text-white transition">Author Guidelines</a></li>
                         <li><a href="Reviewer-Resources.html" class="hover:text-white transition">Reviewer Resources</a></li>
                         <li><a href="#" class="text-white font-bold transition">Publication Ethics</a></li>
                     </ul>
                     
-                    <!-- ORCID Section -->
                     <div>
                         <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">Academic Standards</h4>
                         <div class="flex items-center">
