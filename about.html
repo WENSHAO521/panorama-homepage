@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Panorama Scholarly Group</title>
+    
+    <link rel="icon" type="image/png" href="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&display=swap');
+        
+        :root { scroll-behavior: smooth; }
+        body { font-family: 'Noto Sans SC', sans-serif; background-color: #f8fafc; color: #334155; line-height: 1.8; }
+        .serif-brand { font-family: 'Merriweather', serif; }
+        
+        .text-crimson { color: #A51C30; }
+        .bg-crimson { background-color: #A51C30; }
+        
+        /* Card Style */
+        .about-card {
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 2rem;
+        }
+
+        .about-content h2 {
+            font-family: 'Merriweather', serif;
+            font-weight: 800;
+            color: #1e293b;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-content h2::before {
+            content: ''; display: inline-block; width: 6px; height: 24px;
+            background-color: #A51C30; margin-right: 12px; border-radius: 2px;
+        }
+
+        .about-content p { margin-bottom: 1.5rem; text-align: justify; color: #475569; }
+
+        /* Feature Grid */
+        .feature-box {
+            background: #f8fafc; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .feature-box:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: #A51C30; }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: #A51C30; transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        
+        .tracking-widest-cn { letter-spacing: 0.1em; }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Top Bar -->
+    <div class="bg-neutral-900 py-2 border-b border-neutral-800 hidden lg:block text-[12px] font-bold tracking-widest-cn text-neutral-400 font-sans">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <span class="flex items-center"><i class="fas fa-globe text-crimson mr-2"></i>Global Scholarly Network</span>
+                <span class="flex items-center"><i class="fas fa-check-circle text-crimson mr-2"></i>German Origins • Global Reach</span>
+            </div>
+            <div class="text-white italic text-[11px]">PSG • ADVANCING KNOWLEDGE</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-gray-200 shadow-sm font-sans">
+        <div class="container mx-auto px-6 relative">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="https://github.com/WENSHAO521/GRHAS/blob/main/PEMR/image-removebg-preview.png?raw=true" alt="PSG Logo" class="h-10 md:h-12 w-auto">
+                    <div class="flex flex-col">
+                        <span class="text-lg md:text-2xl font-black tracking-tighter text-neutral-900 uppercase leading-none" style="font-family: 'Merriweather', serif;">Panorama</span>
+                        <span class="text-[9px] md:text-[10px] font-bold text-neutral-500 tracking-[0.3em] mt-1 pl-[1px]">SCHOLARLY GROUP</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 text-[13px] font-bold text-neutral-700 tracking-widest-cn">
+                    <a href="index.html#home" class="nav-link hover:text-crimson transition">HOME</a>
+                    <a href="index.html#journals" class="nav-link hover:text-crimson transition">JOURNALS</a>
+                    <a href="#" class="text-crimson transition font-bold">ABOUT</a>
+                    <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
+                        <span class="text-crimson font-bold">EN</span>
+                        <a href="about-cn.html" class="text-neutral-400 hover:text-crimson transition font-bold font-sans">中文</a>
+                    </div>
+                    <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">Login / Register</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-neutral-900 hover:text-crimson focus:outline-none p-2 transition-colors">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+             <!-- Mobile Menu Dropdown -->
+             <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 text-center">
+                <a href="index.html#home" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">HOME</a>
+                <a href="index.html#journals" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">JOURNALS</a>
+                <a href="#" class="text-sm font-bold text-neutral-800 hover:text-crimson py-2">ABOUT</a>
+                <div class="h-px bg-gray-100 w-full"></div>
+                <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="block w-full py-3 bg-crimson text-white font-bold text-xs hover:bg-neutral-900 transition shadow-md">LOGIN SYSTEM</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 py-20 font-sans">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <div class="inline-block mb-6 px-3 py-1 bg-crimson/10 text-crimson text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm">
+                Established 2025
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-neutral-900 mb-6 serif-brand">About Panorama</h1>
+            <p class="text-lg text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+                A modern academic publisher bridging German rigour with global dynamism.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 max-w-5xl -mt-10 mb-20 relative z-10 about-content">
+        
+        <!-- Section 1: Who We Are -->
+        <div class="about-card">
+            <h2>Who We Are</h2>
+            <p>
+                Founded in 2025, <strong>Panorama Scholarly Group (PSG)</strong> is a forward-thinking academic publisher dedicated to the dissemination of high-quality research across the Humanities, Social Sciences, and Technology sectors.
+            </p>
+            <p>
+                Born from a vision to redefine scholarly communication in the digital age, PSG operates with a dual-headquarters structure in <strong>Berlin, Germany</strong>, and <strong>Hong Kong, China</strong>. This unique positioning allows us to bridge the rigorous traditions of European academia with the vibrant, fast-paced research landscape of Asia, fostering a truly global dialogue.
+            </p>
+        </div>
+
+        <!-- Section 2: What We Do (Grid) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="about-card !mb-0 flex flex-col justify-center">
+                <div class="text-crimson text-3xl mb-4"><i class="fas fa-book-open"></i></div>
+                <h3 class="text-xl font-bold text-neutral-900 mb-3 serif-brand">Academic Journals</h3>
+                <p class="text-sm !mb-0">
+                    We publish a growing portfolio of Open Access journals. Our journals adhere to strict double-blind peer review processes to ensure the validity and relevance of published work.
+                </p>
+            </div>
+            <div class="about-card !mb-0 flex flex-col justify-center">
+                <div class="text-crimson text-3xl mb-4"><i class="fas fa-swatchbook"></i></div>
+                <h3 class="text-xl font-bold text-neutral-900 mb-3 serif-brand">Scholarly Books</h3>
+                <p class="text-sm !mb-0">
+                    Beyond periodicals, PSG is committed to monograph and edited volume publishing. We provide authors with professional editorial support, ISBN registration, and global distribution channels.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 3: Our Mission -->
+        <div class="about-card">
+            <h2>Our Mission & Vision</h2>
+            <p>
+                In an era of information overload, our mission is to serve as a trusted curator of knowledge. We believe that science and humanities should be accessible to all.
+            </p>
+            <ul class="space-y-4 mt-6">
+                <li class="flex items-start">
+                    <i class="fas fa-check text-crimson mt-1.5 mr-3"></i>
+                    <div>
+                        <strong class="text-neutral-900">Open Access:</strong> We champion the Open Access movement, ensuring that research findings are freely available to the global community without barriers.
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-crimson mt-1.5 mr-3"></i>
+                    <div>
+                        <strong class="text-neutral-900">Integrity First:</strong> We strictly follow the guidelines of the Committee on Publication Ethics (COPE).
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check text-crimson mt-1.5 mr-3"></i>
+                    <div>
+                        <strong class="text-neutral-900">Digital Acceleration:</strong> Leveraging state-of-the-art publishing technologies (OJS) to speed up the submission, review, and publication cycle.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-900 py-16 px-6 border-t border-white/5 text-white mt-auto text-sm font-sans">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1 -->
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-xl font-bold tracking-tight uppercase block mb-4" style="font-family: 'Merriweather', serif;">Panorama Scholarly Group</span>
+                    <p class="text-neutral-400 leading-relaxed max-w-sm text-justify mb-6">
+                        An emerging Open Access scholarly publisher rooted in German academic tradition, dedicated to advancing global scholarship and the dissemination of high-impact research through rigorous peer review and digital acceleration.
+                    </p>
+                    
+                    <!-- SDG Logo -->
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 mb-2">Committed to UN Sustainable Development Goals (SDGs)</p>
+                        <img src="https://github.com/WENSHAO521/GRHAS/blob/main/rggd/E_SDG_logo_without_UN_emblem_horizontal_CMYK_Transparent.png?raw=true" alt="UN SDG" class="h-12 opacity-90 hover:opacity-100 transition">
+                    </div>
+                </div>
+
+                <!-- Column 2: Fixed Width Icons -->
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Global Operations & Contact</h4>
+                    <div class="mb-4 flex items-start gap-3">
+                        <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-landmark text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Academic Headquarters</p>
+                            <p class="text-white text-xs font-bold">Berlin, Germany</p>
+                        </div>
+                    </div>
+                    <div class="mb-4 flex items-start gap-3">
+                         <div class="w-5 mt-0.5 text-neutral-500 text-center flex-shrink-0"><i class="fas fa-building text-sm"></i></div>
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-0.5">Operations Center</p>
+                            <p class="text-white text-xs font-bold">Hong Kong, China</p>
+                        </div>
+                    </div>
+                    <a href="mailto:contact@panorama-sg.com" class="text-neutral-400 hover:text-white transition text-xs border-t border-neutral-800 pt-3 mt-2 flex items-center">
+                         <i class="fas fa-envelope mr-2 text-crimson"></i> contact@panorama-sg.com
+                    </a>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="font-bold uppercase tracking-widest text-xs mb-4 text-crimson">Resources</h4>
+                    <ul class="space-y-2 text-neutral-400 mb-6">
+                        <li><a href="Author-Guidelines.html" class="hover:text-white transition">Author Guidelines</a></li>
+                        <li><a href="Reviewer-Resources.html" class="hover:text-white transition">For Reviewers</a></li>
+                        <li><a href="publication-ethics.html" class="hover:text-white transition">Ethics Policy</a></li>
+                    </ul>
+                    <div>
+                        <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-crimson">Academic Standards</h4>
+                        <div class="flex items-center">
+                             <img src="https://github.com/WENSHAO521/GRHAS/raw/bb657b890c3c6c3ab1ee6562b899f3ec72dcdcb0/ORCID_logo.svg_.png" alt="ORCID" class="h-6 mr-2 bg-white rounded-full p-[2px]">
+                             <span class="text-xs text-neutral-400">Supporting ORCID</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider">
+                <p>&copy; 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-white transition"><i class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
