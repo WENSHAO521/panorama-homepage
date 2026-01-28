@@ -110,54 +110,6 @@
             .widget-card { width: 280px; }
             .partner-logo { height: 24px; gap: 20px; }
         }
-
-        /* ===== Mobile & Tablet Optimizations ===== */
-        @media (max-width: 640px) {
-            .journal-row { flex-direction: column; }
-            .journal-cover-wrapper { 
-                width: 100%; border-right: none; 
-                border-bottom: 1px solid #f1f5f9;
-                padding: 20px; align-items: center;
-            }
-            .journal-cover-img { width: 140px; }
-            .btn-journal-action { flex: 1; font-size: 10px; padding: 8px 10px; }
-            .hero-section { padding: 60px 16px !important; }
-            .container { padding-left: 16px; padding-right: 16px; }
-        }
-
-        @media (min-width: 641px) and (max-width: 1024px) {
-            .journal-cover-wrapper { width: 130px; }
-            .partner-logo { height: 28px; }
-        }
-
-        /* ===== Language Selector Styles ===== */
-        .lang-switcher { position: relative; display: inline-block; }
-        .lang-current {
-            display: flex; align-items: center; gap: 6px;
-            padding: 6px 12px; border: 1px solid #e2e8f0;
-            border-radius: 4px; background: white;
-            cursor: pointer; transition: all 0.2s;
-            font-size: 12px; font-weight: 600;
-        }
-        .lang-current:hover { border-color: #A51C30; background: #fef2f2; }
-        .lang-dropdown {
-            position: absolute; top: calc(100% + 6px); right: 0;
-            background: white; border: 1px solid #e2e8f0;
-            border-radius: 6px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            min-width: 160px; opacity: 0; visibility: hidden;
-            transform: translateY(-8px); transition: all 0.3s;
-            z-index: 1000; max-height: 360px; overflow-y: auto;
-        }
-        .lang-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
-        .lang-item {
-            display: flex; align-items: center; padding: 9px 16px;
-            cursor: pointer; transition: all 0.2s; font-size: 13px;
-            border-bottom: 1px solid #f8fafc;
-        }
-        .lang-item:last-child { border-bottom: none; }
-        .lang-item:hover { background: #fef2f2; color: #A51C30; }
-        .lang-item.active { background: #fff0f2; color: #A51C30; font-weight: 700; }
-
     </style>
 </head>
 <body class="antialiased flex flex-col min-h-screen">
@@ -188,52 +140,10 @@
                     <a href="#home" class="nav-link hover:text-crimson transition">主页</a>
                     <a href="#journals" class="nav-link hover:text-crimson transition">期刊矩阵</a>
                     <a href="about-cn.html" class="nav-link hover:text-crimson transition">机构概况</a>
-                    <div class="lang-switcher">
-                        <div class="lang-current" onclick="toggleLang()">
-                            <span id="curr-lang">简体中文</span>
-                            <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
-                        </div>
-                        <div class="lang-dropdown" id="lang-dropdown">
-                            <div class="lang-item" onclick="switchLang('en', 'English')">
-                                <span>English</span>
-                            </div>
-                            <div class="lang-item active" onclick="switchLang('zh-CN', '简体中文')">
-                                <span>简体中文</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('zh-TW', '繁體中文')">
-                                <span>繁體中文</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('de', 'Deutsch')">
-                                <span>Deutsch</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('fr', 'Français')">
-                                <span>Français</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('es', 'Español')">
-                                <span>Español</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ja', '日本語')">
-                                <span>日本語</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ko', '한국어')">
-                                <span>한국어</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ru', 'Русский')">
-                                <span>Русский</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('it', 'Italiano')">
-                                <span>Italiano</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('pt', 'Português')">
-                                <span>Português</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('ar', 'العربية')">
-                                <span>العربية</span>
-                            </div>
-                            <div class="lang-item" onclick="switchLang('hi', 'हिन्दी')">
-                                <span>हिन्दी</span>
-                            </div>
-                        </div>
+                    <div class="flex items-center text-xs border-l border-neutral-300 pl-6 ml-2 space-x-3 tracking-normal">
+                        <!-- 链接回英文版主页 -->
+                        <a href="index.html" class="text-neutral-400 hover:text-crimson transition font-sans font-bold">EN</a>
+                        <span class="text-crimson font-bold font-sans">中文</span>
                     </div>
                     <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="px-5 py-2 border border-neutral-300 rounded hover:border-crimson hover:text-crimson transition duration-300 text-xs uppercase tracking-wide">登录 / 注册</a>
                 </div>
@@ -713,34 +623,6 @@
             const btnAz = document.getElementById('btn-az'); const btnSub = document.getElementById('btn-subject');
             if (type === 'az') { btnAz.classList.add('active'); btnSub.classList.remove('active'); } else { btnSub.classList.add('active'); btnAz.classList.remove('active'); }
         }
-
-
-        // Language Switcher
-        function toggleLang() {
-            document.getElementById('lang-dropdown').classList.toggle('show');
-        }
-
-        function switchLang(code, name) {
-            document.getElementById('curr-lang').textContent = name;
-            document.querySelectorAll('.lang-item').forEach(item => item.classList.remove('active'));
-            event.target.closest('.lang-item').classList.add('active');
-            document.getElementById('lang-dropdown').classList.remove('show');
-
-            // Language switching logic
-            if (code === 'en') {
-                window.location.href = 'index.html';
-            } else if (code !== 'zh-CN' && code !== 'zh-TW') {
-                console.log('切换到语言:', code, name);
-            }
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.lang-switcher')) {
-                document.getElementById('lang-dropdown').classList.remove('show');
-            }
-        });
-
     </script>
 </body>
 </html>
