@@ -1,13 +1,398 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panorama Scholarly Group</title>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+import React, { useState, useEffect } from 'react';
+import { 
+  Search, Globe, ChevronRight, BookOpen, GraduationCap, 
+  ShieldCheck, Mail, Linkedin, ExternalLink, Menu, X, 
+  CheckCircle2, Microscope, Newspaper, FileText,
+  Users, BarChart3, Clock, ArrowRight, MapPin, Home, PenTool,
+  Landmark, Globe2
+} from 'lucide-react';
+
+/**
+ * Brand Configuration
+ * Primary Color: Harvard Crimson (#A51C30)
+ */
+const BRAND = {
+  crimson: '#A51C30',
+  navy: '#0F172A',
+  slate: '#64748B',
+  white: '#FFFFFF'
+};
+
+// Data
+const JOURNALS = [
+  { id: 'AFS', title: 'AI & Future Society', cat: 'Artificial Intelligence', issn: '3053-4011', freq: 'Bi-Annual', img: 'AI%20%26%20Future%20Society.png', desc: 'Exploring the profound impact of AI on social governance, ethics, and legal systems.' },
+  { id: 'CSSR', title: 'Computational Social Sciences Review', cat: 'Data Science', issn: 'Pending', freq: 'Quarterly', img: 'cssr.png', desc: 'Integrating machine learning with big data analytics to reveal dynamics of digital societies.' },
+  { id: 'GRHAS', title: 'Global Review of Humanities, Arts, and Society', cat: 'Humanities', issn: '3052-539X', freq: 'Bi-Monthly', img: 'grhas.png', desc: 'Advancing interdisciplinary research and theoretical dialogue in humanities and arts globally.' },
+  { id: 'HN', title: 'Health Nexus', cat: 'Integrative Medicine', issn: '3053-7037', freq: 'Annual', img: 'Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png', desc: 'Bridging modern and traditional medicine for interdisciplinary health research and innovation.' },
+  { id: 'IRELS', title: 'Intl Review of Education & Learning Sciences', cat: 'Education', issn: 'Pending', freq: 'Bi-Annual', img: 'IRELS.png', desc: 'Investigating learning mechanism innovations and paradigm shifts in global education systems.' },
+  { id: 'JESA', title: 'Journal of Engineering Systems & Applications', cat: 'Engineering', issn: '3053-478X', freq: 'Annual', img: 'JESA.png', desc: 'Focusing on integrated applications of engineering systems, connecting theory with practice.' },
+  { id: 'JLPCS', title: 'Journal of Law, Psychology, & Communication', cat: 'Law & Psychology', issn: '3052-9654', freq: 'Bi-Annual', img: 'JLPCS.png', desc: 'Studying the interaction between legal processes, psychological factors, and social communication.' },
+  { id: 'PEMR', title: 'PoliEcoM Administration Review', cat: 'Public Policy', issn: '3053-3597', freq: 'Bi-Annual', img: 'REMR.png', desc: 'Fostering global dialogue on public policy, institutional governance, and fiscal regulation.' },
+  { id: 'Res', title: 'Resonance: Global Music Studies', cat: 'Musicology', issn: '3053-4410', freq: 'Bi-Annual', img: 'Resonance.png', desc: 'Dedicated to cross-cultural music studies and acoustic heritage preservation.' },
+  { id: 'RGGD', title: 'Rural Governance & Green Development', cat: 'Environment', issn: '3053-7282', freq: 'Annual', img: 'Rural%20Governance%20and%20Green%20Development.png', desc: 'Discussing governance innovations and policies for sustainable rural development.' },
+  { id: 'TTS', title: 'Three Teachings Studies', cat: 'Philosophy', issn: '3053-6553', freq: 'Annual', img: 'tts.png', desc: 'Devoted to the study of Confucianism, Daoism, and Buddhism in East Asian contexts.' }
+];
+
+const HERO_IMAGES = [
+  'https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=1920', // 1. Classic Library (Authority)
+  'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1920', // 2. Abstract AI/Data (Future)
+  'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920', // 3. Modern Glass Architecture (Structure)
+  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920'  // 4. Global Network (Connection)
+];
+
+const App = () => {
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  
+  // Hero Carousel Effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="bg-white font-sans text-slate-900 scroll-smooth selection:bg-[#A51C30] selection:text-white">
+      
+      {/* Side Navigation (Fixed Right) */}
+      <nav className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 hidden lg:flex">
+        {[
+          { id: 'home', icon: Home, label: 'Home' },
+          { id: 'journals', icon: BookOpen, label: 'Journals' },
+          { id: 'integrity', icon: ShieldCheck, label: 'Integrity' },
+          { id: 'scope', icon: Microscope, label: 'Scope' },
+          { id: 'impact', icon: BarChart3, label: 'Impact' },
+          { id: 'join', icon: PenTool, label: 'Join Us' }
+        ].map((item) => (
+          <a 
+            key={item.id} 
+            href={`#${item.id}`}
+            className="group flex items-center gap-3 bg-[#020617]/90 p-3 rounded-full text-white border border-white/10 hover:bg-[#A51C30] hover:scale-110 transition-all duration-300 w-12 hover:w-auto overflow-hidden shadow-2xl backdrop-blur-sm"
+          >
+            <item.icon size={18} className="min-w-[18px]" />
+            <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap duration-300">
+              {item.label}
+            </span>
+          </a>
+        ))}
+      </nav>
+
+      {/* Top Contact Bar */}
+      <div className="bg-[#020617] text-white py-2.5 border-b border-white/10">
+        <div className="container mx-auto px-6 flex justify-between items-center text-[10px] font-bold tracking-[0.15em] uppercase">
+          <div className="flex gap-8">
+            <span className="flex items-center gap-2 hover:text-[#A51C30] transition-colors cursor-default">
+              <MapPin size={12} className="text-[#A51C30]" /> Berlin, Germany
+            </span>
+            <span className="flex items-center gap-2 hover:text-[#A51C30] transition-colors cursor-pointer">
+              <Mail size={12} className="text-[#A51C30]" /> contact@panorama-sg.com
+            </span>
+          </div>
+          <div className="hidden md:block text-slate-400">Leading Global Academic Publisher</div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <header className="bg-white py-6 border-b border-slate-50 sticky top-0 z-40 shadow-sm/50 backdrop-blur-md bg-white/95">
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <div className="flex flex-col group cursor-pointer">
+            <div className="flex items-center gap-4">
+                <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" className="h-10 w-auto" />
+                <div className="border-l-2 border-slate-100 pl-4">
+                    <h1 className="text-3xl font-bold tracking-tighter serif-brand uppercase text-slate-950 group-hover:text-[#A51C30] transition-colors leading-none">
+                    Panorama
+                    </h1>
+                    <span className="text-[9px] font-black text-slate-400 tracking-[0.4em] uppercase mt-1 block">Scholarly Group</span>
+                </div>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" className="hidden md:flex items-center gap-2 px-6 py-2.5 text-[11px] font-bold tracking-widest text-slate-900 border-2 border-slate-100 hover:border-[#020617] hover:bg-[#020617] hover:text-white transition-all rounded-sm uppercase">
+                <Users size={14} /> Login
+            </a>
+            <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" className="flex items-center gap-2 bg-[#A51C30] text-white px-8 py-2.5 text-[11px] font-bold tracking-widest hover:bg-[#020617] transition-all rounded-sm uppercase shadow-lg shadow-[#A51C30]/20">
+                <Newspaper size={14} /> Submit
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section (Immersive) */}
+      <section id="home" className="relative h-[75vh] w-full overflow-hidden bg-[#010409]">
+        {HERO_IMAGES.map((img, index) => (
+          <div 
+            key={index}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${index === currentHeroIndex ? 'opacity-100 z-10 scale-100' : 'opacity-0 z-0 scale-105'}`}
+            style={{ backgroundImage: `url('${img}')` }}
+          />
+        ))}
+        {/* Overlay Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/80 to-transparent z-20"></div>
+        
+        <div className="relative z-30 container mx-auto px-6 h-full flex items-center">
+          <div className="max-w-4xl text-white">
+            <h2 className="text-[#A51C30] font-bold tracking-[0.6em] uppercase text-xs mb-8 italic flex items-center gap-4">
+              <span className="w-12 h-[2px] bg-[#A51C30]"></span> Global Research Catalyst
+            </h2>
+            <h1 className="text-6xl md:text-8xl font-bold mb-10 leading-[1] font-serif uppercase tracking-tight">
+                Empowering <br /> 
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Scholarly</span> <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A51C30] to-rose-500 italic">Discovery</span>
+            </h1>
+            <p className="text-lg font-light mb-12 max-w-2xl text-slate-300 leading-relaxed border-l-4 border-[#A51C30] pl-8">
+                The Panorama Scholarly Group is committed to the rigorous curation and global dissemination of high-impact scientific inquiry, fostering an ecosystem of academic integrity and innovation.
+            </p>
+            <a href="#journals" className="inline-block bg-[#A51C30] px-14 py-5 text-[11px] font-black tracking-[0.2em] uppercase text-white hover:bg-white hover:text-[#A51C30] transition-all shadow-2xl hover:translate-y-[-2px]">
+                Browse Compendium
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Journals Grid (Modern Frosted Glass) */}
+      <section id="journals" className="py-32 bg-slate-50 relative overflow-hidden">
+        {/* Background Ambience Blobs - Enhanced for Glass Effect */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+            <div className="absolute top-40 -left-20 w-[600px] h-[600px] bg-blue-200/30 rounded-full blur-[120px] mix-blend-multiply opacity-60"></div>
+            <div className="absolute bottom-40 -right-20 w-[600px] h-[600px] bg-[#A51C30]/10 rounded-full blur-[120px] mix-blend-multiply opacity-60"></div>
+        </div>
+
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          <div className="text-center mb-28">
+            <span className="text-[11px] font-bold text-[#A51C30] tracking-[0.5em] uppercase mb-4 block">Official Publications</span>
+            <h2 className="font-serif text-5xl font-bold uppercase text-slate-900 tracking-tight">Our Journals</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-[#A51C30] to-rose-500 mx-auto mt-8 rounded-full"></div>
+            <p className="mt-8 text-slate-500 italic max-w-3xl mx-auto text-lg leading-relaxed">
+                Curated peer-reviewed journals advancing the frontiers of social sciences, humanities, and technology through rigorous Open Access publishing.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+            {JOURNALS.map((j) => (
+              <article key={j.id} className="group relative flex flex-col h-full hover:z-20">
+                {/* Glass Card Background */}
+                <div className="absolute inset-0 bg-white/40 backdrop-blur-xl border border-white/60 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 group-hover:bg-white/70 group-hover:shadow-[0_20px_40px_-15px_rgba(165,28,48,0.15)] group-hover:border-white/80 group-hover:-translate-y-2"></div>
+                
+                {/* Content Container */}
+                <div className="relative p-6 flex flex-col h-full z-10">
+                    {/* Floating Cover Image 3D Effect */}
+                    <div className="w-full flex justify-center -mt-16 mb-8 perspective-1000">
+                        <div className="relative w-44 shadow-2xl rounded-[2px] group-hover:-translate-y-4 group-hover:rotate-x-6 transition-all duration-500 bg-white group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]">
+                            <img 
+                                src={`https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/${j.img}`} 
+                                alt={j.title} 
+                                className="w-full h-auto rounded-[2px] object-cover"
+                                onError={(e) => e.currentTarget.src = 'https://placehold.co/300x400?text=Cover'}
+                            />
+                            {/* Glass Reflection Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[2px]"></div>
+                        </div>
+                    </div>
+
+                    {/* Text Content */}
+                    <div className="text-center flex flex-col flex-grow">
+                        <div className="flex justify-center gap-2 mb-4">
+                            <span className="bg-[#A51C30]/5 text-[#A51C30] text-[9px] px-3 py-1 font-bold uppercase tracking-wider rounded-full border border-[#A51C30]/10 backdrop-blur-sm">{j.cat}</span>
+                        </div>
+                        
+                        <a href={`https://grhas.centraluniteduniversity.de/index.php/${j.link}`} className="block group-hover:text-[#A51C30] transition-colors duration-300">
+                            <h3 className="font-serif text-xl font-bold mb-3 text-slate-900 uppercase leading-tight line-clamp-2">{j.title}</h3>
+                        </a>
+                        
+                        <div className="flex justify-center items-center gap-4 mb-5 text-[10px] font-bold tracking-widest text-slate-400 uppercase">
+                            <span className="flex items-center gap-1"><ShieldCheck size={12} /> ISSN: {j.issn}</span>
+                            <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+                            <span className="flex items-center gap-1"><Clock size={12} /> {j.freq}</span>
+                        </div>
+                        
+                        <p className="text-[13px] text-slate-600 italic mb-8 leading-relaxed line-clamp-3 px-2">
+                            {j.desc}
+                        </p>
+                        
+                        <div className="mt-auto grid grid-cols-2 gap-3">
+                            <a href={`https://grhas.centraluniteduniversity.de/index.php/${j.link}`} className="flex items-center justify-center gap-2 bg-[#020617] text-white py-3.5 text-[10px] font-black tracking-widest uppercase hover:bg-[#A51C30] transition-colors rounded-lg shadow-lg hover:shadow-[#A51C30]/30 group/btn">
+                                View <ArrowRight size={10} className="group-hover/btn:translate-x-1 transition-transform" />
+                            </a>
+                            <a href="#" className="flex items-center justify-center gap-2 border border-slate-200 bg-white/50 text-slate-900 py-3.5 text-[10px] font-black tracking-widest uppercase hover:bg-white hover:border-slate-300 hover:shadow-md transition-all rounded-lg backdrop-blur-sm">
+                                Submit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integrity / About */}
+      <section id="integrity" className="py-24 bg-white relative overflow-hidden">
+        {/* Background Decor */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-12 translate-x-32 z-0"></div>
+
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+            <div className="flex flex-col lg:flex-row gap-20 items-center">
+                <div className="lg:w-1/2 relative group">
+                    <div className="absolute inset-0 bg-[#A51C30] translate-x-6 translate-y-6 rounded-sm"></div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" className="relative z-10 rounded-sm shadow-xl grayscale group-hover:grayscale-0 transition-all duration-700 w-full" alt="Academic Integrity" />
+                    <div className="absolute -bottom-10 -right-10 bg-[#020617] p-10 border-l-4 border-[#A51C30] shadow-2xl z-20 hidden md:block">
+                        <p className="text-white text-6xl font-black italic tracking-tighter serif-brand">PSG</p>
+                        <p className="text-[#A51C30] text-[10px] font-bold tracking-[0.5em] uppercase mt-3">Est. Berlin</p>
+                    </div>
+                </div>
+                <div className="lg:w-1/2">
+                    <span className="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-6 block">Institutional Ethos</span>
+                    <h2 className="font-serif text-5xl md:text-6xl font-bold uppercase text-slate-950 leading-[1.1] mb-10">
+                        Academic Integrity & <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A51C30] to-rose-600">Global Excellence</span>
+                    </h2>
+                    <div className="h-1.5 w-24 bg-[#A51C30] mb-10"></div>
+                    <p className="text-slate-600 text-lg leading-relaxed mb-12 italic font-light">
+                        The Panorama Scholarly Group serves as a global catalyst for scholarly progress. We ensure a transparent, ethical, and high-standard publishing environment, ensuring that breakthrough research bridges the gap between theoretical excellence and societal transformation.
+                    </p>
+                    <a href="#" className="inline-block bg-[#A51C30] text-white px-12 py-5 text-[11px] font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-colors shadow-xl hover:shadow-2xl">
+                        Institutional Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Research Scope Cards */}
+      <section id="scope" className="py-24 bg-slate-950 text-white">
+        <div className="container mx-auto px-6 max-w-7xl">
+            <div className="text-center mb-16">
+                <h2 className="font-serif text-5xl font-bold uppercase mb-6">Research Scope</h2>
+                <div className="h-1 w-16 bg-[#A51C30] mx-auto rounded-full"></div>
+                <p className="mt-8 text-slate-400 italic max-w-2xl mx-auto text-lg">Interdisciplinary synergy across multiple scholarly domains, bridging technology with the human experience.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                    { title: 'Digital Society', icon: Globe2, img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800', desc: 'Focusing on ethical AI frameworks and digital governance.' },
+                    { title: 'Urban Governance', icon: Landmark, img: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800', desc: 'Analyzing smart city infrastructures and sustainable planning.' },
+                    { title: 'Humanities & Art', icon: PenTool, img: 'https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&q=80&w=800', desc: 'Exploring contemporary aesthetic theories and cultural evolution.' },
+                    { title: 'Law & Economics', icon: ShieldCheck, img: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=800', desc: 'Investigating international trade law and economic trends.' }
+                ].map((item, idx) => (
+                    <div key={idx} className="relative h-[400px] group overflow-hidden border border-white/10 cursor-pointer">
+                        <div className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110" style={{ backgroundImage: `url('${item.img}')` }}></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-70"></div>
+                        <div className="absolute bottom-0 left-0 p-8 text-left w-full">
+                            <item.icon className="text-[#A51C30] mb-4 w-8 h-8 group-hover:scale-110 transition-transform" />
+                            <h4 className="font-bold text-sm uppercase tracking-widest mb-3 text-white group-hover:text-[#A51C30] transition-colors">{item.title}</h4>
+                            <div className="h-[1px] w-full bg-white/20 mb-4 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                            <p className="text-[12px] text-slate-300 italic leading-relaxed translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
+                                {item.desc}
+                            </p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      {/* Impact Metrics */}
+      <section id="impact" className="py-28 bg-[#020617] text-white border-t border-white/5">
+        <div className="container mx-auto px-6 max-w-7xl flex flex-col lg:flex-row gap-20 items-center">
+            <div className="lg:w-1/3 text-left">
+                <span className="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase block mb-6">Bibliometric Footprint</span>
+                <h2 className="font-serif text-5xl font-bold uppercase leading-none tracking-tight">Impact <br /> Metrics</h2>
+                <div className="h-1.5 w-20 bg-[#A51C30] mt-8 mb-10"></div>
+                <p className="text-slate-400 italic text-lg leading-relaxed border-l-2 border-[#A51C30]/30 pl-8">
+                    Quantifying our contribution to the global scientific community through transparent data and high-standard ethical compliance.
+                </p>
+            </div>
+            <div className="lg:w-2/3 grid grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+                {[
+                    { val: '120+', label: 'Articles', color: 'text-blue-400' },
+                    { val: '180+', label: 'Citations', color: 'text-emerald-400' },
+                    { val: '1.5k+', label: 'Reads', color: 'text-amber-400' },
+                    { val: '100%', label: 'Ethics', color: 'text-[#A51C30]' }
+                ].map((stat, idx) => (
+                    <div key={idx} className="p-10 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors text-center group flex flex-col justify-center aspect-square">
+                        <p className={`text-5xl font-black mb-4 italic ${stat.color} group-hover:scale-110 transition-transform duration-300`}>{stat.val}</p>
+                        <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold">{stat.label}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      {/* Join Us */}
+      <section id="join" className="py-24 bg-slate-900 text-white border-t border-white/5">
+        <div className="container mx-auto px-6 text-center">
+            <h2 className="font-serif text-5xl font-bold uppercase mb-6">Join Our Editorial Network</h2>
+            <div className="h-1 w-16 bg-[#A51C30] mx-auto mb-20 rounded-full"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto text-left">
+                <div className="p-12 bg-white/[0.02] border border-white/10 hover:border-[#A51C30] transition-all group hover:-translate-y-2 duration-300">
+                    <Users size={40} className="text-[#A51C30] mb-8" />
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Editorial Board</h4>
+                    <p className="text-slate-400 text-base italic mb-10 leading-relaxed">Distinguished scholars to lead journal strategy and curate high-impact special issues.</p>
+                    <a href="#" className="inline-block bg-[#A51C30] px-12 py-4 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-[#A51C30] transition-colors">Apply Now</a>
+                </div>
+                <div className="p-12 bg-white/[0.02] border border-white/10 hover:border-emerald-500 transition-all group hover:-translate-y-2 duration-300">
+                    <Search size={40} className="text-emerald-500 mb-8" />
+                    <h4 className="text-2xl font-bold uppercase mb-4 tracking-tight">Peer Reviewers</h4>
+                    <p className="text-slate-400 text-base italic mb-10 leading-relaxed">Subject matter experts to maintain the highest standards of academic rigor and integrity.</p>
+                    <a href="#" className="inline-block bg-emerald-600 px-12 py-4 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-emerald-600 transition-colors">Apply Now</a>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#020617] text-white pt-24 pb-16 px-6 border-t border-white/5">
+        <div className="container mx-auto max-w-7xl">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24 mb-20">
+                <div className="md:col-span-6">
+                    <div className="flex items-center gap-4 mb-8">
+                        <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" className="h-12 brightness-0 invert opacity-90" alt="Logo" />
+                        <span className="text-2xl font-bold uppercase tracking-widest">Panorama</span>
+                    </div>
+                    <p className="text-[#A51C30] text-[11px] font-black uppercase tracking-[0.4em] mb-8 italic">Empowering Academic Excellence</p>
+                    <p className="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
+                        Rooted in Berlin, Impacting Global Academia. We focus on tackling the most pressing challenges facing contemporary society through forward-looking scientific research.
+                    </p>
+                </div>
+
+                <div className="md:col-span-3">
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-500 mb-10">Headquarters</h4>
+                    <div className="border-l-2 border-[#A51C30] pl-6">
+                        <p className="text-[10px] font-bold text-[#A51C30] uppercase tracking-widest mb-3">Office Location</p>
+                        <p className="text-sm italic font-light text-slate-300 leading-loose">
+                            Berlin, Germany <br />
+                            European Publishing Center
+                        </p>
+                    </div>
+                </div>
+
+                <div className="md:col-span-3">
+                    <h4 className="text-[11px] font-black uppercase tracking-[0.4em] text-slate-500 mb-10">Quick Links</h4>
+                    <ul className="space-y-5">
+                        <li><a href="#journals" className="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#A51C30] transition-colors">Our Journals</a></li>
+                        <li><a href="#" className="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#A51C30] transition-colors">Publication Ethics</a></li>
+                        <li><a href="#" className="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#A51C30] transition-colors">Open Access Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="h-[1px] w-full bg-white/5 mt-16 mb-12"></div>
+
+            <div className="flex flex-col md:flex-row justify-between items-center text-[10px] tracking-[0.2em] text-slate-500 uppercase font-bold leading-relaxed gap-6 text-center md:text-left">
+                <div className="max-w-3xl">
+                    Copyright © 2025-2026 Panorama Scholarly Group.<br />
+                    <span className="opacity-60 mt-2 block normal-case tracking-normal">All rights reserved. Powered by Cloudflare & GitHub.</span>
+                </div>
+                <div className="text-slate-400 flex items-center gap-6">
+                    <span>ACADEMIC RIGOR</span>
+                    <span className="text-[#A51C30]">•</span>
+                    <span>GLOBAL INNOVATION</span>
+                </div>
+            </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
