@@ -249,7 +249,7 @@
         </div>
     </div>
 
-    <!-- Main Header (Submit Button Removed) -->
+    <!-- Main Header -->
     <header class="bg-white/95 backdrop-blur-md py-6 border-b border-slate-50 sticky top-0 z-40 shadow-sm">
         <div class="container mx-auto px-8 flex justify-between items-center">
             <div class="flex items-center gap-5 group cursor-pointer">
@@ -263,7 +263,6 @@
                 <a href="https://grhas.centraluniteduniversity.de/index.php/index/login" class="flex items-center gap-2 px-7 py-3 text-[11px] font-black tracking-widest text-slate-900 border-2 border-slate-100 hover:border-[#020617] hover:bg-[#020617] hover:text-white transition-all uppercase rounded-sm">
                     <i class="fas fa-user-circle"></i> Login
                 </a>
-                <!-- Submit Manuscript Button removed as per request -->
             </div>
         </div>
     </header>
@@ -324,7 +323,7 @@
                     <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-6 block">Institutional Ethos</span>
                     <h2 class="serif-brand text-6xl font-bold uppercase text-slate-950 leading-[1.1] mb-12">Academic Integrity & <br> <span class="text-[#A51C30]">Global Excellence</span></h2>
                     <p class="text-slate-600 text-lg leading-relaxed mb-14 italic font-light border-l-4 border-slate-100 pl-8">
-                        PSG implements a "Dual-Hub" strategy—with Berlin as the Academic Research Center and Hong Kong as the Operations Center to facilitate global dissemination.
+                        PSG implements a "Dual-Hub" strategy—with Berlin as the Academic Research Center to ensure high standards and Hong Kong as the Operations Center to facilitate global dissemination.
                     </p>
                     <a href="#" class="inline-block bg-[#A51C30] text-white px-14 py-5 text-[12px] font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-colors shadow-xl">Institutional Profile</a>
                 </div>
@@ -435,7 +434,7 @@
             <div class="grid grid-cols-2 gap-12 max-w-6xl mx-auto text-left">
                 <div class="join-card p-16 rounded-lg flex flex-col items-start">
                     <h4 class="text-3xl font-bold serif-brand uppercase mb-6 text-[#A51C30]">Editorial Board</h4>
-                    <p class="text-slate-400 italic text-lg leading-relaxed mb-12">Distinguished scholars to lead journal strategy and curate high-impact special issues.</p>
+                    <p class="text-slate-400 italic text-lg leading-relaxed mb-12">Seeking distinguished scholars to lead journal strategy and curate high-impact special issues.</p>
                     <a href="mailto:contact@panorama-sg.com" class="bg-[#A51C30] text-white px-12 py-5 text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Apply to Board</a>
                 </div>
                 <div class="join-card p-16 rounded-lg flex flex-col items-start">
@@ -449,7 +448,7 @@
 
     <!-- Footer -->
     <footer class="bg-[#020617] text-white pt-32 pb-16 px-8 border-t border-white/5">
-        <div class="container mx-auto max-w-7xl">
+        <div class="container mx-auto max-w-7xl text-center md:text-left">
             <div class="grid grid-cols-12 gap-24 mb-24">
                 <div class="col-span-6">
                     <div class="flex items-center gap-5 mb-10"><img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" class="h-14 brightness-0 invert opacity-90"><span class="text-3xl font-bold uppercase tracking-widest serif-brand">Panorama</span></div>
@@ -459,7 +458,7 @@
                     <h4 class="text-[11px] font-black uppercase tracking-[0.5em] text-slate-500 mb-12">Dual-Hub HQ</h4>
                     <div class="space-y-6 border-l-2 border-[#A51C30] pl-6 text-sm italic font-light text-slate-300">
                         <p>Academic HQ: Berlin, Germany</p>
-                        <p>Operations: Hong Kong, China</p>
+                        <p>Operations Center: Hong Kong, China</p>
                     </div>
                 </div>
                 <div class="col-span-3 pt-4">
@@ -467,7 +466,7 @@
                     <ul class="space-y-6 text-xs uppercase tracking-widest italic text-slate-400">
                         <li><a href="#journals" class="hover:text-[#A51C30]">Our Journals</a></li>
                         <li><a href="#" class="hover:text-[#A51C30]">Ethics</a></li>
-                        <li><a href="#" class="hover:text-[#A51C30]">Open Access</a></li>
+                        <li><a href="#" class="hover:text-[#A51C30]">Open Access Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -480,21 +479,24 @@
 
     <script>
         const JOURNALS = [
-            { id: 'AFS', title: 'AI & Future Society', cat: 'Artificial Intelligence', issn: '3053-4011', freq: 'Bi-Annual', img: 'AI%20%26%20Future%20Society.png', desc: 'Exploring the profound impact of AI on social governance, ethics, and legal systems.' },
-            { id: 'CSSR', title: 'Computational Social Sciences Review', cat: 'Data Science', issn: 'Pending', freq: 'Quarterly', img: 'cssr.png', desc: 'Integrating machine learning with big data analytics to reveal dynamics of digital societies.' },
-            { id: 'GRHAS', title: 'Global Review of Humanities, Arts, and Society', cat: 'Humanities', issn: '3052-539X', freq: 'Bi-Monthly', img: 'grhas.png', desc: 'Advancing interdisciplinary research globally.' },
-            { id: 'HN', title: 'Health Nexus', cat: 'Integrative Medicine', issn: '3053-7037', freq: 'Annual', img: 'Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png', desc: 'Bridging modern and traditional medicine for interdisciplinary health research.' },
-            { id: 'IRELS', title: 'Intl Review of Education & Learning Sciences', cat: 'Education', issn: 'Pending', freq: 'Bi-Annual', img: 'IRELS.png', desc: 'Investigating learning mechanism innovations in global education systems.' },
-            { id: 'JESA', title: 'Journal of Engineering Systems & Applications', cat: 'Engineering', issn: '3053-478X', freq: 'Annual', img: 'JESA.png', desc: 'Focusing on integrated applications of engineering systems.' },
-            { id: 'JLPCS', title: 'Journal of Law, Psychology, & Communication', cat: 'Law & Psychology', issn: '3052-9654', freq: 'Bi-Annual', img: 'JLPCS.png', desc: 'Studying the interaction between legal processes and psychological factors.' },
-            { id: 'PEMR', title: 'PoliEcoM Administration Review', cat: 'Public Policy', issn: '3053-3597', freq: 'Bi-Annual', img: 'REMR.png', desc: 'Fostering global dialogue on public policy and institutional governance.' },
-            { id: 'Res', title: 'Resonance: Global Music Studies', cat: 'Musicology', issn: '3053-4410', freq: 'Bi-Annual', img: 'Resonance.png', desc: 'Dedicated to cross-cultural music studies and acoustic heritage.' },
-            { id: 'RGGD', title: 'Rural Governance & Green Development', cat: 'Environment', issn: '3053-7282', freq: 'Annual', img: 'Rural%20Governance%20and%20Green%20Development.png', desc: 'Sustainable rural development governance and policies.' },
-            { id: 'TTS', title: 'Three Teachings Studies', cat: 'Philosophy', issn: '3053-6553', freq: 'Annual', img: 'tts.png', desc: 'Confucianism, Daoism, and Buddhism in East Asian contexts.' }
+            { id: 'AFS', title: 'AI & Future Society', cat: 'Artificial Intelligence', issn: '3053-4011', freq: 'Bi-Annual', img: 'AI%20%26%20Future%20Society.png', desc: 'Exploring the profound impact of AI on social governance, ethics, and legal systems.', slug: 'AFS' },
+            { id: 'CSSR', title: 'Computational Social Sciences Review', cat: 'Data Science', issn: 'Pending', freq: 'Quarterly', img: 'cssr.png', desc: 'Integrating machine learning with big data analytics to reveal dynamics of digital societies.', slug: 'cssr' },
+            { id: 'GRHAS', title: 'Global Review of Humanities, Arts, and Society', cat: 'Humanities', issn: '3052-539X', freq: 'Bi-Monthly', img: 'grhas.png', desc: 'Advancing interdisciplinary research globally.', slug: 'files' },
+            { id: 'HN', title: 'Health Nexus', cat: 'Integrative Medicine', issn: '3053-7037', freq: 'Annual', img: 'Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png', desc: 'Bridging modern and traditional medicine for interdisciplinary health research.', slug: 'HealthNexus' },
+            { id: 'IRELS', title: 'Intl Review of Education & Learning Sciences', cat: 'Education', issn: 'Pending', freq: 'Bi-Annual', img: 'IRELS.png', desc: 'Investigating learning mechanism innovations in global education systems.', slug: 'IRELS' },
+            { id: 'JESA', title: 'Journal of Engineering Systems & Applications', cat: 'Engineering', issn: '3053-478X', freq: 'Annual', img: 'JESA.png', desc: 'Focusing on integrated applications of engineering systems.', slug: 'JESA' },
+            { id: 'JLPCS', title: 'Journal of Law, Psychology, & Communication', cat: 'Law & Psychology', issn: '3052-9654', freq: 'Bi-Annual', img: 'JLPCS.png', desc: 'Studying the interaction between legal processes and psychological factors.', slug: 'JLPCS' },
+            { id: 'PEMR', title: 'PoliEcoM Administration Review', cat: 'Public Policy', issn: '3053-3597', freq: 'Bi-Annual', img: 'REMR.png', desc: 'Fostering global dialogue on public policy and institutional governance.', slug: 'PEMR' },
+            { id: 'Res', title: 'Resonance: Global Music Studies', cat: 'Musicology', issn: '3053-4410', freq: 'Bi-Annual', img: 'Resonance.png', desc: 'Dedicated to cross-cultural music studies and acoustic heritage.', slug: 'Resonance' },
+            { id: 'RGGD', title: 'Rural Governance & Green Development', cat: 'Environment', issn: '3053-7282', freq: 'Annual', img: 'Rural%20Governance%20and%20Green%20Development.png', desc: 'Sustainable rural development governance and policies.', slug: 'RGGD' },
+            { id: 'TTS', title: 'Three Teachings Studies', cat: 'Philosophy', issn: '3053-6553', freq: 'Annual', img: 'tts.png', desc: 'Confucianism, Daoism, and Buddhism in East Asian contexts.', slug: 'tts' }
         ];
 
         const container = document.getElementById('journal-container');
         JOURNALS.forEach(j => {
+            const portalUrl = `https://grhas.centraluniteduniversity.de/index.php/${j.slug}`;
+            const submissionUrl = `${portalUrl}/submission`;
+            
             const card = document.createElement('div');
             card.className = 'glass-card p-8 flex flex-col h-full perspective-1000';
             card.innerHTML = `
@@ -505,8 +507,8 @@
                     <div class="flex justify-center items-center gap-4 mb-6 text-[10px] font-bold text-slate-400 uppercase"><span>ISSN: ${j.issn}</span><span class="w-1 h-1 bg-slate-200 rounded-full"></span><span>${j.freq}</span></div>
                     <p class="text-[13px] text-slate-600 italic mb-10 leading-relaxed line-clamp-3">${j.desc}</p>
                     <div class="mt-auto grid grid-cols-2 gap-4">
-                        <a href="#" class="bg-[#020617] text-white py-4 text-[10px] font-black tracking-widest uppercase hover:bg-[#A51C30] transition-colors rounded-lg shadow-md">Portal</a>
-                        <a href="#" class="border border-slate-200 bg-white/50 text-slate-900 py-4 text-[10px] font-black uppercase tracking-widest hover:bg-white transition-all rounded-lg">Submit</a>
+                        <a href="${portalUrl}" class="bg-[#020617] text-white py-4 text-[10px] font-black tracking-widest uppercase hover:bg-[#A51C30] transition-colors rounded-lg shadow-md">Portal</a>
+                        <a href="${submissionUrl}" class="border border-slate-200 bg-white/50 text-slate-900 py-4 text-[10px] font-black tracking-widest uppercase hover:bg-white transition-all rounded-lg">Submit</a>
                     </div>
                 </div>
             `;
