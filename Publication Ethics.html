@@ -214,19 +214,7 @@
                 </div>
             </div>
 
-            <!-- Reviewers -->
-            <div id="reviewers" class="policy-section">
-                <h3 class="policy-title"><i class="fas fa-search"></i> Duties of Reviewers</h3>
-                <div class="text-sm text-slate-600 leading-7 space-y-4">
-                    <p><strong>Contribution to Editorial Decisions:</strong> Peer review assists the editor in making editorial decisions and through the editorial communications with the author may also assist the author in improving the paper.</p>
-                    <p><strong>Promptness:</strong> Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and excuse himself from the review process.</p>
-                    <p><strong>Confidentiality:</strong> Any manuscripts received for review must be treated as confidential documents. They must not be shown to or discussed with others except as authorized by the editor.</p>
-                    <p><strong>Standards of Objectivity:</strong> Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.</p>
-                    <p><strong>Acknowledgement of Sources:</strong> Reviewers should identify relevant published work that has not been cited by the authors. Any statement that an observation, derivation, or argument had been previously reported should be accompanied by the relevant citation.</p>
-                </div>
-            </div>
-
-            <!-- Authors -->
+            <!-- Authors (Swapped Position) -->
             <div id="authors" class="policy-section">
                 <h3 class="policy-title"><i class="fas fa-pen-nib"></i> Duties of Authors</h3>
                 <div class="text-sm text-slate-600 leading-7 space-y-4">
@@ -235,6 +223,18 @@
                     <p><strong>Originality and Plagiarism:</strong> The authors should ensure that they have written entirely original works, and if the authors have used the work and/or words of others, that this has been appropriately cited or quoted. PSG utilizes strict plagiarism detection software.</p>
                     <p><strong>Multiple, Redundant or Concurrent Publication:</strong> An author should not in general publish manuscripts describing essentially the same research in more than one journal or primary publication.</p>
                     <p><strong>Authorship of the Paper:</strong> Authorship should be limited to those who have made a significant contribution to the conception, design, execution, or interpretation of the reported study.</p>
+                </div>
+            </div>
+
+            <!-- Reviewers (Swapped Position) -->
+            <div id="reviewers" class="policy-section">
+                <h3 class="policy-title"><i class="fas fa-search"></i> Duties of Reviewers</h3>
+                <div class="text-sm text-slate-600 leading-7 space-y-4">
+                    <p><strong>Contribution to Editorial Decisions:</strong> Peer review assists the editor in making editorial decisions and through the editorial communications with the author may also assist the author in improving the paper.</p>
+                    <p><strong>Promptness:</strong> Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and excuse himself from the review process.</p>
+                    <p><strong>Confidentiality:</strong> Any manuscripts received for review must be treated as confidential documents. They must not be shown to or discussed with others except as authorized by the editor.</p>
+                    <p><strong>Standards of Objectivity:</strong> Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.</p>
+                    <p><strong>Acknowledgement of Sources:</strong> Reviewers should identify relevant published work that has not been cited by the authors. Any statement that an observation, derivation, or argument had been previously reported should be accompanied by the relevant citation.</p>
                 </div>
             </div>
 
@@ -259,7 +259,7 @@
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-24">
                 <div class="lg:col-span-6">
-                    <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" class="h-14 brightness-0 invert opacity-90 mb-12" alt="PSG Inverted Logo">
+                    <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" class="h-10 w-auto">
                     <h3 class="text-3xl font-bold uppercase tracking-[0.2em] text-white mb-4 serif-brand">Panorama Scholarly Group</h3>
                     <p class="text-[#A51C30] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
                     <p class="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
@@ -284,7 +284,7 @@
                     <ul class="space-y-6">
                         <li><a href="index.html#journals" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Our Journals</a></li>
                         <li><a href="ethics.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Publication Ethics</a></li>
-                        <li><a href="#" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Open Access Policy</a></li>
+                        <li><a href="Open Access Policy.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Open Access Policy</a></li>
                     </ul>
                 </div>
             </div>
@@ -299,7 +299,7 @@
     <script>
         // Update Side Nav Active State on Scroll
         window.addEventListener('scroll', () => {
-            const sections = ['statement', 'editors', 'reviewers', 'authors'];
+            const sections = ['statement', 'editors', 'authors', 'reviewers'];
             let currentSection = '';
             
             sections.forEach(section => {
