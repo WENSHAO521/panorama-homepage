@@ -387,33 +387,46 @@
         </div>
     </section>
 
-    <section id="impact" class="py-24 bg-[#020617] text-white">
-        <div class="container mx-auto px-8 max-w-7xl flex gap-24 items-center">
-            <div class="w-1/3 text-left">
+<section id="impact" class="py-32 bg-[#020617] text-white">
+        <div class="container mx-auto px-8 max-w-7xl flex flex-col lg:flex-row gap-24 items-center">
+            <div class="lg:w-1/3 text-left">
                 <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase block mb-6">Bibliometric Footprint</span>
                 <h2 class="serif-brand text-5xl font-bold uppercase leading-none">Impact Metrics</h2>
                 <div class="h-1.5 w-20 bg-[#A51C30] mt-10"></div>
+                <p class="mt-8 text-slate-500 text-sm italic">Click metrics for real-time verification.</p>
             </div>
             
-            <div class="w-2/3 grid grid-cols-4 gap-8">
-                <div class="group p-10 border border-white/5 bg-white/[0.02] text-center hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-500 cursor-default">
-                    <p class="text-5xl font-black mb-4 italic text-blue-400 group-hover:scale-110 transition-transform duration-500">120+</p>
-                    <p class="text-[10px] text-slate-500 group-hover:text-blue-300 uppercase tracking-widest font-bold transition-colors">Articles</p>
+            <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-blue-400 transition-all duration-500">120+</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Articles</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-blue-500/50 transition-all duration-700"></div>
                 </div>
 
-                <div class="group p-10 border border-white/5 bg-white/[0.02] text-center hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all duration-500 cursor-default">
-                    <p class="text-5xl font-black mb-4 italic text-emerald-400 group-hover:scale-110 transition-transform duration-500">180+</p>
-                    <p class="text-[10px] text-slate-500 group-hover:text-emerald-300 uppercase tracking-widest font-bold transition-colors">Citations</p>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-emerald-400 transition-all duration-500">180+</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Citations</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-emerald-500/50 transition-all duration-700"></div>
                 </div>
 
-                <div class="group p-10 border border-white/5 bg-white/[0.02] text-center hover:bg-amber-500/10 hover:border-amber-500/50 transition-all duration-500 cursor-default">
-                    <p class="text-5xl font-black mb-4 italic text-amber-400 group-hover:scale-110 transition-transform duration-500">25k+</p>
-                    <p class="text-[10px] text-slate-500 group-hover:text-amber-300 uppercase tracking-widest font-bold transition-colors">Reads</p>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-amber-400 transition-all duration-500">25k+</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Reads</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-amber-500/50 transition-all duration-700"></div>
                 </div>
 
-                <div class="group p-10 border border-white/5 bg-white/[0.02] text-center hover:bg-[#A51C30]/10 hover:border-[#A51C30]/50 transition-all duration-500 cursor-default">
-                    <p class="text-5xl font-black mb-4 italic text-[#A51C30] group-hover:scale-110 transition-transform duration-500">100%</p>
-                    <p class="text-[10px] text-slate-500 group-hover:text-rose-300 uppercase tracking-widest font-bold transition-colors">Ethics</p>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#A51C30] transition-all duration-500">100%</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Ethics</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#A51C30]/50 transition-all duration-700"></div>
                 </div>
             </div>
         </div>
