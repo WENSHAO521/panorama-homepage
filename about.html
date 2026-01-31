@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>About Us | Panorama Scholarly Group - Leading Global Academic Publisher</title>
-    <!-- Favicon 放置位置 -->
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png">  
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -21,7 +23,7 @@
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0f172a; margin: 0; }
         .serif-brand { font-family: 'Crimson Pro', serif; }
         
-        /* --- 側邊導航：膠囊式展開 (Side Nav Upgraded) --- */
+        /* --- 側邊導航：膠囊式展開 --- */
         .side-nav {
             position: fixed;
             right: 32px;
@@ -37,7 +39,7 @@
         .side-nav-item {
             height: 44px;
             min-width: 44px;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(12px);
             color: white;
             display: flex;
@@ -48,7 +50,7 @@
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             padding: 0 13px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             white-space: nowrap;
         }
@@ -65,10 +67,9 @@
             transition: all 0.4s ease;
         }
 
-        /* 懸停或活動狀態：展開成膠囊形狀 */
         .side-nav-item:hover, .side-nav-item.active {
             background: var(--harvard-red);
-            padding: 0 20px;
+            padding: 0 24px;
             box-shadow: 0 8px 25px rgba(165, 28, 48, 0.4);
             transform: translateX(-5px);
         }
@@ -86,35 +87,40 @@
 
         /* Banner Design */
         .about-banner {
-            position: relative; height: 55vh; min-height: 500px; overflow: hidden;
+            position: relative; height: 60vh; min-height: 550px; overflow: hidden;
             background: #010409; display: flex; align-items: center;
         }
         .banner-bg {
             position: absolute; inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1491843351663-8cd89363244b?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover; background-position: center; opacity: 0.3;
+            /* 更換為穩定的古典圖書館圖片 */
+            background-image: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center; opacity: 0.35;
+            transform: scale(1.1); transition: transform 15s linear;
         }
-        .banner-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.8) 40%, rgba(2, 6, 23, 0.4) 100%); z-index: 2; }
+        .about-banner:hover .banner-bg { transform: scale(1.0); }
+        .banner-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.85) 40%, rgba(2, 6, 23, 0.5) 100%); z-index: 2; }
         .banner-content { position: relative; z-index: 3; }
 
         /* Card Effects */
-        .value-card { border: 1px solid #f1f5f9; transition: all 0.5s ease; background: #fff; display: flex; flex-direction: column; overflow: hidden; }
-        .value-card:hover { transform: translateY(-5px); border-color: var(--harvard-red); box-shadow: 0 20px 40px rgba(165, 28, 48, 0.1); }
-        .value-card .img-container { height: 260px; overflow: hidden; background: #000; }
-        .value-card img { height: 100%; width: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.7); transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .value-card { border: 1px solid #f1f5f9; transition: all 0.5s ease; background: #fff; display: flex; flex-direction: column; overflow: hidden; border-radius: 4px; }
+        .value-card:hover { transform: translateY(-8px); border-color: var(--harvard-red); box-shadow: 0 25px 50px rgba(165, 28, 48, 0.1); }
+        .value-card .img-container { height: 280px; overflow: hidden; background: #000; }
+        .value-card img { height: 100%; width: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.8); transition: 1s cubic-bezier(0.4, 0, 0.2, 1); }
         .value-card:hover img { transform: scale(1.1); filter: grayscale(0%) brightness(1); }
         
-        .scope-grid-item { padding: 2rem; border: 1px solid #f1f5f9; background: #fff; transition: all 0.3s; border-left: 4px solid transparent; display: flex; flex-direction: column; gap: 1rem; }
-        .scope-grid-item:hover { border-left-color: var(--harvard-red); background: #fdfdfd; transform: translateX(5px); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
-        .scope-img-small { width: 100%; height: 140px; object-fit: cover; border-radius: 2px; margin-bottom: 0.5rem; filter: grayscale(100%) contrast(1.1); transition: 0.5s; }
+        .scope-grid-item { padding: 2.2rem; border: 1px solid #f1f5f9; background: #fff; transition: all 0.3s; border-left: 4px solid transparent; display: flex; flex-direction: column; gap: 1.2rem; }
+        .scope-grid-item:hover { border-left-color: var(--harvard-red); background: #fdfdfd; transform: translateX(8px); box-shadow: 0 15px 35px rgba(0,0,0,0.03); }
+        .scope-img-small { width: 100%; height: 160px; object-fit: cover; border-radius: 2px; filter: grayscale(100%) contrast(1.1); transition: 0.6s; background: #f1f5f9; }
         .scope-grid-item:hover .scope-img-small { filter: grayscale(0%); }
 
-        /* Principles Badge - Fixed White Circle Issue */
+        /* Principles Badge */
         .integrity-badge {
-            background: #020617;
-            padding: 3rem;
+            background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.95)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            padding: 3.5rem;
             border-left: 8px solid var(--harvard-red);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
             position: relative;
             overflow: hidden;
         }
@@ -127,19 +133,20 @@
             font-weight: 900;
             color: rgba(255,255,255,0.03);
             font-style: italic;
+            pointer-events: none;
         }
 
         /* Ethics Section */
-        .ethic-section { background: #010409; color: #fff; padding: 7rem 0; }
-        .ethic-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); padding: 2.5rem; transition: 0.3s; border-radius: 4px; }
-        .ethic-card:hover { background: rgba(255,255,255,0.04); border-color: var(--harvard-red); }
+        .ethic-section { background: #010409; color: #fff; padding: 8rem 0; }
+        .ethic-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 2.5rem; transition: 0.3s; border-radius: 4px; }
+        .ethic-card:hover { background: rgba(255,255,255,0.05); border-color: var(--harvard-red); transform: scale(1.02); }
 
         a.brand-hover:hover { color: var(--harvard-red); transition: 0.3s; }
     </style>
 </head>
 <body>
 
-    <!-- 膠囊式側邊導航 -->
+    <!-- 側邊導航 -->
     <nav class="side-nav">
         <a href="index.html" class="side-nav-item active"><i class="fas fa-home"></i><span class="side-nav-text">Home</span></a>
         <a href="#principles" class="side-nav-item"><i class="fas fa-eye"></i><span class="side-nav-text">Principles</span></a>
@@ -159,16 +166,16 @@
         </div>
     </div>
 
-    <!-- Header (No Submit Button) -->
-    <header class="bg-white py-8 border-b border-slate-50 sticky top-0 z-50 shadow-sm">
+    <!-- Header -->
+    <header class="bg-white py-6 border-b border-slate-50 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-start md:items-center">
-            <div class="flex items-center gap-5 group cursor-pointer">
-                <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" class="h-10 w-auto">
+            <a href="index.html" class="flex items-center gap-5 group cursor-pointer">
+                <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="PSG Logo" class="h-12 w-auto transition-transform group-hover:scale-105">
                 <div class="border-l-2 border-slate-100 pl-5">
-                    <h1 class="text-3xl font-bold tracking-tighter serif-brand uppercase text-slate-950 leading-none">Panorama</h1>
+                    <h1 class="text-3xl font-bold tracking-tighter serif-brand uppercase text-slate-950 leading-none group-hover:text-[#A51C30] transition-colors">Panorama</h1>
                     <span class="text-[9px] font-black text-slate-400 tracking-[0.5em] uppercase mt-1 block">Scholarly Group</span>
                 </div>
-            </div>
+            </a>
             <nav class="hidden md:flex gap-12 mt-6 md:mt-0">
                 <a href="index.html" class="text-[11px] font-black uppercase tracking-widest hover:text-[#A51C30] transition-colors">Home</a>
                 <a href="index.html#journals" class="text-[11px] font-black uppercase tracking-widest hover:text-[#A51C30] transition-colors">Journals</a>
@@ -187,7 +194,7 @@
                     <span class="bg-[#A51C30] px-4 py-1 text-[10px] font-black uppercase tracking-widest">ABOUT PSG</span>
                     <span class="text-rose-400 font-bold tracking-[0.5em] uppercase text-[10px] italic">Institutional Profile</span>
                 </div>
-                <h1 class="text-6xl md:text-8xl font-bold mb-10 leading-[1] serif-brand uppercase tracking-tighter">
+                <h1 class="text-6xl md:text-8xl font-bold mb-10 leading-[1.1] serif-brand uppercase tracking-tighter">
                     Advancing Discovery <br><span class="gradient-text italic decoration-4">Shaping Horizons</span>
                 </h1>
                 <p class="text-xl md:text-2xl font-light max-w-3xl opacity-90 italic border-l-4 border-[#A51C30] pl-10 leading-relaxed font-serif">
@@ -197,28 +204,27 @@
         </div>
     </section>
 
-    <!-- Principles & Badge Fix -->
-    <section id="principles" class="py-28 bg-white">
+    <!-- Principles -->
+    <section id="principles" class="py-32 bg-white">
         <div class="container mx-auto px-8 max-w-7xl">
-            <div class="grid lg:grid-cols-12 gap-20 items-center">
+            <div class="grid lg:grid-cols-12 gap-24 items-center">
                 <div class="lg:col-span-7">
-                    <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-5 block">Global Mandate</span>
-                    <h2 class="serif-brand text-5xl font-bold uppercase text-slate-950 leading-tight">A Visionary Scientific <br>Infrastructure</h2>
+                    <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-5 block">Strategic Mandate</span>
+                    <h2 class="serif-brand text-5xl font-bold uppercase text-slate-950 leading-tight">A Visionary Global <br>Scholarly Infrastructure</h2>
                     <div class="title-underline"></div>
                     <p class="mt-10 text-slate-600 italic mb-12 leading-relaxed text-lg border-l-2 border-slate-100 pl-8">
                         Panorama Scholarly Group (PSG) bridges traditional European academic rigor with the dynamic operational efficiency of the Asian Pacific.
                     </p>
                     <div class="space-y-8 text-slate-600 text-base leading-loose font-light">
                         <p>Established with Academic Headquarters in <strong>Berlin, Germany</strong> and Operations Center in <strong>Hong Kong</strong>, PSG serves as a strategic catalyst for scholarly progress. We focus on bridging the gap between theoretical excellence and real-world societal transformation.</p>
-                        <p>Our commitment to <strong>Radical Openness</strong> ensures that groundbreaking inquiry is freely accessible to a global audience.</p>
+                        <p>Our commitment to <strong>Radical Openness</strong> ensures that groundbreaking inquiry is freely accessible to a global audience, accelerating innovation across boundaries.</p>
                     </div>
                 </div>
                 <div class="lg:col-span-5">
-                    <!-- Fixed Badge: Removed white circle, using clean typography -->
                     <div class="integrity-badge">
                         <h4 class="text-white font-bold uppercase text-sm mb-8 italic tracking-widest underline underline-offset-8">Dual-Hub Strategic Infrastructure</h4>
                         <p class="text-slate-400 text-sm leading-relaxed italic mb-10">
-                            Academic HQ: Berlin | Operations: Hong Kong. A global ecosystem of scholarly integrity.
+                            Ensuring rigorous academic oversight from Berlin while maintaining global distribution efficiency from Hong Kong.
                         </p>
                         <div class="grid grid-cols-2 gap-10">
                             <div class="border-r border-white/10 pr-6">
@@ -237,38 +243,41 @@
     </section>
 
     <!-- Values -->
-    <section id="values" class="py-28 bg-slate-50">
+    <section id="values" class="py-32 bg-slate-50">
         <div class="container mx-auto px-8 max-w-7xl text-center">
             <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-4 block">Institutional Pillars</span>
             <h2 class="serif-brand text-5xl font-bold uppercase text-slate-950">Fundamental Values</h2>
             <div class="title-underline mx-auto"></div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20">
                 <div class="value-card group">
                     <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800" alt="Academic Rigor">
+                        <!-- Updated: Research Books -->
+                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800" alt="Academic Rigor">
                     </div>
-                    <div class="p-10">
+                    <div class="p-12 text-left">
                         <h4 class="font-bold uppercase text-sm text-slate-950 mb-5 tracking-[0.2em] border-b border-rose-100 pb-3">Academic Rigor</h4>
-                        <p class="text-slate-500 text-[13px] leading-relaxed italic font-light">Maintaining uncompromising standards in double-blind peer-review, ensuring only significant novelty reaches the global stage.</p>
+                        <p class="text-slate-500 text-[13px] leading-relaxed italic font-light">Implementing stringent double-blind peer-review to safeguard scientific integrity and empirical validity.</p>
                     </div>
                 </div>
                 <div class="value-card group">
                     <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=800" alt="Global Dissemination">
+                        <!-- Updated: Global Network -->
+                        <img src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?auto=format&fit=crop&q=80&w=800" alt="Global Impact">
                     </div>
-                    <div class="p-10">
-                        <h4 class="font-bold uppercase text-sm text-slate-950 mb-5 tracking-[0.2em] border-b border-rose-100 pb-3">Global Discovery</h4>
-                        <p class="text-slate-500 text-[13px] leading-relaxed italic font-light">Leveraging Open Access to dismantle financial barriers, fostering a truly equitable global research community.</p>
+                    <div class="p-12 text-left">
+                        <h4 class="font-bold uppercase text-sm text-slate-950 mb-5 tracking-[0.2em] border-b border-rose-100 pb-3">Global Impact</h4>
+                        <p class="text-slate-500 text-[13px] leading-relaxed italic font-light">Fostering a truly equitable research community by providing universal, barrier-free access to knowledge.</p>
                     </div>
                 </div>
                 <div class="value-card group">
                     <div class="img-container">
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Collaboration">
+                        <!-- Updated: Team Collaboration -->
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Interdisciplinary">
                     </div>
-                    <div class="p-10">
+                    <div class="p-12 text-left">
                         <h4 class="font-bold uppercase text-sm text-slate-950 mb-5 tracking-[0.2em] border-b border-rose-100 pb-3">Interdisciplinary</h4>
-                        <p class="text-slate-500 text-[13px] leading-relaxed italic font-light">Bridging specialized domains through cross-disciplinary dialogue to address the complex challenges of society.</p>
+                        <p class="text-slate-500 text-[13px] leading-relaxed italic font-light">Bridging specialized domains through sophisticated cross-disciplinary dialogue and analysis.</p>
                     </div>
                 </div>
             </div>
@@ -276,50 +285,55 @@
     </section>
 
     <!-- Influence -->
-    <section id="influence" class="py-28 bg-white">
+    <section id="influence" class="py-32 bg-white">
         <div class="container mx-auto px-8 max-w-7xl">
-            <div class="flex justify-between items-end mb-20">
-                <div class="max-w-2xl">
+            <div class="flex justify-between items-end mb-24">
+                <div class="max-w-2xl text-left">
                     <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-4 block">Our Impact</span>
-                    <h2 class="serif-brand text-5xl font-bold uppercase text-slate-950">Scholarly Influence</h2>
+                    <h2 class="serif-brand text-5xl font-bold uppercase text-slate-950 leading-tight">Research Domains</h2>
                     <div class="title-underline"></div>
                 </div>
                 <p class="text-slate-400 italic text-lg max-w-sm text-right leading-relaxed font-light">
-                    Providing a home for high-impact research across key scientific frontiers.
+                    Promoting high-impact inquiry across the most critical scientific frontiers.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <div class="scope-grid-item">
-                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Tech">
+                    <!-- Updated: Tech Abstract -->
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="AI Research">
                     <h5 class="font-black text-[12px] uppercase text-slate-950 tracking-widest">Digital Society & AI</h5>
                     <p class="text-[11px] text-slate-500 leading-relaxed italic">Ethics and governance frameworks for the algorithmic age.</p>
                 </div>
                 <div class="scope-grid-item">
-                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Urban">
+                    <!-- Updated: Modern Architecture -->
+                    <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Urban Governance">
                     <h5 class="font-black text-[12px] uppercase text-slate-950 tracking-widest">Urban Governance</h5>
                     <p class="text-[11px] text-slate-500 leading-relaxed italic">Analyzing smart infrastructure and sustainable urban shifts.</p>
                 </div>
                 <div class="scope-grid-item">
-                    <img src="https://images.unsplash.com/photo-1554941068-a252680d25d9?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Arts">
+                    <!-- Updated: Sculpture/Art -->
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Humanities">
                     <h5 class="font-black text-[12px] uppercase text-slate-950 tracking-widest">Humanities & Art</h5>
                     <p class="text-[11px] text-slate-500 leading-relaxed italic">Critical aesthetic theories and cultural evolution.</p>
                 </div>
                 <div class="scope-grid-item">
-                    <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Law">
+                    <!-- Updated: Law Books/Gavel -->
+                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Law Research">
                     <h5 class="font-black text-[12px] uppercase text-slate-950 tracking-widest">Law & Economics</h5>
                     <p class="text-[11px] text-slate-500 leading-relaxed italic">International trade structures and legal adaptations.</p>
                 </div>
-                <!-- Fixed Medical Research Image -->
                 <div class="scope-grid-item">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Medical">
+                    <!-- Updated: Medical Lab (Stable URL) -->
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Medical Lab">
                     <h5 class="font-black text-[12px] uppercase text-slate-950 tracking-widest">Medical Research</h5>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic">Integrative health systems and digital medical innovations.</p>
+                    <p class="text-[11px] text-slate-500 leading-relaxed italic">Integrative health systems and digital medical technology innovations.</p>
                 </div>
                 <div class="scope-grid-item">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Education">
+                    <!-- Updated: Education/Library -->
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800" class="scope-img-small" alt="Education Sciences">
                     <h5 class="font-black text-[12px] uppercase text-slate-950 tracking-widest">Education Sciences</h5>
-                    <p class="text-[11px] text-slate-500 leading-relaxed italic">Investigating global educational paradigms and innovation.</p>
+                    <p class="text-[11px] text-slate-500 leading-relaxed italic">Investigating global educational paradigms and learning mechanism innovations.</p>
                 </div>
             </div>
         </div>
@@ -327,9 +341,9 @@
 
     <!-- Ethics Section -->
     <section id="ethics" class="ethic-section overflow-hidden">
-        <div class="container mx-auto px-8 max-w-7xl">
-            <div class="grid lg:grid-cols-2 gap-24 items-center">
-                <div>
+        <div class="container mx-auto px-8 max-w-7xl relative z-10">
+            <div class="grid lg:grid-cols-2 gap-28 items-center">
+                <div class="text-left">
                     <span class="text-[#A51C30] font-black uppercase text-[11px] tracking-[0.4em] mb-5 block italic">Publication Standards</span>
                     <h2 class="serif-brand text-6xl font-bold uppercase mb-10 leading-tight">Commitment to <br>Scholarly Integrity</h2>
                     <div class="title-underline mb-12"></div>
@@ -339,27 +353,31 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="ethic-card">
                             <h6 class="text-rose-500 font-bold uppercase text-[11px] mb-4 tracking-widest italic">Rigorous Screening</h6>
-                            <p class="text-[12px] text-slate-400 italic leading-relaxed">Systematic plagiarism checks for every submission before review.</p>
+                            <p class="text-[12px] text-slate-400 italic leading-relaxed">Systematic plagiarism checks and ethical screening for every manuscript.</p>
                         </div>
                         <div class="ethic-card">
                             <h6 class="text-rose-500 font-bold uppercase text-[11px] mb-4 tracking-widest italic">Global Peer Review</h6>
-                            <p class="text-[12px] text-slate-400 italic leading-relaxed">Exacting double-blind review processes managed by international boards.</p>
+                            <p class="text-[12px] text-slate-400 italic leading-relaxed">Exacting double-blind processes managed by international expert boards.</p>
                         </div>
                     </div>
                 </div>
                 <div class="relative group">
-                    <div class="grid grid-cols-2 gap-5">
-                        <div class="space-y-5">
-                            <div class="bg-[#A51C30] p-10 shadow-2xl transition-transform">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-6">
+                            <div class="bg-[#A51C30] p-12 shadow-2xl transition-transform hover:-translate-y-2 duration-500">
                                 <p class="text-[10px] font-black uppercase tracking-[0.4em] text-white italic">COPE COMPLIANT</p>
-                                <div class="h-1 w-16 bg-white mt-6"></div>
+                                <div class="h-1 w-16 bg-white mt-8"></div>
                             </div>
-                            <div class="bg-white/5 border border-white/10 p-10">
+                            <div class="bg-white/5 border border-white/10 p-12 backdrop-blur-md">
                                 <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 italic">TRANSPARENCY</p>
-                                <div class="h-1 w-16 bg-[#A51C30] mt-6"></div>
+                                <div class="h-1 w-16 bg-[#A51C30] mt-8"></div>
                             </div>
                         </div>
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800" class="rounded shadow-2xl opacity-60 grayscale" alt="Integrity">
+                        <!-- Updated: Signing Contract/Ethics -->
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800" class="rounded-sm shadow-2xl opacity-60 grayscale hover:grayscale-0 transition-all duration-1000 object-cover h-full" alt="Integrity">
+                    </div>
+                    <div class="absolute -bottom-10 -left-10 bg-[#A51C30] text-white p-10 font-black italic uppercase text-[13px] tracking-widest shadow-2xl z-20">
+                        TRUST IN RESEARCH
                     </div>
                 </div>
             </div>
@@ -367,20 +385,20 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#020617] text-white pt-28 pb-16 px-8 border-t border-white/5">
+    <footer class="bg-[#020617] text-white pt-32 pb-16 px-8 border-t border-white/5">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-24">
                 <div class="lg:col-span-6">
                     <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" class="h-10 w-auto">
-                    <h3 class="text-2xl font-bold uppercase tracking-[0.2em] text-white mb-3 serif-brand">Panorama Scholarly Group</h3>
-                    <p class="text-[#A51C30] text-[12px] font-black uppercase tracking-[0.5em] mb-10 italic">Empowering Global Discovery</p>
+                    <h3 class="text-3xl font-bold uppercase tracking-[0.2em] text-white mb-4 serif-brand">Panorama Scholarly Group</h3>
+                    <p class="text-[#A51C30] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
                     <p class="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
-                        Dual-Hub Global Academic Publisher. Rooted in Berlin, impacting the scientific world.
+                        Dual-Hub Global Academic Publisher. Rooted in Berlin, impacting the scientific world through integrity and excellence.
                     </p>
                 </div>
                 <div class="lg:col-span-3">
                     <h4 class="text-[11px] font-black uppercase tracking-[0.5em] text-slate-500 mb-12">Dual-Headquarters</h4>
-                    <div class="flex flex-col items-start gap-10">
+                    <div class="flex flex-col items-start gap-12">
                         <div class="border-l-2 border-[#A51C30] pl-6">
                             <p class="text-[10px] font-bold text-rose-500 uppercase tracking-widest mb-2">Academic HQ</p>
                             <p class="text-sm italic font-light text-slate-200 leading-loose">Berlin, Germany</p>
@@ -391,7 +409,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-3">
+                <div class="lg:col-span-3 text-left">
                     <h4 class="text-[11px] font-black uppercase tracking-[0.5em] text-slate-500 mb-12">Quick Links</h4>
                     <ul class="space-y-6">
                         <li><a href="index.html#journals" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Our Journals</a></li>
@@ -400,9 +418,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="h-[1px] w-full bg-white/5 mt-24 mb-16"></div>
+            <div class="h-[1px] w-full bg-white/5 mt-28 mb-16"></div>
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] tracking-[0.2em] text-slate-500 uppercase font-bold leading-relaxed">
-                <div>Copyright © 2025-2026 Panorama Scholarly Group.</div>
+                <div>Copyright © 2025-2026 Panorama Scholarly Group (PSG). All Rights Reserved.</div>
                 <div>ACADEMIC RIGOR <span class="mx-5 text-[#A51C30]">•</span> GLOBAL INNOVATION</div>
             </div>
         </div>
