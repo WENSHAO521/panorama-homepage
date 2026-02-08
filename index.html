@@ -15,8 +15,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            --harvard-red: #A51C30;
-            --harvard-red-dark: #821626;
+            /* 德国国旗配色调整 */
+            --german-red: #DD0000;  /* 德国红 */
+            --german-gold: #FFCE00; /* 德国金 */
+            --german-black: #000000;
+            
+            --harvard-red: #A51C30; /* 这里的红稍微调整以融合德国红，但保持原有品牌感 */
             --slate-900: #0f172a;
             --slate-800: #1e293b;
         }
@@ -32,6 +36,25 @@
         
         .serif-brand { font-family: 'Crimson Pro', serif; }
         
+        /* --- 德国元素装饰条 --- */
+        .german-strip-bottom {
+            position: relative;
+        }
+        .german-strip-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 45px;
+            height: 3px;
+            /* 黑红金渐变条 */
+            background: linear-gradient(to right, 
+                var(--german-black) 33%, 
+                var(--german-red) 33%, 
+                var(--german-red) 66%, 
+                var(--german-gold) 66%);
+        }
+
         /* --- Side Nav --- */
         .side-nav {
             position: fixed;
@@ -54,7 +77,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 22px;
+            border-radius: 2px; /* 包豪斯风格：更锐利的圆角 */
             text-decoration: none;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             padding: 0 13px;
@@ -77,10 +100,11 @@
         }
 
         .side-nav-item:hover, .side-nav-item.active {
-            background: var(--harvard-red);
+            background: var(--german-red); /* 激活变为德国红 */
             padding: 0 20px;
-            box-shadow: 0 8px 25px rgba(165, 28, 48, 0.4);
+            box-shadow: 0 8px 25px rgba(221, 0, 0, 0.4);
             transform: translateX(-5px);
+            border-color: var(--german-gold); /* 金色边框 */
         }
         
         .side-nav-item:hover .side-nav-text, .side-nav-item.active .side-nav-text {
@@ -106,13 +130,14 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 1.5rem;
+            border-radius: 4px; /* 德式硬朗风格 */
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .glass-card:hover {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px -15px rgba(165, 28, 48, 0.15);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid var(--german-gold); /* 底部亮起金线 */
         }
 
         .cover-3d { transition: all 0.5s ease; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
@@ -135,7 +160,7 @@
         }
 
         .scope-card-academic:hover {
-            border-bottom-color: var(--harvard-red);
+            border-bottom-color: var(--german-gold); /* 悬停变为金色 */
             transform: translateY(-8px);
         }
 
@@ -174,7 +199,7 @@
             font-family: 'Crimson Pro', serif;
             font-size: 14px;
             font-weight: 700;
-            color: var(--harvard-red);
+            color: var(--german-red);
             letter-spacing: 0.4em;
             margin-bottom: 12px;
             display: block;
@@ -210,12 +235,12 @@
         .scope-line {
             width: 40px;
             height: 2px;
-            background: var(--harvard-red);
+            background: var(--german-red);
             margin-bottom: 24px;
             transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .scope-card-academic:hover .scope-line { width: 100%; }
+        .scope-card-academic:hover .scope-line { width: 100%; background: var(--german-gold); }
 
         /* --- Join Cards --- */
         .join-card {
@@ -224,7 +249,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .join-card:hover {
-            border-color: var(--harvard-red);
+            border-color: var(--german-red);
             background: rgba(255, 255, 255, 0.05);
             transform: translateY(-8px);
         }
@@ -244,11 +269,11 @@
     <div class="bg-[#020617] text-white py-2.5 border-b border-white/10">
         <div class="container mx-auto px-8 flex justify-between items-center text-[10px] font-bold tracking-[0.15em] uppercase">
             <div class="flex gap-10">
-                <span class="flex items-center gap-2 hover:text-rose-400 transition-colors"><i class="fas fa-university text-[#A51C30]"></i> Academic HQ: Berlin, Germany</span>
-                <span class="flex items-center gap-2 hover:text-rose-400 transition-colors"><i class="fas fa-cogs text-[#A51C30]"></i> Operations Center: Hong Kong, China</span>
-                <span class="flex items-center gap-2 hover:text-rose-400 transition-colors cursor-pointer"><i class="fas fa-envelope text-[#A51C30]"></i> contact@panorama-sg.com</span>
+                <span class="flex items-center gap-2 hover:text-[#FFCE00] transition-colors"><i class="fas fa-university text-[#DD0000]"></i> Academic HQ: Berlin, Germany</span>
+                <span class="flex items-center gap-2 hover:text-[#FFCE00] transition-colors"><i class="fas fa-cogs text-[#DD0000]"></i> Operations Center: Hong Kong, China</span>
+                <span class="flex items-center gap-2 hover:text-[#FFCE00] transition-colors cursor-pointer"><i class="fas fa-envelope text-[#DD0000]"></i> contact@panorama-sg.com</span>
             </div>
-            <div class="hidden md:block text-slate-400 italic font-medium tracking-[0.1em]">Dual-Hub Global Research Infrastructure</div>
+            <div class="hidden md:block text-slate-400 italic font-medium tracking-[0.1em]">Made in Germany. Global Impact.</div>
         </div>
     </div>
 
@@ -256,13 +281,13 @@
         <div class="container mx-auto px-8 flex justify-between items-center">
             <div class="flex items-center gap-5 group cursor-pointer">
                 <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" class="h-10 w-auto">
-                <div class="border-l-2 border-slate-100 pl-5">
-                    <h1 class="text-3xl font-bold tracking-tighter serif-brand uppercase text-slate-950 group-hover:text-[#A51C30] transition-colors leading-none">Panorama</h1>
+                <div class="border-l-2 border-slate-100 pl-5 german-strip-bottom">
+                    <h1 class="text-3xl font-bold tracking-tighter serif-brand uppercase text-slate-950 group-hover:text-[#DD0000] transition-colors leading-none">Panorama</h1>
                     <span class="text-[9px] font-black text-slate-400 tracking-[0.5em] uppercase mt-1 block">Scholarly Group</span>
                 </div>
             </div>
             <div class="flex gap-4 items-center">
-                <a href="https://journals.panorama-sg.com/index.php/index/login" class="flex items-center gap-2 px-7 py-3 text-[11px] font-black tracking-widest text-slate-900 border-2 border-slate-100 hover:border-[#020617] hover:bg-[#020617] hover:text-white transition-all uppercase rounded-sm">
+                <a href="https://journals.panorama-sg.com/index.php/index/login" class="flex items-center gap-2 px-7 py-3 text-[11px] font-black tracking-widest text-slate-900 border-2 border-slate-100 hover:border-[#000] hover:bg-[#000] hover:text-[#FFCE00] transition-all uppercase rounded-sm">
                     <i class="fas fa-user-circle"></i> Login
                 </a>
             </div>
@@ -270,23 +295,24 @@
     </header>
 
     <section id="home" class="relative h-[75vh] w-full overflow-hidden bg-[#010409]">
-        <div class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=1920');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=1920');"></div>
         <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920');"></div>
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&q=80&w=1920');"></div>
+        
         <div class="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/85 to-transparent z-10"></div>
         <div class="relative z-20 container mx-auto px-8 h-full flex items-center">
             <div class="max-w-4xl text-white">
-                <h2 class="text-[#A51C30] font-bold tracking-[0.6em] uppercase text-xs mb-8 italic flex items-center gap-5">
-                    <span class="w-12 h-[2px] bg-[#A51C30]"></span> Global Research Catalyst
+                <h2 class="text-[#DD0000] font-bold tracking-[0.6em] uppercase text-xs mb-8 italic flex items-center gap-5">
+                    <span class="w-12 h-[3px] bg-gradient-to-r from-black via-[#DD0000] to-[#FFCE00]"></span> German Excellence
                 </h2>
                 <h1 class="text-8xl font-bold mb-10 leading-[1] serif-brand uppercase tracking-tighter">
-                    Empowering <br> <span class="text-slate-300">Scholarly</span> <br> <span class="text-[#A51C30] italic">Discovery</span>
+                    Empowering <br> <span class="text-slate-300">Scholarly</span> <br> <span class="text-[#FFCE00] italic">Discovery</span>
                 </h1>
-                <p class="text-xl font-light mb-12 max-w-2xl text-slate-300 leading-relaxed border-l-4 border-[#A51C30] pl-10 italic">
-                    Panorama Scholarly Group (PSG) is dedicated to the rigorous curation and global dissemination of high-impact scientific inquiry.
+                <p class="text-xl font-light mb-12 max-w-2xl text-slate-300 leading-relaxed border-l-4 border-[#DD0000] pl-10 italic">
+                    Based in Berlin. Dedicated to the rigorous curation and global dissemination of high-impact scientific inquiry.
                 </p>
-                <a href="#journals" class="inline-block bg-[#A51C30] px-16 py-6 text-[12px] font-black tracking-[0.2em] uppercase text-white hover:bg-white hover:text-[#A51C30] transition-all shadow-2xl">
+                <a href="#journals" class="inline-block bg-[#DD0000] px-16 py-6 text-[12px] font-black tracking-[0.2em] uppercase text-white hover:bg-white hover:text-black transition-all shadow-2xl">
                     Browse Compendium
                 </a>
             </div>
@@ -296,9 +322,9 @@
     <section id="journals" class="py-32 bg-slate-50 relative overflow-hidden">
         <div class="container mx-auto px-8 max-w-7xl relative z-10">
             <div class="text-center mb-32">
-                <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.5em] uppercase mb-4 block">Official Publications</span>
+                <span class="text-[11px] font-bold text-[#DD0000] tracking-[0.5em] uppercase mb-4 block">Official Publications</span>
                 <h2 class="serif-brand text-5xl font-bold uppercase text-slate-950 tracking-tight">Our Journals</h2>
-                <div class="h-1.5 w-24 bg-gradient-to-r from-[#A51C30] to-rose-600 mx-auto mt-8 rounded-full"></div>
+                <div class="h-1.5 w-24 bg-gradient-to-r from-black via-[#DD0000] to-[#FFCE00] mx-auto mt-8 rounded-sm"></div>
                 <p class="mt-10 text-slate-500 italic max-w-3xl mx-auto text-lg leading-relaxed">
                     Advancing the frontiers of social sciences, humanities, and technology through rigorous peer-reviewed Open Access publishing.
                 </p>
@@ -311,20 +337,20 @@
         <div class="container mx-auto px-8 max-w-7xl">
             <div class="flex flex-col lg:flex-row gap-24 items-center">
                 <div class="lg:w-1/2 relative">
-                    <div class="absolute inset-0 bg-[#A51C30] translate-x-6 translate-y-6 rounded-sm"></div>
+                    <div class="absolute inset-0 bg-[#FFCE00] translate-x-6 translate-y-6 rounded-sm"></div>
                     <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200" class="relative z-10 rounded-sm shadow-xl grayscale hover:grayscale-0 transition-all duration-700 w-full" alt="Integrity">
-                    <div class="absolute -bottom-10 -right-10 bg-[#020617] p-12 border-l-4 border-[#A51C30] shadow-2xl z-20">
+                    <div class="absolute -bottom-10 -right-10 bg-[#020617] p-12 border-l-4 border-[#DD0000] shadow-2xl z-20">
                         <p class="text-white text-7xl font-black italic tracking-tighter serif-brand uppercase">Dual Hub</p>
-                        <p class="text-[#A51C30] text-[11px] font-bold tracking-[0.5em] uppercase mt-4">Berlin | Hong Kong</p>
+                        <p class="text-[#FFCE00] text-[11px] font-bold tracking-[0.5em] uppercase mt-4">Berlin | Hong Kong</p>
                     </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-6 block">Institutional Ethos</span>
-                    <h2 class="serif-brand text-6xl font-bold uppercase text-slate-950 leading-[1.1] mb-12">Academic Integrity & <br> <span class="text-[#A51C30]">Global Excellence</span></h2>
-                    <p class="text-slate-600 text-lg leading-relaxed mb-14 italic font-light border-l-4 border-slate-100 pl-8">
-                        PSG implements a "Dual-Hub" strategy—with Berlin as the Academic Research Center to ensure high standards and Hong Kong as the Operations Center to facilitate global dissemination.
+                    <span class="text-[11px] font-bold text-[#DD0000] tracking-[0.6em] uppercase mb-6 block">Institutional Ethos</span>
+                    <h2 class="serif-brand text-6xl font-bold uppercase text-slate-950 leading-[1.1] mb-12">Precision & <br> <span class="text-[#DD0000]">Global Vision</span></h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-14 italic font-light border-l-4 border-black pl-8">
+                        PSG implements a "Dual-Hub" strategy—with <strong>Berlin</strong> as the Academic Research Center to ensure high standards and <strong>Hong Kong</strong> as the Operations Center to facilitate global dissemination.
                     </p>
-                    <a href="about.html" class="inline-block bg-[#A51C30] text-white px-14 py-5 text-[12px] font-black uppercase tracking-[0.2em] hover:bg-slate-900 transition-colors shadow-xl">Institutional Profile</a>
+                    <a href="about.html" class="inline-block bg-black text-white px-14 py-5 text-[12px] font-black uppercase tracking-[0.2em] hover:bg-[#DD0000] transition-colors shadow-xl">Institutional Profile</a>
                 </div>
             </div>
         </div>
@@ -334,9 +360,9 @@
         <div class="container mx-auto px-8 max-w-7xl">
             <div class="flex justify-between items-end mb-24">
                 <div class="max-w-2xl">
-                    <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase mb-6 block">Scientific Domains</span>
+                    <span class="text-[11px] font-bold text-[#FFCE00] tracking-[0.6em] uppercase mb-6 block">Scientific Domains</span>
                     <h2 class="serif-brand text-6xl font-bold uppercase tracking-tight">Research Scope</h2>
-                    <div class="h-1.5 w-24 bg-[#A51C30] mt-10"></div>
+                    <div class="h-1.5 w-24 bg-[#DD0000] mt-10"></div>
                 </div>
                 <p class="text-slate-400 italic text-lg max-w-md text-right leading-relaxed font-light">
                     Promoting interdisciplinary synergy across key scholarly domains.
@@ -394,43 +420,43 @@
 <section id="impact" class="py-32 bg-[#020617] text-white">
         <div class="container mx-auto px-8 max-w-7xl flex flex-col lg:flex-row gap-24 items-center">
             <div class="lg:w-1/3 text-left">
-                <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.6em] uppercase block mb-6">Bibliometric Footprint</span>
+                <span class="text-[11px] font-bold text-[#FFCE00] tracking-[0.6em] uppercase block mb-6">Bibliometric Footprint</span>
                 <h2 class="serif-brand text-5xl font-bold uppercase leading-none">Impact Metrics</h2>
-                <div class="h-1.5 w-20 bg-[#A51C30] mt-10"></div>
+                <div class="h-1.5 w-20 bg-[#DD0000] mt-10"></div>
                 <p class="mt-8 text-slate-500 text-sm italic">Click metrics for real-time verification.</p>
             </div>
             
             <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
                     <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-blue-400 transition-all duration-500">120+</p>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Articles</p>
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-white transition-all duration-500">120+</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black group-hover:text-white">Articles</p>
                     </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-blue-500/50 transition-all duration-700"></div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-white/50 transition-all duration-700"></div>
                 </div>
 
                 <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
                     <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-emerald-400 transition-all duration-500">180+</p>
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">180+</p>
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Citations</p>
                     </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-emerald-500/50 transition-all duration-700"></div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div>
                 </div>
 
                 <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
                     <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-amber-400 transition-all duration-500">25k+</p>
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#FFCE00] transition-all duration-500">25k+</p>
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Reads</p>
                     </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-amber-500/50 transition-all duration-700"></div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#FFCE00]/50 transition-all duration-700"></div>
                 </div>
 
                 <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
                     <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#A51C30] transition-all duration-500">100%</p>
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">100%</p>
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Ethics</p>
                     </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#A51C30]/50 transition-all duration-700"></div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div>
                 </div>
             </div>
         </div>
@@ -438,18 +464,18 @@
 
     <section id="join" class="py-32 bg-slate-900 text-white relative">
         <div class="container mx-auto px-8 max-w-7xl text-center">
-            <span class="text-[11px] font-bold text-[#A51C30] tracking-[0.5em] uppercase mb-4 block">Editorial Excellence</span>
+            <span class="text-[11px] font-bold text-[#FFCE00] tracking-[0.5em] uppercase mb-4 block">Editorial Excellence</span>
             <h2 class="serif-brand text-5xl font-bold uppercase mb-20">Join Our Network</h2>
             <div class="grid grid-cols-2 gap-12 max-w-6xl mx-auto text-left">
-                <div class="join-card p-16 rounded-lg flex flex-col items-start">
-                    <h4 class="text-3xl font-bold serif-brand uppercase mb-6 text-[#A51C30]">Editorial Board</h4>
+                <div class="join-card p-16 rounded-sm flex flex-col items-start">
+                    <h4 class="text-3xl font-bold serif-brand uppercase mb-6 text-[#DD0000]">Editorial Board</h4>
                     <p class="text-slate-400 italic text-lg leading-relaxed mb-12">Seeking distinguished scholars to lead journal strategy and curate high-impact special issues.</p>
-                    <a href="https://forms.gle/TFiKdD7MyBfUJ5MG8" class="bg-[#A51C30] text-white px-12 py-5 text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Apply to Board</a>
+                    <a href="https://forms.gle/TFiKdD7MyBfUJ5MG8" class="bg-[#DD0000] text-white px-12 py-5 text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Apply to Board</a>
                 </div>
-                <div class="join-card p-16 rounded-lg flex flex-col items-start">
-                    <h4 class="text-3xl font-bold serif-brand uppercase mb-6 text-emerald-500">Peer Reviewers</h4>
+                <div class="join-card p-16 rounded-sm flex flex-col items-start">
+                    <h4 class="text-3xl font-bold serif-brand uppercase mb-6 text-[#FFCE00]">Peer Reviewers</h4>
                     <p class="text-slate-400 italic text-lg leading-relaxed mb-12">Maintain the highest standards of academic rigor as a subject matter expert.</p>
-                    <a href="https://forms.gle/TFiKdD7MyBfUJ5MG8" class="bg-emerald-600 text-white px-12 py-5 text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Apply as Reviewer</a>
+                    <a href="https://forms.gle/TFiKdD7MyBfUJ5MG8" class="bg-[#FFCE00] text-black px-12 py-5 text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Apply as Reviewer</a>
                 </div>
             </div>
         </div>
@@ -462,7 +488,7 @@
                     <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" class="h-24 w-auto mb-6">
                     
                     <h3 class="text-3xl font-bold uppercase tracking-[0.2em] text-white mb-4 serif-brand">Panorama Scholarly Group</h3>
-                    <p class="text-[#A51C30] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
+                    <p class="text-[#FFCE00] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
                     <p class="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
                         Dual-Hub Global Academic Publisher. Rooted in Berlin, impacting the scientific world through integrity and excellence.
                     </p>
@@ -470,12 +496,12 @@
                 <div class="lg:col-span-3">
                     <h4 class="text-[11px] font-black uppercase tracking-[0.5em] text-slate-500 mb-12">Dual-Headquarters</h4>
                     <div class="flex flex-col items-start gap-12">
-                        <div class="border-l-2 border-[#A51C30] pl-6">
-                            <p class="text-[10px] font-bold text-rose-500 uppercase tracking-widest mb-2">Academic HQ</p>
+                        <div class="border-l-2 border-[#DD0000] pl-6">
+                            <p class="text-[10px] font-bold text-[#DD0000] uppercase tracking-widest mb-2">Academic HQ</p>
                             <p class="text-sm italic font-light text-slate-200 leading-loose">Berlin, Germany</p>
                         </div>
-                        <div class="border-l-2 border-[#A51C30] pl-6">
-                            <p class="text-[10px] font-bold text-rose-500 uppercase tracking-widest mb-2">Operations Center</p>
+                        <div class="border-l-2 border-[#FFCE00] pl-6">
+                            <p class="text-[10px] font-bold text-[#FFCE00] uppercase tracking-widest mb-2">Operations Center</p>
                             <p class="text-sm italic font-light text-slate-300 leading-loose">Hong Kong, China</p>
                         </div>
                     </div>
@@ -483,16 +509,16 @@
                 <div class="lg:col-span-3 text-left">
                     <h4 class="text-[11px] font-black uppercase tracking-[0.5em] text-slate-500 mb-12">Quick Links</h4>
                     <ul class="space-y-6">
-                        <li><a href="#journals" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Our Journals</a></li>
-                        <li><a href="Publication Ethics.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Publication Ethics</a></li>
-                        <li><a href="Open Access Policy.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Open Access Policy</a></li>
+                        <li><a href="#journals" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#DD0000] transition">Our Journals</a></li>
+                        <li><a href="Publication Ethics.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#DD0000] transition">Publication Ethics</a></li>
+                        <li><a href="Open Access Policy.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#DD0000] transition">Open Access Policy</a></li>
                     </ul>
                 </div>
             </div>
             <div class="h-[1px] w-full bg-white/5 mt-28 mb-16"></div>
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] tracking-[0.2em] text-slate-500 uppercase font-bold leading-relaxed">
                 <div>Copyright © 2025-2026 Panorama Scholarly Group (PSG). All Rights Reserved.</div>
-                <div>ACADEMIC RIGOR <span class="mx-5 text-[#A51C30]">•</span> GLOBAL INNOVATION</div>
+                <div>ACADEMIC RIGOR <span class="mx-5 text-[#FFCE00]">•</span> GLOBAL INNOVATION</div>
             </div>
         </div>
     </footer>
@@ -521,12 +547,12 @@
             card.innerHTML = `
                 <div class="flex justify-center -mt-20 mb-8"><img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/${j.img}" class="w-44 h-auto cover-3d rounded-[2px]" onerror="this.src='https://placehold.co/300x400?text=Cover'"></div>
                 <div class="text-center flex flex-col flex-grow">
-                    <div class="mb-4"><span class="bg-[#A51C30]/10 text-[#A51C30] text-[9px] px-4 py-1.5 font-black uppercase tracking-widest rounded-full">${j.cat}</span></div>
+                    <div class="mb-4"><span class="bg-[#DD0000]/10 text-[#DD0000] text-[9px] px-4 py-1.5 font-black uppercase tracking-widest rounded-full">${j.cat}</span></div>
                     <h3 class="serif-brand text-xl font-bold mb-4 text-slate-900 uppercase leading-tight line-clamp-2">${j.title}</h3>
                     <div class="flex justify-center items-center gap-4 mb-6 text-[10px] font-bold text-slate-400 uppercase"><span>ISSN: ${j.issn}</span><span class="w-1 h-1 bg-slate-200 rounded-full"></span><span>${j.freq}</span></div>
                     <p class="text-[13px] text-slate-600 italic mb-10 leading-relaxed line-clamp-3">${j.desc}</p>
                     <div class="mt-auto grid grid-cols-2 gap-4">
-                        <a href="${portalUrl}" class="bg-[#020617] text-white py-4 text-[10px] font-black tracking-widest uppercase hover:bg-[#A51C30] transition-colors rounded-lg shadow-md">Portal</a>
+                        <a href="${portalUrl}" class="bg-[#020617] text-white py-4 text-[10px] font-black tracking-widest uppercase hover:bg-[#DD0000] transition-colors rounded-lg shadow-md">Portal</a>
                         <a href="${submissionUrl}" class="border border-slate-200 bg-white/50 text-slate-900 py-4 text-[10px] font-black tracking-widest uppercase hover:bg-white transition-all rounded-lg">Submit</a>
                     </div>
                 </div>
