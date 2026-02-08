@@ -20,7 +20,7 @@
             --german-gold: #FFCE00; /* 德国金 */
             --german-black: #000000;
             
-            --harvard-red: #A51C30; /* 这里的红稍微调整以融合德国红，但保持原有品牌感 */
+            --harvard-red: #A51C30; 
             --slate-900: #0f172a;
             --slate-800: #1e293b;
         }
@@ -37,9 +37,7 @@
         .serif-brand { font-family: 'Crimson Pro', serif; }
         
         /* --- 德国元素装饰条 --- */
-        .german-strip-bottom {
-            position: relative;
-        }
+        .german-strip-bottom { position: relative; }
         .german-strip-bottom::after {
             content: '';
             position: absolute;
@@ -47,12 +45,7 @@
             left: 0;
             width: 45px;
             height: 3px;
-            /* 黑红金渐变条 */
-            background: linear-gradient(to right, 
-                var(--german-black) 33%, 
-                var(--german-red) 33%, 
-                var(--german-red) 66%, 
-                var(--german-gold) 66%);
+            background: linear-gradient(to right, var(--german-black) 33%, var(--german-red) 33%, var(--german-red) 66%, var(--german-gold) 66%);
         }
 
         /* --- Side Nav --- */
@@ -77,7 +70,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 2px; /* 包豪斯风格：更锐利的圆角 */
+            border-radius: 2px;
             text-decoration: none;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             padding: 0 13px;
@@ -100,11 +93,11 @@
         }
 
         .side-nav-item:hover, .side-nav-item.active {
-            background: var(--german-red); /* 激活变为德国红 */
+            background: var(--german-red);
             padding: 0 20px;
             box-shadow: 0 8px 25px rgba(221, 0, 0, 0.4);
             transform: translateX(-5px);
-            border-color: var(--german-gold); /* 金色边框 */
+            border-color: var(--german-gold);
         }
         
         .side-nav-item:hover .side-nav-text, .side-nav-item.active .side-nav-text {
@@ -130,14 +123,14 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 4px; /* 德式硬朗风格 */
+            border-radius: 4px;
             transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.85);
             transform: translateY(-10px);
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
-            border-bottom: 3px solid var(--german-gold); /* 底部亮起金线 */
+            border-bottom: 3px solid var(--german-gold);
         }
 
         .cover-3d { transition: all 0.5s ease; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
@@ -160,7 +153,7 @@
         }
 
         .scope-card-academic:hover {
-            border-bottom-color: var(--german-gold); /* 悬停变为金色 */
+            border-bottom-color: var(--german-gold);
             transform: translateY(-8px);
         }
 
@@ -253,6 +246,28 @@
             background: rgba(255, 255, 255, 0.05);
             transform: translateY(-8px);
         }
+
+        /* --- Partner Logos --- */
+        .partner-logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+        .partner-logo {
+            max-height: 45px;
+            width: auto;
+            max-width: 100%;
+            filter: grayscale(100%) opacity(0.5); /* 默认黑白 */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            object-fit: contain;
+        }
+        .partner-logo:hover {
+            filter: grayscale(0%) opacity(1); /* 悬停彩色 */
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -264,6 +279,7 @@
         <a href="#scope" class="side-nav-item"><i class="fas fa-microscope"></i><span class="side-nav-text">Scope</span></a>
         <a href="#impact" class="side-nav-item"><i class="fas fa-chart-line"></i><span class="side-nav-text">Impact</span></a>
         <a href="#join" class="side-nav-item"><i class="fas fa-pen-fancy"></i><span class="side-nav-text">Join Us</span></a>
+        <a href="#partners" class="side-nav-item"><i class="fas fa-handshake"></i><span class="side-nav-text">Partners</span></a>
     </nav>
 
     <div class="bg-[#020617] text-white py-2.5 border-b border-white/10">
@@ -370,54 +386,15 @@
             </div>
             
             <div class="scope-container">
-                <div class="scope-card-academic group">
-                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1200')"></div>
-                    <div class="scope-gradient"></div>
-                    <div class="scope-content-box">
-                        <span class="scope-index">01 / TECHNOLOGY</span>
-                        <h4 class="scope-title-text">Digital Society</h4>
-                        <div class="scope-line"></div>
-                        <p class="scope-desc-text">Investigating the ethical frameworks of AI, algorithmic governance, and human-digital interaction.</p>
-                    </div>
-                </div>
-
-                <div class="scope-card-academic group">
-                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200')"></div>
-                    <div class="scope-gradient"></div>
-                    <div class="scope-content-box">
-                        <span class="scope-index">02 / INFRASTRUCTURE</span>
-                        <h4 class="scope-title-text">Urban Governance</h4>
-                        <div class="scope-line"></div>
-                        <p class="scope-desc-text">Analyzing smart city architectural planning, sustainable urban metabolic systems, and public policy.</p>
-                    </div>
-                </div>
-
-                <div class="scope-card-academic group">
-                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1554941068-a252680d25d9?auto=format&fit=crop&q=80&w=1200')"></div>
-                    <div class="scope-gradient"></div>
-                    <div class="scope-content-box">
-                        <span class="scope-index">03 / PHILOSOPHY</span>
-                        <h4 class="scope-title-text">Humanities & Art</h4>
-                        <div class="scope-line"></div>
-                        <p class="scope-desc-text">Examining contemporary aesthetic theories, digital media art, and cultural evolution.</p>
-                    </div>
-                </div>
-
-                <div class="scope-card-academic group">
-                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1200')"></div>
-                    <div class="scope-gradient"></div>
-                    <div class="scope-content-box">
-                        <span class="scope-index">04 / REGULATION</span>
-                        <h4 class="scope-title-text">Law & Economics</h4>
-                        <div class="scope-line"></div>
-                        <p class="scope-desc-text">Researching international trade law, global economic trends, and legal adaptive structures.</p>
-                    </div>
-                </div>
+                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">01 / TECHNOLOGY</span><h4 class="scope-title-text">Digital Society</h4><div class="scope-line"></div><p class="scope-desc-text">Investigating the ethical frameworks of AI, algorithmic governance, and human-digital interaction.</p></div></div>
+                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">02 / INFRASTRUCTURE</span><h4 class="scope-title-text">Urban Governance</h4><div class="scope-line"></div><p class="scope-desc-text">Analyzing smart city architectural planning, sustainable urban metabolic systems, and public policy.</p></div></div>
+                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1554941068-a252680d25d9?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">03 / PHILOSOPHY</span><h4 class="scope-title-text">Humanities & Art</h4><div class="scope-line"></div><p class="scope-desc-text">Examining contemporary aesthetic theories, digital media art, and cultural evolution.</p></div></div>
+                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">04 / REGULATION</span><h4 class="scope-title-text">Law & Economics</h4><div class="scope-line"></div><p class="scope-desc-text">Researching international trade law, global economic trends, and legal adaptive structures.</p></div></div>
             </div>
         </div>
     </section>
 
-<section id="impact" class="py-32 bg-[#020617] text-white">
+    <section id="impact" class="py-32 bg-[#020617] text-white">
         <div class="container mx-auto px-8 max-w-7xl flex flex-col lg:flex-row gap-24 items-center">
             <div class="lg:w-1/3 text-left">
                 <span class="text-[11px] font-bold text-[#FFCE00] tracking-[0.6em] uppercase block mb-6">Bibliometric Footprint</span>
@@ -427,37 +404,10 @@
             </div>
             
             <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
-                    <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-white transition-all duration-500">120+</p>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black group-hover:text-white">Articles</p>
-                    </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-white/50 transition-all duration-700"></div>
-                </div>
-
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
-                    <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">180+</p>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Citations</p>
-                    </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div>
-                </div>
-
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
-                    <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#FFCE00] transition-all duration-500">25k+</p>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Reads</p>
-                    </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#FFCE00]/50 transition-all duration-700"></div>
-                </div>
-
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
-                    <div class="relative z-10">
-                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">100%</p>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Ethics</p>
-                    </div>
-                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div>
-                </div>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-white transition-all duration-500">120+</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black group-hover:text-white">Articles</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-white/50 transition-all duration-700"></div></div>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">180+</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Citations</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div></div>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#FFCE00] transition-all duration-500">25k+</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Reads</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#FFCE00]/50 transition-all duration-700"></div></div>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">100%</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Ethics</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div></div>
             </div>
         </div>
     </section>
@@ -476,6 +426,47 @@
                     <h4 class="text-3xl font-bold serif-brand uppercase mb-6 text-[#FFCE00]">Peer Reviewers</h4>
                     <p class="text-slate-400 italic text-lg leading-relaxed mb-12">Maintain the highest standards of academic rigor as a subject matter expert.</p>
                     <a href="https://forms.gle/TFiKdD7MyBfUJ5MG8" class="bg-[#FFCE00] text-black px-12 py-5 text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Apply as Reviewer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="py-24 bg-white border-t border-slate-100">
+        <div class="container mx-auto px-8 max-w-7xl">
+            <div class="text-center mb-16">
+                <span class="text-[11px] font-bold text-[#DD0000] tracking-[0.5em] uppercase mb-4 block">Global Network</span>
+                <h2 class="serif-brand text-4xl font-bold uppercase text-slate-950">Indexing & Partners</h2>
+                <div class="h-1 w-16 bg-[#FFCE00] mx-auto mt-6 rounded-sm"></div>
+                <p class="mt-6 text-slate-500 text-sm italic tracking-widest uppercase">Trusted by leading academic repositories</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 items-center justify-items-center">
+                <div class="partner-logo-container">
+                    <img src="https://pub-49d2ed61af9d42f0b99c9ebd93b5bf09.r2.dev/logo1.png" alt="Partner" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" alt="Google Scholar" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://assets.crossref.org/logo/crossref-logo-200.svg" alt="Crossref" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg" alt="Scilit" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://journals.indexcopernicus.com/img/ici2.png" alt="Index Copernicus" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" alt="BASE" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" alt="CJWK" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" alt="OpenAlex" class="partner-logo">
+                </div>
+                <div class="partner-logo-container">
+                    <img src="https://www.shiharr.com/uploads/20251009/3a0f587ae1bfd6b206ff9e477622f3a2.png" alt="Shiharr" class="partner-logo">
                 </div>
             </div>
         </div>
@@ -565,7 +556,7 @@
         setInterval(() => { bgs[current].classList.remove('active'); current = (current + 1) % bgs.length; bgs[current].classList.add('active'); }, 5000);
 
         window.addEventListener('scroll', () => {
-            const sections = ['home', 'journals', 'integrity', 'scope', 'impact', 'join'];
+            const sections = ['home', 'journals', 'integrity', 'scope', 'impact', 'join', 'partners'];
             let currentSection = 'home';
             sections.forEach(section => { 
                 const element = document.getElementById(section); 
