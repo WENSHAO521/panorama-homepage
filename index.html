@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap'); /* 引入更工业风的字体用于序号 */
         
         :root {
             /* 德国国旗色系 - 严谨配色 */
@@ -33,7 +32,6 @@
         }
         
         .font-serif { font-family: 'Crimson Pro', serif; }
-        .font-mono-num { font-family: 'Archivo', sans-serif; }
 
         /* --- 顶部导航 --- */
         .top-bar {
@@ -98,6 +96,8 @@
             padding: 24px;
             border-bottom: 1px solid #f3f4f6;
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         .journal-cover-container {
             height: 180px;
@@ -124,6 +124,20 @@
             margin-bottom: 8px;
             display: block;
         }
+        /* 标题样式优化：允许换行，不截断 */
+        .journal-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.125rem; /* 18px */
+            font-weight: 700;
+            color: black;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            min-height: 3.6rem; /* 预留3行高度以保持整齐 */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
 
         /* --- Buttons --- */
         .btn-action {
@@ -142,7 +156,7 @@
         .btn-submit { background: #fff; color: var(--g-black); border-top: 1px solid #e5e7eb; }
         .btn-submit:hover { background: var(--g-gray); color: var(--g-red); }
 
-        /* --- NEW: Research Scope (Minimalist Index Style) --- */
+        /* --- Scope Cards --- */
         .scope-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -153,8 +167,7 @@
             height: 400px;
             overflow: hidden;
             cursor: pointer;
-            border-right: 1px solid rgba(255,255,255,0.15); /* 更明显的分割线 */
-            background: #000;
+            border-right: 1px solid rgba(255,255,255,0.1);
         }
         .scope-img {
             position: absolute;
@@ -162,72 +175,47 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(100%) brightness(0.5); /* 更暗，突出文字 */
+            filter: grayscale(100%) brightness(0.6);
             transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .scope-card:hover .scope-img {
-            filter: grayscale(0%) brightness(0.8);
-            transform: scale(1.05);
+            filter: grayscale(0%) brightness(0.9);
+            transform: scale(1.1);
         }
         .scope-content {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            padding: 40px 30px;
+            padding: 40px;
             z-index: 10;
-            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
         }
-        /* 序号索引样式 */
-        .scope-index {
-            font-family: 'Archivo', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); /* 镂空字效果 */
-            line-height: 1;
-            margin-bottom: 10px;
-            display: block;
-            transition: 0.3s;
-        }
-        .scope-card:hover .scope-index {
-            color: var(--g-gold); /* 悬停变金 */
-            -webkit-text-stroke: 0px;
-        }
-        
         .scope-title {
             font-family: 'Crimson Pro', serif;
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 700;
             text-transform: uppercase;
             color: white;
             margin-bottom: 0.5rem;
-            line-height: 1.1;
-            letter-spacing: 0.02em;
+            line-height: 1;
         }
         .scope-desc {
-            font-size: 0.85rem;
-            color: #b0b0b0;
-            transform: translateY(15px);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            transform: translateY(20px);
             opacity: 0;
             transition: all 0.4s ease;
-            line-height: 1.6;
-            max-width: 90%;
         }
-        .scope-card:hover .scope-desc {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        /* 装饰线 */
+        .scope-card:hover .scope-desc { transform: translateY(0); opacity: 1; }
         .scope-line {
-            width: 0px;
-            height: 2px;
+            width: 30px;
+            height: 3px;
             background: var(--g-red);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             transition: width 0.4s ease;
         }
-        .scope-card:hover .scope-line { width: 40px; }
-
+        .scope-card:hover .scope-line { width: 100%; }
 
         /* --- Partners --- */
         .partner-grid {
@@ -395,37 +383,34 @@
             <div class="scope-card group">
                 <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="Tech">
                 <div class="scope-content">
-                    <span class="scope-index">01</span>
+                    <i class="fas fa-microchip scope-icon"></i>
                     <div class="scope-line"></div>
                     <h4 class="scope-title">Technology</h4>
                     <p class="scope-desc">Artificial Intelligence, Digital Society & Algorithmic Governance.</p>
                 </div>
             </div>
-
             <div class="scope-card group">
                 <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="City">
                 <div class="scope-content">
-                    <span class="scope-index">02</span>
+                    <i class="fas fa-city scope-icon"></i>
                     <div class="scope-line"></div>
                     <h4 class="scope-title">Infrastructure</h4>
                     <p class="scope-desc">Smart Cities, Urban Planning & Sustainable Development.</p>
                 </div>
             </div>
-
             <div class="scope-card group">
                 <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="Art">
                 <div class="scope-content">
-                    <span class="scope-index">03</span>
+                    <i class="fas fa-book scope-icon"></i>
                     <div class="scope-line"></div>
                     <h4 class="scope-title">Humanities</h4>
                     <p class="scope-desc">Philosophy, Arts, Culture & Historical Studies.</p>
                 </div>
             </div>
-
             <div class="scope-card group">
                 <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="Law">
                 <div class="scope-content">
-                    <span class="scope-index">04</span>
+                    <i class="fas fa-balance-scale scope-icon"></i>
                     <div class="scope-line"></div>
                     <h4 class="scope-title">Regulation</h4>
                     <p class="scope-desc">International Law, Economics & Public Policy.</p>
@@ -492,7 +477,6 @@
                 <div class="partner-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="partner-logo"></div>
                 <div class="partner-box"><img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="partner-logo invert-white-logo"></div>
                 <div class="partner-box"><img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="partner-logo"></div>
-                
                 <div class="partner-box"></div>
                 <div class="partner-box"></div>
                 <div class="partner-box"></div>
@@ -528,17 +512,18 @@
     </footer>
 
     <script>
+        // FULL JOURNAL NAMES CORRECTED
         const JOURNALS = [
             { id: 'AFS', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AI%20%26%20Future%20Society.png', slug: 'AFS' },
-            { id: 'CSSR', title: 'Computational Social Sciences', cat: 'Data', issn: 'Pending', img: 'cssr.png', slug: 'cssr' },
-            { id: 'GRHAS', title: 'Global Rev. of Humanities', cat: 'Arts', issn: '3052-539X', img: 'grhas.png', slug: 'files' },
+            { id: 'CSSR', title: 'Computational Social Sciences Review', cat: 'Data', issn: 'Pending', img: 'cssr.png', slug: 'cssr' },
+            { id: 'GRHAS', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'grhas.png', slug: 'files' },
             { id: 'HN', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png', slug: 'HealthNexus' },
-            { id: 'IRELS', title: 'Intl Rev. of Education', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
-            { id: 'JESA', title: 'Journal of Eng. Systems', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
-            { id: 'JLPCS', title: 'Journal of Law & Psych', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
-            { id: 'PEMR', title: 'PoliEcoM Admin Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
-            { id: 'Res', title: 'Resonance: Music Studies', cat: 'Music', issn: '3053-4410', img: 'Resonance.png', slug: 'Resonance' },
-            { id: 'RGGD', title: 'Rural Gov & Green Dev', cat: 'Env.', issn: '3053-7282', img: 'Rural%20Governance%20and%20Green%20Development.png', slug: 'RGGD' },
+            { id: 'IRELS', title: 'International Review of Education & Learning Sciences', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
+            { id: 'JESA', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
+            { id: 'JLPCS', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
+            { id: 'PEMR', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
+            { id: 'Res', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'Resonance.png', slug: 'Resonance' },
+            { id: 'RGGD', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'Rural%20Governance%20and%20Green%20Development.png', slug: 'RGGD' },
             { id: 'TTS', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'tts.png', slug: 'tts' }
         ];
 
@@ -553,7 +538,7 @@
                     <div class="journal-cover-container">
                         <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/${j.img}" class="journal-cover" onerror="this.style.opacity=0.3">
                     </div>
-                    <h3 class="font-serif text-lg font-bold text-black leading-tight mb-2 h-12 overflow-hidden">${j.title}</h3>
+                    <h3 class="journal-title" title="${j.title}">${j.title}</h3>
                     <p class="text-xs text-gray-400 font-mono">ISSN: ${j.issn}</p>
                 </div>
                 <div>
