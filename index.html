@@ -16,8 +16,8 @@
         
         :root {
             /* 德国国旗配色调整 */
-            --german-red: #DD0000;
-            --german-gold: #FFCE00;
+            --german-red: #DD0000;  /* 德国红 */
+            --german-gold: #FFCE00; /* 德国金 */
             --german-black: #000000;
             
             --harvard-red: #A51C30; 
@@ -271,11 +271,9 @@
 
         /* 针对白色LOGO的特殊处理 (CJWK) */
         .invert-white-logo {
-            /* 默认反转颜色：白变黑 */
             filter: invert(1) grayscale(100%) opacity(0.6) !important; 
         }
         .invert-white-logo:hover {
-            /* 悬停时：保持深色高亮 (因为原图是白的，不反转就看不见) */
             filter: invert(1) grayscale(0%) opacity(1) !important;
             transform: scale(1.1);
         }
@@ -524,7 +522,7 @@
                 </div>
                 
                 <div class="partner-logo-container">
-                    <img src="https://assets.crossref.org/logo/crossref-logo-landscape-200.svg" alt="Crossref" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Crossref_Logo_Stacked_RGB_SMALL.png" alt="Crossref" class="partner-logo">
                 </div>
                 
                 <div class="partner-logo-container">
