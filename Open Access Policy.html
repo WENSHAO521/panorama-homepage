@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=1200, initial-scale=1.0">
     <title>Open Access Policy | Panorama Scholarly Group</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,8 +13,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            --harvard-red: #A51C30;
-            --harvard-red-dark: #821626;
+            /* 德国国旗色系 */
+            --german-red: #DD0000;
+            --german-gold: #FFCE00;
+            --german-black: #000000;
+            
             --slate-900: #0f172a;
             scroll-behavior: smooth;
         }
@@ -23,7 +25,25 @@
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0f172a; margin: 0; }
         .serif-brand { font-family: 'Crimson Pro', serif; }
         
-        /* --- 側邊導航 --- */
+        /* 德国三色装饰条 */
+        .german-strip-bottom {
+            position: relative;
+        }
+        .german-strip-bottom::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 45px;
+            height: 3px;
+            background: linear-gradient(to right, 
+                var(--german-black) 33%, 
+                var(--german-red) 33%, 
+                var(--german-red) 66%, 
+                var(--german-gold) 66%);
+        }
+
+        /* --- 侧边导航 (Bauhaus Style) --- */
         .side-nav {
             position: fixed;
             right: 32px;
@@ -45,7 +65,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 22px;
+            border-radius: 2px; /* 德式直角 */
             text-decoration: none;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             padding: 0 13px;
@@ -68,9 +88,10 @@
         }
 
         .side-nav-item:hover, .side-nav-item.active {
-            background: var(--harvard-red);
+            background: var(--german-red);
+            border-color: var(--german-gold);
             padding: 0 24px;
-            box-shadow: 0 8px 25px rgba(165, 28, 48, 0.4);
+            box-shadow: 0 8px 25px rgba(221, 0, 0, 0.4);
             transform: translateX(-5px);
         }
         
@@ -82,7 +103,7 @@
 
         /* Top Bar */
         .top-contact-bar { background-color: #020617; color: #f8fafc; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .title-underline { height: 3px; width: 60px; background: var(--harvard-red); margin-top: 15px; border-radius: 2px; }
+        .title-underline { height: 3px; width: 60px; background: var(--german-red); margin-top: 15px; border-radius: 0px; }
 
         /* Banner Design */
         .oa-banner {
@@ -91,8 +112,9 @@
         }
         .banner-bg {
             position: absolute; inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover; background-position: center; opacity: 0.3;
+            /* 替换为柏林洪堡大学图书馆风格 (Grimm Zentrum) */
+            background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover; background-position: center; opacity: 0.35;
             transform: scale(1.05);
         }
         .banner-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 0.85) 40%, rgba(2, 6, 23, 0.5) 100%); z-index: 2; }
@@ -106,7 +128,7 @@
             transition: all 0.3s ease;
         }
         .policy-section:hover {
-            border-left-color: var(--harvard-red);
+            border-left-color: var(--german-gold); /* 悬停变为金色 */
         }
         .policy-title {
             font-family: 'Crimson Pro', serif;
@@ -118,17 +140,18 @@
             align-items: center;
             gap: 1rem;
         }
-        .policy-title i { color: var(--harvard-red); font-size: 1.2rem; }
+        .policy-title i { color: var(--german-red); font-size: 1.2rem; }
         
         .highlight-box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
             padding: 2rem;
-            border-radius: 4px;
+            border-radius: 2px;
             margin-top: 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            border-top: 3px solid var(--german-black); /* 德式顶部装饰 */
         }
         .license-row {
             display: flex;
@@ -138,14 +161,30 @@
             border-bottom: 1px solid #e2e8f0;
         }
         .license-row:last-child { border-bottom: none; padding-bottom: 0; }
-        .cc-icons { display: flex; gap: 0.5rem; color: var(--slate-900); font-size: 1.8rem; min-width: 100px; }
+        .cc-icons { display: flex; gap: 0.5rem; color: var(--german-black); font-size: 1.8rem; min-width: 100px; }
+        
+        /* 针对APC盒子的特殊样式 */
+        .apc-box {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        /* 侧边德国三色条 */
+        .apc-box::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0; width: 4px;
+            background: linear-gradient(to bottom, var(--german-black) 33%, var(--german-red) 33%, var(--german-red) 66%, var(--german-gold) 66%);
+        }
 
-        a.brand-hover:hover { color: var(--harvard-red); transition: 0.3s; }
+        a.brand-hover:hover { color: var(--german-red); transition: 0.3s; }
     </style>
 </head>
 <body>
 
-    <!-- 側邊導航 -->
     <nav class="side-nav">
         <a href="index.html" class="side-nav-item"><i class="fas fa-home"></i><span class="side-nav-text">Home</span></a>
         <a href="#definition" class="side-nav-item"><i class="fas fa-book-open"></i><span class="side-nav-text">Definition</span></a>
@@ -155,68 +194,62 @@
         <a href="#repository" class="side-nav-item"><i class="fas fa-archive"></i><span class="side-nav-text">Archiving</span></a>
     </nav>
 
-    <!-- Top Bar -->
     <div class="top-contact-bar">
         <div class="container mx-auto px-8 flex justify-between items-center">
             <div class="flex space-x-10">
-                <span class="uppercase flex items-center"><i class="fas fa-university text-[#A51C30] mr-3"></i> Academic HQ: Berlin, Germany</span>
-                <span class="uppercase flex items-center"><i class="fas fa-cogs text-[#A51C30] mr-3"></i> Operations: Hong Kong, China</span>
+                <span class="uppercase flex items-center hover:text-[#FFCE00] transition-colors"><i class="fas fa-university text-[#DD0000] mr-3"></i> Academic HQ: Berlin, Germany</span>
+                <span class="uppercase flex items-center hover:text-[#FFCE00] transition-colors"><i class="fas fa-cogs text-[#DD0000] mr-3"></i> Operations: Hong Kong, China</span>
             </div>
-            <div class="hidden lg:block italic font-black text-rose-500 uppercase tracking-[0.4em] text-[10px]">Dual-Hub Scholarly Excellence</div>
+            <div class="hidden lg:block italic font-black text-slate-400 uppercase tracking-[0.4em] text-[10px]">Made in Germany. Global Impact.</div>
         </div>
     </div>
 
-    <!-- Header -->
     <header class="bg-white py-6 border-b border-slate-50 sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-8 flex flex-col md:flex-row justify-between items-start md:items-center">
             <a href="index.html" class="flex items-center gap-5 group cursor-pointer">
                 <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="PSG Logo" class="h-12 w-auto transition-transform group-hover:scale-105">
-                <div class="border-l-2 border-slate-100 pl-5">
-                    <h1 class="text-3xl font-bold tracking-tighter serif-brand uppercase text-slate-950 leading-none group-hover:text-[#A51C30] transition-colors">Panorama</h1>
+                <div class="border-l-2 border-slate-100 pl-5 german-strip-bottom">
+                    <h1 class="text-3xl font-bold tracking-tighter serif-brand uppercase text-slate-950 leading-none group-hover:text-[#DD0000] transition-colors">Panorama</h1>
                     <span class="text-[9px] font-black text-slate-400 tracking-[0.5em] uppercase mt-1 block">Scholarly Group</span>
                 </div>
             </a>
             <nav class="hidden md:flex gap-12 mt-6 md:mt-0">
-                <a href="index.html" class="text-[11px] font-black uppercase tracking-widest hover:text-[#A51C30] transition-colors">Home</a>
-                <a href="index.html#journals" class="text-[11px] font-black uppercase tracking-widest hover:text-[#A51C30] transition-colors">Journals</a>
-                <a href="about.html" class="text-[11px] font-black uppercase tracking-widest hover:text-[#A51C30] transition-colors">About Us</a>
+                <a href="index.html" class="text-[11px] font-black uppercase tracking-widest hover:text-[#DD0000] transition-colors">Home</a>
+                <a href="index.html#journals" class="text-[11px] font-black uppercase tracking-widest hover:text-[#DD0000] transition-colors">Journals</a>
+                <a href="about.html" class="text-[11px] font-black uppercase tracking-widest hover:text-[#DD0000] transition-colors">About Us</a>
             </nav>
         </div>
     </header>
 
-    <!-- Banner -->
     <section class="oa-banner">
         <div class="banner-bg"></div>
         <div class="banner-overlay"></div>
         <div class="banner-content container mx-auto px-8">
             <div class="max-w-4xl text-white">
                 <div class="flex items-center gap-5 mb-8">
-                    <span class="bg-[#A51C30] px-4 py-1 text-[10px] font-black uppercase tracking-widest">PSG POLICY</span>
-                    <span class="text-rose-400 font-bold tracking-[0.5em] uppercase text-[10px] italic">Universal Access</span>
+                    <span class="bg-[#DD0000] px-4 py-1 text-[10px] font-black uppercase tracking-widest">PSG POLICY</span>
+                    <span class="text-[#FFCE00] font-bold tracking-[0.5em] uppercase text-[10px] italic">Universal Access</span>
                 </div>
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-[1.1] serif-brand uppercase tracking-tighter">
                     Open Access Policy
                 </h1>
-                <p class="text-lg font-light max-w-2xl opacity-90 italic border-l-4 border-[#A51C30] pl-8 leading-relaxed font-serif">
-                    Ensuring that research outputs are freely available to the global community, accelerating the pace of scientific discovery.
+                <p class="text-lg font-light max-w-2xl opacity-90 italic border-l-4 border-[#DD0000] pl-8 leading-relaxed font-serif">
+                    Ensuring that research outputs are freely available to the global community, upholding the principles of German academic transparency.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
     <section id="statement" class="py-24 bg-white">
         <div class="container mx-auto px-8 max-w-5xl">
             
-            <!-- Introduction -->
             <div class="mb-20 text-center">
                 <p class="text-lg text-slate-600 leading-relaxed font-serif italic max-w-3xl mx-auto">
                     Panorama Scholarly Group (PSG) is dedicated to the dissemination of research to the widest possible audience. We firmly believe that free and unrestricted access to research is essential for the advancement of science and society.
                 </p>
-                <div class="h-1 w-24 bg-[#A51C30] mx-auto mt-10 rounded-full"></div>
+                <div class="h-1 w-24 bg-gradient-to-r from-black via-[#DD0000] to-[#FFCE00] mx-auto mt-10 rounded-sm"></div>
             </div>
 
-            <!-- Definition -->
             <div id="definition" class="policy-section">
                 <h3 class="policy-title"><i class="fas fa-book-open"></i> Definition of Open Access</h3>
                 <div class="text-sm text-slate-600 leading-7 space-y-4">
@@ -224,18 +257,17 @@
                 </div>
             </div>
 
-            <!-- APC Policy (New Section) -->
             <div id="apc" class="policy-section">
                 <h3 class="policy-title"><i class="fas fa-coins"></i> Article Processing Charges (APC)</h3>
                 <div class="text-sm text-slate-600 leading-7 space-y-4">
                     <p>Panorama Scholarly Group operates on a sustainable Open Access model to ensure the long-term archiving and wide dissemination of high-quality research.</p>
                     
-                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-md">
-                        <h4 class="font-bold text-slate-900 mb-2">1. Medical Research (Health Nexus)</h4>
-                        <p class="mb-4">We are proud to champion <strong>Diamond Open Access</strong> for our medical journals. This means there are <strong>NO Article Processing Charges (APCs)</strong> for authors and no fees for readers. All costs are subsidized by our institutional partners to promote global health equity.</p>
+                    <div class="apc-box">
+                        <h4 class="font-bold text-slate-900 mb-2 pl-4">1. Medical Research (Health Nexus)</h4>
+                        <p class="mb-4 pl-4">We are proud to champion <strong class="text-[#DD0000]">Diamond Open Access</strong> for our medical journals. This means there are <strong>NO Article Processing Charges (APCs)</strong> for authors and no fees for readers. All costs are subsidized by our institutional partners to promote global health equity.</p>
                         
-                        <h4 class="font-bold text-slate-900 mb-2">2. Other Disciplines (Social Sciences, Humanities, Engineering, etc.)</h4>
-                        <p>To cover the costs of rigorous peer review, copyediting, typesetting, hosting, and archiving, a standard Article Processing Charge (APC) applies to accepted manuscripts. Fees vary by journal and article type.</p>
+                        <h4 class="font-bold text-slate-900 mb-2 pl-4">2. Other Disciplines (Social Sciences, Humanities, Engineering, etc.)</h4>
+                        <p class="pl-4">To cover the costs of rigorous peer review, copyediting, typesetting, hosting, and archiving, a standard Article Processing Charge (APC) applies to accepted manuscripts. Fees vary by journal and article type.</p>
                     </div>
                     
                     <p class="italic text-slate-500 mt-4">
@@ -244,28 +276,25 @@
                 </div>
             </div>
 
-            <!-- Licensing (Enhanced) -->
             <div id="licensing" class="policy-section">
                 <h3 class="policy-title"><i class="fab fa-creative-commons"></i> Licensing Options</h3>
                 <div class="text-sm text-slate-600 leading-7 space-y-4">
                     <p>PSG offers a range of Creative Commons licenses to suit the needs of authors and their funding bodies. Our default license encourages maximum dissemination, but we respect authors' rights to restrict commercial use.</p>
                     
                     <div class="highlight-box">
-                        <!-- CC BY 4.0 -->
                         <div class="license-row">
                             <div class="cc-icons">
                                 <i class="fab fa-creative-commons"></i>
                                 <i class="fab fa-creative-commons-by"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-900 text-sm">CC BY 4.0 (Attribution) - Default</h4>
+                                <h4 class="font-bold text-slate-900 text-sm">CC BY 4.0 (Attribution) - <span class="text-[#DD0000]">Default</span></h4>
                                 <p class="text-xs text-slate-500 mt-1">
                                     Allows others to distribute, remix, adapt, and build upon your work, even commercially, as long as they credit you for the original creation. Recommended for maximum impact.
                                 </p>
                             </div>
                         </div>
 
-                        <!-- CC BY-NC 4.0 -->
                         <div class="license-row">
                             <div class="cc-icons">
                                 <i class="fab fa-creative-commons"></i>
@@ -280,7 +309,6 @@
                             </div>
                         </div>
 
-                        <!-- Others -->
                         <div class="license-row">
                             <div class="cc-icons text-slate-400">
                                 <i class="fas fa-plus-circle"></i>
@@ -296,7 +324,6 @@
                 </div>
             </div>
 
-            <!-- Copyright -->
             <div id="copyright" class="policy-section">
                 <h3 class="policy-title"><i class="fas fa-copyright"></i> Copyright Retention</h3>
                 <div class="text-sm text-slate-600 leading-7 space-y-4">
@@ -304,7 +331,6 @@
                 </div>
             </div>
 
-            <!-- Repository / Archiving -->
             <div id="repository" class="policy-section">
                 <h3 class="policy-title"><i class="fas fa-archive"></i> Repository and Archiving</h3>
                 <div class="text-sm text-slate-600 leading-7 space-y-4">
@@ -315,14 +341,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-[#020617] text-white pt-28 pb-16 px-8 border-t border-white/5">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-24">
                 <div class="lg:col-span-6">
                     <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" class="h-24 w-auto mb-6">
                     <h3 class="text-3xl font-bold uppercase tracking-[0.2em] text-white mb-4 serif-brand">Panorama Scholarly Group</h3>
-                    <p class="text-[#A51C30] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
+                    <p class="text-[#FFCE00] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
                     <p class="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
                         Dual-Hub Global Academic Publisher. Rooted in Berlin, impacting the scientific world through integrity and excellence.
                     </p>
@@ -330,12 +355,12 @@
                 <div class="lg:col-span-3">
                     <h4 class="text-[11px] font-black uppercase tracking-[0.5em] text-slate-500 mb-12">Dual-Headquarters</h4>
                     <div class="flex flex-col items-start gap-12">
-                        <div class="border-l-2 border-[#A51C30] pl-6">
-                            <p class="text-[10px] font-bold text-rose-500 uppercase tracking-widest mb-2">Academic HQ</p>
+                        <div class="border-l-2 border-[#DD0000] pl-6">
+                            <p class="text-[10px] font-bold text-[#DD0000] uppercase tracking-widest mb-2">Academic HQ</p>
                             <p class="text-sm italic font-light text-slate-200 leading-loose">Berlin, Germany</p>
                         </div>
-                        <div class="border-l-2 border-[#A51C30] pl-6">
-                            <p class="text-[10px] font-bold text-rose-500 uppercase tracking-widest mb-2">Operations Center</p>
+                        <div class="border-l-2 border-[#FFCE00] pl-6">
+                            <p class="text-[10px] font-bold text-[#FFCE00] uppercase tracking-widest mb-2">Operations Center</p>
                             <p class="text-sm italic font-light text-slate-300 leading-loose">Hong Kong, China</p>
                         </div>
                     </div>
@@ -343,16 +368,16 @@
                 <div class="lg:col-span-3 text-left">
                     <h4 class="text-[11px] font-black uppercase tracking-[0.5em] text-slate-500 mb-12">Quick Links</h4>
                     <ul class="space-y-6">
-                        <li><a href="index.html#journals" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Our Journals</a></li>
-                        <li><a href="Publication Ethics.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Publication Ethics</a></li>
-                        <li><a href="Open Access Policy.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-rose-500 transition">Open Access Policy</a></li>
+                        <li><a href="index.html#journals" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#DD0000] transition">Our Journals</a></li>
+                        <li><a href="Publication Ethics.html" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#DD0000] transition">Publication Ethics</a></li>
+                        <li><a href="#" class="text-xs uppercase tracking-widest italic text-slate-400 hover:text-[#DD0000] transition">Open Access Policy</a></li>
                     </ul>
                 </div>
             </div>
             <div class="h-[1px] w-full bg-white/5 mt-28 mb-16"></div>
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-[10px] tracking-[0.2em] text-slate-500 uppercase font-bold leading-relaxed">
                 <div>Copyright © 2025-2026 Panorama Scholarly Group (PSG). All Rights Reserved.</div>
-                <div>ACADEMIC RIGOR <span class="mx-5 text-[#A51C30]">•</span> GLOBAL INNOVATION</div>
+                <div>ACADEMIC RIGOR <span class="mx-5 text-[#FFCE00]">•</span> GLOBAL INNOVATION</div>
             </div>
         </div>
     </footer>
