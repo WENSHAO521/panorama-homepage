@@ -16,8 +16,8 @@
         
         :root {
             /* 德国国旗配色调整 */
-            --german-red: #DD0000;  /* 德国红 */
-            --german-gold: #FFCE00; /* 德国金 */
+            --german-red: #DD0000;
+            --german-gold: #FFCE00;
             --german-black: #000000;
             
             --harvard-red: #A51C30; 
@@ -268,6 +268,17 @@
             filter: grayscale(0%) opacity(1); /* 悬停彩色 */
             transform: scale(1.1);
         }
+
+        /* 针对白色LOGO的特殊处理 (CJWK) */
+        .invert-white-logo {
+            /* 默认反转颜色：白变黑 */
+            filter: invert(1) grayscale(100%) opacity(0.6) !important; 
+        }
+        .invert-white-logo:hover {
+            /* 悬停时：保持深色高亮 (因为原图是白的，不反转就看不见) */
+            filter: invert(1) grayscale(0%) opacity(1) !important;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -386,10 +397,49 @@
             </div>
             
             <div class="scope-container">
-                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">01 / TECHNOLOGY</span><h4 class="scope-title-text">Digital Society</h4><div class="scope-line"></div><p class="scope-desc-text">Investigating the ethical frameworks of AI, algorithmic governance, and human-digital interaction.</p></div></div>
-                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">02 / INFRASTRUCTURE</span><h4 class="scope-title-text">Urban Governance</h4><div class="scope-line"></div><p class="scope-desc-text">Analyzing smart city architectural planning, sustainable urban metabolic systems, and public policy.</p></div></div>
-                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1554941068-a252680d25d9?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">03 / PHILOSOPHY</span><h4 class="scope-title-text">Humanities & Art</h4><div class="scope-line"></div><p class="scope-desc-text">Examining contemporary aesthetic theories, digital media art, and cultural evolution.</p></div></div>
-                <div class="scope-card-academic group"><div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1200')"></div><div class="scope-gradient"></div><div class="scope-content-box"><span class="scope-index">04 / REGULATION</span><h4 class="scope-title-text">Law & Economics</h4><div class="scope-line"></div><p class="scope-desc-text">Researching international trade law, global economic trends, and legal adaptive structures.</p></div></div>
+                <div class="scope-card-academic group">
+                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="scope-gradient"></div>
+                    <div class="scope-content-box">
+                        <span class="scope-index">01 / TECHNOLOGY</span>
+                        <h4 class="scope-title-text">Digital Society</h4>
+                        <div class="scope-line"></div>
+                        <p class="scope-desc-text">Investigating the ethical frameworks of AI, algorithmic governance, and human-digital interaction.</p>
+                    </div>
+                </div>
+
+                <div class="scope-card-academic group">
+                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="scope-gradient"></div>
+                    <div class="scope-content-box">
+                        <span class="scope-index">02 / INFRASTRUCTURE</span>
+                        <h4 class="scope-title-text">Urban Governance</h4>
+                        <div class="scope-line"></div>
+                        <p class="scope-desc-text">Analyzing smart city architectural planning, sustainable urban metabolic systems, and public policy.</p>
+                    </div>
+                </div>
+
+                <div class="scope-card-academic group">
+                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1554941068-a252680d25d9?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="scope-gradient"></div>
+                    <div class="scope-content-box">
+                        <span class="scope-index">03 / PHILOSOPHY</span>
+                        <h4 class="scope-title-text">Humanities & Art</h4>
+                        <div class="scope-line"></div>
+                        <p class="scope-desc-text">Examining contemporary aesthetic theories, digital media art, and cultural evolution.</p>
+                    </div>
+                </div>
+
+                <div class="scope-card-academic group">
+                    <div class="scope-img" style="background-image: url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1200')"></div>
+                    <div class="scope-gradient"></div>
+                    <div class="scope-content-box">
+                        <span class="scope-index">04 / REGULATION</span>
+                        <h4 class="scope-title-text">Law & Economics</h4>
+                        <div class="scope-line"></div>
+                        <p class="scope-desc-text">Researching international trade law, global economic trends, and legal adaptive structures.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -404,10 +454,37 @@
             </div>
             
             <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-white transition-all duration-500">120+</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black group-hover:text-white">Articles</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-white/50 transition-all duration-700"></div></div>
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">180+</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Citations</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div></div>
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#FFCE00] transition-all duration-500">25k+</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Reads</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#FFCE00]/50 transition-all duration-700"></div></div>
-                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]"><div class="relative z-10"><p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">100%</p><p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Ethics</p></div><div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div></div>
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-white transition-all duration-500">120+</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black group-hover:text-white">Articles</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-white/50 transition-all duration-700"></div>
+                </div>
+
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">180+</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Citations</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div>
+                </div>
+
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#FFCE00] transition-all duration-500">25k+</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Reads</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#FFCE00]/50 transition-all duration-700"></div>
+                </div>
+
+                <div onclick="this.classList.toggle('active')" class="cursor-pointer group relative py-12 px-4 transition-all duration-500 rounded-xl hover:bg-white/[0.03]">
+                    <div class="relative z-10">
+                        <p class="text-6xl font-black mb-4 italic text-slate-700 group-hover:text-[#DD0000] transition-all duration-500">100%</p>
+                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-black">Ethics</p>
+                    </div>
+                    <div class="absolute inset-0 border-b-2 border-transparent group-hover:border-[#DD0000]/50 transition-all duration-700"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -441,9 +518,7 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 items-center justify-items-center">
-                <div class="partner-logo-container">
-                    <img src="https://pub-49d2ed61af9d42f0b99c9ebd93b5bf09.r2.dev/logo1.png" alt="Partner" class="partner-logo">
-                </div>
+                
                 <div class="partner-logo-container">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" alt="Google Scholar" class="partner-logo">
                 </div>
@@ -460,14 +535,12 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" alt="BASE" class="partner-logo">
                 </div>
                 <div class="partner-logo-container">
-                    <img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" alt="CJWK" class="partner-logo">
+                    <img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" alt="CJWK" class="partner-logo invert-white-logo">
                 </div>
                 <div class="partner-logo-container">
                     <img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" alt="OpenAlex" class="partner-logo">
                 </div>
-                <div class="partner-logo-container">
-                    <img src="https://www.shiharr.com/uploads/20251009/3a0f587ae1bfd6b206ff9e477622f3a2.png" alt="Shiharr" class="partner-logo">
-                </div>
+                
             </div>
         </div>
     </section>
