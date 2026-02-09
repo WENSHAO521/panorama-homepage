@@ -142,9 +142,9 @@
             overflow: hidden;
         }
 
-        /* --- New Indexing Bar Styles --- */
+        /* --- Indexing Bar Styles (In Card) --- */
         .indexing-bar {
-            margin-top: auto; /* Push to bottom of header */
+            margin-top: auto; 
             padding-top: 15px;
             padding-bottom: 15px;
             border-top: 1px dashed #e5e7eb;
@@ -163,28 +163,25 @@
             gap: 10px;
             align-items: center;
             flex-wrap: wrap;
-            height: 24px; /* Fixed height container */
+            height: 24px; 
             overflow: hidden;
         }
         .idx-logo {
-            height: 16px; /* Uniform height */
+            height: 16px; 
             width: auto;
             max-width: 60px;
             object-fit: contain;
-            filter: grayscale(100%) opacity(0.5); /* Default gray */
+            filter: grayscale(100%) opacity(0.5); 
             transition: all 0.3s ease;
         }
-        /* CJWK Specific: Needs invert because logo is white */
         .idx-logo.cjwk-logo {
             filter: grayscale(100%) invert(1) opacity(0.5);
         }
-        
-        /* Hover States */
         .journal-card:hover .idx-logo {
             filter: grayscale(0%) opacity(1);
         }
         .journal-card:hover .idx-logo.cjwk-logo {
-            filter: grayscale(0%) invert(1) opacity(1); /* Keep inverted but remove grayscale */
+            filter: grayscale(0%) invert(1) opacity(1);
         }
 
         /* --- Buttons --- */
@@ -324,48 +321,86 @@
             transform: scale(1.3);
         }
 
-        /* --- Partner Box Styling --- */
-        .partner-section-wrapper {
-            border: 1px solid #e5e7eb;
+        /* --- ECOSYSTEM GRID (Redesigned) --- */
+        .eco-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid #e5e7eb;
+            border-left: 1px solid #e5e7eb;
+        }
+        .eco-col {
+            border-right: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 40px 30px;
             background: #fff;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            max-width: 100%;
-            overflow: hidden;
+            transition: background 0.3s;
         }
-        .partner-cat-header {
-            margin-bottom: 8px;
+        .eco-col:hover {
+            background: #fcfcfc;
+        }
+        .eco-header {
             font-size: 12px;
-            font-weight: 600;
-            color: #6b7280;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px dashed #e5e7eb;
-            padding-bottom: 5px;
-        }
-        .partner-logo-box {
+            letter-spacing: 0.1em;
+            color: var(--g-red);
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            height: 50px;
-            border: 1px solid #eee;
-            border-radius: 2px;
-            padding: 8px;
-            background: white;
-            transition: all 0.2s;
+            gap: 10px;
         }
-        .partner-logo-box:hover {
-            border-color: #ccc;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .eco-header::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: var(--g-red);
         }
-        .partner-logo-box.dark-bg {
-            background: #000;
-            border-color: #000;
+        .eco-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
-        .partner-img {
-            max-height: 32px;
-            max-width: 100%;
+        .eco-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0.5;
+            filter: grayscale(100%);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+        .eco-item:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: translateX(5px);
+        }
+        .eco-logo {
+            max-height: 28px;
+            max-width: 100px;
             object-fit: contain;
+            object-position: left;
+        }
+        /* CJWK Filter */
+        .eco-item.invert-logo .eco-logo {
+            filter: invert(1);
+        }
+        .eco-item.invert-logo:hover .eco-logo {
+            /* Keep invert on hover, just remove parent grayscale if needed, but filter replaces all */
+            filter: invert(1) grayscale(0%); 
+        }
+
+        /* Disclaimer Text */
+        .disclaimer-box {
+            font-family: 'Archivo', sans-serif;
+            font-size: 10px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 40px;
+            text-align: right;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
         }
     </style>
 </head>
@@ -547,65 +582,70 @@
         </div>
     </section>
 
-    <section id="partners" class="py-20 bg-white">
+    <section id="partners" class="py-32 bg-white">
         <div class="container mx-auto px-8">
-            <div class="text-center mb-10">
-                <span class="text-[#CC0000] font-bold tracking-widest uppercase text-xs">Strategic Partners & Indexing</span>
+            <div class="mb-16">
+                <h2 class="font-serif text-4xl font-bold text-black uppercase mb-4">Global Scholarly Ecosystem</h2>
+                <div class="w-16 h-1 bg-[#CC0000] mb-6"></div>
+                <p class="text-gray-500 text-lg max-w-2xl font-light">
+                    Connecting research with the global knowledge infrastructure. Ensuring standardization, discoverability, and long-term preservation.
+                </p>
             </div>
             
-            <div class="partner-section-wrapper">
-                <div class="bg-[#f8f9fa] py-3 px-4 border-b border-[#e5e7eb] text-center">
-                    <span class="font-bold text-gray-800 uppercase text-sm tracking-wide">Global Scholarly Ecosystem</span>
-                </div>
-                
-                <div class="p-6">
-                    <div class="partner-cat-header">Standards & Identifiers</div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-6">
-                        <div class="partner-logo-box"><img class="partner-img" src="https://assets.crossref.org/logo/crossref-logo-200.svg" alt="Crossref"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" alt="DOI"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://portal.issn.org/sites/all/themes/customissn/img/img_0160x0050px_logo_issn.svg" alt="ISSN"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/800px-ISNI_logo_recreation.svg.png?20250816195445" alt="ISNI"></div>
-                    </div>
-
-                    <div class="partner-cat-header">Indexing & Abstracting</div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-6">
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" alt="Google Scholar"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg" alt="Scilit"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" alt="Dimensions"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" alt="Semantic Scholar"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Open_Ukrainian_Citation_Index_logo.png/330px-Open_Ukrainian_Citation_Index_logo.png" alt="OUCI"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://journals.indexcopernicus.com/img/ici2.png" alt="ICI"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" alt="BASE"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" alt="OpenAlex"></div>
-                        <div class="partner-logo-box dark-bg"><img class="partner-img" src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" alt="CJWK"></div>
-                    </div>
-
-                    <div class="partner-cat-header">Discovery & Visibility Platforms</div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-6">
-                        <div class="partner-logo-box"><img class="partner-img" src="https://search.worldcat.org/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F29926%2F1603118905-worldcat-logo.png&w=1920&q=75" alt="WorldCat"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://www.openaire.eu/templates/yootheme/cache/27/Logo_Horizontal-27555593.webp" alt="OpenAIRE"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://pkp.sfu.ca/wp-content/uploads/2022/10/logo.svg" alt="PKP"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/ResearchGate_logo.svg/330px-ResearchGate_logo.svg.png" alt="ResearchGate"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://www.csi.minesparis.psl.eu/wp-content/uploads/2023/09/MATILDA_Didier-Torny.jpg" alt="MATILDA"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/Indexed/wos.png" alt="Web of Science"></div>
-                    </div>
-
-                    <div class="partner-cat-header">Archiving & Preservation</div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
-                        <div class="partner-logo-box"><img class="partner-img" src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" alt="CLOCKSS"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" alt="LOCKSS"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" alt="DNB"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/220px-Zenodo-gradient-square.svg.png?20230831200321" alt="Zenodo"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://library.harvard.edu/themes/custom/harvard/assets/images/logo-final.svg" alt="Harvard"></div>
-                        <div class="partner-logo-box"><img class="partner-img" src="https://toolkit.library.columbia.edu/v3/img/cu-blue-logo.svg" alt="Columbia"></div>
-                        <div class="partner-logo-box dark-bg"><img class="partner-img" src="https://library.dctabudhabi.ae/sites/default/files/homepage/Maktaba_Logo_white_1_0.png" alt="Abu Dhabi Library"></div>
-                        <div class="partner-logo-box dark-bg"><img class="partner-img" src="https://openucla-static.library.ucla.edu/images/logos/ucla-library-logo-wht_resized.svg" alt="UCLA"></div>
+            <div class="eco-grid">
+                <div class="eco-col">
+                    <div class="eco-header">Standards & Identifiers</div>
+                    <div class="eco-list">
+                        <div class="eco-item"><img src="https://assets.crossref.org/logo/crossref-logo-200.svg" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://portal.issn.org/sites/all/themes/customissn/img/img_0160x0050px_logo_issn.svg" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/800px-ISNI_logo_recreation.svg.png?20250816195445" class="eco-logo"></div>
                     </div>
                 </div>
 
-                <div class="bg-[#f8f9fa] py-3 px-4 border-t border-[#e5e7eb] text-[11px] text-gray-500 text-justify leading-relaxed">
-                    <strong>Disclaimer:</strong> Inclusion in the services listed above indicates discoverability, availability, or long-term preservation of journal content. It does not imply formal indexing in evaluation or ranking databases such as Web of Science Core Collection or Scopus.
+                <div class="eco-col">
+                    <div class="eco-header">Indexing & Abstracting</div>
+                    <div class="eco-list">
+                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://journals.indexcopernicus.com/img/ici2.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="eco-logo"></div>
+                        <div class="eco-item invert-logo"><img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="eco-logo"></div>
+                    </div>
                 </div>
+
+                <div class="eco-col">
+                    <div class="eco-header">Discovery & Visibility</div>
+                    <div class="eco-list">
+                        <div class="eco-item"><img src="https://search.worldcat.org/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F29926%2F1603118905-worldcat-logo.png&w=1920&q=75" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://www.openaire.eu/templates/yootheme/cache/27/Logo_Horizontal-27555593.webp" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://pkp.sfu.ca/wp-content/uploads/2022/10/logo.svg" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/ResearchGate_logo.svg/330px-ResearchGate_logo.svg.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://www.csi.minesparis.psl.eu/wp-content/uploads/2023/09/MATILDA_Didier-Torny.jpg" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/Indexed/wos.png" class="eco-logo"></div>
+                    </div>
+                </div>
+
+                <div class="eco-col">
+                    <div class="eco-header">Archiving & Preservation</div>
+                    <div class="eco-list">
+                        <div class="eco-item"><img src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/220px-Zenodo-gradient-square.svg.png?20230831200321" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://library.harvard.edu/themes/custom/harvard/assets/images/logo-final.svg" class="eco-logo"></div>
+                        <div class="eco-item"><img src="https://toolkit.library.columbia.edu/v3/img/cu-blue-logo.svg" class="eco-logo"></div>
+                        <div class="eco-item invert-logo"><img src="https://library.dctabudhabi.ae/sites/default/files/homepage/Maktaba_Logo_white_1_0.png" class="eco-logo"></div>
+                        <div class="eco-item invert-logo"><img src="https://openucla-static.library.ucla.edu/images/logos/ucla-library-logo-wht_resized.svg" class="eco-logo"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                Disclaimer: Inclusion in the services listed above indicates discoverability, availability, or long-term preservation of journal content. <br>It does not imply formal indexing in evaluation or ranking databases such as Web of Science Core Collection or Scopus.
             </div>
         </div>
     </section>
