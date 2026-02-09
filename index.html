@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap'); /* 引入工业风字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap');
         
         :root {
-            /* 德国国旗色系 - 严谨配色 */
             --g-red: #CC0000;
             --g-gold: #FFCC00;
             --g-black: #000000;
@@ -35,7 +34,7 @@
         .font-serif { font-family: 'Crimson Pro', serif; }
         .font-mono-num { font-family: 'Archivo', sans-serif; }
 
-        /* --- 顶部导航 --- */
+        /* --- Top Bar --- */
         .top-bar {
             background-color: var(--g-black);
             color: #fff;
@@ -79,7 +78,7 @@
             padding-left: 40px;
         }
 
-        /* --- Journal Cards --- */
+        /* --- Journal Cards (Updated Layout) --- */
         .journal-card {
             background: #fff;
             border: 1px solid #e5e7eb;
@@ -87,16 +86,16 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            border-radius: 0; 
+            position: relative;
         }
         .journal-card:hover {
             border-color: var(--g-red);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             transform: translateY(-5px);
+            z-index: 20;
         }
         .journal-header {
-            padding: 24px;
-            border-bottom: 1px solid #f3f4f6;
+            padding: 24px 24px 0 24px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -107,16 +106,19 @@
             align-items: center;
             justify-content: center;
             background: #f9fafb;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid #f3f4f6;
+            position: relative;
+            overflow: hidden;
         }
         .journal-cover {
             height: 140px;
             width: auto;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .journal-card:hover .journal-cover { transform: scale(1.05); }
+        .journal-card:hover .journal-cover { transform: scale(1.08); }
+        
         .journal-meta-tag {
             font-size: 10px;
             font-weight: 700;
@@ -128,19 +130,67 @@
         }
         .journal-title {
             font-family: 'Crimson Pro', serif;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: black;
             line-height: 1.2;
-            margin-bottom: 0.5rem;
-            min-height: 3.6rem;
+            margin-bottom: 0.25rem;
+            min-height: 3rem; 
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
+        /* --- New Indexing Bar Styles --- */
+        .indexing-bar {
+            margin-top: auto; /* Push to bottom of header */
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-top: 1px dashed #e5e7eb;
+        }
+        .indexing-label {
+            display: block;
+            font-size: 9px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .indexing-logos {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            height: 24px; /* Fixed height container */
+            overflow: hidden;
+        }
+        .idx-logo {
+            height: 16px; /* Uniform height */
+            width: auto;
+            max-width: 60px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.5); /* Default gray */
+            transition: all 0.3s ease;
+        }
+        /* CJWK Specific: Needs invert because logo is white */
+        .idx-logo.cjwk-logo {
+            filter: grayscale(100%) invert(1) opacity(0.5);
+        }
+        
+        /* Hover States */
+        .journal-card:hover .idx-logo {
+            filter: grayscale(0%) opacity(1);
+        }
+        .journal-card:hover .idx-logo.cjwk-logo {
+            filter: grayscale(0%) invert(1) opacity(1); /* Keep inverted but remove grayscale */
+        }
+
         /* --- Buttons --- */
+        .btn-group {
+            margin-top: 0;
+        }
         .btn-action {
             display: block;
             text-align: center;
@@ -157,7 +207,7 @@
         .btn-submit { background: #fff; color: var(--g-black); border-top: 1px solid #e5e7eb; }
         .btn-submit:hover { background: var(--g-gray); color: var(--g-red); }
 
-        /* --- Scope Cards (Updated: No Icons, Index Style) --- */
+        /* --- Scope Cards --- */
         .scope-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -192,23 +242,21 @@
             z-index: 10;
             background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
         }
-        /* 序号索引样式 - 替代图标 */
         .scope-index {
             font-family: 'Archivo', sans-serif;
             font-size: 3rem;
             font-weight: 700;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); /* 镂空字效果 */
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
             line-height: 1;
             margin-bottom: 10px;
             display: block;
             transition: 0.3s;
         }
         .scope-card:hover .scope-index {
-            color: var(--g-gold); /* 悬停变金 */
+            color: var(--g-gold);
             -webkit-text-stroke: 0px;
         }
-        
         .scope-title {
             font-family: 'Crimson Pro', serif;
             font-size: 1.8rem;
@@ -234,36 +282,6 @@
             transition: width 0.4s ease;
         }
         .scope-card:hover .scope-line { width: 100%; }
-
-        /* --- Partners --- */
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            border-top: 1px solid #e5e7eb;
-            border-left: 1px solid #e5e7eb;
-        }
-        .partner-box {
-            border-right: 1px solid #e5e7eb;
-            border-bottom: 1px solid #e5e7eb;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            background: #fff;
-            transition: 0.3s;
-        }
-        .partner-box:hover { background: #fcfcfc; }
-        .partner-logo {
-            max-height: 40px;
-            max-width: 80%;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: 0.3s;
-        }
-        .partner-box:hover .partner-logo { filter: grayscale(0%); opacity: 1; }
-        .invert-white-logo { filter: invert(1) grayscale(100%) opacity(0.6) !important; }
-        .partner-box:hover .invert-white-logo { filter: invert(1) grayscale(0%) opacity(1) !important; }
 
         /* --- Footer --- */
         footer {
@@ -304,6 +322,50 @@
         .nav-dot.active {
             background: var(--g-red);
             transform: scale(1.3);
+        }
+
+        /* --- Partner Box Styling --- */
+        .partner-section-wrapper {
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .partner-cat-header {
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px dashed #e5e7eb;
+            padding-bottom: 5px;
+        }
+        .partner-logo-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 8px;
+            background: white;
+            transition: all 0.2s;
+        }
+        .partner-logo-box:hover {
+            border-color: #ccc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .partner-logo-box.dark-bg {
+            background: #000;
+            border-color: #000;
+        }
+        .partner-img {
+            max-height: 32px;
+            max-width: 100%;
+            object-fit: contain;
         }
     </style>
 </head>
@@ -488,20 +550,62 @@
     <section id="partners" class="py-20 bg-white">
         <div class="container mx-auto px-8">
             <div class="text-center mb-10">
-                <span class="text-[#CC0000] font-bold tracking-widest uppercase text-xs">Global Indexing</span>
+                <span class="text-[#CC0000] font-bold tracking-widest uppercase text-xs">Strategic Partners & Indexing</span>
             </div>
-            <div class="partner-grid">
-                <div class="partner-box"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="partner-logo"></div>
-                <div class="partner-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Crossref_Logo_Stacked_RGB_SMALL.png" class="partner-logo"></div>
-                <div class="partner-box"><img src="https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg" class="partner-logo"></div>
-                <div class="partner-box"><img src="https://journals.indexcopernicus.com/img/ici2.png" class="partner-logo"></div>
-                <div class="partner-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="partner-logo"></div>
-                <div class="partner-box"><img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="partner-logo invert-white-logo"></div>
-                <div class="partner-box"><img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="partner-logo"></div>
+            
+            <div class="partner-section-wrapper">
+                <div class="bg-[#f8f9fa] py-3 px-4 border-b border-[#e5e7eb] text-center">
+                    <span class="font-bold text-gray-800 uppercase text-sm tracking-wide">Global Scholarly Ecosystem</span>
+                </div>
                 
-                <div class="partner-box"></div>
-                <div class="partner-box"></div>
-                <div class="partner-box"></div>
+                <div class="p-6">
+                    <div class="partner-cat-header">Standards & Identifiers</div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-6">
+                        <div class="partner-logo-box"><img class="partner-img" src="https://assets.crossref.org/logo/crossref-logo-200.svg" alt="Crossref"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" alt="DOI"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://portal.issn.org/sites/all/themes/customissn/img/img_0160x0050px_logo_issn.svg" alt="ISSN"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/800px-ISNI_logo_recreation.svg.png?20250816195445" alt="ISNI"></div>
+                    </div>
+
+                    <div class="partner-cat-header">Indexing & Abstracting</div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-6">
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" alt="Google Scholar"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg" alt="Scilit"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" alt="Dimensions"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" alt="Semantic Scholar"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Open_Ukrainian_Citation_Index_logo.png/330px-Open_Ukrainian_Citation_Index_logo.png" alt="OUCI"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://journals.indexcopernicus.com/img/ici2.png" alt="ICI"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" alt="BASE"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" alt="OpenAlex"></div>
+                        <div class="partner-logo-box dark-bg"><img class="partner-img" src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" alt="CJWK"></div>
+                    </div>
+
+                    <div class="partner-cat-header">Discovery & Visibility Platforms</div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2 mb-6">
+                        <div class="partner-logo-box"><img class="partner-img" src="https://search.worldcat.org/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F29926%2F1603118905-worldcat-logo.png&w=1920&q=75" alt="WorldCat"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://www.openaire.eu/templates/yootheme/cache/27/Logo_Horizontal-27555593.webp" alt="OpenAIRE"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://pkp.sfu.ca/wp-content/uploads/2022/10/logo.svg" alt="PKP"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/ResearchGate_logo.svg/330px-ResearchGate_logo.svg.png" alt="ResearchGate"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://www.csi.minesparis.psl.eu/wp-content/uploads/2023/09/MATILDA_Didier-Torny.jpg" alt="MATILDA"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/Indexed/wos.png" alt="Web of Science"></div>
+                    </div>
+
+                    <div class="partner-cat-header">Archiving & Preservation</div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
+                        <div class="partner-logo-box"><img class="partner-img" src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" alt="CLOCKSS"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" alt="LOCKSS"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" alt="DNB"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/220px-Zenodo-gradient-square.svg.png?20230831200321" alt="Zenodo"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://library.harvard.edu/themes/custom/harvard/assets/images/logo-final.svg" alt="Harvard"></div>
+                        <div class="partner-logo-box"><img class="partner-img" src="https://toolkit.library.columbia.edu/v3/img/cu-blue-logo.svg" alt="Columbia"></div>
+                        <div class="partner-logo-box dark-bg"><img class="partner-img" src="https://library.dctabudhabi.ae/sites/default/files/homepage/Maktaba_Logo_white_1_0.png" alt="Abu Dhabi Library"></div>
+                        <div class="partner-logo-box dark-bg"><img class="partner-img" src="https://openucla-static.library.ucla.edu/images/logos/ucla-library-logo-wht_resized.svg" alt="UCLA"></div>
+                    </div>
+                </div>
+
+                <div class="bg-[#f8f9fa] py-3 px-4 border-t border-[#e5e7eb] text-[11px] text-gray-500 text-justify leading-relaxed">
+                    <strong>Disclaimer:</strong> Inclusion in the services listed above indicates discoverability, availability, or long-term preservation of journal content. It does not imply formal indexing in evaluation or ranking databases such as Web of Science Core Collection or Scopus.
+                </div>
             </div>
         </div>
     </section>
@@ -544,15 +648,43 @@
             { id: 'JLPCS', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
             { id: 'PEMR', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
             { id: 'Res', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'Resonance.png', slug: 'Resonance' },
-            { id: 'RGGD', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'Rural%20Governance%20and%20Green%20Development.png', slug: 'RGGD' },
-            { id: 'TTS', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'tts.png', slug: 'tts' }
+            // RGGD marked noCJWK
+            { id: 'RGGD', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'Rural%20Governance%20and%20Green%20Development.png', slug: 'RGGD', noCJWK: true },
+            // TTS marked noCJWK
+            { id: 'TTS', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'tts.png', slug: 'tts', noCJWK: true }
         ];
+
+        // Icon URLs
+        const ICONS = {
+            google: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436',
+            cjwk: 'https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png',
+            scilit: 'https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg',
+            base: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png',
+            openalex: 'https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1'
+        };
 
         const container = document.getElementById('journal-container');
         
         JOURNALS.forEach(j => {
             const card = document.createElement('div');
             card.className = 'journal-card';
+            
+            // Build Icons HTML
+            let iconsHtml = '';
+            if (j.issn !== 'Pending') {
+                // Common Icons
+                iconsHtml += `<img src="${ICONS.google}" title="Google Scholar" class="idx-logo">`;
+                iconsHtml += `<img src="${ICONS.scilit}" title="Scilit" class="idx-logo">`;
+                iconsHtml += `<img src="${ICONS.base}" title="BASE" class="idx-logo">`;
+                iconsHtml += `<img src="${ICONS.openalex}" title="OpenAlex" class="idx-logo">`;
+                
+                // CJWK Logic
+                if (!j.noCJWK) {
+                    // Note: CJWK is a white logo usually, adding specific class to invert color
+                    iconsHtml += `<img src="${ICONS.cjwk}" title="CJWK" class="idx-logo cjwk-logo">`;
+                }
+            }
+
             card.innerHTML = `
                 <div class="journal-header">
                     <span class="journal-meta-tag">${j.cat}</span>
@@ -560,9 +692,15 @@
                         <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/${j.img}" class="journal-cover" onerror="this.style.opacity=0.3">
                     </div>
                     <h3 class="journal-title" title="${j.title}">${j.title}</h3>
-                    <p class="text-xs text-gray-400 font-mono">ISSN: ${j.issn}</p>
+                    <p class="text-xs text-gray-400 font-mono mb-2">ISSN: ${j.issn}</p>
+                    
+                    ${iconsHtml ? `
+                    <div class="indexing-bar">
+                        <span class="indexing-label">Included In</span>
+                        <div class="indexing-logos">${iconsHtml}</div>
+                    </div>` : '<div style="flex-grow:1"></div>'} 
                 </div>
-                <div>
+                <div class="btn-group">
                     <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="btn-action btn-portal">View Portal</a>
                     <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission" class="btn-action btn-submit">Submit Paper</a>
                 </div>
