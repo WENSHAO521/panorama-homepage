@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap'); /* 工业风字体用于索引 */
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap');
         
         :root {
-            /* 德国国旗色系 - 严谨配色 */
             --g-red: #CC0000;
             --g-gold: #FFCC00;
             --g-black: #000000;
@@ -35,12 +34,12 @@
         .font-serif { font-family: 'Crimson Pro', serif; }
         .font-mono-num { font-family: 'Archivo', sans-serif; }
 
-        /* --- Top Bar --- */
+        /* --- UI/UX Optimized Top Bar --- */
         .top-bar {
             background-color: var(--g-black);
             color: #fff;
-            font-size: 12px;
-            padding: 8px 0;
+            font-size: 11px;
+            padding: 10px 0;
             border-bottom: 3px solid var(--g-gold);
         }
 
@@ -82,7 +81,7 @@
         /* --- Policy Section (Legal Code Style) --- */
         .policy-section {
             display: grid;
-            grid-template-columns: 80px 1fr; /* 左侧索引，右侧内容 */
+            grid-template-columns: 80px 1fr;
             gap: 40px;
             margin-bottom: 60px;
             padding-bottom: 60px;
@@ -123,7 +122,6 @@
             position: relative;
             padding-left: 20px;
         }
-        /* 德式列表符号：方块 */
         .policy-list li::before {
             content: '';
             position: absolute;
@@ -141,7 +139,7 @@
 
         /* COPE Box (High Contrast) */
         .cope-box {
-            background: var(--g-black); /* 纯黑背景 */
+            background: var(--g-black);
             color: white;
             padding: 3rem;
             position: relative;
@@ -176,7 +174,6 @@
         }
         .footer-link {
             color: #9ca3af;
-            text-decoration: none;
             font-size: 14px;
             transition: 0.3s;
             display: block;
@@ -199,7 +196,6 @@
             width: 10px;
             height: 10px;
             background: rgba(0,0,0,0.2);
-            border-radius: 0;
             cursor: pointer;
             transition: 0.3s;
         }
@@ -221,9 +217,13 @@
 
     <div class="top-bar">
         <div class="container mx-auto px-8 flex justify-between items-center tracking-widest uppercase">
-            <div class="flex gap-8">
+            <div class="flex gap-8 items-center">
                 <span><i class="fas fa-university text-[#FFCC00] mr-2"></i> Berlin HQ</span>
                 <span><i class="fas fa-cogs text-[#FFCC00] mr-2"></i> Hong Kong Operations</span>
+                <span class="border-l border-gray-700 pl-8 ml-2">
+                    <i class="fas fa-envelope text-[#FFCC00] mr-2"></i> 
+                    <a href="mailto:contact@panorama-sg.com" class="hover:text-[#FFCC00] transition-colors">contact@panorama-sg.com</a>
+                </span>
             </div>
             <div class="font-bold text-[#FFCC00]">Dual-Hub Infrastructure</div>
         </div>
@@ -239,9 +239,9 @@
                 </div>
             </a>
             <nav class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
-                <a href="index.html" class="hover:text-[#CC0000] transition">Home</a>
-                <a href="index.html#journals" class="hover:text-[#CC0000] transition">Journals</a>
-                <a href="about.html" class="hover:text-[#CC0000] transition">About Us</a>
+                <a href="index.html" class="text-gray-400 hover:text-[#CC0000] transition">Home</a>
+                <a href="index.html#journals" class="text-gray-400 hover:text-[#CC0000] transition">Journals</a>
+                <a href="about.html" class="text-gray-400 hover:text-[#CC0000] transition">About Us</a>
             </nav>
         </div>
     </header>
@@ -269,6 +269,7 @@
                     "Panorama Scholarly Group (PSG) is committed to maintaining the highest standards of publication ethics. Our ethic statements are based on the <span class="text-[#CC0000] not-italic font-bold">Committee on Publication Ethics (COPE)</span> Best Practice Guidelines for Journal Editors."
                 </p>
                 <div class="h-1.5 w-24 bg-gradient-to-r from-black via-[#CC0000] to-[#FFCC00] mx-auto mt-10"></div>
+                
             </div>
 
             <div id="editors" class="policy-section">
@@ -355,21 +356,16 @@
     </footer>
 
     <script>
-        // Scroll Spy
         window.addEventListener('scroll', () => {
             const sections = ['intro', 'editors', 'authors', 'reviewers', 'retraction'];
             let current = '';
             sections.forEach(section => {
                 const element = document.getElementById(section);
-                if (element && window.scrollY >= element.offsetTop - 300) {
-                    current = section;
-                }
+                if (element && window.scrollY >= element.offsetTop - 300) { current = section; }
             });
             document.querySelectorAll('.nav-dot').forEach(a => {
                 a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
+                if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
             });
         });
     </script>
