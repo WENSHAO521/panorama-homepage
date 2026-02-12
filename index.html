@@ -87,7 +87,34 @@
             padding-left: 40px;
         }
 
-        /* --- Journal Cards (Updated Layout) --- */
+        /* --- Journal Cards & Layout --- */
+        .journal-category-header {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--g-black);
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            /* gap removed since icon is gone */
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .journal-category-header:first-child { margin-top: 0; }
+        
+        /* 增加一个红色小方块作为纯文本标题的装饰，替代图标 */
+        .journal-category-header::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 24px;
+            background-color: var(--g-red);
+            margin-right: 15px;
+        }
+
         .journal-card {
             background: #fff;
             border: 1px solid #e5e7eb;
@@ -151,7 +178,7 @@
             overflow: hidden;
         }
 
-        /* --- Indexing Bar Styles (In Card) --- */
+        /* --- Indexing Bar Styles --- */
         .indexing-bar {
             margin-top: auto; 
             padding-top: 15px;
@@ -330,7 +357,7 @@
             transform: scale(1.3);
         }
 
-        /* --- ECOSYSTEM GRID (Redesigned) --- */
+        /* --- ECOSYSTEM GRID --- */
         .eco-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -390,7 +417,6 @@
             object-fit: contain;
             object-position: left;
         }
-        /* CJWK Filter */
         .eco-item.invert-logo .eco-logo {
             filter: invert(1);
         }
@@ -398,7 +424,6 @@
             filter: invert(1) grayscale(0%); 
         }
 
-        /* Disclaimer Text */
         .disclaimer-box {
             font-family: 'Archivo', sans-serif;
             font-size: 10px;
@@ -480,7 +505,7 @@
                 </div>
                 <div class="h-2 w-20 bg-[#CC0000]"></div>
             </div>
-            <div id="journal-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div id="journal-wrapper"></div>
         </div>
     </section>
 
@@ -629,7 +654,7 @@
                     <div class="eco-header">Discovery & Visibility</div>
                     <div class="eco-list">
                         <div class="eco-item">
-                            <img src="https://gh-proxy.org/https://github.com/WENSHAO521/PanoramaScholarlyGroup/blob/main/Indexed/library-logo.png?raw=true" title="CASHL - China Academic Social Sciences and Humanities Library" class="eco-logo">
+                            <img src="http://s.cashl.edu.cn:1701/primo-explore/custom/CASHL/img/library-logo.png" title="CASHL - China Academic Social Sciences and Humanities Library" class="eco-logo">
                         </div>
                         <div class="eco-item"><img src="https://search.worldcat.org/_next/image?url=https%3A%2F%2Fwww.datocms-assets.com%2F29926%2F1603118905-worldcat-logo.png&w=1920&q=75" class="eco-logo"></div>
                         <div class="eco-item"><img src="https://www.openaire.eu/templates/yootheme/cache/27/Logo_Horizontal-27555593.webp" class="eco-logo"></div>
@@ -689,18 +714,37 @@
     </footer>
 
     <script>
+        // Define Categories - Text Only Title
+        const CATEGORIES = [
+            { id: 'tech', title: 'Frontier & Technology' },
+            { id: 'env', title: 'Sustainability & Life Sciences' },
+            { id: 'soc', title: 'Social Sciences & Governance' },
+            { id: 'arts', title: 'Humanities & Arts' }
+        ];
+
+        // Define Journals with 'group' property
         const JOURNALS = [
-            { id: 'AFS', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AI%20%26%20Future%20Society.png', slug: 'AFS' },
-            { id: 'CSSR', title: 'Computational Social Sciences', cat: 'Data', issn: 'Pending', img: 'cssr.png', slug: 'cssr' },
-            { id: 'GRHAS', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'grhas.png', slug: 'files' },
-            { id: 'HN', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png', slug: 'HealthNexus' },
-            { id: 'IRELS', title: 'International Review of Education & Learning Sciences', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
-            { id: 'JESA', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
-            { id: 'JLPCS', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
-            { id: 'PEMR', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
-            { id: 'Res', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'Resonance.png', slug: 'Resonance' },
-            { id: 'RGGD', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'Rural%20Governance%20and%20Green%20Development.png', slug: 'RGGD', noCJWK: true },
-            { id: 'TTS', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'tts.png', slug: 'tts', noCJWK: true }
+            // --- Tech ---
+            { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/PFR.png', slug: 'PFR' },
+            { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AI%20%26%20Future%20Society.png', slug: 'AFS' },
+            { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
+            
+            // --- Env ---
+            { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: 'Pending', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/CSGS.png', slug: 'CSGS' },
+            { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'Rural%20Governance%20and%20Green%20Development.png', slug: 'RGGD', noCJWK: true },
+            { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png', slug: 'HealthNexus' },
+
+            // --- Soc ---
+            { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/GPPGR.png', slug: 'GPPGR' },
+            { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
+            { id: 'CSSR', group: 'soc', title: 'Computational Social Sciences', cat: 'Data', issn: 'Pending', img: 'cssr.png', slug: 'cssr' },
+            { id: 'JLPCS', group: 'soc', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
+            { id: 'IRELS', group: 'soc', title: 'International Review of Education & Learning Sciences', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
+
+            // --- Arts ---
+            { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'grhas.png', slug: 'files' },
+            { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'tts.png', slug: 'tts', noCJWK: true },
+            { id: 'Res', group: 'arts', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'Resonance.png', slug: 'Resonance' }
         ];
 
         const ICONS = {
@@ -711,61 +755,72 @@
             openalex: 'https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1'
         };
 
-        const container = document.getElementById('journal-container');
-        
-        JOURNALS.forEach(j => {
-            const card = document.createElement('div');
-            card.className = 'journal-card';
-            
-            let iconsHtml = '';
-            if (j.issn !== 'Pending') {
-                iconsHtml += `<img src="${ICONS.google}" title="Google Scholar" class="idx-logo">`;
-                iconsHtml += `<img src="${ICONS.scilit}" title="Scilit" class="idx-logo">`;
-                iconsHtml += `<img src="${ICONS.base}" title="BASE" class="idx-logo">`;
-                iconsHtml += `<img src="${ICONS.openalex}" title="OpenAlex" class="idx-logo">`;
-                
-                if (!j.noCJWK) {
-                    iconsHtml += `<img src="${ICONS.cjwk}" title="CJWK" class="idx-logo cjwk-logo">`;
-                }
-            }
+        const wrapper = document.getElementById('journal-wrapper');
+        const baseOld = "https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/";
 
-            card.innerHTML = `
-                <div class="journal-header">
-                    <span class="journal-meta-tag">${j.cat}</span>
-                    <div class="journal-cover-container">
-                        <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/${j.img}" class="journal-cover" onerror="this.style.opacity=0.3">
+        // 1. Loop through Categories
+        CATEGORIES.forEach(cat => {
+            // Filter journals for this category
+            const catJournals = JOURNALS.filter(j => j.group === cat.id);
+            if (catJournals.length === 0) return;
+
+            // Create Category Header - Pure Text Version
+            const header = document.createElement('h3');
+            header.className = 'journal-category-header';
+            header.innerText = cat.title; // Text only
+            wrapper.appendChild(header);
+
+            // Create Grid Container for this category
+            const grid = document.createElement('div');
+            grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12';
+            
+            // Loop through journals in this category
+            catJournals.forEach(j => {
+                const card = document.createElement('div');
+                card.className = 'journal-card';
+                
+                let finalImgSrc = j.img.startsWith('http') ? "https://gh-proxy.org/" + j.img : baseOld + j.img;
+
+                let iconsHtml = '';
+                if (j.issn !== 'Pending') {
+                    iconsHtml += `<img src="${ICONS.google}" title="Google Scholar" class="idx-logo">`;
+                    iconsHtml += `<img src="${ICONS.scilit}" title="Scilit" class="idx-logo">`;
+                    iconsHtml += `<img src="${ICONS.base}" title="BASE" class="idx-logo">`;
+                    iconsHtml += `<img src="${ICONS.openalex}" title="OpenAlex" class="idx-logo">`;
+                    if (!j.noCJWK) iconsHtml += `<img src="${ICONS.cjwk}" title="CJWK" class="idx-logo cjwk-logo">`;
+                }
+
+                card.innerHTML = `
+                    <div class="journal-header">
+                        <span class="journal-meta-tag">${j.cat}</span>
+                        <div class="journal-cover-container">
+                            <img src="${finalImgSrc}" class="journal-cover" onerror="this.style.opacity=0.3">
+                        </div>
+                        <h3 class="journal-title" title="${j.title}">${j.title}</h3>
+                        <p class="text-xs text-gray-400 font-mono mb-2">ISSN: ${j.issn}</p>
+                        ${iconsHtml ? `<div class="indexing-bar"><span class="indexing-label">Included In</span><div class="indexing-logos">${iconsHtml}</div></div>` : '<div style="flex-grow:1"></div>'} 
                     </div>
-                    <h3 class="journal-title" title="${j.title}">${j.title}</h3>
-                    <p class="text-xs text-gray-400 font-mono mb-2">ISSN: ${j.issn}</p>
-                    
-                    ${iconsHtml ? `
-                    <div class="indexing-bar">
-                        <span class="indexing-label">Included In</span>
-                        <div class="indexing-logos">${iconsHtml}</div>
-                    </div>` : '<div style="flex-grow:1"></div>'} 
-                </div>
-                <div class="btn-group">
-                    <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="btn-action btn-portal">View Portal</a>
-                    <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission" class="btn-action btn-submit">Submit Paper</a>
-                </div>
-            `;
-            container.appendChild(card);
+                    <div class="btn-group">
+                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="btn-action btn-portal">View Portal</a>
+                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission" class="btn-action btn-submit">Submit Paper</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            wrapper.appendChild(grid);
         });
 
+        // Scroll Spy
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+                if (scrollY >= sectionTop - 200) current = section.getAttribute('id');
             });
             document.querySelectorAll('.nav-dot').forEach(a => {
                 a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
+                if (a.getAttribute('href').includes(current)) a.classList.add('active');
             });
         });
     </script>
