@@ -16,7 +16,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap');
         
         :root {
-            /* 德国国旗色系 - 严谨配色 */
             --g-red: #CC0000;
             --g-gold: #FFCC00;
             --g-black: #000000;
@@ -35,12 +34,12 @@
         .font-serif { font-family: 'Crimson Pro', serif; }
         .font-mono-num { font-family: 'Archivo', sans-serif; }
 
-        /* --- 顶部导航 --- */
+        /* --- UI/UX Optimized Top Bar --- */
         .top-bar {
             background-color: var(--g-black);
             color: #fff;
-            font-size: 12px;
-            padding: 8px 0;
+            font-size: 11px; /* 优化为更紧凑的学术字号 */
+            padding: 10px 0;
             border-bottom: 3px solid var(--g-gold);
         }
 
@@ -53,7 +52,7 @@
             z-index: 50;
         }
 
-        /* --- Banner (German Library Style) --- */
+        /* --- Banner (Berlin Library Style) --- */
         .page-banner {
             position: relative;
             height: 50vh;
@@ -66,7 +65,6 @@
         .banner-bg {
             position: absolute;
             inset: 0;
-            /* 柏林洪堡大学图书馆风格 */
             background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&q=80&w=1920');
             background-size: cover;
             background-position: center;
@@ -105,17 +103,19 @@
             margin-bottom: 2rem;
         }
 
-        /* --- Value Cards (Bauhaus Minimalist) --- */
+        /* --- Value Cards --- */
         .value-card {
             border: 1px solid #e5e7eb;
             padding: 40px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            background: #fff;
         }
         .value-card:hover {
             border-color: var(--g-black);
             background: var(--g-gray);
+            transform: translateY(-5px);
         }
         .value-card::before {
             content: '';
@@ -140,7 +140,7 @@
             margin-bottom: 1rem;
         }
 
-        /* --- Ethics Section (High Contrast) --- */
+        /* --- Ethics Section --- */
         .ethics-box {
             background: var(--g-black);
             color: white;
@@ -168,7 +168,6 @@
         }
         .footer-link {
             color: #9ca3af;
-            text-decoration: none;
             font-size: 14px;
             transition: 0.3s;
             display: block;
@@ -191,7 +190,6 @@
             width: 10px;
             height: 10px;
             background: rgba(0,0,0,0.2);
-            border-radius: 0;
             cursor: pointer;
             transition: 0.3s;
         }
@@ -212,9 +210,13 @@
 
     <div class="top-bar">
         <div class="container mx-auto px-8 flex justify-between items-center tracking-widest uppercase">
-            <div class="flex gap-8">
+            <div class="flex gap-8 items-center">
                 <span><i class="fas fa-university text-[#FFCC00] mr-2"></i> Berlin HQ</span>
                 <span><i class="fas fa-cogs text-[#FFCC00] mr-2"></i> Hong Kong Operations</span>
+                <span class="border-l border-gray-700 pl-8 ml-2">
+                    <i class="fas fa-envelope text-[#FFCC00] mr-2"></i> 
+                    <a href="mailto:contact@panorama-sg.com" class="hover:text-[#FFCC00] transition-colors">contact@panorama-sg.com</a>
+                </span>
             </div>
             <div class="font-bold text-[#FFCC00]">Dual-Hub Infrastructure</div>
         </div>
@@ -230,8 +232,8 @@
                 </div>
             </a>
             <nav class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
-                <a href="index.html" class="hover:text-[#CC0000] transition">Home</a>
-                <a href="index.html#journals" class="hover:text-[#CC0000] transition">Journals</a>
+                <a href="index.html" class="text-gray-400 hover:text-[#CC0000] transition">Home</a>
+                <a href="index.html#journals" class="text-gray-400 hover:text-[#CC0000] transition">Journals</a>
                 <a href="about.html" class="text-[#CC0000]">About Us</a>
             </nav>
         </div>
@@ -291,24 +293,23 @@
                 <h2 class="section-title">Fundamental Values</h2>
                 <div class="h-1 w-10 bg-[#FFCC00] mx-auto mt-4"></div>
             </div>
-
             <div class="grid grid-cols-3 gap-8">
-                <div class="value-card">
-                    <i class="fas fa-university value-icon"></i>
+                <div class="value-card group">
+                    <i class="fas fa-university value-icon transition-transform group-hover:scale-110"></i>
                     <h4 class="value-title">Academic Rigor</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Implementing stringent double-blind peer-review to safeguard scientific integrity and empirical validity. Modeled on traditional German scholarship.
                     </p>
                 </div>
-                <div class="value-card">
-                    <i class="fas fa-globe value-icon"></i>
+                <div class="value-card group">
+                    <i class="fas fa-globe value-icon transition-transform group-hover:scale-110"></i>
                     <h4 class="value-title">Global Impact</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Fostering a truly equitable research community by providing universal, barrier-free access to knowledge. 100% Open Access.
                     </p>
                 </div>
-                <div class="value-card">
-                    <i class="fas fa-project-diagram value-icon"></i>
+                <div class="value-card group">
+                    <i class="fas fa-project-diagram value-icon transition-transform group-hover:scale-110"></i>
                     <h4 class="value-title">Interdisciplinary</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Bridging specialized domains through sophisticated cross-disciplinary dialogue. Integrating Arts, Science, and Technology.
@@ -337,8 +338,8 @@
                     </div>
                 </div>
             </div>
-            <div class="relative h-full">
-                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover grayscale">
+            <div class="relative h-full overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-1000">
             </div>
         </div>
     </section>
@@ -354,6 +355,10 @@
             </div>
             <div>
                 <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Headquarters</h4>
+                <p class="text-gray-400 mb-4">
+                    <strong class="text-white">Inquiries:</strong><br>
+                    <span class="text-sm font-mono">contact@panorama-sg.com</span>
+                </p>
                 <p class="text-gray-400 mb-4"><strong class="text-white">Berlin, Germany</strong><br><span class="text-xs">Academic Direction</span></p>
                 <p class="text-gray-400"><strong class="text-white">Hong Kong</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
             </div>
@@ -371,21 +376,16 @@
     </footer>
 
     <script>
-        // Scroll Spy
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section');
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 300) {
-                    current = section.getAttribute('id');
-                }
+                if (scrollY >= sectionTop - 300) { current = section.getAttribute('id'); }
             });
             document.querySelectorAll('.nav-dot').forEach(a => {
                 a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
+                if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
             });
         });
     </script>
