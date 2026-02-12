@@ -38,7 +38,7 @@
         .top-bar {
             background-color: var(--g-black);
             color: #fff;
-            font-size: 11px; /* 优化为更紧凑的学术字号 */
+            font-size: 11px;
             padding: 10px 0;
             border-bottom: 3px solid var(--g-gold);
         }
@@ -52,7 +52,7 @@
             z-index: 50;
         }
 
-        /* --- Banner (Berlin Library Style) --- */
+        /* --- Banner --- */
         .page-banner {
             position: relative;
             height: 50vh;
@@ -78,7 +78,6 @@
             padding-left: 40px;
         }
 
-        /* --- Text Styling --- */
         .section-title {
             font-family: 'Crimson Pro', serif;
             font-size: 3rem;
@@ -140,26 +139,6 @@
             margin-bottom: 1rem;
         }
 
-        /* --- Ethics Section --- */
-        .ethics-box {
-            background: var(--g-black);
-            color: white;
-            padding: 60px;
-            position: relative;
-        }
-        .cope-tag {
-            background: var(--g-red);
-            color: white;
-            padding: 5px 15px;
-            font-weight: 700;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        /* --- Footer --- */
         footer {
             background: var(--g-black);
             color: #fff;
@@ -175,7 +154,6 @@
         }
         .footer-link:hover { color: var(--g-gold); padding-left: 5px; }
 
-        /* Side Nav */
         .side-nav {
             position: fixed;
             right: 20px;
@@ -264,7 +242,7 @@
                     Panorama Scholarly Group (PSG) bridges traditional <strong class="text-[#CC0000]">German academic rigor</strong> with the dynamic operational efficiency of the Asian Pacific.
                 </p>
                 <div class="text-gray-600 space-y-6 leading-loose border-l-4 border-gray-100 pl-6">
-                    <p>Established with Academic Headquarters in <strong>Berlin, Germany</strong> and Operations Center in <strong>Hong Kong</strong>, PSG serves as a strategic catalyst for scholarly progress. We focus on bridging the gap between theoretical excellence and real-world societal transformation.</p>
+                    <p>Established with Academic Headquarters in <strong>Berlin, Germany</strong> and Operations Center in <strong>Hong Kong</strong>, PSG serves as a strategic catalyst for scholarly progress.</p>
                     <p>Our commitment to <strong>Radical Openness</strong> ensures that groundbreaking inquiry is freely accessible to a global audience, accelerating innovation across boundaries.</p>
                 </div>
             </div>
@@ -274,12 +252,10 @@
                     <div>
                         <span class="block text-4xl font-bold text-[#CC0000] font-mono-num">HQ</span>
                         <span class="text-xs uppercase text-gray-500 font-bold">Berlin, DE</span>
-                        <p class="text-xs text-gray-400 mt-2">Academic Direction & Ethics Oversight</p>
                     </div>
                     <div>
                         <span class="block text-4xl font-bold text-[#FFCC00] font-mono-num">OPS</span>
                         <span class="text-xs uppercase text-gray-500 font-bold">Hong Kong, CN</span>
-                        <p class="text-xs text-gray-400 mt-2">Global Distribution & Tech Support</p>
                     </div>
                 </div>
             </div>
@@ -295,21 +271,21 @@
             </div>
             <div class="grid grid-cols-3 gap-8">
                 <div class="value-card group">
-                    <i class="fas fa-university value-icon transition-transform group-hover:scale-110"></i>
+                    <i class="fas fa-university value-icon group-hover:scale-110 transition-transform"></i>
                     <h4 class="value-title">Academic Rigor</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Implementing stringent double-blind peer-review to safeguard scientific integrity and empirical validity. Modeled on traditional German scholarship.
                     </p>
                 </div>
                 <div class="value-card group">
-                    <i class="fas fa-globe value-icon transition-transform group-hover:scale-110"></i>
+                    <i class="fas fa-globe value-icon group-hover:scale-110 transition-transform"></i>
                     <h4 class="value-title">Global Impact</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Fostering a truly equitable research community by providing universal, barrier-free access to knowledge. 100% Open Access.
                     </p>
                 </div>
                 <div class="value-card group">
-                    <i class="fas fa-project-diagram value-icon transition-transform group-hover:scale-110"></i>
+                    <i class="fas fa-project-diagram value-icon group-hover:scale-110 transition-transform"></i>
                     <h4 class="value-title">Interdisciplinary</h4>
                     <p class="text-gray-600 text-sm leading-relaxed">
                         Bridging specialized domains through sophisticated cross-disciplinary dialogue. Integrating Arts, Science, and Technology.
@@ -321,22 +297,12 @@
 
     <section id="ethics" class="py-24 bg-white">
         <div class="container mx-auto px-8 grid grid-cols-2 gap-0">
-            <div class="ethics-box">
-                <span class="cope-tag">COPE Compliant</span>
-                <h2 class="font-serif text-4xl font-bold uppercase mb-6 leading-tight">Commitment to<br>Scholarly Integrity</h2>
+            <div class="ethics-box bg-black p-16 text-white">
+                <span class="bg-[#CC0000] px-3 py-1 text-[10px] font-bold uppercase tracking-widest mb-6 inline-block">COPE Compliant</span>
+                <h2 class="font-serif text-4xl font-bold uppercase mb-6 leading-tight text-white">Commitment to<br>Scholarly Integrity</h2>
                 <p class="text-gray-300 leading-relaxed mb-8">
                     Panorama Scholarly Group upholds the most stringent global standards of publication ethics. We strictly adhere to the guidelines set forth by the Committee on Publication Ethics (COPE).
                 </p>
-                <div class="grid grid-cols-2 gap-8 border-t border-gray-700 pt-8">
-                    <div>
-                        <h5 class="text-[#FFCC00] font-bold uppercase text-xs mb-2">Rigorous Screening</h5>
-                        <p class="text-xs text-gray-400">Systematic plagiarism checks (iThenticate) for every manuscript.</p>
-                    </div>
-                    <div>
-                        <h5 class="text-[#FFCC00] font-bold uppercase text-xs mb-2">Transparency</h5>
-                        <p class="text-xs text-gray-400">Clear policies on conflicts of interest and retraction.</p>
-                    </div>
-                </div>
             </div>
             <div class="relative h-full overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover grayscale hover:scale-105 transition-transform duration-1000">
@@ -355,10 +321,6 @@
             </div>
             <div>
                 <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Headquarters</h4>
-                <p class="text-gray-400 mb-4">
-                    <strong class="text-white">Inquiries:</strong><br>
-                    <span class="text-sm font-mono">contact@panorama-sg.com</span>
-                </p>
                 <p class="text-gray-400 mb-4"><strong class="text-white">Berlin, Germany</strong><br><span class="text-xs">Academic Direction</span></p>
                 <p class="text-gray-400"><strong class="text-white">Hong Kong</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
             </div>
