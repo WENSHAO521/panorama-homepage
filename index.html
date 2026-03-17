@@ -725,34 +725,34 @@
             { id: 'arts', title: 'Humanities & Arts' }
         ];
 
-        // Define Journals with 'group' property
+        // Define Journals with updated 'img' fields mapping to the slug or specified name
         const JOURNALS = [
             // --- Tech ---
-            { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/PFR.png', slug: 'PFR' },
-            { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AI%20%26%20Future%20Society.png', slug: 'AFS' },
+            { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
+            { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AFS.png', slug: 'AFS' },
             { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
             
             // --- Env ---
-            { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: 'Pending', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/CSGS.png', slug: 'CSGS' },
-            { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'Rural%20Governance%20and%20Green%20Development.png', slug: 'RGGD', noCJWK: true },
-            { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'Health%20Nexus_%20Interdisciplinary%20Medical%20Research%20Journal.png', slug: 'HealthNexus' },
-            { id: 'GFSS', group: 'env', title: 'Global Food Science & Systems', cat: 'Food Sci.', issn: 'Pending', img: 'https://github.com/WENSHAO521/PanoramaScholarlyGroup/blob/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/GFSS.png?raw=true', slug: 'GFSS' },
+            { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: 'Pending', img: 'CSGS.png', slug: 'CSGS' },
+            { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD', noCJWK: true },
+            { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
+            { id: 'GFSS', group: 'env', title: 'Global Food Science & Systems', cat: 'Food Sci.', issn: 'Pending', img: 'GFSS.png', slug: 'GFSS' },
 
             // --- Soc ---
-            { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/GPPGR.png', slug: 'GPPGR' },
-            { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
+            { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'GPPGR.png', slug: 'GPPGR' },
+            { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'PEMR.png', slug: 'PEMR' },
             { id: 'CSSR', group: 'soc', title: 'Computational Social Sciences Review', cat: 'Data', issn: 'Pending', img: 'cssr.png', slug: 'cssr' },
             { id: 'JLPCS', group: 'soc', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
             { id: 'IRELS', group: 'soc', title: 'International Review of Education & Learning Sciences', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
-            { id: 'JSCC', group: 'soc', title: 'Journal of Social Cognition and Communication', cat: 'Soc.', issn: 'Pending', img: 'https://github.com/WENSHAO521/PanoramaScholarlyGroup/blob/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/JSCC.png?raw=true', slug: 'JSCC' },
+            { id: 'JSCC', group: 'soc', title: 'Journal of Social Cognition and Communication', cat: 'Soc.', issn: 'Pending', img: 'JSCC.png', slug: 'JSCC' },
 
             // --- Arts ---
-            { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/Silence.png', slug: 'Silence' },
-            { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'grhas.png', slug: 'files' },
+            { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'Silence.png', slug: 'Silence' },
+            { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'GRHAS.png', slug: 'files' },
             { id: 'TTS', group: 'arts', title: 'Three Teachings Studies: Confucianism, Daoism, and Buddhism', cat: 'Phil.', issn: '3053-6553', img: 'tts.png', slug: 'tts', noCJWK: true },
             { id: 'Res', group: 'arts', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'Resonance.png', slug: 'Resonance' },
-            { id: 'CPRT', group: 'arts', title: 'Comparative Philosophy and Religious Traditions', cat: 'Phil.', issn: 'Pending', img: 'https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/refs/heads/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/CPRT.png', slug: 'CPRT' },
-            { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'https://github.com/WENSHAO521/PanoramaScholarlyGroup/blob/main/PSG%E6%9C%9F%E5%88%8A%E5%B0%81%E9%9D%A2/JDES.png?raw=true', slug: 'JDES' }
+            { id: 'CPRT', group: 'arts', title: 'Comparative Philosophy and Religious Traditions', cat: 'Phil.', issn: 'Pending', img: 'CPRT.png', slug: 'CPRT' },
+            { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' }
         ];
 
         const ICONS = {
@@ -787,6 +787,7 @@
                 const card = document.createElement('div');
                 card.className = 'journal-card';
                 
+                // Construct final image source utilizing baseOld
                 let finalImgSrc = j.img.startsWith('http') ? "https://gh-proxy.org/" + j.img : baseOld + j.img;
 
                 let iconsHtml = '';
