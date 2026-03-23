@@ -176,7 +176,7 @@
             overflow: hidden;
         }
 
-        /* --- Indexing Bar Styles --- */
+        /* --- Indexing Bar Styles (更新版：平滑滚动) --- */
         .indexing-bar {
             margin-top: auto; 
             padding-top: 15px;
@@ -192,14 +192,31 @@
             margin-bottom: 8px;
             font-weight: 600;
         }
+
+        .indexing-logos-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 24px;
+            /* 左右两端边缘渐现/渐隐效果 */
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
         .indexing-logos {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             align-items: center;
-            flex-wrap: wrap;
-            height: 24px; 
-            overflow: hidden;
+            flex-wrap: nowrap;
+            width: max-content; /* 允许内容超出容器，由内部元素撑开 */
+            animation: scroll-left 15s linear infinite; /* 调整 15s 控制滚动速度 */
         }
+
+        /* 鼠标悬停卡片时暂停滚动 */
+        .journal-card:hover .indexing-logos {
+            animation-play-state: paused;
+        }
+
         .idx-logo {
             height: 16px; 
             width: auto;
@@ -216,6 +233,12 @@
         }
         .journal-card:hover .idx-logo.cjwk-logo {
             filter: grayscale(0%) invert(1) opacity(1);
+        }
+
+        /* 无限滚动的关键帧 */
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
         }
 
         /* --- Buttons --- */
@@ -726,7 +749,7 @@
             { id: 'arts', title: 'Humanities & Arts' }
         ];
 
-        // Define Journals with updated 'img' fields matching the exact filenames from the repository
+        // Define Journals
         const JOURNALS = [
             // --- Tech ---
             { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
@@ -815,7 +838,17 @@
                         </div>
                         <h3 class="journal-title" title="${j.title}">${j.title}</h3>
                         <p class="text-xs text-gray-400 font-mono mb-2">ISSN: ${j.issn}</p>
-                        ${iconsHtml ? `<div class="indexing-bar"><span class="indexing-label">Included In</span><div class="indexing-logos">${iconsHtml}</div></div>` : '<div style="flex-grow:1"></div>'} 
+                        ${iconsHtml ? `
+                            <div class="indexing-bar">
+                                <span class="indexing-label">Included In</span>
+                                <div class="indexing-logos-wrapper">
+                                    <div class="indexing-logos">
+                                        ${iconsHtml}
+                                        ${iconsHtml}
+                                    </div>
+                                </div>
+                            </div>
+                        ` : '<div style="flex-grow:1"></div>'} 
                     </div>
                     <div class="btn-group">
                         <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="btn-action btn-portal">View Portal</a>
