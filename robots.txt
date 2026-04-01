@@ -15,9 +15,9 @@
 # ----------------------------------------
 # POLICY RULES
 # ----------------------------------------
-# (a) Content-Signal = yes → permitted
-# (b) Content-Signal = no  → prohibited
-# (c) No signal → no permission granted or denied
+# (a) Content-Signal = yes -> permitted
+# (b) Content-Signal = no  -> prohibited
+# (c) No signal -> no permission granted or denied
 
 # ----------------------------------------
 # DEFAULT POLICY (OPEN FOR DISCOVERY)
@@ -26,6 +26,11 @@
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
+
+# ----------------------------------------
+# SITEMAP
+# ----------------------------------------
+Sitemap: https://panorama-sg.com/sitemap.xml
 
 # ----------------------------------------
 # NOTE
