@@ -176,7 +176,7 @@
             overflow: hidden;
         }
 
-        /* --- Indexing Bar Styles (更新版：平滑滚动) --- */
+        /* --- Indexing Bar Styles --- */
         .indexing-bar {
             margin-top: auto; 
             padding-top: 15px;
@@ -198,7 +198,6 @@
             overflow: hidden;
             position: relative;
             height: 24px;
-            /* 左右两端边缘渐现/渐隐效果 */
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
@@ -208,11 +207,10 @@
             gap: 15px;
             align-items: center;
             flex-wrap: nowrap;
-            width: max-content; /* 允许内容超出容器，由内部元素撑开 */
-            animation: scroll-left 15s linear infinite; /* 调整 15s 控制滚动速度 */
+            width: max-content; 
+            animation: scroll-left 15s linear infinite; 
         }
 
-        /* 鼠标悬停卡片时暂停滚动 */
         .journal-card:hover .indexing-logos {
             animation-play-state: paused;
         }
@@ -235,7 +233,6 @@
             filter: grayscale(0%) invert(1) opacity(1);
         }
 
-        /* 无限滚动的关键帧 */
         @keyframes scroll-left {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); } 
@@ -254,7 +251,6 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             transition: 0.3s;
-            cursor: pointer;
         }
         .btn-portal { background: var(--g-black); color: #fff; }
         .btn-portal:hover { background: var(--g-red); }
@@ -705,6 +701,23 @@
                         <div class="eco-item invert-logo"><img src="https://openucla-static.library.ucla.edu/images/logos/ucla-library-logo-wht_resized.svg" class="eco-logo"></div>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-16 pt-12 border-t border-gray-100">
+                <div class="mb-8">
+                    <h2 class="font-serif text-2xl font-bold text-black uppercase mb-2">Institutional & Academic Partners</h2>
+                    <div class="w-10 h-1 bg-gray-300"></div>
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-12">
+                    <div class="eco-item" style="cursor: pointer; opacity: 0.7;">
+                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Taoist%20Association%20of%20Korea.png?raw=true" alt="Taoist Association of Korea Logo" style="max-height: 48px; width: auto; object-fit: contain;">
+                        <div class="flex flex-col ml-1">
+                            <span class="text-[13px] font-bold text-black tracking-widest leading-tight">한국도교협회</span>
+                            <span class="text-[9px] text-gray-500 uppercase tracking-widest mt-1">Taoist Association of Korea</span>
+                        </div>
+                    </div>
+                    </div>
             </div>
 
             <div class="disclaimer-box">
