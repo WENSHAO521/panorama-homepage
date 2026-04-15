@@ -6,7 +6,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-RMD6ZL74G0');
     </script>
 
@@ -43,7 +42,6 @@
         .font-serif { font-family: 'Crimson Pro', serif; }
         .font-mono-num { font-family: 'Archivo', sans-serif; }
 
-        /* --- UI/UX Optimized Top Bar --- */
         .top-bar {
             background-color: var(--g-black);
             color: #fff;
@@ -61,7 +59,6 @@
             z-index: 50;
         }
 
-        /* --- Banner (Berlin Library Style) --- */
         .ethics-banner {
             position: relative;
             height: 50vh;
@@ -87,7 +84,6 @@
             padding-left: 40px;
         }
 
-        /* --- Policy Section (Legal Code Style) --- */
         .policy-section {
             display: grid;
             grid-template-columns: 80px 1fr;
@@ -146,7 +142,6 @@
             margin-right: 5px;
         }
 
-        /* COPE Box (High Contrast) */
         .cope-box {
             background: var(--g-black);
             color: white;
@@ -174,7 +169,6 @@
             display: block;
         }
 
-        /* --- Footer --- */
         footer {
             background: var(--g-black);
             color: #fff;
@@ -187,10 +181,10 @@
             transition: 0.3s;
             display: block;
             margin-bottom: 10px;
+            text-decoration: none;
         }
         .footer-link:hover { color: var(--g-gold); padding-left: 5px; }
 
-        /* Side Nav */
         .side-nav {
             position: fixed;
             right: 20px;
@@ -228,14 +222,14 @@
     <div class="top-bar">
         <div class="container mx-auto px-8 flex justify-between items-center tracking-widest uppercase">
             <div class="flex gap-8 items-center">
-                <span><i class="fas fa-certificate text-[#FFCC00] mr-2"></i> ISSN Registration: Germany</span>
-                <span><i class="fas fa-cogs text-[#FFCC00] mr-2"></i> Operations: Hong Kong</span>
+                <span><i class="fas fa-certificate text-[#FFCC00] mr-2"></i> ISSN Records through the German ISSN Centre</span>
+                <span><i class="fas fa-cogs text-[#FFCC00] mr-2"></i> Administrative Operations: Hong Kong</span>
                 <span class="border-l border-gray-700 pl-8 ml-2">
                     <i class="fas fa-envelope text-[#FFCC00] mr-2"></i> 
                     <a href="mailto:contact@panorama-sg.com" class="hover:text-[#FFCC00] transition-colors">contact@panorama-sg.com</a>
                 </span>
             </div>
-            <div class="font-bold text-[#FFCC00]">Distributed Publishing Infrastructure</div>
+            <div class="font-bold text-[#FFCC00]">Distributed Academic Publishing Infrastructure</div>
         </div>
     </div>
 
@@ -265,7 +259,7 @@
                     Publication Ethics &<br>Malpractice Statement
                 </h1>
                 <p class="text-lg text-gray-300 max-w-2xl font-light">
-                    Upholding the highest standards of European academic rigor and transparency in global scientific publishing.
+                    Supporting responsible scholarly publishing through editorial transparency, fair peer review, and clear procedures for correction, concern, and retraction.
                 </p>
             </div>
         </div>
@@ -276,10 +270,9 @@
             
             <div class="mb-24 text-center">
                 <p class="text-2xl text-black leading-relaxed font-serif italic max-w-4xl mx-auto">
-                    "Panorama Scholarly Group (PSG) is committed to maintaining the highest standards of publication ethics. Our ethic statements are based on the <span class="text-[#CC0000] not-italic font-bold">Committee on Publication Ethics (COPE)</span> Best Practice Guidelines for Journal Editors."
+                    "Panorama Scholarly Group (PSG) is committed to maintaining high standards of publication ethics. Our ethical framework is informed by recognized international guidance, including the <span class="text-[#CC0000] not-italic font-bold">Committee on Publication Ethics (COPE)</span> principles."
                 </p>
                 <div class="h-1.5 w-24 bg-gradient-to-r from-black via-[#CC0000] to-[#FFCC00] mx-auto mt-10"></div>
-                
             </div>
 
             <div id="editors" class="policy-section">
@@ -287,10 +280,10 @@
                 <div class="policy-content">
                     <h3>Duties of Editors</h3>
                     <ul class="policy-list">
-                        <li><strong>Publication Decisions:</strong> The editor is responsible for deciding which of the articles submitted to the journal should be published. The validation of the work in question and its importance to researchers and readers must always drive such decisions.</li>
-                        <li><strong>Fair Play:</strong> An editor at any time evaluate manuscripts for their intellectual content without regard to race, gender, sexual orientation, religious belief, ethnic origin, citizenship, or political philosophy of the authors.</li>
-                        <li><strong>Confidentiality:</strong> The editor and any editorial staff must not disclose any information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, other editorial advisers, and the publisher, as appropriate.</li>
-                        <li><strong>Disclosure and Conflicts of Interest:</strong> Unpublished materials disclosed in a submitted manuscript must not be used in an editor's own research without the express written consent of the author.</li>
+                        <li><strong>Editorial Decisions:</strong> Editors are responsible for determining which submissions are suitable for publication, based on scholarly merit, relevance to the journal, originality, methodological soundness, and the integrity of the work.</li>
+                        <li><strong>Fair and Impartial Assessment:</strong> Manuscripts should be evaluated for their intellectual content without discrimination based on race, gender, sexual orientation, religious belief, ethnic origin, citizenship, institutional affiliation, or political viewpoint.</li>
+                        <li><strong>Confidentiality:</strong> Editors and editorial staff must not disclose information about a submitted manuscript to anyone other than the corresponding author, reviewers, potential reviewers, editorial advisers, and the publisher, as appropriate.</li>
+                        <li><strong>Conflicts of Interest:</strong> Editors should recuse themselves from handling submissions in which they have competing interests. Unpublished material disclosed in a manuscript must not be used in an editor’s own research without the author’s explicit written consent.</li>
                     </ul>
                 </div>
             </div>
@@ -300,11 +293,11 @@
                 <div class="policy-content">
                     <h3>Duties of Authors</h3>
                     <ul class="policy-list">
-                        <li><strong>Reporting Standards:</strong> Authors of reports of original research should present an accurate account of the work performed as well as an objective discussion of its significance.</li>
-                        <li><strong>Data Access and Retention:</strong> Authors are asked to provide the raw data in connection with a paper for editorial review, and should be prepared to provide public access to such data.</li>
-                        <li><strong>Originality and Plagiarism:</strong> The authors should ensure that they have written entirely original works, and if the authors have used the work and/or words of others, that this has been appropriately cited or quoted. PSG utilizes strict plagiarism detection software (iThenticate).</li>
-                        <li><strong>Multiple, Redundant or Concurrent Publication:</strong> An author should not in general publish manuscripts describing essentially the same research in more than one journal or primary publication.</li>
-                        <li><strong>Authorship of the Paper:</strong> Authorship should be limited to those who have made a significant contribution to the conception, design, execution, or interpretation of the reported study.</li>
+                        <li><strong>Reporting Standards:</strong> Authors should present an accurate account of the research performed and an objective discussion of its significance. Underlying data should be represented honestly and without fabrication, falsification, or inappropriate manipulation.</li>
+                        <li><strong>Data Access and Retention:</strong> Authors may be asked to provide supporting data, materials, or documentation for editorial review where appropriate and should retain relevant records for a reasonable period after publication.</li>
+                        <li><strong>Originality and Attribution:</strong> Authors should ensure that submitted work is original and that the words, ideas, data, or findings of others are properly cited. Plagiarism in any form is unacceptable. PSG journals may use plagiarism screening tools, including iThenticate, where applicable.</li>
+                        <li><strong>Redundant or Concurrent Submission:</strong> Authors should not submit the same manuscript, or manuscripts describing substantially the same research, to more than one journal at the same time.</li>
+                        <li><strong>Authorship and Contribution:</strong> Authorship should be limited to individuals who have made a significant scholarly contribution to the conception, design, execution, interpretation, or writing of the study. All those who qualify as authors should be listed, and all listed authors should approve the submitted version.</li>
                     </ul>
                 </div>
             </div>
@@ -314,11 +307,11 @@
                 <div class="policy-content">
                     <h3>Duties of Reviewers</h3>
                     <ul class="policy-list">
-                        <li><strong>Contribution to Editorial Decisions:</strong> Peer review assists the editor in making editorial decisions and through the editorial communications with the author may also assist the author in improving the paper.</li>
-                        <li><strong>Promptness:</strong> Any selected referee who feels unqualified to review the research reported in a manuscript or knows that its prompt review will be impossible should notify the editor and excuse himself from the review process.</li>
-                        <li><strong>Confidentiality:</strong> Any manuscripts received for review must be treated as confidential documents. They must not be shown to or discussed with others except as authorized by the editor.</li>
-                        <li><strong>Standards of Objectivity:</strong> Reviews should be conducted objectively. Personal criticism of the author is inappropriate. Referees should express their views clearly with supporting arguments.</li>
-                        <li><strong>Acknowledgement of Sources:</strong> Reviewers should identify relevant published work that has not been cited by the authors. Any statement that an observation, derivation, or argument had been previously reported should be accompanied by the relevant citation.</li>
+                        <li><strong>Contribution to Editorial Decisions:</strong> Peer review assists editors in making editorial decisions and may also help authors improve the quality, clarity, and scholarly value of their manuscripts.</li>
+                        <li><strong>Promptness and Competence:</strong> Invited reviewers who feel unqualified to assess a submission, or who know that they cannot provide a timely review, should inform the editor promptly and decline the invitation.</li>
+                        <li><strong>Confidentiality:</strong> Manuscripts received for review must be treated as confidential documents and must not be shared, discussed, or used for personal advantage except as authorized by the editor.</li>
+                        <li><strong>Objectivity and Constructive Review:</strong> Reviews should be conducted objectively and respectfully. Personal criticism of the author is inappropriate. Reviewers should support their evaluations with clear reasoning and relevant scholarly arguments.</li>
+                        <li><strong>Acknowledgment of Sources and Competing Interests:</strong> Reviewers should identify relevant published work not cited by the authors and should disclose any competing interests that could affect their judgment.</li>
                     </ul>
                 </div>
             </div>
@@ -328,9 +321,9 @@
                 <div class="text-5xl font-serif text-[#CC0000] font-bold">§</div> 
                 <div>
                     <span class="cope-label">Protocol 04</span>
-                    <h4 class="font-serif text-2xl font-bold uppercase mb-4">Unethical Behavior & Retraction</h4>
+                    <h4 class="font-serif text-2xl font-bold uppercase mb-4">Corrections, Concerns, and Retractions</h4>
                     <p class="text-sm text-gray-300 italic leading-relaxed">
-                        In cases of alleged or proven scientific misconduct, fraudulent publication or plagiarism, the publisher, in close collaboration with the editors, will take all appropriate measures to clarify the situation and to amend the article in question. This includes the prompt publication of an erratum, clarification or, in the most severe case, the retraction of the affected work.
+                        Where concerns arise regarding the accuracy, integrity, or ethical status of a published work, PSG and the relevant journal editors will assess the matter in accordance with applicable editorial policies. Appropriate actions may include clarification, correction, expression of concern, or retraction, depending on the nature and severity of the issue.
                     </p>
                 </div>
             </div>
@@ -342,22 +335,22 @@
         <div class="container mx-auto px-8 grid grid-cols-3 gap-12 text-sm">
             <div>
                 <h3 class="text-3xl font-bold uppercase tracking-[0.2em] text-white mb-4 serif-brand">Panorama Scholarly Group</h3>
-                <p class="text-[#FFCC00] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
+                <p class="text-[#FFCC00] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Supporting Scholarly Communication</p>
                 <p class="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
-                    A distributed academic publisher impacting the scientific world through integrity, rigorous peer review, and structural excellence.
+                    A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.
                 </p>
             </div>
             <div>
-                <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Institutional Hubs & Registration</h4>
+                <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Registration Information & Operations</h4>
                 <p class="text-gray-400 mb-4">
-                    <strong class="text-white">ISSN Registration Entity</strong><br>
+                    <strong class="text-white">ISSN Registration Information</strong><br>
                     <span class="text-xs">
-                        Official ISSNs assigned via the German National Centre.<br>
-                        Germany.
+                        Selected journals hold ISSNs assigned through the German ISSN Centre.<br>
+                        ISSN assignment relates to journal identification and metadata registration, and should not be interpreted as a statement of publisher headquarters, legal domicile, or database status.
                     </span>
                 </p>
                 <p class="text-gray-400">
-                    <strong class="text-white">Global Operations Center</strong><br>
+                    <strong class="text-white">Administrative and Operational Contact</strong><br>
                     <span class="text-xs">
                         Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>
                         625 Nathan Road, Kowloon, Hong Kong.
