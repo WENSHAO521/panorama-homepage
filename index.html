@@ -281,12 +281,37 @@
                         </div>
                         
                         <div class="logo-grid grid-cols-2 text-outline-variant group-hover:opacity-100 transition-opacity duration-500">
-                            <div class="logo-cell"><img src="https://assets.crossref.org/logo/crossref-logo-200.svg" class="class="h-8 object-contain filter invert opacity-60" alt="Crossref"></div>
-                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" class="class="h-8 object-contain filter invert opacity-60" alt="DOI"></div>
-                            <div class="logo-cell"><img src="https://portal.issn.org/static/logo.png" class="h-6 object-contain filter invert brightness-0" alt="ISSN"></div>
-                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/1280px-ISNI_logo_recreation.svg.png" class="h-8 object-contain filter invert opacity-60" alt="ISNI"></div>
-                            <div class="logo-cell col-span-2 border-r-0"><img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" class="class="h-8 object-contain filter invert opacity-60" alt="DNB"></div>
+<div class="bg-black p-8 grid grid-cols-3 md:grid-cols-6 gap-4 items-center justify-items-center">
+    <div class="logo-cell">
+        <img src="https://assets.crossref.org/logo/crossref-logo-200.svg" 
+             class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" 
+             alt="Crossref">
+    </div>
+
+    <div class="logo-cell">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" 
+             class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" 
+             alt="DOI">
+    </div>
+
+    <div class="logo-cell">
+        <img src="https://portal.issn.org/static/logo.png" 
+             class="h-6 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" 
+             alt="ISSN">
+    </div>
+
+    <div class="logo-cell">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/1280px-ISNI_logo_recreation.svg.png" 
+             class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" 
+             alt="ISNI">
+    </div>
+
+    <div class="logo-cell col-span-2">
+        <img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" 
+             class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" 
+             alt="DNB">
                         </div>
+                    </div>
                     </div>
                     
                     <div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant/20 p-10 flex flex-col justify-between group">
@@ -404,28 +429,32 @@
         ];
 
         const JOURNALS = [
-            { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
+            // Tech
             { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AFS.png', slug: 'AFS' },
             { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
-            
+            { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
+
+            // Env
             { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: 'Pending', img: 'CSGS.png', slug: 'CSGS' },
-            { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD' },
-            { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
             { id: 'GFSS', group: 'env', title: 'Global Food Science & Systems', cat: 'Food Sci.', issn: 'Pending', img: 'GFSS.png', slug: 'GFSS' },
+            { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
+            { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD' },
 
-            { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'GPPGR.png', slug: 'GPPGR' },
-            { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
+            // Soc
             { id: 'CSSR', group: 'soc', title: 'Computational Social Sciences Review', cat: 'Data', issn: 'Pending', img: 'CSSR.png', slug: 'cssr' },
-            { id: 'JLPCS', group: 'soc', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
+            { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'GPPGR.png', slug: 'GPPGR' },
             { id: 'IRELS', group: 'soc', title: 'International Review of Education & Learning Sciences', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
+            { id: 'JLPCS', group: 'soc', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
             { id: 'JSCC', group: 'soc', title: 'Journal of Social Cognition and Communication', cat: 'Soc.', issn: '3054-6958', img: 'JSCC.png', slug: 'JSCC' },
+            { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
 
-            { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'Silence.png', slug: 'Silence' },
-            { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'GRAHS.png', slug: 'files' },
-            { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'TTS.png', slug: 'tts' },
-            { id: 'Res', group: 'arts', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'RESONANCE.png', slug: 'Resonance' },
+            // Arts
             { id: 'CPRT', group: 'arts', title: 'Comparative Philosophy and Religious Traditions', cat: 'Phil.', issn: 'Pending', img: 'CPRT.png', slug: 'CPRT' },
-            { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' }
+            { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'GRAHS.png', slug: 'files' },
+            { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' },
+            { id: 'Res', group: 'arts', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'RESONANCE.png', slug: 'Resonance' },
+            { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'Silence.png', slug: 'Silence' },
+            { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'TTS.png', slug: 'tts' }
         ];
 
         const wrapper = document.getElementById('journal-wrapper');
