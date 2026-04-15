@@ -34,7 +34,6 @@
         .font-serif { font-family: 'Crimson Pro', serif; }
         .font-mono-num { font-family: 'Archivo', sans-serif; }
 
-        /* --- UI/UX Optimized Top Bar --- */
         .top-bar {
             background-color: var(--g-black);
             color: #fff;
@@ -52,7 +51,6 @@
             z-index: 50;
         }
 
-        /* --- Banner (Berlin Library Style) --- */
         .oa-banner {
             position: relative;
             height: 50vh;
@@ -78,7 +76,6 @@
             padding-left: 40px;
         }
 
-        /* --- Policy Section (Legal Code Style) --- */
         .policy-section {
             display: grid;
             grid-template-columns: 80px 1fr;
@@ -118,7 +115,6 @@
             text-align: justify;
         }
 
-        /* APC Highlight Box (Diamond OA) */
         .apc-highlight {
             background: var(--g-black);
             color: white;
@@ -140,7 +136,6 @@
             margin-bottom: 0;
         }
 
-        /* License Grid */
         .license-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -176,7 +171,6 @@
             line-height: 1.5;
         }
 
-        /* --- Footer --- */
         footer {
             background: var(--g-black);
             color: #fff;
@@ -189,10 +183,10 @@
             transition: 0.3s;
             display: block;
             margin-bottom: 10px;
+            text-decoration: none;
         }
         .footer-link:hover { color: var(--g-gold); padding-left: 5px; }
 
-        /* Side Nav */
         .side-nav {
             position: fixed;
             right: 20px;
@@ -230,14 +224,14 @@
     <div class="top-bar">
         <div class="container mx-auto px-8 flex justify-between items-center tracking-widest uppercase">
             <div class="flex gap-8 items-center">
-                <span><i class="fas fa-university text-[#FFCC00] mr-2"></i> Berlin HQ</span>
-                <span><i class="fas fa-cogs text-[#FFCC00] mr-2"></i> Hong Kong Operations</span>
+                <span><i class="fas fa-certificate text-[#FFCC00] mr-2"></i> ISSN Records through the German ISSN Centre</span>
+                <span><i class="fas fa-cogs text-[#FFCC00] mr-2"></i> Administrative Operations: Hong Kong</span>
                 <span class="border-l border-gray-700 pl-8 ml-2">
                     <i class="fas fa-envelope text-[#FFCC00] mr-2"></i> 
                     <a href="mailto:contact@panorama-sg.com" class="hover:text-[#FFCC00] transition-colors">contact@panorama-sg.com</a>
                 </span>
             </div>
-            <div class="font-bold text-[#FFCC00]">Dual-Hub Infrastructure</div>
+            <div class="font-bold text-[#FFCC00]">Distributed Academic Publishing Infrastructure</div>
         </div>
     </div>
 
@@ -267,7 +261,7 @@
                     Open Access<br>Policy Statement
                 </h1>
                 <p class="text-lg text-gray-300 max-w-2xl font-light">
-                    Ensuring that research outputs are freely available to the global community, upholding the principles of German academic transparency.
+                    Supporting broad and lawful access to scholarly work through transparent licensing, responsible dissemination, and sustainable publishing models.
                 </p>
             </div>
         </div>
@@ -278,7 +272,7 @@
             
             <div class="mb-24 text-center">
                 <p class="text-2xl text-black leading-relaxed font-serif italic max-w-4xl mx-auto">
-                    "Panorama Scholarly Group (PSG) is dedicated to the dissemination of research to the widest possible audience. We firmly believe that free and unrestricted access to research is essential for the advancement of science and society."
+                    "Panorama Scholarly Group (PSG) supports the widest possible dissemination of scholarly research. We believe that open and lawful access to research contributes to academic exchange, public knowledge, and long-term scholarly visibility."
                 </p>
                 <div class="h-1.5 w-24 bg-gradient-to-r from-black via-[#CC0000] to-[#FFCC00] mx-auto mt-10"></div>
             </div>
@@ -288,7 +282,7 @@
                 <div class="policy-content">
                     <h3>Definition</h3>
                     <p>
-                        In accordance with the <strong>Budapest Open Access Initiative (BOAI)</strong> definition, Panorama Scholarly Group defines "open access" as the free availability of peer-reviewed literature on the public internet, permitting any user to read, download, copy, distribute, print, search, or link to the full texts of these articles without financial, legal, or technical barriers.
+                        In accordance with widely recognized open access principles, including the <strong>Budapest Open Access Initiative (BOAI)</strong>, Panorama Scholarly Group understands open access as the online availability of scholarly literature without price barriers for readers, while respecting applicable copyright, licensing, and attribution requirements.
                     </p>
                 </div>
             </div>
@@ -296,19 +290,19 @@
             <div id="apc" class="policy-section">
                 <div class="policy-index">02</div>
                 <div class="policy-content">
-                    <h3>Processing Charges (APC)</h3>
+                    <h3>Article Processing Charges (APC)</h3>
                     <p>
-                        Panorama Scholarly Group operates on a sustainable Open Access model to ensure the long-term archiving and wide dissemination of high-quality research.
+                        Panorama Scholarly Group supports sustainable open access publishing models intended to maintain peer review, editorial processing, production, hosting, and long-term preservation of scholarly content.
                     </p>
                     
                     <div class="apc-highlight">
                         <h4>Diamond Open Access (Silence)</h4>
-                        <p>We are proud to champion <strong>Diamond Open Access</strong> for our journal <em>Silence</em>. This means there are <span class="text-[#FFCC00] font-bold">NO Article Processing Charges (APCs)</span> for authors and no fees for readers. All associated publication costs are fully subsidized to promote barrier-free academic exchange.</p>
+                        <p>For the journal <em>Silence</em>, PSG currently supports a <strong>Diamond Open Access</strong> model. Under this model, authors are not charged article processing fees and readers may access published content without subscription or paywall barriers.</p>
                     </div>
 
-                    <p><strong>Gold Open Access (All Other Journals):</strong> For all other journals within the Panorama Scholarly Group, we employ a <strong>Gold Open Access</strong> model. To cover the essential costs of rigorous peer review, copyediting, typesetting, hosting, and archiving, a standard Article Processing Charge (APC) applies to accepted manuscripts. Fees vary by journal and article type.</p>
+                    <p><strong>Gold Open Access (Selected Journals):</strong> For other journals within the Panorama Scholarly Group, a <strong>Gold Open Access</strong> model may apply. In such cases, an Article Processing Charge (APC) may be required following editorial acceptance in order to support editorial handling, production, online hosting, and long-term access services.</p>
                     
-                    <p class="text-xs text-gray-500 italic mt-4">* Please refer to specific journal guidelines for waivers and low-income country policies.</p>
+                    <p><strong>Journal-Specific Information:</strong> APC levels, waiver availability, discount arrangements, and article-type distinctions are determined at the journal level. Authors should consult the relevant journal’s submission guidelines and policy pages for current information.</p>
                 </div>
             </div>
 
@@ -317,7 +311,7 @@
                 <div class="policy-content">
                     <h3>Licensing Options</h3>
                     <p>
-                        PSG offers a range of Creative Commons licenses. Our default license encourages maximum dissemination while respecting authors' rights.
+                        PSG journals may publish content under selected <strong>Creative Commons</strong> licenses. The applicable license is determined by the journal’s policy and, where relevant, the publication agreement associated with the article.
                     </p>
                     
                     <div class="license-grid">
@@ -327,8 +321,8 @@
                                 <i class="fab fa-creative-commons-by"></i>
                             </div>
                             <div class="license-text">
-                                <h5>CC BY 4.0 (Attribution) - Default</h5>
-                                <p>Allows others to distribute, remix, adapt, and build upon your work, even commercially, as long as they credit you for the original creation.</p>
+                                <h5>CC BY 4.0</h5>
+                                <p>Permits sharing, adaptation, and reuse of the work, including for commercial purposes, provided that appropriate attribution is given to the original author(s) and source.</p>
                             </div>
                         </div>
 
@@ -340,7 +334,7 @@
                             </div>
                             <div class="license-text">
                                 <h5>CC BY-NC 4.0</h5>
-                                <p>Allows others to remix, adapt, and build upon your work non-commercially. New works must also acknowledge you and be non-commercial.</p>
+                                <p>Permits sharing, adaptation, and reuse for non-commercial purposes, provided that appropriate attribution is given and the reuse complies with the non-commercial restriction.</p>
                             </div>
                         </div>
                     </div>
@@ -352,7 +346,7 @@
                 <div class="policy-content">
                     <h3>Copyright Retention</h3>
                     <p>
-                        Authors retain the full copyright of their work without restrictions. Upon acceptance, authors grant Panorama Scholarly Group a non-exclusive license to publish the article and identify itself as the original publisher.
+                        Unless otherwise stated by the relevant journal policy or publication agreement, authors retain copyright in their work. By agreeing to publication, authors grant the relevant journal and/or Panorama Scholarly Group a non-exclusive license to publish, distribute, and identify itself as the original publisher of the version of record.
                     </p>
                 </div>
             </div>
@@ -360,9 +354,9 @@
             <div id="repository" class="policy-section">
                 <div class="policy-index">05</div>
                 <div class="policy-content">
-                    <h3>Repository & Archiving</h3>
+                    <h3>Repository Deposit & Archiving</h3>
                     <p>
-                        We actively support the long-term preservation of scholarly research. Authors are permitted and encouraged to deposit all versions of their paper (Pre-print, Accepted Manuscript, Published Version) in institutional or subject repositories immediately upon publication without embargo.
+                        PSG supports the long-term accessibility of scholarly work. Subject to the applicable journal policy and license terms, authors may deposit relevant versions of their work in institutional repositories, disciplinary repositories, or other lawful archiving systems. Policies concerning preprints, accepted manuscripts, and published versions may vary by journal and should be checked in the relevant author guidelines.
                     </p>
                 </div>
             </div>
@@ -374,15 +368,27 @@
         <div class="container mx-auto px-8 grid grid-cols-3 gap-12 text-sm">
             <div>
                 <h3 class="text-3xl font-bold uppercase tracking-[0.2em] text-white mb-4 serif-brand">Panorama Scholarly Group</h3>
-                <p class="text-[#FFCC00] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Empowering Global Discovery</p>
+                <p class="text-[#FFCC00] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Supporting Scholarly Communication</p>
                 <p class="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
-                    Dual-Hub Global Academic Publisher. Rooted in Berlin, impacting the scientific world through integrity and excellence.
+                    A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.
                 </p>
             </div>
             <div>
-                <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Headquarters</h4>
-                <p class="text-gray-400 mb-4"><strong class="text-white">Berlin, Germany</strong><br><span class="text-xs">Academic Direction</span></p>
-                <p class="text-gray-400"><strong class="text-white">Hong Kong</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
+                <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Registration Information & Operations</h4>
+                <p class="text-gray-400 mb-4">
+                    <strong class="text-white">ISSN Registration Information</strong><br>
+                    <span class="text-xs">
+                        Selected journals hold ISSNs assigned through the German ISSN Centre.<br>
+                        ISSN assignment relates to journal identification and metadata registration, and should not be interpreted as a statement of publisher headquarters, legal domicile, or database status.
+                    </span>
+                </p>
+                <p class="text-gray-400">
+                    <strong class="text-white">Administrative and Operational Contact</strong><br>
+                    <span class="text-xs">
+                        Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>
+                        625 Nathan Road, Kowloon, Hong Kong.
+                    </span>
+                </p>
             </div>
             <div>
                 <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Quick Links</h4>
@@ -394,7 +400,7 @@
         </div>
         <div class="container mx-auto px-8 mt-12 pt-8 border-t border-gray-800 text-xs text-gray-500 flex justify-between">
             <div>© 2025-2026 PSG. All Rights Reserved.</div>
-            <div>Made in Germany • Global Impact</div>
+            <div>Distributed Academic Publishing</div>
         </div>
     </footer>
 
