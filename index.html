@@ -176,68 +176,6 @@
             overflow: hidden;
         }
 
-        /* --- Indexing Bar Styles --- */
-        .indexing-bar {
-            margin-top: auto; 
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border-top: 1px dashed #e5e7eb;
-        }
-        .indexing-label {
-            display: block;
-            font-size: 9px;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .indexing-logos-wrapper {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            height: 24px;
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-
-        .indexing-logos {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: nowrap;
-            width: max-content; 
-            animation: scroll-left 15s linear infinite; 
-        }
-
-        .journal-card:hover .indexing-logos {
-            animation-play-state: paused;
-        }
-
-        .idx-logo {
-            height: 16px; 
-            width: auto;
-            max-width: 60px;
-            object-fit: contain;
-            filter: grayscale(100%) opacity(0.5); 
-            transition: all 0.3s ease;
-        }
-        .idx-logo.cjwk-logo {
-            filter: grayscale(100%) invert(1) opacity(0.5);
-        }
-        .journal-card:hover .idx-logo {
-            filter: grayscale(0%) opacity(1);
-        }
-        .journal-card:hover .idx-logo.cjwk-logo {
-            filter: grayscale(0%) invert(1) opacity(1);
-        }
-
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } 
-        }
-
         /* --- Buttons --- */
         .btn-group {
             margin-top: 0;
@@ -663,7 +601,6 @@
                     <div class="eco-header">Indexing & Abstracting</div>
                     <div class="eco-list">
                         <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="eco-logo"></div>
-                        <div class="eco-item"><img src="https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg" class="eco-logo"></div>
                         <div class="eco-item"><img src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" class="eco-logo"></div>
                         <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" class="eco-logo"></div>
                         <div class="eco-item"><img src="https://journals.indexcopernicus.com/img/ici2.png" class="eco-logo"></div>
@@ -793,14 +730,6 @@
             { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' }
         ];
 
-        const ICONS = {
-            google: 'https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436',
-            cjwk: 'https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png',
-            scilit: 'https://www.scilit.com/_ipx/q_80&s_120x48/scilit.svg',
-            base: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png',
-            openalex: 'https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1'
-        };
-
         const wrapper = document.getElementById('journal-wrapper');
         const baseOld = "https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/";
 
@@ -828,22 +757,6 @@
                 // Construct final image source utilizing baseOld
                 let finalImgSrc = j.img.startsWith('http') ? "https://gh-proxy.org/" + j.img : baseOld + j.img;
 
-                let iconsHtml = '';
-                // 严谨的索引逻辑：Pending 状态只显示 Google Scholar 和 BASE
-                if (j.issn === 'Pending') {
-                    iconsHtml += `<img src="${ICONS.google}" title="Google Scholar" class="idx-logo">`;
-                    iconsHtml += `<img src="${ICONS.base}" title="BASE" class="idx-logo">`;
-                } else {
-                    // 已有 ISSN 的期刊显示完整索引
-                    iconsHtml += `<img src="${ICONS.google}" title="Google Scholar" class="idx-logo">`;
-                    iconsHtml += `<img src="${ICONS.scilit}" title="Scilit" class="idx-logo">`;
-                    iconsHtml += `<img src="${ICONS.base}" title="BASE" class="idx-logo">`;
-                    iconsHtml += `<img src="${ICONS.openalex}" title="OpenAlex" class="idx-logo">`;
-                    if (!j.noCJWK) {
-                        iconsHtml += `<img src="${ICONS.cjwk}" title="CJWK" class="idx-logo cjwk-logo">`;
-                    }
-                }
-
                 card.innerHTML = `
                     <div class="journal-header">
                         <span class="journal-meta-tag">${j.cat}</span>
@@ -852,17 +765,7 @@
                         </div>
                         <h3 class="journal-title" title="${j.title}">${j.title}</h3>
                         <p class="text-xs text-gray-400 font-mono mb-2">ISSN: ${j.issn}</p>
-                        ${iconsHtml ? `
-                            <div class="indexing-bar">
-                                <span class="indexing-label">Included In</span>
-                                <div class="indexing-logos-wrapper">
-                                    <div class="indexing-logos">
-                                        ${iconsHtml}
-                                        ${iconsHtml}
-                                    </div>
-                                </div>
-                            </div>
-                        ` : '<div style="flex-grow:1"></div>'} 
+                        <div style="flex-grow:1"></div>
                     </div>
                     <div class="btn-group">
                         <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="btn-action btn-portal">View Portal</a>
