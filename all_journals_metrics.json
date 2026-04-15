@@ -1,0 +1,74 @@
+{
+    "last_updated": "2026-04-15",
+    "afs": {
+        "2yr_mean_citedness": 0.36,
+        "h_index": 1,
+        "i10_index": 0,
+        "works_count": 11
+    },
+    "jesa": {
+        "2yr_mean_citedness": 0.0,
+        "h_index": 0,
+        "i10_index": 0,
+        "works_count": 4
+    },
+    "files": {
+        "2yr_mean_citedness": 0.24,
+        "h_index": 2,
+        "i10_index": 0,
+        "works_count": 41
+    },
+    "HealthNexus": {
+        "2yr_mean_citedness": 0.33,
+        "h_index": 1,
+        "i10_index": 0,
+        "works_count": 9
+    },
+    "jlpcs": {
+        "2yr_mean_citedness": 0.1,
+        "h_index": 1,
+        "i10_index": 0,
+        "works_count": 21
+    },
+    "pemr": {
+        "2yr_mean_citedness": 0.0,
+        "h_index": 0,
+        "i10_index": 0,
+        "works_count": 12
+    },
+    "rggd": {
+        "2yr_mean_citedness": 0.0,
+        "h_index": 0,
+        "i10_index": 0,
+        "works_count": 3
+    },
+    "Resonance": {
+        "2yr_mean_citedness": 0.0,
+        "h_index": 0,
+        "i10_index": 0,
+        "works_count": 14
+    },
+    "Silence": {
+        "2yr_mean_citedness": 0.0,
+        "h_index": 0,
+        "i10_index": 0,
+        "works_count": 3
+    },
+    "tts": {
+        "2yr_mean_citedness": 0.0,
+        "h_index": 0,
+        "i10_index": 0,
+        "works_count": 15
+    },
+    "jscc": {
+        "2yr_mean_citedness": 0.0,
+        "h_index": 0,
+        "i10_index": 0,
+        "works_count": 3
+    },
+    "cprt": null,
+    "cssr": null,
+    "jdes": null,
+    "irels": null,
+    "pfr": null
+}
