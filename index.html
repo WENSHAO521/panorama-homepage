@@ -18,7 +18,7 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Serif+KR:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     
     <script id="tailwind-config">
@@ -54,9 +54,9 @@
                         "secondary-container": "#e2e2e2"
                     },
                     fontFamily: {
-                        "headline": ["Inter", "sans-serif"],
-                        "body": ["Noto Serif", "serif"],
-                        "label": ["Inter", "sans-serif"]
+                        "headline": ["Inter", "'Noto Sans KR'", "sans-serif"],
+                        "body": ["Noto Serif", "'Noto Serif KR'", "serif"],
+                        "label": ["Inter", "'Noto Sans KR'", "sans-serif"]
                     }
                 }
             }
@@ -69,11 +69,13 @@
             vertical-align: text-bottom;
         }
         body {
-            font-family: 'Noto Serif', serif;
+            font-family: 'Noto Serif', 'Noto Serif KR', serif;
             -webkit-font-smoothing: antialiased;
             min-width: 1200px;
         }
-        .header-font { font-family: 'Inter', sans-serif; }
+        .header-font { 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+        }
         html { scroll-behavior: smooth; }
         ::selection { background: #610000; color: #ffffff; }
         
@@ -93,7 +95,7 @@
             display: grid;
             border-top: 1px solid currentColor;
             border-left: 1px solid currentColor;
-            opacity: 0.2;
+            opacity: 0.15;
         }
         .logo-cell {
             border-right: 1px solid currentColor;
@@ -287,19 +289,19 @@
                         
                         <div class="logo-grid grid-cols-2 text-outline-variant group-hover:opacity-100 transition-opacity duration-500">
                             <div class="logo-cell">
-                                <img src="https://assets.crossref.org/logo/crossref-logo-200.svg" class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" alt="Crossref">
+                                <img src="https://assets.crossref.org/logo/crossref-logo-200.svg" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Crossref">
                             </div>
                             <div class="logo-cell">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" alt="DOI">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="DOI">
                             </div>
                             <div class="logo-cell">
-                                <img src="https://portal.issn.org/static/logo.png" class="h-6 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" alt="ISSN">
+                                <img src="https://portal.issn.org/static/logo.png" class="h-6 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="ISSN">
                             </div>
                             <div class="logo-cell">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/1280px-ISNI_logo_recreation.svg.png" class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" alt="ISNI">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/1280px-ISNI_logo_recreation.svg.png" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="ISNI">
                             </div>
                             <div class="logo-cell col-span-2 border-r-0">
-                                <img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" class="h-8 object-contain filter brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" alt="DNB">
+                                <img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="DNB">
                             </div>
                         </div>
                     </div>
@@ -315,12 +317,12 @@
                         </div>
 
                         <div class="logo-grid grid-cols-2 md:grid-cols-3 text-outline group-hover:opacity-100 transition-opacity duration-500">
-                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="h-8 object-contain grayscale" alt="Google Scholar"></div>
-                            <div class="logo-cell"><img src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" class="h-6 object-contain grayscale" alt="Dimensions"></div>
-                            <div class="logo-cell border-r-0 md:border-r"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="h-7 object-contain grayscale" alt="BASE"></div>
-                            <div class="logo-cell"><img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="h-6 object-contain grayscale" alt="OpenAlex"></div>
-                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" class="h-7 object-contain grayscale" alt="Semantic Scholar"></div>
-                            <div class="logo-cell border-r-0"><img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="h-8 object-contain filter grayscale opacity-60" alt="CJWK"></div>
+                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Google Scholar"></div>
+                            <div class="logo-cell"><img src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" class="h-6 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Dimensions"></div>
+                            <div class="logo-cell border-r-0 md:border-r"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="h-7 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="BASE"></div>
+                            <div class="logo-cell"><img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="h-6 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="OpenAlex"></div>
+                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" class="h-7 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Semantic Scholar"></div>
+                            <div class="logo-cell border-r-0"><img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="CJWK"></div>
                         </div>
                     </div>
 
@@ -335,9 +337,9 @@
                         </div>
                         
                         <div class="logo-grid grid-cols-3 text-outline group-hover:opacity-100 transition-opacity duration-500 h-full">
-                            <div class="logo-cell"><img src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" class="h-8 object-contain grayscale" alt="CLOCKSS"></div>
-                            <div class="logo-cell"><img src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" class="h-8 object-contain grayscale" alt="LOCKSS"></div>
-                            <div class="logo-cell border-r-0"><img src="https://zenodo.org/static/images/invenio-rdm.svg" class="h-8 object-contain grayscale opacity-80" alt="Zenodo"></div>
+                            <div class="logo-cell"><img src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="CLOCKSS"></div>
+                            <div class="logo-cell"><img src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="LOCKSS"></div>
+                            <div class="logo-cell border-r-0"><img src="https://zenodo.org/static/images/invenio-rdm.svg" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Zenodo"></div>
                         </div>
                     </div>
 
@@ -356,7 +358,7 @@
                         </div>
 
                         <div class="border-t border-on-background/20 pt-8 mt-auto relative z-10">
-                            <div class="flex items-center gap-6 opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all cursor-pointer">
+                            <div class="flex items-center gap-6 opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105 cursor-pointer">
                                 <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Taoist%20Association%20of%20Korea.png?raw=true" alt="Taoist Association of Korea" class="h-16 w-auto object-contain">
                                 <div class="flex flex-col">
                                     <span class="font-['Inter'] text-lg font-black text-on-background tracking-widest">한국도교협회</span>
@@ -475,7 +477,7 @@
                         <span class="font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-on-surface-variant opacity-60">ISSN: ${j.issn}</span>
                     </div>
                     <div class="h-32 flex items-center justify-center mb-6 relative">
-                        <img src="${finalImgSrc}" class="h-full w-auto object-contain shadow-sm grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.style.opacity=0.3" alt="${j.title}">
+                        <img src="${finalImgSrc}" class="h-full w-auto object-contain shadow-sm opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.style.opacity=0.3" alt="${j.title}">
                     </div>
                     <h4 class="font-body font-bold text-lg leading-tight mb-6 text-on-background line-clamp-2" title="${j.title}">${j.title}</h4>
                     <div class="mt-auto flex justify-between items-center border-t border-outline-variant/20 pt-4">
