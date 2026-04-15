@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMD6ZL74G0"></script>
     <script>
@@ -9,678 +9,398 @@
       gtag('config', 'G-RMD6ZL74G0');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200, initial-scale=0.3">
+    <meta charset="utf-8"/>
+    <meta content="width=1200, initial-scale=0.3" name="viewport"/>
     <title>Panorama Scholarly Group | International Academic Publishing Initiative</title>
     
     <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
     <link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
     <link rel="apple-touch-icon" href="favicon.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap');
-        
-        :root {
-            --g-red: #CC0000;
-            --g-gold: #FFCC00;
-            --g-black: #000000;
-            --g-gray: #F2F2F2;
-            --text-dark: #1F1F1F;
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dadada",
+                        "on-surface-variant": "#5a403c",
+                        "surface-container": "#eeeeee",
+                        "on-background": "#1a1c1c",
+                        "outline": "#8e706b",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-fixed": "#410000",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "on-surface": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#e3beb8",
+                        "on-primary-container": "#ff907f",
+                        "tertiary-fixed": "#e4e2e1",
+                        "on-primary-fixed-variant": "#930000",
+                        "primary": "#610000",
+                        "background": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-tint": "#ba1c10",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e2e2e2",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-secondary-container": "#646464",
+                        "secondary-container": "#e2e2e2"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Noto Serif", "serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
         }
-
-        body { 
-            font-family: 'Roboto', sans-serif; 
-            background-color: #ffffff; 
-            color: var(--text-dark); 
-            margin: 0; 
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: text-bottom;
+        }
+        body {
+            font-family: 'Noto Serif', serif;
+            -webkit-font-smoothing: antialiased;
             min-width: 1200px;
         }
+        .header-font { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
         
-        .font-serif { font-family: 'Crimson Pro', serif; }
-        .font-mono-num { font-family: 'Archivo', sans-serif; }
-
-        .top-bar {
-            background-color: var(--g-black);
-            color: #fff;
-            font-size: 11px;
-            padding: 10px 0;
-            border-bottom: 3px solid var(--g-gold);
-        }
-
-        header {
-            background: #fff;
-            border-bottom: 1px solid #e5e7eb;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        .hero-section {
-            position: relative;
-            height: 60vh;
-            background: #000;
-            color: white;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.4;
-            filter: grayscale(100%);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            border-left: 5px solid var(--g-red);
-            padding-left: 40px;
-        }
-
-        .journal-category-header {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--g-black);
-            margin-top: 4rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e5e7eb;
-            display: flex;
-            align-items: center;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .journal-category-header:first-child { margin-top: 0; }
+        ::selection { background: #610000; color: #ffffff; }
         
-        .journal-category-header::before {
-            content: '';
-            display: block;
-            width: 8px;
-            height: 24px;
-            background-color: var(--g-red);
-            margin-right: 15px;
-        }
-
-        .journal-card {
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-        }
-        .journal-card:hover {
-            border-color: var(--g-red);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-            z-index: 20;
-        }
-        .journal-header {
-            padding: 24px 24px 0 24px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .journal-cover-container {
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f9fafb;
-            margin-bottom: 15px;
-            border: 1px solid #f3f4f6;
-            position: relative;
-            overflow: hidden;
-        }
-        .journal-cover {
-            height: 140px;
-            width: auto;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .journal-card:hover .journal-cover { transform: scale(1.08); }
-        
-        .journal-meta-tag {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--g-red);
-            margin-bottom: 8px;
-            display: block;
-        }
-        .journal-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: black;
-            line-height: 1.2;
-            margin-bottom: 0.25rem;
-            min-height: 3rem; 
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .btn-group {
-            margin-top: 0;
-        }
-        .btn-action {
-            display: block;
-            text-align: center;
-            padding: 12px 0;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: 0.3s;
-        }
-        .btn-portal { background: var(--g-black); color: #fff; }
-        .btn-portal:hover { background: var(--g-red); }
-        .btn-submit { background: #fff; color: var(--g-black); border-top: 1px solid #e5e7eb; }
-        .btn-submit:hover { background: var(--g-gray); color: var(--g-red); }
-
-        .scope-grid {
+        .academic-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 0;
+            border-top: 1px solid rgba(142, 112, 107, 0.2);
+            border-left: 1px solid rgba(142, 112, 107, 0.2);
         }
-        .scope-card {
-            position: relative;
-            height: 400px;
-            overflow: hidden;
-            cursor: pointer;
-            border-right: 1px solid rgba(255,255,255,0.1);
+        .academic-card {
+            border-right: 1px solid rgba(142, 112, 107, 0.2);
+            border-bottom: 1px solid rgba(142, 112, 107, 0.2);
         }
-        .scope-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) brightness(0.6);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .scope-card:hover .scope-img {
-            filter: grayscale(0%) brightness(0.9);
-            transform: scale(1.1);
-        }
-        .scope-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px;
-            z-index: 10;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-        }
-        .scope-index {
-            font-family: 'Archivo', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-            line-height: 1;
-            margin-bottom: 10px;
-            display: block;
-            transition: 0.3s;
-        }
-        .scope-card:hover .scope-index {
-            color: var(--g-gold);
-            -webkit-text-stroke: 0px;
-        }
-        .scope-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: white;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-        .scope-desc {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.7);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        .scope-card:hover .scope-desc { transform: translateY(0); opacity: 1; }
-        .scope-line {
-            width: 30px;
-            height: 3px;
-            background: var(--g-red);
-            margin-bottom: 15px;
-            transition: width 0.4s ease;
-        }
-        .scope-card:hover .scope-line { width: 100%; }
-
-        footer {
-            background: var(--g-black);
-            color: #fff;
-            padding: 60px 0;
-            border-top: 4px solid var(--g-red);
-        }
-        .footer-link {
-            color: #9ca3af;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-            display: block;
-            margin-bottom: 10px;
-        }
-        .footer-link:hover { color: var(--g-gold); padding-left: 5px; }
-
-        .side-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .nav-dot {
-            width: 10px;
-            height: 10px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 0;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .nav-dot.active {
-            background: var(--g-red);
-            transform: scale(1.3);
-        }
-
-        .eco-grid {
+        
+        /* Utility for strictly bordered logo grids */
+        .logo-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-top: 1px solid #e5e7eb;
-            border-left: 1px solid #e5e7eb;
+            border-top: 1px solid currentColor;
+            border-left: 1px solid currentColor;
+            opacity: 0.2;
         }
-        .eco-col {
-            border-right: 1px solid #e5e7eb;
-            border-bottom: 1px solid #e5e7eb;
-            padding: 40px 30px;
-            background: #fff;
-            transition: background 0.3s;
-        }
-        .eco-col:hover {
-            background: #fcfcfc;
-        }
-        .eco-header {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--g-red);
-            margin-bottom: 30px;
+        .logo-cell {
+            border-right: 1px solid currentColor;
+            border-bottom: 1px solid currentColor;
+            padding: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
-        .eco-header::before {
-            content: '';
-            display: block;
-            width: 8px;
-            height: 8px;
-            background: var(--g-red);
-        }
-        .eco-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .eco-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            opacity: 0.5;
-            filter: grayscale(100%);
-            transition: all 0.4s ease;
-            cursor: default;
-        }
-        .eco-item:hover {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: translateX(5px);
-        }
-        .eco-logo {
-            max-height: 28px;
-            max-width: 100px;
-            object-fit: contain;
-            object-position: left;
-        }
-        .eco-item.invert-logo .eco-logo {
-            filter: invert(1);
-        }
-        .eco-item.invert-logo:hover .eco-logo {
-            filter: invert(1) grayscale(0%); 
-        }
-
-        .disclaimer-box {
-            font-family: 'Archivo', sans-serif;
-            font-size: 10px;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 40px;
-            text-align: right;
-            border-top: 1px solid #e5e7eb;
-            padding-top: 20px;
-        }
-
-        .meta-note {
-            font-size: 11px;
-            color: #6b7280;
-            line-height: 1.5;
-            margin-top: 18px;
-            max-width: 780px;
+            justify-content: center;
         }
     </style>
 </head>
-<body>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
 
-    <nav class="side-nav">
-        <a href="#home" class="nav-dot active" title="Home"></a>
-        <a href="#journals" class="nav-dot" title="Journals"></a>
-        <a href="#integrity" class="nav-dot" title="Profile"></a>
-        <a href="#scope" class="nav-dot" title="Scope"></a>
-        <a href="#impact" class="nav-dot" title="Overview"></a>
-        <a href="#join" class="nav-dot" title="Join"></a>
-        <a href="#partners" class="nav-dot" title="Infrastructure"></a>
-    </nav>
-
-    <div class="top-bar">
-        <div class="container mx-auto px-8 flex justify-between items-center tracking-widest uppercase">
-            <div class="flex gap-8 items-center">
-                <span><i class="fas fa-certificate text-[#FFCC00] mr-2"></i> ISSN Records through the German ISSN Centre</span>
-                <span><i class="fas fa-cogs text-[#FFCC00] mr-2"></i> Administrative Operations: Hong Kong</span>
-                <span class="border-l border-gray-700 pl-8 ml-2">
-                    <i class="fas fa-envelope text-[#FFCC00] mr-2"></i> 
-                    <a href="mailto:contact@panorama-sg.com" class="hover:text-[#FFCC00] transition-colors">contact@panorama-sg.com</a>
-                </span>
-            </div>
-            <div class="font-bold text-[#FFCC00]">Distributed Academic Publishing Infrastructure</div>
+    <div class="bg-on-background text-background py-2 px-12 flex justify-between items-center text-[10px] font-['Inter'] font-bold uppercase tracking-widest z-50">
+        <div class="flex gap-8 items-center">
+            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px] text-outline-variant">verified</span> ISSN Records through German ISSN Centre</span>
+            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px] text-outline-variant">domain</span> Administrative Operations: Hong Kong</span>
+            <span class="border-l border-outline/30 pl-8 ml-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[14px] text-outline-variant">mail</span> 
+                <a href="mailto:contact@panorama-sg.com" class="hover:text-outline-variant transition-colors">contact@panorama-sg.com</a>
+            </span>
         </div>
+        <div class="text-outline-variant">Distributed Academic Publishing Infrastructure</div>
     </div>
 
-    <header>
-        <div class="container mx-auto px-8 py-6 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="Logo" class="h-10 w-auto">
-                <div class="border-l border-gray-300 pl-4">
-                    <h1 class="font-serif text-2xl font-bold text-black leading-none uppercase tracking-tight">Panorama</h1>
-                    <span class="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] block mt-1">Scholarly Group</span>
+    <nav class="sticky top-0 z-40 w-full bg-background/90 backdrop-blur-md shadow-sm border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-12 py-5 max-w-[1920px] mx-auto">
+            <div class="flex items-center gap-5">
+                <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="PSG Logo" class="h-10 w-auto grayscale">
+                <div class="border-l-2 border-primary pl-5">
+                    <div class="text-2xl font-black tracking-tighter text-on-background header-font uppercase leading-none">Panorama</div>
+                    <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.3em] mt-1 header-font">Scholarly Group</div>
                 </div>
             </div>
-            <a href="https://journals.panorama-sg.com/index.php/index/user/profile" class="bg-black text-white px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-[#CC0000] transition-colors">
-                Login / Register
-            </a>
-        </div>
-    </header>
-
-    <section id="home" class="hero-section">
-        <div class="hero-bg"></div>
-        <div class="container mx-auto px-8">
-            <div class="hero-content">
-                <h2 class="text-[#FFCC00] font-bold tracking-[0.2em] uppercase text-sm mb-4">An International Academic Publishing Initiative</h2>
-                <h1 class="font-serif text-6xl font-bold mb-6 uppercase tracking-tight leading-tight">
-                    Structured Knowledge.<br>Global Dissemination.
-                </h1>
-                <p class="text-lg text-gray-300 max-w-2xl font-light mb-8">
-                    Supporting peer-reviewed scholarly communication through transparent editorial practice, international digital workflows, and long-term access to research across disciplines.
-                </p>
-                <a href="#journals" class="inline-block border border-white text-white px-10 py-4 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-                    View Journal Compendium
+            <div class="flex items-center gap-10">
+                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="#compendium">Journals</a>
+                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="#profile">Profile</a>
+                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="#infrastructure">Infrastructure</a>
+                <a href="https://journals.panorama-sg.com/index.php/index/user/profile" class="bg-primary text-on-primary px-6 py-3 font-['Inter'] font-bold uppercase tracking-widest text-[10px] hover:bg-primary-container transition-all">
+                    Institutional Login
                 </a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section id="journals" class="py-24 bg-[#f8f9fa]">
-        <div class="container mx-auto px-8">
-            <div class="flex justify-between items-end mb-16 border-b border-gray-300 pb-6">
-                <div>
-                    <h2 class="font-serif text-4xl font-bold text-black uppercase mb-2">Our Compendium</h2>
-                    <p class="text-gray-500 text-sm uppercase tracking-wider">Official Journal Publications • ISSN Registration Records Maintained</p>
+    <main class="flex-grow">
+        <section class="px-12 py-32 grid grid-cols-12 gap-0 border-b border-outline-variant/10 bg-surface-container-lowest relative overflow-hidden">
+            <div class="col-span-12 md:col-start-2 md:col-span-10 relative z-10">
+                <span class="font-['Inter'] font-bold uppercase tracking-[0.2em] text-primary text-sm mb-6 block border-l-4 border-primary pl-4">Est. 2025 — Academic Excellence</span>
+                <h1 class="font-['Inter'] font-black text-7xl md:text-[7rem] leading-[0.85] tracking-tighter text-on-background mb-12 uppercase">
+                    Structured<br/>Knowledge.<br/>Global<br/>Dissemination.
+                </h1>
+                <div class="grid grid-cols-9 gap-8 border-t border-outline-variant/20 pt-8">
+                    <div class="col-span-9 md:col-span-6">
+                        <p class="text-2xl font-body leading-relaxed text-on-surface-variant">
+                            Supporting peer-reviewed scholarly communication through transparent editorial practice, international digital workflows, and long-term access to research across disciplines.
+                        </p>
+                    </div>
+                    <div class="col-span-9 md:col-span-3 flex flex-col justify-end items-end">
+                        <a href="#compendium" class="flex items-center gap-4 group cursor-pointer border-b-2 border-on-background pb-2">
+                            <span class="font-['Inter'] font-bold uppercase tracking-widest text-sm">View Compendium</span>
+                            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform text-primary">arrow_forward</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="h-2 w-20 bg-[#CC0000]"></div>
             </div>
-            <div id="journal-wrapper"></div>
-        </div>
-    </section>
+        </section>
 
-    <section id="integrity" class="py-24 bg-white border-b border-gray-100">
-        <div class="container mx-auto px-8 grid grid-cols-2 gap-16 items-center">
-            <div>
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000" class="w-full h-auto shadow-xl grayscale hover:grayscale-0 transition-all duration-700" alt="Institutional profile">
-            </div>
-            <div>
-                <span class="text-[#CC0000] font-bold tracking-widest uppercase text-xs mb-2 block">Institutional Profile</span>
-                <h2 class="font-serif text-4xl font-bold uppercase mb-6">Distributed Scholarly Publishing.</h2>
-                <p class="text-gray-600 leading-relaxed mb-8 border-l-4 border-black pl-6">
-                    Operating as a distributed academic publishing initiative, PSG supports journal publishing through international digital workflows and transparent editorial policies. Selected journals hold ISSNs assigned through the German ISSN Centre, while administrative and operational functions are coordinated in Hong Kong. PSG maintains policies on peer review, publication ethics, open access, and editorial transparency in line with recognized scholarly publishing standards.
-                </p>
-                <a href="about.html" class="text-black font-bold uppercase text-xs border-b-2 border-[#CC0000] pb-1 hover:text-[#CC0000]">Read Full Profile</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="scope" class="bg-[#1a1a1a]">
-        <div class="text-center pt-20 pb-12">
-            <h2 class="font-serif text-4xl font-bold uppercase text-white">Research Scope</h2>
-            <div class="h-1 w-10 bg-[#FFCC00] mx-auto mt-4"></div>
-        </div>
-        <div class="scope-grid w-full">
-            <div class="scope-card group">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="Technology">
-                <div class="scope-content">
-                    <span class="scope-index">01</span>
-                    <div class="scope-line"></div>
-                    <h4 class="scope-title">Technology</h4>
-                    <p class="scope-desc">Artificial Intelligence, Digital Society & Algorithmic Governance.</p>
-                </div>
-            </div>
-            <div class="scope-card group">
-                <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="Infrastructure">
-                <div class="scope-content">
-                    <span class="scope-index">02</span>
-                    <div class="scope-line"></div>
-                    <h4 class="scope-title">Infrastructure</h4>
-                    <p class="scope-desc">Smart Cities, Urban Planning & Sustainable Development.</p>
-                </div>
-            </div>
-            <div class="scope-card group">
-                <img src="https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="Humanities">
-                <div class="scope-content">
-                    <span class="scope-index">03</span>
-                    <div class="scope-line"></div>
-                    <h4 class="scope-title">Humanities</h4>
-                    <p class="scope-desc">Philosophy, Arts, Culture & Historical Studies.</p>
-                </div>
-            </div>
-            <div class="scope-card group">
-                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1000" class="scope-img" alt="Regulation">
-                <div class="scope-content">
-                    <span class="scope-index">04</span>
-                    <div class="scope-line"></div>
-                    <h4 class="scope-title">Regulation</h4>
-                    <p class="scope-desc">International Law, Economics & Public Policy.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="impact" class="py-24 bg-white border-b border-gray-200">
-        <div class="container mx-auto px-8 flex justify-between items-center">
-            <div class="w-1/3">
-                <h2 class="font-serif text-4xl font-bold uppercase mb-4 text-black">Publishing Overview</h2>
-                <p class="text-gray-500 text-sm max-w-xs">Selected indicators reflecting publication activity, readership, citation visibility, and editorial policy coverage.</p>
-            </div>
-            <div class="w-2/3 grid grid-cols-4 gap-8">
-                <div class="text-center">
-                    <span class="block text-5xl font-bold text-black mb-2">200+</span>
-                    <span class="text-xs font-bold text-[#CC0000] uppercase tracking-widest">Articles</span>
-                </div>
-                <div class="text-center">
-                    <span class="block text-5xl font-bold text-black mb-2">180+</span>
-                    <span class="text-xs font-bold text-[#CC0000] uppercase tracking-widest">Citations</span>
-                </div>
-                <div class="text-center">
-                    <span class="block text-5xl font-bold text-black mb-2">25k+</span>
-                    <span class="text-xs font-bold text-[#CC0000] uppercase tracking-widest">Reads</span>
-                </div>
-                <div class="text-center">
-                    <span class="block text-5xl font-bold text-black mb-2">100%</span>
-                    <span class="text-xs font-bold text-[#CC0000] uppercase tracking-widest">Ethics</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="join" class="py-24 bg-[#f8f9fa]">
-        <div class="container mx-auto px-8 text-center max-w-4xl">
-            <h2 class="font-serif text-3xl font-bold uppercase mb-12">Editorial and Scholarly Participation</h2>
-            <div class="grid grid-cols-2 gap-8">
-                <div class="bg-white border border-gray-200 p-10 hover:shadow-lg transition flex flex-col h-full">
-                    <h4 class="font-bold text-xl mb-4">Editorial Board</h4>
-                    <p class="text-sm text-gray-500 mb-8 flex-grow">Lead the journal’s strategic development and contribute to the planning and coordination of high-quality special issues in your field.</p>
+        <section id="compendium" class="px-12 py-24 bg-surface">
+            <div class="max-w-[1920px] mx-auto">
+                <div class="flex justify-between items-end mb-16 border-b border-outline-variant/30 pb-6">
                     <div>
-                        <a href="https://forms.cloud.microsoft/r/DVad3Q9w0P" class="inline-block w-40 bg-black text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#CC0000] transition-colors">Apply</a>
+                        <h2 class="font-['Inter'] font-black text-4xl uppercase tracking-tighter mb-2">Our Compendium</h2>
+                        <p class="font-['Inter'] text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70">Official Journal Publications • Active Indexing Records</p>
                     </div>
-                </div>
-                <div class="bg-white border border-gray-200 p-10 hover:shadow-lg transition flex flex-col h-full">
-                    <h4 class="font-bold text-xl mb-4">Assistant Editor & Reviewer Application</h4>
-                    <p class="text-sm text-gray-500 mb-8 flex-grow">Contribute to editorial quality and responsible peer evaluation as a recognized scholar or subject expert.</p>
-                    <div>
-                        <a href="https://forms.cloud.microsoft/r/n8uHJNtW5G" class="inline-block w-40 bg-black text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#CC0000] transition-colors">Apply</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="partners" class="py-32 bg-white">
-        <div class="container mx-auto px-8">
-            <div class="mb-16">
-                <h2 class="font-serif text-4xl font-bold text-black uppercase mb-4">Scholarly Communication Infrastructure</h2>
-                <div class="w-16 h-1 bg-[#CC0000] mb-6"></div>
-                <p class="text-gray-500 text-lg max-w-2xl font-light">
-                    Supporting journal identification, bibliographic metadata registration, discoverability, platform availability, and selected preservation services across the scholarly communication ecosystem.
-                </p>
-            </div>
-            
-            <div class="eco-grid">
-                <div class="eco-col">
-                    <div class="eco-header">Standards, Identifiers &amp; Metadata</div>
-                    <div class="eco-list">
-                        <div class="eco-item"><img src="https://assets.crossref.org/logo/crossref-logo-200.svg" class="eco-logo" alt="Crossref"></div>
-                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" class="eco-logo" alt="DOI"></div>
-                        <div class="eco-item"><img src="https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/3a88f4b6907452f0d3d9a272690f9614e3db6235/Indexed/ISSNlogo.svg" class="eco-logo" alt="ISSN"></div>
-                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/800px-ISNI_logo_recreation.svg.png?20250816195445" class="eco-logo" alt="ISNI"></div>
-                        <div class="eco-item"><img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" class="eco-logo" alt="DNB"></div>
-                    </div>
-                </div>
-
-                <div class="eco-col">
-                    <div class="eco-header">Indexing, Abstracting &amp; Platform Availability</div>
-                    <div class="eco-list">
-                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="eco-logo" alt="Google Scholar"></div>
-                        <div class="eco-item"><img src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" class="eco-logo" alt="Dimensions"></div>
-                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" class="eco-logo" alt="Semantic Scholar"></div>
-                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="eco-logo" alt="BASE"></div>
-                        <div class="eco-item"><img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="eco-logo" alt="OpenAlex"></div>
-                        <div class="eco-item invert-logo"><img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="eco-logo" alt="CJWK"></div>
-                    </div>
-                </div>
-
-                <div class="eco-col">
-                    <div class="eco-header">Archiving &amp; Preservation</div>
-                    <div class="eco-list">
-                        <div class="eco-item"><img src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" class="eco-logo" alt="CLOCKSS"></div>
-                        <div class="eco-item"><img src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" class="eco-logo" alt="LOCKSS"></div>
-                        <div class="eco-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/220px-Zenodo-gradient-square.svg.png?20230831200321" class="eco-logo" alt="Zenodo"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="meta-note">
-                Note: DNB is presented here in relation to bibliographic metadata and cataloguing services, not as a statement of archival custody or collection status unless explicitly confirmed.
-            </div>
-
-            <div class="mt-16 pt-12 border-t border-gray-100">
-                <div class="mb-8">
-                    <h2 class="font-serif text-2xl font-bold text-black uppercase mb-2">Institutional &amp; Academic Partners</h2>
-                    <div class="w-10 h-1 bg-gray-300"></div>
+                    <div class="w-16 h-2 bg-primary hidden md:block"></div>
                 </div>
                 
-                <div class="flex flex-wrap items-center gap-12">
-                    <div class="eco-item" style="cursor: pointer; opacity: 0.7;">
-                        <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Taoist%20Association%20of%20Korea.png?raw=true" alt="Taoist Association of Korea Logo" style="max-height: 48px; width: auto; object-fit: contain;">
-                        <div class="flex flex-col ml-1">
-                            <span class="text-[13px] font-bold text-black tracking-widest leading-tight">한국도교협회</span>
-                            <span class="text-[9px] text-gray-500 uppercase tracking-widest mt-1">Taoist Association of Korea</span>
+                <div id="journal-wrapper" class="space-y-16"></div>
+            </div>
+        </section>
+
+        <section class="px-12 py-24 bg-surface-container-low border-y border-outline-variant/10">
+            <div class="grid grid-cols-12 items-center max-w-[1920px] mx-auto gap-12">
+                <div class="col-span-12 md:col-span-4">
+                    <h2 class="font-['Inter'] font-black text-4xl uppercase tracking-tighter leading-none mb-4">Publishing<br/>Overview</h2>
+                    <p class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-on-surface-variant opacity-70 leading-relaxed">
+                        Selected indicators reflecting publication activity, readership, and policy coverage.
+                    </p>
+                </div>
+                <div class="col-span-12 md:col-span-8 space-y-10">
+                    <div class="w-full">
+                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
+                            <span>Published Articles</span>
+                            <span class="text-primary font-black text-sm">200+</span>
+                        </div>
+                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
+                            <div class="absolute top-0 left-0 h-full bg-primary" style="width: 85%;"></div>
+                            <div class="absolute top-[-4px] left-[85%] h-3 w-[3px] bg-primary"></div>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
+                            <span>Global Citations</span>
+                            <span class="text-primary font-black text-sm">180+</span>
+                        </div>
+                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
+                            <div class="absolute top-0 left-0 h-full bg-primary" style="width: 75%;"></div>
+                            <div class="absolute top-[-4px] left-[75%] h-3 w-[3px] bg-primary"></div>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
+                            <span>Global Reads</span>
+                            <span class="text-primary font-black text-sm">25k+</span>
+                        </div>
+                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
+                            <div class="absolute top-0 left-0 h-full bg-primary" style="width: 95%;"></div>
+                            <div class="absolute top-[-4px] left-[95%] h-3 w-[3px] bg-primary"></div>
+                        </div>
+                    </div>
+                    <div class="w-full">
+                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
+                            <span>Ethics Compliance</span>
+                            <span class="text-primary font-black text-sm">100%</span>
+                        </div>
+                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
+                            <div class="absolute top-0 left-0 h-full bg-on-background" style="width: 100%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="disclaimer-box">
-                Disclaimer: The services listed above perform different functions within the scholarly communication ecosystem, including identifiers, metadata registration, bibliographic metadata services, abstracting, discoverability, platform availability, and digital preservation. <br>Inclusion in any listed service does not by itself imply editorial evaluation, selective indexing, ranking status, endorsement, archival custody, or inclusion in citation indexes unless explicitly confirmed by the relevant provider.
+        <section id="profile" class="px-12 py-24 bg-surface-container-lowest grid grid-cols-12 gap-16 max-w-[1920px] mx-auto">
+            <div class="col-span-12 md:col-span-6 flex flex-col justify-center">
+                <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Institutional Profile</span>
+                <h2 class="font-['Inter'] font-black text-5xl uppercase tracking-tighter leading-none mb-8">Distributed<br/>Scholarly<br/>Publishing.</h2>
+                <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-10 border-l-4 border-outline-variant/40 pl-6">
+                    Operating as a distributed academic publishing initiative, PSG supports journal publishing through international digital workflows and transparent editorial policies. Selected journals hold ISSNs assigned through the German ISSN Centre, while administrative and operational functions are coordinated in Hong Kong.
+                </p>
+                <a href="about.html" class="self-start font-['Inter'] text-xs font-bold uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-primary transition-colors">Read Full Profile</a>
             </div>
-        </div>
-    </section>
+            
+            <div class="col-span-12 md:col-span-6 grid grid-rows-2 gap-6">
+                <div class="bg-surface border border-outline-variant/20 p-10 flex flex-col justify-between group hover:border-primary transition-colors">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-['Inter'] font-black text-2xl uppercase">Editorial Board</h4>
+                            <span class="material-symbols-outlined text-primary text-3xl">account_balance</span>
+                        </div>
+                        <p class="font-body text-sm text-on-surface-variant opacity-80">Lead the journal’s strategic development and coordinate high-quality special issues.</p>
+                    </div>
+                    <a href="https://forms.cloud.microsoft/r/DVad3Q9w0P" class="mt-8 inline-block bg-on-background text-background px-6 py-3 font-['Inter'] text-[10px] font-bold uppercase tracking-widest w-max group-hover:bg-primary transition-colors">Submit Application</a>
+                </div>
+                
+                <div class="bg-surface-container-high border border-outline-variant/20 p-10 flex flex-col justify-between group hover:border-primary transition-colors">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-['Inter'] font-black text-2xl uppercase">Reviewer Access</h4>
+                            <span class="material-symbols-outlined text-primary text-3xl">rate_review</span>
+                        </div>
+                        <p class="font-body text-sm text-on-surface-variant opacity-80">Contribute to editorial quality and responsible peer evaluation as a subject expert.</p>
+                    </div>
+                    <a href="https://forms.cloud.microsoft/r/n8uHJNtW5G" class="mt-8 inline-block bg-background text-on-background border border-outline-variant/30 px-6 py-3 font-['Inter'] text-[10px] font-bold uppercase tracking-widest w-max group-hover:border-primary group-hover:text-primary transition-colors">Apply Now</a>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <div class="container mx-auto px-8 grid grid-cols-3 gap-12 text-sm">
-            <div>
-                <h3 class="text-3xl font-bold uppercase tracking-[0.2em] text-white mb-4 serif-brand">Panorama Scholarly Group</h3>
-                <p class="text-[#FFCC00] text-[12px] font-black uppercase tracking-[0.5em] mb-12 italic">Supporting Scholarly Communication</p>
-                <p class="text-slate-400 text-base leading-relaxed italic font-light max-w-lg">
-                    A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.
-                </p>
+        <section id="infrastructure" class="px-12 py-32 bg-surface-container-low border-t border-outline-variant/20">
+            <div class="max-w-[1920px] mx-auto">
+                <div class="mb-16 max-w-3xl">
+                    <h2 class="font-['Inter'] font-black text-6xl uppercase tracking-tighter leading-none mb-6">Scholarly<br>Infrastructure</h2>
+                    <div class="w-24 h-2 bg-primary mb-8"></div>
+                    <p class="font-body text-xl text-on-surface-variant leading-relaxed opacity-90">
+                        Supporting journal identification, bibliographic metadata registration, discoverability, platform availability, and long-term digital preservation.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-12 gap-6">
+                    <div class="col-span-12 lg:col-span-4 bg-on-background text-background p-10 flex flex-col justify-between group transition-colors">
+                        <div class="mb-12">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-['Inter'] font-black text-6xl text-primary-fixed group-hover:text-primary transition-colors">01</span>
+                                <span class="material-symbols-outlined text-3xl">qr_code_2</span>
+                            </div>
+                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Standards &<br/>Identifiers</h4>
+                            <p class="font-body text-sm text-surface-dim opacity-80">Core infrastructure for persistent identification and robust metadata schema compliance.</p>
+                        </div>
+                        
+                        <div class="logo-grid grid-cols-2 text-outline-variant group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="logo-cell"><img src="https://assets.crossref.org/logo/crossref-logo-200.svg" class="h-5 object-contain filter invert brightness-0" alt="Crossref"></div>
+                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/DOI_Foundation.svg/330px-DOI_Foundation.svg.png" class="h-8 object-contain filter invert brightness-0" alt="DOI"></div>
+                            <div class="logo-cell"><img src="https://raw.githubusercontent.com/WENSHAO521/PanoramaScholarlyGroup/3a88f4b6907452f0d3d9a272690f9614e3db6235/Indexed/ISSNlogo.svg" class="h-6 object-contain filter invert brightness-0" alt="ISSN"></div>
+                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/ISNI_logo_recreation.svg/800px-ISNI_logo_recreation.svg.png?20250816195445" class="h-8 object-contain filter invert brightness-0" alt="ISNI"></div>
+                            <div class="logo-cell col-span-2 border-r-0"><img src="https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/logo.svg?__blob=normal&v=3" class="h-8 object-contain filter invert brightness-0" alt="DNB"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant/20 p-10 flex flex-col justify-between group">
+                        <div class="mb-12">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-['Inter'] font-black text-6xl text-outline-variant/30 group-hover:text-primary transition-colors">02</span>
+                                <span class="material-symbols-outlined text-3xl text-primary">travel_explore</span>
+                            </div>
+                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Indexing, Abstracting<br/>& Platforms</h4>
+                            <p class="font-body text-sm text-on-surface-variant max-w-xl opacity-80">Global dissemination networks ensuring discoverability, citation tracking, and comprehensive academic platform availability.</p>
+                        </div>
+
+                        <div class="logo-grid grid-cols-2 md:grid-cols-3 text-outline group-hover:opacity-100 transition-opacity duration-500">
+                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Google_Scholar_logo.png?20190206225436" class="h-8 object-contain grayscale" alt="Google Scholar"></div>
+                            <div class="logo-cell"><img src="https://www.dimensions.ai/wp-content/themes/dimensions-2023.1/dist/images/dimensions-2024-logo.png" class="h-6 object-contain grayscale" alt="Dimensions"></div>
+                            <div class="logo-cell border-r-0 md:border-r"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/BASE_search_engine_logo.svg/330px-BASE_search_engine_logo.svg.png" class="h-7 object-contain grayscale" alt="BASE"></div>
+                            <div class="logo-cell"><img src="https://i0.wp.com/blog.openalex.org/wp-content/uploads/2025/09/image-3.png?resize=1000%2C455&ssl=1" class="h-6 object-contain grayscale" alt="OpenAlex"></div>
+                            <div class="logo-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Semantic_Scholar_logo.svg/330px-Semantic_Scholar_logo.svg.png" class="h-7 object-contain grayscale" alt="Semantic Scholar"></div>
+                            <div class="logo-cell border-r-0"><img src="https://www.cjwk.cn/_nuxt/img/newIndexLogo5.621abfe.png" class="h-8 object-contain filter invert opacity-60" alt="CJWK"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-12 lg:col-span-6 bg-surface border border-outline-variant/20 p-10 flex flex-col justify-between group">
+                        <div class="mb-12">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-['Inter'] font-black text-6xl text-outline-variant/30 group-hover:text-primary transition-colors">03</span>
+                                <span class="material-symbols-outlined text-3xl text-primary">inventory_2</span>
+                            </div>
+                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Archiving &<br/>Preservation</h4>
+                            <p class="font-body text-sm text-on-surface-variant opacity-80">Securing the scholarly record through redundant, distributed digital preservation systems.</p>
+                        </div>
+                        
+                        <div class="logo-grid grid-cols-3 text-outline group-hover:opacity-100 transition-opacity duration-500 h-full">
+                            <div class="logo-cell"><img src="https://clockss.org/wp-content/uploads/2023/04/clockss-logo.png" class="h-8 object-contain grayscale" alt="CLOCKSS"></div>
+                            <div class="logo-cell"><img src="https://www.lockss.org/sites/g/files/sbiybj27616/files/2024-03/lockss-program-800x235_0.png" class="h-8 object-contain grayscale" alt="LOCKSS"></div>
+                            <div class="logo-cell border-r-0"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Zenodo-gradient-square.svg/220px-Zenodo-gradient-square.svg.png?20230831200321" class="h-6 object-contain grayscale" alt="Zenodo"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-12 lg:col-span-6 bg-surface-container-lowest border-2 border-on-background p-10 flex flex-col justify-between group relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-700">
+                            <span class="material-symbols-outlined" style="font-size: 300px;">account_balance</span>
+                        </div>
+                        
+                        <div class="mb-12 relative z-10">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-['Inter'] font-black text-6xl text-outline-variant/30 group-hover:text-on-background transition-colors">04</span>
+                                <span class="material-symbols-outlined text-3xl text-on-background">workspace_premium</span>
+                            </div>
+                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Institutional<br/>Partners</h4>
+                            <p class="font-body text-sm text-on-surface-variant opacity-80">Collaborative networks fostering academic integrity and domain-specific rigor.</p>
+                        </div>
+
+                        <div class="border-t border-on-background/20 pt-8 mt-auto relative z-10">
+                            <div class="flex items-center gap-6 opacity-60 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all cursor-pointer">
+                                <img src="https://github.com/WENSHAO521/panorama-homepage/blob/main/QKFM/Taoist%20Association%20of%20Korea.png?raw=true" alt="Taoist Association of Korea" class="h-16 w-auto object-contain">
+                                <div class="flex flex-col">
+                                    <span class="font-['Inter'] text-lg font-black text-on-background tracking-widest">한국도교협회</span>
+                                    <span class="font-['Inter'] text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Taoist Association of Korea</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 p-6 bg-surface-dim/30 border-l-4 border-outline-variant font-['Inter'] text-[10px] text-on-surface-variant uppercase tracking-widest leading-relaxed text-justify">
+                    <strong>Disclaimer:</strong> The services listed above perform different functions within the scholarly communication ecosystem. DNB is presented in relation to bibliographic metadata, not collection status. Inclusion in any listed service does not imply editorial evaluation, selective indexing, ranking status, endorsement, archival custody, or inclusion in citation indexes unless explicitly confirmed by the relevant provider.
+                </div>
             </div>
-            <div>
-                <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Registration Information & Operations</h4>
-                <p class="text-gray-400 mb-4">
-                    <strong class="text-white">ISSN Registration Information</strong><br>
-                    <span class="text-xs">
-                        Selected journals hold ISSNs assigned through the German ISSN Centre.<br>
-                        ISSN assignment relates to journal identification and metadata registration, and should not be interpreted as a statement of publisher headquarters, legal domicile, or evaluation database status.
-                    </span>
-                </p>
-                <p class="text-gray-400">
-                    <strong class="text-white">Administrative and Operational Contact</strong><br>
-                    <span class="text-xs">
-                        Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>
-                        625 Nathan Road, Kowloon, Hong Kong.
-                    </span>
-                </p>
-            </div>
-            <div>
-                <h4 class="font-bold uppercase tracking-widest mb-6 border-b border-gray-700 pb-2">Quick Links</h4>
-                <a href="#journals" class="footer-link">Journals</a>
-                <a href="Publication Ethics.html" class="footer-link">Publication Ethics</a>
-                <a href="Open Access Policy.html" class="footer-link">Open Access Policy</a>
-                <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener noreferrer" class="footer-link">Editorial Directory</a>
-            </div>
+        </section>
+    </main>
+
+    <footer class="grid grid-cols-12 gap-8 w-full px-12 py-20 mt-auto bg-[#1a1c1c] text-[#f9f9f9]">
+        <div class="col-span-12 lg:col-span-4 mb-8 lg:mb-0">
+            <div class="text-2xl font-black header-font uppercase tracking-tighter mb-1">Panorama</div>
+            <div class="text-[9px] font-bold text-primary-fixed uppercase tracking-[0.3em] mb-6 header-font">Scholarly Group</div>
+            <p class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim max-w-xs leading-relaxed border-l-2 border-primary-fixed pl-3">
+                A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.
+            </p>
         </div>
-        <div class="container mx-auto px-8 mt-12 pt-8 border-t border-gray-800 text-xs text-gray-500 flex justify-between">
-            <div>© 2025-2026 PSG. All Rights Reserved.</div>
-            <div>Distributed Academic Publishing</div>
+        <div class="col-span-12 md:col-span-6 lg:col-span-4">
+            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Registration Information</h5>
+            <p class="font-['Inter'] text-[10px] text-surface-dim leading-relaxed mb-4">
+                <strong class="text-white block mb-1">ISSN Registration</strong>
+                Selected journals hold ISSNs assigned through the German ISSN Centre. This relates to metadata registration, not legal domicile.
+            </p>
+            <p class="font-['Inter'] text-[10px] text-surface-dim leading-relaxed">
+                <strong class="text-white block mb-1">Operations</strong>
+                Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.
+            </p>
+        </div>
+        <div class="col-span-12 md:col-span-6 lg:col-span-4 lg:pl-12">
+            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Policies & Links</h5>
+            <ul class="space-y-3">
+                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Publication Ethics.html">Publication Ethics</a></li>
+                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Open Access Policy.html">Open Access Policy</a></li>
+                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="https://profiles.panorama-sg.com/" target="_blank">Editorial Directory</a></li>
+            </ul>
+        </div>
+        <div class="col-span-12 mt-12 pt-8 border-t border-[#2f3131] flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex gap-6">
+                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">rss_feed</span>
+                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">mail</span>
+                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">public</span>
+            </div>
+            <div class="text-center md:text-right">
+                <span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim block mb-1">© 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</span>
+                <span class="font-['Inter'] text-[9px] uppercase tracking-[0.05rem] font-bold text-primary-fixed">Distributed Academic Publishing</span>
+            </div>
         </div>
     </footer>
 
@@ -698,7 +418,7 @@
             { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
             
             { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: 'Pending', img: 'CSGS.png', slug: 'CSGS' },
-            { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD', noCJWK: true },
+            { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD' },
             { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
             { id: 'GFSS', group: 'env', title: 'Global Food Science & Systems', cat: 'Food Sci.', issn: 'Pending', img: 'GFSS.png', slug: 'GFSS' },
 
@@ -711,7 +431,7 @@
 
             { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'Silence.png', slug: 'Silence' },
             { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, and Society', cat: 'Arts', issn: '3052-539X', img: 'GRAHS.png', slug: 'files' },
-            { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'TTS.png', slug: 'tts', noCJWK: true },
+            { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'TTS.png', slug: 'tts' },
             { id: 'Res', group: 'arts', title: 'Resonance: Global Music Studies', cat: 'Music', issn: '3053-4410', img: 'RESONANCE.png', slug: 'Resonance' },
             { id: 'CPRT', group: 'arts', title: 'Comparative Philosophy and Religious Traditions', cat: 'Phil.', issn: 'Pending', img: 'CPRT.png', slug: 'CPRT' },
             { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' }
@@ -724,51 +444,45 @@
             const catJournals = JOURNALS.filter(j => j.group === cat.id);
             if (catJournals.length === 0) return;
 
-            const header = document.createElement('h3');
-            header.className = 'journal-category-header';
-            header.innerText = cat.title;
-            wrapper.appendChild(header);
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'grid grid-cols-12 gap-8 mb-12';
+            
+            const leftCol = document.createElement('div');
+            leftCol.className = 'col-span-12 md:col-span-3 border-l-4 border-primary pl-6 mb-6 md:mb-0';
+            leftCol.innerHTML = `
+                <h3 class="font-['Inter'] font-black text-xl uppercase tracking-tighter mb-2">${cat.title}</h3>
+                <p class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest opacity-50">Department Repository</p>
+            `;
+            sectionDiv.appendChild(leftCol);
 
-            const grid = document.createElement('div');
-            grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12';
+            const rightCol = document.createElement('div');
+            rightCol.className = 'col-span-12 md:col-span-9 academic-grid';
             
             catJournals.forEach(j => {
-                const card = document.createElement('div');
-                card.className = 'journal-card';
+                const finalImgSrc = j.img.startsWith('http') ? "https://gh-proxy.org/" + j.img : baseOld + j.img;
                 
-                let finalImgSrc = j.img.startsWith('http') ? "https://gh-proxy.org/" + j.img : baseOld + j.img;
-
+                const card = document.createElement('div');
+                card.className = 'academic-card bg-surface hover:bg-surface-container-lowest transition-colors flex flex-col group relative overflow-hidden p-8';
+                
                 card.innerHTML = `
-                    <div class="journal-header">
-                        <span class="journal-meta-tag">${j.cat}</span>
-                        <div class="journal-cover-container">
-                            <img src="${finalImgSrc}" class="journal-cover" onerror="this.style.opacity=0.3" alt="${j.title}">
-                        </div>
-                        <h3 class="journal-title" title="${j.title}">${j.title}</h3>
-                        <p class="text-xs text-gray-400 font-mono mb-2">ISSN: ${j.issn}</p>
-                        <div style="flex-grow:1"></div>
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-primary text-on-primary px-2 py-1 text-[9px] font-bold uppercase tracking-widest">${j.cat}</span>
+                        <span class="font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-on-surface-variant opacity-60">ISSN: ${j.issn}</span>
                     </div>
-                    <div class="btn-group">
-                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="btn-action btn-portal">View Portal</a>
-                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission" class="btn-action btn-submit">Submit Paper</a>
+                    <div class="h-32 flex items-center justify-center mb-6 relative">
+                        <img src="${finalImgSrc}" class="h-full w-auto object-contain shadow-sm grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.style.opacity=0.3" alt="${j.title}">
+                    </div>
+                    <h4 class="font-body font-bold text-lg leading-tight mb-6 text-on-background line-clamp-2" title="${j.title}">${j.title}</h4>
+                    <div class="mt-auto flex justify-between items-center border-t border-outline-variant/20 pt-4">
+                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Portal</a>
+                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission" class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1">Submit <span class="material-symbols-outlined text-[12px]">open_in_new</span></a>
                     </div>
                 `;
-                grid.appendChild(card);
+                rightCol.appendChild(card);
             });
-            wrapper.appendChild(grid);
-        });
-
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 200) current = section.getAttribute('id');
-            });
-            document.querySelectorAll('.nav-dot').forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) a.classList.add('active');
-            });
+            
+            sectionDiv.appendChild(rightCol);
+            wrapper.appendChild(sectionDiv);
         });
     </script>
 </body>
