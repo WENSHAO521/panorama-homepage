@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-04-27",
+    "last_updated": "2026-04-28",
     "afs": {
         "2yr_mean_citedness": 0.36,
         "h_index": 1,
@@ -46,7 +46,7 @@
         "2yr_mean_citedness": 0.0,
         "h_index": 0,
         "i10_index": 0,
-        "works_count": 14
+        "works_count": 15
     },
     "Silence": {
         "2yr_mean_citedness": 0.0,
