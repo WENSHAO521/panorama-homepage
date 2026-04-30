@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMD6ZL74G0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RMD6ZL74G0');
-    </script>
-
     <meta charset="utf-8"/>
     <meta content="width=1200, initial-scale=0.3" name="viewport"/>
     <title>About Us | Panorama Scholarly Group</title>
@@ -17,51 +9,23 @@
     <link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
     <link rel="apple-touch-icon" href="favicon.png">
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- 字体预连接，加速首屏渲染 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-dim": "#dadada",
-                        "on-surface-variant": "#5a403c",
-                        "surface-container": "#eeeeee",
-                        "on-background": "#1a1c1c",
-                        "outline": "#8e706b",
-                        "on-error-container": "#93000a",
-                        "inverse-surface": "#2f3131",
-                        "on-primary-fixed": "#410000",
-                        "on-primary": "#ffffff",
-                        "on-secondary-fixed": "#1b1b1b",
-                        "on-surface": "#1a1c1c",
-                        "error-container": "#ffdad6",
-                        "outline-variant": "#e3beb8",
-                        "on-primary-container": "#ff907f",
-                        "tertiary-fixed": "#e4e2e1",
-                        "on-primary-fixed-variant": "#930000",
-                        "primary": "#610000",
-                        "background": "#f9f9f9",
-                        "surface-container-high": "#e8e8e8",
-                        "surface-tint": "#ba1c10",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-variant": "#e2e2e2",
-                        "inverse-on-surface": "#f1f1f1",
-                        "on-secondary-container": "#646464",
-                        "secondary-container": "#e2e2e2"
-                    },
-                    "fontFamily": {
-                        "headline": ["Inter", "sans-serif"],
-                        "body": ["Noto Serif", "serif"],
-                        "label": ["Inter", "sans-serif"]
-                    }
-                },
-            },
-        }
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMD6ZL74G0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RMD6ZL74G0');
     </script>
+
+    <!-- 引用由 Cloudflare 构建生成的静态 CSS 文件 -->
+    <link href="main.css" rel="stylesheet"/>
+
     <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -123,7 +87,8 @@
         <div class="flex justify-between items-center w-full px-12 py-5 max-w-[1920px] mx-auto">
             <div class="flex items-center gap-5">
                 <a href="index.html" class="flex items-center gap-5 hover:opacity-80 transition-opacity">
-                    <img src="https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="PSG Logo" class="h-10 w-auto grayscale">
+                    <!-- 移除不稳定的 gh-proxy 代理 -->
+                    <img src="https://raw.githubusercontent.com/WENSHAO521/GRHAS/main/PEMR/image-removebg-preview.png" alt="PSG Logo" class="h-10 w-auto grayscale">
                     <div class="border-l-2 border-primary pl-5">
                         <div class="text-2xl font-black tracking-tighter text-on-background header-font uppercase leading-none">Panorama</div>
                         <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.3em] mt-1 header-font">Scholarly Group</div>
@@ -239,7 +204,8 @@
                     </p>
                 </div>
                 <div class="relative h-full min-h-[400px] overflow-hidden group">
-                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" alt="Scholarly integrity">
+                    <!-- 为首屏以外的高清图片添加懒加载属性 -->
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1000" loading="lazy" class="absolute inset-0 w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000" alt="Scholarly integrity">
                 </div>
             </div>
         </section>
@@ -282,16 +248,19 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 300) { current = section.getAttribute('id'); }
-            });
-            document.querySelectorAll('.nav-dot').forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
+        // 将 DOM 操作包裹在 DOMContentLoaded 中，确保渲染平滑
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section');
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (scrollY >= sectionTop - 300) { current = section.getAttribute('id'); }
+                });
+                document.querySelectorAll('.nav-dot').forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
+                });
             });
         });
     </script>
