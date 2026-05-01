@@ -467,11 +467,10 @@
                 const createMarqueeCard = (j) => {
                     const finalImgSrc = j.img.startsWith('http') ? j.img : baseImgUrl + j.img;
                     return `
-                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="marquee-item flex flex-col group block">
-                            <div class="h-64 flex items-center justify-center mb-5 relative">
+                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" title="${j.title}" class="marquee-item flex flex-col group block">
+                            <div class="h-64 flex items-center justify-center relative">
                                 <img src="${finalImgSrc}" loading="lazy" class="h-full w-auto object-contain opacity-90 group-hover:opacity-100 transition-all duration-300" alt="${j.title}" onerror="this.style.opacity=0.3">
                             </div>
-                            <h4 class="font-body font-bold text-sm leading-snug mb-2 text-on-background line-clamp-2 text-center group-hover:text-primary transition-colors" title="${j.title}">${j.title}</h4>
                         </a>
                     `;
                 };
