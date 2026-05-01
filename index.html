@@ -68,6 +68,41 @@
             align-items: center;
             justify-content: center;
         }
+
+        /* Marquee Scrolling System */
+        @keyframes scroll-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+            padding: 1rem 0;
+        }
+        .marquee-track {
+            display: inline-flex;
+            gap: 2rem;
+            width: max-content;
+            animation: scroll-marquee 45s linear infinite;
+        }
+        .marquee-container:hover .marquee-track {
+            animation-play-state: paused;
+        }
+        .marquee-item {
+            flex: 0 0 auto;
+            width: 240px;
+            white-space: normal;
+            transition: all 0.3s ease;
+        }
+        .marquee-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .marquee-item img {
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
     </style>
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col">
@@ -126,6 +161,20 @@
                             <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform text-primary">arrow_forward</span>
                         </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Journals Section -->
+        <section id="featured" class="px-12 py-20 bg-surface-container-lowest border-b border-outline-variant/10">
+            <div class="max-w-[1920px] mx-auto mb-10">
+                <h2 class="font-['Inter'] font-black text-3xl uppercase tracking-tighter mb-2">Featured Journals</h2>
+                <div class="w-12 h-1 bg-primary"></div>
+            </div>
+            
+            <div class="marquee-container w-full max-w-[1920px] mx-auto">
+                <div class="marquee-track" id="marquee-track">
+                    <!-- JavaScript 将动态生成内容 -->
                 </div>
             </div>
         </section>
@@ -376,7 +425,7 @@
                 { id: 'arts', title: 'Humanities & Arts' }
             ];
 
-       const JOURNALS = [
+            const JOURNALS = [
                 { id: 'PFR',     group: 'tech', title: 'Panorama Frontier Review',                    cat: 'Multi.',    issn: 'Pending',   img: 'PFR.png',         slug: 'PFR' },
                 { id: 'AFS',     group: 'tech', title: 'AI & Future Society',                         cat: 'Tech',      issn: '3053-4011', img: 'AFS.png',         slug: 'AFS' },
                 { id: 'JESA',    group: 'tech', title: 'Journal of Engineering Systems & Applications',cat: 'Eng.',      issn: '3053-478X', img: 'JESA.png',         slug: 'JESA' },
@@ -405,6 +454,29 @@
             const wrapper = document.getElementById('journal-wrapper');
             // 已添加代理前缀
             const baseImgUrl = "https://gh-proxy.org/https://raw.githubusercontent.com/WENSHAO521/panorama-homepage/main/QKFM/";
+
+            // Marquee Featured Journals Logic
+            const featuredIds = ['PEMR', 'HN', 'Silence', 'AFS', 'CSGS', 'JSCC', 'GRHAS', 'JESA', 'Res'];
+            const featuredJournals = JOURNALS.filter(j => featuredIds.includes(j.id));
+            const marqueeTrack = document.getElementById('marquee-track');
+
+            if (marqueeTrack) {
+                const createMarqueeCard = (j) => {
+                    const finalImgSrc = j.img.startsWith('http') ? j.img : baseImgUrl + j.img;
+                    return `
+                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="marquee-item bg-surface border border-outline-variant/20 p-6 flex flex-col group block">
+                            <div class="h-56 flex items-center justify-center mb-6 relative">
+                                <img src="${finalImgSrc}" loading="lazy" class="h-full w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity" alt="${j.title}" onerror="this.style.opacity=0.3">
+                            </div>
+                            <h4 class="font-body font-bold text-sm leading-snug mb-2 text-on-background line-clamp-2 text-center" title="${j.title}">${j.title}</h4>
+                            <span class="font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-primary text-center block mt-auto">${j.cat}</span>
+                        </a>
+                    `;
+                };
+
+                const combinedFeaturedHTML = [...featuredJournals, ...featuredJournals].map(createMarqueeCard).join('');
+                marqueeTrack.innerHTML = combinedFeaturedHTML;
+            }
 
             CATEGORIES.forEach(cat => {
                 const catJournals = JOURNALS.filter(j => j.group === cat.id);
