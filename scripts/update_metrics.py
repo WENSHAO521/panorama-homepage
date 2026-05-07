@@ -19,10 +19,10 @@ def update_all_journals_metrics():
         "Silence": "openalex:S7407054022",       # Silence
         "tts": "openalex:S5407052764",           # Three Teachings Studies
         "jscc": "openalex:S7407056239",          # Journal of Social Cognition and Communication
+        "csgs": "openalex:s7407057430",          # Climate Sustainability & Global Systems
         
         # --- 使用全名检索的期刊（待 OpenAlex 进一步索引或分配 ID） ---
         "cprt": "display_name.search:Comparative Philosophy and Religious Traditions",
-        "csgs": "display_name.search:Climate Sustainability & Global Systems",
         "cssr": "display_name.search:Computational Social Sciences Review",
         "gppgr": "display_name.search:Global Public Policy & Governance Review",
         "jdes": "display_name.search:Journal of Dance and Embodied Structure",
