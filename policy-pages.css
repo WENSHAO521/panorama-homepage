@@ -109,13 +109,14 @@ strong { color: var(--brand); }
     text-transform: uppercase;
 }
 .nav-links a {
-    padding: 34px 0 30px;
-    border-bottom: 3px solid transparent;
+    padding: 10px 0;
+    border-bottom: 2px solid transparent;
 }
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
     color: var(--brand);
-    border-bottom-color: var(--brand);
+    border-color: var(--brand);
 }
 
 .hero {
