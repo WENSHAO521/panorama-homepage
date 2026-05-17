@@ -141,7 +141,7 @@ strong { color: var(--brand); }
     align-items: end;
     gap: 56px;
     min-height: 570px;
-    padding: 96px 0 88px;
+    padding: 96px 0 88px 40px;
 }
 .eyebrow {
     display: inline-flex;
@@ -168,6 +168,11 @@ h1 {
     font-weight: 950;
     letter-spacing: -0.065em;
     text-transform: uppercase;
+}
+.page-ethics h1 {
+    max-width: 710px;
+    font-size: clamp(58px, 7.3vw, 104px);
+    letter-spacing: -0.058em;
 }
 .lead {
     max-width: 740px;

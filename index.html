@@ -2,7 +2,7 @@
 <html class="light" lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="width=1200" name="viewport"/>
     <title>Panorama Scholarly Group | International Academic Publishing Initiative</title>
     
     <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
@@ -10,19 +10,6 @@
     <link rel="apple-touch-icon" href="favicon.png">
 
     <!-- 字体预连接，显著降低字体解析延迟 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;700;900&family=Noto+Serif+KR:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMD6ZL74G0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-RMD6ZL74G0');
-    </script>
-
     <!-- 引用 Cloudflare 编译生成的静态 CSS 文件 -->
     <link href="main.css" rel="stylesheet"/>
 
@@ -318,20 +305,18 @@
     <nav class="sticky top-0 z-40 w-full bg-background/90 backdrop-blur-md shadow-sm border-b border-outline-variant/20">
         <div class="flex justify-between items-center w-full px-12 py-5 max-w-[1920px] mx-auto">
             <div class="flex items-center gap-5">
-                <!-- 已添加代理前缀 -->
-                <img src="favicon.png" alt="PSG Logo" class="h-10 w-auto grayscale">
-                <div class="border-l-2 border-primary pl-5">
-                    <div class="text-2xl font-black tracking-tighter text-on-background header-font uppercase leading-none">Panorama</div>
-                    <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.3em] mt-1 header-font">Scholarly Group</div>
-                </div>
+                <a href="index.html" class="flex items-center gap-5 hover:opacity-80 transition-opacity">
+                    <img src="favicon.png" alt="PSG Logo" class="h-10 w-auto grayscale">
+                    <div class="border-l-2 border-primary pl-5">
+                        <div class="text-2xl font-black tracking-tighter text-on-background header-font uppercase leading-none">Panorama</div>
+                        <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.3em] mt-1 header-font">Scholarly Group</div>
+                    </div>
+                </a>
             </div>
             <div class="flex items-center gap-10">
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="#compendium">Journals</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="#profile">Profile</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="#infrastructure">Infrastructure</a>
-                <a href="https://journals.panorama-sg.com/index.php/index/user/profile" class="bg-primary text-on-primary px-6 py-3 font-['Inter'] font-bold uppercase tracking-widest text-[10px] hover:bg-primary-container transition-all">
-                    Institutional Login
-                </a>
+                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-primary border-b-2 border-primary pb-2 transition-colors" href="index.html">Home</a>
+                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="index.html#compendium">Journals</a>
+                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="about.html">About Us</a>
             </div>
         </div>
     </nav>
