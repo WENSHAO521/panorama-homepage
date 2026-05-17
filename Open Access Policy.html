@@ -1,467 +1,181 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMD6ZL74G0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RMD6ZL74G0');
-    </script>
-
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Open Access Policy | Panorama Scholarly Group</title>
-    
+
     <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
     <link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
     <link rel="apple-touch-icon" href="favicon.png">
-
-    <!-- 字体预连接，加速首屏渲染 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <!-- 引用由 Cloudflare 构建生成的静态 CSS 文件 -->
-    <link href="main.css" rel="stylesheet"/>
-
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            overflow: hidden;
-            text-indent: -9999px;
-            vertical-align: text-bottom;
-        }
-        body {
-            font-family: 'Noto Serif', serif;
-            -webkit-font-smoothing: antialiased;
-            background:
-                linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-                linear-gradient(180deg, #fbfaf7 0%, #f7f4ef 100%);
-            background-size: 64px 100%, auto;
-            color: #121212;
-            overflow-x: hidden;
-        }
-        .header-font { font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
-        ::selection { background: #610000; color: #ffffff; }
-
-        .side-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .nav-dot {
-            width: 8px;
-            height: 8px;
-            background: #e3beb8;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .nav-dot.active {
-            background: #610000;
-            transform: scale(1.5);
-        }
-        a:focus-visible {
-            outline: 2px solid #610000;
-            outline-offset: 4px;
-        }
-        nav.sticky {
-            background: rgba(249, 249, 247, 0.88) !important;
-            backdrop-filter: blur(18px) saturate(140%);
-            box-shadow: 0 18px 45px rgba(26, 28, 28, 0.06);
-        }
-        main > section:first-child {
-            background:
-                radial-gradient(circle at 82% 18%, rgba(97, 0, 0, 0.08), transparent 32%),
-                linear-gradient(135deg, #ffffff 0%, #f8f5f0 58%, #f3eee6 100%) !important;
-        }
-        main > section:first-child::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 8px;
-            background: linear-gradient(180deg, #610000, #b45309);
-        }
-        main > section:first-child h1 {
-            letter-spacing: -0.055em;
-            text-wrap: balance;
-        }
-        main section {
-            position: relative;
-        }
-        main section:not(:first-child) {
-            background-color: rgba(255, 255, 255, 0.92);
-        }
-        main section [class*="bg-surface"] {
-            box-shadow: 0 18px 46px rgba(26, 28, 28, 0.06);
-        }
-        main [id] {
-            scroll-margin-top: 110px;
-        }
-        nav a[href*="user/profile"],
-        a[href*="forms.cloud.microsoft"] {
-            border-radius: 2px;
-            box-shadow: 0 10px 28px rgba(97, 0, 0, 0.14);
-            transition: transform 220ms ease, box-shadow 220ms ease;
-        }
-        nav a[href*="user/profile"]:hover,
-        a[href*="forms.cloud.microsoft"]:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 34px rgba(97, 0, 0, 0.18);
-        }
-        @media (max-width: 768px) {
-            body > div:first-of-type,
-            .side-nav {
-                display: none !important;
-            }
-            html,
-            body,
-            main,
-            section,
-            footer {
-                width: 100% !important;
-                max-width: 100vw !important;
-                overflow-x: hidden !important;
-            }
-            nav.sticky > div {
-                flex-wrap: wrap;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-                gap: 1rem;
-            }
-            nav.sticky .flex.items-center.gap-10 {
-                width: 100%;
-                flex-wrap: wrap;
-                gap: 0.9rem 1.2rem !important;
-            }
-            section {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-            main section > div,
-            main section .max-w-\[1920px\],
-            main section .max-w-7xl,
-            main section .max-w-6xl,
-            main section .max-w-5xl {
-                width: 100% !important;
-                max-width: calc(100vw - 2rem) !important;
-            }
-            main > section:first-child {
-                width: 100vw;
-                max-width: 100vw;
-                overflow: hidden;
-            }
-            main > section:first-child * {
-                min-width: 0;
-            }
-            main > section:first-child h1 {
-                font-size: clamp(2.45rem, 11vw, 3rem) !important;
-                line-height: 0.98 !important;
-                max-width: 100%;
-            }
-            main > section:first-child .grid.grid-cols-9 {
-                grid-template-columns: 1fr !important;
-            }
-            main > section:first-child .grid.grid-cols-9 > * {
-                grid-column: 1 / -1 !important;
-            }
-            main > section:first-child p {
-                width: min(310px, calc(100vw - 2rem)) !important;
-                font-size: 1.2rem !important;
-                line-height: 1.45 !important;
-                overflow-wrap: anywhere;
-            }
-            main .grid.grid-cols-12 {
-                grid-template-columns: 1fr !important;
-            }
-            main .grid.grid-cols-12 > * {
-                grid-column: 1 / -1 !important;
-            }
-            main section > .grid,
-            main section > div > .grid {
-                display: block !important;
-            }
-            main section > .grid > *,
-            main section > div > .grid > * {
-                width: 100% !important;
-                max-width: 100% !important;
-                margin-bottom: 2rem;
-            }
-            main section h2,
-            main section h3,
-            main section .text-4xl,
-            main section .text-5xl,
-            main section .text-6xl {
-                max-width: calc(100vw - 2rem) !important;
-                font-size: clamp(1.65rem, 7.4vw, 2rem) !important;
-                line-height: 1 !important;
-                overflow-wrap: anywhere;
-                word-break: break-word;
-            }
-            main section p,
-            main section li {
-                width: min(300px, calc(100vw - 2rem)) !important;
-                max-width: min(300px, calc(100vw - 2rem)) !important;
-                font-size: 1.05rem !important;
-                line-height: 1.6 !important;
-                overflow-wrap: anywhere;
-            }
-        }
-    </style>
+    <link href="main.css" rel="stylesheet">
+    <link href="policy-pages.css" rel="stylesheet">
 </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col">
-
-    <nav class="side-nav">
-        <a href="#intro" class="nav-dot active" title="Top"></a>
-        <a href="#definition" class="nav-dot" title="Definition"></a>
-        <a href="#apc" class="nav-dot" title="APC"></a>
-        <a href="#licensing" class="nav-dot" title="Licensing"></a>
-        <a href="#copyright" class="nav-dot" title="Copyright"></a>
-        <a href="#repository" class="nav-dot" title="Repository"></a>
-    </nav>
-
-    <div class="bg-on-background text-background py-2 px-12 flex justify-between items-center text-[10px] font-['Inter'] font-bold uppercase tracking-widest z-50">
-        <div class="flex gap-8 items-center">
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px] text-outline-variant">domain</span> Administrative Operations: Hong Kong</span>
-            <span class="border-l border-outline/30 pl-8 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px] text-outline-variant">mail</span> 
-                <a href="mailto:contact@panorama-sg.com" class="hover:text-outline-variant transition-colors">contact@panorama-sg.com</a>
-            </span>
+<body>
+    <div class="topbar">
+        <div class="shell">
+            <span>Administrative Operations: Hong Kong</span>
+            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
+            <span>Distributed Academic Publishing Infrastructure</span>
         </div>
-        <div class="text-outline-variant">Distributed Academic Publishing Infrastructure</div>
     </div>
 
-    <nav class="sticky top-0 z-40 w-full bg-background/90 backdrop-blur-md shadow-sm border-b border-outline-variant/20">
-        <div class="flex justify-between items-center w-full px-12 py-5 max-w-[1920px] mx-auto">
-            <div class="flex items-center gap-5">
-                <a href="index.html" class="flex items-center gap-5 hover:opacity-80 transition-opacity">
-                    <!-- 恢复 GitHub 图片的代理前缀以确保中国大陆访问 -->
-                    <img src="favicon.png" alt="PSG Logo" class="h-10 w-auto grayscale">
-                    <div class="border-l-2 border-primary pl-5">
-                        <div class="text-2xl font-black tracking-tighter text-on-background header-font uppercase leading-none">Panorama</div>
-                        <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.3em] mt-1 header-font">Scholarly Group</div>
-                    </div>
-                </a>
-            </div>
-            <div class="flex items-center gap-10">
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="index.html">Home</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="index.html#compendium">Journals</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="about.html">About Us</a>
+    <nav class="nav" aria-label="Primary navigation">
+        <div class="shell">
+            <a class="brand" href="index.html" aria-label="Panorama Scholarly Group home">
+                <img src="favicon.png" alt="PSG Logo">
+                <span class="brand-mark">
+                    <span class="brand-name">Panorama</span>
+                    <span class="brand-sub">Scholarly Group</span>
+                </span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#compendium">Journals</a>
+                <a href="about.html">About Us</a>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow">
-        <section id="intro" class="px-12 py-32 grid grid-cols-12 gap-0 bg-surface-container-lowest relative overflow-hidden">
-            <div class="col-span-12 md:col-start-2 md:col-span-10 relative z-10">
-                <span class="font-['Inter'] font-bold uppercase tracking-[0.2em] text-primary text-sm mb-6 block border-l-4 border-primary pl-4">PSG Policy Statement</span>
-                <h1 class="font-['Inter'] font-black text-7xl md:text-[7rem] leading-[0.85] tracking-tighter text-on-background mb-12 uppercase">
-                    Open Access<br/>Policy.
-                </h1>
-                <div class="grid grid-cols-9 gap-8 border-t border-outline-variant/20 pt-8">
-                    <div class="col-span-9 md:col-span-6">
-                        <p class="text-2xl font-body leading-relaxed text-on-surface-variant">
-                            Supporting broad and lawful access to scholarly work through transparent licensing, responsible dissemination, and sustainable publishing models.
-                        </p>
-                    </div>
+    <main>
+        <section class="hero" id="intro">
+            <div class="shell hero-grid">
+                <div>
+                    <span class="eyebrow">PSG Policy Statement</span>
+                    <h1>Open Access<br>Policy.</h1>
+                    <p class="lead">Supporting broad and lawful access to scholarly work through transparent licensing, responsible dissemination, and sustainable publishing models.</p>
                 </div>
+                <aside class="policy-card" aria-label="Policy summary">
+                    <div class="policy-row">
+                        <div><span>Model</span><strong>Open Scholarly Access</strong></div>
+                        <b>01</b>
+                    </div>
+                    <div class="policy-row">
+                        <div><span>Coverage</span><strong>Journal-Level Policies</strong></div>
+                        <b>02</b>
+                    </div>
+                    <div class="policy-row">
+                        <div><span>Commitment</span><strong>Long-Term Availability</strong></div>
+                        <b>03</b>
+                    </div>
+                </aside>
             </div>
         </section>
 
-        <section class="px-12 py-24 bg-surface border-y border-outline-variant/20">
-            <div class="max-w-5xl mx-auto text-center">
-                <span class="material-symbols-outlined text-4xl text-outline-variant mb-6">format_quote</span>
-                <p class="text-3xl text-on-background leading-relaxed font-body italic mb-10">
-                    "Panorama Scholarly Group (PSG) supports the widest possible dissemination of scholarly research. We believe that open and lawful access to research contributes to academic exchange, public knowledge, and long-term scholarly visibility."
-                </p>
-                <div class="h-1 w-24 bg-primary mx-auto"></div>
+        <section class="quote-band" aria-label="Policy principle">
+            <div class="shell">
+                <p class="quote">Panorama Scholarly Group supports the widest possible dissemination of scholarly research. Open and lawful access contributes to academic exchange, public knowledge, and long-term scholarly visibility.</p>
+                <div class="quote-rule"></div>
             </div>
         </section>
 
-        <section class="px-12 py-24 bg-surface-container-lowest">
-            <div class="max-w-[1920px] mx-auto">
-                
-                <div id="definition" class="grid grid-cols-12 gap-12 py-20 border-b border-outline-variant/20">
-                    <div class="col-span-12 md:col-span-3">
-                        <span class="font-['Inter'] font-black text-7xl text-outline-variant/30 block mb-4">01</span>
-                        <h3 class="font-['Inter'] font-black text-2xl uppercase tracking-tighter">Definition</h3>
+        <section class="content-section">
+            <div class="shell">
+                <article class="policy-item" id="definition">
+                    <header>
+                        <span class="item-number">01</span>
+                        <h2>Definition</h2>
+                    </header>
+                    <div class="policy-body">
+                        <p>In accordance with widely recognized open access principles, including the <strong>Budapest Open Access Initiative (BOAI)</strong>, Panorama Scholarly Group understands open access as the online availability of scholarly literature without price barriers for readers, while respecting applicable copyright, licensing, and attribution requirements.</p>
                     </div>
-                    <div class="col-span-12 md:col-span-9 md:pl-8 border-l border-outline-variant/20">
-                        <p class="font-body text-lg leading-relaxed text-on-surface-variant">
-                            In accordance with widely recognized open access principles, including the <strong>Budapest Open Access Initiative (BOAI)</strong>, Panorama Scholarly Group understands open access as the online availability of scholarly literature without price barriers for readers, while respecting applicable copyright, licensing, and attribution requirements.
-                        </p>
-                    </div>
-                </div>
+                </article>
 
-                <div id="apc" class="grid grid-cols-12 gap-12 py-20 border-b border-outline-variant/20">
-                    <div class="col-span-12 md:col-span-3">
-                        <span class="font-['Inter'] font-black text-7xl text-outline-variant/30 block mb-4">02</span>
-                        <h3 class="font-['Inter'] font-black text-2xl uppercase tracking-tighter">Article Processing Charges (APC)</h3>
-                    </div>
-                    <div class="col-span-12 md:col-span-9 md:pl-8 border-l border-outline-variant/20">
-                        <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-10">
-                            Panorama Scholarly Group supports sustainable open access publishing models intended to maintain peer review, editorial processing, production, hosting, and long-term preservation of scholarly content.
-                        </p>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                            <div class="bg-on-background text-background p-10 border-l-4 border-primary group">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <span class="material-symbols-outlined text-primary text-3xl">diamond</span>
-                                    <h4 class="font-['Inter'] font-black text-xl uppercase tracking-widest text-primary">Diamond Open Access</h4>
-                                </div>
-                                <span class="bg-background text-on-background px-3 py-1 text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-6 inline-block">Journal: Silence</span>
-                                <p class="font-body text-sm leading-relaxed text-surface-dim">
-                                    For the journal <em>Silence</em>, PSG currently supports a Diamond Open Access model. Under this model, authors are not charged article processing fees and readers may access published content without subscription or paywall barriers.
-                                </p>
+                <article class="policy-item" id="apc">
+                    <header>
+                        <span class="item-number">02</span>
+                        <h2>Article Processing Charges</h2>
+                    </header>
+                    <div class="policy-body">
+                        <p>Panorama Scholarly Group supports sustainable open access publishing models intended to maintain peer review, editorial processing, production, hosting, and long-term preservation of scholarly content.</p>
+                        <div class="note-grid">
+                            <div class="note-card dark">
+                                <h3>Diamond Open Access</h3>
+                                <p>For the journal <em>Silence</em>, PSG currently supports a Diamond Open Access model. Authors are not charged article processing fees and readers may access published content without subscription or paywall barriers.</p>
                             </div>
-
-                            <div class="bg-surface p-10 border border-outline-variant/20">
-                                <div class="flex items-center gap-3 mb-6">
-                                    <span class="material-symbols-outlined text-outline text-3xl">toll</span>
-                                    <h4 class="font-['Inter'] font-black text-xl uppercase tracking-widest text-on-background">Gold Open Access</h4>
-                                </div>
-                                <span class="bg-surface-container-high text-on-surface px-3 py-1 text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-6 inline-block">Selected Journals</span>
-                                <p class="font-body text-sm leading-relaxed text-on-surface-variant">
-                                    For other journals within the Panorama Scholarly Group, a Gold Open Access model may apply. In such cases, an Article Processing Charge (APC) may be required following editorial acceptance in order to support editorial handling, production, online hosting, and long-term access services.
-                                </p>
+                            <div class="note-card">
+                                <h3>Gold Open Access</h3>
+                                <p>For other journals within Panorama Scholarly Group, a Gold Open Access model may apply. An Article Processing Charge may be required following editorial acceptance to support handling, production, hosting, and access services.</p>
                             </div>
                         </div>
-
-                        <div class="bg-surface-container-low p-6 border-l-4 border-outline font-['Inter'] text-[11px] text-on-surface-variant uppercase tracking-widest leading-relaxed">
-                            <strong>Journal-Specific Information:</strong> APC levels, waiver availability, discount arrangements, and article-type distinctions are determined at the journal level. Authors should consult the relevant journal’s submission guidelines and policy pages for current information.
-                        </div>
+                        <div class="notice">Journal-specific APC levels, waiver availability, discount arrangements, and article-type distinctions are determined at the journal level.</div>
                     </div>
-                </div>
+                </article>
 
-                <div id="licensing" class="grid grid-cols-12 gap-12 py-20 border-b border-outline-variant/20">
-                    <div class="col-span-12 md:col-span-3">
-                        <span class="font-['Inter'] font-black text-7xl text-outline-variant/30 block mb-4">03</span>
-                        <h3 class="font-['Inter'] font-black text-2xl uppercase tracking-tighter">Licensing Options</h3>
-                    </div>
-                    <div class="col-span-12 md:col-span-9 md:pl-8 border-l border-outline-variant/20">
-                        <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-10">
-                            PSG journals may publish content under selected <strong>Creative Commons</strong> licenses. The applicable license is determined by the journal’s policy and, where relevant, the publication agreement associated with the article.
-                        </p>
-
-                        <div class="grid grid-cols-1 gap-6">
-                            <div class="bg-surface-container-lowest border border-outline-variant/20 p-8 flex flex-col md:flex-row gap-8 items-start md:items-center hover:border-primary transition-colors">
-                                <div class="flex-shrink-0">
-                                    <span class="bg-primary text-on-primary px-4 py-2 text-sm font-['Inter'] font-black uppercase tracking-widest">CC BY 4.0</span>
-                                </div>
+                <article class="policy-item" id="licensing">
+                    <header>
+                        <span class="item-number">03</span>
+                        <h2>Licensing Options</h2>
+                    </header>
+                    <div class="policy-body">
+                        <p>PSG journals may publish content under selected <strong>Creative Commons</strong> licenses. The applicable license is determined by the journal’s policy and, where relevant, the publication agreement associated with the article.</p>
+                        <div class="license-list">
+                            <div class="license">
+                                <b>CC BY 4.0</b>
                                 <div>
-                                    <h5 class="font-['Inter'] font-bold uppercase tracking-wide text-on-background mb-2">Attribution 4.0 International</h5>
-                                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                                        Permits sharing, adaptation, and reuse of the work, including for commercial purposes, provided that appropriate attribution is given to the original author(s) and source.
-                                    </p>
+                                    <h3>Attribution 4.0 International</h3>
+                                    <p>Permits sharing, adaptation, and reuse of the work, including for commercial purposes, provided that appropriate attribution is given to the original author(s) and source.</p>
                                 </div>
                             </div>
-
-                            <div class="bg-surface-container-lowest border border-outline-variant/20 p-8 flex flex-col md:flex-row gap-8 items-start md:items-center hover:border-primary transition-colors">
-                                <div class="flex-shrink-0">
-                                    <span class="bg-on-background text-background px-4 py-2 text-sm font-['Inter'] font-black uppercase tracking-widest">CC BY-NC 4.0</span>
-                                </div>
+                            <div class="license">
+                                <b>CC BY-NC 4.0</b>
                                 <div>
-                                    <h5 class="font-['Inter'] font-bold uppercase tracking-wide text-on-background mb-2">Attribution-NonCommercial 4.0</h5>
-                                    <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                                        Permits sharing, adaptation, and reuse for non-commercial purposes, provided that appropriate attribution is given and the reuse complies with the non-commercial restriction.
-                                    </p>
+                                    <h3>Attribution-NonCommercial 4.0</h3>
+                                    <p>Permits sharing, adaptation, and reuse for non-commercial purposes, provided that appropriate attribution is given and the reuse complies with the non-commercial restriction.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div id="copyright" class="grid grid-cols-12 gap-12 py-20 border-b border-outline-variant/20">
-                    <div class="col-span-12 md:col-span-3">
-                        <span class="font-['Inter'] font-black text-7xl text-outline-variant/30 block mb-4">04</span>
-                        <h3 class="font-['Inter'] font-black text-2xl uppercase tracking-tighter">Copyright Retention</h3>
+                <article class="policy-item" id="copyright">
+                    <header>
+                        <span class="item-number">04</span>
+                        <h2>Copyright Retention</h2>
+                    </header>
+                    <div class="policy-body">
+                        <p>Unless otherwise stated by the relevant journal policy or publication agreement, authors retain copyright in their work. By agreeing to publication, authors grant the relevant journal and/or Panorama Scholarly Group a non-exclusive license to publish, distribute, and identify itself as the original publisher of the version of record.</p>
                     </div>
-                    <div class="col-span-12 md:col-span-9 md:pl-8 border-l border-outline-variant/20">
-                        <p class="font-body text-lg leading-relaxed text-on-surface-variant">
-                            Unless otherwise stated by the relevant journal policy or publication agreement, authors retain copyright in their work. By agreeing to publication, authors grant the relevant journal and/or Panorama Scholarly Group a non-exclusive license to publish, distribute, and identify itself as the original publisher of the version of record.
-                        </p>
-                    </div>
-                </div>
+                </article>
 
-                <div id="repository" class="grid grid-cols-12 gap-12 py-20">
-                    <div class="col-span-12 md:col-span-3">
-                        <span class="font-['Inter'] font-black text-7xl text-outline-variant/30 block mb-4">05</span>
-                        <h3 class="font-['Inter'] font-black text-2xl uppercase tracking-tighter">Repository Deposit & Archiving</h3>
+                <article class="policy-item" id="repository">
+                    <header>
+                        <span class="item-number">05</span>
+                        <h2>Repository Deposit & Archiving</h2>
+                    </header>
+                    <div class="policy-body">
+                        <p>PSG supports the long-term accessibility of scholarly work. Subject to the applicable journal policy and license terms, authors may deposit relevant versions of their work in institutional repositories, disciplinary repositories, or other lawful archiving systems. Policies concerning preprints, accepted manuscripts, and published versions may vary by journal and should be checked in the relevant author guidelines.</p>
                     </div>
-                    <div class="col-span-12 md:col-span-9 md:pl-8 border-l border-outline-variant/20">
-                        <p class="font-body text-lg leading-relaxed text-on-surface-variant">
-                            PSG supports the long-term accessibility of scholarly work. Subject to the applicable journal policy and license terms, authors may deposit relevant versions of their work in institutional repositories, disciplinary repositories, or other lawful archiving systems. Policies concerning preprints, accepted manuscripts, and published versions may vary by journal and should be checked in the relevant author guidelines.
-                        </p>
-                    </div>
-                </div>
-
+                </article>
             </div>
         </section>
     </main>
 
-    <footer class="grid grid-cols-12 gap-8 w-full px-12 py-20 mt-auto bg-[#1a1c1c] text-[#f9f9f9]">
-        <div class="col-span-12 lg:col-span-4 mb-8 lg:mb-0">
-            <div class="text-2xl font-black header-font uppercase tracking-tighter mb-1">Panorama</div>
-            <div class="text-[9px] font-bold text-primary-fixed uppercase tracking-[0.3em] mb-6 header-font">Scholarly Group</div>
-            <p class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim max-w-xs leading-relaxed border-l-2 border-primary-fixed pl-3">
-                A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.
-            </p>
-        </div>
-        <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Operations</h5>
-            <p class="font-['Inter'] text-[10px] text-surface-dim leading-relaxed">
-                <strong class="text-white block mb-1">Administrative Contact</strong>
-                Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.
-            </p>
-        </div>
-        <div class="col-span-12 md:col-span-6 lg:col-span-4 lg:pl-12">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Policies & Links</h5>
-            <ul class="space-y-3">
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="index.html#compendium">Journals</a></li>
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Publication Ethics.html">Publication Ethics</a></li>
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-primary-fixed cursor-default" href="#">Open Access Policy</a></li>
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="https://profiles.panorama-sg.com/" target="_blank">Editorial Directory</a></li>
-            </ul>
-        </div>
-        <div class="col-span-12 mt-12 pt-8 border-t border-[#2f3131] flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex gap-6">
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">rss_feed</span>
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">mail</span>
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">public</span>
+    <footer class="footer">
+        <div class="shell footer-grid">
+            <div>
+                <h3>Panorama</h3>
+                <div class="sub">Scholarly Group</div>
+                <p>A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.</p>
             </div>
-            <div class="text-center md:text-right">
-                <span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim block mb-1">© 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</span>
-                <span class="font-['Inter'] text-[9px] uppercase tracking-[0.05rem] font-bold text-primary-fixed">Distributed Academic Publishing</span>
+            <div>
+                <h4>Operations</h4>
+                <p><strong>Administrative Contact</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
             </div>
+            <div>
+                <h4>Policies & Links</h4>
+                <ul>
+                    <li><a href="index.html#compendium">Journals</a></li>
+                    <li><a href="Publication Ethics.html">Publication Ethics</a></li>
+                    <li><a href="Open Access Policy.html" aria-current="page">Open Access Policy</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="shell copyright">
+            <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
+            <span>Distributed Academic Publishing</span>
         </div>
     </footer>
-
-    <script>
-        // 确保在 DOM 加载完成后再绑定滚动监听事件
-        document.addEventListener('DOMContentLoaded', function() {
-            window.addEventListener('scroll', () => {
-                const sections = ['intro', 'definition', 'apc', 'licensing', 'copyright', 'repository'];
-                let current = '';
-                sections.forEach(section => {
-                    const element = document.getElementById(section);
-                    if (element && window.scrollY >= element.offsetTop - 300) { current = section; }
-                });
-                document.querySelectorAll('.nav-dot').forEach(a => {
-                    a.classList.remove('active');
-                    if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
