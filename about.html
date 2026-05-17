@@ -1,428 +1,711 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About Us | Panorama Scholarly Group</title>
-    
+
     <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
     <link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
     <link rel="apple-touch-icon" href="favicon.png">
-
-    <!-- 字体预连接，加速首屏渲染 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RMD6ZL74G0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-RMD6ZL74G0');
-    </script>
-
-    <!-- 引用由 Cloudflare 构建生成的静态 CSS 文件 -->
-    <link href="main.css" rel="stylesheet"/>
+    <link href="main.css" rel="stylesheet">
 
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            overflow: hidden;
-            text-indent: -9999px;
-            vertical-align: text-bottom;
+        :root {
+            --ink: #171819;
+            --muted: #63504c;
+            --line: #e4dcd5;
+            --paper: #fbfaf7;
+            --surface: #ffffff;
+            --soft: #f5f1eb;
+            --brand: #610000;
+            --brand-2: #b45309;
+            --dark: #1a1c1c;
         }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Noto Serif', serif;
-            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            min-height: 100vh;
             background:
-                linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-                linear-gradient(180deg, #fbfaf7 0%, #f7f4ef 100%);
+                linear-gradient(90deg, rgba(26, 28, 28, 0.035) 1px, transparent 1px),
+                linear-gradient(180deg, var(--paper), #f5f1eb);
             background-size: 64px 100%, auto;
-            color: #121212;
+            color: var(--ink);
+            font-family: Inter, "Noto Sans KR", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
-        .header-font { font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
-        ::selection { background: #610000; color: #ffffff; }
-
-        .side-nav {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .nav-dot {
-            width: 8px;
-            height: 8px;
-            background: #e3beb8;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .nav-dot.active {
-            background: #610000;
-            transform: scale(1.5);
-        }
+        a { color: inherit; text-decoration: none; }
         a:focus-visible {
-            outline: 2px solid #610000;
+            outline: 2px solid var(--brand);
             outline-offset: 4px;
         }
-        nav.sticky {
-            background: rgba(249, 249, 247, 0.88) !important;
+        img { display: block; max-width: 100%; }
+
+        .topbar {
+            background: var(--dark);
+            color: #f4eeee;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .shell {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+        .topbar .shell {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 10px 0;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(251, 250, 247, 0.9);
+            border-bottom: 1px solid var(--line);
             backdrop-filter: blur(18px) saturate(140%);
             box-shadow: 0 18px 45px rgba(26, 28, 28, 0.06);
         }
-        main > section:first-child {
+        .nav .shell {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            min-height: 84px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .brand img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            filter: grayscale(1);
+        }
+        .brand-mark {
+            border-left: 2px solid var(--brand);
+            padding-left: 18px;
+        }
+        .brand-title {
+            display: block;
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .brand-sub {
+            display: block;
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            color: var(--ink);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+        .nav-links a {
+            padding: 10px 0;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            color: var(--brand);
+            border-color: var(--brand);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
             background:
                 radial-gradient(circle at 82% 18%, rgba(97, 0, 0, 0.08), transparent 32%),
-                linear-gradient(135deg, #ffffff 0%, #f8f5f0 58%, #f3eee6 100%) !important;
+                linear-gradient(135deg, #ffffff 0%, #f8f5f0 58%, #f3eee6 100%);
         }
-        main > section:first-child::before {
+        .hero::before {
             content: "";
             position: absolute;
             inset: 0 auto 0 0;
             width: 8px;
-            background: linear-gradient(180deg, #610000, #b45309);
+            background: linear-gradient(180deg, var(--brand), var(--brand-2));
         }
-        main > section:first-child h1 {
+        .hero .shell {
+            display: grid;
+            grid-template-columns: minmax(0, 0.96fr) minmax(320px, 0.64fr);
+            gap: 56px;
+            align-items: end;
+            min-height: 660px;
+            padding: 104px 0 88px;
+        }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--brand);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.22em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+        .eyebrow::before {
+            content: "";
+            width: 4px;
+            height: 22px;
+            background: currentColor;
+        }
+        h1, h2, h3, p { margin: 0; }
+        h1 {
+            margin-top: 28px;
+            max-width: 780px;
+            font-size: clamp(62px, 8vw, 116px);
+            font-weight: 900;
+            letter-spacing: -0.07em;
+            line-height: 0.86;
+            text-transform: uppercase;
+        }
+        .hero-lead {
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+            max-width: 680px;
+            color: var(--muted);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 25px;
+            line-height: 1.42;
+        }
+        .hero-panel {
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 24px 60px rgba(26, 28, 28, 0.08);
+        }
+        .hero-panel-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 18px;
+            padding: 26px;
+            border-bottom: 1px solid var(--line);
+        }
+        .hero-panel-row:last-child { border-bottom: 0; }
+        .panel-label {
+            color: var(--muted);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+        .panel-value {
+            margin-top: 8px;
+            font-size: 19px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+        }
+        .panel-number {
+            color: var(--brand);
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 0.95;
+        }
+
+        .section {
+            padding: 96px 0;
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid var(--line);
+        }
+        .section-alt {
+            background: rgba(245, 241, 235, 0.88);
+        }
+        .section-head {
+            display: grid;
+            grid-template-columns: minmax(0, 0.72fr) minmax(300px, 0.56fr);
+            gap: 56px;
+            align-items: end;
+            margin-bottom: 48px;
+        }
+        h2 {
+            margin-top: 18px;
+            max-width: 720px;
+            font-size: clamp(42px, 5vw, 72px);
+            font-weight: 900;
             letter-spacing: -0.055em;
-            text-wrap: balance;
+            line-height: 0.94;
+            text-transform: uppercase;
         }
-        main section {
-            position: relative;
+        .section-copy {
+            color: var(--muted);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            line-height: 1.55;
         }
-        main section:not(:first-child) {
-            background-color: rgba(255, 255, 255, 0.92);
+        .rule {
+            width: 72px;
+            height: 6px;
+            margin-top: 26px;
+            background: var(--brand);
         }
-        main .grid > div {
-            border-radius: 2px;
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 32px;
+            align-items: stretch;
         }
-        main section [class*="bg-surface"] {
+        .prose-card,
+        .fact-card,
+        .value-card,
+        .ethics-copy {
+            border: 1px solid var(--line);
+            background: var(--surface);
             box-shadow: 0 18px 46px rgba(26, 28, 28, 0.06);
         }
-        nav a[href*="user/profile"],
-        a[href*="forms.cloud.microsoft"] {
-            border-radius: 2px;
-            box-shadow: 0 10px 28px rgba(97, 0, 0, 0.14);
-            transition: transform 220ms ease, box-shadow 220ms ease;
+        .prose-card {
+            padding: 42px;
         }
-        nav a[href*="user/profile"]:hover,
-        a[href*="forms.cloud.microsoft"]:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 34px rgba(97, 0, 0, 0.18);
+        .prose-card p {
+            margin-bottom: 22px;
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 20px;
+            line-height: 1.65;
         }
-        @media (max-width: 768px) {
-            body > div:first-of-type,
-            .side-nav {
-                display: none !important;
+        .prose-card p:last-child { margin-bottom: 0; }
+        .prose-card strong { color: var(--brand); }
+        .fact-card {
+            display: grid;
+            align-content: center;
+            gap: 36px;
+            padding: 38px;
+            background: var(--dark);
+            color: #f9f9f9;
+        }
+        .fact-item strong {
+            display: block;
+            color: #ffffff;
+            font-size: 54px;
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 0.95;
+        }
+        .fact-item span {
+            display: block;
+            margin-top: 9px;
+            color: #d7cbc5;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+        .value-card {
+            min-height: 300px;
+            padding: 34px;
+            transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+        }
+        .value-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(97, 0, 0, 0.36);
+            box-shadow: 0 24px 60px rgba(26, 28, 28, 0.1);
+        }
+        .value-index {
+            color: var(--brand);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+        }
+        h3 {
+            margin-top: 24px;
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: -0.035em;
+            line-height: 1.03;
+            text-transform: uppercase;
+        }
+        .value-card p {
+            margin-top: 24px;
+            color: var(--muted);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .ethics-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.84fr) minmax(360px, 0.72fr);
+            border: 1px solid var(--line);
+            background: var(--surface);
+            box-shadow: 0 18px 46px rgba(26, 28, 28, 0.06);
+        }
+        .ethics-copy {
+            border: 0;
+            box-shadow: none;
+            padding: 56px;
+            background: var(--dark);
+            color: #f9f9f9;
+        }
+        .ethics-copy .eyebrow { color: #ffddd6; }
+        .ethics-copy h2 { color: #ffffff; }
+        .ethics-copy p {
+            margin-top: 28px;
+            color: #d9d4cf;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+            line-height: 1.65;
+        }
+        .ethics-visual {
+            position: relative;
+            min-height: 430px;
+            overflow: hidden;
+            background: var(--soft);
+        }
+        .ethics-visual img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(1);
+            opacity: 0.72;
+        }
+        .ethics-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(97, 0, 0, 0.34), rgba(26, 28, 28, 0.08)),
+                repeating-linear-gradient(90deg, rgba(26, 28, 28, 0.08) 0 1px, transparent 1px 56px);
+        }
+        .visual-label {
+            position: absolute;
+            left: 34px;
+            right: 34px;
+            bottom: 34px;
+            z-index: 2;
+        }
+        .visual-label span {
+            display: block;
+            color: var(--brand);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+        }
+        .visual-label strong {
+            display: block;
+            margin-top: 12px;
+            color: var(--ink);
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 42px;
+            padding: 64px max(32px, calc((100vw - 1180px) / 2)) 28px;
+            background: var(--dark);
+            color: #f9f9f9;
+        }
+        .footer h4 {
+            margin: 0 0 16px;
+            color: #ffd7d1;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+        .footer p,
+        .footer a {
+            color: #d9d4cf;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+        .footer ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+        .footer-bottom {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.14);
+            color: #bfb6b0;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .topbar { display: none; }
+            .nav .shell {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 16px 0;
             }
-            html,
-            body,
-            main,
-            section,
-            footer {
-                width: 100% !important;
-                max-width: 100vw !important;
-                overflow-x: hidden !important;
-            }
-            nav.sticky > div {
+            .nav-links {
                 flex-wrap: wrap;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-                gap: 1rem;
+                gap: 14px 24px;
             }
-            nav.sticky .flex.items-center.gap-10 {
-                width: 100%;
-                flex-wrap: wrap;
-                gap: 0.9rem 1.2rem !important;
+            .hero .shell,
+            .section-head,
+            .overview-grid,
+            .ethics-grid {
+                grid-template-columns: 1fr;
             }
-            section {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
+            .hero .shell {
+                min-height: auto;
+                padding: 72px 0 64px;
             }
-            main section > div,
-            main section .max-w-\[1920px\],
-            main section .max-w-7xl,
-            main section .max-w-6xl,
-            main section .max-w-5xl {
-                width: 100% !important;
-                max-width: calc(100vw - 2rem) !important;
+            h1 {
+                max-width: 350px;
+                font-size: clamp(46px, 14vw, 58px);
+                line-height: 0.92;
             }
-            main > section:first-child {
-                width: 100vw;
-                max-width: 100vw;
-                overflow: hidden;
+            .hero-lead {
+                max-width: 320px;
+                font-size: 18px;
             }
-            main > section:first-child * {
-                min-width: 0;
+            .hero-panel {
+                max-width: 360px;
             }
-            main > section:first-child h1 {
-                font-size: clamp(2.45rem, 11vw, 3rem) !important;
-                line-height: 0.98 !important;
-                max-width: 100%;
+            .section {
+                padding: 68px 0;
             }
-            main > section:first-child .grid.grid-cols-9 {
-                grid-template-columns: 1fr !important;
+            h2 {
+                max-width: 340px;
+                font-size: clamp(34px, 10vw, 44px);
             }
-            main > section:first-child .grid.grid-cols-9 > * {
-                grid-column: 1 / -1 !important;
+            .section-copy,
+            .prose-card p {
+                max-width: 320px;
+                font-size: 17px;
             }
-            main > section:first-child p {
-                width: min(310px, calc(100vw - 2rem)) !important;
-                font-size: 1.2rem !important;
-                line-height: 1.45 !important;
-                overflow-wrap: anywhere;
+            .prose-card,
+            .fact-card,
+            .value-card,
+            .ethics-copy {
+                padding: 28px;
             }
-            main section h2,
-            main section h3,
-            main section .text-5xl,
-            main section .text-6xl {
-                max-width: calc(100vw - 2rem) !important;
-                font-size: clamp(1.65rem, 7.4vw, 2rem) !important;
-                line-height: 1 !important;
-                overflow-wrap: anywhere;
-                word-break: break-word;
+            .values-grid {
+                grid-template-columns: 1fr;
             }
-            main section p,
-            main section li {
-                width: min(300px, calc(100vw - 2rem)) !important;
-                max-width: min(300px, calc(100vw - 2rem)) !important;
-                font-size: 1.05rem !important;
-                line-height: 1.6 !important;
-                overflow-wrap: anywhere;
+            .ethics-visual {
+                min-height: 320px;
             }
-            main .grid.grid-cols-12 {
-                grid-template-columns: 1fr !important;
+            .visual-label strong {
+                font-size: 34px;
             }
-            main .grid.grid-cols-12 > * {
-                grid-column: 1 / -1 !important;
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 48px 16px 24px;
             }
-            main section > .grid,
-            main section > div > .grid {
-                display: block !important;
-            }
-            main section > .grid > *,
-            main section > div > .grid > * {
-                width: 100% !important;
-                max-width: 100% !important;
-                margin-bottom: 2rem;
+            .footer-bottom {
+                flex-direction: column;
             }
         }
     </style>
 </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col">
-
-    <nav class="side-nav">
-        <a href="#intro" class="nav-dot active" title="Introduction"></a>
-        <a href="#mandate" class="nav-dot" title="Mandate"></a>
-        <a href="#values" class="nav-dot" title="Values"></a>
-        <a href="#ethics" class="nav-dot" title="Ethics"></a>
-    </nav>
-
-    <div class="bg-on-background text-background py-2 px-12 flex justify-between items-center text-[10px] font-['Inter'] font-bold uppercase tracking-widest z-50">
-        <div class="flex gap-8 items-center">
-            <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[14px] text-outline-variant">domain</span> Administrative Operations: Hong Kong</span>
-            <span class="border-l border-outline/30 pl-8 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px] text-outline-variant">mail</span> 
-                <a href="mailto:contact@panorama-sg.com" class="hover:text-outline-variant transition-colors">contact@panorama-sg.com</a>
-            </span>
+<body>
+    <div class="topbar">
+        <div class="shell">
+            <span>Administrative Operations: Hong Kong</span>
+            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
+            <span>Distributed Academic Publishing Infrastructure</span>
         </div>
-        <div class="text-outline-variant">Distributed Academic Publishing Infrastructure</div>
     </div>
 
-    <nav class="sticky top-0 z-40 w-full bg-background/90 backdrop-blur-md shadow-sm border-b border-outline-variant/20">
-        <div class="flex justify-between items-center w-full px-12 py-5 max-w-[1920px] mx-auto">
-            <div class="flex items-center gap-5">
-                <a href="index.html" class="flex items-center gap-5 hover:opacity-80 transition-opacity">
-                    <!-- 恢复代理前缀以确保中国大陆访问 -->
-                    <img src="favicon.png" alt="PSG Logo" class="h-10 w-auto grayscale">
-                    <div class="border-l-2 border-primary pl-5">
-                        <div class="text-2xl font-black tracking-tighter text-on-background header-font uppercase leading-none">Panorama</div>
-                        <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.3em] mt-1 header-font">Scholarly Group</div>
-                    </div>
-                </a>
-            </div>
-            <div class="flex items-center gap-10">
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="index.html">Home</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="index.html#compendium">Journals</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-primary border-b-2 border-primary pb-1" href="about.html">About Us</a>
+    <nav class="nav" aria-label="Primary navigation">
+        <div class="shell">
+            <a class="brand" href="index.html" aria-label="Panorama Scholarly Group home">
+                <img src="favicon.png" alt="PSG Logo">
+                <span class="brand-mark">
+                    <span class="brand-title">Panorama</span>
+                    <span class="brand-sub">Scholarly Group</span>
+                </span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#compendium">Journals</a>
+                <a href="about.html" aria-current="page">About Us</a>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow">
-        <section id="intro" class="px-12 py-32 grid grid-cols-12 gap-0 border-b border-outline-variant/10 bg-surface-container-lowest relative overflow-hidden">
-            <div class="absolute right-0 top-0 w-1/2 h-full bg-surface-container-low -skew-x-12 translate-x-32 opacity-50 z-0"></div>
-            
-            <div class="col-span-12 md:col-start-2 md:col-span-10 relative z-10">
-                <span class="font-['Inter'] font-bold uppercase tracking-[0.2em] text-primary text-sm mb-6 block border-l-4 border-primary pl-4">Institutional Profile</span>
-                <h1 class="font-['Inter'] font-black text-7xl md:text-[7rem] leading-[0.85] tracking-tighter text-on-background mb-12 uppercase">
-                    Supporting<br/>Research.<br/>Extending<br/>Access.
-                </h1>
-                <div class="grid grid-cols-9 gap-8 border-t border-outline-variant/20 pt-8">
-                    <div class="col-span-9 md:col-span-6">
-                        <p class="text-2xl font-body leading-relaxed text-on-surface-variant">
-                            Panorama Scholarly Group supports peer-reviewed scholarly communication through distributed digital publishing workflows, transparent editorial practice, and long-term access to research outputs.
-                        </p>
-                    </div>
+    <main>
+        <section class="hero" id="intro">
+            <div class="shell">
+                <div>
+                    <span class="eyebrow">Institutional Profile</span>
+                    <h1>Supporting Research. Extending Access.</h1>
+                    <p class="hero-lead">
+                        Panorama Scholarly Group supports peer-reviewed scholarly communication through distributed digital publishing workflows, transparent editorial practice, and long-term access to research outputs.
+                    </p>
                 </div>
+                <aside class="hero-panel" aria-label="Institutional facts">
+                    <div class="hero-panel-row">
+                        <div>
+                            <div class="panel-label">Operations</div>
+                            <div class="panel-value">Hong Kong</div>
+                        </div>
+                        <div class="panel-number">01</div>
+                    </div>
+                    <div class="hero-panel-row">
+                        <div>
+                            <div class="panel-label">Network</div>
+                            <div class="panel-value">Distributed Editorial Model</div>
+                        </div>
+                        <div class="panel-number">02</div>
+                    </div>
+                    <div class="hero-panel-row">
+                        <div>
+                            <div class="panel-label">Focus</div>
+                            <div class="panel-value">Open Scholarly Communication</div>
+                        </div>
+                        <div class="panel-number">03</div>
+                    </div>
+                </aside>
             </div>
         </section>
 
-        <section id="mandate" class="px-12 py-32 bg-surface">
-            <div class="max-w-[1920px] mx-auto grid grid-cols-12 gap-16 items-center">
-                <div class="col-span-12 md:col-span-7">
-                    <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">Institutional Overview</span>
-                    <h2 class="font-['Inter'] font-black text-5xl uppercase tracking-tighter leading-none mb-8">A Distributed<br>Academic Publishing<br>Initiative.</h2>
-                    <div class="w-16 h-2 bg-primary mb-12"></div>
-                    
-                    <p class="font-body text-xl text-on-background leading-relaxed mb-10">
-                        Panorama Scholarly Group (PSG) operates through international digital publishing workflows with a commitment to <strong class="text-primary font-bold">editorial transparency</strong>, responsible peer review, and open scholarly communication.
+        <section class="section" id="mandate">
+            <div class="shell">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Institutional Overview</span>
+                        <h2>A Distributed Academic Publishing Initiative.</h2>
+                        <div class="rule"></div>
+                    </div>
+                    <p class="section-copy">
+                        PSG is organized around transparent editorial practice, durable access, and responsible participation in the global scholarly communication ecosystem.
                     </p>
-                    
-                    <div class="font-body text-base text-on-surface-variant space-y-6 leading-relaxed border-l-4 border-outline-variant/30 pl-8">
+                </div>
+
+                <div class="overview-grid">
+                    <div class="prose-card">
+                        <p>Panorama Scholarly Group (PSG) operates through international digital publishing workflows with a commitment to <strong>editorial transparency</strong>, responsible peer review, and open scholarly communication.</p>
                         <p>Administrative and operational functions are coordinated through <strong>Hong Kong</strong>. PSG maintains publication policies covering peer review, publication ethics, editorial transparency, and open access in line with recognized scholarly publishing standards.</p>
                         <p>Our publishing model is designed to support durable access to research, interdisciplinary exchange, and responsible participation in the global scholarly communication ecosystem.</p>
                     </div>
-                </div>
-                
-                <div class="col-span-12 md:col-span-5">
-                    <div class="bg-surface-container-lowest border-2 border-on-background p-12">
-                        <h3 class="font-['Inter'] font-black uppercase tracking-widest text-lg mb-10 border-b border-outline-variant/30 pb-4">Key Information</h3>
-                        
-                        <div class="space-y-12">
-                            <div>
-                                <span class="font-['Inter'] block text-6xl font-black text-on-background mb-2">ADMIN</span>
-                                <span class="font-['Inter'] text-[10px] uppercase text-on-surface-variant font-bold tracking-widest">Operations: Hong Kong</span>
-                            </div>
-                            <div>
-                                <span class="font-['Inter'] block text-6xl font-black text-primary mb-2">GLOBAL</span>
-                                <span class="font-['Inter'] text-[10px] uppercase text-on-surface-variant font-bold tracking-widest">Distributed Editorial Network</span>
-                            </div>
+                    <aside class="fact-card">
+                        <div class="fact-item">
+                            <strong>ADMIN</strong>
+                            <span>Operations: Hong Kong</span>
                         </div>
-                    </div>
+                        <div class="fact-item">
+                            <strong>GLOBAL</strong>
+                            <span>Distributed Editorial Network</span>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </section>
 
-        <section id="values" class="px-12 py-32 bg-surface-container-low border-y border-outline-variant/20">
-            <div class="max-w-[1920px] mx-auto">
-                <div class="text-center mb-20">
-                    <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-primary mb-4 block">Institutional Pillars</span>
-                    <h2 class="font-['Inter'] font-black text-5xl uppercase tracking-tighter">Fundamental Values</h2>
-                    <div class="h-2 w-16 bg-primary mx-auto mt-8"></div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-surface-container-lowest border border-outline-variant/20 p-12 flex flex-col group hover:border-primary hover:shadow-xl transition-all duration-300">
-                        <span class="material-symbols-outlined text-5xl text-on-background mb-8 group-hover:text-primary transition-colors">account_balance</span>
-                        <h4 class="font-['Inter'] font-black text-2xl uppercase tracking-tight mb-6">Editorial Rigor</h4>
-                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                            Supporting rigorous editorial assessment and peer review procedures designed to protect research integrity, methodological clarity, and scholarly accountability.
-                        </p>
+        <section class="section section-alt" id="values">
+            <div class="shell">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Institutional Pillars</span>
+                        <h2>Fundamental Values</h2>
+                        <div class="rule"></div>
                     </div>
-                    
-                    <div class="bg-surface-container-lowest border border-outline-variant/20 p-12 flex flex-col group hover:border-primary hover:shadow-xl transition-all duration-300">
-                        <span class="material-symbols-outlined text-5xl text-on-background mb-8 group-hover:text-primary transition-colors">lock_open_right</span>
-                        <h4 class="font-['Inter'] font-black text-2xl uppercase tracking-tight mb-6">Open Access</h4>
-                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                            Promoting broad public access to scholarly work through open dissemination models that reduce barriers to readership and academic exchange.
-                        </p>
-                    </div>
-                    
-                    <div class="bg-surface-container-lowest border border-outline-variant/20 p-12 flex flex-col group hover:border-primary hover:shadow-xl transition-all duration-300">
-                        <span class="material-symbols-outlined text-5xl text-on-background mb-8 group-hover:text-primary transition-colors">hub</span>
-                        <h4 class="font-['Inter'] font-black text-2xl uppercase tracking-tight mb-6">Interdisciplinary<br>Exchange</h4>
-                        <p class="font-body text-sm text-on-surface-variant leading-relaxed">
-                            Encouraging dialogue across the humanities, social sciences, policy studies, engineering, and emerging technological fields through structured scholarly publishing.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="ethics" class="px-12 py-32 bg-surface-container-lowest">
-            <div class="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 border border-outline-variant/20">
-                <div class="bg-on-background p-16 md:p-24 flex flex-col justify-center">
-                    <span class="bg-primary text-background px-3 py-1 text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-8 inline-block w-max">Publication Ethics</span>
-                    <h2 class="font-['Inter'] text-5xl font-black uppercase mb-8 leading-none text-background tracking-tighter">Commitment to<br>Scholarly<br>Integrity.</h2>
-                    <p class="font-body text-lg text-surface-dim leading-relaxed">
-                        Panorama Scholarly Group maintains publication ethics policies informed by recognized international guidance, including COPE principles where applicable. Our journals support editorial responsibility, transparent correction practices, and fair peer review procedures.
+                    <p class="section-copy">
+                        The group is designed around editorial rigor, open access, and structured interdisciplinary exchange.
                     </p>
                 </div>
-                <div class="relative h-full min-h-[400px] overflow-hidden group bg-surface-container-lowest">
-                    <img src="QKFM/Scholarly_Integrity.jpg" loading="lazy" class="absolute inset-0 w-full h-full object-cover grayscale opacity-70 group-hover:scale-105 group-hover:opacity-90 transition-all duration-1000" alt="Scholarly integrity">
-                    <div class="absolute inset-0 opacity-80" style="background: linear-gradient(135deg, rgba(97,0,0,0.3), rgba(26,28,28,0.08)), repeating-linear-gradient(90deg, rgba(26,28,28,0.08) 0 1px, transparent 1px 56px);"></div>
-                    <div class="absolute inset-10 border border-on-background/20"></div>
-                    <div class="absolute left-10 bottom-10 right-10">
-                        <div class="font-['Inter'] text-[10px] font-bold uppercase tracking-[0.24em] text-primary mb-4">Scholarly Integrity</div>
-                        <div class="font-['Inter'] text-5xl font-black uppercase tracking-tighter leading-none text-on-background">Ethics<br>Review<br>Access</div>
+
+                <div class="values-grid">
+                    <article class="value-card">
+                        <div class="value-index">01</div>
+                        <h3>Editorial Rigor</h3>
+                        <p>Supporting rigorous editorial assessment and peer review procedures designed to protect research integrity, methodological clarity, and scholarly accountability.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-index">02</div>
+                        <h3>Open Access</h3>
+                        <p>Promoting broad public access to scholarly work through open dissemination models that reduce barriers to readership and academic exchange.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-index">03</div>
+                        <h3>Interdisciplinary Exchange</h3>
+                        <p>Encouraging dialogue across the humanities, social sciences, policy studies, engineering, and emerging technological fields through structured scholarly publishing.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="ethics">
+            <div class="shell">
+                <div class="ethics-grid">
+                    <div class="ethics-copy">
+                        <span class="eyebrow">Publication Ethics</span>
+                        <h2>Commitment to Scholarly Integrity.</h2>
+                        <p>Panorama Scholarly Group maintains publication ethics policies informed by recognized international guidance, including COPE principles where applicable. Our journals support editorial responsibility, transparent correction practices, and fair peer review procedures.</p>
+                    </div>
+                    <div class="ethics-visual">
+                        <img src="QKFM/Scholarly_Integrity.jpg" loading="lazy" alt="Scholarly integrity">
+                        <div class="visual-label">
+                            <span>Scholarly Integrity</span>
+                            <strong>Ethics<br>Review<br>Access</strong>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="grid grid-cols-12 gap-8 w-full px-12 py-20 mt-auto bg-[#1a1c1c] text-[#f9f9f9]">
-        <div class="col-span-12 lg:col-span-4 mb-8 lg:mb-0">
-            <div class="text-2xl font-black header-font uppercase tracking-tighter mb-1">Panorama</div>
-            <div class="text-[9px] font-bold text-primary-fixed uppercase tracking-[0.3em] mb-6 header-font">Scholarly Group</div>
-            <p class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim max-w-xs leading-relaxed border-l-2 border-primary-fixed pl-3">
-                A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.
-            </p>
+    <footer class="footer">
+        <div>
+            <h4>Panorama Scholarly Group</h4>
+            <p>A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.</p>
         </div>
-        <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Operations</h5>
-            <p class="font-['Inter'] text-[10px] text-surface-dim leading-relaxed">
-                <strong class="text-white block mb-1">Administrative Contact</strong>
-                Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.
-            </p>
+        <div>
+            <h4>Operations</h4>
+            <p><strong>Administrative Contact</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
         </div>
-        <div class="col-span-12 md:col-span-6 lg:col-span-4 lg:pl-12">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Policies & Links</h5>
-            <ul class="space-y-3">
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Publication Ethics.html">Publication Ethics</a></li>
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Open Access Policy.html">Open Access Policy</a></li>
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="https://profiles.panorama-sg.com/" target="_blank">Editorial Directory</a></li>
+        <div>
+            <h4>Policies & Links</h4>
+            <ul>
+                <li><a href="Publication Ethics.html">Publication Ethics</a></li>
+                <li><a href="Open Access Policy.html">Open Access Policy</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
             </ul>
         </div>
-        <div class="col-span-12 mt-12 pt-8 border-t border-[#2f3131] flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex gap-6">
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">rss_feed</span>
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">mail</span>
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">public</span>
-            </div>
-            <div class="text-center md:text-right">
-                <span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim block mb-1">© 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</span>
-                <span class="font-['Inter'] text-[9px] uppercase tracking-[0.05rem] font-bold text-primary-fixed">Distributed Academic Publishing</span>
-            </div>
+        <div class="footer-bottom">
+            <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
+            <span>Distributed Academic Publishing</span>
         </div>
     </footer>
-
-    <script>
-        // 将 DOM 操作包裹在 DOMContentLoaded 中，确保渲染平滑
-        document.addEventListener('DOMContentLoaded', function() {
-            window.addEventListener('scroll', () => {
-                const sections = document.querySelectorAll('section');
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 300) { current = section.getAttribute('id'); }
-                });
-                document.querySelectorAll('.nav-dot').forEach(a => {
-                    a.classList.remove('active');
-                    if (a.getAttribute('href').includes(current)) { a.classList.add('active'); }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
