@@ -12,15 +12,15 @@
 
     <style>
         :root {
-            --ink: #171819;
-            --muted: #63504c;
-            --line: #e4dcd5;
-            --paper: #fbfaf7;
+            --ink: #000000;
+            --muted: #4b5563;
+            --line: #e5e7eb;
+            --paper: #ffffff;
             --surface: #ffffff;
-            --soft: #f5f1eb;
-            --brand: #610000;
-            --brand-2: #b45309;
-            --dark: #1a1c1c;
+            --soft: #f9fafb;
+            --brand: #000000;
+            --brand-2: #4b5563;
+            --dark: #000000;
         }
 
         * { box-sizing: border-box; }
@@ -29,8 +29,8 @@
             margin: 0;
             min-height: 100vh;
             background:
-                linear-gradient(90deg, rgba(26, 28, 28, 0.035) 1px, transparent 1px),
-                linear-gradient(180deg, var(--paper), #f5f1eb);
+                linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+                linear-gradient(180deg, var(--paper), #f9fafb);
             background-size: 64px 100%, auto;
             color: var(--ink);
             font-family: Inter, "Noto Sans KR", Arial, sans-serif;
@@ -46,7 +46,7 @@
 
         .topbar {
             background: var(--dark);
-            color: #f4eeee;
+            color: #ffffff;
             font-size: 10px;
             font-weight: 800;
             letter-spacing: 0.12em;
@@ -67,7 +67,7 @@
             position: sticky;
             top: 0;
             z-index: 20;
-            background: rgba(251, 250, 247, 0.9);
+            background: rgba(255, 255, 255, 0.94);
             border-bottom: 1px solid var(--line);
             backdrop-filter: blur(18px) saturate(140%);
             box-shadow: 0 18px 45px rgba(26, 28, 28, 0.06);
@@ -136,8 +136,8 @@
             overflow: hidden;
             border-bottom: 1px solid var(--line);
             background:
-                radial-gradient(circle at 82% 18%, rgba(97, 0, 0, 0.08), transparent 32%),
-                linear-gradient(135deg, #ffffff 0%, #f8f5f0 58%, #f3eee6 100%);
+                radial-gradient(circle at 82% 18%, rgba(0, 0, 0, 0.045), transparent 32%),
+                linear-gradient(135deg, #ffffff 0%, #ffffff 58%, #f9fafb 100%);
         }
         .hero::before {
             content: "";
@@ -327,7 +327,7 @@
         }
         .value-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(97, 0, 0, 0.36);
+            border-color: rgba(0, 0, 0, 0.36);
             box-shadow: 0 24px 60px rgba(26, 28, 28, 0.1);
         }
         .value-index {
@@ -395,7 +395,7 @@
             position: absolute;
             inset: 0;
             background:
-                linear-gradient(135deg, rgba(97, 0, 0, 0.34), rgba(26, 28, 28, 0.08)),
+                linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.06)),
                 repeating-linear-gradient(90deg, rgba(26, 28, 28, 0.08) 0 1px, transparent 1px 56px);
         }
         .visual-label {
@@ -434,7 +434,7 @@
         }
         .footer h4 {
             margin: 0 0 16px;
-            color: #ffd7d1;
+            color: #ffffff;
             font-size: 11px;
             font-weight: 900;
             letter-spacing: 0.14em;

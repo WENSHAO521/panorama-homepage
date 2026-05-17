@@ -28,7 +28,7 @@
             -webkit-font-smoothing: antialiased;
             background:
                 linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-                linear-gradient(180deg, #fbfaf7 0%, #f7f4ef 100%);
+                linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
             background-size: 64px 100%, auto;
             color: #121212;
             overflow-x: hidden;
@@ -37,9 +37,9 @@
             font-family: 'Inter', 'Noto Sans KR', sans-serif; 
         }
         html { scroll-behavior: smooth; }
-        ::selection { background: #610000; color: #ffffff; }
+        ::selection { background: #000000; color: #ffffff; }
         a:focus-visible {
-            outline: 2px solid #9b1c1f;
+            outline: 2px solid #000000;
             outline-offset: 4px;
         }
 
@@ -51,8 +51,8 @@
 
         main > section:first-child {
             background:
-                radial-gradient(circle at 82% 18%, rgba(97, 0, 0, 0.08), transparent 32%),
-                linear-gradient(135deg, #ffffff 0%, #f8f5f0 58%, #f3eee6 100%) !important;
+                radial-gradient(circle at 82% 18%, rgba(0, 0, 0, 0.045), transparent 32%),
+                linear-gradient(135deg, #ffffff 0%, #ffffff 58%, #f9fafb 100%) !important;
             min-height: 74vh;
         }
 
@@ -61,7 +61,7 @@
             position: absolute;
             inset: 0 auto 0 0;
             width: 8px;
-            background: linear-gradient(180deg, #610000, #b45309);
+            background: linear-gradient(180deg, #000000, #4b5563);
         }
 
         main > section:first-child h1 {
@@ -77,7 +77,7 @@
         a[href*="forms.cloud.microsoft"],
         a[href*="/user/profile"] {
             border-radius: 2px;
-            box-shadow: 0 10px 28px rgba(97, 0, 0, 0.14);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
         }
 
         nav a[href*="user/profile"]:hover,
@@ -102,7 +102,7 @@
         }
         .academic-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(97, 0, 0, 0.35);
+            border-color: rgba(0, 0, 0, 0.35);
             box-shadow: 0 18px 40px rgba(26, 28, 28, 0.1);
             z-index: 2;
         }
@@ -558,7 +558,7 @@
         </section>
     </main>
 
-    <footer class="grid grid-cols-12 gap-8 w-full px-12 py-20 mt-auto bg-[#1a1c1c] text-[#f9f9f9]">
+    <footer class="grid grid-cols-12 gap-8 w-full px-12 py-20 mt-auto bg-[#000000] text-[#ffffff]">
         <div class="col-span-12 lg:col-span-4 mb-8 lg:mb-0">
             <div class="text-2xl font-black header-font uppercase tracking-tighter mb-1">Panorama</div>
             <div class="text-[9px] font-bold text-primary-fixed uppercase tracking-[0.3em] mb-6 header-font">Scholarly Group</div>
@@ -567,21 +567,21 @@
             </p>
         </div>
         <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Operations</h5>
+            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#374151] pb-2">Operations</h5>
             <p class="font-['Inter'] text-[10px] text-surface-dim leading-relaxed">
                 <strong class="text-white block mb-1">Administrative Contact</strong>
                 Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.
             </p>
         </div>
         <div class="col-span-12 md:col-span-6 lg:col-span-4 lg:pl-12">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#2f3131] pb-2">Policies & Links</h5>
+            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#374151] pb-2">Policies & Links</h5>
             <ul class="space-y-3">
                 <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Publication Ethics.html">Publication Ethics</a></li>
                 <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Open Access Policy.html">Open Access Policy</a></li>
                 <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="https://profiles.panorama-sg.com/" target="_blank">Editorial Directory</a></li>
             </ul>
         </div>
-        <div class="col-span-12 mt-12 pt-8 border-t border-[#2f3131] flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="col-span-12 mt-12 pt-8 border-t border-[#374151] flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex gap-6">
                 <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">rss_feed</span>
                 <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">mail</span>
