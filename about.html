@@ -4,708 +4,102 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200">
     <title>About Us | Panorama Scholarly Group</title>
-
-    <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
-    <link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-    <link href="main.css" rel="stylesheet">
-
-    <style>
-        :root {
-            --ink: #000000;
-            --muted: #4b5563;
-            --line: #e5e7eb;
-            --paper: #ffffff;
-            --surface: #ffffff;
-            --soft: #f9fafb;
-            --brand: #000000;
-            --brand-2: #4b5563;
-            --dark: #000000;
-        }
-
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background:
-                linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
-                linear-gradient(180deg, var(--paper), #f9fafb);
-            background-size: 64px 100%, auto;
-            color: var(--ink);
-            font-family: Inter, "Noto Sans KR", Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-        a { color: inherit; text-decoration: none; }
-        a:focus-visible {
-            outline: 2px solid var(--brand);
-            outline-offset: 4px;
-        }
-        img { display: block; max-width: 100%; }
-
-        .topbar {
-            background: var(--dark);
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-        .shell {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-        }
-        .topbar .shell {
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            padding: 10px 0;
-        }
-
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background: rgba(255, 255, 255, 0.94);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(18px) saturate(140%);
-            box-shadow: 0 18px 45px rgba(26, 28, 28, 0.06);
-        }
-        .nav .shell {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            min-height: 84px;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-        .brand img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-            filter: grayscale(1);
-        }
-        .brand-mark {
-            border-left: 2px solid var(--brand);
-            padding-left: 18px;
-        }
-        .brand-title {
-            display: block;
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: -0.04em;
-            line-height: 1;
-            text-transform: uppercase;
-        }
-        .brand-sub {
-            display: block;
-            margin-top: 5px;
-            color: var(--muted);
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 34px;
-            color: var(--ink);
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-        .nav-links a {
-            padding: 10px 0;
-            border-bottom: 2px solid transparent;
-        }
-        .nav-links a:hover,
-        .nav-links a[aria-current="page"] {
-            color: var(--brand);
-            border-color: var(--brand);
-        }
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid var(--line);
-            background:
-                radial-gradient(circle at 82% 18%, rgba(0, 0, 0, 0.045), transparent 32%),
-                linear-gradient(135deg, #ffffff 0%, #ffffff 58%, #f9fafb 100%);
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 8px;
-            background: linear-gradient(180deg, var(--brand), var(--brand-2));
-        }
-        .hero .shell {
-            display: grid;
-            grid-template-columns: minmax(0, 0.96fr) minmax(320px, 0.64fr);
-            gap: 56px;
-            align-items: end;
-            min-height: 660px;
-            padding: 104px 0 88px 40px;
-        }
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            color: var(--brand);
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 0.22em;
-            line-height: 1.4;
-            text-transform: uppercase;
-        }
-        .eyebrow::before {
-            content: "";
-            width: 4px;
-            height: 22px;
-            background: currentColor;
-        }
-        h1, h2, h3, p { margin: 0; }
-        h1 {
-            margin-top: 28px;
-            max-width: 780px;
-            font-size: clamp(62px, 8vw, 116px);
-            font-weight: 900;
-            letter-spacing: -0.07em;
-            line-height: 0.86;
-            text-transform: uppercase;
-        }
-        .hero-lead {
-            margin-top: 36px;
-            padding-top: 28px;
-            border-top: 1px solid var(--line);
-            max-width: 680px;
-            color: var(--muted);
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 25px;
-            line-height: 1.42;
-        }
-        .hero-panel {
-            border: 1px solid var(--line);
-            background: rgba(255, 255, 255, 0.72);
-            box-shadow: 0 24px 60px rgba(26, 28, 28, 0.08);
-        }
-        .hero-panel-row {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 18px;
-            padding: 26px;
-            border-bottom: 1px solid var(--line);
-        }
-        .hero-panel-row:last-child { border-bottom: 0; }
-        .panel-label {
-            color: var(--muted);
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-        .panel-value {
-            margin-top: 8px;
-            font-size: 19px;
-            font-weight: 900;
-            line-height: 1.15;
-            text-transform: uppercase;
-        }
-        .panel-number {
-            color: var(--brand);
-            font-size: 42px;
-            font-weight: 900;
-            letter-spacing: -0.05em;
-            line-height: 0.95;
-        }
-
-        .section {
-            padding: 96px 0;
-            background: rgba(255, 255, 255, 0.92);
-            border-bottom: 1px solid var(--line);
-        }
-        .section-alt {
-            background: rgba(245, 241, 235, 0.88);
-        }
-        .section-head {
-            display: grid;
-            grid-template-columns: minmax(0, 0.72fr) minmax(300px, 0.56fr);
-            gap: 56px;
-            align-items: end;
-            margin-bottom: 48px;
-        }
-        h2 {
-            margin-top: 18px;
-            max-width: 720px;
-            font-size: clamp(42px, 5vw, 72px);
-            font-weight: 900;
-            letter-spacing: -0.055em;
-            line-height: 0.94;
-            text-transform: uppercase;
-        }
-        .section-copy {
-            color: var(--muted);
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 20px;
-            line-height: 1.55;
-        }
-        .rule {
-            width: 72px;
-            height: 6px;
-            margin-top: 26px;
-            background: var(--brand);
-        }
-
-        .overview-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 360px;
-            gap: 32px;
-            align-items: stretch;
-        }
-        .prose-card,
-        .fact-card,
-        .value-card,
-        .ethics-copy {
-            border: 1px solid var(--line);
-            background: var(--surface);
-            box-shadow: 0 18px 46px rgba(26, 28, 28, 0.06);
-        }
-        .prose-card {
-            padding: 42px;
-        }
-        .prose-card p {
-            margin-bottom: 22px;
-            color: var(--ink);
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 20px;
-            line-height: 1.65;
-        }
-        .prose-card p:last-child { margin-bottom: 0; }
-        .prose-card strong { color: var(--brand); }
-        .fact-card {
-            display: grid;
-            align-content: center;
-            gap: 36px;
-            padding: 38px;
-            background: var(--dark);
-            color: #f9f9f9;
-        }
-        .fact-item strong {
-            display: block;
-            color: #ffffff;
-            font-size: 54px;
-            font-weight: 900;
-            letter-spacing: -0.06em;
-            line-height: 0.95;
-        }
-        .fact-item span {
-            display: block;
-            margin-top: 9px;
-            color: #d7cbc5;
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-        .value-card {
-            min-height: 300px;
-            padding: 34px;
-            transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-        }
-        .value-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 0, 0, 0.36);
-            box-shadow: 0 24px 60px rgba(26, 28, 28, 0.1);
-        }
-        .value-index {
-            color: var(--brand);
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 0.2em;
-        }
-        h3 {
-            margin-top: 24px;
-            font-size: 27px;
-            font-weight: 900;
-            letter-spacing: -0.035em;
-            line-height: 1.03;
-            text-transform: uppercase;
-        }
-        .value-card p {
-            margin-top: 24px;
-            color: var(--muted);
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 16px;
-            line-height: 1.65;
-        }
-
-        .ethics-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 0.84fr) minmax(360px, 0.72fr);
-            border: 1px solid var(--line);
-            background: var(--surface);
-            box-shadow: 0 18px 46px rgba(26, 28, 28, 0.06);
-        }
-        .ethics-copy {
-            border: 0;
-            box-shadow: none;
-            padding: 56px;
-            background: var(--dark);
-            color: #f9f9f9;
-        }
-        .ethics-copy .eyebrow { color: #ffddd6; }
-        .ethics-copy h2 { color: #ffffff; }
-        .ethics-copy p {
-            margin-top: 28px;
-            color: #d9d4cf;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 18px;
-            line-height: 1.65;
-        }
-        .ethics-visual {
-            position: relative;
-            min-height: 430px;
-            overflow: hidden;
-            background: var(--soft);
-        }
-        .ethics-visual img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(1);
-            opacity: 0.72;
-        }
-        .ethics-visual::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.06)),
-                repeating-linear-gradient(90deg, rgba(26, 28, 28, 0.08) 0 1px, transparent 1px 56px);
-        }
-        .visual-label {
-            position: absolute;
-            left: 34px;
-            right: 34px;
-            bottom: 34px;
-            z-index: 2;
-        }
-        .visual-label span {
-            display: block;
-            color: var(--brand);
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
-        }
-        .visual-label strong {
-            display: block;
-            margin-top: 12px;
-            color: var(--ink);
-            font-size: 44px;
-            font-weight: 900;
-            letter-spacing: -0.06em;
-            line-height: 0.9;
-            text-transform: uppercase;
-        }
-
-        .footer {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 42px;
-            padding: 64px max(32px, calc((100vw - 1180px) / 2)) 28px;
-            background: var(--dark);
-            color: #f9f9f9;
-        }
-        .footer h4 {
-            margin: 0 0 16px;
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-        .footer p,
-        .footer a {
-            color: #d9d4cf;
-            font-size: 13px;
-            line-height: 1.65;
-        }
-        .footer ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            gap: 10px;
-        }
-        .footer-bottom {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: space-between;
-            gap: 24px;
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255,255,255,0.14);
-            color: #bfb6b0;
-            font-size: 11px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 900px) {
-            .topbar { display: none; }
-            .nav .shell {
-                align-items: flex-start;
-                flex-direction: column;
-                padding: 16px 0;
-            }
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 14px 24px;
-            }
-            .hero .shell,
-            .section-head,
-            .overview-grid,
-            .ethics-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero .shell {
-                min-height: auto;
-                padding: 72px 0 64px;
-            }
-            h1 {
-                max-width: 350px;
-                font-size: clamp(46px, 14vw, 58px);
-                line-height: 0.92;
-            }
-            .hero-lead {
-                max-width: 320px;
-                font-size: 18px;
-            }
-            .hero-panel {
-                max-width: 360px;
-            }
-            .section {
-                padding: 68px 0;
-            }
-            h2 {
-                max-width: 340px;
-                font-size: clamp(34px, 10vw, 44px);
-            }
-            .section-copy,
-            .prose-card p {
-                max-width: 320px;
-                font-size: 17px;
-            }
-            .prose-card,
-            .fact-card,
-            .value-card,
-            .ethics-copy {
-                padding: 28px;
-            }
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-            .ethics-visual {
-                min-height: 320px;
-            }
-            .visual-label strong {
-                font-size: 34px;
-            }
-            .footer {
-                grid-template-columns: 1fr;
-                padding: 48px 16px 24px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="publisher-site.css">
 </head>
 <body>
-    <div class="topbar">
-        <div class="shell">
+    <div class="topline">
+        <div class="wrap">
             <span>Administrative Operations: Hong Kong</span>
             <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
             <span>Distributed Academic Publishing Infrastructure</span>
         </div>
     </div>
 
-    <nav class="nav" aria-label="Primary navigation">
-        <div class="shell">
-            <a class="brand" href="index.html" aria-label="Panorama Scholarly Group home">
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="wrap">
+            <a class="brand" href="index.html">
                 <img src="favicon.png" alt="PSG Logo">
-                <span class="brand-mark">
-                    <span class="brand-title">Panorama</span>
-                    <span class="brand-sub">Scholarly Group</span>
-                </span>
+                <span class="brand-text"><strong>Panorama</strong><span>Scholarly Group</span></span>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#compendium">Journals</a>
+                <a href="index.html#journals">Journals</a>
                 <a href="about.html" aria-current="page">About Us</a>
+                <a href="Publication Ethics.html">Ethics</a>
+                <a href="Open Access Policy.html">Open Access</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <section class="hero" id="intro">
-            <div class="shell">
+        <section class="hero">
+            <div class="wrap hero-grid">
                 <div>
                     <span class="eyebrow">Institutional Profile</span>
                     <h1>Supporting Research. Extending Access.</h1>
-                    <p class="hero-lead">
-                        Panorama Scholarly Group supports peer-reviewed scholarly communication through distributed digital publishing workflows, transparent editorial practice, and long-term access to research outputs.
-                    </p>
+                    <p class="lead">Panorama Scholarly Group supports peer-reviewed scholarly communication through distributed digital publishing workflows, transparent editorial practice, and long-term access to research outputs.</p>
                 </div>
-                <aside class="hero-panel" aria-label="Institutional facts">
-                    <div class="hero-panel-row">
-                        <div>
-                            <div class="panel-label">Operations</div>
-                            <div class="panel-value">Hong Kong</div>
-                        </div>
-                        <div class="panel-number">01</div>
-                    </div>
-                    <div class="hero-panel-row">
-                        <div>
-                            <div class="panel-label">Network</div>
-                            <div class="panel-value">Distributed Editorial Model</div>
-                        </div>
-                        <div class="panel-number">02</div>
-                    </div>
-                    <div class="hero-panel-row">
-                        <div>
-                            <div class="panel-label">Focus</div>
-                            <div class="panel-value">Open Scholarly Communication</div>
-                        </div>
-                        <div class="panel-number">03</div>
-                    </div>
+                <aside class="hero-card">
+                    <div class="hero-stat"><div><span>Operations</span><strong>Hong Kong</strong></div><b>01</b></div>
+                    <div class="hero-stat"><div><span>Network</span><strong>Distributed Editorial Model</strong></div><b>02</b></div>
+                    <div class="hero-stat"><div><span>Focus</span><strong>Open Scholarly Communication</strong></div><b>03</b></div>
                 </aside>
             </div>
         </section>
 
-        <section class="section" id="mandate">
-            <div class="shell">
-                <div class="section-head">
-                    <div>
-                        <span class="eyebrow">Institutional Overview</span>
-                        <h2>A Distributed Academic Publishing Initiative.</h2>
-                        <div class="rule"></div>
-                    </div>
-                    <p class="section-copy">
-                        PSG is organized around transparent editorial practice, durable access, and responsible participation in the global scholarly communication ecosystem.
-                    </p>
+        <section class="section">
+            <div class="wrap split">
+                <div>
+                    <span class="kicker">Institutional Overview</span>
+                    <h2>A Distributed Academic Publishing Initiative.</h2>
                 </div>
-
-                <div class="overview-grid">
-                    <div class="prose-card">
-                        <p>Panorama Scholarly Group (PSG) operates through international digital publishing workflows with a commitment to <strong>editorial transparency</strong>, responsible peer review, and open scholarly communication.</p>
-                        <p>Administrative and operational functions are coordinated through <strong>Hong Kong</strong>. PSG maintains publication policies covering peer review, publication ethics, editorial transparency, and open access in line with recognized scholarly publishing standards.</p>
-                        <p>Our publishing model is designed to support durable access to research, interdisciplinary exchange, and responsible participation in the global scholarly communication ecosystem.</p>
-                    </div>
-                    <aside class="fact-card">
-                        <div class="fact-item">
-                            <strong>ADMIN</strong>
-                            <span>Operations: Hong Kong</span>
-                        </div>
-                        <div class="fact-item">
-                            <strong>GLOBAL</strong>
-                            <span>Distributed Editorial Network</span>
-                        </div>
-                    </aside>
+                <div class="text-block">
+                    <p>Panorama Scholarly Group operates through international digital publishing workflows with a commitment to editorial transparency, responsible peer review, and open scholarly communication.</p>
+                    <p>The group is organized around durable access, accountable editorial practice, and participation in the global scholarly communication ecosystem.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section section-alt" id="values">
-            <div class="shell">
+        <section class="section soft">
+            <div class="wrap">
                 <div class="section-head">
                     <div>
-                        <span class="eyebrow">Institutional Pillars</span>
-                        <h2>Fundamental Values</h2>
-                        <div class="rule"></div>
+                        <span class="kicker">Publisher Values</span>
+                        <h2>Fundamental Commitments</h2>
                     </div>
-                    <p class="section-copy">
-                        The group is designed around editorial rigor, open access, and structured interdisciplinary exchange.
-                    </p>
+                    <p class="section-copy">The publishing program is built around editorial rigor, open access, and interdisciplinary exchange.</p>
                 </div>
-
-                <div class="values-grid">
-                    <article class="value-card">
-                        <div class="value-index">01</div>
-                        <h3>Editorial Rigor</h3>
-                        <p>Supporting rigorous editorial assessment and peer review procedures designed to protect research integrity, methodological clarity, and scholarly accountability.</p>
-                    </article>
-                    <article class="value-card">
-                        <div class="value-index">02</div>
-                        <h3>Open Access</h3>
-                        <p>Promoting broad public access to scholarly work through open dissemination models that reduce barriers to readership and academic exchange.</p>
-                    </article>
-                    <article class="value-card">
-                        <div class="value-index">03</div>
-                        <h3>Interdisciplinary Exchange</h3>
-                        <p>Encouraging dialogue across the humanities, social sciences, policy studies, engineering, and emerging technological fields through structured scholarly publishing.</p>
-                    </article>
+                <div class="feature-grid">
+                    <article class="feature-card"><span>01</span><h3>Editorial Rigor</h3><p>Research outputs are supported through responsible peer review, policy-based decisions, and transparent editorial standards.</p></article>
+                    <article class="feature-card"><span>02</span><h3>Open Access</h3><p>The group supports lawful and durable access to scholarly outputs through journal-level access policies.</p></article>
+                    <article class="feature-card"><span>03</span><h3>Interdisciplinary Exchange</h3><p>Journals connect disciplines across technology, social sciences, humanities, sustainability, and public policy.</p></article>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="ethics">
-            <div class="shell">
-                <div class="ethics-grid">
-                    <div class="ethics-copy">
-                        <span class="eyebrow">Publication Ethics</span>
-                        <h2>Commitment to Scholarly Integrity.</h2>
-                        <p>Panorama Scholarly Group maintains publication ethics policies informed by recognized international guidance, including COPE principles where applicable. Our journals support editorial responsibility, transparent correction practices, and fair peer review procedures.</p>
-                    </div>
-                    <div class="ethics-visual">
-                        <img src="QKFM/Scholarly_Integrity.jpg" loading="lazy" alt="Scholarly integrity">
-                        <div class="visual-label">
-                            <span>Scholarly Integrity</span>
-                            <strong>Ethics<br>Review<br>Access</strong>
-                        </div>
-                    </div>
+        <section class="section dark">
+            <div class="wrap split">
+                <div>
+                    <span class="kicker">Scholarly Integrity</span>
+                    <h2>Committed to the Academic Record.</h2>
+                </div>
+                <div class="text-block" style="color:#d1d5db">
+                    <p>PSG maintains publication policies designed to protect the integrity of scholarly communication. Authors, reviewers, editors, and journal teams are expected to participate in a transparent and accountable publication process.</p>
+                    <p><a class="button" href="Publication Ethics.html">Read Publication Ethics</a></p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div>
-            <h4>Panorama Scholarly Group</h4>
-            <p>A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.</p>
+    <footer class="site-footer" id="site-footer">
+        <div class="wrap footer-grid">
+            <div><h3>Panorama</h3><div class="sub">Scholarly Group</div><p>A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.</p></div>
+            <div><h4>Operations</h4><p><strong>Administrative Contact</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p></div>
+            <div><h4>Policies & Links</h4><ul><li><a href="index.html#journals">Journals</a></li><li><a href="Publication Ethics.html">Publication Ethics</a></li><li><a href="Open Access Policy.html">Open Access Policy</a></li><li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li></ul></div>
         </div>
-        <div>
-            <h4>Operations</h4>
-            <p><strong>Administrative Contact</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
-        </div>
-        <div>
-            <h4>Policies & Links</h4>
-            <ul>
-                <li><a href="Publication Ethics.html">Publication Ethics</a></li>
-                <li><a href="Open Access Policy.html">Open Access Policy</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
-            </ul>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
-            <span>Distributed Academic Publishing</span>
-        </div>
+        <div class="wrap footer-bottom"><span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span><span>Distributed Academic Publishing</span></div>
     </footer>
 </body>
 </html>

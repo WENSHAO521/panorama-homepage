@@ -234,7 +234,7 @@ h1 {
 .quote {
     max-width: 930px;
     margin: 0 auto;
-    color: #2a2422;
+    color: #111827;
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(25px, 3vw, 39px);
     line-height: 1.26;
@@ -334,12 +334,12 @@ h1 {
     letter-spacing: 0.09em;
     text-transform: uppercase;
 }
-.note-card.dark h3 { color: #f4d5c7; }
+.note-card.dark h3 { color: #ffffff; }
 .note-card p {
     font-size: 16px;
     line-height: 1.65;
 }
-.note-card.dark p { color: #d7cfca; }
+.note-card.dark p { color: #d1d5db; }
 .license-list {
     display: grid;
     gap: 16px;
@@ -391,7 +391,8 @@ h1 {
 
 .footer {
     background: var(--dark);
-    color: #f8f6f2;
+    color: #ffffff;
+    border-top: 1px solid #000000;
 }
 .footer-grid {
     display: grid;
@@ -422,7 +423,7 @@ h1 {
 .footer p,
 .footer a,
 .copyright {
-    color: #cfc9c2;
+    color: #d1d5db;
     font-size: 12px;
     line-height: 1.75;
 }
@@ -437,7 +438,7 @@ h1 {
 .footer h4 {
     margin-bottom: 18px;
     padding-bottom: 12px;
-    border-bottom: 1px solid #353636;
+    border-bottom: 1px solid #374151;
     color: #ffffff;
 }
 .footer ul {
@@ -456,7 +457,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     gap: 24px;
-    border-top: 1px solid #353636;
+    border-top: 1px solid #374151;
     padding: 24px 0 34px;
     text-transform: uppercase;
     letter-spacing: 0.06em;

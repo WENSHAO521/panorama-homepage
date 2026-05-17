@@ -1,596 +1,168 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=1200" name="viewport"/>
-    <title>Panorama Scholarly Group | International Academic Publishing Initiative</title>
-    
-    <link rel="icon" type="image/png" href="favicon.png" sizes="512x512">
-    <link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1200">
+    <title>Panorama Scholarly Group | Academic Publishing Infrastructure</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-
-    <!-- 字体预连接，显著降低字体解析延迟 -->
-    <!-- 引用 Cloudflare 编译生成的静态 CSS 文件 -->
-    <link href="main.css" rel="stylesheet"/>
-
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            width: 1.1em;
-            height: 1.1em;
-            overflow: hidden;
-            text-indent: -9999px;
-            vertical-align: text-bottom;
-        }
-        body {
-            font-family: 'Noto Serif', 'Noto Serif KR', serif;
-            -webkit-font-smoothing: antialiased;
-            background:
-                linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-                linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
-            background-size: 64px 100%, auto;
-            color: #121212;
-            overflow-x: hidden;
-        }
-        .header-font { 
-            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
-        }
-        html { scroll-behavior: smooth; }
-        ::selection { background: #000000; color: #ffffff; }
-        a:focus-visible {
-            outline: 2px solid #000000;
-            outline-offset: 4px;
-        }
-
-        nav.sticky {
-            background: rgba(249, 249, 247, 0.86) !important;
-            backdrop-filter: blur(18px) saturate(140%);
-            box-shadow: 0 18px 45px rgba(26, 28, 28, 0.06);
-        }
-
-        main > section:first-child {
-            background:
-                radial-gradient(circle at 82% 18%, rgba(0, 0, 0, 0.045), transparent 32%),
-                linear-gradient(135deg, #ffffff 0%, #ffffff 58%, #f9fafb 100%) !important;
-            min-height: 74vh;
-        }
-
-        main > section:first-child::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 8px;
-            background: linear-gradient(180deg, #000000, #4b5563);
-        }
-
-        main > section:first-child h1 {
-            letter-spacing: -0.055em;
-            text-wrap: balance;
-        }
-
-        main > section:first-child p {
-            max-width: 780px;
-        }
-
-        nav a[href*="user/profile"],
-        a[href*="forms.cloud.microsoft"],
-        a[href*="/user/profile"] {
-            border-radius: 2px;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-        }
-
-        nav a[href*="user/profile"]:hover,
-        a[href*="forms.cloud.microsoft"]:hover,
-        a[href*="/user/profile"]:hover {
-            transform: translateY(-1px);
-        }
-        
-        /* Grid Systems */
-        .academic-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            border-top: 1px solid rgba(142, 112, 107, 0.2);
-            border-left: 1px solid rgba(142, 112, 107, 0.2);
-            background: rgba(255, 255, 255, 0.72);
-        }
-        .academic-card {
-            border-right: 1px solid rgba(142, 112, 107, 0.2);
-            border-bottom: 1px solid rgba(142, 112, 107, 0.2);
-            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
-        }
-        .academic-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 0, 0, 0.35);
-            box-shadow: 0 18px 40px rgba(26, 28, 28, 0.1);
-            z-index: 2;
-        }
-        .logo-grid {
-            display: grid;
-            border-top: 1px solid currentColor;
-            border-left: 1px solid currentColor;
-            opacity: 0.15;
-        }
-        .logo-cell {
-            border-right: 1px solid currentColor;
-            border-bottom: 1px solid currentColor;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .logo-text {
-            font-family: 'Inter', 'Noto Sans KR', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 900;
-            letter-spacing: 0.12em;
-            line-height: 1.2;
-            text-align: center;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
-
-        /* Marquee Scrolling System */
-        @keyframes scroll-marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            width: 100%;
-            padding: 1rem 0;
-        }
-        .marquee-container::before,
-        .marquee-container::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            z-index: 2;
-            width: 120px;
-            height: 100%;
-            pointer-events: none;
-        }
-        .marquee-container::before {
-            left: 0;
-            background: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0));
-        }
-        .marquee-container::after {
-            right: 0;
-            background: linear-gradient(270deg, #ffffff, rgba(255, 255, 255, 0));
-        }
-        .marquee-track {
-            display: inline-flex;
-            gap: 2rem;
-            width: max-content;
-            animation: scroll-marquee 45s linear infinite;
-        }
-        .marquee-container:hover .marquee-track {
-            animation-play-state: paused;
-        }
-        .marquee-item {
-            flex: 0 0 auto;
-            width: 220px;
-            white-space: normal;
-            transition: transform 0.3s ease;
-        }
-        .marquee-item:hover {
-            transform: translateY(-6px);
-        }
-        .marquee-item img {
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.08));
-            transition: filter 0.3s ease;
-        }
-        .marquee-item:hover img {
-            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.15));
-        }
-
-        #featured,
-        #profile {
-            background: rgba(255, 255, 255, 0.92) !important;
-        }
-
-        #compendium {
-            background: #f8f7f4 !important;
-        }
-
-        #profile > div:last-child > div,
-        #infrastructure .grid > div {
-            border-radius: 2px;
-            box-shadow: 0 18px 46px rgba(26, 28, 28, 0.07);
-            transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-        }
-
-        #profile > div:last-child > div:hover,
-        #infrastructure .grid > div:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 24px 60px rgba(26, 28, 28, 0.1);
-        }
-
-        @media (max-width: 1024px) {
-            .academic-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            body > div:first-of-type {
-                display: none !important;
-            }
-            nav.sticky > div {
-                flex-wrap: wrap;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-                gap: 1rem;
-            }
-            nav.sticky .flex.items-center.gap-10 {
-                width: 100%;
-                flex-wrap: wrap;
-                gap: 0.9rem 1.2rem !important;
-            }
-            nav.sticky a[href*="user/profile"] {
-                width: 100%;
-                text-align: center;
-            }
-            section {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-            body {
-                background-size: 40px 100%, auto;
-            }
-            main > section:first-child {
-                min-height: auto;
-                width: 100vw;
-                max-width: 100vw;
-                overflow: hidden;
-            }
-            main > section:first-child * {
-                min-width: 0;
-            }
-            main > section:first-child > div {
-                width: 100%;
-                max-width: calc(100vw - 2rem);
-            }
-            main > section:first-child h1 {
-                font-size: clamp(2.45rem, 11vw, 3rem) !important;
-                line-height: 0.98 !important;
-                letter-spacing: -0.045em;
-                max-width: 100%;
-            }
-            main > section:first-child .grid.grid-cols-9 {
-                grid-template-columns: 1fr !important;
-            }
-            main > section:first-child .grid.grid-cols-9 > * {
-                grid-column: 1 / -1 !important;
-            }
-            main > section:first-child p {
-                width: min(310px, calc(100vw - 2rem)) !important;
-                font-size: 1.2rem !important;
-                line-height: 1.45 !important;
-                max-width: 100%;
-                overflow-wrap: anywhere;
-            }
-            main > section:first-child .items-end {
-                align-items: flex-start !important;
-            }
-            .academic-grid {
-                grid-template-columns: 1fr;
-            }
-            .marquee-container::before,
-            .marquee-container::after {
-                width: 48px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="publisher-site.css">
 </head>
-<body class="bg-background text-on-background min-h-screen flex flex-col">
-
-    <div class="bg-on-background text-background py-2 px-12 flex justify-between items-center text-[10px] font-['Inter'] font-bold uppercase tracking-widest z-50">
-        <div class="flex gap-8 items-center">
-            <span class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px] text-outline-variant">domain</span> 
-                Administrative Operations: Hong Kong
-            </span>
-            <span class="border-l border-outline/30 pl-8 flex items-center gap-2">
-                <span class="material-symbols-outlined text-[14px] text-outline-variant">mail</span> 
-                <a href="mailto:contact@panorama-sg.com" class="hover:text-outline-variant transition-colors">contact@panorama-sg.com</a>
-            </span>
+<body>
+    <div class="topline">
+        <div class="wrap">
+            <span>Administrative Operations: Hong Kong</span>
+            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
+            <span>Distributed Academic Publishing Infrastructure</span>
         </div>
-        <div class="text-outline-variant">Distributed Academic Publishing Infrastructure</div>
     </div>
 
-    <nav class="sticky top-0 z-40 w-full bg-background/90 backdrop-blur-md shadow-sm border-b border-outline-variant/20">
-        <div class="flex justify-between items-center w-full px-12 py-5 max-w-[1920px] mx-auto">
-            <div class="flex items-center gap-5">
-                <a href="index.html" class="flex items-center gap-5 hover:opacity-80 transition-opacity">
-                    <img src="favicon.png" alt="PSG Logo" class="h-10 w-auto grayscale">
-                    <div class="border-l-2 border-primary pl-5">
-                        <div class="text-2xl font-black tracking-tighter text-on-background header-font uppercase leading-none">Panorama</div>
-                        <div class="text-[9px] font-bold text-on-surface-variant uppercase tracking-[0.3em] mt-1 header-font">Scholarly Group</div>
-                    </div>
-                </a>
-            </div>
-            <div class="flex items-center gap-10">
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-primary border-b-2 border-primary py-[10px] transition-colors" href="index.html">Home</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="index.html#compendium">Journals</a>
-                <a class="font-['Inter'] font-bold uppercase tracking-widest text-[11px] text-on-background hover:text-primary transition-colors" href="about.html">About Us</a>
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Panorama Scholarly Group">
+                <img src="favicon.png" alt="PSG Logo">
+                <span class="brand-text">
+                    <strong>Panorama</strong>
+                    <span>Scholarly Group</span>
+                </span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" aria-current="page">Home</a>
+                <a href="index.html#journals">Journals</a>
+                <a href="about.html">About Us</a>
+                <a href="Publication Ethics.html">Ethics</a>
+                <a href="Open Access Policy.html">Open Access</a>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow">
-        <section class="px-12 py-32 grid grid-cols-12 gap-0 border-b border-outline-variant/10 bg-surface-container-lowest relative overflow-hidden">
-            <div class="col-span-12 md:col-start-2 md:col-span-10 relative z-10">
-                <span class="font-['Inter'] font-bold uppercase tracking-[0.2em] text-primary text-sm mb-6 block border-l-4 border-primary pl-4">Est. 2025 — Academic Excellence</span>
-                <h1 class="font-['Inter'] font-black text-7xl md:text-[7rem] leading-[0.85] tracking-tighter text-on-background mb-12 uppercase">
-                    Structured<br/>Knowledge.<br/>Global<br/>Dissemination.
-                </h1>
-                <div class="grid grid-cols-9 gap-8 border-t border-outline-variant/20 pt-8">
-                    <div class="col-span-9 md:col-span-6">
-                        <p class="text-2xl font-body leading-relaxed text-on-surface-variant">
-                            Supporting peer-reviewed scholarly communication through transparent editorial practice, international digital workflows, and long-term access to research across disciplines.
-                        </p>
-                    </div>
-                    <div class="col-span-9 md:col-span-3 flex flex-col justify-end items-end">
-                        <a href="#compendium" class="flex items-center gap-4 group cursor-pointer border-b-2 border-on-background pb-2">
-                            <span class="font-['Inter'] font-bold uppercase tracking-widest text-sm">View Compendium</span>
-                            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform text-primary">arrow_forward</span>
-                        </a>
+    <main>
+        <section class="hero">
+            <div class="wrap hero-grid hero-grid-simple">
+                <div>
+                    <span class="eyebrow">Academic Publishing Group</span>
+                    <h1>Structured Knowledge. Global Dissemination.</h1>
+                    <p class="lead">Panorama Scholarly Group supports peer-reviewed scholarly communication through transparent editorial practice, international digital workflows, and durable access to research outputs.</p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#journals">View Journals</a>
+                        <a class="button" href="about.html">Institutional Profile</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Journals Section -->
-        <section id="featured" class="px-12 py-20 bg-surface-container-lowest border-b border-outline-variant/10">
-            <div class="max-w-[1920px] mx-auto mb-10">
-                <h2 class="font-['Inter'] font-black text-3xl uppercase tracking-tighter mb-2">Featured Journals</h2>
-                <div class="w-12 h-1 bg-primary"></div>
-            </div>
-            
-            <div class="marquee-container w-full max-w-[1920px] mx-auto">
-                <div class="marquee-track" id="marquee-track">
-                    <!-- JavaScript 将动态生成内容 -->
-                </div>
-            </div>
-        </section>
-
-        <section id="compendium" class="px-12 py-24 bg-surface">
-            <div class="max-w-[1920px] mx-auto">
-                <div class="flex justify-between items-end mb-16 border-b border-outline-variant/30 pb-6">
+        <section class="section" id="featured">
+            <div class="wrap">
+                <div class="section-head">
                     <div>
-                        <h2 class="font-['Inter'] font-black text-4xl uppercase tracking-tighter mb-2">Our Compendium</h2>
-                        <p class="font-['Inter'] text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70">Official Journal Publications • Active Indexing Records</p>
+                        <span class="kicker">Selected Publications</span>
+                        <h2>Featured Journals</h2>
                     </div>
-                    <div class="w-16 h-2 bg-primary hidden md:block"></div>
+                    <p class="section-copy">A rotating view of journals across the group. Hover to pause and inspect a title.</p>
                 </div>
-                <div id="journal-wrapper" class="space-y-16"></div>
+            </div>
+            <div class="marquee-container" aria-label="Featured journal covers">
+                <div class="marquee-track" id="marquee-track"></div>
             </div>
         </section>
 
-        <section class="px-12 py-24 bg-surface-container-low border-y border-outline-variant/10">
-            <div class="grid grid-cols-12 items-center max-w-[1920px] mx-auto gap-12">
-                <div class="col-span-12 md:col-span-4">
-                    <h2 class="font-['Inter'] font-black text-4xl uppercase tracking-tighter leading-none mb-4">Publishing<br/>Overview</h2>
-                    <p class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-on-surface-variant opacity-70 leading-relaxed">
-                        Selected indicators reflecting publication activity, readership, and policy coverage.
-                    </p>
-                </div>
-                <div class="col-span-12 md:col-span-8 space-y-10">
-                    <div class="w-full">
-                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
-                            <span>Published Articles</span>
-                            <span class="text-primary font-black text-sm">200+</span>
-                        </div>
-                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
-                            <div class="absolute top-0 left-0 h-full bg-primary" style="width: 85%;"></div>
-                            <div class="absolute top-[-4px] left-[85%] h-3 w-[3px] bg-primary"></div>
-                        </div>
-                    </div>
-                    <div class="w-full">
-                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
-                            <span>Global Citations</span>
-                            <span class="text-primary font-black text-sm">180+</span>
-                        </div>
-                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
-                            <div class="absolute top-0 left-0 h-full bg-primary" style="width: 75%;"></div>
-                            <div class="absolute top-[-4px] left-[75%] h-3 w-[3px] bg-primary"></div>
-                        </div>
-                    </div>
-                    <div class="w-full">
-                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
-                            <span>Global Reads</span>
-                            <span class="text-primary font-black text-sm">25k+</span>
-                        </div>
-                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
-                            <div class="absolute top-0 left-0 h-full bg-primary" style="width: 95%;"></div>
-                            <div class="absolute top-[-4px] left-[95%] h-3 w-[3px] bg-primary"></div>
-                        </div>
-                    </div>
-                    <div class="w-full">
-                        <div class="flex justify-between text-[10px] font-['Inter'] font-bold uppercase tracking-widest mb-3">
-                            <span>Ethics Compliance</span>
-                            <span class="text-primary font-black text-sm">100%</span>
-                        </div>
-                        <div class="h-[3px] w-full bg-outline-variant/30 relative">
-                            <div class="absolute top-0 left-0 h-full bg-on-background" style="width: 100%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="profile" class="px-12 py-24 bg-surface-container-lowest grid grid-cols-12 gap-16 max-w-[1920px] mx-auto">
-            <div class="col-span-12 md:col-span-6 flex flex-col justify-center">
-                <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Institutional Profile</span>
-                <h2 class="font-['Inter'] font-black text-5xl uppercase tracking-tighter leading-none mb-8">Distributed<br/>Scholarly<br/>Publishing.</h2>
-                <p class="font-body text-lg leading-relaxed text-on-surface-variant mb-10 border-l-4 border-outline-variant/40 pl-6">
-                    Operating as a distributed academic publishing initiative, PSG supports journal publishing through international digital workflows and transparent editorial policies. Administrative and operational functions are coordinated in Hong Kong, supporting a globally distributed network of scholars and editorial boards.
-                </p>
-                <a href="about.html" class="self-start font-['Inter'] text-xs font-bold uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-primary transition-colors">Read Full Profile</a>
-            </div>
-            
-            <div class="col-span-12 md:col-span-6 grid grid-rows-2 gap-6">
-                <div class="bg-surface border border-outline-variant/20 p-10 flex flex-col justify-between group hover:border-primary transition-colors">
+        <section class="section soft" id="journals">
+            <div class="wrap">
+                <div class="section-head">
                     <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-['Inter'] font-black text-2xl uppercase">Editorial Board</h4>
-                            <span class="material-symbols-outlined text-primary text-3xl">account_balance</span>
-                        </div>
-                        <p class="font-body text-sm text-on-surface-variant opacity-80">Lead the journal’s strategic development and coordinate high-quality special issues.</p>
+                        <span class="kicker">Official Journal Publications</span>
+                        <h2>Journal Compendium</h2>
                     </div>
-                    <a href="https://forms.cloud.microsoft/r/DVad3Q9w0P" class="mt-8 inline-block bg-on-background text-background px-6 py-3 font-['Inter'] text-[10px] font-bold uppercase tracking-widest w-max group-hover:bg-primary transition-colors">Submit Application</a>
+                    <p class="section-copy">A structured overview of journals, identifiers, subject clusters, and active publication portals.</p>
                 </div>
-                
-                <div class="bg-surface-container-high border border-outline-variant/20 p-10 flex flex-col justify-between group hover:border-primary transition-colors">
+                <div id="journal-wrapper"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap">
+                <div class="section-head">
                     <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-['Inter'] font-black text-2xl uppercase">Reviewer Access</h4>
-                            <span class="material-symbols-outlined text-primary text-3xl">rate_review</span>
-                        </div>
-                        <p class="font-body text-sm text-on-surface-variant opacity-80">Contribute to editorial quality and responsible peer evaluation as a subject expert.</p>
+                        <span class="kicker">Publishing Infrastructure</span>
+                        <h2>Editorial Systems</h2>
                     </div>
-                    <a href="https://journals.panorama-sg.com/index.php/index/user/profile" class="mt-8 inline-block bg-background text-on-background border border-outline-variant/30 px-6 py-3 font-['Inter'] text-[10px] font-bold uppercase tracking-widest w-max group-hover:border-primary group-hover:text-primary transition-colors">Apply Now</a>
+                    <p class="section-copy">The group is organized around clear policy, persistent metadata, editorial accountability, and long-term discoverability.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <span>01 / Governance</span>
+                        <h3>Transparent Editorial Practice</h3>
+                        <p>Journal-level editorial teams operate through declared review expectations, defined author guidance, and policy-based decision workflows.</p>
+                    </article>
+                    <article class="feature-card">
+                        <span>02 / Access</span>
+                        <h3>Open Research Availability</h3>
+                        <p>Publication models support lawful access to scholarly work while preserving attribution, licensing clarity, and durable records.</p>
+                    </article>
+                    <article class="feature-card">
+                        <span>03 / Metadata</span>
+                        <h3>Persistent Discovery Channels</h3>
+                        <p>Identifiers, repository signals, and indexing infrastructure help published research remain discoverable across scholarly systems.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="infrastructure" class="px-12 py-32 bg-surface-container-low border-t border-outline-variant/20">
-            <div class="max-w-[1920px] mx-auto">
-                <div class="mb-16 max-w-3xl">
-                    <h2 class="font-['Inter'] font-black text-6xl uppercase tracking-tighter leading-none mb-6">Scholarly<br>Infrastructure</h2>
-                    <div class="w-24 h-2 bg-primary mb-8"></div>
-                    <p class="font-body text-xl text-on-surface-variant leading-relaxed opacity-90">
-                        Supporting journal identification, bibliographic metadata registration, discoverability, platform availability, and long-term digital preservation.
-                    </p>
+        <section class="section dark">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="kicker">Institutional Commitments</span>
+                        <h2>Policy Framework</h2>
+                    </div>
+                    <p class="section-copy">Core pages define how the publisher approaches ethics, access, and institutional accountability.</p>
                 </div>
-                
-                <div class="grid grid-cols-12 gap-6">
-                    <div class="col-span-12 lg:col-span-4 bg-on-background text-background p-10 flex flex-col justify-between group transition-colors">
-                        <div class="mb-12">
-                            <div class="flex justify-between items-start mb-6">
-                                <span class="font-['Inter'] font-black text-6xl text-primary-fixed group-hover:text-primary transition-colors">01</span>
-                                <span class="material-symbols-outlined text-3xl">qr_code_2</span>
-                            </div>
-                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Standards &<br/>Identifiers</h4>
-                            <p class="font-body text-sm text-surface-dim opacity-80">Core infrastructure for persistent identification and robust metadata schema compliance.</p>
-                        </div>
-                        
-                        <div class="logo-grid grid-cols-2 text-outline-variant group-hover:opacity-100 transition-opacity duration-500">
-                            <div class="logo-cell"><img src="QKFM/Crossref.svg" loading="lazy" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Crossref"></div>
-                            <div class="logo-cell"><img src="QKFM/DOI_Foundation.png" loading="lazy" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="DOI"></div>
-                            <div class="logo-cell"><img src="QKFM/ISSN.png" loading="lazy" class="h-6 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="ISSN"></div>
-                            <div class="logo-cell"><img src="QKFM/ISNI.png" loading="lazy" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="ISNI"></div>
-                            <div class="logo-cell col-span-2 border-r-0"><img src="QKFM/DNB.svg" loading="lazy" class="h-8 object-contain filter invert hue-rotate-180 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="DNB"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant/20 p-10 flex flex-col justify-between group">
-                        <div class="mb-12">
-                            <div class="flex justify-between items-start mb-6">
-                                <span class="font-['Inter'] font-black text-6xl text-outline-variant/30 group-hover:text-primary transition-colors">02</span>
-                                <span class="material-symbols-outlined text-3xl text-primary">travel_explore</span>
-                            </div>
-                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Indexing, Abstracting<br/>& Platforms</h4>
-                            <p class="font-body text-sm text-on-surface-variant max-w-xl opacity-80">Global dissemination networks ensuring discoverability, citation tracking, and comprehensive academic platform availability.</p>
-                        </div>
-
-                        <div class="logo-grid grid-cols-2 md:grid-cols-3 text-outline group-hover:opacity-100 transition-opacity duration-500">
-                            <div class="logo-cell"><img src="QKFM/Google_Scholar.png" loading="lazy" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Google Scholar"></div>
-                            <div class="logo-cell"><img src="QKFM/Dimensions.png" loading="lazy" class="h-6 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Dimensions"></div>
-                            <div class="logo-cell border-r-0 md:border-r"><img src="QKFM/BASE.png" loading="lazy" class="h-7 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="BASE"></div>
-                            <div class="logo-cell"><img src="QKFM/OpenAlex.png" loading="lazy" class="h-6 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="OpenAlex"></div>
-                            <div class="logo-cell"><img src="QKFM/Semantic_Scholar.png" loading="lazy" class="h-7 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Semantic Scholar"></div>
-                            <div class="logo-cell border-r-0"><img src="QKFM/CJWK.png" loading="lazy" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="CJWK"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-span-12 lg:col-span-6 bg-surface border border-outline-variant/20 p-10 flex flex-col justify-between group">
-                        <div class="mb-12">
-                            <div class="flex justify-between items-start mb-6">
-                                <span class="font-['Inter'] font-black text-6xl text-outline-variant/30 group-hover:text-primary transition-colors">03</span>
-                                <span class="material-symbols-outlined text-3xl text-primary">inventory_2</span>
-                            </div>
-                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Archiving &<br/>Preservation</h4>
-                            <p class="font-body text-sm text-on-surface-variant opacity-80">Securing the scholarly record through redundant, distributed digital preservation systems.</p>
-                        </div>
-                        
-                        <div class="logo-grid grid-cols-3 text-outline group-hover:opacity-100 transition-opacity duration-500 h-full">
-                            <div class="logo-cell"><img src="QKFM/CLOCKSS.png" loading="lazy" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="CLOCKSS"></div>
-                            <div class="logo-cell"><img src="QKFM/LOCKSS.png" loading="lazy" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="LOCKSS"></div>
-                            <div class="logo-cell border-r-0"><img src="QKFM/Zenodo.svg" loading="lazy" class="h-8 object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105" alt="Zenodo"></div>
-                        </div>
-                    </div>
-
-                    <div class="col-span-12 lg:col-span-6 bg-surface-container-lowest border-2 border-on-background p-10 flex flex-col justify-between group relative overflow-hidden">
-                        <div class="absolute -right-10 -bottom-10 opacity-[0.03] pointer-events-none group-hover:scale-110 transition-transform duration-700">
-                            <span class="material-symbols-outlined" style="font-size: 300px;">account_balance</span>
-                        </div>
-                        
-                        <div class="mb-12 relative z-10">
-                            <div class="flex justify-between items-start mb-6">
-                                <span class="font-['Inter'] font-black text-6xl text-outline-variant/30 group-hover:text-on-background transition-colors">04</span>
-                                <span class="material-symbols-outlined text-3xl text-on-background">workspace_premium</span>
-                            </div>
-                            <h4 class="font-['Inter'] font-black text-2xl uppercase leading-tight mb-4">Institutional<br/>Partners</h4>
-                            <p class="font-body text-sm text-on-surface-variant opacity-80">Collaborative networks fostering academic integrity and domain-specific rigor.</p>
-                        </div>
-
-                        <div class="border-t border-on-background/20 pt-8 mt-auto relative z-10">
-                            <div class="flex items-center gap-6 opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-105 cursor-pointer">
-                                <img src="QKFM/Taoist Association of Korea.png" loading="lazy" alt="Taoist Association of Korea" class="h-16 w-auto object-contain">
-                                <div class="flex flex-col">
-                                    <span class="font-['Inter'] text-lg font-black text-on-background tracking-widest">한국도교협회</span>
-                                    <span class="font-['Inter'] text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Taoist Association of Korea</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-12 p-6 bg-surface-dim/30 border-l-4 border-outline-variant font-['Inter'] text-[10px] text-on-surface-variant uppercase tracking-widest leading-relaxed text-justify">
-                    <strong>Disclaimer:</strong> The services listed above perform different functions within the scholarly communication ecosystem. DNB is presented in relation to bibliographic metadata, not collection status. Inclusion in any listed service does not imply editorial evaluation, selective indexing, ranking status, endorsement, archival custody, or inclusion in citation indexes unless explicitly confirmed by the relevant provider.
+                <div class="feature-grid">
+                    <a class="feature-card" href="about.html">
+                        <span>Profile</span>
+                        <h3>About Panorama</h3>
+                        <p>Read the institutional overview, operational model, values, and scholarly integrity commitments.</p>
+                    </a>
+                    <a class="feature-card" href="Publication Ethics.html">
+                        <span>Ethics</span>
+                        <h3>Publication Ethics</h3>
+                        <p>Review expectations for editors, reviewers, authors, conflicts of interest, and corrections.</p>
+                    </a>
+                    <a class="feature-card" href="Open Access Policy.html">
+                        <span>Access</span>
+                        <h3>Open Access Policy</h3>
+                        <p>Understand licensing, copyright retention, repository deposit, and journal-level access models.</p>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="grid grid-cols-12 gap-8 w-full px-12 py-20 mt-auto bg-[#000000] text-[#ffffff]">
-        <div class="col-span-12 lg:col-span-4 mb-8 lg:mb-0">
-            <div class="text-2xl font-black header-font uppercase tracking-tighter mb-1">Panorama</div>
-            <div class="text-[9px] font-bold text-primary-fixed uppercase tracking-[0.3em] mb-6 header-font">Scholarly Group</div>
-            <p class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim max-w-xs leading-relaxed border-l-2 border-primary-fixed pl-3">
-                A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.
-            </p>
-        </div>
-        <div class="col-span-12 md:col-span-6 lg:col-span-4">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#374151] pb-2">Operations</h5>
-            <p class="font-['Inter'] text-[10px] text-surface-dim leading-relaxed">
-                <strong class="text-white block mb-1">Administrative Contact</strong>
-                Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.
-            </p>
-        </div>
-        <div class="col-span-12 md:col-span-6 lg:col-span-4 lg:pl-12">
-            <h5 class="font-['Inter'] text-[10px] uppercase tracking-[0.1rem] font-bold text-primary-fixed mb-5 border-b border-[#374151] pb-2">Policies & Links</h5>
-            <ul class="space-y-3">
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Publication Ethics.html">Publication Ethics</a></li>
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="Open Access Policy.html">Open Access Policy</a></li>
-                <li><a class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim hover:text-white transition-colors" href="https://profiles.panorama-sg.com/" target="_blank">Editorial Directory</a></li>
-            </ul>
-        </div>
-        <div class="col-span-12 mt-12 pt-8 border-t border-[#374151] flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex gap-6">
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">rss_feed</span>
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">mail</span>
-                <span class="material-symbols-outlined text-surface-dim hover:text-white cursor-pointer text-lg">public</span>
+    <footer class="site-footer" id="site-footer">
+        <div class="wrap footer-grid">
+            <div>
+                <h3>Panorama</h3>
+                <div class="sub">Scholarly Group</div>
+                <p>A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.</p>
             </div>
-            <div class="text-center md:text-right">
-                <span class="font-['Inter'] text-[10px] uppercase tracking-[0.05rem] font-medium text-surface-dim block mb-1">© 2025-2026 PANORAMA SCHOLARLY GROUP. ALL RIGHTS RESERVED.</span>
-                <span class="font-['Inter'] text-[9px] uppercase tracking-[0.05rem] font-bold text-primary-fixed">Distributed Academic Publishing</span>
+            <div>
+                <h4>Operations</h4>
+                <p><strong>Administrative Contact</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
             </div>
+            <div>
+                <h4>Policies & Links</h4>
+                <ul>
+                    <li><a href="index.html#journals">Journals</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="Publication Ethics.html">Publication Ethics</a></li>
+                    <li><a href="Open Access Policy.html">Open Access Policy</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap footer-bottom">
+            <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
+            <span>Distributed Academic Publishing</span>
         </div>
     </footer>
 
@@ -604,99 +176,83 @@
             ];
 
             const JOURNALS = [
-                { id: 'PFR',     group: 'tech', title: 'Panorama Frontier Review',                    cat: 'Multi.',    issn: 'Pending',   img: 'PFR.png',         slug: 'PFR' },
-                { id: 'AFS',     group: 'tech', title: 'AI & Future Society',                         cat: 'Tech',      issn: '3053-4011', img: 'AFS.png',         slug: 'AFS' },
-                { id: 'JESA',    group: 'tech', title: 'Journal of Engineering Systems & Applications',cat: 'Eng.',      issn: '3053-478X', img: 'JESA.png',         slug: 'JESA' },
-                { id: 'HNDH',    group: 'tech', title: 'Health Nexus: Digital Health and Medical AI',  cat: 'Med AI',    issn: 'Pending',   img: 'HNDH.png',        slug: 'HNDH' },
-                
-                { id: 'CSGS',    group: 'env',  title: 'Climate Sustainability & Global Systems',      cat: 'Env.',      issn: '3054-9663',   img: 'CSGS.png',        slug: 'CSGS' },
-                { id: 'RGGD',    group: 'env',  title: 'Rural Governance & Green Development',         cat: 'Env.',      issn: '3053-7282', img: 'RGGD.png',        slug: 'RGGD' },
-                { id: 'HN',      group: 'env',  title: 'Health Nexus',                                 cat: 'Med',       issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
-                { id: 'FSSS',    group: 'env',  title: 'Food Systems, Safety & Sustainability',        cat: 'Food Sci.', issn: 'Pending',   img: 'FSSS.png',        slug: 'FSSS' },
-                { id: 'SES',     group: 'env',  title: 'Journal of Sport and Exercise Studies',        cat: 'Sports',    issn: 'Pending',   img: 'SES.png',         slug: 'SES' },
-
-                { id: 'GPPGR',   group: 'soc',  title: 'Global Public Policy & Governance Review',     cat: 'Policy',    issn: 'Pending',   img: 'GPPGR.png',       slug: 'GPPGR' },
-                { id: 'PEMR',    group: 'soc',  title: 'PoliEcoM Administration Review',               cat: 'Policy',    issn: '3053-3597', img: 'REMR.png',        slug: 'PEMR' },
-                { id: 'CSSR',    group: 'soc',  title: 'Computational Social Sciences Review',         cat: 'Data',      issn: 'Pending',   img: 'CSSR.png',        slug: 'cssr' },
-                { id: 'JLPCS',   group: 'soc',  title: 'Journal of Law, Psychology, & Communication',  cat: 'Law',       issn: '3052-9654', img: 'JLPCS.png',       slug: 'JLPCS' },
-                { id: 'IRELS',   group: 'soc',  title: 'International Review of Education & Learning', cat: 'Edu',       issn: 'Pending',   img: 'IRELS.png',       slug: 'IRELS' },
-                { id: 'JSCC',    group: 'soc',  title: 'Journal of Social Cognition and Communication',cat: 'Soc.',      issn: '3054-6958', img: 'JSCC.png',        slug: 'JSCC' },
-                { id: 'CRoPT',   group: 'soc',  title: 'Contemporary Review of Political Thought',     cat: 'Pol.',      issn: 'Pending',   img: 'CRoPT.png',       slug: 'CRoPT' },
-
-                { id: 'Silence', group: 'arts', title: 'Silence',                                      cat: 'Phil.',     issn: '3054-4386', img: 'Silence.png',     slug: 'Silence' },
-                { id: 'GRHAS',   group: 'arts', title: 'Global Review of Humanities, Arts, & Society', cat: 'Arts',      issn: '3052-539X', img: 'GRAHS.png',       slug: 'files' },
-                { id: 'TTS',     group: 'arts', title: 'Three Teachings Studies',                      cat: 'Phil.',     issn: '3053-6553', img: 'TTS.png',         slug: 'tts' },
-                { id: 'Res',     group: 'arts', title: 'Resonance',                                    cat: 'Music',     issn: '3053-4410', img: 'RESONANCE.png',   slug: 'Resonance' },
-                { id: 'CPRT',    group: 'arts', title: 'Comparative Philosophy & Religious Traditions',cat: 'Phil.',     issn: 'Pending',   img: 'CPRT.png',        slug: 'CPRT' },
-                { id: 'JDES',    group: 'arts', title: 'Journal of Dance and Embodied Structure',      cat: 'Arts',      issn: 'Pending',   img: 'JDES.png',        slug: 'JDES' }
+                { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
+                { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AFS.png', slug: 'AFS' },
+                { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
+                { id: 'HNDH', group: 'tech', title: 'Health Nexus: Digital Health and Medical AI', cat: 'Med AI', issn: 'Pending', img: 'HNDH.png', slug: 'HNDH' },
+                { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: '3054-9663', img: 'CSGS.png', slug: 'CSGS' },
+                { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD' },
+                { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
+                { id: 'FSSS', group: 'env', title: 'Food Systems, Safety & Sustainability', cat: 'Food Sci.', issn: 'Pending', img: 'FSSS.png', slug: 'FSSS' },
+                { id: 'SES', group: 'env', title: 'Journal of Sport and Exercise Studies', cat: 'Sports', issn: 'Pending', img: 'SES.png', slug: 'SES' },
+                { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'GPPGR.png', slug: 'GPPGR' },
+                { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
+                { id: 'CSSR', group: 'soc', title: 'Computational Social Sciences Review', cat: 'Data', issn: 'Pending', img: 'CSSR.png', slug: 'cssr' },
+                { id: 'JLPCS', group: 'soc', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
+                { id: 'IRELS', group: 'soc', title: 'International Review of Education & Learning', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
+                { id: 'JSCC', group: 'soc', title: 'Journal of Social Cognition and Communication', cat: 'Soc.', issn: '3054-6958', img: 'JSCC.png', slug: 'JSCC' },
+                { id: 'CRoPT', group: 'soc', title: 'Contemporary Review of Political Thought', cat: 'Pol.', issn: 'Pending', img: 'CRoPT.png', slug: 'CRoPT' },
+                { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'Silence.png', slug: 'Silence' },
+                { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, & Society', cat: 'Arts', issn: '3052-539X', img: 'GRAHS.png', slug: 'files' },
+                { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'TTS.png', slug: 'tts' },
+                { id: 'Res', group: 'arts', title: 'Resonance', cat: 'Music', issn: '3053-4410', img: 'RESONANCE.png', slug: 'Resonance' },
+                { id: 'CPRT', group: 'arts', title: 'Comparative Philosophy & Religious Traditions', cat: 'Phil.', issn: 'Pending', img: 'CPRT.png', slug: 'CPRT' },
+                { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' }
             ];
 
-            const wrapper = document.getElementById('journal-wrapper');
-            // 已添加代理前缀
             const baseImgUrl = "QKFM/";
-
-            // Marquee Featured Journals Logic
             const featuredIds = ['PEMR', 'HN', 'Silence', 'AFS', 'CSGS', 'JSCC', 'GRHAS', 'JESA', 'Res'];
             const featuredJournals = JOURNALS.filter(j => featuredIds.includes(j.id));
             const marqueeTrack = document.getElementById('marquee-track');
 
             if (marqueeTrack) {
                 const createMarqueeCard = (j) => {
-                    const finalImgSrc = j.img.startsWith('http') ? j.img : baseImgUrl + j.img;
+                    const finalImgSrc = baseImgUrl + j.img;
                     return `
-                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" title="${j.title}" class="marquee-item flex flex-col group block">
-                            <div class="h-64 flex items-center justify-center relative">
-                                <img src="${finalImgSrc}" loading="lazy" class="h-full w-auto object-contain opacity-90 group-hover:opacity-100 transition-all duration-300" alt="${j.title}" onerror="this.style.opacity=0.3">
-                            </div>
+                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" title="${j.title}" class="marquee-item">
+                            <img src="${finalImgSrc}" loading="lazy" alt="${j.title}" onerror="this.style.opacity=0.25">
                         </a>
                     `;
                 };
-
-                const combinedFeaturedHTML = [...featuredJournals, ...featuredJournals].map(createMarqueeCard).join('');
-                marqueeTrack.innerHTML = combinedFeaturedHTML;
+                marqueeTrack.innerHTML = [...featuredJournals, ...featuredJournals].map(createMarqueeCard).join('');
             }
 
+            const wrapper = document.getElementById('journal-wrapper');
             CATEGORIES.forEach(cat => {
                 const catJournals = JOURNALS.filter(j => j.group === cat.id);
-                if (catJournals.length === 0) return;
+                if (!catJournals.length) return;
 
-                const sectionDiv = document.createElement('div');
-                sectionDiv.className = 'grid grid-cols-12 gap-8 mb-12';
-                
+                const sectionDiv = document.createElement('section');
+                sectionDiv.className = 'journal-group';
+
                 const leftCol = document.createElement('div');
-                leftCol.className = 'col-span-12 md:col-span-3 border-l-4 border-primary pl-6 mb-6 md:mb-0';
-                leftCol.innerHTML = `
-                    <h3 class="font-['Inter'] font-black text-xl uppercase tracking-tighter mb-2">${cat.title}</h3>
-                    <p class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest opacity-50">Department Repository</p>
-                `;
-                sectionDiv.appendChild(leftCol);
+                leftCol.className = 'journal-group-title';
+                leftCol.innerHTML = `<h3>${cat.title}</h3><p>Department Repository</p>`;
 
                 const rightCol = document.createElement('div');
-                rightCol.className = 'col-span-12 md:col-span-9 academic-grid';
-                
+                rightCol.className = 'journal-grid';
+
                 catJournals.forEach(j => {
-                    const finalImgSrc = j.img.startsWith('http') ? j.img : baseImgUrl + j.img;
-                    const card = document.createElement('div');
-                    
-                    card.className = 'academic-card bg-surface hover:bg-surface-container-lowest transition-colors flex flex-col group relative overflow-hidden p-8';
+                    const card = document.createElement('article');
+                    card.className = 'journal-card';
                     card.innerHTML = `
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="bg-primary text-on-primary px-2 py-1 text-[9px] font-bold uppercase tracking-widest">${j.cat}</span>
-                            <span class="font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-on-surface-variant opacity-60">ISSN: ${j.issn}</span>
+                        <div class="journal-meta">
+                            <span class="tag">${j.cat}</span>
+                            <span class="issn">ISSN: ${j.issn}</span>
                         </div>
-                        <div class="h-32 flex items-center justify-center mb-6 relative">
-                            <img src="${finalImgSrc}" loading="lazy" class="h-full w-auto object-contain shadow-sm opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.style.opacity=0.3" alt="${j.title}">
+                        <div class="journal-cover">
+                            <img src="${baseImgUrl + j.img}" loading="lazy" alt="${j.title}" onerror="this.style.opacity=0.25">
                         </div>
-                        <h4 class="font-body font-bold text-lg leading-tight mb-6 text-on-background line-clamp-2" title="${j.title}">${j.title}</h4>
-                        <div class="mt-auto flex justify-between items-center border-t border-outline-variant/20 pt-4">
-                            <a href="https://journals.panorama-sg.com/index.php/${j.slug}" class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors">Portal</a>
-                            <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission" class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest hover:text-primary transition-colors flex items-center gap-1">Submit <span class="material-symbols-outlined text-[12px]">open_in_new</span></a>
+                        <h4>${j.title}</h4>
+                        <div class="journal-links">
+                            <a href="https://journals.panorama-sg.com/index.php/${j.slug}">Portal</a>
+                            <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission">Submit</a>
                         </div>
                     `;
                     rightCol.appendChild(card);
                 });
-                
-                sectionDiv.appendChild(rightCol);
+
+                sectionDiv.append(leftCol, rightCol);
                 wrapper.appendChild(sectionDiv);
             });
         });
