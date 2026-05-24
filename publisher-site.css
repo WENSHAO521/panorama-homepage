@@ -305,6 +305,9 @@ img { display: block; max-width: 100%; }
     padding: 86px 0;
     border-bottom: 1px solid var(--line);
 }
+section[id] {
+    scroll-margin-top: 96px;
+}
 .section.compact {
     padding: 66px 0;
 }
