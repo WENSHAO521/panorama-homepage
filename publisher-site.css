@@ -100,26 +100,6 @@ img { display: block; max-width: 100%; }
     letter-spacing: .12em;
     text-transform: uppercase;
 }
-.nav-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 0 16px;
-    background: var(--accent);
-    color: var(--white);
-    border: 1px solid var(--accent);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    transition: background .2s ease, border-color .2s ease;
-}
-.nav-cta:hover {
-    background: var(--white);
-    border-color: var(--ink);
-    color: var(--ink);
-}
 .nav-links a {
     padding: 10px 0;
     border-bottom: 2px solid transparent;
@@ -209,7 +189,6 @@ img { display: block; max-width: 100%; }
 .button.primary:hover { background: var(--white); color: var(--ink); }
 .button:focus-visible,
 .nav-links a:focus-visible,
-.nav-cta:focus-visible,
 .journal-links a:focus-visible,
 .article-actions a:focus-visible,
 .filter-buttons button:focus-visible,
