@@ -28,7 +28,7 @@
             </a>
             <div class="nav-links">
                 <a href="index.html" aria-current="page">Home</a>
-                <a href="https://panorama-sg.com/#find-journal">Journals</a>
+                <a href="index.html#find-journal">Journals</a>
                 <a href="index.html#recent-articles">Articles</a>
                 <a href="index.html#authors">For Authors</a>
                 <a href="about.html">About Us</a>
@@ -46,7 +46,7 @@
                     <h1>Journals for rigorous interdisciplinary scholarship.</h1>
                     <p class="lead">Panorama Scholarly Group publishes and hosts peer-reviewed journals across technology, public policy, health, sustainability, humanities, education, arts, and society.</p>
                     <div class="hero-actions">
-                        <a class="button primary" href="https://panorama-sg.com/#find-journal">Find a Journal</a>
+                        <a class="button primary" href="index.html#find-journal">Find a Journal</a>
                         <a class="button" href="#authors">Submit Manuscript</a>
                     </div>
                     <div class="trust-row" aria-label="Publishing commitments">
@@ -214,7 +214,7 @@
             <div>
                 <h4>Policies & Links</h4>
                 <ul>
-                    <li><a href="https://panorama-sg.com/#find-journal">Journals</a></li>
+                    <li><a href="index.html#find-journal">Journals</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="Publication Ethics.html">Publication Ethics</a></li>
                     <li><a href="Open Access Policy.html">Open Access Policy</a></li>
@@ -310,6 +310,16 @@
                 return /^https?:\/\//i.test(doi) ? doi : `https://doi.org/${doi.replace(/^doi:\s*/i, '')}`;
             }
 
+            function restoreHashTarget() {
+                if (!window.location.hash) return;
+                const targetId = decodeURIComponent(window.location.hash.slice(1));
+                const target = document.getElementById(targetId);
+                if (!target) return;
+                requestAnimationFrame(() => {
+                    target.scrollIntoView({ block: 'start' });
+                });
+            }
+
             function renderRecentArticles(payload) {
                 if (!articleList) return;
                 const articles = Array.isArray(payload && payload.articles) ? payload.articles : [];
@@ -318,6 +328,7 @@
                 if (!articles.length) {
                     articleList.innerHTML = '<div class="empty-state">No recent article records are available.</div>';
                     if (articleStatus) articleStatus.textContent = 'No Panorama article records are available.';
+                    restoreHashTarget();
                     return;
                 }
 
@@ -353,6 +364,7 @@
                     const selected = payload.selectedArticleCount ? ` ${payload.selectedArticleCount} articles featured today.` : '';
                     articleStatus.textContent = `${harvested}.${selected}`;
                 }
+                restoreHashTarget();
             }
 
             if (articleList) {
@@ -365,6 +377,7 @@
                     .catch(() => {
                         articleList.innerHTML = '<div class="empty-state">Recent article data could not be loaded. Please refresh the article cache.</div>';
                         if (articleStatus) articleStatus.textContent = 'Article cache unavailable.';
+                        restoreHashTarget();
                     });
             }
 
