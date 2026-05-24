@@ -1,7 +1,8 @@
 param(
     [string]$Endpoint = "https://journals.panorama-sg.com/index.php/index/oai",
-    [string]$Output = "data/selected-recent-articles.json",
-    [int]$Limit = 10,
+    [string]$Output = "data/articles.json",
+    [int]$Limit = 20,
+    [int]$PoolLimit = 100,
     [int]$MaxPages = 20,
     [switch]$IncludeFuture
 )
@@ -47,6 +48,56 @@ function Split-Source {
     }
 }
 
+function Get-JournalSlug {
+    param([string[]]$SetSpecs, [string]$Journal)
+
+    $setSlugMap = @{
+        "afs" = "AFS"
+        "csgs" = "CSGS"
+        "files" = "files"
+        "healthnexus" = "HealthNexus"
+        "jesa" = "JESA"
+        "jlpcs" = "JLPCS"
+        "jscc" = "JSCC"
+        "pemr" = "PEMR"
+        "resonance" = "Resonance"
+        "rggd" = "RGGD"
+        "silence" = "Silence"
+        "tts" = "tts"
+    }
+
+    foreach ($setSpec in $SetSpecs) {
+        if (-not $setSpec) { continue }
+        $prefix = (($setSpec -split ":")[0]).ToLowerInvariant()
+        if ($setSlugMap.ContainsKey($prefix)) { return $setSlugMap[$prefix] }
+    }
+
+    $journalSlugMap = @{
+        "ai & future society" = "AFS"
+        "climate sustainability & global systems" = "CSGS"
+        "global review of humanities, arts, and society" = "files"
+        "health nexus" = "HealthNexus"
+        "journal of engineering systems and applications" = "JESA"
+        "journal of law, psychology, and communication studies" = "JLPCS"
+        "journal of social cognition and communication" = "JSCC"
+        "poliecom administration review" = "PEMR"
+        "resonance: journal of global music studies" = "Resonance"
+        "silence" = "Silence"
+        "three teachings studies: confucianism, daoism, and buddhism" = "tts"
+        "乡村善治与绿色发展" = "RGGD"
+    }
+
+    $key = (Normalize-Text $Journal).ToLowerInvariant()
+    if ($journalSlugMap.ContainsKey($key)) { return $journalSlugMap[$key] }
+    return ""
+}
+
+function Get-JournalArticleUrl {
+    param([string]$OriginalUrl, [string]$JournalSlug)
+    if (-not $OriginalUrl -or -not $JournalSlug) { return $OriginalUrl }
+    return ($OriginalUrl -replace "/index/article/view/", "/$JournalSlug/article/view/")
+}
+
 function Get-OaiPage {
     param([string]$Url)
     [xml]((Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60).Content)
@@ -74,15 +125,21 @@ while ($url -and $page -lt $MaxPages) {
         $doiIdentifier = @($identifiers | Where-Object { $_ -match "10\.\d{4,9}/" -or $_ -match "doi\.org/" } | Select-Object -First 1)
         $source = Get-NodeText $record ".//dc:source" $ns
         $sourceParts = Split-Source $source
+        $setSpecs = @(Get-NodeTexts $record "./oai:header/oai:setSpec" $ns)
+        $journalSlug = Get-JournalSlug $setSpecs $sourceParts.journal
+        $originalUrl = if ($urlIdentifier.Count) { $urlIdentifier[0] } else { "" }
+        $articleUrl = Get-JournalArticleUrl $originalUrl $journalSlug
 
         $records.Add([pscustomobject]@{
             title = $title
             authors = @(Get-NodeTexts $record ".//dc:creator" $ns)
             journal = $sourceParts.journal
+            journalSlug = $journalSlug
+            journalUrl = if ($journalSlug) { "https://journals.panorama-sg.com/index.php/$journalSlug" } else { "" }
             issue = $sourceParts.issue
             pages = $sourceParts.pages
             publishedAt = Get-NodeText $record ".//dc:date" $ns
-            url = if ($urlIdentifier.Count) { $urlIdentifier[0] } else { "" }
+            url = $articleUrl
             doi = if ($doiIdentifier.Count) { $doiIdentifier[0] } else { "" }
             abstract = Get-NodeText $record ".//dc:description" $ns
         })
@@ -107,17 +164,27 @@ $eligibleRecords = if ($IncludeFuture) {
     }
 }
 
-$selected = $eligibleRecords |
+$recentPool = @($eligibleRecords |
     Sort-Object @{ Expression = { if ($_.publishedAt) { [datetime]$_.publishedAt } else { [datetime]::MinValue } }; Descending = $true }, title |
     Group-Object url, title |
     ForEach-Object { $_.Group[0] } |
-    Select-Object -First $Limit
+    Select-Object -First $PoolLimit)
+
+$seed = [int](Get-Date -Format "yyyyMMdd")
+$rng = [System.Random]::new($seed)
+$selected = @($recentPool | Sort-Object { $rng.NextDouble() } | Select-Object -First $Limit)
 
 $payload = [pscustomobject]@{
     harvestedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
-    sourceEndpoint = $Endpoint
+    sourcePublisher = "Panorama Scholarly Group"
+    metadataSource = "Panorama journal article records"
+    selectionMode = "daily-random-from-recent-panorama-publications"
+    randomSeed = $seed
     totalRecordsHarvested = $records.Count
     futureRecordsExcluded = $records.Count - @($eligibleRecords).Count
+    recentPoolLimit = $PoolLimit
+    recentPoolSize = $recentPool.Count
+    selectedArticleCount = $selected.Count
     articles = @($selected)
 }
 
