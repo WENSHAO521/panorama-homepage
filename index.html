@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=1200">
-    <title>Panorama Scholarly Group | Academic Publishing Infrastructure</title>
+    <title>Panorama Scholarly Group | Open Access Academic Journals</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="publisher-site.css">
@@ -29,24 +29,65 @@
             <div class="nav-links">
                 <a href="index.html" aria-current="page">Home</a>
                 <a href="index.html#journals">Journals</a>
+                <a href="index.html#recent-articles">Articles</a>
+                <a href="index.html#authors">For Authors</a>
                 <a href="about.html">About Us</a>
                 <a href="Publication Ethics.html">Ethics</a>
                 <a href="Open Access Policy.html">Open Access</a>
             </div>
+            <a class="nav-cta" href="#journals">Find a Journal</a>
         </div>
     </nav>
 
     <main>
         <section class="hero">
-            <div class="wrap hero-grid hero-grid-simple">
+            <div class="wrap hero-grid">
                 <div>
-                    <span class="eyebrow">Academic Publishing Group</span>
-                    <h1>Structured Knowledge. Global Dissemination.</h1>
-                    <p class="lead">Panorama Scholarly Group supports peer-reviewed scholarly communication through transparent editorial practice, international digital workflows, and durable access to research outputs.</p>
+                    <span class="eyebrow">Open Access Academic Publishing</span>
+                    <h1>Journals for rigorous interdisciplinary scholarship.</h1>
+                    <p class="lead">Panorama Scholarly Group publishes and hosts peer-reviewed journals across technology, public policy, health, sustainability, humanities, education, arts, and society.</p>
                     <div class="hero-actions">
-                        <a class="button primary" href="#journals">View Journals</a>
-                        <a class="button" href="about.html">Institutional Profile</a>
+                        <a class="button primary" href="#journals">Find a Journal</a>
+                        <a class="button" href="#authors">Submit Manuscript</a>
                     </div>
+                    <div class="trust-row" aria-label="Publishing commitments">
+                        <span>Peer-reviewed journals</span>
+                        <span>Open access policy</span>
+                        <span>Editorial accountability</span>
+                    </div>
+                </div>
+                <aside class="hero-panel" aria-label="Publisher overview">
+                    <div class="panel-label">Publisher Network</div>
+                    <div class="metric-grid">
+                        <div><strong>22</strong><span>Journal portals</span></div>
+                        <div><strong>7</strong><span>Subject clusters</span></div>
+                        <div><strong>2025</strong><span>Current platform cycle</span></div>
+                        <div><strong>OA</strong><span>Access model</span></div>
+                    </div>
+                    <div class="scope-list">
+                        <span>AI & Society</span>
+                        <span>Health & Medicine</span>
+                        <span>Policy & Governance</span>
+                        <span>Humanities & Arts</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section compact" id="authors">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="kicker">For Authors</span>
+                        <h2>Submission Pathway</h2>
+                    </div>
+                    <p class="section-copy">A clearer route from journal selection to manuscript submission, review, and publication.</p>
+                </div>
+                <div class="pathway">
+                    <article><span>01</span><h3>Choose</h3><p>Identify the journal whose scope, audience, and review expectations match the manuscript.</p></article>
+                    <article><span>02</span><h3>Prepare</h3><p>Review the author guidelines, ethics requirements, and journal-level submission checklist.</p></article>
+                    <article><span>03</span><h3>Submit</h3><p>Use the OJS portal to upload files, enter metadata, and complete the author declaration.</p></article>
+                    <article><span>04</span><h3>Review</h3><p>Track editorial decisions and revision requests through the journal workflow.</p></article>
                 </div>
             </div>
         </section>
@@ -58,11 +99,25 @@
                         <span class="kicker">Selected Publications</span>
                         <h2>Featured Journals</h2>
                     </div>
-                    <p class="section-copy">A rotating view of journals across the group. Hover to pause and inspect a title.</p>
+                    <p class="section-copy">A visual scan of journals across the group. Hover to pause and inspect a title.</p>
                 </div>
             </div>
             <div class="marquee-container" aria-label="Featured journal covers">
                 <div class="marquee-track" id="marquee-track"></div>
+            </div>
+        </section>
+
+        <section class="section" id="recent-articles">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="kicker">Latest Research</span>
+                        <h2>Selected Recent Articles</h2>
+                    </div>
+                    <p class="section-copy">A curated MDPI-style reading list generated from the publisher OAI metadata feed.</p>
+                </div>
+                <div class="article-status" id="article-status" aria-live="polite">Loading OAI article records...</div>
+                <div class="article-list" id="recent-article-list"></div>
             </div>
         </section>
 
@@ -71,10 +126,18 @@
                 <div class="section-head">
                     <div>
                         <span class="kicker">Official Journal Publications</span>
-                        <h2>Journal Compendium</h2>
+                        <h2>Find a Journal</h2>
                     </div>
-                    <p class="section-copy">A structured overview of journals, identifiers, subject clusters, and active publication portals.</p>
+                    <p class="section-copy">Search by title, subject area, abbreviation, or ISSN. Each card links directly to the journal portal and submission page.</p>
                 </div>
+                <div class="journal-toolbar" aria-label="Journal filters">
+                    <label class="search-box">
+                        <span>Search journals</span>
+                        <input id="journal-search" type="search" placeholder="Search AI, policy, health, ISSN..." autocomplete="off">
+                    </label>
+                    <div class="filter-buttons" id="journal-filters" aria-label="Subject filters"></div>
+                </div>
+                <p class="results-count" id="results-count" aria-live="polite"></p>
                 <div id="journal-wrapper"></div>
             </div>
         </section>
@@ -84,9 +147,9 @@
                 <div class="section-head">
                     <div>
                         <span class="kicker">Publishing Infrastructure</span>
-                        <h2>Editorial Systems</h2>
+                        <h2>Trust Architecture</h2>
                     </div>
-                    <p class="section-copy">The group is organized around clear policy, persistent metadata, editorial accountability, and long-term discoverability.</p>
+                    <p class="section-copy">The group is organized around policy clarity, persistent metadata, editorial accountability, and long-term discoverability.</p>
                 </div>
                 <div class="feature-grid">
                     <article class="feature-card">
@@ -169,9 +232,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const CATEGORIES = [
-                { id: 'tech', title: 'Frontier & Technology' },
-                { id: 'env',  title: 'Sustainability & Life Sciences' },
-                { id: 'soc',  title: 'Social Sciences & Governance' },
+                { id: 'all', title: 'All Journals' },
+                { id: 'tech', title: 'AI & Technology' },
+                { id: 'env',  title: 'Health & Sustainability' },
+                { id: 'soc',  title: 'Policy, Education & Society' },
                 { id: 'arts', title: 'Humanities & Arts' }
             ];
 
@@ -218,43 +282,176 @@
             }
 
             const wrapper = document.getElementById('journal-wrapper');
-            CATEGORIES.forEach(cat => {
-                const catJournals = JOURNALS.filter(j => j.group === cat.id);
-                if (!catJournals.length) return;
+            const searchInput = document.getElementById('journal-search');
+            const filterHost = document.getElementById('journal-filters');
+            const resultsCount = document.getElementById('results-count');
+            const articleList = document.getElementById('recent-article-list');
+            const articleStatus = document.getElementById('article-status');
+            let activeGroup = 'all';
 
-                const sectionDiv = document.createElement('section');
-                sectionDiv.className = 'journal-group';
+            function escapeHTML(value) {
+                return String(value || '').replace(/[&<>"']/g, char => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[char]));
+            }
 
-                const leftCol = document.createElement('div');
-                leftCol.className = 'journal-group-title';
-                leftCol.innerHTML = `<h3>${cat.title}</h3><p>Department Repository</p>`;
+            function formatArticleDate(value) {
+                if (!value) return '';
+                const parsed = new Date(`${value}T00:00:00`);
+                if (Number.isNaN(parsed.getTime())) return value;
+                return new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }).format(parsed);
+            }
 
-                const rightCol = document.createElement('div');
-                rightCol.className = 'journal-grid';
+            function doiHref(doi) {
+                if (!doi) return '';
+                return /^https?:\/\//i.test(doi) ? doi : `https://doi.org/${doi.replace(/^doi:\s*/i, '')}`;
+            }
 
-                catJournals.forEach(j => {
-                    const card = document.createElement('article');
-                    card.className = 'journal-card';
-                    card.innerHTML = `
-                        <div class="journal-meta">
-                            <span class="tag">${j.cat}</span>
-                            <span class="issn">ISSN: ${j.issn}</span>
+            function renderRecentArticles(payload) {
+                if (!articleList) return;
+                const articles = Array.isArray(payload && payload.articles) ? payload.articles : [];
+                articleList.innerHTML = '';
+
+                if (!articles.length) {
+                    articleList.innerHTML = '<div class="empty-state">No recent article records are available.</div>';
+                    if (articleStatus) articleStatus.textContent = 'OAI feed returned no article records.';
+                    return;
+                }
+
+                articles.forEach((article, index) => {
+                    const authors = Array.isArray(article.authors) ? article.authors.filter(Boolean) : [];
+                    const visibleAuthors = authors.slice(0, 6).join(', ');
+                    const authorLine = authors.length > 6 ? `${visibleAuthors}, et al.` : visibleAuthors;
+                    const metaParts = [article.journal, formatArticleDate(article.publishedAt), article.pages ? `pp. ${article.pages}` : ''].filter(Boolean);
+                    const item = document.createElement('article');
+                    item.className = 'article-item';
+                    item.innerHTML = `
+                        <div class="article-rank">${String(index + 1).padStart(2, '0')}</div>
+                        <div class="article-main">
+                            <div class="article-labels">
+                                <span>Open Access</span>
+                                <span>OAI Record</span>
+                            </div>
+                            <h3>${escapeHTML(article.title)}</h3>
+                            <p class="article-authors">${escapeHTML(authorLine || 'Editorial record')}</p>
+                            <p class="article-meta">${escapeHTML(metaParts.join(' · '))}</p>
+                            ${article.issue ? `<p class="article-issue">${escapeHTML(article.issue)}</p>` : ''}
                         </div>
-                        <div class="journal-cover">
-                            <img src="${baseImgUrl + j.img}" loading="lazy" alt="${j.title}" onerror="this.style.opacity=0.25">
-                        </div>
-                        <h4>${j.title}</h4>
-                        <div class="journal-links">
-                            <a href="https://journals.panorama-sg.com/index.php/${j.slug}">Portal</a>
-                            <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission">Submit</a>
+                        <div class="article-actions">
+                            ${article.url ? `<a href="${escapeHTML(article.url)}" target="_blank" rel="noopener">Full Text</a>` : ''}
+                            ${article.doi ? `<a href="${escapeHTML(doiHref(article.doi))}" target="_blank" rel="noopener">DOI</a>` : ''}
                         </div>
                     `;
-                    rightCol.appendChild(card);
+                    articleList.appendChild(item);
                 });
 
-                sectionDiv.append(leftCol, rightCol);
-                wrapper.appendChild(sectionDiv);
-            });
+                if (articleStatus) {
+                    const harvested = payload.harvestedAt ? `Last OAI harvest: ${payload.harvestedAt.replace('T', ' ').replace('Z', ' UTC')}` : 'OAI records loaded.';
+                    const total = payload.totalRecordsHarvested ? ` ${payload.totalRecordsHarvested} records scanned.` : '';
+                    articleStatus.textContent = `${harvested}.${total}`;
+                }
+            }
+
+            if (articleList) {
+                fetch('data/selected-recent-articles.json', { cache: 'no-store' })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Article data unavailable');
+                        return response.json();
+                    })
+                    .then(renderRecentArticles)
+                    .catch(() => {
+                        articleList.innerHTML = '<div class="empty-state">Recent article data could not be loaded. Run scripts/fetch-selected-recent-articles.ps1 to refresh the OAI cache.</div>';
+                        if (articleStatus) articleStatus.textContent = 'OAI article cache unavailable.';
+                    });
+            }
+
+            if (filterHost) {
+                filterHost.innerHTML = CATEGORIES.map((cat, index) => `
+                    <button type="button" class="${index === 0 ? 'active' : ''}" data-group="${cat.id}">${cat.title}</button>
+                `).join('');
+            }
+
+            function matchesSearch(journal, query) {
+                if (!query) return true;
+                const haystack = `${journal.id} ${journal.title} ${journal.cat} ${journal.issn} ${journal.group}`.toLowerCase();
+                return haystack.includes(query);
+            }
+
+            function renderJournals() {
+                const query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
+                wrapper.innerHTML = '';
+                let renderedCount = 0;
+
+                CATEGORIES.filter(cat => cat.id !== 'all').forEach(cat => {
+                    const catJournals = JOURNALS.filter(j => {
+                        const groupMatch = activeGroup === 'all' || j.group === activeGroup;
+                        return j.group === cat.id && groupMatch && matchesSearch(j, query);
+                    });
+                    if (!catJournals.length) return;
+
+                    renderedCount += catJournals.length;
+                    const sectionDiv = document.createElement('section');
+                    sectionDiv.className = 'journal-group';
+
+                    const leftCol = document.createElement('div');
+                    leftCol.className = 'journal-group-title';
+                    leftCol.innerHTML = `<h3>${cat.title}</h3><p>${catJournals.length} journal${catJournals.length === 1 ? '' : 's'}</p>`;
+
+                    const rightCol = document.createElement('div');
+                    rightCol.className = 'journal-grid';
+
+                    catJournals.forEach(j => {
+                        const card = document.createElement('article');
+                        card.className = 'journal-card';
+                        card.innerHTML = `
+                            <div class="journal-meta">
+                                <span class="tag">${j.cat}</span>
+                                <span class="issn">ISSN: ${j.issn}</span>
+                            </div>
+                            <div class="journal-cover">
+                                <img src="${baseImgUrl + j.img}" loading="lazy" alt="${j.title}" onerror="this.style.opacity=0.25">
+                            </div>
+                            <h4>${j.title}</h4>
+                            <div class="journal-links">
+                                <a href="https://journals.panorama-sg.com/index.php/${j.slug}">Portal</a>
+                                <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission">Submit</a>
+                            </div>
+                        `;
+                        rightCol.appendChild(card);
+                    });
+
+                    sectionDiv.append(leftCol, rightCol);
+                    wrapper.appendChild(sectionDiv);
+                });
+
+                if (resultsCount) {
+                    resultsCount.textContent = `${renderedCount} journal${renderedCount === 1 ? '' : 's'} shown`;
+                }
+
+                if (!renderedCount) {
+                    wrapper.innerHTML = '<div class="empty-state">No journals match the current search.</div>';
+                }
+            }
+
+            if (filterHost) {
+                filterHost.addEventListener('click', function(event) {
+                    const button = event.target.closest('button[data-group]');
+                    if (!button) return;
+                    activeGroup = button.dataset.group;
+                    filterHost.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
+                    renderJournals();
+                });
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', renderJournals);
+            }
+
+            renderJournals();
         });
     </script>
 </body>

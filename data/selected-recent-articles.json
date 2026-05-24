@@ -1,0 +1,164 @@
+{
+    "harvestedAt":  "2026-05-24T14:46:59Z",
+    "sourceEndpoint":  "https://journals.panorama-sg.com/index.php/index/oai",
+    "totalRecordsHarvested":  161,
+    "futureRecordsExcluded":  1,
+    "articles":  [
+                     {
+                         "title":  "Steroid-Eluting Implants for Chronic Rhinosinusitis with nasal polyps: A Comparative Review of Propel and Sinuva for Post-Endoscopic sinus surgery management",
+                         "authors":  [
+                                         "Siddiqui, Muhammad Khurshid",
+                                         "Anzar, Muhammad",
+                                         "Hasan, Ahmed",
+                                         "Shahid, Abdul Hadi",
+                                         "Hashmi, Syed Qasim"
+                                     ],
+                         "journal":  "Health Nexus",
+                         "issue":  "Vol. 2 (2026): Focus on Healthy Aging and Chronic Disease Prevention",
+                         "pages":  "40-50",
+                         "publishedAt":  "2026-05-14",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/154",
+                         "doi":  "10.63802/hn.V2.2026.154",
+                         "abstract":  "Objective: To synthesize current evidence on steroid-eluting sinus implants for chronic rhinosinusitis with nasal polyps (CRSwNP), focusing on the FDA-approved SINUVA and PROPEL devices and comparing their drug-release profiles, clinical outcomes, and practical applications. Methods: A narrative review of randomized trials, prospective studies, pharmacokinetic analyses, and safety data evaluating SINUVA and PROPEL in postoperative or recurrent CRSwNP. Results: Both implants improved nasal obstruction, polyp burden, mucosal inflammation, and endoscopic healing. SINUVA delivers 1350 μg of mometasone furoate over 90 days and reduced revision endoscopic sinus surgery rates by up to 60% in controlled trials, supporting its use in recurrent postoperative disease with in-office placement. PROPEL releases 370 μg over 30 days and consistently reduced postoperative inflammation, adhesions, and the need for additional interventions across multiple randomized studies. Both devices demonstrated favorable safety profiles with low rates of serious adverse events. Evidence on cost-effectiveness and long-term outcomes remains limited. Conclusion: SINUVA and PROPEL provide clinically meaningful benefit in selected patients with postoperative or recurrent CRSwNP. Differences in release duration, implant design, and placement setting support personalized device selection rather than superiority of one implant. Further independent comparative trials and long-term health-economic evaluations are needed."
+                     },
+                     {
+                         "title":  "Algorithmic Resonance: AI-Driven Curation, Musical Taste, Identity, and Global Cultural Flows",
+                         "authors":  [
+                                         "He, Haoyang"
+                                     ],
+                         "journal":  "Resonance: Journal of Global Music Studies",
+                         "issue":  "Vol. 2 No. 1 (2026): Volume 2, Number 1, June 2026",
+                         "pages":  "24-34",
+                         "publishedAt":  "2026-05-10",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/254",
+                         "doi":  "10.63802/rjgms.V2.I1.254",
+                         "abstract":  "Algorithmic curation systems have become an important part of contemporary music platforms, mediating how listeners discover, classify, and engage with sound. This article examines how recommendation infrastructures on Spotify, TikTok, and Douyin participate in the organization of musical taste, identity negotiation, and transnational circulation. Bringing together platform studies, cultural sociology, and qualitative evidence from interviews, platform observations, and case-tracing materials, the study develops algorithmic resonance as a conceptual framework for explaining how engagement signals, platform optimization, and repeated exposure become linked in music culture. The analysis identifies three dynamics: path-dependent taste stabilization, optimization-oriented creative production, and affinity-based global circulation. Rather than claiming direct causal access to proprietary algorithms, the article offers an interpretive account of how platform-visible interfaces, creator practices, and user reflections reveal recurring feedback loops between behavior, visibility, and cultural value. It contributes to debates on algorithmic culture by showing that recommendation systems do not merely distribute music; they help organize the temporal, affective, and infrastructural conditions through which music becomes familiar, valuable, and socially meaningful."
+                     },
+                     {
+                         "title":  "Freedom in the Sound of Tides",
+                         "authors":  [
+                                         "Zhang, Linxi",
+                                         "张麟溪"
+                                     ],
+                         "journal":  "Resonance: Journal of Global Music Studies",
+                         "issue":  "Vol. 2 No. 1 (2026): Volume 2, Number 1, June 2026",
+                         "pages":  "17-23",
+                         "publishedAt":  "2026-04-26",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/310",
+                         "doi":  "10.63802/rjgms.V2.I1.310",
+                         "abstract":  "This poem begins from an embodied experience of standing by the sea and explores freedom as something sensed through the body and heard through sound, rather than treated as an abstract ideal. Through wind, tides, sand, seabirds, and changing light, it connects the repetition of the sea with inner resonance and human longing for openness and release. In this way, the poem seeks to engage broader conversations in music and sound studies on rhythm, environmental listening, echo, and affective space."
+                     },
+                     {
+                         "title":  "MMCCT: A Multi-Medium Framework for Distributed Climate Intelligence and Bounded Local Climate Regulation",
+                         "authors":  [
+                                         "Song, Chengwen",
+                                         "Huang, Pengrong"
+                                     ],
+                         "journal":  "Climate Sustainability \u0026 Global Systems",
+                         "issue":  "Vol. 1 No. 1 (2026)",
+                         "pages":  "25-36",
+                         "publishedAt":  "2026-04-21",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/274",
+                         "doi":  "10.63802/csgs.V1.I1.274",
+                         "abstract":  "Climate monitoring still depends primarily on satellite remote sensing and fixed ground-station networks. These systems provide indispensable regional coverage and long time series, but they often lack the spatial and cross-medium resolution needed to identify micro-scale climate anomalies in dense urban districts, industrial interfaces, wetland edges, and other heterogeneous environments. Many such anomalies arise from coupled interactions among atmosphere, water, land surface, and human infrastructure rather than from isolated atmospheric change. This article proposes Multi-Medium Coordinated Climate Control Theory (MMCCT) as a conceptual framework for distributed environmental sensing and bounded cross-medium climate regulation. MMCCT defines climate as a four-medium system composed of the atmosphere, hydrosphere, land surface, and anthropogenic system. It then organizes climate intelligence through three layers: an environmental media system that identifies critical interface zones, a distributed sensing network combining UAV monitoring nodes, nano environmental sensors, and ground IoT stations, and an intelligence and coordination system for data fusion, anomaly detection, and adaptive intervention support. The framework advances a monitoring-to-governance sequence of sensing, diagnosis, coordinated response, and recursive feedback learning. Rather than claiming deterministic control over climate, MMCCT focuses on actionable local and regional variables such as shading, ventilation, irrigation, water retention, surface treatment, and emissions management. As a Methods \u0026amp; Frameworks contribution, the article formulates three research questions, specifies the theoretical mechanism of MMCCT, and outlines a validation strategy based on simulation modelling, UAV field experiments, and multi-source data integration. The framework offers a theoretical foundation for next-generation climate intelligence infrastructures in urban and regional environmental governance."
+                     },
+                     {
+                         "title":  "Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework",
+                         "authors":  [
+                                         "Song, Chengwen",
+                                         "Ma, Siheng",
+                                         "Rousitanmu, Gulifeire",
+                                         "He, Yuxuan",
+                                         "Lu, Yunze",
+                                         "Fang, Jialuo",
+                                         "Li, Jiayi",
+                                         "Zhu, Zhili",
+                                         "Wang, Qilong",
+                                         "Zhang, Xingkai",
+                                         "Dong, Wanlin",
+                                         "Shao, Yufei"
+                                     ],
+                         "journal":  "Health Nexus",
+                         "issue":  "Vol. 2 (2026): Focus on Healthy Aging and Chronic Disease Prevention",
+                         "pages":  "24-39",
+                         "publishedAt":  "2026-04-19",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/308",
+                         "doi":  "10.63802/hn.V2.2026.308",
+                         "abstract":  "Background: The COVID-19 pandemic exposed deep structural weaknesses in public health systems across the world, including fragmented surveillance, fragile service capacity, inconsistent risk communication, and persistent health inequities. At the same time, the climate crisis is intensifying heat-related illness, vector-borne disease, extreme weather disruptions, displacement, and pressures on health infrastructure and workforces. Contemporary health threats are increasingly converging rather than isolated. Methods: Drawing on a conceptual synthesis of COVID-19 lessons, health system resilience scholarship, and recent guidance from the World Health Organization and the IPCC, this article develops the Integrated Climate-Sensitive Public Health Resilience (ICPHR) Framework, a four-dimensional and system-based model organized around preparedness, absorption, adaptation, and recovery. Results: The framework conceptualizes resilience as a dynamic and cyclical process through which public health systems anticipate, withstand, learn from, and transform after shocks while maintaining essential functions. The analysis identifies five strategic pathways for resilient system transformation: integrated surveillance and early warning, stronger primary health care, trust-based risk communication, equity-centered design, and cross-sectoral governance. Conclusions: Resilience in the coming decade must be climate-sensitive, institutionally embedded, and oriented toward long-term system transformation rather than temporary emergency response. Unlike existing models, the proposed framework explicitly integrates climate-sensitive risks into a cyclical and system-based structure. This framework provides actionable insights for public health system strengthening, particularly in integrating pandemic preparedness with climate-sensitive health risk management. Public health resilience should become the central paradigm guiding health system transformation in an era of converging global crises."
+                     },
+                     {
+                         "title":  "AI literacy beyond tools: Safeguarding human judgment in research and higher education",
+                         "authors":  [
+                                         "Weng, Yueh-Sung"
+                                     ],
+                         "journal":  "AI \u0026 Future Society",
+                         "issue":  "Vol. 2 No. 1 (2026): AI, Ethics, and Future Society: Governance, Education, and Human–AI Relations",
+                         "pages":  "35-44",
+                         "publishedAt":  "2026-04-08",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/207",
+                         "doi":  "10.63802/afs.V2.I1.207",
+                         "abstract":  "Artificial intelligence has emerged as a pioneering tool for assisting researchers and students in conducting complex tasks, including designing questionnaires, proofreading academic works, and rebutting reviewers’ criticisms. Beyond being a tool, this advanced technology highlights its impact on the future of research and education and makes the audience feel that their engagement with AI is necessary. However, AI-related ethical issues arise when people apply AI in their learning and research, especially when it involves sensitive information in humanities and social sciences and questions users’ epistemic positions and reflexivity of their studies. The contribution of AI literacy has not yet been fully recognized, as current studies focus on the AI models’ competencies rather than on human capabilities to adapt AI technologies for educational and research purposes in responsible, ethical, and comprehensive ways. This article first discusses the role of AI literacy in academia and higher education. Then, it examines four controversial AI ethical issues that potentially jeopardize research and learning, including biases in AI, sycophantic chatbot services, inaccuracy, randomness, and ethical concerns of AI models’ outputs. This article represents a further step toward developing clear AI literacy guidelines, assuring that audiences’ skills and judgment remain central to responsible AI use."
+                     },
+                     {
+                         "title":  "A Modeling Framework and Qualitative Evaluation Pathway for Multimodal Knowledge Graphs Empowering the Inheritance of Tibetan–Qiang–Yi Intangible Cultural Heritage Dance",
+                         "authors":  [
+                                         "Shi, Qin",
+                                         "Li, Yuxuan",
+                                         "石, 钦"
+                                     ],
+                         "journal":  "Global Review of Humanities, Arts, and Society",
+                         "issue":  "卷 2 期 2 (2026): Digital Preservation and Multimodal Knowledge Modeling of Tibetan–Qiang–Yi Intangible Cultural Heritage Dance",
+                         "pages":  "1-7",
+                         "publishedAt":  "2026-04-06",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/252",
+                         "doi":  "10.63802/grhas.V2.I2.252",
+                         "abstract":  "Tibetan–Qiang–Yi intangible cultural heritage dances convey rich cultural meanings through embodied movement, rhythm, costumes, and ritual settings. However, short-video dissemination often leads to decontextualization, fragmentation, and superficial learning, which weakens the inheritance of dance traditions. To address the difficulty of representing processual dance knowledge with a single medium, this paper proposes a multimodal knowledge graph framework for Tibetan–Qiang–Yi ICH dance. Using “movement–context unit” as the basic granularity, we construct temporal, spatial, and dynamic relational structures, and apply an evidence-chain mechanism to link multimodal materials with assertion nodes, thus preserving lineage variants and polyvocal interpretations. Pedagogical translation, which converts dance analytic language into executable training narratives, is integrated to support practical teaching. Furthermore, we design a qualitative evaluation pathway that operationalizes teachability, transmissibility, explainability, and correctability into observable indicators and assessment outputs. This framework provides a feasible approach for classroom training, community co-maintenance, and communication governance of ICH dance inheritance."
+                     },
+                     {
+                         "title":  "When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University",
+                         "authors":  [
+                                         "Lenz, Sebastian",
+                                         "Song, Chengwen",
+                                         "Shi, Qin"
+                                     ],
+                         "journal":  "Silence",
+                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
+                         "pages":  "72-77",
+                         "publishedAt":  "2026-04-05",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/299",
+                         "doi":  "10.63802/silence.V1.I1.299",
+                         "abstract":  "This article offers a critical reverse review of the contemporary order of academic evaluation. Rather than asking whether university rankings and journal classification systems accurately describe academic quality, it asks what happens to universities once these instruments begin to define quality in practice. The central argument is that rankings and journal tiers do not merely measure academic life; they reorganize it. Through the language of performance, visibility, and comparison, they reorder institutional priorities, privilege strategic behavior over educational substance, and transform scholarly judgment into a competition for recognizable status signals. Drawing on scholarship on rankings and reactivity, audit culture, academic capitalism, responsible metrics, and cultural capital, the article develops a five-part argument. First, the expansion of performance governance has displaced older understandings of the university centered on teaching, intellectual formation, and the public cultivation of judgment. Second, rankings operate less as mirrors than as machines: they reshape organizational behavior by rewarding commensurable and publicly legible outputs. Third, journal stratification encourages a substitution in which where research is published begins to matter more than what it says. Fourth, these evaluative systems intensify existing inequalities because actors with more time, networks, language resources, and institutional prestige are better positioned to convert indicators into recognition. Finally, the article argues that evaluation becomes most damaging when proxies cease to be auxiliary tools and become sovereign criteria. Methodologically, the essay proceeds as a metacritical review: it synthesizes existing literature not to stabilize an orthodox consensus, but to reassess the evaluative paradigm itself and to clarify the intellectual costs of allowing proxies to govern academic life. The essay does not reject evaluation as such. It argues instead for a recovery of the university as a public institution whose most important goods, including intellectual seriousness, pedagogical attention, and slow inquiry, cannot be exhausted by ranking positions or journal labels."
+                     },
+                     {
+                         "title":  "Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness",
+                         "authors":  [
+                                         "Song, Chengwen",
+                                         "Zeng, Xinhuan",
+                                         "Zhang, Xuzhuo",
+                                         "宋成文",
+                                         "曾心煥",
+                                         "張旭卓"
+                                     ],
+                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
+                         "issue":  "Vol. 2 (2026): Ming Dynasty Classic Literature, Thought, and Three Teachings Traditions：明代經典文學、思想與三教傳統",
+                         "pages":  "1-5",
+                         "publishedAt":  "2026-04-03",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/298",
+                         "doi":  "10.63802/tts.V2.2026.298",
+                         "abstract":  "This article argues that “illusion” in Hongloumeng should not be reduced to Buddhist emptiness. Although Buddhist notions of emptiness, karmic retribution, and salvation are indispensable to the novel, they fail to fully account for the novel’s underlying narrative logic. Combining conceptual comparison, intellectual history, and close reading, this study distinguishes Daoist “illusion” from Buddhist “emptiness” not merely at the level of doctrine but in terms of ontological instability, epistemic orientation, and textual function. In Daoist thought, especially in the Zhuangzi, illusion is bound up with transformation, perspectival instability, and the fluidity of truth and falsity; in Buddhist thought, emptiness centers on dependent origination, non-self-nature, and the removal of attachment, ultimately pointing toward liberation. Read from this perspective, the mythic prologue, Zhen Shiyin’s dream, the Land of Illusion, the system of prophecies, the line “when false is taken for true, true becomes false,” and the relation between Jia Baoyu and the jade all suggest that “illusion” in Hongloumeng functions primarily as a structural narrative principle and an epistemological device rather than as a straightforward doctrinal statement. At the same time, Buddhism remains crucial to the novel’s moral and eschatological horizon, especially in its language of disenchantment, karmic consequence, and ultimate withdrawal. Even so, a predominantly Buddhist model leaves several major textual phenomena insufficiently explained, including the novel’s investment in perspectival shifts, symbolic differentiation, and unstable modes of being. Hongloumeng should therefore be understood not as an undifferentiated synthesis of Buddhism and Daoism, but as a composite text marked by a form of relative Daoist structural dominance and Buddhist permeation."
+                     },
+                     {
+                         "title":  "Why did I stop wanting to sound certain?",
+                         "authors":  [
+                                         "Lei, Zhihao"
+                                     ],
+                         "journal":  "Silence",
+                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
+                         "pages":  "69-71",
+                         "publishedAt":  "2026-04-03",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/279",
+                         "doi":  "10.5281/zenodo.19399076",
+                         "abstract":  "This reflective essay examines the culture of certainty in academic writing and the intellectual costs of equating authority with confidence. Beginning from a personal experience of revising a manuscript into increasingly polished but less honest prose, the essay considers how scholarly communication often rewards statements that sound definitive even when the underlying research process is hesitant, partial, and unresolved. Rather than rejecting rigor, the text argues for a more responsible relationship between knowledge and uncertainty—one that recognizes hesitation not as weakness but as an epistemic condition of serious inquiry. By exploring the difference between clarity and false closure, the essay proposes that uncertainty can function as a legitimate scholarly posture and that reflective forms of writing have a role in making research more transparent, humane, and intellectually trustworthy."
+                     }
+                 ]
+}
