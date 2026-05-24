@@ -1,0 +1,286 @@
+{
+    "harvestedAt":  "2026-05-24T15:01:27Z",
+    "sourcePublisher":  "Panorama Scholarly Group",
+    "metadataSource":  "Panorama journal article records",
+    "selectionMode":  "daily-random-from-recent-panorama-publications",
+    "randomSeed":  20260525,
+    "totalRecordsHarvested":  161,
+    "futureRecordsExcluded":  1,
+    "recentPoolLimit":  100,
+    "recentPoolSize":  100,
+    "selectedArticleCount":  20,
+    "articles":  [
+                     {
+                         "title":  "Recognising Love Across Cultures: A Cross-Cultural Extension of the Love Confirmation Mechanism Model",
+                         "authors":  [
+                                         "Song, Chengwen"
+                                     ],
+                         "journal":  "Journal of Social Cognition and Communication",
+                         "issue":  "Vol. 1 No. 1 (2026): Advances in Social Cognition and Communication",
+                         "pages":  "10-21",
+                         "publishedAt":  "2026-03-24",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/290",
+                         "doi":  "10.63802/jscc.V1.I1.290",
+                         "abstract":  "Love is a central concern in psychology, sociology, and cultural studies, yet existing scholarship has concentrated far more on what love consists of than on the epistemic problem of how actors know, judge, and validate that love is present. Structural theories have clarified the components of love, experiential theories have examined attachment and affect, and cultural approaches have analysed romantic discourse and symbolic expression. Much less attention has been given to the interpretive process through which individuals decide that a feeling, relationship, or social bond should count as love. Building on song2025\u0027s Love Confirmation Mechanism (LCM), this article advances the Love Confirmation Mechanism Model (LCMM) as a cross-cultural theoretical extension. The core argument is that love is not simply an internal emotional state but a socially interpretable phenomenon confirmed through multiple forms of evidence. The model identifies four domains of confirmatory signals: affective, relational, symbolic, and institutional. These signals do not possess fixed meaning. Rather, they are interpreted through culturally organised frameworks that shape how actors weigh emotional intensity, behavioural consistency, romantic symbolism, and social legitimacy. By shifting analytic attention from the ontology of love to the epistemology of love recognition, the LCMM makes three contributions. First, it theorises love recognition as a distinct process linking private feeling, interpersonal interpretation, and social validation. Second, it extends the LCM by specifying a multi-signal architecture of confirmation and by distinguishing intrapersonal, interpersonal, and social levels of recognition. Third, it provides a comparative framework for explaining why the same relational act may confirm love in one cultural setting but not in another, while also clarifying how love may be under-recognised, over-recognised, or contested when signals are incongruent or differently weighted. The article concludes by outlining implications for cross-cultural intimacy research, communication studies, and future empirical work on romantic legitimacy."
+                     },
+                     {
+                         "title":  "乡村治理的分寸感：再评“防止规模性返乡滞乡”: The Sense of Proportion in Rural Governance: Rethinking the Policy of \"Preventing Large-Scale Return and Settlement in the Countryside\"",
+                         "authors":  [
+                                         "Yang, Yiming"
+                                     ],
+                         "journal":  "乡村善治与绿色发展",
+                         "issue":  "卷 1 (2025): 乡村治理现代化与绿色转型路径探索 : Pathways to Rural Governance Modernization and Green Transformation",
+                         "pages":  "Ⅰ-Ⅲ",
+                         "publishedAt":  "2025-11-28",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/180",
+                         "doi":  "10.63802/rggd.V1.2025.180",
+                         "abstract":  "2025年11月，农业农村部提出“防止形成规模性返乡滞乡”的政策表述，引发社会广泛讨论。本文指出，该政策并非限制农民工返乡的权利，而是着眼于防范因返乡后就业困难所导致的返贫风险。在当前城市就业空间受限、乡村产业承载力不足的背景下，公众对自身生存路径的焦虑日益加剧。文章主张，治理实践应在保障人口流动自由的前提下，提升县域经济“吸纳力”，通过产业扶持、技能培训与返乡创业支持等措施，赋予返乡以发展的可能，使其成为一种体面而可持续的选择，从而体现治理的温度与分寸。 In November 2025, the Chinese Ministry of Agriculture and Rural Affairs emphasized the need to “prevent large-scale return and settlement in the countryside,” sparking widespread public debate. This article argues that the policy aims not to restrict rural migrant workers from returning home, but rather to prevent poverty resurgence due to unemployment after return. Amid economic pressures and shrinking urban job opportunities, the mismatch between urban exclusion and insufficient rural capacity has intensified public anxiety. The article advocates for governance that respects citizens\u0027 migration rights and promotes rural job creation through county-level industrial development, vocational training, and entrepreneurial support. Only when returning to the countryside becomes a dignified and viable choice can the debate over governance boundaries find resolution."
+                     },
+                     {
+                         "title":  "Development and Empirical Study of a Multimodal Educational Agent System in Metaverse for Engineering Education Digital Transformation​",
+                         "authors":  [
+                                         "Xie, Tongwei"
+                                     ],
+                         "journal":  "Journal of Engineering Systems and Applications",
+                         "issue":  "Vol. 1 (2025): Inaugural Issue: Foundations of Interdisciplinary Engineering Systems",
+                         "pages":  "42-49",
+                         "publishedAt":  "2025-11-29",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/151",
+                         "doi":  "10.63802/jesa.V1.2025.151",
+                         "abstract":  "Against the backdrop of digital transformation in higher education, engineering education faces critical challenges including the theory-practice divide and high barriers to technical tool adoption. This study develops a tripartite framework (\"functional deconstruction-process modeling-data governance\") for educational agent systems, which is built upon the Coze platform and rigorously aligned with the standards of China\u0027s Emerging Engineering Education (3E) initiative—for deployment in metaverse learning environments. By implementing multimodal interaction and adaptive decision-making mechanisms via three agent roles (teaching assistant/learning companion/management agent), we construct an immersive learning ecosystem and establish a context-aware paradigm for intelligent interactive education tailored to Chinese engineering education contexts. This research pioneers an innovative approach to cultivating engineering talent for the AI era through transformative learning methodologies."
+                     },
+                     {
+                         "title":  "Integrating Artificial Intelligence into Middle School Education: Pathways, Challenges, and an Ethical Reappraisal from a Practitioner-Scholar Perspective",
+                         "authors":  [
+                                         "Zhang, Xiaoling",
+                                         "Xu, Wenwen"
+                                     ],
+                         "journal":  "AI \u0026 Future Society",
+                         "issue":  "Vol. 2 No. 1 (2026): AI, Ethics, and Future Society: Governance, Education, and Human–AI Relations",
+                         "pages":  "11-18",
+                         "publishedAt":  "2026-02-09",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/198",
+                         "doi":  "10.63802/afs.V2.I1.198",
+                         "abstract":  "The rapid advancement of Artificial Intelligence (AI) has accelerated its transition in education from conceptual debate to practical classroom implementation. As a pivotal stage in the formation of students’ cognitive structures, learning habits, and value orientations, middle school education occupies a particularly sensitive position in this transformation. Introducing AI at this level offers significant potential to enhance instructional precision and learning efficiency. At the same time, it raises critical concerns related to educational equity, the redefinition of teachers’ professional roles, and the ethical dimensions of technology adoption. Drawing on the authors’ practical experience as middle school mathematics teachers and school administrators and informed by recent scholarship from both domestic and international contexts, this study provides a systematic overview of current AI applications in middle school settings. It examines feasible approaches to the use of AI in personalized instruction, classroom management, assessment practices, and educational resource allocation. Furthermore, from the perspectives of educational ethics and institutional governance, the paper critically analyzes emerging risks, including student data privacy, algorithmic bias, the expansion of the digital divide, and shifts in teacher–student relationships. The study argues that the sustainable and responsible integration of AI in middle school education cannot be achieved through technological advancement alone. Instead, it requires a holistic governance framework that is student-centered, teacher-led, and firmly grounded in ethical principles. Such a framework is essential to ensure that AI functions as an enabling tool for education rather than a source of fragmentation within the teaching and learning process."
+                     },
+                     {
+                         "title":  "Algorithmic Resonance: AI-Driven Curation, Musical Taste, Identity, and Global Cultural Flows",
+                         "authors":  [
+                                         "He, Haoyang"
+                                     ],
+                         "journal":  "Resonance: Journal of Global Music Studies",
+                         "issue":  "Vol. 2 No. 1 (2026): Volume 2, Number 1, June 2026",
+                         "pages":  "24-34",
+                         "publishedAt":  "2026-05-10",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/254",
+                         "doi":  "10.63802/rjgms.V2.I1.254",
+                         "abstract":  "Algorithmic curation systems have become an important part of contemporary music platforms, mediating how listeners discover, classify, and engage with sound. This article examines how recommendation infrastructures on Spotify, TikTok, and Douyin participate in the organization of musical taste, identity negotiation, and transnational circulation. Bringing together platform studies, cultural sociology, and qualitative evidence from interviews, platform observations, and case-tracing materials, the study develops algorithmic resonance as a conceptual framework for explaining how engagement signals, platform optimization, and repeated exposure become linked in music culture. The analysis identifies three dynamics: path-dependent taste stabilization, optimization-oriented creative production, and affinity-based global circulation. Rather than claiming direct causal access to proprietary algorithms, the article offers an interpretive account of how platform-visible interfaces, creator practices, and user reflections reveal recurring feedback loops between behavior, visibility, and cultural value. It contributes to debates on algorithmic culture by showing that recommendation systems do not merely distribute music; they help organize the temporal, affective, and infrastructural conditions through which music becomes familiar, valuable, and socially meaningful."
+                     },
+                     {
+                         "title":  "Research on the Mechanisms and Strategies of Financial Product Innovation in Chinese Commercial Banks under the Background of Digital Finance",
+                         "authors":  [
+                                         "Zhou, Wenlu",
+                                         "Chen, Ting"
+                                     ],
+                         "journal":  "Global Review of Humanities, Arts, and Society",
+                         "issue":  "卷 1 期 5 (2025): Embodied Practices, Cultural Transmission, and Systemic Innovation in the Context of Digital Transformation",
+                         "pages":  "22-30",
+                         "publishedAt":  "2025-11-30",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/168",
+                         "doi":  "10.63802/grhas.V1.I5.168",
+                         "abstract":  "With the rapid development of digital finance, commercial banks face growing pressures from fintech firms, internet platforms, and shifting customer demands. Against this backdrop, this study develops a theoretical framework grounded in dynamic capability and institutional theories. The framework highlights external drivers, internal transmission mechanisms, and capability reconfiguration, and examines how these elements jointly shape the mechanisms and pathways of financial product innovation in commercial banks. The study finds that technological advancement, industry competition, and evolving customer needs serve as the primary external drivers of financial product innovation in commercial banks, while strategic orientation and organizational restructuring function as the key internal innovation pathways. These pathways enable banks to reconfigure three core capabilities, including data-driven operations, agile innovation, and ecosystem cooperation. These capabilities facilitating a shift from incremental business optimization to comprehensive digital system redesign. In addition, the study identifies major challenges related to technological iteration, data governance, organizational structure, market competition, and customer service. It proposes a set of integrated innovation strategies, including modernization of technological architecture, enhanced data governance, organizational–talent alignment, business model transformation, and customer service enhancement. The research concludes that banks should approach digital transformation from a strategic perspective, strengthen innovation culture, and build organizational capabilities to achieve sustainable financial product innovation and long-term competitive advantage."
+                     },
+                     {
+                         "title":  "A Study of Equity Inheritance and Shareholder Qualification Issues Under Chinese Corporate Law",
+                         "authors":  [
+                                         "Wang, Kexin"
+                                     ],
+                         "journal":  "Journal of Law, Psychology, and Communication Studies",
+                         "issue":  "Vol. 2 No. 1 (2026): 法律、治理与数字社会：跨学科研究视野 / Law, Governance, and Digital Society: Interdisciplinary Perspectives",
+                         "pages":  "35-43",
+                         "publishedAt":  "2025-12-20",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/84",
+                         "doi":  "10.63802/jlpcs.V2.I1.84",
+                         "abstract":  "This study examines legal challenges in equity inheritance and shareholder qualification under Chinese company law. As limited liability companies dominate and founders age, unresolved succession issues emerge. The research clarifies the conceptual distinction between equity (a blend of property and identity rights) and shareholder qualification (a mechanism for rights execution). Using normative legal analysis, comparative law, and case studies from China, the UK, US, Germany, and France, the study identifies systemic flaws—especially judicial inconsistencies and vague company articles. It proposes a dual-track inheritance system: internal effectiveness at death and external effectiveness upon registration. This balances inheritance protection with transactional security. The paper further advocates shifting from equity transfer theory to equity succession theory, emphasizing that inheritance is a legal fact triggered by death, not a consensual act. Standardizing company articles is also urged to better accommodate inheritance, reduce disputes, and offer procedural clarity. The findings advance theoretical discourse and offer practical reforms for courts, businesses, and families."
+                     },
+                     {
+                         "title":  "Perception of Flux: A Study of Choreography and Bodily Consciousness under Socio-Ecological Changes",
+                         "authors":  [
+                                         "Lin, Zhiyi",
+                                         "Shi, Keyu"
+                                     ],
+                         "journal":  "Global Review of Humanities, Arts, and Society",
+                         "issue":  "卷 1 期 5 (2025): Embodied Practices, Cultural Transmission, and Systemic Innovation in the Context of Digital Transformation",
+                         "pages":  "14-21",
+                         "publishedAt":  "2025-11-30",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/147",
+                         "doi":  "10.63802/grhas.V1.I5.147",
+                         "abstract":  "Contemporary society is undergoing multiple socio-ecological transformations—including urbanization, digitalization, and the climate crisis—that have systematically reshaped individual perceptual structures. As an embodied art form, dance functions as a dynamic response of the body to ecological and social tensions. Grounded in Gibson’s ecological perception theory and the social ecology framework proposed by Haberl et al. (2016), this study introduces the concept of “Perception of Flux”, a mechanism through which socio-ecological inputs are transformed into regenerated bodily consciousness via choreographic practice. Through qualitative analysis and case-based validation, the research reveals how dancers embody environmental stimuli and social experiences into movement vocabularies, forming new ecological cognition within the interrelations of body, space, and society. The study further constructs a dual-cycle model of socio-ecological and bodily perception, offering an ecologically informed and socially oriented theoretical pathway for contemporary choreographic creation."
+                     },
+                     {
+                         "title":  "New advances in the treatment of common conjunctivitis: A review",
+                         "authors":  [
+                                         "Xiao, Zhiyun",
+                                         "Meng, Nana",
+                                         "Zhou, Min",
+                                         "Shi, Chunhe"
+                                     ],
+                         "journal":  "Health Nexus",
+                         "issue":  "Vol. 1 (2025): Foundations of Integrative Medical Dialogue: Bridging Systems, Cultures, and Sciences",
+                         "pages":  "22-30",
+                         "publishedAt":  "2025-11-15",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/150",
+                         "doi":  "10.63802/healthnexus.V1.2025.150",
+                         "abstract":  "Background: The conjunctiva serves as a frontline mucosal and immunologic barrier, rendering it highly susceptible to infectious, allergic, and immune-mediated insults. Conjunctivitis remains the most common ocular surface disease globally, yet its clinical management is often challenged by diagnostic ambiguity, empirical treatments, and evolving pathogen resistance. Objective: This review synthesizes recent advancements in the pharmacological management of conjunctivitis, with a focus on aligning therapeutic strategies to distinct etiologic subtypes: bacterial, viral, and allergic. Methods: Evidence from randomized controlled trials, real-world clinical studies, and translational research published between 2010 and 2024 was critically reviewed. First-line pharmacotherapies and emerging treatment modalities were evaluated based on efficacy, safety, accessibility, and mechanism of action. Results: Conventional topical therapies such as antibiotics, antihistamines, and corticosteroids remain central to treatment. However, biologics, immunomodulators, and antiseptic-antiviral combinations have expanded the therapeutic landscape, particularly in refractory or high-severity cases. Innovations in drug delivery systems and immune-targeted agents show promise but require further validation. Conclusion: Optimal conjunctivitis management demands precision diagnosis, stratified treatment selection, and vigilance against overtreatment. Integrating traditional medicine within evidence-based frameworks and ensuring equitable access to novel therapies especially in resource-limited settings represent critical frontiers for future research and policy reform."
+                     },
+                     {
+                         "title":  "Why did I stop wanting to sound certain?",
+                         "authors":  [
+                                         "Lei, Zhihao"
+                                     ],
+                         "journal":  "Silence",
+                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
+                         "pages":  "69-71",
+                         "publishedAt":  "2026-04-03",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/279",
+                         "doi":  "10.5281/zenodo.19399076",
+                         "abstract":  "This reflective essay examines the culture of certainty in academic writing and the intellectual costs of equating authority with confidence. Beginning from a personal experience of revising a manuscript into increasingly polished but less honest prose, the essay considers how scholarly communication often rewards statements that sound definitive even when the underlying research process is hesitant, partial, and unresolved. Rather than rejecting rigor, the text argues for a more responsible relationship between knowledge and uncertainty—one that recognizes hesitation not as weakness but as an epistemic condition of serious inquiry. By exploring the difference between clarity and false closure, the essay proposes that uncertainty can function as a legitimate scholarly posture and that reflective forms of writing have a role in making research more transparent, humane, and intellectually trustworthy."
+                     },
+                     {
+                         "title":  "「三人行，必有我师焉」：儒家互学观的现代启示: \"Among Three, One Is My Teacher\": Modern Implications of the Confucian Idea of Mutual Learning",
+                         "authors":  [
+                                         "Shen, Yaqi"
+                                     ],
+                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
+                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
+                         "pages":  "96-100",
+                         "publishedAt":  "2025-11-09",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/153",
+                         "doi":  "10.5281/zenodo.17562323",
+                         "abstract":  "中文 孔子提出的“我师”思想，蕴含着一种开放而省察的学习伦理，体现了儒家对德性修养与人际互动的深刻理解。本文以“三人行，必有我师焉”为核心命题，从经典解读、哲学诠释与当代应用三个层面，探讨儒家互学观在教育理念、社会伦理与数字文明中的当代表达。文章指出，此一思想不仅揭示学习的内在动力，也为面对文化多元与科技挑战的现代社会提供了道德坐标。文章最终提出：“在他者之中成己，以学习之道成仁”，此乃儒家互学精神的现代诠释。 English Confucius\u0027 maxim \"Among three people walking, there must be one I can learn from\" encapsulates a profound ethical view of learning grounded in mutual observation and moral cultivation. This paper reinterprets the Confucian concept of mutual learning (互学) through classical analysis, philosophical reflection, and modern application. It argues that the idea of “My Teacher” (我师) offers enduring relevance to contemporary issues such as educational reform, ethical coexistence, and digital transformation. In a world increasingly shaped by pluralism and technology, the Confucian vision of learning through others provides a vital moral compass. The paper concludes with a contemporary interpretation: “To cultivate oneself among others, to realize ren through the path of learning.”"
+                     },
+                     {
+                         "title":  "Application of the Pollutants-FCNN Framework:A Multi-Task Neural Network Approach for Con-taminant Toxicity Prediction Based on Tox21Data",
+                         "authors":  [
+                                         "Zhang, Yaolin",
+                                         "Li, Menghui",
+                                         "Zou, Yiming"
+                                     ],
+                         "journal":  "Climate Sustainability \u0026 Global Systems",
+                         "issue":  "Vol. 1 No. 1 (2026)",
+                         "pages":  "17-24",
+                         "publishedAt":  "2026-03-04",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/258",
+                         "doi":  "10.63802/csgs.V1.I1.258",
+                         "abstract":  "Contaminant toxicity prediction is a pivotal technology for environmental risk assessment and chemical safety management, but traditional experimental methods are limited by high resource consumption, prolonged test cycles, and ethical controversies related to animal experimentation. This study proposes the Pollutants-FCNN Framework, a multi-task learning-based neural network architecture integrated with a multi-head attention mechanism, dedicated to predicting four major toxicity types (biological toxicity, cell toxicity, neurotoxicity, genotoxicity) using the Tox21 benchmark dataset. The framework processes 801 dimensional chemical feature vectors through a standardized pipeline including data preprocessing, attention-augmented FCNN modeling, and multi-task optimization. All core mathematical formulations are derived from the framework’s implementation code to ensure consistency between theoretical design and practical application. Experimental validation shows that the Pollutants-FCNN Framework outperforms conventional pure FCNN models and single-task learning paradigms, achieving a macro-average Area Under the ROC Curve (AUC) of 0.789. This method provides an efficient and reliable in silico toxicity assessment tool, resolving key challenges such as data scarcity for specific endpoints and inefficient feature interaction capture in toxicological modeling. The framework’s modular design and reproducible protocol make it suitable for application in environmental risk assessment and chemical safety screening. 1. Integrates multi-task learning and multi-head attention mechanism to address core challenges of data scarcity and inefficient feature interaction capture in toxicological modeling. 2. Achieves a macro-average AUC of 0.789 on the Tox21 dataset, outperforming traditional pure FCNN and single-task learning models. 3. Features modular design and reproducible protocol, which is applicable to environmental risk assessment and chemical safety screening scenarios."
+                     },
+                     {
+                         "title":  "評鄭宗義《從宋明理學到當代新儒家》：儒學演進的形上學路徑與當代表述: A Review of Zheng Zongyi’s From Song-Ming Neo-Confucianism to Contemporary New Confucianism: Metaphysical Trajectories and Modern Articulations of Ruist Thought",
+                         "authors":  [
+                                         "Wang, Hengjie"
+                                     ],
+                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
+                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
+                         "pages":  "17-18",
+                         "publishedAt":  "2025-10-20",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/124",
+                         "doi":  "10.5281/zenodo.17305156",
+                         "abstract":  "This review evaluates Zheng Zongyi’s From Song-Ming Neo-Confucianism to Contemporary New Confucianism, a comprehensive and philosophically rigorous study that traces the internal evolution of Confucian metaphysics from classical doctrines to modern interpretations. Emphasizing both ontological analysis and ethical praxis, Zheng’s work bridges traditional Ruist cosmology with contemporary philosophical discourse."
+                     },
+                     {
+                         "title":  "邯郸的城隍，你是谁？: Who Is the City God of Handan?",
+                         "authors":  [
+                                         "Su, Bai"
+                                     ],
+                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
+                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
+                         "pages":  "93-95",
+                         "publishedAt":  "2025-11-05",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/145",
+                         "doi":  "10.5281/zenodo.17489829",
+                         "abstract":  "中文 作者身为邯郸人，从童年家门口城隍庙的记忆中萌发了对城隍的好奇—— 比如农历初一、十五庙前的热闹景象，以及城隍诞辰时烧纸扎祭品的仪式。初中时期，他沉迷各类神话故事，接触到 “三教合一” 思想，由此解开了家乡宗教场所中不同神灵混同供奉的谜题。成年后，他主动探访城隍庙，却发现当地供奉的 “姜先生（姜克效）” 并非城隍；邯郸城隍的真实姓名未载入县志，相关石碑也已深埋地下。他仅记录下庙内五尊神像的布局及多神供奉的情况，最终萌生了为邯郸城隍创作一个专属故事的想法。 English The author, a native of Handan, first developed a curiosity about the City God (Chenghuang) from childhood memories of the Chenghuang Temple near his home—such as the bustling scenes on the first and fifteenth days of the lunar month, and the ritual of burning paper effigies during the deity’s birthday celebration. During middle school, he became fascinated with mythology and encountered the concept of the “unity of the Three Teachings” (Confucianism, Buddhism, and Daoism), which allowed him to understand why different deities were worshipped together in local religious spaces. As an adult, he visited the temple intentionally, only to discover that the figure worshipped there—“Master Jiang” (Jiang Kexiao)—was not the actual City God. The true name of Handan’s City God is not recorded in local gazetteers, and related stone inscriptions remain buried underground. All he could document was the placement of five statues within the temple and the coexistence of multiple deities. From this, the idea emerged to create a story of his own for the City God of Handan."
+                     },
+                     {
+                         "title":  "三教融合视域下李翱心性论探析: An Analysis of Li Ao’s Mind-Nature Theory from the Perspective of Confucian-Buddhist-Daoist Syncretism",
+                         "authors":  [
+                                         "Li, Yutong"
+                                     ],
+                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
+                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
+                         "pages":  "152-159",
+                         "publishedAt":  "2025-12-29",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/191",
+                         "doi":  "10.63802/tts.V1.2025.191",
+                         "abstract":  "中文 李翱是我国中唐时期著名的哲学家、文学家，核心思想是由其《复性书》而阐发的心性论。本文通梳理中唐三教互动的背景以及李翱与佛道思想的接触渊源，并对其《复性书》进行义理解读，进而比照佛道相关理论，揭示其心性论的内在理路与融合转化。李翱以儒学为本，吸收佛教如来藏与道教思想，构建了以“复性”为核心、贯通天人的儒学体系，呈现出“同归型”三教会通的典型特征。李翱心性论的研究为儒学发展提供了义理阐释的新路径，完善了中古三教思想互动与儒家心性之学。 English Li Ao was a prominent philosopher and litterateur of the Mid-Tang period in China, whose core ideas revolve around the theory of mind-nature as elaborated in his work On Recovering Human Nature (Fu Xing Shu). This article traces the context of the interaction among Confucianism, Buddhism, and Daoism during the Mid-Tang era, examines Li Ao’s intellectual engagement with Buddhist and Daoist thought, and offers a philosophical interpretation of On Recovering Human Nature. By comparing relevant Buddhist and Daoist theories, it elucidates the internal logic and synthetic adaptation underlying Li Ao’s theory of mind and nature.Grounded in Confucianism, Li Ao assimilated elements from Buddhist Tathāgatagarbha thought and Daoist philosophy to construct a Confucian system centered on “recovering human nature,” one that connects heaven and humanity and exemplifies the “syncretic paradigm” of harmonizing the three teachings. Li Ao’s theory of mind and human nature pioneered a novel philosophical trajectory for the development of Confucianism and contributed significantly to the intellectual interplay among the three teachings in medieval China, as well as to the advancement of Confucian learning of mind and nature."
+                     },
+                     {
+                         "title":  "Why did I come up with the idea of “Rubbish”",
+                         "authors":  [
+                                         "wild, utopist"
+                                     ],
+                         "journal":  "Silence",
+                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
+                         "pages":  "1-2",
+                         "publishedAt":  "2026-02-16",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/226",
+                         "doi":  "10.5281/zenodo.18681408",
+                         "abstract":  "This experimental essay reflects on the conceptual origins of the “Rubbish” journal idea, an alternative scholarly space that challenges conventional success–failure narratives in academic publishing. Rather than prioritizing polished outcomes, the article explores the value of drafts, failed attempts, and unfinished intellectual processes. By situating personal writing experience within broader discussions of scholarly communication and academic culture, the author proposes a reflective platform that reconsiders how knowledge production is evaluated and shared. The piece contributes to emerging conversations on experimental publishing, post-publication reflection, and alternative academic expression."
+                     },
+                     {
+                         "title":  "When Data Justice Becomes Governance: On the Depoliticization of a Critical Concept",
+                         "authors":  [
+                                         "Zhu, Junyu"
+                                     ],
+                         "journal":  "Global Review of Humanities, Arts, and Society",
+                         "issue":  "卷 2 期 1 (2026): Digital Transformations, Cultural Dynamics, and Critical Perspectives in Contemporary Society",
+                         "pages":  "24-26",
+                         "publishedAt":  "2026-01-20",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/204",
+                         "doi":  "",
+                         "abstract":  "This commentary critically examines the contemporary trajectory of as a central concept in critical data studies, focusing on how its political impact risks being diluted as it is incorporated into governance-oriented frameworks. Revisiting the agenda-setting article Data Justice by Lina Dencik and Javier Sánchez-Monedero (2022), the commentary positions data justice not as a fixed normative standard but as an open and contested political framework rooted in critiques of surveillance, datafication, and structural inequality. While Dencik and Sánchez-Monedero emphasize the instability and conflictual nature of justice—drawing on Nancy Fraser’s notion of the “grammar of justice”—this commentary argues that contemporary data governance increasingly seeks to stabilize and operationalize this grammar. Through regulatory compliance, ethical AI frameworks, and technical approaches to fairness and bias mitigation, data justice is progressively translated into a depoliticized language of governance. As a result, the concept often endures at the expense of its inherent political tension. The commentary further highlights a central paradox: although data justice is advocated on behalf of marginalized groups, its incorporation into governance practices often leads to increased regulation of those very populations, rather than their empowerment. By tracing this conceptual shift, the article argues that data justice cannot be understood merely as a policy goal or technical solution. Instead, it should be reclaimed as an ongoing political struggle over data, power, and inequality—one that emphasizes conflict, redistribution, and the reconfiguration of political subjecthood."
+                     },
+                     {
+                         "title":  "Attention: From Tires to Organisms – NationalTransport, Exposure, and Eco-Health Risks of6PPD/6PPD-Q in Terrestrial-Aquatic Systems",
+                         "authors":  [
+                                         "Liu, Yirui",
+                                         "Zhang, Jundong",
+                                         "Zhang, Yaolin",
+                                         "Hu, Yang"
+                                     ],
+                         "journal":  "Climate Sustainability \u0026 Global Systems",
+                         "issue":  "Vol. 1 No. 1 (2026)",
+                         "pages":  "1-16",
+                         "publishedAt":  "2026-03-03",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/259",
+                         "doi":  "10.63802/csgs.V1.I1.259",
+                         "abstract":  "Urbanization and global transportation expansion have led to widespread release of tire-derived contaminants N-(1,3-dimethylbutyl)-N’-phenyl-p-phenylenediamine (6PPD) and its quinone derivative (6PPD-Q), posing critical environmental and public healthrisks. As a key tire anti-ozonant, 6PPD rapidly oxidizes to 6PPD-Q, a highly toxic compound linked to aquatic organism mor-tality. This review synthesizes their \"tires-to-organisms\" pollution continuum across terrestrial-aquatic systems. Focusing onChina (the world’s largest tire producer/consumer), 6PPD-Q emissions surged 97.5% (68.2–134.7 tons) from 2013–2023, withsoil as the primary environmental sink (55.67%). 6PPD/6PPD-Q exhibit dual mobility, pervading air, water, and soil, andinduce species-specific toxicity—especially in aquatic early life stages—via conserved pathways (oxidative stress, mitochondrialdysfunction). Ubiquitous in human urine, serum, and cerebrospinal fluid, they pose multi-organ risks, with children, pregnantwomen, and occupational workers most vulnerable, linked to non-alcoholic fatty liver disease, colorectal cancer, and neurologicaldysfunction. Critical research gaps include EV-related tire wear impacts, terrestrial non-model organism toxicity, longitudinalhealth studies, and mitigation validation. This work provides a comprehensive framework to inform evidence-based policiesand safeguard ecosystems and human health."
+                     },
+                     {
+                         "title":  "病本的超越：五类二十八种因行的净土思想——以《维摩诘经·佛国品》为中心: Transcending the Root of Illness: Five Categories and Twenty-eight Causal Practices in Pure Land Thought—Centered on the \"Buddha Realms Chapter\" of the Vimalakirti Sutra",
+                         "authors":  [
+                                         "Huang, Xingwang"
+                                     ],
+                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
+                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
+                         "pages":  "136-151",
+                         "publishedAt":  "2025-12-29",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/194",
+                         "doi":  "10.63802/tts.V1.2025.194",
+                         "abstract":  "中文 大乘净土围绕一定的“差异”与“共性”来论述娑婆、极乐、兜率、药师等净土思想，以定位“他方国土”与“他方佛”的关系。作为印度初期净土的来源，《维摩诘经》所投射的阿閦佛以及妙喜净土成为解明东亚净土的关键。该经虽有“他力”视域，但二十八种菩萨的“因行”赋予净土实践更偏重“自净其心”的“自力”。相较于中国所侧重的“半自力半他力”，以及日本所强调的“纯他力”，该经反应了印度初期净土的“难行道”，但同时又隐藏了《阿閦佛国经》《般若经》等经典的“他力”倾向。故而本文以“病本”为核心，从超克“病本”之心的“六因”以及二十二种“加行”，来反思“因行”与“国土与众生清净”的关系。 English Mahayana Pure Land discusses Pure Land thoughts of Saha , Sukhavati , Tushita , Medicine Buddha , etc., around certain \" differences \" and \" commonalities \" to position the relationship between \"other lands \" and \"other Buddhas .\" As the source of early Indian Pure Land , the Akṣobhya Buddha and Abhirati Pure Land projected in The Vimalakīrti Sūtra become key to elucidating East Asian Pure Land . Although this sutra has the perspective of \" other-power ,\" the \" causal practices \" of the twenty-eight bodhisattvas endow Pure Land practice with more emphasis on the \" self-power \" of \" purifying one\u0027s own mind . \" Compared to China\u0027s emphasis on \" half self-power , half other-power \" and Japan\u0027s emphasis on \" pure other-power ,\" this sutra reflects the \" difficult path of practice \" of early Indian Pure Land , but simultaneously conceals the \" other-power \" tendency of sutras such as The Akṣobhyavyūha Sūtra and The Prajñāpāramitā Sūtra . Therefore , this paper takes \" fundamental illness \" as its core , examining the relationship between \" causal practices \" and \" purity of land and sentient beings \" through the \" six causes \" and twenty-two types of \" preparatory practices \" for overcoming the mind of \" fundamental illness .\""
+                     },
+                     {
+                         "title":  "Efficient Deployment of Multimodal LargeModels: A Surveyon Technical Innovations, Industrial Applications, and Challenges of Heterogeneous MoE Architecture, Low-bit Quantization, and Cloud-Edge-End Collaboration (2024-2026)",
+                         "authors":  [
+                                         "Zhang, Yaolin",
+                                         "Huang, Pengrong"
+                                     ],
+                         "journal":  "Silence",
+                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
+                         "pages":  "13-39",
+                         "publishedAt":  "2026-02-16",
+                         "url":  "https://journals.panorama-sg.com/index.php/index/article/view/232",
+                         "doi":  "10.5281/zenodo.18681507",
+                         "abstract":  "This survey focuses on the efficient deployment of multimodal large models (MLLMs) and systematically reviews the core technologies from 2024 to 2026. At the architectural level, heterogeneous Mixture-of-Experts (MoE) architectures represented by ERNIE 4.5 achieve a balance between cross-modal parameter sharing and modality-specific computation through modality-isolated routing and router orthogonal loss, significantly improving computational efficiency. In terms of model compression and inference optimization, methods such as Layerwise Ultra-Low Bit Quantization (LUQ) and MoEQuant effectively address the quantization challenges of multimodal data, while TensorRT-LLM and ONNX Runtime provide deeply optimized inference engine solutions for hardware architectures like Blackwell. Regarding deployment strategies, cloud-edge-end collaborative architectures represented by DistMLLM, AIVD, and NANOMIND meet the requirements of low latency and high privacy while achieving cost savings and energy efficiency improvements through adaptive offloading, dynamic resource scheduling, and hardware-software co-design. Application cases show that these technologies have effectively solved industry pain points such as high latency and data privacy in medical edge diagnostic devices and quality inspection \\\u0026amp; predictive maintenance scenarios in smart manufacturing, balancing efficiency and performance."
+                     }
+                 ]
+}

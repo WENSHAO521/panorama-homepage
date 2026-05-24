@@ -86,7 +86,7 @@
                 <div class="pathway">
                     <article><span>01</span><h3>Choose</h3><p>Identify the journal whose scope, audience, and review expectations match the manuscript.</p></article>
                     <article><span>02</span><h3>Prepare</h3><p>Review the author guidelines, ethics requirements, and journal-level submission checklist.</p></article>
-                    <article><span>03</span><h3>Submit</h3><p>Use the OJS portal to upload files, enter metadata, and complete the author declaration.</p></article>
+                    <article><span>03</span><h3>Submit</h3><p>Use the journal portal to upload files, enter metadata, and complete the author declaration.</p></article>
                     <article><span>04</span><h3>Review</h3><p>Track editorial decisions and revision requests through the journal workflow.</p></article>
                 </div>
             </div>
@@ -114,9 +114,9 @@
                         <span class="kicker">Latest Research</span>
                         <h2>Selected Recent Articles</h2>
                     </div>
-                    <p class="section-copy">Recently published work from across the Panorama journal portfolio, selected for visibility, freshness, and editorial relevance.</p>
+                    <p class="section-copy">A daily selection from Panorama Scholarly Group publications, highlighting recent work across the publisher's journal portfolio.</p>
                 </div>
-                <div class="article-status" id="article-status" aria-live="polite">Loading OAI article records...</div>
+                <div class="article-status" id="article-status" aria-live="polite">Loading Panorama articles...</div>
                 <div class="article-list" id="recent-article-list"></div>
             </div>
         </section>
@@ -318,7 +318,7 @@
 
                 if (!articles.length) {
                     articleList.innerHTML = '<div class="empty-state">No recent article records are available.</div>';
-                    if (articleStatus) articleStatus.textContent = 'OAI feed returned no article records.';
+                    if (articleStatus) articleStatus.textContent = 'No Panorama article records are available.';
                     return;
                 }
 
@@ -326,20 +326,20 @@
                     const authors = Array.isArray(article.authors) ? article.authors.filter(Boolean) : [];
                     const visibleAuthors = authors.slice(0, 6).join(', ');
                     const authorLine = authors.length > 6 ? `${visibleAuthors}, et al.` : visibleAuthors;
-                    const metaParts = [article.journal, formatArticleDate(article.publishedAt), article.pages ? `pp. ${article.pages}` : ''].filter(Boolean);
+                    const publishedDate = formatArticleDate(article.publishedAt);
+                    const metaParts = [article.pages ? `Pages ${article.pages}` : '', article.issue || ''].filter(Boolean);
                     const item = document.createElement('article');
                     item.className = 'article-item';
                     item.innerHTML = `
                         <div class="article-rank">${String(index + 1).padStart(2, '0')}</div>
                         <div class="article-main">
                             <div class="article-labels">
-                                <span>Recent Article</span>
-                                <span>Panorama Journal</span>
+                                ${article.journal ? `<span>${escapeHTML(article.journal)}</span>` : ''}
+                                ${publishedDate ? `<span>${escapeHTML(publishedDate)}</span>` : ''}
                             </div>
                             <h3>${escapeHTML(article.title)}</h3>
                             <p class="article-authors">${escapeHTML(authorLine || 'Editorial record')}</p>
-                            <p class="article-meta">${escapeHTML(metaParts.join(' · '))}</p>
-                            ${article.issue ? `<p class="article-issue">${escapeHTML(article.issue)}</p>` : ''}
+                            ${metaParts.length ? `<p class="article-meta">${escapeHTML(metaParts.join(' · '))}</p>` : ''}
                         </div>
                         <div class="article-actions">
                             ${article.url ? `<a href="${escapeHTML(article.url)}" target="_blank" rel="noopener">Full Text</a>` : ''}
@@ -350,22 +350,22 @@
                 });
 
                 if (articleStatus) {
-                    const harvested = payload.harvestedAt ? `Last OAI harvest: ${payload.harvestedAt.replace('T', ' ').replace('Z', ' UTC')}` : 'OAI records loaded.';
-                    const total = payload.totalRecordsHarvested ? ` ${payload.totalRecordsHarvested} records scanned.` : '';
-                    articleStatus.textContent = `${harvested}.${total}`;
+                    const harvested = payload.harvestedAt ? `Panorama daily selection updated: ${payload.harvestedAt.replace('T', ' ').replace('Z', ' UTC')}` : 'Panorama articles loaded.';
+                    const selected = payload.selectedArticleCount ? ` ${payload.selectedArticleCount} articles featured today.` : '';
+                    articleStatus.textContent = `${harvested}.${selected}`;
                 }
             }
 
             if (articleList) {
-                fetch('data/selected-recent-articles.json', { cache: 'no-store' })
+                fetch('data/articles.json', { cache: 'no-store' })
                     .then(response => {
                         if (!response.ok) throw new Error('Article data unavailable');
                         return response.json();
                     })
                     .then(renderRecentArticles)
                     .catch(() => {
-                        articleList.innerHTML = '<div class="empty-state">Recent article data could not be loaded. Run scripts/fetch-selected-recent-articles.ps1 to refresh the OAI cache.</div>';
-                        if (articleStatus) articleStatus.textContent = 'OAI article cache unavailable.';
+                        articleList.innerHTML = '<div class="empty-state">Recent article data could not be loaded. Please refresh the article cache.</div>';
+                        if (articleStatus) articleStatus.textContent = 'Article cache unavailable.';
                     });
             }
 
