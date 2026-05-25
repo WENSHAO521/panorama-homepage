@@ -267,6 +267,93 @@
                 return /^https?:\/\//i.test(doi) ? doi : `https://doi.org/${doi.replace(/^doi:\s*/i, '')}`;
             }
 
+            const JOURNAL_NAME_MAP = {
+                AFS: 'AI & Future Society',
+                CSGS: 'Climate Sustainability & Global Systems',
+                files: 'Global Review of Humanities, Arts, & Society',
+                GRHAS: 'Global Review of Humanities, Arts, & Society',
+                HealthNexus: 'Health Nexus',
+                HN: 'Health Nexus',
+                HNDH: 'Health Nexus: Digital Health and Medical AI',
+                JESA: 'Journal of Engineering Systems & Applications',
+                JLPCS: 'Journal of Law, Psychology, & Communication',
+                JSCC: 'Journal of Social Cognition and Communication',
+                PEMR: 'PoliEcoM Administration Review',
+                Resonance: 'Resonance: Journal of Global Music Studies',
+                Res: 'Resonance: Journal of Global Music Studies',
+                RGGD: 'Rural Governance & Green Development',
+                Silence: 'Silence',
+                tts: 'Three Teachings Studies',
+                TTS: 'Three Teachings Studies',
+                PFR: 'Panorama Frontier Review'
+            };
+
+            function hasCjk(value) {
+                return /[\u3400-\u9fff]/.test(value || '');
+            }
+
+            function englishTitle(value) {
+                const title = String(value || '').trim();
+                if (!title) return '';
+                const colonParts = title.split(/\s*[:：]\s*/).filter(Boolean);
+                if (colonParts.length > 1) {
+                    const englishPart = colonParts.find(part => /[A-Za-z]/.test(part) && !hasCjk(part));
+                    if (englishPart) return englishPart.trim();
+                    const tail = colonParts[colonParts.length - 1];
+                    if (/[A-Za-z]/.test(tail)) return tail.trim();
+                }
+                return title;
+            }
+
+            function englishText(value) {
+                const text = String(value || '').trim();
+                if (!text || !hasCjk(text)) return text;
+                const colonParts = text.split(/\s*[:：]\s*/).filter(Boolean);
+                const englishColonPart = colonParts.reverse().find(part => /[A-Za-z]/.test(part) && !hasCjk(part));
+                if (englishColonPart && englishColonPart.length > 24) return englishColonPart.trim();
+                const starts = ['In ', 'This ', 'The ', 'Against ', 'Drawing ', 'Based ', 'With ', 'Artificial ', 'Objective:', 'Background:', 'Purpose:'];
+                const candidates = starts
+                    .map(marker => text.indexOf(marker))
+                    .filter(index => index > 0)
+                    .sort((a, b) => a - b);
+                if (candidates.length) {
+                    const english = text.slice(candidates[0]).trim();
+                    if (english.length > 40) return english;
+                }
+                const asciiRatio = text.replace(/[^\x00-\x7F]/g, '').length / Math.max(text.length, 1);
+                return asciiRatio > 0.7 ? text : '';
+            }
+
+            function secondaryTitle(original, primary) {
+                const source = String(original || '').trim();
+                const main = String(primary || '').trim();
+                if (!source || source === main) return '';
+                return hasCjk(source) ? source : '';
+            }
+
+            function englishJournalName(article) {
+                const slug = article.journalSlug || '';
+                if (JOURNAL_NAME_MAP[slug]) return JOURNAL_NAME_MAP[slug];
+                const journal = String(article.journal || '').trim();
+                if (journal === '乡村善治与绿色发展') return 'Rural Governance & Green Development';
+                return journal;
+            }
+
+            function formatAuthorName(value) {
+                const author = String(value || '').trim();
+                if (!author) return '';
+                const parts = author.split(',').map(part => part.trim()).filter(Boolean);
+                if (parts.length === 2 && /^[A-Za-z .'-]+$/.test(parts.join(' '))) {
+                    return `${parts[1]} ${parts[0]}`;
+                }
+                return author;
+            }
+
+            function formatDoiLabel(doi) {
+                if (!doi) return '';
+                return String(doi).replace(/^https?:\/\/doi\.org\//i, '').replace(/^doi:\s*/i, '');
+            }
+
             function restoreHashTarget() {
                 if (!window.location.hash) return;
                 const targetId = decodeURIComponent(window.location.hash.slice(1));
@@ -291,26 +378,43 @@
 
                 articles.forEach((article, index) => {
                     const authors = Array.isArray(article.authors) ? article.authors.filter(Boolean) : [];
-                    const visibleAuthors = authors.slice(0, 6).join(', ');
+                    const visibleAuthors = authors.slice(0, 6).map(formatAuthorName).join(', ');
                     const authorLine = authors.length > 6 ? `${visibleAuthors}, et al.` : visibleAuthors;
                     const publishedDate = formatArticleDate(article.publishedAt);
-                    const metaParts = [article.pages ? `Pages ${article.pages}` : '', article.issue || ''].filter(Boolean);
+                    const journalName = englishJournalName(article);
+                    const displayTitle = englishTitle(article.title);
+                    const localTitle = secondaryTitle(article.title, displayTitle);
+                    const displayIssue = article.issue || '';
+                    const displayAbstract = article.abstract || '';
+                    const metaParts = [
+                        journalName,
+                        publishedDate,
+                        displayIssue,
+                        article.pages ? `Pages ${article.pages}` : ''
+                    ].filter(Boolean);
+                    const doiLabel = formatDoiLabel(article.doi);
                     const item = document.createElement('article');
                     item.className = 'article-item';
                     item.innerHTML = `
-                        <div class="article-rank">${String(index + 1).padStart(2, '0')}</div>
+                        <div class="article-rank">
+                            <span>Article</span>
+                            <strong>${String(index + 1).padStart(2, '0')}</strong>
+                        </div>
                         <div class="article-main">
                             <div class="article-labels">
-                                ${article.journal ? `<span>${escapeHTML(article.journal)}</span>` : ''}
-                                ${publishedDate ? `<span>${escapeHTML(publishedDate)}</span>` : ''}
+                                <span>Open Access</span>
+                                ${journalName ? `<span>${escapeHTML(journalName)}</span>` : ''}
+                                ${publishedDate ? `<span>Published: ${escapeHTML(publishedDate)}</span>` : ''}
                             </div>
-                            <h3>${escapeHTML(article.title)}</h3>
+                            <h3>${escapeHTML(displayTitle)}</h3>
+                            ${localTitle ? `<p class="article-title-alt">${escapeHTML(localTitle)}</p>` : ''}
                             <p class="article-authors">${escapeHTML(authorLine || 'Editorial record')}</p>
                             ${metaParts.length ? `<p class="article-meta">${escapeHTML(metaParts.join(' · '))}</p>` : ''}
-                            ${article.abstract ? `<p class="article-abstract">${escapeHTML(article.abstract).slice(0, 360)}${article.abstract.length > 360 ? '...' : ''}</p>` : ''}
+                            ${doiLabel ? `<p class="article-doi">DOI: ${escapeHTML(doiLabel)}</p>` : ''}
+                            ${displayAbstract ? `<p class="article-abstract"><strong>Abstract:</strong> ${escapeHTML(displayAbstract).slice(0, 520)}${displayAbstract.length > 520 ? '...' : ''}</p>` : ''}
                         </div>
                         <div class="article-actions">
-                            ${article.url ? `<a href="${escapeHTML(article.url)}" target="_blank" rel="noopener">Full Text</a>` : ''}
+                            ${article.url ? `<a href="${escapeHTML(article.url)}" target="_blank" rel="noopener">Full Article</a>` : ''}
                             ${article.doi ? `<a href="${escapeHTML(doiHref(article.doi))}" target="_blank" rel="noopener">DOI</a>` : ''}
                         </div>
                     `;
