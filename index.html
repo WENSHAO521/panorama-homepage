@@ -38,55 +38,73 @@
         </div>
     </nav>
 
-    <main class="portal-main">
-        <section class="portal-hero">
-            <div class="wrap portal-hero-grid">
-                <div class="portal-copy">
+    <main class="portal-main publisher-home">
+        <section class="publisher-hero">
+            <div class="wrap publisher-hero-grid">
+                <div class="publisher-hero-copy">
                     <span class="portal-kicker">International Scholarly Publisher</span>
-                    <h1>Panorama Scholarly Group</h1>
-                    <p>Open-access journals, peer-review workflows, author guidance, and research visibility across interdisciplinary fields.</p>
-                    <div class="portal-actions">
-                        <a class="button primary" href="journals.html">Explore Journals</a>
-                        <a class="button" href="#recent-articles">Recent Articles</a>
+                    <h1>Publishing open research across disciplines.</h1>
+                    <p>Panorama Scholarly Group supports peer-reviewed journals, transparent editorial workflows, author guidance, and durable access to scholarly records.</p>
+                    <div class="publisher-hero-actions">
+                        <a class="button primary" href="journals.html">Find a Journal</a>
+                        <a class="button" href="#recent-articles">Browse Articles</a>
+                        <a class="button" href="Publication Ethics.html">Publication Ethics</a>
                     </div>
                 </div>
-                <div class="portal-finder">
+                <aside class="publisher-search-panel" aria-label="Journal finder">
                     <span>Journal Finder</span>
-                    <h2>Search the publisher portfolio</h2>
+                    <h2>Search by title, field, ISSN, or abbreviation.</h2>
                     <label>
-                        <span>Title, field, ISSN, or abbreviation</span>
-                        <input id="hero-journal-search" type="search" placeholder="AI, health, policy, humanities..." autocomplete="off">
+                        <span>Publisher portfolio search</span>
+                        <input id="hero-journal-search" type="search" placeholder="AI, policy, health, humanities..." autocomplete="off">
                     </label>
                     <button class="button primary" id="hero-search-button" type="button">Search Journals</button>
-                </div>
+                    <div class="publisher-search-links">
+                        <a href="journals.html?group=tech">AI & Technology</a>
+                        <a href="journals.html?group=soc">Policy & Society</a>
+                        <a href="journals.html?group=arts">Humanities</a>
+                    </div>
+                </aside>
             </div>
-            <div class="wrap portal-metrics">
-                <div><strong>22</strong><span>Journal portals</span></div>
-                <div><strong>20</strong><span>Daily featured articles</span></div>
-                <div><strong>7</strong><span>Scholarly fields</span></div>
-                <div><strong>OA</strong><span>Open access model</span></div>
+            <div class="wrap publisher-metrics">
+                <a href="journals.html"><strong>22</strong><span>Journal portals</span></a>
+                <a href="#recent-articles"><strong>20</strong><span>Daily selected articles</span></a>
+                <a href="journals.html"><strong>4</strong><span>Subject clusters</span></a>
+                <a href="Open Access Policy.html"><strong>OA</strong><span>Open access policy</span></a>
             </div>
         </section>
 
-        <section class="portal-band" id="disciplines">
-            <div class="wrap">
+        <section class="home-command-band">
+            <div class="wrap command-grid">
+                <a href="journals.html"><span>Browse</span><strong>Journal A-Z</strong><em>Search, filter, sort, and access every Panorama journal portal.</em></a>
+                <a href="journals.html?q=submit"><span>Submit</span><strong>Manuscript Entry</strong><em>Continue from a journal listing to the correct OJS submission workflow.</em></a>
+                <a href="index.html#recent-articles"><span>Read</span><strong>Recent Articles</strong><em>Daily selection from recently published records across the portfolio.</em></a>
+                <a href="Publication Ethics.html"><span>Policy</span><strong>Editorial Standards</strong><em>Peer review, corrections, retractions, access, and publication ethics.</em></a>
+            </div>
+        </section>
+
+        <section class="portal-band home-portfolio" id="disciplines">
+            <div class="wrap split-feature">
                 <div class="portal-heading">
                     <span>Subject Coverage</span>
-                    <h2>Browse the portfolio by discipline</h2>
+                    <h2>Portfolio organized for fast discovery</h2>
                 </div>
-                <div class="discipline-grid">
-                    <a href="journals.html?group=tech"><span>AI & Technology</span><strong>4</strong><em>AI, engineering systems, digital health, social computation.</em></a>
-                    <a href="journals.html?group=env"><span>Health & Sustainability</span><strong>5</strong><em>Health, climate systems, food sustainability, sport, rural development.</em></a>
-                    <a href="journals.html?group=soc"><span>Policy, Education & Society</span><strong>7</strong><em>Policy, law, psychology, communication, education, governance.</em></a>
-                    <a href="journals.html?group=arts"><span>Humanities & Arts</span><strong>6</strong><em>Philosophy, religion, arts, music, dance, cultural studies.</em></a>
+                <div class="discipline-grid refined">
+                    <a href="journals.html?group=tech"><span>AI & Technology</span><strong>4</strong><em>Artificial intelligence, engineering systems, digital health, and social computation.</em></a>
+                    <a href="journals.html?group=env"><span>Health & Sustainability</span><strong>5</strong><em>Health, climate systems, food sustainability, sport, and rural development.</em></a>
+                    <a href="journals.html?group=soc"><span>Policy, Education & Society</span><strong>7</strong><em>Policy, law, psychology, communication, education, and governance.</em></a>
+                    <a href="journals.html?group=arts"><span>Humanities & Arts</span><strong>6</strong><em>Philosophy, religion, arts, music, dance, and cultural studies.</em></a>
                 </div>
             </div>
         </section>
 
         <section class="portal-band portal-covers" id="featured">
-            <div class="wrap portal-heading">
-                <span>Selected Publications</span>
-                <h2>Featured Journals</h2>
+            <div class="wrap portal-heading split-heading">
+                <div>
+                    <span>Selected Publications</span>
+                    <h2>Featured Journals</h2>
+                </div>
+                <a class="text-link" href="journals.html">View all journals</a>
             </div>
             <div class="marquee-container" aria-label="Featured journal covers">
                 <div class="marquee-track" id="marquee-track"></div>
@@ -106,17 +124,17 @@
             </div>
         </section>
 
-        <section class="portal-band" id="authors">
-            <div class="wrap">
+        <section class="portal-band author-services" id="authors">
+            <div class="wrap author-services-grid">
                 <div class="portal-heading">
                     <span>For Authors</span>
-                    <h2>Submission Pathway</h2>
+                    <h2>From journal selection to editorial decision</h2>
                 </div>
-                <div class="pathway">
-                    <article><span>01</span><h3>Choose</h3><p>Identify the journal whose scope, audience, and review expectations match the manuscript.</p></article>
-                    <article><span>02</span><h3>Prepare</h3><p>Review author guidance, ethics requirements, and the journal-level submission checklist.</p></article>
-                    <article><span>03</span><h3>Submit</h3><p>Use the journal portal to upload files, enter metadata, and complete the author declaration.</p></article>
-                    <article><span>04</span><h3>Review</h3><p>Track editorial decisions and revision requests through the journal workflow.</p></article>
+                <div class="author-service-list">
+                    <a href="journals.html"><strong>Choose a journal</strong><span>Use subject filters and journal descriptions to identify the right venue.</span></a>
+                    <a href="Open Access Policy.html"><strong>Check access and licensing</strong><span>Review author rights, licensing, repository deposit, and public availability.</span></a>
+                    <a href="Publication Ethics.html"><strong>Prepare declarations</strong><span>Confirm authorship, conflicts of interest, research integrity, and correction policies.</span></a>
+                    <a href="journals.html"><strong>Submit through OJS</strong><span>Continue from the selected journal to the correct manuscript submission portal.</span></a>
                 </div>
             </div>
         </section>

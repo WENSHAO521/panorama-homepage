@@ -62,10 +62,28 @@
                         <input id="journal-search" type="search" placeholder="Search by journal title, field, ISSN, or abbreviation..." autocomplete="off">
                     </label>
                     <div class="filter-buttons" id="journal-filters" aria-label="Subject filters"></div>
+                    <div class="journal-extra-controls" aria-label="Journal directory controls">
+                        <label>
+                            <span>Sort</span>
+                            <select id="journal-sort">
+                                <option value="title">Title A-Z</option>
+                                <option value="group">Subject cluster</option>
+                                <option value="issn">ISSN status</option>
+                            </select>
+                        </label>
+                        <div class="view-buttons" id="view-buttons" aria-label="View mode">
+                            <button type="button" class="active" data-view="detailed">Detailed</button>
+                            <button type="button" data-view="compact">Compact</button>
+                        </div>
+                    </div>
                 </div>
+                <div class="az-index" id="az-index" aria-label="Journal A-Z index"></div>
                 <div class="journal-directory-meta">
                     <p id="results-count" aria-live="polite"></p>
-                    <a href="index.html#recent-articles">View selected recent articles</a>
+                    <div>
+                        <button type="button" id="clear-journal-filters">Clear filters</button>
+                        <a href="index.html#recent-articles">View selected recent articles</a>
+                    </div>
                 </div>
                 <div id="journal-wrapper" class="journals-directory-list"></div>
             </div>
@@ -139,10 +157,17 @@
             const searchInput = document.getElementById('journal-search');
             const filterHost = document.getElementById('journal-filters');
             const resultsCount = document.getElementById('results-count');
+            const sortSelect = document.getElementById('journal-sort');
+            const viewButtons = document.getElementById('view-buttons');
+            const azIndex = document.getElementById('az-index');
+            const clearFiltersButton = document.getElementById('clear-journal-filters');
             const params = new URLSearchParams(window.location.search);
             let activeGroup = params.get('group') || 'all';
             if (!CATEGORIES.some(cat => cat.id === activeGroup)) activeGroup = 'all';
             const initialQuery = params.get('q') || '';
+            let activeLetter = params.get('letter') || 'all';
+            let viewMode = params.get('view') || 'detailed';
+            if (!['detailed', 'compact'].includes(viewMode)) viewMode = 'detailed';
             const baseImgUrl = 'QKFM/';
             let JOURNALS = FALLBACK_JOURNALS;
 
@@ -192,21 +217,55 @@
                 const next = new URL(window.location.href);
                 if (activeGroup === 'all') next.searchParams.delete('group');
                 else next.searchParams.set('group', activeGroup);
+                if (activeLetter === 'all') next.searchParams.delete('letter');
+                else next.searchParams.set('letter', activeLetter);
+                if (viewMode === 'detailed') next.searchParams.delete('view');
+                else next.searchParams.set('view', viewMode);
                 if (query) next.searchParams.set('q', query);
                 else next.searchParams.delete('q');
                 history.replaceState(null, '', next.pathname + next.search);
+            }
+
+            function sortJournals(journals) {
+                const sortValue = sortSelect.value;
+                return [...journals].sort((a, b) => {
+                    if (sortValue === 'group') {
+                        return `${a.group} ${a.title}`.localeCompare(`${b.group} ${b.title}`);
+                    }
+                    if (sortValue === 'issn') {
+                        const aStatus = a.issn && a.issn !== 'Pending' ? '0' : '1';
+                        const bStatus = b.issn && b.issn !== 'Pending' ? '0' : '1';
+                        return `${aStatus} ${a.title}`.localeCompare(`${bStatus} ${b.title}`);
+                    }
+                    return a.title.localeCompare(b.title);
+                });
+            }
+
+            function matchesLetter(journal) {
+                if (activeLetter === 'all') return true;
+                return journal.title.trim().toUpperCase().startsWith(activeLetter);
+            }
+
+            function renderAzIndex() {
+                const letters = Array.from(new Set(JOURNALS.map(journal => journal.title.trim().charAt(0).toUpperCase()).filter(Boolean))).sort();
+                azIndex.innerHTML = ['all', ...letters].map(letter => `
+                    <button type="button" class="${letter === activeLetter ? 'active' : ''}" data-letter="${letter}">
+                        ${letter === 'all' ? 'All' : letter}
+                    </button>
+                `).join('');
             }
 
             function renderJournals() {
                 const query = (searchInput.value || '').trim().toLowerCase();
                 wrapper.innerHTML = '';
                 let renderedCount = 0;
+                wrapper.classList.toggle('compact-view', viewMode === 'compact');
 
                 CATEGORIES.filter(cat => cat.id !== 'all').forEach(cat => {
-                    const catJournals = JOURNALS.filter(journal => {
+                    const catJournals = sortJournals(JOURNALS.filter(journal => {
                         const groupMatch = activeGroup === 'all' || journal.group === activeGroup;
-                        return journal.group === cat.id && groupMatch && matchesSearch(journal, query);
-                    });
+                        return journal.group === cat.id && groupMatch && matchesLetter(journal) && matchesSearch(journal, query);
+                    }));
                     if (!catJournals.length) return;
 
                     renderedCount += catJournals.length;
@@ -242,6 +301,8 @@
                             <div class="journal-directory-actions">
                                 <a href="${portalUrl}" target="_blank" rel="noopener">Journal Home</a>
                                 <a href="${submissionUrl}" target="_blank" rel="noopener">Submit Manuscript</a>
+                                <a href="${portalUrl}/issue/current" target="_blank" rel="noopener">Current Issue</a>
+                                <a href="${portalUrl}/editorialTeam" target="_blank" rel="noopener">Editorial Board</a>
                             </div>
                         `;
                         itemHost.appendChild(item);
@@ -257,9 +318,13 @@
             filterHost.innerHTML = CATEGORIES.map(cat => `
                 <button type="button" class="${cat.id === activeGroup ? 'active' : ''}" data-group="${cat.id}">${cat.title}</button>
             `).join('');
+            viewButtons.querySelectorAll('button').forEach(button => {
+                button.classList.toggle('active', button.dataset.view === viewMode);
+            });
 
             searchInput.value = initialQuery;
             searchInput.addEventListener('input', renderJournals);
+            sortSelect.addEventListener('change', renderJournals);
             filterHost.addEventListener('click', event => {
                 const button = event.target.closest('button[data-group]');
                 if (!button) return;
@@ -267,7 +332,32 @@
                 filterHost.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
                 renderJournals();
             });
-            loadJournalData().then(renderJournals);
+            viewButtons.addEventListener('click', event => {
+                const button = event.target.closest('button[data-view]');
+                if (!button) return;
+                viewMode = button.dataset.view;
+                viewButtons.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
+                renderJournals();
+            });
+            azIndex.addEventListener('click', event => {
+                const button = event.target.closest('button[data-letter]');
+                if (!button) return;
+                activeLetter = button.dataset.letter;
+                azIndex.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
+                renderJournals();
+            });
+            clearFiltersButton.addEventListener('click', () => {
+                activeGroup = 'all';
+                activeLetter = 'all';
+                searchInput.value = '';
+                filterHost.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.group === 'all'));
+                azIndex.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn.dataset.letter === 'all'));
+                renderJournals();
+            });
+            loadJournalData().then(() => {
+                renderAzIndex();
+                renderJournals();
+            });
         });
     </script>
 </body>
