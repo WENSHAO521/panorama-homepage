@@ -38,94 +38,69 @@
         </div>
     </nav>
 
-    <main>
-        <section class="hero">
-            <div class="wrap hero-grid">
-                <div>
-                    <span class="eyebrow">International Scholarly Publisher</span>
-                    <h1>Publishing peer-reviewed research across disciplines.</h1>
-                    <p class="lead">Panorama Scholarly Group develops open-access journals, editorial infrastructure, and publication policies for scholars working across technology, health, policy, humanities, arts, and society.</p>
-                    <div class="hero-actions">
-                        <a class="button primary" href="index.html#find-journal">Find a Journal</a>
-                        <a class="button" href="#authors">Submit Manuscript</a>
-                    </div>
-                    <div class="trust-row" aria-label="Publishing commitments">
-                        <span>Journal publishing</span>
-                        <span>Peer review governance</span>
-                        <span>Open access records</span>
+    <main class="portal-main">
+        <section class="portal-hero">
+            <div class="wrap portal-hero-grid">
+                <div class="portal-copy">
+                    <span class="portal-kicker">International Scholarly Publisher</span>
+                    <h1>Panorama Scholarly Group</h1>
+                    <p>Open-access journals, peer-review workflows, author guidance, and research visibility across interdisciplinary fields.</p>
+                    <div class="portal-actions">
+                        <a class="button primary" href="index.html#find-journal">Explore Journals</a>
+                        <a class="button" href="#recent-articles">Recent Articles</a>
                     </div>
                 </div>
-                <aside class="hero-panel" aria-label="Publisher overview">
-                    <div class="panel-label">Publisher Profile</div>
-                    <div class="metric-grid">
-                        <div><strong>22</strong><span>Active journal portals</span></div>
-                        <div><strong>20</strong><span>Daily featured articles</span></div>
-                        <div><strong>7</strong><span>Scholarly fields</span></div>
-                        <div><strong>OA</strong><span>Open access model</span></div>
-                    </div>
-                    <div class="scope-list">
-                        <span>Editorial policy and ethics</span>
-                        <span>Journal discovery and submission</span>
-                        <span>Article-level research visibility</span>
-                        <span>Long-term scholarly access</span>
-                    </div>
-                </aside>
+                <div class="portal-finder">
+                    <span>Journal Finder</span>
+                    <h2>Search the publisher portfolio</h2>
+                    <label>
+                        <span>Title, field, ISSN, or abbreviation</span>
+                        <input id="hero-journal-search" type="search" placeholder="AI, health, policy, humanities..." autocomplete="off">
+                    </label>
+                    <button class="button primary" id="hero-search-button" type="button">Search Journals</button>
+                </div>
+            </div>
+            <div class="wrap portal-metrics">
+                <div><strong>22</strong><span>Journal portals</span></div>
+                <div><strong>20</strong><span>Daily featured articles</span></div>
+                <div><strong>7</strong><span>Scholarly fields</span></div>
+                <div><strong>OA</strong><span>Open access model</span></div>
             </div>
         </section>
 
-        <section class="publisher-search" aria-label="Publisher quick access">
-            <div class="wrap publisher-search-grid">
-                <div>
-                    <span class="kicker">Publication Gateway</span>
-                    <h2>Search, submit, and review across the Panorama portfolio.</h2>
-                </div>
-                <div class="quick-actions">
-                    <a href="index.html#find-journal"><span>01</span><strong>Find a Journal</strong><em>Browse scope, ISSN, portal, and submission links.</em></a>
-                    <a href="index.html#recent-articles"><span>02</span><strong>Recent Articles</strong><em>Review the daily selection from current publications.</em></a>
-                    <a href="Publication Ethics.html"><span>03</span><strong>Publication Ethics</strong><em>Read standards for authors, editors, and reviewers.</em></a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section compact" id="publisher-platform">
+        <section class="portal-band" id="disciplines">
             <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">Publisher Infrastructure</span>
-                        <h2>Built for scholarly publishing.</h2>
-                    </div>
+                <div class="portal-heading">
+                    <span>Subject Coverage</span>
+                    <h2>Browse the portfolio by discipline</h2>
                 </div>
-                <div class="pathway">
-                    <article><span>01</span><h3>Journals</h3><p>Organized journal portals help readers and authors locate the right subject community quickly.</p></article>
-                    <article><span>02</span><h3>Articles</h3><p>Daily featured research highlights recent outputs across the publisher's active portfolio.</p></article>
-                    <article><span>03</span><h3>Authors</h3><p>Submission routes connect journal selection, manuscript preparation, and editorial review.</p></article>
-                    <article><span>04</span><h3>Policies</h3><p>Ethics and access pages make publisher expectations visible before submission.</p></article>
+                <div class="discipline-grid">
+                    <a href="index.html#find-journal" data-hero-filter="tech"><span>AI & Technology</span><strong>4</strong><em>AI, engineering systems, digital health, social computation.</em></a>
+                    <a href="index.html#find-journal" data-hero-filter="env"><span>Health & Sustainability</span><strong>5</strong><em>Health, climate systems, food sustainability, sport, rural development.</em></a>
+                    <a href="index.html#find-journal" data-hero-filter="soc"><span>Policy, Education & Society</span><strong>7</strong><em>Policy, law, psychology, communication, education, governance.</em></a>
+                    <a href="index.html#find-journal" data-hero-filter="arts"><span>Humanities & Arts</span><strong>6</strong><em>Philosophy, religion, arts, music, dance, cultural studies.</em></a>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="featured">
-            <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">Selected Publications</span>
-                        <h2>Featured Journals</h2>
-                    </div>
-                </div>
+        <section class="portal-band portal-covers" id="featured">
+            <div class="wrap portal-heading">
+                <span>Selected Publications</span>
+                <h2>Featured Journals</h2>
             </div>
             <div class="marquee-container" aria-label="Featured journal covers">
                 <div class="marquee-track" id="marquee-track"></div>
             </div>
         </section>
 
-        <section class="section soft" id="find-journal">
+        <section class="portal-band portal-directory" id="find-journal">
             <div class="wrap">
-                <div class="section-head">
+                <div class="portal-heading split-heading">
                     <div>
-                        <span class="kicker">Official Journal Publications</span>
+                        <span>Official Journal Publications</span>
                         <h2>Find a Journal</h2>
                     </div>
-                    <p class="section-copy">Search by title, subject area, abbreviation, or ISSN. Each card links directly to the journal portal and submission page.</p>
+                    <p>Search by title, subject area, abbreviation, or ISSN.</p>
                 </div>
                 <div class="journal-toolbar" aria-label="Journal filters">
                     <label class="search-box">
@@ -139,26 +114,24 @@
             </div>
         </section>
 
-        <section class="section" id="recent-articles">
+        <section class="portal-band" id="recent-articles">
             <div class="wrap">
-                <div class="section-head">
+                <div class="portal-heading split-heading">
                     <div>
-                        <span class="kicker">Research Visibility</span>
+                        <span>Research Visibility</span>
                         <h2>Selected Recent Articles</h2>
                     </div>
+                    <div class="article-status" id="article-status" aria-live="polite">Loading Panorama articles...</div>
                 </div>
-                <div class="article-status" id="article-status" aria-live="polite">Loading Panorama articles...</div>
                 <div class="article-list" id="recent-article-list"></div>
             </div>
         </section>
 
-        <section class="section compact" id="authors">
+        <section class="portal-band" id="authors">
             <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">For Authors</span>
-                        <h2>Submission Pathway</h2>
-                    </div>
+                <div class="portal-heading">
+                    <span>For Authors</span>
+                    <h2>Submission Pathway</h2>
                 </div>
                 <div class="pathway">
                     <article><span>01</span><h3>Choose</h3><p>Identify the journal whose scope, audience, and review expectations match the manuscript.</p></article>
@@ -169,58 +142,17 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="portal-band standards">
             <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">Publishing Infrastructure</span>
-                        <h2>Trust Architecture</h2>
-                    </div>
+                <div class="portal-heading">
+                    <span>Publisher Standards</span>
+                    <h2>Editorial transparency, access, and durable records</h2>
                 </div>
-                <div class="feature-grid">
-                    <article class="feature-card">
-                        <span>01 / Governance</span>
-                        <h3>Transparent Editorial Practice</h3>
-                        <p>Journal-level editorial teams operate through declared review expectations, defined author guidance, and policy-based decision workflows.</p>
-                    </article>
-                    <article class="feature-card">
-                        <span>02 / Access</span>
-                        <h3>Open Research Availability</h3>
-                        <p>Publication models support lawful access to scholarly work while preserving attribution, licensing clarity, and durable records.</p>
-                    </article>
-                    <article class="feature-card">
-                        <span>03 / Metadata</span>
-                        <h3>Persistent Discovery Channels</h3>
-                        <p>Identifiers, repository signals, and indexing infrastructure help published research remain discoverable across scholarly systems.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section dark">
-            <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">Institutional Commitments</span>
-                        <h2>Policy Framework</h2>
-                    </div>
-                </div>
-                <div class="feature-grid">
-                    <a class="feature-card" href="about.html">
-                        <span>Profile</span>
-                        <h3>About Panorama</h3>
-                        <p>Read the institutional overview, operational model, values, and scholarly integrity commitments.</p>
-                    </a>
-                    <a class="feature-card" href="Publication Ethics.html">
-                        <span>Ethics</span>
-                        <h3>Publication Ethics</h3>
-                        <p>Review expectations for editors, reviewers, authors, conflicts of interest, and corrections.</p>
-                    </a>
-                    <a class="feature-card" href="Open Access Policy.html">
-                        <span>Access</span>
-                        <h3>Open Access Policy</h3>
-                        <p>Understand licensing, copyright retention, repository deposit, and journal-level access models.</p>
-                    </a>
+                <div class="standards-grid">
+                    <a href="Publication Ethics.html"><span>Ethics</span><strong>Publication Ethics</strong><em>Responsibilities for editors, reviewers, authors, conflicts, corrections, and retractions.</em></a>
+                    <a href="Open Access Policy.html"><span>Access</span><strong>Open Access Policy</strong><em>Licensing, author rights, repository deposit, and long-term public availability.</em></a>
+                    <a href="about.html"><span>Profile</span><strong>Publisher Profile</strong><em>Institutional scope, operational model, and scholarly publishing commitments.</em></a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener"><span>Directory</span><strong>Editorial Directory</strong><em>Public-facing access to editorial and scholarly network profiles.</em></a>
                 </div>
             </div>
         </section>
@@ -308,6 +240,8 @@
 
             const wrapper = document.getElementById('journal-wrapper');
             const searchInput = document.getElementById('journal-search');
+            const heroSearchInput = document.getElementById('hero-journal-search');
+            const heroSearchButton = document.getElementById('hero-search-button');
             const filterHost = document.getElementById('journal-filters');
             const resultsCount = document.getElementById('results-count');
             const articleList = document.getElementById('recent-article-list');
@@ -489,6 +423,49 @@
             if (searchInput) {
                 searchInput.addEventListener('input', renderJournals);
             }
+
+            function runHeroJournalSearch() {
+                const target = document.getElementById('find-journal');
+                if (searchInput && heroSearchInput) {
+                    searchInput.value = heroSearchInput.value;
+                    activeGroup = 'all';
+                    if (filterHost) {
+                        filterHost.querySelectorAll('button').forEach((btn, index) => btn.classList.toggle('active', index === 0));
+                    }
+                    renderJournals();
+                }
+                if (target) target.scrollIntoView({ block: 'start' });
+            }
+
+            if (heroSearchButton) {
+                heroSearchButton.addEventListener('click', runHeroJournalSearch);
+            }
+
+            if (heroSearchInput) {
+                heroSearchInput.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        runHeroJournalSearch();
+                    }
+                });
+            }
+
+            document.querySelectorAll('[data-hero-filter]').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const group = link.dataset.heroFilter;
+                    activeGroup = group;
+                    if (searchInput) searchInput.value = '';
+                    if (filterHost) {
+                        filterHost.querySelectorAll('button[data-group]').forEach(btn => {
+                            btn.classList.toggle('active', btn.dataset.group === group);
+                        });
+                    }
+                    renderJournals();
+                    const target = document.getElementById('find-journal');
+                    if (target) target.scrollIntoView({ block: 'start' });
+                });
+            });
 
             renderJournals();
         });
