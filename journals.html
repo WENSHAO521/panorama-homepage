@@ -110,7 +110,7 @@
                 { id: 'arts', title: 'Humanities & Arts' }
             ];
 
-            const JOURNALS = [
+            const FALLBACK_JOURNALS = [
                 { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
                 { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AFS.png', slug: 'AFS' },
                 { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
@@ -144,6 +144,7 @@
             if (!CATEGORIES.some(cat => cat.id === activeGroup)) activeGroup = 'all';
             const initialQuery = params.get('q') || '';
             const baseImgUrl = 'QKFM/';
+            let JOURNALS = FALLBACK_JOURNALS;
 
             function escapeHTML(value) {
                 return String(value || '').replace(/[&<>"']/g, char => ({
@@ -157,8 +158,34 @@
 
             function matchesSearch(journal, query) {
                 if (!query) return true;
-                const haystack = `${journal.id} ${journal.title} ${journal.cat} ${journal.issn} ${journal.group}`.toLowerCase();
+                const haystack = `${journal.id} ${journal.title} ${journal.cat} ${journal.issn} ${journal.group} ${journal.description || ''}`.toLowerCase();
                 return haystack.includes(query);
+            }
+
+            function fallbackDescription(journal) {
+                const groupDescriptions = {
+                    tech: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research across technology, systems, artificial intelligence, digital transformation, and applied innovation.',
+                    env: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research on health, sustainability, environmental systems, rural development, food systems, and applied public value.',
+                    soc: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research across public policy, governance, education, law, communication, psychology, and social inquiry.',
+                    arts: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research in humanities, philosophy, arts, religion, cultural studies, music, and embodied practice.'
+                };
+                return groupDescriptions[journal.group] || 'A Panorama Scholarly Group peer-reviewed open-access journal supporting international scholarly publication and editorial transparency.';
+            }
+
+            async function loadJournalData() {
+                try {
+                    const response = await fetch('data/journals.json', { cache: 'no-store' });
+                    if (!response.ok) throw new Error('Journal data unavailable');
+                    const payload = await response.json();
+                    if (!payload || !Array.isArray(payload.journals)) return;
+                    const fallbackById = new Map(FALLBACK_JOURNALS.map(journal => [journal.id, journal]));
+                    JOURNALS = payload.journals.map(journal => ({
+                        ...(fallbackById.get(journal.id) || {}),
+                        ...journal
+                    }));
+                } catch (error) {
+                    JOURNALS = FALLBACK_JOURNALS;
+                }
             }
 
             function updateUrl(query) {
@@ -194,7 +221,9 @@
                     `;
                     const itemHost = section.querySelector('.journal-directory-items');
                     catJournals.forEach(journal => {
-                        const portalUrl = `https://journals.panorama-sg.com/index.php/${journal.slug}`;
+                        const portalUrl = journal.journalUrl || `https://journals.panorama-sg.com/index.php/${journal.slug}`;
+                        const submissionUrl = journal.submissionUrl || `${portalUrl}/submission`;
+                        const description = journal.description || fallbackDescription(journal);
                         const item = document.createElement('article');
                         item.className = 'journal-directory-item';
                         item.innerHTML = `
@@ -208,11 +237,11 @@
                                     <span>ISSN: ${escapeHTML(journal.issn)}</span>
                                 </div>
                                 <h3>${escapeHTML(journal.title)}</h3>
-                                <p>Panorama Scholarly Group journal portal for peer-reviewed open-access publication, editorial information, author guidance, and issue records.</p>
+                                <p>${escapeHTML(description)}</p>
                             </div>
                             <div class="journal-directory-actions">
                                 <a href="${portalUrl}" target="_blank" rel="noopener">Journal Home</a>
-                                <a href="${portalUrl}/submission" target="_blank" rel="noopener">Submit Manuscript</a>
+                                <a href="${submissionUrl}" target="_blank" rel="noopener">Submit Manuscript</a>
                             </div>
                         `;
                         itemHost.appendChild(item);
@@ -238,7 +267,7 @@
                 filterHost.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
                 renderJournals();
             });
-            renderJournals();
+            loadJournalData().then(renderJournals);
         });
     </script>
 </body>
