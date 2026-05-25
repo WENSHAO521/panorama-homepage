@@ -292,19 +292,6 @@
                 return /[\u3400-\u9fff]/.test(value || '');
             }
 
-            function englishTitle(value) {
-                const title = String(value || '').trim();
-                if (!title) return '';
-                const colonParts = title.split(/\s*[:：]\s*/).filter(Boolean);
-                if (colonParts.length > 1) {
-                    const englishPart = colonParts.find(part => /[A-Za-z]/.test(part) && !hasCjk(part));
-                    if (englishPart) return englishPart.trim();
-                    const tail = colonParts[colonParts.length - 1];
-                    if (/[A-Za-z]/.test(tail)) return tail.trim();
-                }
-                return title;
-            }
-
             function englishText(value) {
                 const text = String(value || '').trim();
                 if (!text || !hasCjk(text)) return text;
@@ -322,13 +309,6 @@
                 }
                 const asciiRatio = text.replace(/[^\x00-\x7F]/g, '').length / Math.max(text.length, 1);
                 return asciiRatio > 0.7 ? text : '';
-            }
-
-            function secondaryTitle(original, primary) {
-                const source = String(original || '').trim();
-                const main = String(primary || '').trim();
-                if (!source || source === main) return '';
-                return hasCjk(source) ? source : '';
             }
 
             function englishJournalName(article) {
@@ -388,8 +368,7 @@
                     const authorLine = authors.length > 6 ? `${visibleAuthors}, et al.` : visibleAuthors;
                     const publishedDate = formatArticleDate(article.publishedAt);
                     const journalName = englishJournalName(article);
-                    const displayTitle = englishTitle(article.title);
-                    const localTitle = secondaryTitle(article.title, displayTitle);
+                    const displayTitle = article.title || '';
                     const displayIssue = compactText(article.issue || '', 140);
                     const displayAbstract = compactText(article.abstract || '', 360);
                     const metaParts = [
@@ -412,7 +391,6 @@
                                 ${publishedDate ? `<span>Published: ${escapeHTML(publishedDate)}</span>` : ''}
                             </div>
                             <h3>${escapeHTML(displayTitle)}</h3>
-                            ${localTitle ? `<p class="article-title-alt">${escapeHTML(localTitle)}</p>` : ''}
                             <p class="article-authors">${escapeHTML(authorLine || 'Editorial record')}</p>
                             ${metaParts.length ? `<p class="article-meta">${escapeHTML(metaParts.join(' · '))}</p>` : ''}
                             ${doiLabel ? `<p class="article-doi">DOI: ${escapeHTML(doiLabel)}</p>` : ''}
