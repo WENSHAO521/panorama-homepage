@@ -131,8 +131,8 @@
                         <span>Research Visibility</span>
                         <h2>Selected Recent Articles</h2>
                     </div>
-                    <div class="article-status" id="article-status" aria-live="polite">Loading Panorama articles...</div>
                 </div>
+                <div class="article-status" id="article-status" aria-live="polite"></div>
                 <div class="article-list" id="recent-article-list"></div>
             </div>
         </section>
@@ -427,8 +427,7 @@
                 });
 
                 if (articleStatus) {
-                    const selected = payload.selectedArticleCount || articles.length;
-                    articleStatus.textContent = `${selected} articles selected from Panorama journal records.`;
+                    articleStatus.textContent = '';
                 }
                 restoreHashTarget();
             }
