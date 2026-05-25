@@ -28,7 +28,7 @@
             </a>
             <div class="nav-links">
                 <a href="index.html" aria-current="page">Home</a>
-                <a href="index.html#find-journal">Journals</a>
+                <a href="journals.html">Journals</a>
                 <a href="index.html#recent-articles">Articles</a>
                 <a href="index.html#authors">For Authors</a>
                 <a href="about.html">About Us</a>
@@ -46,7 +46,7 @@
                     <h1>Panorama Scholarly Group</h1>
                     <p>Open-access journals, peer-review workflows, author guidance, and research visibility across interdisciplinary fields.</p>
                     <div class="portal-actions">
-                        <a class="button primary" href="index.html#find-journal">Explore Journals</a>
+                        <a class="button primary" href="journals.html">Explore Journals</a>
                         <a class="button" href="#recent-articles">Recent Articles</a>
                     </div>
                 </div>
@@ -75,10 +75,10 @@
                     <h2>Browse the portfolio by discipline</h2>
                 </div>
                 <div class="discipline-grid">
-                    <a href="index.html#find-journal" data-hero-filter="tech"><span>AI & Technology</span><strong>4</strong><em>AI, engineering systems, digital health, social computation.</em></a>
-                    <a href="index.html#find-journal" data-hero-filter="env"><span>Health & Sustainability</span><strong>5</strong><em>Health, climate systems, food sustainability, sport, rural development.</em></a>
-                    <a href="index.html#find-journal" data-hero-filter="soc"><span>Policy, Education & Society</span><strong>7</strong><em>Policy, law, psychology, communication, education, governance.</em></a>
-                    <a href="index.html#find-journal" data-hero-filter="arts"><span>Humanities & Arts</span><strong>6</strong><em>Philosophy, religion, arts, music, dance, cultural studies.</em></a>
+                    <a href="journals.html?group=tech"><span>AI & Technology</span><strong>4</strong><em>AI, engineering systems, digital health, social computation.</em></a>
+                    <a href="journals.html?group=env"><span>Health & Sustainability</span><strong>5</strong><em>Health, climate systems, food sustainability, sport, rural development.</em></a>
+                    <a href="journals.html?group=soc"><span>Policy, Education & Society</span><strong>7</strong><em>Policy, law, psychology, communication, education, governance.</em></a>
+                    <a href="journals.html?group=arts"><span>Humanities & Arts</span><strong>6</strong><em>Philosophy, religion, arts, music, dance, cultural studies.</em></a>
                 </div>
             </div>
         </section>
@@ -172,7 +172,7 @@
             <div>
                 <h4>Policies & Links</h4>
                 <ul>
-                    <li><a href="index.html#find-journal">Journals</a></li>
+                    <li><a href="journals.html">Journals</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="Publication Ethics.html">Publication Ethics</a></li>
                     <li><a href="Open Access Policy.html">Open Access Policy</a></li>
@@ -425,16 +425,9 @@
             }
 
             function runHeroJournalSearch() {
-                const target = document.getElementById('find-journal');
-                if (searchInput && heroSearchInput) {
-                    searchInput.value = heroSearchInput.value;
-                    activeGroup = 'all';
-                    if (filterHost) {
-                        filterHost.querySelectorAll('button').forEach((btn, index) => btn.classList.toggle('active', index === 0));
-                    }
-                    renderJournals();
-                }
-                if (target) target.scrollIntoView({ block: 'start' });
+                const query = heroSearchInput ? heroSearchInput.value.trim() : '';
+                const targetUrl = query ? `journals.html?q=${encodeURIComponent(query)}` : 'journals.html';
+                window.location.href = targetUrl;
             }
 
             if (heroSearchButton) {
@@ -449,23 +442,6 @@
                     }
                 });
             }
-
-            document.querySelectorAll('[data-hero-filter]').forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const group = link.dataset.heroFilter;
-                    activeGroup = group;
-                    if (searchInput) searchInput.value = '';
-                    if (filterHost) {
-                        filterHost.querySelectorAll('button[data-group]').forEach(btn => {
-                            btn.classList.toggle('active', btn.dataset.group === group);
-                        });
-                    }
-                    renderJournals();
-                    const target = document.getElementById('find-journal');
-                    if (target) target.scrollIntoView({ block: 'start' });
-                });
-            });
 
             renderJournals();
         });

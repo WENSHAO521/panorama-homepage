@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1200">
+    <title>Journals | Panorama Scholarly Group</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="publisher-site.css">
+</head>
+<body>
+    <div class="topline">
+        <div class="wrap">
+            <span>Journal Portfolio</span>
+            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
+            <span>Panorama Scholarly Group</span>
+        </div>
+    </div>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+        <div class="wrap">
+            <a class="brand" href="index.html" aria-label="Panorama Scholarly Group">
+                <img src="favicon.png" alt="PSG Logo">
+                <span class="brand-text">
+                    <strong>Panorama</strong>
+                    <span>Scholarly Group</span>
+                </span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="journals.html" aria-current="page">Journals</a>
+                <a href="index.html#recent-articles">Articles</a>
+                <a href="index.html#authors">For Authors</a>
+                <a href="about.html">About Us</a>
+                <a href="Publication Ethics.html">Ethics</a>
+                <a href="Open Access Policy.html">Open Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="portal-main journals-page">
+        <section class="journals-hero">
+            <div class="wrap journals-hero-grid">
+                <div>
+                    <span class="portal-kicker">Official Journal Publications</span>
+                    <h1>Find the right Panorama journal.</h1>
+                    <p>Search the publisher portfolio by discipline, title, abbreviation, or ISSN, then continue to the journal portal or submission workflow.</p>
+                </div>
+                <div class="journal-directory-panel">
+                    <div><strong>22</strong><span>Journal portals</span></div>
+                    <div><strong>4</strong><span>Subject clusters</span></div>
+                    <div><strong>OA</strong><span>Open access model</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journals-tool">
+            <div class="wrap">
+                <div class="journal-search-panel">
+                    <label class="search-box">
+                        <span>Search journals</span>
+                        <input id="journal-search" type="search" placeholder="Search by journal title, field, ISSN, or abbreviation..." autocomplete="off">
+                    </label>
+                    <div class="filter-buttons" id="journal-filters" aria-label="Subject filters"></div>
+                </div>
+                <div class="journal-directory-meta">
+                    <p id="results-count" aria-live="polite"></p>
+                    <a href="index.html#recent-articles">View selected recent articles</a>
+                </div>
+                <div id="journal-wrapper" class="journals-directory-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="site-footer">
+        <div class="wrap footer-grid">
+            <div>
+                <h3>Panorama</h3>
+                <div class="sub">Scholarly Group</div>
+                <p>A distributed academic publishing initiative dedicated to editorial transparency, responsible peer review, and durable access to research outputs.</p>
+            </div>
+            <div>
+                <h4>Operations</h4>
+                <p><strong>Administrative Contact</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
+            </div>
+            <div>
+                <h4>Policies & Links</h4>
+                <ul>
+                    <li><a href="journals.html">Journals</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="Publication Ethics.html">Publication Ethics</a></li>
+                    <li><a href="Open Access Policy.html">Open Access Policy</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap footer-bottom">
+            <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
+            <span>Distributed Academic Publishing</span>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const CATEGORIES = [
+                { id: 'all', title: 'All Journals' },
+                { id: 'tech', title: 'AI & Technology' },
+                { id: 'env',  title: 'Health & Sustainability' },
+                { id: 'soc',  title: 'Policy, Education & Society' },
+                { id: 'arts', title: 'Humanities & Arts' }
+            ];
+
+            const JOURNALS = [
+                { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
+                { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AFS.png', slug: 'AFS' },
+                { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
+                { id: 'HNDH', group: 'tech', title: 'Health Nexus: Digital Health and Medical AI', cat: 'Med AI', issn: 'Pending', img: 'HNDH.png', slug: 'HNDH' },
+                { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: '3054-9663', img: 'CSGS.png', slug: 'CSGS' },
+                { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD' },
+                { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
+                { id: 'FSSS', group: 'env', title: 'Food Systems, Safety & Sustainability', cat: 'Food Sci.', issn: 'Pending', img: 'FSSS.png', slug: 'FSSS' },
+                { id: 'SES', group: 'env', title: 'Journal of Sport and Exercise Studies', cat: 'Sports', issn: 'Pending', img: 'SES.png', slug: 'SES' },
+                { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'GPPGR.png', slug: 'GPPGR' },
+                { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
+                { id: 'CSSR', group: 'soc', title: 'Computational Social Sciences Review', cat: 'Data', issn: 'Pending', img: 'CSSR.png', slug: 'cssr' },
+                { id: 'JLPCS', group: 'soc', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
+                { id: 'IRELS', group: 'soc', title: 'International Review of Education & Learning', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
+                { id: 'JSCC', group: 'soc', title: 'Journal of Social Cognition and Communication', cat: 'Soc.', issn: '3054-6958', img: 'JSCC.png', slug: 'JSCC' },
+                { id: 'CRoPT', group: 'soc', title: 'Contemporary Review of Political Thought', cat: 'Pol.', issn: 'Pending', img: 'CRoPT.png', slug: 'CRoPT' },
+                { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'Silence.png', slug: 'Silence' },
+                { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, & Society', cat: 'Arts', issn: '3052-539X', img: 'GRAHS.png', slug: 'files' },
+                { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'TTS.png', slug: 'tts' },
+                { id: 'Res', group: 'arts', title: 'Resonance', cat: 'Music', issn: '3053-4410', img: 'RESONANCE.png', slug: 'Resonance' },
+                { id: 'CPRT', group: 'arts', title: 'Comparative Philosophy & Religious Traditions', cat: 'Phil.', issn: 'Pending', img: 'CPRT.png', slug: 'CPRT' },
+                { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' }
+            ];
+
+            const wrapper = document.getElementById('journal-wrapper');
+            const searchInput = document.getElementById('journal-search');
+            const filterHost = document.getElementById('journal-filters');
+            const resultsCount = document.getElementById('results-count');
+            const params = new URLSearchParams(window.location.search);
+            let activeGroup = params.get('group') || 'all';
+            if (!CATEGORIES.some(cat => cat.id === activeGroup)) activeGroup = 'all';
+            const initialQuery = params.get('q') || '';
+            const baseImgUrl = 'QKFM/';
+
+            function escapeHTML(value) {
+                return String(value || '').replace(/[&<>"']/g, char => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[char]));
+            }
+
+            function matchesSearch(journal, query) {
+                if (!query) return true;
+                const haystack = `${journal.id} ${journal.title} ${journal.cat} ${journal.issn} ${journal.group}`.toLowerCase();
+                return haystack.includes(query);
+            }
+
+            function updateUrl(query) {
+                const next = new URL(window.location.href);
+                if (activeGroup === 'all') next.searchParams.delete('group');
+                else next.searchParams.set('group', activeGroup);
+                if (query) next.searchParams.set('q', query);
+                else next.searchParams.delete('q');
+                history.replaceState(null, '', next.pathname + next.search);
+            }
+
+            function renderJournals() {
+                const query = (searchInput.value || '').trim().toLowerCase();
+                wrapper.innerHTML = '';
+                let renderedCount = 0;
+
+                CATEGORIES.filter(cat => cat.id !== 'all').forEach(cat => {
+                    const catJournals = JOURNALS.filter(journal => {
+                        const groupMatch = activeGroup === 'all' || journal.group === activeGroup;
+                        return journal.group === cat.id && groupMatch && matchesSearch(journal, query);
+                    });
+                    if (!catJournals.length) return;
+
+                    renderedCount += catJournals.length;
+                    const section = document.createElement('section');
+                    section.className = 'journal-directory-group';
+                    section.innerHTML = `
+                        <div class="journal-directory-heading">
+                            <h2>${escapeHTML(cat.title)}</h2>
+                            <p>${catJournals.length} journal${catJournals.length === 1 ? '' : 's'}</p>
+                        </div>
+                        <div class="journal-directory-items"></div>
+                    `;
+                    const itemHost = section.querySelector('.journal-directory-items');
+                    catJournals.forEach(journal => {
+                        const portalUrl = `https://journals.panorama-sg.com/index.php/${journal.slug}`;
+                        const item = document.createElement('article');
+                        item.className = 'journal-directory-item';
+                        item.innerHTML = `
+                            <a class="journal-directory-cover" href="${portalUrl}" target="_blank" rel="noopener">
+                                <img src="${baseImgUrl + journal.img}" loading="lazy" alt="${escapeHTML(journal.title)}" onerror="this.style.opacity=0.25">
+                            </a>
+                            <div class="journal-directory-copy">
+                                <div class="journal-directory-tags">
+                                    <span>${escapeHTML(journal.id)}</span>
+                                    <span>${escapeHTML(journal.cat)}</span>
+                                    <span>ISSN: ${escapeHTML(journal.issn)}</span>
+                                </div>
+                                <h3>${escapeHTML(journal.title)}</h3>
+                                <p>Panorama Scholarly Group journal portal for peer-reviewed open-access publication, editorial information, author guidance, and issue records.</p>
+                            </div>
+                            <div class="journal-directory-actions">
+                                <a href="${portalUrl}" target="_blank" rel="noopener">Journal Home</a>
+                                <a href="${portalUrl}/submission" target="_blank" rel="noopener">Submit Manuscript</a>
+                            </div>
+                        `;
+                        itemHost.appendChild(item);
+                    });
+                    wrapper.appendChild(section);
+                });
+
+                resultsCount.textContent = `${renderedCount} journal${renderedCount === 1 ? '' : 's'} shown`;
+                if (!renderedCount) wrapper.innerHTML = '<div class="empty-state">No journals match the current search.</div>';
+                updateUrl(query);
+            }
+
+            filterHost.innerHTML = CATEGORIES.map(cat => `
+                <button type="button" class="${cat.id === activeGroup ? 'active' : ''}" data-group="${cat.id}">${cat.title}</button>
+            `).join('');
+
+            searchInput.value = initialQuery;
+            searchInput.addEventListener('input', renderJournals);
+            filterHost.addEventListener('click', event => {
+                const button = event.target.closest('button[data-group]');
+                if (!button) return;
+                activeGroup = button.dataset.group;
+                filterHost.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
+                renderJournals();
+            });
+            renderJournals();
+        });
+    </script>
+</body>
+</html>
