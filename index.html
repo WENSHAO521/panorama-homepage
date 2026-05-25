@@ -39,55 +39,68 @@
     </nav>
 
     <main class="portal-main publisher-home">
-        <section class="publisher-hero">
-            <div class="wrap publisher-hero-grid">
-                <div class="publisher-hero-copy">
+        <section class="home-hero-v2">
+            <div class="wrap home-hero-layout">
+                <div class="home-hero-copy">
                     <span class="portal-kicker">International Scholarly Publisher</span>
-                    <h1>Publishing open research across disciplines.</h1>
-                    <p>Panorama Scholarly Group supports peer-reviewed journals, transparent editorial workflows, author guidance, and durable access to scholarly records.</p>
-                    <div class="publisher-hero-actions">
-                        <a class="button primary" href="journals.html">Find a Journal</a>
-                        <a class="button" href="#recent-articles">Browse Articles</a>
-                        <a class="button" href="Publication Ethics.html">Publication Ethics</a>
+                    <h1>Panorama Scholarly Group</h1>
+                    <p>Peer-reviewed open-access journals, publisher-level editorial policies, and searchable research records across technology, policy, health, sustainability, humanities, and the arts.</p>
+                    <form class="home-search" id="home-journal-search-form">
+                        <label for="hero-journal-search">Find a journal</label>
+                        <div>
+                            <input id="hero-journal-search" type="search" placeholder="Search title, field, ISSN, or abbreviation..." autocomplete="off">
+                            <button class="button primary" id="hero-search-button" type="submit">Search</button>
+                        </div>
+                    </form>
+                    <div class="home-hero-actions">
+                        <a href="journals.html">Journal A-Z</a>
+                        <a href="#recent-articles">Recent Articles</a>
+                        <a href="Publication Ethics.html">Publication Ethics</a>
+                        <a href="Open Access Policy.html">Open Access</a>
                     </div>
                 </div>
-                <aside class="publisher-search-panel" aria-label="Journal finder">
-                    <span>Journal Finder</span>
-                    <h2>Search by title, field, ISSN, or abbreviation.</h2>
-                    <label>
-                        <span>Publisher portfolio search</span>
-                        <input id="hero-journal-search" type="search" placeholder="AI, policy, health, humanities..." autocomplete="off">
-                    </label>
-                    <button class="button primary" id="hero-search-button" type="button">Search Journals</button>
-                    <div class="publisher-search-links">
-                        <a href="journals.html?group=tech">AI & Technology</a>
-                        <a href="journals.html?group=soc">Policy & Society</a>
-                        <a href="journals.html?group=arts">Humanities</a>
+                <aside class="home-featured-issue" aria-label="Featured journal portfolio">
+                    <div class="issue-panel-head">
+                        <span>Publisher Portfolio</span>
+                        <strong>Featured journals</strong>
+                    </div>
+                    <div class="cover-stack">
+                        <a href="https://journals.panorama-sg.com/index.php/AFS" target="_blank" rel="noopener"><img src="QKFM/AFS.png" alt="AI & Future Society"></a>
+                        <a href="https://journals.panorama-sg.com/index.php/JSCC" target="_blank" rel="noopener"><img src="QKFM/JSCC.png" alt="Journal of Social Cognition and Communication"></a>
+                        <a href="https://journals.panorama-sg.com/index.php/Silence" target="_blank" rel="noopener"><img src="QKFM/Silence.png" alt="Silence"></a>
+                    </div>
+                    <div class="issue-panel-links">
+                        <a href="journals.html">View all journals</a>
+                        <a href="journals.html?group=soc">Browse by subject</a>
                     </div>
                 </aside>
             </div>
-            <div class="wrap publisher-metrics">
+            <div class="wrap home-mission-row">
                 <a href="journals.html"><strong>22</strong><span>Journal portals</span></a>
                 <a href="#recent-articles"><strong>20</strong><span>Daily selected articles</span></a>
-                <a href="journals.html"><strong>4</strong><span>Subject clusters</span></a>
-                <a href="Open Access Policy.html"><strong>OA</strong><span>Open access policy</span></a>
+                <a href="Publication Ethics.html"><strong>Peer review</strong><span>Editorial policy framework</span></a>
+                <a href="Open Access Policy.html"><strong>CC BY</strong><span>Open access publishing</span></a>
             </div>
         </section>
 
-        <section class="home-command-band">
-            <div class="wrap command-grid">
-                <a href="journals.html"><span>Browse</span><strong>Journal A-Z</strong><em>Search, filter, sort, and access every Panorama journal portal.</em></a>
-                <a href="journals.html?q=submit"><span>Submit</span><strong>Manuscript Entry</strong><em>Continue from a journal listing to the correct OJS submission workflow.</em></a>
-                <a href="index.html#recent-articles"><span>Read</span><strong>Recent Articles</strong><em>Daily selection from recently published records across the portfolio.</em></a>
-                <a href="Publication Ethics.html"><span>Policy</span><strong>Editorial Standards</strong><em>Peer review, corrections, retractions, access, and publication ethics.</em></a>
+        <section class="home-navigation-strip">
+            <div class="wrap home-navigation-inner">
+                <span>Start here</span>
+                <a href="journals.html">Find a journal</a>
+                <a href="journals.html?q=submit">Submit manuscript</a>
+                <a href="#recent-articles">Read recent work</a>
+                <a href="about.html">Publisher profile</a>
             </div>
         </section>
 
         <section class="portal-band home-portfolio" id="disciplines">
-            <div class="wrap split-feature">
-                <div class="portal-heading">
+            <div class="wrap">
+                <div class="portal-heading split-heading">
+                    <div>
                     <span>Subject Coverage</span>
                     <h2>Portfolio organized for fast discovery</h2>
+                    </div>
+                    <a class="text-link" href="journals.html">Open journal directory</a>
                 </div>
                 <div class="discipline-grid refined">
                     <a href="journals.html?group=tech"><span>AI & Technology</span><strong>4</strong><em>Artificial intelligence, engineering systems, digital health, and social computation.</em></a>
@@ -228,7 +241,7 @@
             }
 
             const heroSearchInput = document.getElementById('hero-journal-search');
-            const heroSearchButton = document.getElementById('hero-search-button');
+            const heroSearchForm = document.getElementById('home-journal-search-form');
             const articleList = document.getElementById('recent-article-list');
             const articleStatus = document.getElementById('article-status');
 
@@ -332,8 +345,11 @@
                 window.location.href = targetUrl;
             }
 
-            if (heroSearchButton) {
-                heroSearchButton.addEventListener('click', runHeroJournalSearch);
+            if (heroSearchForm) {
+                heroSearchForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    runHeroJournalSearch();
+                });
             }
 
             if (heroSearchInput) {
