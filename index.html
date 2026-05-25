@@ -354,6 +354,12 @@
                 return String(doi).replace(/^https?:\/\/doi\.org\//i, '').replace(/^doi:\s*/i, '');
             }
 
+            function compactText(value, maxLength) {
+                const text = String(value || '').replace(/\s+/g, ' ').trim();
+                if (!text || text.length <= maxLength) return text;
+                return `${text.slice(0, maxLength).trim()}...`;
+            }
+
             function restoreHashTarget() {
                 if (!window.location.hash) return;
                 const targetId = decodeURIComponent(window.location.hash.slice(1));
@@ -384,8 +390,8 @@
                     const journalName = englishJournalName(article);
                     const displayTitle = englishTitle(article.title);
                     const localTitle = secondaryTitle(article.title, displayTitle);
-                    const displayIssue = article.issue || '';
-                    const displayAbstract = article.abstract || '';
+                    const displayIssue = compactText(article.issue || '', 140);
+                    const displayAbstract = compactText(article.abstract || '', 360);
                     const metaParts = [
                         journalName,
                         publishedDate,
@@ -396,13 +402,12 @@
                     const item = document.createElement('article');
                     item.className = 'article-item';
                     item.innerHTML = `
-                        <div class="article-rank">
-                            <span>Article</span>
-                            <strong>${String(index + 1).padStart(2, '0')}</strong>
+                        <div class="article-badge">
+                            <span>Open Access</span>
+                            <strong>Article</strong>
                         </div>
                         <div class="article-main">
                             <div class="article-labels">
-                                <span>Open Access</span>
                                 ${journalName ? `<span>${escapeHTML(journalName)}</span>` : ''}
                                 ${publishedDate ? `<span>Published: ${escapeHTML(publishedDate)}</span>` : ''}
                             </div>
@@ -411,7 +416,7 @@
                             <p class="article-authors">${escapeHTML(authorLine || 'Editorial record')}</p>
                             ${metaParts.length ? `<p class="article-meta">${escapeHTML(metaParts.join(' · '))}</p>` : ''}
                             ${doiLabel ? `<p class="article-doi">DOI: ${escapeHTML(doiLabel)}</p>` : ''}
-                            ${displayAbstract ? `<p class="article-abstract"><strong>Abstract:</strong> ${escapeHTML(displayAbstract).slice(0, 520)}${displayAbstract.length > 520 ? '...' : ''}</p>` : ''}
+                            ${displayAbstract ? `<p class="article-abstract"><strong>Abstract:</strong> ${escapeHTML(displayAbstract)}</p>` : ''}
                         </div>
                         <div class="article-actions">
                             ${article.url ? `<a href="${escapeHTML(article.url)}" target="_blank" rel="noopener">Full Article</a>` : ''}
@@ -422,9 +427,8 @@
                 });
 
                 if (articleStatus) {
-                    const harvested = payload.harvestedAt ? `Panorama daily selection updated: ${payload.harvestedAt.replace('T', ' ').replace('Z', ' UTC')}` : 'Panorama articles loaded.';
-                    const selected = payload.selectedArticleCount ? ` ${payload.selectedArticleCount} articles featured today.` : '';
-                    articleStatus.textContent = `${harvested}.${selected}`;
+                    const selected = payload.selectedArticleCount || articles.length;
+                    articleStatus.textContent = `${selected} articles selected from Panorama journal records.`;
                 }
                 restoreHashTarget();
             }
