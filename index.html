@@ -93,27 +93,6 @@
             </div>
         </section>
 
-        <section class="portal-band portal-directory" id="find-journal">
-            <div class="wrap">
-                <div class="portal-heading split-heading">
-                    <div>
-                        <span>Official Journal Publications</span>
-                        <h2>Find a Journal</h2>
-                    </div>
-                    <p>Search by title, subject area, abbreviation, or ISSN.</p>
-                </div>
-                <div class="journal-toolbar" aria-label="Journal filters">
-                    <label class="search-box">
-                        <span>Search journals</span>
-                        <input id="journal-search" type="search" placeholder="Search AI, policy, health, ISSN..." autocomplete="off">
-                    </label>
-                    <div class="filter-buttons" id="journal-filters" aria-label="Subject filters"></div>
-                </div>
-                <p class="results-count" id="results-count" aria-live="polite"></p>
-                <div id="journal-wrapper"></div>
-            </div>
-        </section>
-
         <section class="portal-band" id="recent-articles">
             <div class="wrap">
                 <div class="portal-heading split-heading">
@@ -188,14 +167,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const CATEGORIES = [
-                { id: 'all', title: 'All Journals' },
-                { id: 'tech', title: 'AI & Technology' },
-                { id: 'env',  title: 'Health & Sustainability' },
-                { id: 'soc',  title: 'Policy, Education & Society' },
-                { id: 'arts', title: 'Humanities & Arts' }
-            ];
-
             const JOURNALS = [
                 { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
                 { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AFS.png', slug: 'AFS' },
@@ -238,15 +209,10 @@
                 marqueeTrack.innerHTML = [...featuredJournals, ...featuredJournals].map(createMarqueeCard).join('');
             }
 
-            const wrapper = document.getElementById('journal-wrapper');
-            const searchInput = document.getElementById('journal-search');
             const heroSearchInput = document.getElementById('hero-journal-search');
             const heroSearchButton = document.getElementById('hero-search-button');
-            const filterHost = document.getElementById('journal-filters');
-            const resultsCount = document.getElementById('results-count');
             const articleList = document.getElementById('recent-article-list');
             const articleStatus = document.getElementById('article-status');
-            let activeGroup = 'all';
 
             function escapeHTML(value) {
                 return String(value || '').replace(/[&<>"']/g, char => ({
@@ -342,88 +308,6 @@
                     });
             }
 
-            if (filterHost) {
-                filterHost.innerHTML = CATEGORIES.map((cat, index) => `
-                    <button type="button" class="${index === 0 ? 'active' : ''}" data-group="${cat.id}">${cat.title}</button>
-                `).join('');
-            }
-
-            function matchesSearch(journal, query) {
-                if (!query) return true;
-                const haystack = `${journal.id} ${journal.title} ${journal.cat} ${journal.issn} ${journal.group}`.toLowerCase();
-                return haystack.includes(query);
-            }
-
-            function renderJournals() {
-                const query = (searchInput && searchInput.value ? searchInput.value : '').trim().toLowerCase();
-                wrapper.innerHTML = '';
-                let renderedCount = 0;
-
-                CATEGORIES.filter(cat => cat.id !== 'all').forEach(cat => {
-                    const catJournals = JOURNALS.filter(j => {
-                        const groupMatch = activeGroup === 'all' || j.group === activeGroup;
-                        return j.group === cat.id && groupMatch && matchesSearch(j, query);
-                    });
-                    if (!catJournals.length) return;
-
-                    renderedCount += catJournals.length;
-                    const sectionDiv = document.createElement('section');
-                    sectionDiv.className = 'journal-group';
-
-                    const leftCol = document.createElement('div');
-                    leftCol.className = 'journal-group-title';
-                    leftCol.innerHTML = `<h3>${cat.title}</h3><p>${catJournals.length} journal${catJournals.length === 1 ? '' : 's'}</p>`;
-
-                    const rightCol = document.createElement('div');
-                    rightCol.className = 'journal-grid';
-
-                    catJournals.forEach(j => {
-                        const card = document.createElement('article');
-                        card.className = 'journal-card';
-                        card.innerHTML = `
-                            <div class="journal-meta">
-                                <span class="tag">${j.cat}</span>
-                                <span class="issn">ISSN: ${j.issn}</span>
-                            </div>
-                            <div class="journal-cover">
-                                <img src="${baseImgUrl + j.img}" loading="lazy" alt="${j.title}" onerror="this.style.opacity=0.25">
-                            </div>
-                            <h4>${j.title}</h4>
-                            <div class="journal-links">
-                                <a href="https://journals.panorama-sg.com/index.php/${j.slug}">Portal</a>
-                                <a href="https://journals.panorama-sg.com/index.php/${j.slug}/submission">Submit</a>
-                            </div>
-                        `;
-                        rightCol.appendChild(card);
-                    });
-
-                    sectionDiv.append(leftCol, rightCol);
-                    wrapper.appendChild(sectionDiv);
-                });
-
-                if (resultsCount) {
-                    resultsCount.textContent = `${renderedCount} journal${renderedCount === 1 ? '' : 's'} shown`;
-                }
-
-                if (!renderedCount) {
-                    wrapper.innerHTML = '<div class="empty-state">No journals match the current search.</div>';
-                }
-            }
-
-            if (filterHost) {
-                filterHost.addEventListener('click', function(event) {
-                    const button = event.target.closest('button[data-group]');
-                    if (!button) return;
-                    activeGroup = button.dataset.group;
-                    filterHost.querySelectorAll('button').forEach(btn => btn.classList.toggle('active', btn === button));
-                    renderJournals();
-                });
-            }
-
-            if (searchInput) {
-                searchInput.addEventListener('input', renderJournals);
-            }
-
             function runHeroJournalSearch() {
                 const query = heroSearchInput ? heroSearchInput.value.trim() : '';
                 const targetUrl = query ? `journals.html?q=${encodeURIComponent(query)}` : 'journals.html';
@@ -442,8 +326,6 @@
                     }
                 });
             }
-
-            renderJournals();
         });
     </script>
 </body>
