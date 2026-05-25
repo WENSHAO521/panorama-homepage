@@ -169,7 +169,7 @@ $items = foreach ($journal in $journals) {
 $payload = [pscustomobject]@{
     harvestedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
     sourcePublisher = "Panorama Scholarly Group"
-    source = "Panorama OJS journal home pages"
+    source = "Panorama journal home pages"
     journalCount = @($items).Count
     journals = @($items)
 }
