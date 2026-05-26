@@ -100,7 +100,16 @@ function Get-JournalArticleUrl {
 
 function Get-OaiPage {
     param([string]$Url)
-    [xml]((Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60).Content)
+
+    $response = Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60
+    $contentType = "$($response.Headers['Content-Type'])"
+    $content = "$($response.Content)"
+
+    if ($contentType -notmatch "xml" -or $content -match "Enable JavaScript and cookies to continue" -or $content -match "__cf_chl") {
+        throw "OAI endpoint returned a non-XML anti-bot challenge page."
+    }
+
+    [xml]$content
 }
 
 $records = New-Object System.Collections.Generic.List[object]
@@ -110,7 +119,13 @@ $page = 0
 while ($url -and $page -lt $MaxPages) {
     $page += 1
     Write-Host "Fetching OAI page $page"
-    $xml = Get-OaiPage $url
+
+    try {
+        $xml = Get-OaiPage $url
+    } catch {
+        Write-Warning "Failed to fetch OAI page $page from '$url': $($_.Exception.Message)"
+        break
+    }
 
     $ns = New-Object System.Xml.XmlNamespaceManager($xml.NameTable)
     $ns.AddNamespace("oai", "http://www.openarchives.org/OAI/2.0/")
@@ -155,6 +170,17 @@ while ($url -and $page -lt $MaxPages) {
 }
 
 $today = (Get-Date).Date
+
+if ($records.Count -eq 0) {
+    $outputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
+    if (Test-Path $outputPath) {
+        Write-Warning "No OAI records were fetched. Keeping existing output file: $outputPath"
+        exit 0
+    }
+
+    throw "No OAI records were fetched and no existing output file is available at '$outputPath'."
+}
+
 $eligibleRecords = if ($IncludeFuture) {
     $records
 } else {
