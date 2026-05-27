@@ -1,5 +1,6 @@
 param(
-    [string]$Endpoint = "https://journals.panorama-sg.com/index.php/index/oai",
+    [string]$BaseUrl = "https://journals.panorama-sg.com/index.php",
+    [string[]]$JournalSlugs = @("AFS", "CSGS", "files", "HealthNexus", "JESA", "JLPCS", "JSCC", "PEMR", "Resonance", "RGGD", "Silence", "tts"),
     [string]$Output = "data/articles.json",
     [int]$Limit = 20,
     [int]$PoolLimit = 50,
@@ -271,67 +272,84 @@ function Get-OaiPage {
     }
 }
 
-$records = New-Object System.Collections.Generic.List[object]
-$url = "$Endpoint`?verb=ListRecords&metadataPrefix=oai_dc"
-$page = 0
+function Get-OaiRecordsForEndpoint {
+    param([string]$Endpoint)
 
-while ($url -and $page -lt $MaxPages) {
-    $page += 1
-    Write-Host "Fetching OAI page $page"
+    $records = New-Object System.Collections.Generic.List[object]
+    $url = "$Endpoint`?verb=ListRecords&metadataPrefix=oai_dc"
+    $page = 0
 
-    $xml = Get-OaiPage $url
+    while ($url -and $page -lt $MaxPages) {
+        $page += 1
+        Write-Host "Fetching OAI page $page from $Endpoint"
+
+        $xml = Get-OaiPage $url
 
     $ns = New-Object System.Xml.XmlNamespaceManager($xml.NameTable)
     $ns.AddNamespace("oai", "http://www.openarchives.org/OAI/2.0/")
     $ns.AddNamespace("dc", "http://purl.org/dc/elements/1.1/")
 
-    foreach ($record in $xml.SelectNodes("//oai:record", $ns)) {
-        $title = Get-NodeText $record ".//dc:title" $ns
+        foreach ($record in $xml.SelectNodes("//oai:record", $ns)) {
+            $title = Get-NodeText $record ".//dc:title" $ns
 
-        if (-not $title) {
-            continue
+            if (-not $title) {
+                continue
+            }
+
+            $identifiers = Get-NodeTexts $record ".//dc:identifier" $ns
+            $urlIdentifier = @($identifiers | Where-Object { $_ -match "^https?://" -and $_ -notmatch "doi\.org" } | Select-Object -First 1)
+            $doiIdentifier = @($identifiers | Where-Object { $_ -match "10\.\d{4,9}/" -or $_ -match "doi\.org/" } | Select-Object -First 1)
+
+            $source = Get-NodeText $record ".//dc:source" $ns
+            $sourceParts = Split-Source $source
+
+            $setSpecs = @(Get-NodeTexts $record "./oai:header/oai:setSpec" $ns)
+            $journalSlug = Get-JournalSlug $setSpecs $sourceParts.journal
+
+            $originalUrl = if ($urlIdentifier.Count) { $urlIdentifier[0] } else { "" }
+            $articleUrl = Get-JournalArticleUrl $originalUrl $journalSlug
+
+            $records.Add([pscustomobject]@{
+                title       = $title
+                authors     = @(Get-NodeTexts $record ".//dc:creator" $ns)
+                journal     = $sourceParts.journal
+                journalSlug = $journalSlug
+                journalUrl  = if ($journalSlug) { "https://journals.panorama-sg.com/index.php/$journalSlug" } else { "" }
+                issue       = $sourceParts.issue
+                pages       = $sourceParts.pages
+                publishedAt = Get-NodeText $record ".//dc:date" $ns
+                url         = $articleUrl
+                doi         = if ($doiIdentifier.Count) { $doiIdentifier[0] } else { "" }
+                abstract    = Get-NodeText $record ".//dc:description" $ns
+            })
         }
 
-        $identifiers = Get-NodeTexts $record ".//dc:identifier" $ns
-        $urlIdentifier = @($identifiers | Where-Object { $_ -match "^https?://" -and $_ -notmatch "doi\.org" } | Select-Object -First 1)
-        $doiIdentifier = @($identifiers | Where-Object { $_ -match "10\.\d{4,9}/" -or $_ -match "doi\.org/" } | Select-Object -First 1)
+        $tokenNode = $xml.SelectSingleNode("//oai:resumptionToken", $ns)
 
-        $source = Get-NodeText $record ".//dc:source" $ns
-        $sourceParts = Split-Source $source
+        if ($null -ne $tokenNode -and -not [string]::IsNullOrWhiteSpace($tokenNode.InnerText)) {
+            $token = [uri]::EscapeDataString((Normalize-Text $tokenNode.InnerText))
+            $url = "$Endpoint`?verb=ListRecords&resumptionToken=$token"
 
-        $setSpecs = @(Get-NodeTexts $record "./oai:header/oai:setSpec" $ns)
-        $journalSlug = Get-JournalSlug $setSpecs $sourceParts.journal
-
-        $originalUrl = if ($urlIdentifier.Count) { $urlIdentifier[0] } else { "" }
-        $articleUrl = Get-JournalArticleUrl $originalUrl $journalSlug
-
-        $records.Add([pscustomobject]@{
-            title       = $title
-            authors     = @(Get-NodeTexts $record ".//dc:creator" $ns)
-            journal     = $sourceParts.journal
-            journalSlug = $journalSlug
-            journalUrl  = if ($journalSlug) { "https://journals.panorama-sg.com/index.php/$journalSlug" } else { "" }
-            issue       = $sourceParts.issue
-            pages       = $sourceParts.pages
-            publishedAt = Get-NodeText $record ".//dc:date" $ns
-            url         = $articleUrl
-            doi         = if ($doiIdentifier.Count) { $doiIdentifier[0] } else { "" }
-            abstract    = Get-NodeText $record ".//dc:description" $ns
-        })
+            if ($RequestDelaySeconds -gt 0) {
+                Write-Host "Waiting $RequestDelaySeconds seconds before the next OAI page"
+                Start-Sleep -Seconds $RequestDelaySeconds
+            }
+        } else {
+            $url = $null
+        }
     }
 
-    $tokenNode = $xml.SelectSingleNode("//oai:resumptionToken", $ns)
+    return $records
+}
 
-    if ($null -ne $tokenNode -and -not [string]::IsNullOrWhiteSpace($tokenNode.InnerText)) {
-        $token = [uri]::EscapeDataString((Normalize-Text $tokenNode.InnerText))
-        $url = "$Endpoint`?verb=ListRecords&resumptionToken=$token"
+$records = New-Object System.Collections.Generic.List[object]
 
-        if ($RequestDelaySeconds -gt 0) {
-            Write-Host "Waiting $RequestDelaySeconds seconds before the next OAI page"
-            Start-Sleep -Seconds $RequestDelaySeconds
-        }
-    } else {
-        $url = $null
+foreach ($slug in $JournalSlugs) {
+    $endpoint = "$BaseUrl/$slug/oai"
+    Write-Host "Harvesting records from journal slug '$slug' via $endpoint"
+    $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $endpoint
+    foreach ($record in $endpointRecords) {
+        $records.Add($record)
     }
 }
 
@@ -370,21 +388,13 @@ $recentPool = @(
     Select-Object -First $PoolLimit
 )
 
-$seed = [int](Get-Date -Format "yyyyMMdd")
-$rng = [System.Random]::new($seed)
-
-$selected = @(
-    $recentPool |
-    Sort-Object { $rng.NextDouble() } |
-    Select-Object -First $Limit
-)
+$selected = @($recentPool | Select-Object -First $Limit)
 
 $payload = [pscustomobject]@{
     harvestedAt           = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
     sourcePublisher       = "Panorama Scholarly Group"
     metadataSource        = "Panorama journal article records"
-    selectionMode         = "daily-random-from-recent-panorama-publications"
-    randomSeed            = $seed
+    selectionMode         = "most-recent-panorama-publications"
     totalRecordsHarvested = $records.Count
     futureRecordsExcluded = $records.Count - @($eligibleRecords).Count
     recentPoolLimit       = $PoolLimit
