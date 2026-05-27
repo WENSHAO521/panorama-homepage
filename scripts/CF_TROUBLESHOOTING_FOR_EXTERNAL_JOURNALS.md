@@ -1,6 +1,6 @@
 # OAI Crawl Notes (Panorama + External Journals)
 
-For Panorama-owned journals, prefer **single OAI endpoint + set harvesting** to reduce Cloudflare risk:
+For Panorama-owned journals, use **BASE-style single endpoint harvesting** by default (lowest CF surface):
 - Endpoint: `https://journals.panorama-sg.com/index.php/index/oai`
 - Use `set=<journal_slug>` per request
 
@@ -12,7 +12,10 @@ For Panorama-owned journals, prefer **single OAI endpoint + set harvesting** to 
   -RequestDelaySeconds 6
 ```
 
-The script will now use `index/oai` and query each slug as `set=<slug>`.
+The script now supports `-HarvestMode base|set|endpoint`:
+- `base` (default): one request flow against `index/oai`, then in-script filter by journal slug/set.
+- `set`: `index/oai` with `set=<slug>` per journal.
+- `endpoint`: legacy per-journal `/$slug/oai`.
 
 ## External journal runtime options
 Both scripts support:
@@ -34,3 +37,9 @@ Example:
 - Respect target site Terms of Use and robots policies.
 - Prefer official APIs/OAI endpoints whenever available.
 - Keep request delay enabled to avoid triggering anti-bot rules.
+
+
+Example (explicit BASE mode):
+```powershell
+./scripts/fetch-selected-recent-articles.ps1 -HarvestMode base -OaiEndpoint "https://journals.panorama-sg.com/index.php/index/oai"
+```

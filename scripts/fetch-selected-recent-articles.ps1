@@ -1,6 +1,7 @@
 param(
     [string]$BaseUrl = "https://journals.panorama-sg.com/index.php",
     [string]$OaiEndpoint = "",
+    [ValidateSet("base", "set", "endpoint")][string]$HarvestMode = "base",
     [string[]]$JournalSlugs = @("AFS", "CSGS", "files", "HealthNexus", "JESA", "JLPCS", "JSCC", "PEMR", "Resonance", "RGGD", "Silence", "tts"),
     [string]$Output = "data/articles.json",
     [int]$Limit = 20,
@@ -285,7 +286,29 @@ function Get-OaiRecordsForEndpoint {
         [string]$SetSpec = ""
     )
 
-    $records = New-Object System.Collections.Generic.List[object]
+    
+function Test-IsTargetJournal {
+    param(
+        [string]$JournalSlug,
+        [string[]]$SetSpecs,
+        [string[]]$TargetSlugs
+    )
+
+    if (-not $TargetSlugs -or $TargetSlugs.Count -eq 0) { return $true }
+
+    foreach ($slug in $TargetSlugs) {
+        if (-not $slug) { continue }
+        if ($JournalSlug -and $JournalSlug.Equals($slug, [System.StringComparison]::OrdinalIgnoreCase)) { return $true }
+        foreach ($setSpec in $SetSpecs) {
+            if (-not $setSpec) { continue }
+            if ($setSpec -match "(?i)^$([regex]::Escape($slug))(?:[:$]|$)") { return $true }
+        }
+    }
+
+    return $false
+}
+
+$records = New-Object System.Collections.Generic.List[object]
     $url = if ([string]::IsNullOrWhiteSpace($SetSpec)) { "$Endpoint`?verb=ListRecords&metadataPrefix=oai_dc" } else { "$Endpoint`?verb=ListRecords&metadataPrefix=oai_dc&set=$([uri]::EscapeDataString($SetSpec))" }
     $page = 0
 
@@ -315,6 +338,10 @@ function Get-OaiRecordsForEndpoint {
 
             $setSpecs = @(Get-NodeTexts $record "./oai:header/oai:setSpec" $ns)
             $journalSlug = Get-JournalSlug $setSpecs $sourceParts.journal
+
+            if (-not (Test-IsTargetJournal -JournalSlug $journalSlug -SetSpecs $setSpecs -TargetSlugs $JournalSlugs)) {
+                continue
+            }
 
             $originalUrl = if ($urlIdentifier.Count) { $urlIdentifier[0] } else { "" }
             $articleUrl = Get-JournalArticleUrl $originalUrl $journalSlug
@@ -356,16 +383,27 @@ $records = New-Object System.Collections.Generic.List[object]
 
 $resolvedOaiEndpoint = if ([string]::IsNullOrWhiteSpace($OaiEndpoint)) { "$BaseUrl/index/oai" } else { $OaiEndpoint.TrimEnd("/") }
 
-foreach ($slug in $JournalSlugs) {
-    Write-Host "Harvesting records from set '$slug' via $resolvedOaiEndpoint"
-    $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $resolvedOaiEndpoint -SetSpec $slug
-    foreach ($record in $endpointRecords) {
-        $records.Add($record)
-    }
+if ($HarvestMode -eq "base") {
+    Write-Host "Harvesting records via BASE-style single endpoint: $resolvedOaiEndpoint"
+    $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $resolvedOaiEndpoint
+    foreach ($record in $endpointRecords) { $records.Add($record) }
+} elseif ($HarvestMode -eq "set") {
+    foreach ($slug in $JournalSlugs) {
+        Write-Host "Harvesting records from set '$slug' via $resolvedOaiEndpoint"
+        $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $resolvedOaiEndpoint -SetSpec $slug
+        foreach ($record in $endpointRecords) { $records.Add($record) }
 
-    if ($RequestDelaySeconds -gt 0) {
-        Write-Host "Waiting $RequestDelaySeconds seconds before the next set"
-        Start-Sleep -Seconds $RequestDelaySeconds
+        if ($RequestDelaySeconds -gt 0) {
+            Write-Host "Waiting $RequestDelaySeconds seconds before the next set"
+            Start-Sleep -Seconds $RequestDelaySeconds
+        }
+    }
+} else {
+    foreach ($slug in $JournalSlugs) {
+        $endpoint = "$BaseUrl/$slug/oai"
+        Write-Host "Harvesting records from journal slug '$slug' via $endpoint"
+        $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $endpoint
+        foreach ($record in $endpointRecords) { $records.Add($record) }
     }
 }
 
