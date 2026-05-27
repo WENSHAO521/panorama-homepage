@@ -115,20 +115,90 @@ function Get-JournalArticleUrl {
     return ($OriginalUrl -replace "/index/article/view/", "/$JournalSlug/article/view/")
 }
 
+function Test-IsCloudflareChallenge {
+    param([string]$Content)
+    if (-not $Content) { return $true }
+    
+    # Check for various Cloudflare challenge indicators
+    $challengePatterns = @(
+        "Just a moment"
+        "Enable JavaScript and cookies"
+        "_cf_chl"
+        "challenge-platform"
+        "cf_clearance"
+        "Checking your browser"
+        "Allow me access"
+        "Ray ID"
+    )
+    
+    foreach ($pattern in $challengePatterns) {
+        if ($Content -match [regex]::Escape($pattern)) {
+            return $true
+        }
+    }
+    
+    # Check if content looks like HTML challenge page
+    if ($Content -match "<!DOCTYPE|<html|Cloudflare" -and $Content -notmatch "<\?xml") {
+        return $true
+    }
+    
+    return $false
+}
+
 function Get-OaiPage {
     param([string]$Url)
-    $headers = @{
-        "Accept" = "application/xml,text/xml,*/*"
-        "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
-    }
-    $content = (Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60 -Headers $headers).Content
-    if ($content -match "Just a moment|Enable JavaScript and cookies|_cf_chl|challenge-platform") {
-        throw "Cloudflare challenge returned for OAI endpoint instead of XML."
-    }
-    try {
-        return [xml]$content
-    } catch {
-        throw "OAI endpoint returned non-XML content."
+    
+    $maxRetries = 3
+    $retryCount = 0
+    
+    while ($retryCount -lt $maxRetries) {
+        try {
+            $headers = @{
+                "Accept" = "application/xml,text/xml,*/*"
+                "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+                "Accept-Encoding" = "gzip, deflate"
+                "Accept-Language" = "en-US,en;q=0.9"
+                "Cache-Control" = "no-cache"
+                "Pragma" = "no-cache"
+            }
+            
+            $response = Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers -SkipHttpErrorCheck
+            $content = $response.Content
+            
+            # Detect Cloudflare challenge
+            if (Test-IsCloudflareChallenge $content) {
+                $retryCount++
+                if ($retryCount -lt $maxRetries) {
+                    $waitTime = [Math]::Min(5 * $retryCount, 15)
+                    Write-Warning "Cloudflare challenge detected. Retrying in $waitTime seconds (attempt $retryCount/$maxRetries)..."
+                    Start-Sleep -Seconds $waitTime
+                    continue
+                } else {
+                    throw "Cloudflare challenge returned persistently for OAI endpoint after $maxRetries attempts."
+                }
+            }
+            
+            # Check HTTP status
+            if ($response.StatusCode -ne 200) {
+                throw "OAI endpoint returned HTTP $($response.StatusCode)"
+            }
+            
+            # Try to parse as XML
+            try {
+                return [xml]$content
+            } catch {
+                throw "OAI endpoint returned non-XML content: $($_.Exception.Message)"
+            }
+        } catch {
+            if ($retryCount -lt $maxRetries - 1) {
+                $waitTime = [Math]::Min(5 * ($retryCount + 1), 15)
+                Write-Warning "Request failed: $($_.Exception.Message). Retrying in $waitTime seconds..."
+                Start-Sleep -Seconds $waitTime
+                $retryCount++
+            } else {
+                throw $_
+            }
+        }
     }
 }
 
