@@ -6,6 +6,8 @@ param(
     [int]$PoolLimit = 50,
     [int]$MaxPages = 20,
     [int]$RequestDelaySeconds = 6,
+    [int]$JitterSeconds = 3,
+    [ValidateSet("base-first", "journal-first")][string]$HarvestStrategy = "base-first",
     [switch]$IncludeFuture
 )
 
@@ -192,14 +194,22 @@ function Test-IsCloudflareChallenge {
 function Get-OaiPage {
     param([string]$Url)
 
+    $userAgents = @(
+        "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)",
+        "Mozilla/5.0 (compatible; PanoramaOAIHarvester/1.0; +https://panorama-sg.com/)",
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+    )
+
     $maxRetries = 3
     $retryCount = 0
 
     while ($retryCount -lt $maxRetries) {
         try {
+            $userAgent = $userAgents[$retryCount % $userAgents.Count]
+
             $headers = @{
                 "Accept"            = "application/xml,text/xml,*/*"
-                "User-Agent"        = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+                "User-Agent"        = $userAgent
                 "X-PSG-Build-Bot"   = "panorama-homepage"
                 "Accept-Encoding"   = "gzip, deflate"
                 "Accept-Language"   = "en-US,en;q=0.9"
@@ -218,7 +228,7 @@ function Get-OaiPage {
                 $retryCount++
 
                 if ($retryCount -lt $maxRetries) {
-                    $waitTime = [Math]::Min(5 * $retryCount, 15)
+                    $waitTime = [Math]::Min(8 * $retryCount, 25) + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
                     Write-Warning "Cloudflare challenge detected. Retrying in $waitTime seconds (attempt $retryCount/$maxRetries)..."
                     Start-Sleep -Seconds $waitTime
                     continue
@@ -261,7 +271,7 @@ function Get-OaiPage {
         } catch {
             if ($retryCount -lt $maxRetries - 1) {
                 $retryCount++
-                $waitTime = [Math]::Min(5 * $retryCount, 15)
+                $waitTime = [Math]::Min(8 * $retryCount, 25) + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
 
                 Write-Warning "Request failed: $($_.Exception.Message). Retrying in $waitTime seconds..."
                 Start-Sleep -Seconds $waitTime
@@ -273,10 +283,19 @@ function Get-OaiPage {
 }
 
 function Get-OaiRecordsForEndpoint {
-    param([string]$Endpoint)
+    param(
+        [string]$Endpoint,
+        [string]$SetSpec = ""
+    )
 
     $records = New-Object System.Collections.Generic.List[object]
-    $url = "$Endpoint`?verb=ListRecords&metadataPrefix=oai_dc"
+    $query = "verb=ListRecords&metadataPrefix=oai_dc"
+
+    if ($SetSpec) {
+        $query += "&set=$([uri]::EscapeDataString($SetSpec))"
+    }
+
+    $url = "$Endpoint`?$query"
     $page = 0
 
     while ($url -and $page -lt $MaxPages) {
@@ -342,14 +361,78 @@ function Get-OaiRecordsForEndpoint {
     return $records
 }
 
-$records = New-Object System.Collections.Generic.List[object]
+function Merge-HarvestRecords {
+    param($TargetList, $SourceRecords)
 
-foreach ($slug in $JournalSlugs) {
-    $endpoint = "$BaseUrl/$slug/oai"
-    Write-Host "Harvesting records from journal slug '$slug' via $endpoint"
-    $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $endpoint
-    foreach ($record in $endpointRecords) {
-        $records.Add($record)
+    foreach ($record in $SourceRecords) {
+        $TargetList.Add($record)
+    }
+}
+
+function Harvest-FromBaseEndpoint {
+    param([string]$BaseEndpoint, [string[]]$Slugs)
+
+    $allRecords = New-Object System.Collections.Generic.List[object]
+
+    foreach ($slug in $Slugs) {
+        Write-Host "Harvesting records for set '$slug' via $BaseEndpoint"
+        try {
+            $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $BaseEndpoint -SetSpec $slug
+            Merge-HarvestRecords -TargetList $allRecords -SourceRecords $endpointRecords
+        } catch {
+            Write-Warning "Base endpoint set '$slug' failed: $($_.Exception.Message)"
+        }
+
+        if ($RequestDelaySeconds -gt 0) {
+            $sleepSeconds = $RequestDelaySeconds + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
+            Write-Host "Waiting $sleepSeconds seconds before next set"
+            Start-Sleep -Seconds $sleepSeconds
+        }
+    }
+
+    return $allRecords
+}
+
+function Harvest-FromJournalEndpoints {
+    param([string]$BaseUrl, [string[]]$Slugs)
+
+    $allRecords = New-Object System.Collections.Generic.List[object]
+
+    foreach ($slug in $Slugs) {
+        $endpoint = "$BaseUrl/$slug/oai"
+        Write-Host "Fallback harvesting from per-journal endpoint '$endpoint'"
+        try {
+            $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $endpoint
+            Merge-HarvestRecords -TargetList $allRecords -SourceRecords $endpointRecords
+        } catch {
+            Write-Warning "Per-journal endpoint '$slug' failed: $($_.Exception.Message)"
+        }
+
+        if ($RequestDelaySeconds -gt 0) {
+            $sleepSeconds = $RequestDelaySeconds + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
+            Write-Host "Waiting $sleepSeconds seconds before next journal endpoint"
+            Start-Sleep -Seconds $sleepSeconds
+        }
+    }
+
+    return $allRecords
+}
+
+$baseOaiEndpoint = "$BaseUrl/index/oai"
+
+if ($HarvestStrategy -eq "journal-first") {
+    $records = Harvest-FromJournalEndpoints -BaseUrl $BaseUrl -Slugs $JournalSlugs
+
+    if ($records.Count -eq 0) {
+        Write-Warning "Per-journal strategy returned 0 records. Falling back to base endpoint strategy."
+        $records = Harvest-FromBaseEndpoint -BaseEndpoint $baseOaiEndpoint -Slugs $JournalSlugs
+    }
+} else {
+    $records = Harvest-FromBaseEndpoint -BaseEndpoint $baseOaiEndpoint -Slugs $JournalSlugs
+
+    if ($records.Count -eq 0) {
+        Write-Warning "Base endpoint strategy returned 0 records. Falling back to per-journal endpoints."
+        $records = Harvest-FromJournalEndpoints -BaseUrl $BaseUrl -Slugs $JournalSlugs
     }
 }
 
