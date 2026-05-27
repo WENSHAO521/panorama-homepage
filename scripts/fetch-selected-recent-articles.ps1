@@ -1,28 +1,35 @@
 param(
     [string]$BaseUrl = "https://journals.panorama-sg.com/index.php",
-    [string[]]$JournalSlugs = @("AFS", "CSGS", "files", "HealthNexus", "JESA", "JLPCS", "JSCC", "PEMR", "Resonance", "RGGD", "Silence", "tts"),
     [string]$Output = "data/articles.json",
     [int]$Limit = 20,
     [int]$PoolLimit = 50,
-    [int]$MaxPages = 20,
-    [int]$RequestDelaySeconds = 6,
-    [int]$JitterSeconds = 3,
-    [ValidateSet("base-first", "journal-first")][string]$HarvestStrategy = "base-first",
+    [int]$MaxIssuesPerJournal = 8,
+    [int]$MaxArticlesToCrawl = 220,
+    [int]$RequestDelaySeconds = 2,
+    [string[]]$JournalSlugs = @(
+        "AFS",
+        "CSGS",
+        "files",
+        "HealthNexus",
+        "JESA",
+        "JLPCS",
+        "JSCC",
+        "PEMR",
+        "Resonance",
+        "RGGD",
+        "Silence",
+        "tts"
+    ),
     [switch]$IncludeFuture
 )
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
 
-$script:OutputPath = if ([System.IO.Path]::IsPathRooted($Output)) {
-    $Output
-} else {
-    Join-Path (Get-Location) $Output
-}
+$script:OutputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
 
 function Use-ExistingArticleCache {
     param($Reason)
-
     if (Test-Path -LiteralPath $script:OutputPath) {
         Write-Warning "Unable to refresh article records: $Reason"
         Write-Warning "Keeping existing article cache at $script:OutputPath and exiting successfully."
@@ -37,463 +44,291 @@ trap {
 
 function Normalize-Text {
     param([string]$Value)
-
     if ([string]::IsNullOrWhiteSpace($Value)) { return "" }
-
     return (($Value -replace [char]0x00A0, " ") -replace "\s+", " ").Trim()
 }
 
 function Get-NodeText {
     param($Node, [string]$Path, $NamespaceManager)
-
     $found = $Node.SelectSingleNode($Path, $NamespaceManager)
     if ($null -eq $found) { return "" }
-
     return Normalize-Text $found.InnerText
 }
 
 function Get-NodeTexts {
     param($Node, [string]$Path, $NamespaceManager)
-
-    @(
-        $Node.SelectNodes($Path, $NamespaceManager) |
-        ForEach-Object { Normalize-Text $_.InnerText } |
-        Where-Object { $_ }
-    )
-}
-
-function Split-Source {
-    param([string]$Source)
-
-    $parts = @(($Source -split ";") | ForEach-Object { Normalize-Text $_ } | Where-Object { $_ })
-
-    $journal = if ($parts.Count -ge 1) { $parts[0] } else { "" }
-    $pages = if ($parts.Count -ge 3) { $parts[$parts.Count - 1] } else { "" }
-
-    $issue = if ($parts.Count -ge 3) {
-        ($parts[1..($parts.Count - 2)] -join "; ")
-    } elseif ($parts.Count -eq 2) {
-        $parts[1]
-    } else {
-        ""
-    }
-
-    [pscustomobject]@{
-        journal = $journal
-        issue   = $issue
-        pages   = $pages
-    }
+    @($Node.SelectNodes($Path, $NamespaceManager) | ForEach-Object { Normalize-Text $_.InnerText } | Where-Object { $_ })
 }
 
 function Get-JournalSlug {
-    param([string[]]$SetSpecs, [string]$Journal)
+    param([string]$Url, [string]$Journal)
 
     $setSlugMap = @{
-        "afs"         = "AFS"
-        "csgs"        = "CSGS"
-        "files"       = "files"
-        "healthnexus" = "HealthNexus"
-        "jesa"        = "JESA"
-        "jlpcs"       = "JLPCS"
-        "jscc"        = "JSCC"
-        "pemr"        = "PEMR"
-        "resonance"   = "Resonance"
-        "rggd"        = "RGGD"
-        "silence"     = "Silence"
-        "tts"         = "tts"
+        "afs" = "AFS"; "csgs" = "CSGS"; "files" = "files"; "healthnexus" = "HealthNexus"
+        "jesa" = "JESA"; "jlpcs" = "JLPCS"; "jscc" = "JSCC"; "pemr" = "PEMR"
+        "resonance" = "Resonance"; "rggd" = "RGGD"; "silence" = "Silence"; "tts" = "tts"
     }
 
-    foreach ($setSpec in $SetSpecs) {
-        if (-not $setSpec) { continue }
-
-        $prefix = (($setSpec -split ":")[0]).ToLowerInvariant()
-
-        if ($setSlugMap.ContainsKey($prefix)) {
-            return $setSlugMap[$prefix]
-        }
+    if ($Url -match "/index\.php/([^/]+)/") {
+        $slugKey = $Matches[1].ToLowerInvariant()
+        if ($setSlugMap.ContainsKey($slugKey)) { return $setSlugMap[$slugKey] }
     }
 
     $journalSlugMap = @{
-        "ai & future society"                                      = "AFS"
-        "climate sustainability & global systems"                  = "CSGS"
-        "global review of humanities, arts, and society"           = "files"
-        "health nexus"                                             = "HealthNexus"
-        "journal of engineering systems and applications"          = "JESA"
-        "journal of law, psychology, and communication studies"     = "JLPCS"
-        "journal of social cognition and communication"            = "JSCC"
-        "poliecom administration review"                           = "PEMR"
-        "resonance: journal of global music studies"               = "Resonance"
-        "silence"                                                  = "Silence"
+        "ai & future society" = "AFS"
+        "climate sustainability & global systems" = "CSGS"
+        "global review of humanities, arts, and society" = "files"
+        "health nexus" = "HealthNexus"
+        "journal of engineering systems and applications" = "JESA"
+        "journal of law, psychology, and communication studies" = "JLPCS"
+        "journal of social cognition and communication" = "JSCC"
+        "poliecom administration review" = "PEMR"
+        "resonance: journal of global music studies" = "Resonance"
+        "silence" = "Silence"
         "three teachings studies: confucianism, daoism, and buddhism" = "tts"
-        "乡村善治与绿色发展"                                      = "RGGD"
+        "乡村善治与绿色发展" = "RGGD"
     }
 
     $key = (Normalize-Text $Journal).ToLowerInvariant()
-
-    if ($journalSlugMap.ContainsKey($key)) {
-        return $journalSlugMap[$key]
-    }
-
+    if ($journalSlugMap.ContainsKey($key)) { return $journalSlugMap[$key] }
     return ""
 }
 
-function Get-JournalArticleUrl {
-    param([string]$OriginalUrl, [string]$JournalSlug)
-
-    if (-not $OriginalUrl -or -not $JournalSlug) {
-        return $OriginalUrl
-    }
-
-    return ($OriginalUrl -replace "/index/article/view/", "/$JournalSlug/article/view/")
+function Decode-Html {
+    param([string]$Value)
+    if ([string]::IsNullOrWhiteSpace($Value)) { return "" }
+    return [System.Net.WebUtility]::HtmlDecode($Value)
 }
 
-function Test-IsCloudflareChallenge {
-    param(
-        [string]$Content,
-        $ResponseHeaders = $null
-    )
-
-    if ($null -ne $ResponseHeaders) {
-        try {
-            $cfMitigated = [string]$ResponseHeaders["cf-mitigated"]
-
-            if ($cfMitigated -match "(?i)^challenge$") {
-                return $true
-            }
-        } catch {
-            # Some PowerShell header collections do not support direct key lookup.
-        }
-    }
-
-    if ([string]::IsNullOrWhiteSpace($Content)) {
-        return $false
-    }
-
-    # Keep this list narrow.
-    # Do not classify generic HTML, normal OJS pages, or the word "Cloudflare" alone as a challenge.
-    $challengePatterns = @(
-        "Just a moment",
-        "Enable JavaScript and cookies",
-        "__cf_chl",
-        "cf_chl",
-        "challenge-platform",
-        "/cdn-cgi/challenge-platform/",
-        "cf_clearance",
-        "Checking your browser before accessing"
-    )
-
-    foreach ($pattern in $challengePatterns) {
-        if ($Content -match [regex]::Escape($pattern)) {
-            return $true
-        }
-    }
-
-    return $false
+function Strip-Html {
+    param([string]$Value)
+    if ([string]::IsNullOrWhiteSpace($Value)) { return "" }
+    $withoutScripts = $Value -replace "(?is)<script\b.*?</script>", " " -replace "(?is)<style\b.*?</style>", " "
+    $withBreaks = $withoutScripts -replace "(?i)<\s*(br|p|div|li|h[1-6]|tr|section|article)\b[^>]*>", "`n"
+    return Normalize-Text (Decode-Html ($withBreaks -replace "(?s)<[^>]+>", " "))
 }
 
-function Get-OaiPage {
+function Get-RegexGroup {
+    param([string]$Text, [string]$Pattern, [int]$Group = 1)
+    $match = [regex]::Match($Text, $Pattern, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Singleline)
+    if (-not $match.Success) { return "" }
+    return Normalize-Text (Decode-Html $match.Groups[$Group].Value)
+}
+
+function Get-MetaContents {
+    param([string]$Html, [string]$Name)
+    $escapedName = [regex]::Escape($Name)
+    $patterns = @(
+        "<meta\b(?=[^>]*(?:name|property)=['""]$escapedName['""])(?=[^>]*content=['""]([^'""]*)['""])[^>]*>",
+        "<meta\b(?=[^>]*content=['""]([^'""]*)['""])(?=[^>]*(?:name|property)=['""]$escapedName['""])[^>]*>"
+    )
+    $values = New-Object System.Collections.Generic.List[string]
+    foreach ($pattern in $patterns) {
+        foreach ($match in [regex]::Matches($Html, $pattern, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Singleline)) {
+            $value = Normalize-Text (Decode-Html $match.Groups[1].Value)
+            if ($value -and -not $values.Contains($value)) { $values.Add($value) }
+        }
+    }
+    return @($values)
+}
+
+function Get-FirstMetaContent {
+    param([string]$Html, [string[]]$Names)
+    foreach ($name in $Names) {
+        $values = @(Get-MetaContents $Html $name)
+        if ($values.Count -gt 0) { return $values[0] }
+    }
+    return ""
+}
+
+function Resolve-Url {
+    param([string]$Href, [string]$CurrentUrl)
+    if ([string]::IsNullOrWhiteSpace($Href)) { return "" }
+    try {
+        $base = [System.Uri]::new($CurrentUrl)
+        return ([System.Uri]::new($base, (Decode-Html $Href))).AbsoluteUri -replace "#.*$", ""
+    } catch {
+        return ""
+    }
+}
+
+function Get-CrawlerPage {
+    param([string]$Url)
+    $headers = @{
+        "Accept" = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        "Accept-Language" = "en-US,en;q=0.9"
+        "User-Agent" = "Googlebot/2.1 (+http://www.google.com/bot.html)"
+    }
+    $content = (Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60 -Headers $headers).Content
+    if ($content -match "Just a moment|Enable JavaScript and cookies|_cf_chl|challenge-platform") {
+        throw "Cloudflare challenge returned for crawler request."
+    }
+    return $content
+}
+
+function Get-ArticleLinks {
+    param([string]$Html, [string]$CurrentUrl)
+    $links = New-Object System.Collections.Generic.List[string]
+    foreach ($match in [regex]::Matches($Html, "<a\b[^>]*href=['""]([^'""]+)['""][^>]*>", [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)) {
+        $url = Resolve-Url $match.Groups[1].Value $CurrentUrl
+        if ($url -match "/index\.php/[^/]+/article/view/\d+" -and -not $links.Contains($url)) {
+            $links.Add($url)
+        }
+    }
+    return @($links)
+}
+
+function Get-IssueLinks {
+    param([string]$Html, [string]$CurrentUrl, [int]$MaxLinks)
+    $links = New-Object System.Collections.Generic.List[string]
+    foreach ($match in [regex]::Matches($Html, "<a\b[^>]*href=['""]([^'""]+)['""][^>]*>", [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)) {
+        $url = Resolve-Url $match.Groups[1].Value $CurrentUrl
+        if ($url -match "/index\.php/[^/]+/issue/view/\d+" -and -not $links.Contains($url)) {
+            $links.Add($url)
+            if ($links.Count -ge $MaxLinks) { break }
+        }
+    }
+    return @($links)
+}
+
+function Get-VisibleField {
+    param([string]$Text, [string]$StartLabel, [string]$EndLabel)
+    return Get-RegexGroup $Text "\b$([regex]::Escape($StartLabel))\s+(.+?)\s+$([regex]::Escape($EndLabel))"
+}
+
+function Get-ArticleRecord {
     param([string]$Url)
 
-    $userAgents = @(
-        "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)",
-        "Mozilla/5.0 (compatible; PanoramaOAIHarvester/1.0; +https://panorama-sg.com/)",
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-    )
+    $html = Get-CrawlerPage $Url
+    $text = Strip-Html $html
+    $title = Get-FirstMetaContent $html @("citation_title", "DC.Title", "og:title", "twitter:title")
+    if (-not $title) { $title = Get-RegexGroup $html "<h1[^>]*>(.*?)</h1>" }
+    if (-not $title) { return $null }
 
-    $maxRetries = 3
-    $retryCount = 0
+    $authors = @(Get-MetaContents $html "citation_author")
+    if ($authors.Count -eq 0) {
+        $authorLine = Get-RegexGroup $text "\bMain Article Content\s+(.+?)\s+Abstract\b"
+        $authors = @(($authorLine -split "\s*,\s*|\s+;\s+") | ForEach-Object { Normalize-Text ($_ -replace "\s*\(.*?\)", "") } | Where-Object { $_ -and $_ -notmatch "Image:|email|@" })
+    }
 
-    while ($retryCount -lt $maxRetries) {
-        try {
-            $userAgent = $userAgents[$retryCount % $userAgents.Count]
+    $journal = Get-FirstMetaContent $html @("citation_journal_title", "DC.Source")
+    if (-not $journal) { $journal = Get-RegexGroup $html "<title[^>]*>.*?\|\s*(.*?)\s*</title>" }
+    $journalSlug = Get-JournalSlug $Url $journal
 
-            $headers = @{
-                "Accept"            = "application/xml,text/xml,*/*"
-                "User-Agent"        = $userAgent
-                "X-PSG-Build-Bot"   = "panorama-homepage"
-                "Accept-Encoding"   = "gzip, deflate"
-                "Accept-Language"   = "en-US,en;q=0.9"
-                "Cache-Control"     = "no-cache"
-                "Pragma"            = "no-cache"
-            }
+    $firstPage = Get-FirstMetaContent $html @("citation_firstpage")
+    $lastPage = Get-FirstMetaContent $html @("citation_lastpage")
+    $pages = if ($firstPage -and $lastPage -and $firstPage -ne $lastPage) { "$firstPage-$lastPage" } elseif ($firstPage) { $firstPage } else { Get-VisibleField $text "Pages" "Published" }
 
-            $response = Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers -SkipHttpErrorCheck
-            $content = $response.Content
+    $publishedAt = Get-FirstMetaContent $html @("citation_publication_date", "DC.Date")
+    if (-not $publishedAt) { $publishedAt = Get-RegexGroup $text "\bPublished\s+(\d{4}-\d{2}-\d{2})\b" }
 
-            if ([string]::IsNullOrWhiteSpace($content)) {
-                throw "OAI endpoint returned an empty response."
-            }
+    $doi = Get-FirstMetaContent $html @("citation_doi", "DC.Identifier")
+    if ($doi -match "doi\.org/(.+)$") { $doi = $Matches[1] }
+    if (-not $doi -or $doi -notmatch "10\.\d{4,9}/") { $doi = Get-RegexGroup $text "\bDOI\s+(10\.\d{4,9}/\S+)" }
+    $doi = ($doi -replace "[\s\.,;]+$", "")
 
-            if (Test-IsCloudflareChallenge -Content $content -ResponseHeaders $response.Headers) {
-                $retryCount++
+    $issue = Get-FirstMetaContent $html @("citation_issue")
+    if (-not $issue) { $issue = Get-VisibleField $text "Issue" "Pages" }
 
-                if ($retryCount -lt $maxRetries) {
-                    $waitTime = [Math]::Min(8 * $retryCount, 25) + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
-                    Write-Warning "Cloudflare challenge detected. Retrying in $waitTime seconds (attempt $retryCount/$maxRetries)..."
-                    Start-Sleep -Seconds $waitTime
-                    continue
-                } else {
-                    throw "Cloudflare challenge returned persistently for OAI endpoint after $maxRetries attempts."
-                }
-            }
+    $abstract = Get-FirstMetaContent $html @("citation_abstract", "DC.Description", "description")
+    if (-not $abstract) {
+        $abstract = Get-RegexGroup $html "<h2[^>]*>\s*Abstract\s*</h2>(.*?)(?:<h2[^>]*>|<section[^>]*class=['""][^'""]*item\s+downloads|PDF Downloads Trend|Article Details)"
+        $abstract = Strip-Html $abstract
+    }
 
-            if ($response.StatusCode -ne 200) {
-                $contentPreview = Normalize-Text $content
-
-                if ($contentPreview.Length -gt 220) {
-                    $contentPreview = $contentPreview.Substring(0, 220) + "..."
-                }
-
-                throw "OAI endpoint returned HTTP $($response.StatusCode). Response preview: $contentPreview"
-            }
-
-            try {
-                [xml]$xml = $content
-
-                if ($null -eq $xml.DocumentElement) {
-                    throw "Missing XML document element."
-                }
-
-                if ($xml.DocumentElement.LocalName -ne "OAI-PMH") {
-                    throw "Unexpected XML root element: $($xml.DocumentElement.LocalName)"
-                }
-
-                return $xml
-            } catch {
-                $contentPreview = Normalize-Text $content
-
-                if ($contentPreview.Length -gt 220) {
-                    $contentPreview = $contentPreview.Substring(0, 220) + "..."
-                }
-
-                throw "OAI endpoint returned invalid or unexpected XML content: $($_.Exception.Message). Response preview: $contentPreview"
-            }
-        } catch {
-            if ($retryCount -lt $maxRetries - 1) {
-                $retryCount++
-                $waitTime = [Math]::Min(8 * $retryCount, 25) + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
-
-                Write-Warning "Request failed: $($_.Exception.Message). Retrying in $waitTime seconds..."
-                Start-Sleep -Seconds $waitTime
-            } else {
-                throw $_
-            }
-        }
+    return [pscustomobject]@{
+        title = $title
+        authors = @($authors)
+        journal = $journal
+        journalSlug = $journalSlug
+        journalUrl = if ($journalSlug) { "$BaseUrl/$journalSlug" } else { "" }
+        issue = $issue
+        pages = $pages
+        publishedAt = $publishedAt
+        url = $Url
+        doi = $doi
+        abstract = $abstract
     }
 }
 
-function Get-OaiRecordsForEndpoint {
-    param(
-        [string]$Endpoint,
-        [string]$SetSpec = ""
-    )
+$records = New-Object System.Collections.Generic.List[object]
+$articleUrls = New-Object System.Collections.Generic.List[string]
 
-    $records = New-Object System.Collections.Generic.List[object]
-    $query = "verb=ListRecords&metadataPrefix=oai_dc"
+foreach ($journalSlug in $JournalSlugs) {
+    $journalBaseUrl = "$($BaseUrl.TrimEnd('/'))/$journalSlug"
+    $seedUrls = @("$journalBaseUrl/issue/current", "$journalBaseUrl/issue/archive")
+    $issueUrls = New-Object System.Collections.Generic.List[string]
 
-    if ($SetSpec) {
-        $query += "&set=$([uri]::EscapeDataString($SetSpec))"
+    foreach ($seedUrl in $seedUrls) {
+        Write-Host "Discovering issues from $seedUrl"
+        $seedHtml = Get-CrawlerPage $seedUrl
+        foreach ($issueUrl in @(Get-IssueLinks $seedHtml $seedUrl $MaxIssuesPerJournal)) {
+            if (-not $issueUrls.Contains($issueUrl)) { $issueUrls.Add($issueUrl) }
+        }
+        foreach ($articleUrl in @(Get-ArticleLinks $seedHtml $seedUrl)) {
+            if (-not $articleUrls.Contains($articleUrl)) { $articleUrls.Add($articleUrl) }
+        }
+        if ($RequestDelaySeconds -gt 0) { Start-Sleep -Seconds $RequestDelaySeconds }
     }
 
-    $url = "$Endpoint`?$query"
-    $page = 0
-
-    while ($url -and $page -lt $MaxPages) {
-        $page += 1
-        Write-Host "Fetching OAI page $page from $Endpoint"
-
-        $xml = Get-OaiPage $url
-
-    $ns = New-Object System.Xml.XmlNamespaceManager($xml.NameTable)
-    $ns.AddNamespace("oai", "http://www.openarchives.org/OAI/2.0/")
-    $ns.AddNamespace("dc", "http://purl.org/dc/elements/1.1/")
-
-        foreach ($record in $xml.SelectNodes("//oai:record", $ns)) {
-            $title = Get-NodeText $record ".//dc:title" $ns
-
-            if (-not $title) {
-                continue
-            }
-
-            $identifiers = Get-NodeTexts $record ".//dc:identifier" $ns
-            $urlIdentifier = @($identifiers | Where-Object { $_ -match "^https?://" -and $_ -notmatch "doi\.org" } | Select-Object -First 1)
-            $doiIdentifier = @($identifiers | Where-Object { $_ -match "10\.\d{4,9}/" -or $_ -match "doi\.org/" } | Select-Object -First 1)
-
-            $source = Get-NodeText $record ".//dc:source" $ns
-            $sourceParts = Split-Source $source
-
-            $setSpecs = @(Get-NodeTexts $record "./oai:header/oai:setSpec" $ns)
-            $journalSlug = Get-JournalSlug $setSpecs $sourceParts.journal
-
-            $originalUrl = if ($urlIdentifier.Count) { $urlIdentifier[0] } else { "" }
-            $articleUrl = Get-JournalArticleUrl $originalUrl $journalSlug
-
-            $records.Add([pscustomobject]@{
-                title       = $title
-                authors     = @(Get-NodeTexts $record ".//dc:creator" $ns)
-                journal     = $sourceParts.journal
-                journalSlug = $journalSlug
-                journalUrl  = if ($journalSlug) { "https://journals.panorama-sg.com/index.php/$journalSlug" } else { "" }
-                issue       = $sourceParts.issue
-                pages       = $sourceParts.pages
-                publishedAt = Get-NodeText $record ".//dc:date" $ns
-                url         = $articleUrl
-                doi         = if ($doiIdentifier.Count) { $doiIdentifier[0] } else { "" }
-                abstract    = Get-NodeText $record ".//dc:description" $ns
-            })
+    foreach ($issueUrl in @($issueUrls | Select-Object -First $MaxIssuesPerJournal)) {
+        Write-Host "Discovering articles from $issueUrl"
+        $issueHtml = Get-CrawlerPage $issueUrl
+        foreach ($articleUrl in @(Get-ArticleLinks $issueHtml $issueUrl)) {
+            if (-not $articleUrls.Contains($articleUrl)) { $articleUrls.Add($articleUrl) }
         }
-
-        $tokenNode = $xml.SelectSingleNode("//oai:resumptionToken", $ns)
-
-        if ($null -ne $tokenNode -and -not [string]::IsNullOrWhiteSpace($tokenNode.InnerText)) {
-            $token = [uri]::EscapeDataString((Normalize-Text $tokenNode.InnerText))
-            $url = "$Endpoint`?verb=ListRecords&resumptionToken=$token"
-
-            if ($RequestDelaySeconds -gt 0) {
-                Write-Host "Waiting $RequestDelaySeconds seconds before the next OAI page"
-                Start-Sleep -Seconds $RequestDelaySeconds
-            }
-        } else {
-            $url = $null
-        }
+        if ($articleUrls.Count -ge $MaxArticlesToCrawl) { break }
+        if ($RequestDelaySeconds -gt 0) { Start-Sleep -Seconds $RequestDelaySeconds }
     }
-
-    return $records
+    if ($articleUrls.Count -ge $MaxArticlesToCrawl) { break }
 }
 
-function Merge-HarvestRecords {
-    param($TargetList, $SourceRecords)
-
-    foreach ($record in $SourceRecords) {
-        $TargetList.Add($record)
-    }
-}
-
-function Harvest-FromBaseEndpoint {
-    param([string]$BaseEndpoint, [string[]]$Slugs)
-
-    $allRecords = New-Object System.Collections.Generic.List[object]
-
-    foreach ($slug in $Slugs) {
-        Write-Host "Harvesting records for set '$slug' via $BaseEndpoint"
-        try {
-            $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $BaseEndpoint -SetSpec $slug
-            Merge-HarvestRecords -TargetList $allRecords -SourceRecords $endpointRecords
-        } catch {
-            Write-Warning "Base endpoint set '$slug' failed: $($_.Exception.Message)"
-        }
-
-        if ($RequestDelaySeconds -gt 0) {
-            $sleepSeconds = $RequestDelaySeconds + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
-            Write-Host "Waiting $sleepSeconds seconds before next set"
-            Start-Sleep -Seconds $sleepSeconds
-        }
-    }
-
-    return $allRecords
-}
-
-function Harvest-FromJournalEndpoints {
-    param([string]$BaseUrl, [string[]]$Slugs)
-
-    $allRecords = New-Object System.Collections.Generic.List[object]
-
-    foreach ($slug in $Slugs) {
-        $endpoint = "$BaseUrl/$slug/oai"
-        Write-Host "Fallback harvesting from per-journal endpoint '$endpoint'"
-        try {
-            $endpointRecords = Get-OaiRecordsForEndpoint -Endpoint $endpoint
-            Merge-HarvestRecords -TargetList $allRecords -SourceRecords $endpointRecords
-        } catch {
-            Write-Warning "Per-journal endpoint '$slug' failed: $($_.Exception.Message)"
-        }
-
-        if ($RequestDelaySeconds -gt 0) {
-            $sleepSeconds = $RequestDelaySeconds + (Get-Random -Minimum 0 -Maximum ([Math]::Max(1, $JitterSeconds + 1)))
-            Write-Host "Waiting $sleepSeconds seconds before next journal endpoint"
-            Start-Sleep -Seconds $sleepSeconds
-        }
-    }
-
-    return $allRecords
-}
-
-$baseOaiEndpoint = "$BaseUrl/index/oai"
-
-if ($HarvestStrategy -eq "journal-first") {
-    $records = Harvest-FromJournalEndpoints -BaseUrl $BaseUrl -Slugs $JournalSlugs
-
-    if ($records.Count -eq 0) {
-        Write-Warning "Per-journal strategy returned 0 records. Falling back to base endpoint strategy."
-        $records = Harvest-FromBaseEndpoint -BaseEndpoint $baseOaiEndpoint -Slugs $JournalSlugs
-    }
-} else {
-    $records = Harvest-FromBaseEndpoint -BaseEndpoint $baseOaiEndpoint -Slugs $JournalSlugs
-
-    if ($records.Count -eq 0) {
-        Write-Warning "Base endpoint strategy returned 0 records. Falling back to per-journal endpoints."
-        $records = Harvest-FromJournalEndpoints -BaseUrl $BaseUrl -Slugs $JournalSlugs
-    }
+foreach ($articleUrl in @($articleUrls | Select-Object -First $MaxArticlesToCrawl)) {
+    Write-Host "Fetching article $articleUrl"
+    $record = Get-ArticleRecord $articleUrl
+    if ($null -ne $record) { $records.Add($record) }
+    if ($RequestDelaySeconds -gt 0) { Start-Sleep -Seconds $RequestDelaySeconds }
 }
 
 $today = (Get-Date).Date
-
 $eligibleRecords = if ($IncludeFuture) {
     $records
 } else {
     $records | Where-Object {
-        if (-not $_.publishedAt) {
-            return $true
-        }
-
-        try {
-            ([datetime]$_.publishedAt).Date -le $today
-        } catch {
-            $true
-        }
+        if (-not $_.publishedAt) { return $true }
+        try { ([datetime]$_.publishedAt).Date -le $today } catch { $true }
     }
 }
 
-$recentPool = @(
-    $eligibleRecords |
-    Sort-Object @{
-        Expression = {
-            if ($_.publishedAt) {
-                [datetime]$_.publishedAt
-            } else {
-                [datetime]::MinValue
-            }
-        }
-        Descending = $true
-    }, title |
+$recentPool = @($eligibleRecords |
+    Sort-Object @{ Expression = { if ($_.publishedAt) { [datetime]$_.publishedAt } else { [datetime]::MinValue } }; Descending = $true }, title |
     Group-Object url, title |
     ForEach-Object { $_.Group[0] } |
-    Select-Object -First $PoolLimit
-)
+    Select-Object -First $PoolLimit)
 
-$selected = @($recentPool | Select-Object -First $Limit)
+$seed = [int](Get-Date -Format "yyyyMMdd")
+$rng = [System.Random]::new($seed)
+$selected = @($recentPool | Sort-Object { $rng.NextDouble() } | Select-Object -First $Limit)
 
 $payload = [pscustomobject]@{
-    harvestedAt           = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
-    sourcePublisher       = "Panorama Scholarly Group"
-    metadataSource        = "Panorama journal article records"
-    selectionMode         = "most-recent-panorama-publications"
+    harvestedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+    sourcePublisher = "Panorama Scholarly Group"
+    metadataSource = "Panorama Googlebot-style HTML crawler"
+    selectionMode = "daily-random-from-recent-panorama-publications"
+    randomSeed = $seed
     totalRecordsHarvested = $records.Count
     futureRecordsExcluded = $records.Count - @($eligibleRecords).Count
-    recentPoolLimit       = $PoolLimit
-    recentPoolSize        = $recentPool.Count
-    selectedArticleCount  = $selected.Count
-    articles              = @($selected)
+    recentPoolLimit = $PoolLimit
+    recentPoolSize = $recentPool.Count
+    selectedArticleCount = $selected.Count
+    articles = @($selected)
 }
 
 $outputPath = $script:OutputPath
 $outputDir = Split-Path -Parent $outputPath
-
-if ($outputDir) {
-    New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
-}
+if ($outputDir) { New-Item -ItemType Directory -Force -Path $outputDir | Out-Null }
 
 $json = $payload | ConvertTo-Json -Depth 8
 [System.IO.File]::WriteAllText($outputPath, $json, [System.Text.UTF8Encoding]::new($false))
 
-Write-Host "Wrote $($selected.Count) selected articles from $($records.Count) OAI records to $outputPath"
+Write-Host "Wrote $($selected.Count) selected articles from $($records.Count) crawled article records to $outputPath"
