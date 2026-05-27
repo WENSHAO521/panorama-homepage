@@ -119,7 +119,9 @@ function Get-UrlContent {
             Start-Sleep -Seconds $RequestDelaySeconds
         }
         $headers = @{
-            "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+            "User-Agent" = "Mozilla/5.0 (compatible; PanoramaScholarlyGroupPublisherRefresh/1.0; +https://panorama-sg.com/; publisher-owned scheduled metadata refresh)"
+            "X-Publisher" = "Panorama Scholarly Group"
+            "X-Data-Use" = "Publisher-owned metadata refresh for panorama-sg.com"
         }
         $content = (Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers).Content
         if ($content -match "Just a moment|Enable JavaScript and cookies|_cf_chl|challenge-platform") {
