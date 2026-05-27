@@ -19,11 +19,11 @@ jobs:
 
       - name: Build daily article selection
         shell: pwsh
-        run: ./scripts/fetch-selected-recent-articles.ps1 -PoolLimit 100 -Limit 20
+        run: ./scripts/fetch-selected-recent-articles.ps1 -PoolLimit 100 -Limit 20 -RequestDelaySeconds 8
 
       - name: Refresh journal descriptions
         shell: pwsh
-        run: ./scripts/fetch-journal-descriptions.ps1
+        run: ./scripts/fetch-journal-descriptions.ps1 -BatchSize 10 -BatchDelaySeconds 15 -RequestDelaySeconds 2
 
       - name: Commit and push updated site data
         run: |
