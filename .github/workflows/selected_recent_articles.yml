@@ -19,11 +19,31 @@ jobs:
 
       - name: Build daily article selection
         shell: pwsh
-        run: ./scripts/fetch-selected-recent-articles.ps1 -PoolLimit 100 -Limit 20 -RequestDelaySeconds 8
+        run: |
+          try {
+            ./scripts/fetch-selected-recent-articles.ps1 -PoolLimit 100 -Limit 20 -RequestDelaySeconds 8
+          } catch {
+            Write-Warning "Article refresh failed: $($_.Exception.Message)"
+            if (Test-Path data/articles.json) {
+              Write-Warning "Keeping existing data/articles.json cache."
+              exit 0
+            }
+            throw
+          }
 
       - name: Refresh journal descriptions
         shell: pwsh
-        run: ./scripts/fetch-journal-descriptions.ps1 -BatchSize 10 -BatchDelaySeconds 15 -RequestDelaySeconds 2
+        run: |
+          try {
+            ./scripts/fetch-journal-descriptions.ps1 -BatchSize 10 -BatchDelaySeconds 15 -RequestDelaySeconds 2
+          } catch {
+            Write-Warning "Journal description refresh failed: $($_.Exception.Message)"
+            if (Test-Path data/journals.json) {
+              Write-Warning "Keeping existing data/journals.json cache."
+              exit 0
+            }
+            throw
+          }
 
       - name: Commit and push updated site data
         run: |
