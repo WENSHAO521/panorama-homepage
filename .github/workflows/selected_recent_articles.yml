@@ -21,7 +21,7 @@ jobs:
         shell: pwsh
         run: |
           try {
-            ./scripts/fetch-selected-recent-articles.ps1 -PoolLimit 100 -Limit 20 -RequestDelaySeconds 8
+            ./scripts/fetch-selected-recent-articles.ps1 -PoolLimit 50 -Limit 20 -RequestDelaySeconds 8
           } catch {
             Write-Warning "Article refresh failed: $($_.Exception.Message)"
             if (Test-Path data/articles.json) {
