@@ -1,39 +1,14 @@
-# Panorama Scholarly Group - Content Signals Policy
-# https://panorama-sg.com/
-
-# This website provides general information about the publisher,
-# journals, editorial policies, and academic activities.
-# It does NOT host full-text scholarly articles.
-
-# ----------------------------------------
-# DEFINITIONS
-# ----------------------------------------
-# search:    Indexing content and providing links or short excerpts.
-# ai-input:  Using content as input for AI systems (e.g., retrieval-augmented generation).
-# ai-train:  Using content for training or fine-tuning AI models.
-
-# ----------------------------------------
-# POLICY RULES
-# ----------------------------------------
-# (a) Content-Signal = yes -> permitted
-# (b) Content-Signal = no  -> prohibited
-# (c) No signal -> no permission granted or denied
-
-# ----------------------------------------
-# DEFAULT POLICY (OPEN FOR DISCOVERY)
-# ----------------------------------------
-
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-# ----------------------------------------
-# SITEMAP
-# ----------------------------------------
-Sitemap: https://panorama-sg.com/sitemap.xml
+# OpenAI crawlers
+User-agent: GPTBot
+Allow: /
 
-# ----------------------------------------
-# NOTE
-# ----------------------------------------
-# Full-text articles are hosted on external journal platforms
-# and may be subject to separate content policies.
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+Sitemap: https://panorama-sg.com/sitemap.xml
