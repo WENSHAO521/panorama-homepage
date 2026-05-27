@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -7,13 +7,67 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="publisher-site.css">
+    <style>
+        :root { --publisher-red:#7b1113; --publisher-rule:rgba(12,16,20,.14); }
+        .german-home { background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(247,248,248,.96) 46%,rgba(255,255,255,.98)); }
+        .german-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--publisher-rule); background:linear-gradient(90deg,rgba(255,255,255,.98),rgba(246,247,247,.92) 56%,rgba(236,238,238,.82)); }
+        .german-hero::before { content:""; position:absolute; inset:0 auto 0 0; width:6px; background:var(--publisher-red); }
+        .german-hero-grid { display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:72px; align-items:end; min-height:610px; padding:82px 0 42px; }
+        .german-hero-copy h1 { max-width:850px; margin:24px 0 0; color:#111315; font-size:86px; line-height:.9; font-weight:950; letter-spacing:-.055em; }
+        .german-lead { max-width:760px; margin:34px 0 0; padding-top:24px; border-top:1px solid var(--publisher-rule); color:#4d5358; font-size:20px; line-height:1.58; }
+        .german-search { max-width:760px; margin-top:34px; }
+        .german-search div { border-color:#111315; background:rgba(255,255,255,.84); box-shadow:0 24px 70px rgba(17,19,21,.08); backdrop-filter:blur(16px) saturate(135%); -webkit-backdrop-filter:blur(16px) saturate(135%); }
+        .german-hero-actions { display:flex; flex-wrap:wrap; gap:22px; margin-top:24px; }
+        .german-hero-actions a,.german-strip-inner a,.text-link { color:#111315; border-bottom:1px solid var(--publisher-red); font-size:10px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; }
+        .publisher-dossier { border:1px solid var(--publisher-rule); background:rgba(255,255,255,.72); box-shadow:0 28px 80px rgba(17,19,21,.10); backdrop-filter:blur(18px) saturate(130%); -webkit-backdrop-filter:blur(18px) saturate(130%); }
+        .dossier-head { display:flex; justify-content:space-between; align-items:end; min-height:86px; padding:22px; border-bottom:1px solid var(--publisher-rule); }
+        .dossier-head span,.publisher-heading span,.german-strip-inner span { color:#697077; font-size:10px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+        .dossier-head strong { color:var(--publisher-red); font-size:38px; line-height:.85; letter-spacing:-.045em; }
+        .publisher-dossier dl { margin:0; }
+        .publisher-dossier div { padding:20px 22px; border-bottom:1px solid var(--publisher-rule); }
+        .publisher-dossier div:last-child { border-bottom:0; }
+        .publisher-dossier dt { color:#737980; font-size:10px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; }
+        .publisher-dossier dd { margin:9px 0 0; color:#17191c; font-size:16px; line-height:1.42; font-weight:700; }
+        .german-metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-bottom:38px; border-top:1px solid var(--publisher-rule); border-left:1px solid var(--publisher-rule); background:rgba(255,255,255,.64); backdrop-filter:blur(14px) saturate(128%); -webkit-backdrop-filter:blur(14px) saturate(128%); }
+        .german-metrics a { min-height:108px; padding:20px; border-right:1px solid var(--publisher-rule); border-bottom:1px solid var(--publisher-rule); }
+        .german-metrics strong { display:block; color:#111315; font-size:27px; line-height:1; letter-spacing:-.035em; }
+        .german-metrics span { display:block; margin-top:13px; color:#697077; font-size:10px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; }
+        .german-strip { border-bottom:1px solid var(--publisher-rule); background:rgba(255,255,255,.82); }
+        .german-strip-inner { display:flex; align-items:center; gap:30px; min-height:62px; }
+        .publisher-section { padding:76px 0; border-bottom:1px solid var(--publisher-rule); }
+        .publisher-heading { max-width:760px; margin-bottom:34px; }
+        .publisher-heading h2 { margin:12px 0 0; color:#111315; font-size:42px; line-height:.98; font-weight:900; letter-spacing:-.04em; }
+        .publisher-heading p { margin:18px 0 0; color:#5d646b; font-size:16px; line-height:1.62; }
+        .split-heading { display:flex; justify-content:space-between; gap:32px; align-items:end; max-width:none; }
+        .programme-grid,.author-steps,.standards-index { display:grid; border-top:1px solid var(--publisher-rule); border-left:1px solid var(--publisher-rule); background:rgba(255,255,255,.70); box-shadow:0 18px 60px rgba(17,19,21,.06); }
+        .programme-grid,.author-steps { grid-template-columns:repeat(4,minmax(0,1fr)); }
+        .programme-grid a,.author-steps a,.standards-index a { min-height:210px; padding:24px; border-right:1px solid var(--publisher-rule); border-bottom:1px solid var(--publisher-rule); transition:background .2s ease,color .2s ease,transform .2s ease; }
+        .programme-grid a:hover,.author-steps a:hover,.standards-index a:hover { background:#111315; color:#fff; transform:translateY(-2px); }
+        .programme-grid span,.author-steps span,.standards-index span,.system-list span { display:block; color:var(--publisher-red); font-size:10px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+        .programme-grid strong,.author-steps strong,.standards-index strong { display:block; margin-top:34px; color:inherit; font-size:24px; line-height:1.04; letter-spacing:-.025em; }
+        .programme-grid em,.author-steps em { display:block; margin-top:16px; color:#5d646b; font-size:14px; font-style:normal; line-height:1.55; }
+        .programme-grid a:hover em,.author-steps a:hover em,.programme-grid a:hover span,.author-steps a:hover span,.standards-index a:hover span { color:#d9dde1; }
+        .journal-covers { background:rgba(255,255,255,.66); }
+        .editorial-marquee { padding:18px 0 24px; }
+        .editorial-marquee .marquee-item { width:174px; height:258px; background:transparent; border:0; box-shadow:none; }
+        .editorial-marquee .marquee-item img { max-height:250px; box-shadow:0 20px 38px rgba(17,19,21,.16); }
+        .publishing-system-grid,.standards-layout { display:grid; grid-template-columns:390px minmax(0,1fr); gap:50px; align-items:start; }
+        .system-list { display:grid; gap:0; border-top:1px solid var(--publisher-rule); background:rgba(255,255,255,.68); box-shadow:0 18px 60px rgba(17,19,21,.06); }
+        .system-list article { padding:26px 30px; border-right:1px solid var(--publisher-rule); border-bottom:1px solid var(--publisher-rule); border-left:1px solid var(--publisher-rule); }
+        .system-list h3 { margin:12px 0 0; color:#111315; font-size:25px; line-height:1.08; letter-spacing:-.03em; }
+        .system-list p { margin:12px 0 0; color:#5d646b; font-size:15px; line-height:1.6; }
+        .standards-index { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        .standards-index a { min-height:150px; }
+        .standards-index strong { margin-top:24px; font-size:22px; }
+        @media (prefers-reduced-motion:reduce) { .marquee-track { animation:none; } }
+    </style>
 </head>
 <body>
     <div class="topline">
         <div class="wrap">
-            <span>Administrative Operations: Hong Kong</span>
+            <span>Independent Scholarly Publisher</span>
             <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
-            <span>Distributed Academic Publishing Infrastructure</span>
+            <span>Editorial Operations: Hong Kong</span>
         </div>
     </div>
 
@@ -29,7 +83,6 @@
             <div class="nav-links">
                 <a href="index.html" aria-current="page">Home</a>
                 <a href="journals.html">Journals</a>
-                <a href="index.html#recent-articles">Articles</a>
                 <a href="index.html#authors">For Authors</a>
                 <a href="about.html">About Us</a>
                 <a href="Publication Ethics.html">Ethics</a>
@@ -38,131 +91,183 @@
         </div>
     </nav>
 
-    <main class="portal-main publisher-home">
-        <section class="home-hero-v2">
-            <div class="wrap home-hero-layout">
-                <div class="home-hero-copy">
-                    <span class="portal-kicker">International Scholarly Publisher</span>
+    <main class="publisher-main german-home">
+        <section class="german-hero">
+            <div class="wrap german-hero-grid">
+                <div class="german-hero-copy">
+                    <span class="portal-kicker">Academic Publishing House</span>
                     <h1>Panorama Scholarly Group</h1>
-                    <p>Peer-reviewed open-access journals, publisher-level editorial policies, and searchable research records across technology, policy, health, sustainability, humanities, and the arts.</p>
-                    <form class="home-search" id="home-journal-search-form">
-                        <label for="hero-journal-search">Find a journal</label>
+                    <p class="german-lead">A professional open-access journal publisher supporting peer review, editorial accountability, and long-term visibility for interdisciplinary research.</p>
+                    <form class="home-search german-search" id="home-journal-search-form">
+                        <label for="hero-journal-search">Search the journal portfolio</label>
                         <div>
-                            <input id="hero-journal-search" type="search" placeholder="Search title, field, ISSN, or abbreviation..." autocomplete="off">
-                            <button class="button primary" id="hero-search-button" type="submit">Search</button>
+                            <input id="hero-journal-search" type="search" placeholder="Journal title, field, ISSN, or abbreviation" autocomplete="off">
+                            <button class="button primary" type="submit">Search</button>
                         </div>
                     </form>
-                    <div class="home-hero-actions">
-                        <a href="journals.html">Journal A-Z</a>
-                        <a href="#recent-articles">Recent Articles</a>
+                    <div class="german-hero-actions">
+                        <a href="journals.html">Journal Directory</a>
                         <a href="Publication Ethics.html">Publication Ethics</a>
-                        <a href="Open Access Policy.html">Open Access</a>
+                        <a href="Open Access Policy.html">Open Access Policy</a>
                     </div>
                 </div>
-                <aside class="home-featured-issue" aria-label="Featured journal portfolio">
-                    <div class="issue-panel-head">
-                        <span>Publisher Portfolio</span>
-                        <strong>Featured journals</strong>
+                <aside class="publisher-dossier" aria-label="Publisher profile">
+                    <div class="dossier-head">
+                        <span>Publisher Dossier</span>
+                        <strong>PSG</strong>
                     </div>
-                    <div class="cover-stack">
-                        <a href="https://journals.panorama-sg.com/index.php/AFS" target="_blank" rel="noopener"><img src="QKFM/AFS.png" alt="AI & Future Society"></a>
-                        <a href="https://journals.panorama-sg.com/index.php/JSCC" target="_blank" rel="noopener"><img src="QKFM/JSCC.png" alt="Journal of Social Cognition and Communication"></a>
-                        <a href="https://journals.panorama-sg.com/index.php/Silence" target="_blank" rel="noopener"><img src="QKFM/Silence.png" alt="Silence"></a>
-                    </div>
-                    <div class="issue-panel-links">
-                        <a href="journals.html">View all journals</a>
-                        <a href="journals.html?group=soc">Browse by subject</a>
-                    </div>
+                    <dl>
+                        <div>
+                            <dt>Portfolio</dt>
+                            <dd>22 journal portals</dd>
+                        </div>
+                        <div>
+                            <dt>Coverage</dt>
+                            <dd>Technology, health, policy, society, humanities, and arts</dd>
+                        </div>
+                        <div>
+                            <dt>Editorial Model</dt>
+                            <dd>Peer review, policy disclosure, corrections, and retractions</dd>
+                        </div>
+                        <div>
+                            <dt>Access</dt>
+                            <dd>Open-access publishing with public journal records</dd>
+                        </div>
+                    </dl>
                 </aside>
             </div>
-            <div class="wrap home-mission-row">
-                <a href="journals.html"><strong>22</strong><span>Journal portals</span></a>
-                <a href="#recent-articles"><strong>20</strong><span>Daily selected articles</span></a>
-                <a href="Publication Ethics.html"><strong>Peer review</strong><span>Editorial policy framework</span></a>
-                <a href="Open Access Policy.html"><strong>CC BY</strong><span>Open access publishing</span></a>
+            <div class="wrap german-metrics" aria-label="Publisher highlights">
+                <a href="journals.html"><strong>22</strong><span>Journal Portals</span></a>
+                <a href="journals.html?group=tech"><strong>4</strong><span>Subject Clusters</span></a>
+                <a href="Publication Ethics.html"><strong>Peer Review</strong><span>Editorial Standards</span></a>
+                <a href="Open Access Policy.html"><strong>Open Access</strong><span>Author Rights</span></a>
             </div>
         </section>
 
-        <section class="home-navigation-strip">
-            <div class="wrap home-navigation-inner">
-                <span>Start here</span>
+        <section class="german-strip">
+            <div class="wrap german-strip-inner">
+                <span>Publisher gateway</span>
                 <a href="journals.html">Find a journal</a>
                 <a href="journals.html?q=submit">Submit manuscript</a>
-                <a href="#recent-articles">Read recent work</a>
-                <a href="about.html">Publisher profile</a>
+                <a href="about.html">Institutional profile</a>
+                <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial directory</a>
             </div>
         </section>
 
-        <section class="portal-band home-portfolio" id="disciplines">
+        <section class="publisher-section portfolio-overview" id="portfolio">
             <div class="wrap">
-                <div class="portal-heading split-heading">
-                    <div>
-                    <span>Subject Coverage</span>
-                    <h2>Portfolio organized for fast discovery</h2>
-                    </div>
-                    <a class="text-link" href="journals.html">Open journal directory</a>
+                <div class="publisher-heading">
+                    <span>Journal Programme</span>
+                    <h2>Structured publishing across focused academic fields</h2>
+                    <p>Panorama journals are organized around clear disciplinary clusters, public journal portals, and policy documents that support authors, editors, reviewers, and readers.</p>
                 </div>
-                <div class="discipline-grid refined">
-                    <a href="journals.html?group=tech"><span>AI & Technology</span><strong>4</strong><em>Artificial intelligence, engineering systems, digital health, and social computation.</em></a>
-                    <a href="journals.html?group=env"><span>Health & Sustainability</span><strong>5</strong><em>Health, climate systems, food sustainability, sport, and rural development.</em></a>
-                    <a href="journals.html?group=soc"><span>Policy, Education & Society</span><strong>7</strong><em>Policy, law, psychology, communication, education, and governance.</em></a>
-                    <a href="journals.html?group=arts"><span>Humanities & Arts</span><strong>6</strong><em>Philosophy, religion, arts, music, dance, and cultural studies.</em></a>
+                <div class="programme-grid">
+                    <a href="journals.html?group=tech">
+                        <span>01</span>
+                        <strong>Technology & Engineering</strong>
+                        <em>AI, engineering systems, digital health, and computational social inquiry.</em>
+                    </a>
+                    <a href="journals.html?group=env">
+                        <span>02</span>
+                        <strong>Health & Sustainability</strong>
+                        <em>Health, climate systems, food sustainability, sport, and rural governance.</em>
+                    </a>
+                    <a href="journals.html?group=soc">
+                        <span>03</span>
+                        <strong>Policy, Education & Society</strong>
+                        <em>Governance, education, law, psychology, communication, and public policy.</em>
+                    </a>
+                    <a href="journals.html?group=arts">
+                        <span>04</span>
+                        <strong>Humanities & Arts</strong>
+                        <em>Philosophy, religion, humanities, music, dance, and cultural studies.</em>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="portal-band portal-covers" id="featured">
-            <div class="wrap portal-heading split-heading">
+        <section class="publisher-section journal-covers" id="journals">
+            <div class="wrap publisher-heading split-heading">
                 <div>
                     <span>Selected Publications</span>
-                    <h2>Featured Journals</h2>
+                    <h2>Featured journal covers</h2>
                 </div>
-                <a class="text-link" href="journals.html">View all journals</a>
+                <a class="text-link" href="journals.html">Open journal directory</a>
             </div>
-            <div class="marquee-container" aria-label="Featured journal covers">
+            <div class="marquee-container editorial-marquee" aria-label="Featured journal covers">
                 <div class="marquee-track" id="marquee-track"></div>
             </div>
         </section>
 
-        <section class="portal-band" id="recent-articles">
-            <div class="wrap">
-                <div class="portal-heading split-heading">
-                    <div>
-                        <span>Research Visibility</span>
-                        <h2>Selected Recent Articles</h2>
-                    </div>
+        <section class="publisher-section publishing-system">
+            <div class="wrap publishing-system-grid">
+                <div class="publisher-heading">
+                    <span>Publishing System</span>
+                    <h2>Designed for editorial clarity rather than content noise</h2>
                 </div>
-                <div class="article-status" id="article-status" aria-live="polite"></div>
-                <div class="article-list" id="recent-article-list"></div>
+                <div class="system-list">
+                    <article>
+                        <span>Editorial Entry</span>
+                        <h3>Journal-specific submission routes</h3>
+                        <p>Authors continue from the directory to the relevant journal portal, preserving journal-level scope and editorial ownership.</p>
+                    </article>
+                    <article>
+                        <span>Policy Framework</span>
+                        <h3>Ethics, review, and correction standards</h3>
+                        <p>Publisher policies clarify responsibilities for authorship, peer review, conflicts of interest, corrections, and retractions.</p>
+                    </article>
+                    <article>
+                        <span>Access Model</span>
+                        <h3>Open publication records</h3>
+                        <p>Public journal pages, issue records, and article pages remain discoverable for readers and academic indexing systems.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <section class="portal-band author-services" id="authors">
-            <div class="wrap author-services-grid">
-                <div class="portal-heading">
+        <section class="publisher-section author-pathway" id="authors">
+            <div class="wrap">
+                <div class="publisher-heading">
                     <span>For Authors</span>
-                    <h2>From journal selection to editorial decision</h2>
+                    <h2>A clear route from journal selection to publication decision</h2>
                 </div>
-                <div class="author-service-list">
-                    <a href="journals.html"><strong>Choose a journal</strong><span>Use subject filters and journal descriptions to identify the right venue.</span></a>
-                    <a href="Open Access Policy.html"><strong>Check access and licensing</strong><span>Review author rights, licensing, repository deposit, and public availability.</span></a>
-                    <a href="Publication Ethics.html"><strong>Prepare declarations</strong><span>Confirm authorship, conflicts of interest, research integrity, and correction policies.</span></a>
-                    <a href="journals.html"><strong>Submit manuscript</strong><span>Continue from the selected journal to the Panorama manuscript workflow.</span></a>
+                <div class="author-steps">
+                    <a href="journals.html">
+                        <span>01</span>
+                        <strong>Select a journal</strong>
+                        <em>Browse by discipline, ISSN, title, or abbreviation.</em>
+                    </a>
+                    <a href="Open Access Policy.html">
+                        <span>02</span>
+                        <strong>Review access policy</strong>
+                        <em>Confirm licensing, author rights, and repository expectations.</em>
+                    </a>
+                    <a href="Publication Ethics.html">
+                        <span>03</span>
+                        <strong>Prepare declarations</strong>
+                        <em>Confirm authorship, ethics, conflicts, and data responsibilities.</em>
+                    </a>
+                    <a href="journals.html">
+                        <span>04</span>
+                        <strong>Submit through the journal</strong>
+                        <em>Continue from the selected journal to the manuscript workflow.</em>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="portal-band standards">
-            <div class="wrap">
-                <div class="portal-heading">
+        <section class="publisher-section standards-panel">
+            <div class="wrap standards-layout">
+                <div class="publisher-heading">
                     <span>Publisher Standards</span>
-                    <h2>Editorial transparency, access, and durable records</h2>
+                    <h2>Institutional signals that matter for a scholarly publisher</h2>
+                    <p>The homepage now emphasizes stable publisher functions instead of unstable article feeds: journal discovery, ethical policy, author services, editorial directory access, and open-access commitments.</p>
                 </div>
-                <div class="standards-grid">
-                    <a href="Publication Ethics.html"><span>Ethics</span><strong>Publication Ethics</strong><em>Responsibilities for editors, reviewers, authors, conflicts, corrections, and retractions.</em></a>
-                    <a href="Open Access Policy.html"><span>Access</span><strong>Open Access Policy</strong><em>Licensing, author rights, repository deposit, and long-term public availability.</em></a>
-                    <a href="about.html"><span>Profile</span><strong>Publisher Profile</strong><em>Institutional scope, operational model, and scholarly publishing commitments.</em></a>
-                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener"><span>Directory</span><strong>Editorial Directory</strong><em>Public-facing access to editorial and scholarly network profiles.</em></a>
+                <div class="standards-index">
+                    <a href="Publication Ethics.html"><span>PSG Policy</span><strong>Publication Ethics</strong></a>
+                    <a href="Open Access Policy.html"><span>Access</span><strong>Open Access Policy</strong></a>
+                    <a href="about.html"><span>Profile</span><strong>About the Publisher</strong></a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener"><span>Directory</span><strong>Editorial Network</strong></a>
                 </div>
             </div>
         </section>
@@ -192,257 +297,61 @@
         </div>
         <div class="wrap footer-bottom">
             <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
-            <span>Distributed Academic Publishing</span>
+            <span>International Scholarly Publisher</span>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const JOURNALS = [
-                { id: 'PFR', group: 'tech', title: 'Panorama Frontier Review', cat: 'Multi.', issn: 'Pending', img: 'PFR.png', slug: 'PFR' },
-                { id: 'AFS', group: 'tech', title: 'AI & Future Society', cat: 'Tech', issn: '3053-4011', img: 'AFS.png', slug: 'AFS' },
-                { id: 'JESA', group: 'tech', title: 'Journal of Engineering Systems & Applications', cat: 'Eng.', issn: '3053-478X', img: 'JESA.png', slug: 'JESA' },
-                { id: 'HNDH', group: 'tech', title: 'Health Nexus: Digital Health and Medical AI', cat: 'Med AI', issn: 'Pending', img: 'HNDH.png', slug: 'HNDH' },
-                { id: 'CSGS', group: 'env', title: 'Climate Sustainability & Global Systems', cat: 'Env.', issn: '3054-9663', img: 'CSGS.png', slug: 'CSGS' },
-                { id: 'RGGD', group: 'env', title: 'Rural Governance & Green Development', cat: 'Env.', issn: '3053-7282', img: 'RGGD.png', slug: 'RGGD' },
-                { id: 'HN', group: 'env', title: 'Health Nexus', cat: 'Med', issn: '3053-7037', img: 'HealthNexus.png', slug: 'HealthNexus' },
-                { id: 'FSSS', group: 'env', title: 'Food Systems, Safety & Sustainability', cat: 'Food Sci.', issn: 'Pending', img: 'FSSS.png', slug: 'FSSS' },
-                { id: 'SES', group: 'env', title: 'Journal of Sport and Exercise Studies', cat: 'Sports', issn: 'Pending', img: 'SES.png', slug: 'SES' },
-                { id: 'GPPGR', group: 'soc', title: 'Global Public Policy & Governance Review', cat: 'Policy', issn: 'Pending', img: 'GPPGR.png', slug: 'GPPGR' },
-                { id: 'PEMR', group: 'soc', title: 'PoliEcoM Administration Review', cat: 'Policy', issn: '3053-3597', img: 'REMR.png', slug: 'PEMR' },
-                { id: 'CSSR', group: 'soc', title: 'Computational Social Sciences Review', cat: 'Data', issn: 'Pending', img: 'CSSR.png', slug: 'cssr' },
-                { id: 'JLPCS', group: 'soc', title: 'Journal of Law, Psychology, & Communication', cat: 'Law', issn: '3052-9654', img: 'JLPCS.png', slug: 'JLPCS' },
-                { id: 'IRELS', group: 'soc', title: 'International Review of Education & Learning', cat: 'Edu', issn: 'Pending', img: 'IRELS.png', slug: 'IRELS' },
-                { id: 'JSCC', group: 'soc', title: 'Journal of Social Cognition and Communication', cat: 'Soc.', issn: '3054-6958', img: 'JSCC.png', slug: 'JSCC' },
-                { id: 'CRoPT', group: 'soc', title: 'Contemporary Review of Political Thought', cat: 'Pol.', issn: 'Pending', img: 'CRoPT.png', slug: 'CRoPT' },
-                { id: 'Silence', group: 'arts', title: 'Silence', cat: 'Phil.', issn: '3054-4386', img: 'Silence.png', slug: 'Silence' },
-                { id: 'GRHAS', group: 'arts', title: 'Global Review of Humanities, Arts, & Society', cat: 'Arts', issn: '3052-539X', img: 'GRAHS.png', slug: 'files' },
-                { id: 'TTS', group: 'arts', title: 'Three Teachings Studies', cat: 'Phil.', issn: '3053-6553', img: 'TTS.png', slug: 'tts' },
-                { id: 'Res', group: 'arts', title: 'Resonance', cat: 'Music', issn: '3053-4410', img: 'RESONANCE.png', slug: 'Resonance' },
-                { id: 'CPRT', group: 'arts', title: 'Comparative Philosophy & Religious Traditions', cat: 'Phil.', issn: 'Pending', img: 'CPRT.png', slug: 'CPRT' },
-                { id: 'JDES', group: 'arts', title: 'Journal of Dance and Embodied Structure', cat: 'Arts', issn: 'Pending', img: 'JDES.png', slug: 'JDES' }
+                { id: 'PFR', title: 'Panorama Frontier Review', img: 'PFR.png', slug: 'PFR' },
+                { id: 'AFS', title: 'AI & Future Society', img: 'AFS.png', slug: 'AFS' },
+                { id: 'JESA', title: 'Journal of Engineering Systems & Applications', img: 'JESA.png', slug: 'JESA' },
+                { id: 'HNDH', title: 'Health Nexus: Digital Health and Medical AI', img: 'HNDH.png', slug: 'HNDH' },
+                { id: 'CSGS', title: 'Climate Sustainability & Global Systems', img: 'CSGS.png', slug: 'CSGS' },
+                { id: 'RGGD', title: 'Rural Governance & Green Development', img: 'RGGD.png', slug: 'RGGD' },
+                { id: 'HN', title: 'Health Nexus', img: 'HealthNexus.png', slug: 'HealthNexus' },
+                { id: 'FSSS', title: 'Food Systems, Safety & Sustainability', img: 'FSSS.png', slug: 'FSSS' },
+                { id: 'SES', title: 'Journal of Sport and Exercise Studies', img: 'SES.png', slug: 'SES' },
+                { id: 'GPPGR', title: 'Global Public Policy & Governance Review', img: 'GPPGR.png', slug: 'GPPGR' },
+                { id: 'PEMR', title: 'PoliEcoM Administration Review', img: 'REMR.png', slug: 'PEMR' },
+                { id: 'CSSR', title: 'Computational Social Sciences Review', img: 'CSSR.png', slug: 'cssr' },
+                { id: 'JLPCS', title: 'Journal of Law, Psychology, & Communication', img: 'JLPCS.png', slug: 'JLPCS' },
+                { id: 'IRELS', title: 'International Review of Education & Learning', img: 'IRELS.png', slug: 'IRELS' },
+                { id: 'JSCC', title: 'Journal of Social Cognition and Communication', img: 'JSCC.png', slug: 'JSCC' },
+                { id: 'CRoPT', title: 'Contemporary Review of Political Thought', img: 'CRoPT.png', slug: 'CRoPT' },
+                { id: 'Silence', title: 'Silence', img: 'Silence.png', slug: 'Silence' },
+                { id: 'GRHAS', title: 'Global Review of Humanities, Arts, & Society', img: 'GRAHS.png', slug: 'files' },
+                { id: 'TTS', title: 'Three Teachings Studies', img: 'TTS.png', slug: 'tts' },
+                { id: 'Res', title: 'Resonance', img: 'RESONANCE.png', slug: 'Resonance' },
+                { id: 'CPRT', title: 'Comparative Philosophy & Religious Traditions', img: 'CPRT.png', slug: 'CPRT' },
+                { id: 'JDES', title: 'Journal of Dance and Embodied Structure', img: 'JDES.png', slug: 'JDES' }
             ];
 
-            const baseImgUrl = "QKFM/";
-            const featuredIds = ['PEMR', 'HN', 'Silence', 'AFS', 'CSGS', 'JSCC', 'GRHAS', 'JESA', 'Res'];
-            const featuredJournals = JOURNALS.filter(j => featuredIds.includes(j.id));
             const marqueeTrack = document.getElementById('marquee-track');
+            const featuredIds = ['PFR', 'AFS', 'CSGS', 'HN', 'PEMR', 'JSCC', 'Silence', 'GRHAS', 'Res', 'JESA'];
+            const featuredJournals = JOURNALS.filter(journal => featuredIds.includes(journal.id));
 
             if (marqueeTrack) {
-                const createMarqueeCard = (j) => {
-                    const finalImgSrc = baseImgUrl + j.img;
-                    return `
-                        <a href="https://journals.panorama-sg.com/index.php/${j.slug}" title="${j.title}" class="marquee-item">
-                            <img src="${finalImgSrc}" loading="lazy" alt="${j.title}" onerror="this.style.opacity=0.25">
-                        </a>
-                    `;
-                };
-                marqueeTrack.innerHTML = [...featuredJournals, ...featuredJournals].map(createMarqueeCard).join('');
+                marqueeTrack.innerHTML = [...featuredJournals, ...featuredJournals].map(journal => `
+                    <a href="https://journals.panorama-sg.com/index.php/${journal.slug}" title="${journal.title}" class="marquee-item" target="_blank" rel="noopener">
+                        <img src="QKFM/${journal.img}" loading="lazy" alt="${journal.title}" onerror="this.style.opacity=0.25">
+                    </a>
+                `).join('');
             }
 
             const heroSearchInput = document.getElementById('hero-journal-search');
             const heroSearchForm = document.getElementById('home-journal-search-form');
-            const articleList = document.getElementById('recent-article-list');
-            const articleStatus = document.getElementById('article-status');
-
-            function escapeHTML(value) {
-                return String(value || '').replace(/[&<>"']/g, char => ({
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#39;'
-                }[char]));
-            }
-
-            function formatArticleDate(value) {
-                if (!value) return '';
-                const parsed = new Date(`${value}T00:00:00`);
-                if (Number.isNaN(parsed.getTime())) return value;
-                return new Intl.DateTimeFormat('en', { year: 'numeric', month: 'short', day: '2-digit' }).format(parsed);
-            }
-
-            function doiHref(doi) {
-                if (!doi) return '';
-                return /^https?:\/\//i.test(doi) ? doi : `https://doi.org/${doi.replace(/^doi:\s*/i, '')}`;
-            }
-
-            const JOURNAL_NAME_MAP = {
-                AFS: 'AI & Future Society',
-                CSGS: 'Climate Sustainability & Global Systems',
-                files: 'Global Review of Humanities, Arts, & Society',
-                GRHAS: 'Global Review of Humanities, Arts, & Society',
-                HealthNexus: 'Health Nexus',
-                HN: 'Health Nexus',
-                HNDH: 'Health Nexus: Digital Health and Medical AI',
-                JESA: 'Journal of Engineering Systems & Applications',
-                JLPCS: 'Journal of Law, Psychology, & Communication',
-                JSCC: 'Journal of Social Cognition and Communication',
-                PEMR: 'PoliEcoM Administration Review',
-                Resonance: 'Resonance: Journal of Global Music Studies',
-                Res: 'Resonance: Journal of Global Music Studies',
-                RGGD: 'Rural Governance & Green Development',
-                Silence: 'Silence',
-                tts: 'Three Teachings Studies',
-                TTS: 'Three Teachings Studies',
-                PFR: 'Panorama Frontier Review'
-            };
-
-            function hasCjk(value) {
-                return /[\u3400-\u9fff]/.test(value || '');
-            }
-
-            function englishText(value) {
-                const text = String(value || '').trim();
-                if (!text || !hasCjk(text)) return text;
-                const colonParts = text.split(/\s*[:：]\s*/).filter(Boolean);
-                const englishColonPart = colonParts.reverse().find(part => /[A-Za-z]/.test(part) && !hasCjk(part));
-                if (englishColonPart && englishColonPart.length > 24) return englishColonPart.trim();
-                const starts = ['In ', 'This ', 'The ', 'Against ', 'Drawing ', 'Based ', 'With ', 'Artificial ', 'Objective:', 'Background:', 'Purpose:'];
-                const candidates = starts
-                    .map(marker => text.indexOf(marker))
-                    .filter(index => index > 0)
-                    .sort((a, b) => a - b);
-                if (candidates.length) {
-                    const english = text.slice(candidates[0]).trim();
-                    if (english.length > 40) return english;
-                }
-                const asciiRatio = text.replace(/[^\x00-\x7F]/g, '').length / Math.max(text.length, 1);
-                return asciiRatio > 0.7 ? text : '';
-            }
-
-            function englishJournalName(article) {
-                const slug = article.journalSlug || '';
-                if (JOURNAL_NAME_MAP[slug]) return JOURNAL_NAME_MAP[slug];
-                const journal = String(article.journal || '').trim();
-                if (journal === '乡村善治与绿色发展') return 'Rural Governance & Green Development';
-                return journal;
-            }
-
-            function formatAuthorName(value) {
-                const author = String(value || '').trim();
-                if (!author) return '';
-                const parts = author.split(',').map(part => part.trim()).filter(Boolean);
-                if (parts.length === 2 && /^[A-Za-z .'-]+$/.test(parts.join(' '))) {
-                    return `${parts[1]} ${parts[0]}`;
-                }
-                return author;
-            }
-
-            function formatDoiLabel(doi) {
-                if (!doi) return '';
-                return String(doi).replace(/^https?:\/\/doi\.org\//i, '').replace(/^doi:\s*/i, '');
-            }
-
-            function compactText(value, maxLength) {
-                const text = String(value || '').replace(/\s+/g, ' ').trim();
-                if (!text || text.length <= maxLength) return text;
-                return `${text.slice(0, maxLength).trim()}...`;
-            }
-
-            function restoreHashTarget() {
-                if (!window.location.hash) return;
-                const targetId = decodeURIComponent(window.location.hash.slice(1));
-                const target = document.getElementById(targetId);
-                if (!target) return;
-                requestAnimationFrame(() => {
-                    target.scrollIntoView({ block: 'start' });
-                });
-            }
-
-            function renderRecentArticles(payload) {
-                if (!articleList) return;
-                const articles = Array.isArray(payload && payload.articles) ? payload.articles : [];
-                articleList.innerHTML = '';
-
-                if (!articles.length) {
-                    articleList.innerHTML = '<div class="empty-state">No recent article records are available.</div>';
-                    if (articleStatus) articleStatus.textContent = 'No Panorama article records are available.';
-                    restoreHashTarget();
-                    return;
-                }
-
-                articles.forEach((article, index) => {
-                    const authors = Array.isArray(article.authors) ? article.authors.filter(Boolean) : [];
-                    const visibleAuthors = authors.slice(0, 6).map(formatAuthorName).join(', ');
-                    const authorLine = authors.length > 6 ? `${visibleAuthors}, et al.` : visibleAuthors;
-                    const publishedDate = formatArticleDate(article.publishedAt);
-                    const journalName = englishJournalName(article);
-                    const displayTitle = article.title || '';
-                    const displayIssue = compactText(article.issue || '', 140);
-                    const displayAbstract = compactText(article.abstract || '', 360);
-                    const metaParts = [
-                        journalName,
-                        publishedDate,
-                        displayIssue,
-                        article.pages ? `Pages ${article.pages}` : ''
-                    ].filter(Boolean);
-                    const doiLabel = formatDoiLabel(article.doi);
-                    const item = document.createElement('article');
-                    item.className = 'article-item';
-                    item.innerHTML = `
-                        <div class="article-badge">
-                            <span>Open Access</span>
-                            <strong>Article</strong>
-                        </div>
-                        <div class="article-main">
-                            <div class="article-labels">
-                                ${journalName ? `<span>${escapeHTML(journalName)}</span>` : ''}
-                                ${publishedDate ? `<span>Published: ${escapeHTML(publishedDate)}</span>` : ''}
-                            </div>
-                            <h3>${escapeHTML(displayTitle)}</h3>
-                            <p class="article-authors">${escapeHTML(authorLine || 'Editorial record')}</p>
-                            ${metaParts.length ? `<p class="article-meta">${escapeHTML(metaParts.join(' · '))}</p>` : ''}
-                            ${doiLabel ? `<p class="article-doi">DOI: ${escapeHTML(doiLabel)}</p>` : ''}
-                            ${displayAbstract ? `<p class="article-abstract"><strong>Abstract:</strong> ${escapeHTML(displayAbstract)}</p>` : ''}
-                        </div>
-                        <div class="article-actions">
-                            ${article.url ? `<a href="${escapeHTML(article.url)}" target="_blank" rel="noopener">Full Article</a>` : ''}
-                            ${article.doi ? `<a href="${escapeHTML(doiHref(article.doi))}" target="_blank" rel="noopener">DOI</a>` : ''}
-                        </div>
-                    `;
-                    articleList.appendChild(item);
-                });
-
-                if (articleStatus) {
-                    articleStatus.textContent = '';
-                }
-                restoreHashTarget();
-            }
-
-            if (articleList) {
-                fetch('data/articles.json', { cache: 'no-store' })
-                    .then(response => {
-                        if (!response.ok) throw new Error('Article data unavailable');
-                        return response.json();
-                    })
-                    .then(renderRecentArticles)
-                    .catch(() => {
-                        articleList.innerHTML = '<div class="empty-state">Recent article data could not be loaded. Please refresh the article cache.</div>';
-                        if (articleStatus) articleStatus.textContent = 'Article cache unavailable.';
-                        restoreHashTarget();
-                    });
-            }
 
             function runHeroJournalSearch() {
                 const query = heroSearchInput ? heroSearchInput.value.trim() : '';
-                const targetUrl = query ? `journals.html?q=${encodeURIComponent(query)}` : 'journals.html';
-                window.location.href = targetUrl;
+                window.location.href = query ? `journals.html?q=${encodeURIComponent(query)}` : 'journals.html';
             }
 
             if (heroSearchForm) {
                 heroSearchForm.addEventListener('submit', function(event) {
                     event.preventDefault();
                     runHeroJournalSearch();
-                });
-            }
-
-            if (heroSearchInput) {
-                heroSearchInput.addEventListener('keydown', function(event) {
-                    if (event.key === 'Enter') {
-                        event.preventDefault();
-                        runHeroJournalSearch();
-                    }
                 });
             }
         });
