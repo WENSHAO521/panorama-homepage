@@ -2,7 +2,7 @@ param(
     [string]$Endpoint = "https://journals.panorama-sg.com/index.php/index/oai",
     [string]$Output = "data/articles.json",
     [int]$Limit = 20,
-    [int]$PoolLimit = 100,
+    [int]$PoolLimit = 50,
     [int]$MaxPages = 20,
     [int]$RequestDelaySeconds = 6,
     [switch]$IncludeFuture
