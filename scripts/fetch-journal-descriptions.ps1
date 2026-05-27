@@ -83,6 +83,36 @@ function Test-JournalDescription {
     return $true
 }
 
+function Test-IsCloudflareChallenge {
+    param([string]$Content)
+    if (-not $Content) { return $true }
+    
+    # Check for various Cloudflare challenge indicators
+    $challengePatterns = @(
+        "Just a moment"
+        "Enable JavaScript and cookies"
+        "_cf_chl"
+        "challenge-platform"
+        "cf_clearance"
+        "Checking your browser"
+        "Allow me access"
+        "Ray ID"
+    )
+    
+    foreach ($pattern in $challengePatterns) {
+        if ($Content -match [regex]::Escape($pattern)) {
+            return $true
+        }
+    }
+    
+    # Check if content looks like HTML challenge page
+    if ($Content -match "<!DOCTYPE|<html|Cloudflare" -and $Content -notmatch "<\?xml") {
+        return $true
+    }
+    
+    return $false
+}
+
 function Get-JournalDescription {
     param([string]$Slug)
 
@@ -114,23 +144,62 @@ function Get-JournalDescription {
 
 function Get-UrlContent {
     param([string]$Url)
-    try {
-        if ($RequestDelaySeconds -gt 0) {
-            Start-Sleep -Seconds $RequestDelaySeconds
+    
+    $maxRetries = 3
+    $retryCount = 0
+    
+    while ($retryCount -lt $maxRetries) {
+        try {
+            if ($RequestDelaySeconds -gt 0) {
+                Start-Sleep -Seconds $RequestDelaySeconds
+            }
+            
+            $headers = @{
+                "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+                "Accept-Encoding" = "gzip, deflate"
+                "Accept-Language" = "en-US,en;q=0.9"
+                "Cache-Control" = "no-cache"
+                "Pragma" = "no-cache"
+            }
+            
+            $response = Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers -SkipHttpErrorCheck
+            $content = $response.Content
+            
+            # Detect Cloudflare challenge
+            if (Test-IsCloudflareChallenge $content) {
+                $retryCount++
+                if ($retryCount -lt $maxRetries) {
+                    $waitTime = [Math]::Min(5 * $retryCount, 15)
+                    Write-Warning "Cloudflare challenge detected for $Url. Retrying in $waitTime seconds (attempt $retryCount/$maxRetries)..."
+                    Start-Sleep -Seconds $waitTime
+                    continue
+                } else {
+                    Write-Warning "Cloudflare challenge persisted for $Url after $maxRetries attempts"
+                    return ""
+                }
+            }
+            
+            # Check HTTP status
+            if ($response.StatusCode -ne 200) {
+                Write-Warning "HTTP $($response.StatusCode) returned for $Url"
+                return ""
+            }
+            
+            return $content
+        } catch {
+            $retryCount++
+            if ($retryCount -lt $maxRetries) {
+                $waitTime = [Math]::Min(5 * $retryCount, 15)
+                Write-Warning "Request failed for $Url : $($_.Exception.Message). Retrying in $waitTime seconds..."
+                Start-Sleep -Seconds $waitTime
+            } else {
+                Write-Warning "Unable to fetch $Url after $maxRetries attempts: $($_.Exception.Message)"
+                return ""
+            }
         }
-        $headers = @{
-            "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
-        }
-        $content = (Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers).Content
-        if ($content -match "Just a moment|Enable JavaScript and cookies|_cf_chl|challenge-platform") {
-            Write-Warning "Cloudflare challenge returned for $Url"
-            return ""
-        }
-        return $content
-    } catch {
-        Write-Warning "Unable to fetch $Url"
-        return ""
     }
+    
+    return ""
 }
 
 $journals = @(
