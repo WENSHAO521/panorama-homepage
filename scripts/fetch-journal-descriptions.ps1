@@ -8,41 +8,72 @@ param(
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
 
-$script:OutputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
+$script:OutputPath = if ([System.IO.Path]::IsPathRooted($Output)) {
+    $Output
+} else {
+    Join-Path (Get-Location) $Output
+}
 
 function Normalize-Text {
     param([string]$Value)
-    if ([string]::IsNullOrWhiteSpace($Value)) { return "" }
+
+    if ([string]::IsNullOrWhiteSpace($Value)) {
+        return ""
+    }
+
     $plain = $Value -replace "<[^>]+>", " "
     $decoded = [System.Net.WebUtility]::HtmlDecode($plain)
+
     return (($decoded -replace [char]0x00A0, " ") -replace "\s+", " ").Trim()
 }
 
 function Get-MetaContent {
-    param([string]$Html, [string[]]$Names)
+    param(
+        [string]$Html,
+        [string[]]$Names
+    )
 
     foreach ($name in $Names) {
         $escaped = [regex]::Escape($name)
+
         $patterns = @(
             "<meta\b(?=[^>]*(?:name|property)=[""']$escaped[""'])(?=[^>]*content=[""'](?<content>[^""']+)[""'])[^>]*>",
             "<meta\b(?=[^>]*content=[""'](?<content>[^""']+)[""'])(?=[^>]*(?:name|property)=[""']$escaped[""'])[^>]*>"
         )
+
         foreach ($pattern in $patterns) {
-            $match = [regex]::Match($Html, $pattern, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+            $match = [regex]::Match(
+                $Html,
+                $pattern,
+                [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
+            )
+
             if ($match.Success) {
                 $text = Normalize-Text $match.Groups["content"].Value
-                if ($text) { return $text }
+
+                if ($text) {
+                    return $text
+                }
             }
         }
     }
+
     return ""
 }
 
 function Get-HomeDescription {
     param([string]$Html)
 
-    $meta = Get-MetaContent $Html @("description", "og:description", "twitter:description", "DC.Description")
-    if ($meta) { return $meta }
+    $meta = Get-MetaContent $Html @(
+        "description",
+        "og:description",
+        "twitter:description",
+        "DC.Description"
+    )
+
+    if ($meta) {
+        return $meta
+    }
 
     $sectionPatterns = @(
         "<section[^>]+class=[""'][^""']*additional_content[^""']*[""'][^>]*>(?<body>.*?)</section>",
@@ -51,19 +82,36 @@ function Get-HomeDescription {
     )
 
     foreach ($pattern in $sectionPatterns) {
-        $match = [regex]::Match($Html, $pattern, [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        $match = [regex]::Match(
+            $Html,
+            $pattern,
+            [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor
+            [System.Text.RegularExpressions.RegexOptions]::Singleline
+        )
+
         if ($match.Success) {
             $text = Normalize-Text $match.Groups["body"].Value
-            if ($text.Length -gt 40) { return $text }
+
+            if ($text.Length -gt 40) {
+                return $text
+            }
         }
     }
+
     return ""
 }
 
 function Test-JournalDescription {
     param([string]$Value)
-    if ([string]::IsNullOrWhiteSpace($Value)) { return $false }
-    if ($Value.Length -lt 70) { return $false }
+
+    if ([string]::IsNullOrWhiteSpace($Value)) {
+        return $false
+    }
+
+    if ($Value.Length -lt 70) {
+        return $false
+    }
+
     $badPatterns = @(
         "pointer-events",
         "data-testid",
@@ -77,117 +125,119 @@ function Test-JournalDescription {
         "\{[^}]{20,}\}",
         "^\s*Global Review of Humanities"
     )
+
     foreach ($pattern in $badPatterns) {
-        if ($Value -match $pattern) { return $false }
+        if ($Value -match $pattern) {
+            return $false
+        }
     }
+
     return $true
 }
 
 function Test-IsCloudflareChallenge {
-    param([string]$Content)
-    if (-not $Content) { return $true }
-    
-    # Check for various Cloudflare challenge indicators
-    $challengePatterns = @(
-        "Just a moment"
-        "Enable JavaScript and cookies"
-        "_cf_chl"
-        "challenge-platform"
-        "cf_clearance"
-        "Checking your browser"
-        "Allow me access"
-        "Ray ID"
+    param(
+        [string]$Content,
+        $ResponseHeaders = $null
     )
-    
+
+    if ($null -ne $ResponseHeaders) {
+        try {
+            $cfMitigated = [string]$ResponseHeaders["cf-mitigated"]
+
+            if ($cfMitigated -match "(?i)^challenge$") {
+                return $true
+            }
+        } catch {
+            # Some PowerShell header collections do not support direct key lookup.
+        }
+    }
+
+    if ([string]::IsNullOrWhiteSpace($Content)) {
+        return $false
+    }
+
+    # Keep this list narrow.
+    # Do not classify generic HTML, normal OJS pages, or the word "Cloudflare" alone as a challenge.
+    $challengePatterns = @(
+        "Just a moment",
+        "Enable JavaScript and cookies",
+        "__cf_chl",
+        "cf_chl",
+        "challenge-platform",
+        "/cdn-cgi/challenge-platform/",
+        "cf_clearance",
+        "Checking your browser before accessing"
+    )
+
     foreach ($pattern in $challengePatterns) {
         if ($Content -match [regex]::Escape($pattern)) {
             return $true
         }
     }
-    
-    # Check if content looks like HTML challenge page
-    if ($Content -match "<!DOCTYPE|<html|Cloudflare" -and $Content -notmatch "<\?xml") {
-        return $true
-    }
-    
+
     return $false
-}
-
-function Get-JournalDescription {
-    param([string]$Slug)
-
-    $baseUrl = "https://journals.panorama-sg.com/index.php/$Slug"
-    $candidateUrls = @(
-        $baseUrl,
-        "$baseUrl/about",
-        "$baseUrl/AimsScope",
-        "$baseUrl/Journal"
-    )
-
-    foreach ($candidateUrl in $candidateUrls) {
-        $html = Get-UrlContent $candidateUrl
-        if (-not $html) { continue }
-        $description = Get-HomeDescription $html
-        if (Test-JournalDescription $description) {
-            return [pscustomobject]@{
-                description = $description
-                source = $candidateUrl
-            }
-        }
-    }
-
-    return [pscustomobject]@{
-        description = ""
-        source = ""
-    }
 }
 
 function Get-UrlContent {
     param([string]$Url)
-    
+
     $maxRetries = 3
     $retryCount = 0
-    
+
     while ($retryCount -lt $maxRetries) {
         try {
             if ($RequestDelaySeconds -gt 0) {
                 Start-Sleep -Seconds $RequestDelaySeconds
             }
-            
+
             $headers = @{
-                "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+                "User-Agent"      = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+                "X-PSG-Build-Bot" = "panorama-homepage"
+                "Accept"          = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
                 "Accept-Encoding" = "gzip, deflate"
                 "Accept-Language" = "en-US,en;q=0.9"
-                "Cache-Control" = "no-cache"
-                "Pragma" = "no-cache"
+                "Cache-Control"   = "no-cache"
+                "Pragma"          = "no-cache"
             }
-            
+
             $response = Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers -SkipHttpErrorCheck
             $content = $response.Content
-            
-            # Detect Cloudflare challenge
-            if (Test-IsCloudflareChallenge $content) {
+
+            if (Test-IsCloudflareChallenge -Content $content -ResponseHeaders $response.Headers) {
                 $retryCount++
+
                 if ($retryCount -lt $maxRetries) {
                     $waitTime = [Math]::Min(5 * $retryCount, 15)
                     Write-Warning "Cloudflare challenge detected for $Url. Retrying in $waitTime seconds (attempt $retryCount/$maxRetries)..."
                     Start-Sleep -Seconds $waitTime
                     continue
                 } else {
-                    Write-Warning "Cloudflare challenge persisted for $Url after $maxRetries attempts"
+                    Write-Warning "Cloudflare challenge persisted for $Url after $maxRetries attempts."
                     return ""
                 }
             }
-            
-            # Check HTTP status
+
             if ($response.StatusCode -ne 200) {
-                Write-Warning "HTTP $($response.StatusCode) returned for $Url"
+                $contentPreview = Normalize-Text $content
+
+                if ($contentPreview.Length -gt 220) {
+                    $contentPreview = $contentPreview.Substring(0, 220) + "..."
+                }
+
+                Write-Warning "HTTP $($response.StatusCode) returned for $Url. Response preview: $contentPreview"
                 return ""
             }
-            
+
+            if ([string]::IsNullOrWhiteSpace($content)) {
+                Write-Warning "Empty response returned for $Url"
+                return ""
+            }
+
             return $content
         } catch {
             $retryCount++
+
             if ($retryCount -lt $maxRetries) {
                 $waitTime = [Math]::Min(5 * $retryCount, 15)
                 Write-Warning "Request failed for $Url : $($_.Exception.Message). Retrying in $waitTime seconds..."
@@ -198,8 +248,43 @@ function Get-UrlContent {
             }
         }
     }
-    
+
     return ""
+}
+
+function Get-JournalDescription {
+    param([string]$Slug)
+
+    $baseUrl = "https://journals.panorama-sg.com/index.php/$Slug"
+
+    $candidateUrls = @(
+        $baseUrl,
+        "$baseUrl/about",
+        "$baseUrl/AimsScope",
+        "$baseUrl/Journal"
+    )
+
+    foreach ($candidateUrl in $candidateUrls) {
+        $html = Get-UrlContent $candidateUrl
+
+        if (-not $html) {
+            continue
+        }
+
+        $description = Get-HomeDescription $html
+
+        if (Test-JournalDescription $description) {
+            return [pscustomobject]@{
+                description = $description
+                source      = $candidateUrl
+            }
+        }
+    }
+
+    return [pscustomobject]@{
+        description = ""
+        source      = ""
+    }
 }
 
 $journals = @(
@@ -228,45 +313,55 @@ $journals = @(
 )
 
 $items = New-Object System.Collections.Generic.List[object]
+
 for ($i = 0; $i -lt $journals.Count; $i++) {
     $journal = $journals[$i]
-    if ($i -gt 0 -and $BatchSize -gt 0 -and ($i % $BatchSize) -eq 0 -and $BatchDelaySeconds -gt 0) {
+
+    if (
+        $i -gt 0 -and
+        $BatchSize -gt 0 -and
+        ($i % $BatchSize) -eq 0 -and
+        $BatchDelaySeconds -gt 0
+    ) {
         Write-Host "Processed $i journals. Waiting $BatchDelaySeconds seconds before the next batch."
         Start-Sleep -Seconds $BatchDelaySeconds
     }
 
     $url = "https://journals.panorama-sg.com/index.php/$($journal.slug)"
     Write-Host "Fetching $($journal.id): $url"
+
     $descriptionRecord = Get-JournalDescription $journal.slug
     $description = $descriptionRecord.description
+
     if ($description.Length -gt 520) {
         $description = $description.Substring(0, 520).TrimEnd() + "..."
     }
 
     $items.Add([pscustomobject]@{
-        id = $journal.id
-        group = $journal.group
-        title = $journal.title
-        cat = $journal.cat
-        issn = $journal.issn
-        img = $journal.img
-        slug = $journal.slug
-        journalUrl = $url
-        submissionUrl = "$url/submission"
-        description = $description
+        id                = $journal.id
+        group             = $journal.group
+        title             = $journal.title
+        cat               = $journal.cat
+        issn              = $journal.issn
+        img               = $journal.img
+        slug              = $journal.slug
+        journalUrl        = $url
+        submissionUrl     = "$url/submission"
+        description       = $description
         descriptionSource = $descriptionRecord.source
     })
 }
 
 $payload = [pscustomobject]@{
-    harvestedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
+    harvestedAt     = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
     sourcePublisher = "Panorama Scholarly Group"
-    source = "Panorama journal home pages"
-    journalCount = $items.Count
-    journals = @($items)
+    source          = "Panorama journal home pages"
+    journalCount    = $items.Count
+    journals        = @($items)
 }
 
 $descriptionCount = @($items | Where-Object { $_.description }).Count
+
 if ($descriptionCount -lt 5 -and (Test-Path -LiteralPath $script:OutputPath)) {
     Write-Warning "Only $descriptionCount journal descriptions were refreshed. Keeping existing journal cache at $script:OutputPath."
     exit 0
@@ -274,7 +369,10 @@ if ($descriptionCount -lt 5 -and (Test-Path -LiteralPath $script:OutputPath)) {
 
 $outputPath = $script:OutputPath
 $outputDir = Split-Path -Parent $outputPath
-if ($outputDir) { New-Item -ItemType Directory -Force -Path $outputDir | Out-Null }
+
+if ($outputDir) {
+    New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
+}
 
 $json = $payload | ConvertTo-Json -Depth 8
 [System.IO.File]::WriteAllText($outputPath, $json, [System.Text.UTF8Encoding]::new($false))
