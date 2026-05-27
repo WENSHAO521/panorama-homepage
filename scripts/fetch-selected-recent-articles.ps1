@@ -6,7 +6,7 @@ param(
     [int]$MaxIssuesPerJournal = 8,
     [int]$MaxArticlesToCrawl = 220,
     [int]$RequestDelaySeconds = 2,
-    [string]$CrawlerUserAgent = "Mozilla/5.0 (compatible; PanoramaGoogleScholarCrawler/1.0; +https://panorama-sg.com/)",
+    [string]$CrawlerUserAgent = "Mozilla/5.0 (compatible; PanoramaScholarlyGroupPublisherRefresh/1.0; +https://panorama-sg.com/; publisher-owned scheduled metadata refresh)",
     [string[]]$JournalSlugs = @(
         "AFS",
         "CSGS",
@@ -165,6 +165,8 @@ function Get-CrawlerPage {
         "Accept" = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
         "Accept-Language" = "en-US,en;q=0.9"
         "User-Agent" = $CrawlerUserAgent
+        "X-Publisher" = "Panorama Scholarly Group"
+        "X-Data-Use" = "Publisher-owned metadata refresh for panorama-sg.com"
     }
     $content = (Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60 -Headers $headers).Content
     if ($content -match "Just a moment|Enable JavaScript and cookies|_cf_chl|challenge-platform") {
@@ -239,7 +241,7 @@ function Get-ArticleRecord {
 
     $abstract = Get-FirstMetaContent $html @("citation_abstract", "DC.Description", "description")
     if (-not $abstract) {
-        $abstract = Get-RegexGroup $html "<h2[^>]*>\s*Abstract\s*</h2>(.*?)(?:<h2[^>]*>|<section[^>]*class=['""][^'""]*item\s+downloads|PDF Downloads Trend|Article Details)"
+        $abstract = Get-RegexGroup $html "<h2[^>]*>\s*Abstract\s*</h2>(.*?)(?:<h2[^>]*>|<section[^>]*class=['""][^'"" ]*item\s+downloads|PDF Downloads Trend|Article Details)"
         $abstract = Strip-Html $abstract
     }
 
