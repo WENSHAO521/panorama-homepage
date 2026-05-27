@@ -6,7 +6,10 @@ param(
     [int]$PoolLimit = 50,
     [int]$MaxPages = 20,
     [int]$RequestDelaySeconds = 6,
-    [switch]$IncludeFuture
+    [switch]$IncludeFuture,
+    [string]$UserAgent = "Mozilla/5.0 (compatible; JournalMetadataBot/1.0; +https://panorama-sg.com/)",
+    [string]$Referer = "",
+    [string]$Cookie = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -199,13 +202,16 @@ function Get-OaiPage {
         try {
             $headers = @{
                 "Accept"            = "application/xml,text/xml,*/*"
-                "User-Agent"        = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+                "User-Agent"        = $UserAgent
                 "X-PSG-Build-Bot"   = "panorama-homepage"
                 "Accept-Encoding"   = "gzip, deflate"
                 "Accept-Language"   = "en-US,en;q=0.9"
                 "Cache-Control"     = "no-cache"
                 "Pragma"            = "no-cache"
             }
+
+            if (-not [string]::IsNullOrWhiteSpace($Referer)) { $headers["Referer"] = $Referer }
+            if (-not [string]::IsNullOrWhiteSpace($Cookie)) { $headers["Cookie"] = $Cookie }
 
             $response = Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers -SkipHttpErrorCheck
             $content = $response.Content

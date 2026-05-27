@@ -2,7 +2,10 @@ param(
     [string]$Output = "data/journals.json",
     [int]$BatchSize = 10,
     [int]$BatchDelaySeconds = 12,
-    [int]$RequestDelaySeconds = 2
+    [int]$RequestDelaySeconds = 2,
+    [string]$UserAgent = "Mozilla/5.0 (compatible; JournalMetadataBot/1.0; +https://panorama-sg.com/)",
+    [string]$Referer = "",
+    [string]$Cookie = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -192,7 +195,7 @@ function Get-UrlContent {
             }
 
             $headers = @{
-                "User-Agent"      = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+                "User-Agent"      = $UserAgent
                 "X-PSG-Build-Bot" = "panorama-homepage"
                 "Accept"          = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
                 "Accept-Encoding" = "gzip, deflate"
@@ -200,6 +203,9 @@ function Get-UrlContent {
                 "Cache-Control"   = "no-cache"
                 "Pragma"          = "no-cache"
             }
+
+            if (-not [string]::IsNullOrWhiteSpace($Referer)) { $headers["Referer"] = $Referer }
+            if (-not [string]::IsNullOrWhiteSpace($Cookie)) { $headers["Cookie"] = $Cookie }
 
             $response = Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers -SkipHttpErrorCheck
             $content = $response.Content
