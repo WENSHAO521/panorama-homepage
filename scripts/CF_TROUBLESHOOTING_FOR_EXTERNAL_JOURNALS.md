@@ -1,24 +1,30 @@
-# External Journal Crawl (Cloudflare) Notes
+# OAI Crawl Notes (Panorama + External Journals)
 
-When crawling **other publishers' journals**, the fix is in the crawler request profile (not this website's `robots.txt`).
+For Panorama-owned journals, prefer **single OAI endpoint + set harvesting** to reduce Cloudflare risk:
+- Endpoint: `https://journals.panorama-sg.com/index.php/index/oai`
+- Use `set=<journal_slug>` per request
 
-## Recommended runtime options
-Both scripts now support:
+## Recommended command (Panorama)
+```powershell
+./scripts/fetch-selected-recent-articles.ps1 \
+  -BaseUrl "https://journals.panorama-sg.com/index.php" \
+  -JournalSlugs @("AFS","CSGS","HealthNexus") \
+  -RequestDelaySeconds 6
+```
+
+The script will now use `index/oai` and query each slug as `set=<slug>`.
+
+## External journal runtime options
+Both scripts support:
 - `-UserAgent`
 - `-Referer`
 - `-Cookie`
 
 Example:
 ```powershell
-./scripts/fetch-journal-descriptions.ps1 \
-  -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-  -Referer "https://www.google.com/" \
-  -Cookie "cf_clearance=..."
-```
-
-```powershell
 ./scripts/fetch-selected-recent-articles.ps1 \
-  -BaseUrl "https://example-journal.org/index.php" \
+  -OaiEndpoint "https://example-journal.org/index.php/index/oai" \
+  -JournalSlugs @("journalA") \
   -UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
   -Referer "https://example-journal.org/" \
   -Cookie "cf_clearance=..."
