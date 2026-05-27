@@ -1,9 +1,14 @@
 param(
-    [string]$Output = "data/journals.json"
+    [string]$Output = "data/journals.json",
+    [int]$BatchSize = 10,
+    [int]$BatchDelaySeconds = 12,
+    [int]$RequestDelaySeconds = 2
 )
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
+
+$script:OutputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
 
 function Normalize-Text {
     param([string]$Value)
@@ -110,7 +115,18 @@ function Get-JournalDescription {
 function Get-UrlContent {
     param([string]$Url)
     try {
-        return (Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60).Content
+        if ($RequestDelaySeconds -gt 0) {
+            Start-Sleep -Seconds $RequestDelaySeconds
+        }
+        $headers = @{
+            "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
+        }
+        $content = (Invoke-WebRequest -UseBasicParsing -Uri $Url -TimeoutSec 60 -Headers $headers).Content
+        if ($content -match "Just a moment|Enable JavaScript and cookies|_cf_chl|challenge-platform") {
+            Write-Warning "Cloudflare challenge returned for $Url"
+            return ""
+        }
+        return $content
     } catch {
         Write-Warning "Unable to fetch $Url"
         return ""
@@ -142,7 +158,14 @@ $journals = @(
     @{ id = "JDES"; group = "arts"; title = "Journal of Dance and Embodied Structure"; cat = "Arts"; issn = "Pending"; img = "JDES.png"; slug = "JDES" }
 )
 
-$items = foreach ($journal in $journals) {
+$items = New-Object System.Collections.Generic.List[object]
+for ($i = 0; $i -lt $journals.Count; $i++) {
+    $journal = $journals[$i]
+    if ($i -gt 0 -and $BatchSize -gt 0 -and ($i % $BatchSize) -eq 0 -and $BatchDelaySeconds -gt 0) {
+        Write-Host "Processed $i journals. Waiting $BatchDelaySeconds seconds before the next batch."
+        Start-Sleep -Seconds $BatchDelaySeconds
+    }
+
     $url = "https://journals.panorama-sg.com/index.php/$($journal.slug)"
     Write-Host "Fetching $($journal.id): $url"
     $descriptionRecord = Get-JournalDescription $journal.slug
@@ -151,7 +174,7 @@ $items = foreach ($journal in $journals) {
         $description = $description.Substring(0, 520).TrimEnd() + "..."
     }
 
-    [pscustomobject]@{
+    $items.Add([pscustomobject]@{
         id = $journal.id
         group = $journal.group
         title = $journal.title
@@ -163,22 +186,28 @@ $items = foreach ($journal in $journals) {
         submissionUrl = "$url/submission"
         description = $description
         descriptionSource = $descriptionRecord.source
-    }
+    })
 }
 
 $payload = [pscustomobject]@{
     harvestedAt = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
     sourcePublisher = "Panorama Scholarly Group"
     source = "Panorama journal home pages"
-    journalCount = @($items).Count
+    journalCount = $items.Count
     journals = @($items)
 }
 
-$outputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
+$descriptionCount = @($items | Where-Object { $_.description }).Count
+if ($descriptionCount -lt 5 -and (Test-Path -LiteralPath $script:OutputPath)) {
+    Write-Warning "Only $descriptionCount journal descriptions were refreshed. Keeping existing journal cache at $script:OutputPath."
+    exit 0
+}
+
+$outputPath = $script:OutputPath
 $outputDir = Split-Path -Parent $outputPath
 if ($outputDir) { New-Item -ItemType Directory -Force -Path $outputDir | Out-Null }
 
 $json = $payload | ConvertTo-Json -Depth 8
 [System.IO.File]::WriteAllText($outputPath, $json, [System.Text.UTF8Encoding]::new($false))
 
-Write-Host "Wrote $(@($items).Count) journal records to $outputPath"
+Write-Host "Wrote $($items.Count) journal records to $outputPath"

@@ -4,11 +4,28 @@ param(
     [int]$Limit = 20,
     [int]$PoolLimit = 100,
     [int]$MaxPages = 20,
+    [int]$RequestDelaySeconds = 6,
     [switch]$IncludeFuture
 )
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
+
+$script:OutputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
+
+function Use-ExistingArticleCache {
+    param($Reason)
+    if (Test-Path -LiteralPath $script:OutputPath) {
+        Write-Warning "Unable to refresh article records: $Reason"
+        Write-Warning "Keeping existing article cache at $script:OutputPath and exiting successfully."
+        exit 0
+    }
+}
+
+trap {
+    Use-ExistingArticleCache $_
+    throw $_
+}
 
 function Normalize-Text {
     param([string]$Value)
@@ -100,16 +117,19 @@ function Get-JournalArticleUrl {
 
 function Get-OaiPage {
     param([string]$Url)
-
-    $response = Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60
-    $contentType = "$($response.Headers['Content-Type'])"
-    $content = "$($response.Content)"
-
-    if ($contentType -notmatch "xml" -or $content -match "Enable JavaScript and cookies to continue" -or $content -match "__cf_chl") {
-        throw "OAI endpoint returned a non-XML anti-bot challenge page."
+    $headers = @{
+        "Accept" = "application/xml,text/xml,*/*"
+        "User-Agent" = "PanoramaScholarlyGroupSiteDataBot/1.0 (+https://panorama-sg.com/)"
     }
-
-    [xml]$content
+    $content = (Invoke-WebRequest -UseBasicParsing $Url -TimeoutSec 60 -Headers $headers).Content
+    if ($content -match "Just a moment|Enable JavaScript and cookies|_cf_chl|challenge-platform") {
+        throw "Cloudflare challenge returned for OAI endpoint instead of XML."
+    }
+    try {
+        return [xml]$content
+    } catch {
+        throw "OAI endpoint returned non-XML content."
+    }
 }
 
 $records = New-Object System.Collections.Generic.List[object]
@@ -119,13 +139,7 @@ $page = 0
 while ($url -and $page -lt $MaxPages) {
     $page += 1
     Write-Host "Fetching OAI page $page"
-
-    try {
-        $xml = Get-OaiPage $url
-    } catch {
-        Write-Warning "Failed to fetch OAI page $page from '$url': $($_.Exception.Message)"
-        break
-    }
+    $xml = Get-OaiPage $url
 
     $ns = New-Object System.Xml.XmlNamespaceManager($xml.NameTable)
     $ns.AddNamespace("oai", "http://www.openarchives.org/OAI/2.0/")
@@ -164,23 +178,16 @@ while ($url -and $page -lt $MaxPages) {
     if ($null -ne $tokenNode -and -not [string]::IsNullOrWhiteSpace($tokenNode.InnerText)) {
         $token = [uri]::EscapeDataString((Normalize-Text $tokenNode.InnerText))
         $url = "$Endpoint`?verb=ListRecords&resumptionToken=$token"
+        if ($RequestDelaySeconds -gt 0) {
+            Write-Host "Waiting $RequestDelaySeconds seconds before the next OAI page"
+            Start-Sleep -Seconds $RequestDelaySeconds
+        }
     } else {
         $url = $null
     }
 }
 
 $today = (Get-Date).Date
-
-if ($records.Count -eq 0) {
-    $outputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
-    if (Test-Path $outputPath) {
-        Write-Warning "No OAI records were fetched. Keeping existing output file: $outputPath"
-        exit 0
-    }
-
-    throw "No OAI records were fetched and no existing output file is available at '$outputPath'."
-}
-
 $eligibleRecords = if ($IncludeFuture) {
     $records
 } else {
@@ -214,7 +221,7 @@ $payload = [pscustomobject]@{
     articles = @($selected)
 }
 
-$outputPath = if ([System.IO.Path]::IsPathRooted($Output)) { $Output } else { Join-Path (Get-Location) $Output }
+$outputPath = $script:OutputPath
 $outputDir = Split-Path -Parent $outputPath
 if ($outputDir) { New-Item -ItemType Directory -Force -Path $outputDir | Out-Null }
 
