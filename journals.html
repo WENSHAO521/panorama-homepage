@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Journals | Panorama Scholarly Group</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="stylesheet" href="publisher-site.css">
+    <link rel="stylesheet" href="institutional.css">
 </head>
 <body>
     <div class="topline">
@@ -21,35 +21,32 @@
         <div class="wrap">
             <a class="brand" href="index.html" aria-label="Panorama Scholarly Group">
                 <img src="favicon.png" alt="PSG Logo">
-                <span class="brand-text">
-                    <strong>Panorama</strong>
-                    <span>Scholarly Group</span>
-                </span>
+                <span class="brand-text"><strong>Panorama</strong><span>Scholarly Group</span></span>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="journals.html" aria-current="page">Journals</a>
                 <a href="index.html#authors">For Authors</a>
-                <a href="about.html">About Us</a>
                 <a href="Publication Ethics.html">Ethics</a>
                 <a href="Open Access Policy.html">Open Access</a>
+                <a href="about.html">About</a>
             </div>
         </div>
     </nav>
 
-    <main class="portal-main journals-page">
+    <main>
         <section class="journals-hero">
             <div class="wrap journals-hero-grid">
                 <div>
-                    <span class="portal-kicker">Official Journal Publications</span>
-                    <h1>Find the right Panorama journal.</h1>
-                    <p>Search the publisher portfolio by discipline, title, abbreviation, or ISSN, then continue to the journal portal or submission workflow.</p>
+                    <span class="kicker">Official Journal Publications</span>
+                    <h1>Journal directory.</h1>
+                    <p>Search the publisher portfolio by discipline, title, abbreviation, or ISSN, then continue to the journal portal, submission workflow, or current issue.</p>
                 </div>
-                <div class="journal-directory-panel">
-                    <div><strong>22</strong><span>Journal portals</span></div>
-                    <div><strong>4</strong><span>Subject clusters</span></div>
-                    <div><strong>OA</strong><span>Open access model</span></div>
-                </div>
+                <aside class="journal-directory-panel" aria-label="Journal directory summary">
+                    <div><span>Portfolio</span><strong>22 journal portals</strong></div>
+                    <div><span>Structure</span><strong>4 subject clusters</strong></div>
+                    <div><span>Access</span><strong>Open-access publishing</strong></div>
+                </aside>
             </div>
         </section>
 
@@ -58,7 +55,7 @@
                 <div class="journal-search-panel">
                     <label class="search-box">
                         <span>Search journals</span>
-                        <input id="journal-search" type="search" placeholder="Search by journal title, field, ISSN, or abbreviation..." autocomplete="off">
+                        <input id="journal-search" type="search" placeholder="Search by title, field, ISSN, or abbreviation" autocomplete="off">
                     </label>
                     <div class="filter-buttons" id="journal-filters" aria-label="Subject filters"></div>
                     <div class="journal-extra-controls" aria-label="Journal directory controls">
@@ -79,16 +76,14 @@
                 <div class="az-index" id="az-index" aria-label="Journal A-Z index"></div>
                 <div class="journal-directory-meta">
                     <p id="results-count" aria-live="polite"></p>
-                    <div>
-                        <button type="button" id="clear-journal-filters">Clear filters</button>
-                    </div>
+                    <button type="button" id="clear-journal-filters">Clear filters</button>
                 </div>
                 <div id="journal-wrapper" class="journals-directory-list"></div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer" id="site-footer">
+    <footer class="site-footer">
         <div class="wrap footer-grid">
             <div>
                 <h3>Panorama</h3>
@@ -102,8 +97,7 @@
             <div>
                 <h4>Policies & Links</h4>
                 <ul>
-                    <li><a href="journals.html">Journals</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#authors">For Authors</a></li>
                     <li><a href="Publication Ethics.html">Publication Ethics</a></li>
                     <li><a href="Open Access Policy.html">Open Access Policy</a></li>
                     <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
@@ -112,7 +106,7 @@
         </div>
         <div class="wrap footer-bottom">
             <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
-            <span>Distributed Academic Publishing</span>
+            <span>Journal Portfolio</span>
         </div>
     </footer>
 
@@ -120,7 +114,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const CATEGORIES = [
                 { id: 'all', title: 'All Journals' },
-                { id: 'tech', title: 'AI & Technology' },
+                { id: 'tech', title: 'Technology & Engineering' },
                 { id: 'env',  title: 'Health & Sustainability' },
                 { id: 'soc',  title: 'Policy, Education & Society' },
                 { id: 'arts', title: 'Humanities & Arts' }
@@ -170,29 +164,17 @@
             let JOURNALS = FALLBACK_JOURNALS;
 
             function escapeHTML(value) {
-                return String(value || '').replace(/[&<>"']/g, char => ({
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#39;'
-                }[char]));
-            }
-
-            function matchesSearch(journal, query) {
-                if (!query) return true;
-                const haystack = `${journal.id} ${journal.title} ${journal.cat} ${journal.issn} ${journal.group} ${journal.description || ''}`.toLowerCase();
-                return haystack.includes(query);
+                return String(value || '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
             }
 
             function fallbackDescription(journal) {
-                const groupDescriptions = {
-                    tech: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research across technology, systems, artificial intelligence, digital transformation, and applied innovation.',
-                    env: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research on health, sustainability, environmental systems, rural development, food systems, and applied public value.',
-                    soc: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research across public policy, governance, education, law, communication, psychology, and social inquiry.',
-                    arts: 'A Panorama Scholarly Group journal publishing peer-reviewed open-access research in humanities, philosophy, arts, religion, cultural studies, music, and embodied practice.'
+                const descriptions = {
+                    tech: 'Peer-reviewed open-access research across technology, systems, artificial intelligence, digital transformation, and applied innovation.',
+                    env: 'Peer-reviewed open-access research on health, sustainability, environmental systems, rural development, food systems, and public value.',
+                    soc: 'Peer-reviewed open-access research across public policy, governance, education, law, communication, psychology, and social inquiry.',
+                    arts: 'Peer-reviewed open-access research in humanities, philosophy, arts, religion, cultural studies, music, and embodied practice.'
                 };
-                return groupDescriptions[journal.group] || 'A Panorama Scholarly Group peer-reviewed open-access journal supporting international scholarly publication and editorial transparency.';
+                return descriptions[journal.group] || 'A Panorama Scholarly Group peer-reviewed open-access journal.';
             }
 
             async function loadJournalData() {
@@ -202,34 +184,31 @@
                     const payload = await response.json();
                     if (!payload || !Array.isArray(payload.journals)) return;
                     const fallbackById = new Map(FALLBACK_JOURNALS.map(journal => [journal.id, journal]));
-                    JOURNALS = payload.journals.map(journal => ({
-                        ...(fallbackById.get(journal.id) || {}),
-                        ...journal
-                    }));
+                    JOURNALS = payload.journals.map(journal => ({ ...(fallbackById.get(journal.id) || {}), ...journal }));
                 } catch (error) {
                     JOURNALS = FALLBACK_JOURNALS;
                 }
             }
 
+            function matchesSearch(journal, query) {
+                if (!query) return true;
+                const haystack = `${journal.id} ${journal.title} ${journal.cat} ${journal.issn} ${journal.group} ${journal.description || ''}`.toLowerCase();
+                return haystack.includes(query);
+            }
+
             function updateUrl(query) {
                 const next = new URL(window.location.href);
-                if (activeGroup === 'all') next.searchParams.delete('group');
-                else next.searchParams.set('group', activeGroup);
-                if (activeLetter === 'all') next.searchParams.delete('letter');
-                else next.searchParams.set('letter', activeLetter);
-                if (viewMode === 'detailed') next.searchParams.delete('view');
-                else next.searchParams.set('view', viewMode);
-                if (query) next.searchParams.set('q', query);
-                else next.searchParams.delete('q');
+                if (activeGroup === 'all') next.searchParams.delete('group'); else next.searchParams.set('group', activeGroup);
+                if (activeLetter === 'all') next.searchParams.delete('letter'); else next.searchParams.set('letter', activeLetter);
+                if (viewMode === 'detailed') next.searchParams.delete('view'); else next.searchParams.set('view', viewMode);
+                if (query) next.searchParams.set('q', query); else next.searchParams.delete('q');
                 history.replaceState(null, '', next.pathname + next.search);
             }
 
             function sortJournals(journals) {
                 const sortValue = sortSelect.value;
                 return [...journals].sort((a, b) => {
-                    if (sortValue === 'group') {
-                        return `${a.group} ${a.title}`.localeCompare(`${b.group} ${b.title}`);
-                    }
+                    if (sortValue === 'group') return `${a.group} ${a.title}`.localeCompare(`${b.group} ${b.title}`);
                     if (sortValue === 'issn') {
                         const aStatus = a.issn && a.issn !== 'Pending' ? '0' : '1';
                         const bStatus = b.issn && b.issn !== 'Pending' ? '0' : '1';
@@ -240,24 +219,19 @@
             }
 
             function matchesLetter(journal) {
-                if (activeLetter === 'all') return true;
-                return journal.title.trim().toUpperCase().startsWith(activeLetter);
+                return activeLetter === 'all' || journal.title.trim().toUpperCase().startsWith(activeLetter);
             }
 
             function renderAzIndex() {
                 const letters = Array.from(new Set(JOURNALS.map(journal => journal.title.trim().charAt(0).toUpperCase()).filter(Boolean))).sort();
-                azIndex.innerHTML = ['all', ...letters].map(letter => `
-                    <button type="button" class="${letter === activeLetter ? 'active' : ''}" data-letter="${letter}">
-                        ${letter === 'all' ? 'All' : letter}
-                    </button>
-                `).join('');
+                azIndex.innerHTML = ['all', ...letters].map(letter => `<button type="button" class="${letter === activeLetter ? 'active' : ''}" data-letter="${letter}">${letter === 'all' ? 'All' : letter}</button>`).join('');
             }
 
             function renderJournals() {
                 const query = (searchInput.value || '').trim().toLowerCase();
                 wrapper.innerHTML = '';
-                let renderedCount = 0;
                 wrapper.classList.toggle('compact-view', viewMode === 'compact');
+                let renderedCount = 0;
 
                 CATEGORIES.filter(cat => cat.id !== 'all').forEach(cat => {
                     const catJournals = sortJournals(JOURNALS.filter(journal => {
@@ -269,14 +243,9 @@
                     renderedCount += catJournals.length;
                     const section = document.createElement('section');
                     section.className = 'journal-directory-group';
-                    section.innerHTML = `
-                        <div class="journal-directory-heading">
-                            <h2>${escapeHTML(cat.title)}</h2>
-                            <p>${catJournals.length} journal${catJournals.length === 1 ? '' : 's'}</p>
-                        </div>
-                        <div class="journal-directory-items"></div>
-                    `;
+                    section.innerHTML = `<div class="journal-directory-heading"><h2>${escapeHTML(cat.title)}</h2><p>${catJournals.length} journal${catJournals.length === 1 ? '' : 's'}</p></div><div class="journal-directory-items"></div>`;
                     const itemHost = section.querySelector('.journal-directory-items');
+
                     catJournals.forEach(journal => {
                         const portalUrl = journal.journalUrl || `https://journals.panorama-sg.com/index.php/${journal.slug}`;
                         const submissionUrl = journal.submissionUrl || `${portalUrl}/submission`;
@@ -298,10 +267,9 @@
                             </div>
                             <div class="journal-directory-actions">
                                 <a href="${portalUrl}" target="_blank" rel="noopener">Journal Home</a>
-                                <a href="${submissionUrl}" target="_blank" rel="noopener">Submit Manuscript</a>
+                                <a href="${submissionUrl}" target="_blank" rel="noopener">Submit</a>
                                 <a href="${portalUrl}/issue/current" target="_blank" rel="noopener">Current Issue</a>
-                            </div>
-                        `;
+                            </div>`;
                         itemHost.appendChild(item);
                     });
                     wrapper.appendChild(section);
@@ -312,14 +280,10 @@
                 updateUrl(query);
             }
 
-            filterHost.innerHTML = CATEGORIES.map(cat => `
-                <button type="button" class="${cat.id === activeGroup ? 'active' : ''}" data-group="${cat.id}">${cat.title}</button>
-            `).join('');
-            viewButtons.querySelectorAll('button').forEach(button => {
-                button.classList.toggle('active', button.dataset.view === viewMode);
-            });
-
+            filterHost.innerHTML = CATEGORIES.map(cat => `<button type="button" class="${cat.id === activeGroup ? 'active' : ''}" data-group="${cat.id}">${cat.title}</button>`).join('');
             searchInput.value = initialQuery;
+            viewButtons.querySelectorAll('button').forEach(button => button.classList.toggle('active', button.dataset.view === viewMode));
+
             searchInput.addEventListener('input', renderJournals);
             sortSelect.addEventListener('change', renderJournals);
             filterHost.addEventListener('click', event => {
