@@ -568,19 +568,25 @@ dd,
     gap: 24px;
     width: max-content;
     animation: marquee 42s linear infinite;
+    will-change: transform;
+    transform: translate3d(0,0,0);
 }
 
 .cover-tile {
-    width: 142px;
+    width: 220px;
     flex: 0 0 auto;
 }
 
 .cover-tile img {
-    width: 142px;
-    height: 205px;
-    object-fit: cover;
-    box-shadow: 0 20px 52px rgba(0,0,0,.44);
-    filter: saturate(.9) contrast(1.02);
+    width: 220px;
+    height: 314px;
+    object-fit: contain;
+    background: transparent;
+    box-shadow: 0 24px 62px rgba(0,0,0,.46);
+    filter: none;
+    image-rendering: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .cover-tile span {
@@ -756,11 +762,11 @@ dd,
 
 .journal-directory-item {
     display: grid;
-    grid-template-columns: 92px minmax(0, 1fr) 180px;
-    gap: 24px;
+    grid-template-columns: 160px minmax(0, 1fr) 180px;
+    gap: 32px;
     align-items: center;
-    min-height: 158px;
-    padding: 18px;
+    min-height: 254px;
+    padding: 24px;
     border: 1px solid var(--line);
     background: rgba(255,255,255,.74);
     transition: border-color .18s ease, background .18s ease, transform .18s ease;
@@ -773,10 +779,15 @@ dd,
 }
 
 .journal-directory-cover img {
-    width: 92px;
-    height: 128px;
-    object-fit: cover;
-    box-shadow: 0 14px 28px rgba(17,19,21,.14);
+    width: 160px;
+    height: 226px;
+    object-fit: contain;
+    background: transparent;
+    box-shadow: 0 18px 36px rgba(17,19,21,.18);
+    filter: none;
+    image-rendering: auto;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .journal-directory-tags {
@@ -1032,7 +1043,12 @@ dd,
 
     .journal-directory-item,
     .compact-view .journal-directory-item {
-        grid-template-columns: 82px minmax(0, 1fr);
+        grid-template-columns: 142px minmax(0, 1fr);
+    }
+
+    .journal-directory-cover img {
+        width: 142px;
+        height: 200px;
     }
 
     .journal-directory-actions {
@@ -1058,6 +1074,27 @@ dd,
     .home-search div,
     .journal-directory-actions {
         grid-template-columns: 1fr;
+    }
+
+    .cover-tile,
+    .cover-tile img {
+        width: 172px;
+    }
+
+    .cover-tile img {
+        height: 246px;
+    }
+
+    .journal-directory-item,
+    .compact-view .journal-directory-item {
+        grid-template-columns: 116px minmax(0, 1fr);
+        gap: 18px;
+        padding: 18px;
+    }
+
+    .journal-directory-cover img {
+        width: 116px;
+        height: 164px;
     }
 }
 
