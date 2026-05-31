@@ -3,217 +3,87 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Panorama Scholarly Group | Scholarly Publishing</title>
+    <title>Panorama Scholarly Group | International Scholarly Journals</title>
+    <meta name="description" content="Panorama Scholarly Group provides peer-reviewed international journals, journal-level submission routes, and policy-led publishing standards.">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="institutional.css">
 </head>
 <body>
-    <div class="topline">
-        <div class="wrap">
-            <span>Scholarly Publishing</span>
-            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
-            <span>Journal Portfolio & Publisher Policies</span>
+    <header class="header-shell">
+        <div class="container header-topline"><p>International Scholarly Publishing Platform</p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></div>
+        <div class="container nav-row">
+            <a class="brand" href="index.html"><img src="favicon.png" alt="Panorama logo"><div><strong>Panorama Scholarly Group</strong><span>Academic Publisher</span></div></a>
+            <nav class="nav-links"><a href="index.html" aria-current="page">Home</a><a href="journals.html">Journals</a><a href="#author-path">For Authors</a><a href="Publication Ethics.html">Ethics</a><a href="Open Access Policy.html">Open Access</a><a href="about.html">About</a></nav>
         </div>
-    </div>
-
-    <nav class="site-nav" aria-label="Primary navigation">
-        <div class="wrap">
-            <a class="brand" href="index.html" aria-label="Panorama Scholarly Group">
-                <img src="favicon.png" alt="PSG Logo">
-                <span class="brand-text"><strong>Panorama</strong><span>Scholarly Group</span></span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html" aria-current="page">Home</a>
-                <a href="journals.html">Journals</a>
-                <a href="#authors">For Authors</a>
-                <a href="Publication Ethics.html">Ethics</a>
-                <a href="Open Access Policy.html">Open Access</a>
-                <a href="about.html">About</a>
-            </div>
-        </div>
-    </nav>
+    </header>
 
     <main>
         <section class="hero">
-            <div class="wrap hero-grid">
+            <div class="container hero-grid">
                 <div>
-                    <span class="kicker">Independent Scholarly Publisher</span>
-                    <h1>Publishing infrastructure for durable academic records.</h1>
-                    <p class="lead">Panorama Scholarly Group operates an open-access journal portfolio with transparent editorial policies, journal-level submission routes, and long-term discovery for scholarly work.</p>
-                    <form class="home-search" id="home-journal-search-form">
-                        <label for="hero-journal-search">Find a journal</label>
-                        <div>
-                            <input id="hero-journal-search" type="search" placeholder="Search title, field, ISSN, or abbreviation" autocomplete="off">
-                            <button class="button primary" type="submit">Search</button>
-                        </div>
-                    </form>
-                    <div class="hero-actions">
-                        <a class="button primary" href="journals.html">Explore Journals</a>
-                        <a class="button" href="#authors">Author Guidance</a>
-                        <a class="button" href="Publication Ethics.html">Publishing Standards</a>
-                    </div>
+                    <p class="kicker">Publisher Overview</p>
+                    <h1>International journals with clear submission routes and policy-led publishing.</h1>
+                    <p class="lead">Panorama Scholarly Group supports peer-reviewed journals across multiple disciplines. Authors can identify journal fit, review requirements, and submit through journal-level workflows under a shared publisher policy framework.</p>
+                    <div class="btn-row"><a class="btn primary" href="journals.html">Find a Journal</a><a class="btn" href="Publication Ethics.html">Publication Ethics</a><a class="btn" href="Open Access Policy.html">Open Access Policy</a></div>
                 </div>
-                <aside class="dossier" aria-label="Publisher dossier">
-                    <div class="dossier-header">
-                        <span class="label">Publisher Dossier</span>
-                        <strong>PSG</strong>
-                    </div>
+                <aside class="panel">
+                    <h3>At a Glance</h3>
                     <dl>
-                        <div><dt>Portfolio</dt><dd>Peer-reviewed journal programme across four subject clusters</dd></div>
-                        <div><dt>Access</dt><dd>Open-access publishing with journal-level policy detail</dd></div>
-                        <div><dt>Editorial Model</dt><dd>Journal responsibility supported by publisher standards</dd></div>
-                        <div><dt>Operations</dt><dd>Administrative coordination in Hong Kong</dd></div>
+                        <div><dt>Portfolio Size</dt><dd>22 active journals</dd></div>
+                        <div><dt>Coverage</dt><dd>Technology, sustainability, policy, education, humanities, and arts</dd></div>
+                        <div><dt>Publishing Model</dt><dd>Peer review and open-access implementation by journal</dd></div>
+                        <div><dt>Operational Node</dt><dd>Hong Kong administrative coordination</dd></div>
                     </dl>
-                    <div class="publisher-seal">
-                        <span>Peer Review</span>
-                        <span>Open Access</span>
-                        <span>Editorial Policy</span>
-                        <span>Journal Records</span>
-                    </div>
                 </aside>
             </div>
         </section>
 
-        <section class="journal-strip" aria-label="Panorama journal covers">
-            <div class="wrap journal-strip-head">
+        <section class="section">
+            <div class="container">
+                <div class="section-head"><div><p class="kicker">Journal Discovery</p><h2>Identify scope fit first, then proceed to submission.</h2></div><a class="text-link" href="journals.html">Open full journal directory</a></div>
+                <form class="finder" onsubmit="event.preventDefault(); const q=document.getElementById('home-q').value.trim(); location.href=q?`journals.html?q=${encodeURIComponent(q)}`:'journals.html';">
+                    <input id="home-q" type="search" placeholder="Search by journal title, field, abbreviation, or ISSN" autocomplete="off">
+                    <button class="btn primary" type="submit">Search Journals</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section alt" id="author-path">
+            <div class="container">
+                <div class="section-head"><div><p class="kicker">Author Journey</p><h2>A practical workflow from journal selection to editorial decision.</h2></div></div>
+                <div class="steps-grid">
+                    <article><span>01</span><h3>Check Journal Fit</h3><p>Review aims, scope, article types, and subject relevance in the journal directory.</p></article>
+                    <article><span>02</span><h3>Check Policy and Format</h3><p>Confirm ethics requirements, open-access terms, and manuscript preparation rules.</p></article>
+                    <article><span>03</span><h3>Submit Required Files</h3><p>Upload manuscript, metadata, and declaration documents requested by the target journal.</p></article>
+                    <article><span>04</span><h3>Complete Editorial Cycle</h3><p>Respond to review comments, submit revisions, and follow acceptance-to-publication steps.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark">
+            <div class="container trust-grid">
                 <div>
-                    <span class="kicker">Journal Programme</span>
-                    <h2>Current publisher portfolio.</h2>
+                    <p class="kicker">Publishing Governance</p>
+                    <h2>Editorial and policy governance aligned to the scholarly record.</h2>
+                    <p>Publisher-level standards define baseline requirements for authorship integrity, review confidentiality, conflict disclosure, corrections, and licensing disclosure.</p>
                 </div>
-                <a href="journals.html">Open journal directory</a>
-            </div>
-            <div class="marquee" aria-hidden="true">
-                <div class="marquee-track">
-                    <div class="cover-tile"><img src="QKFM/PFR.png" alt=""><span>PFR</span></div>
-                    <div class="cover-tile"><img src="QKFM/AFS.png" alt=""><span>AFS</span></div>
-                    <div class="cover-tile"><img src="QKFM/JESA.png" alt=""><span>JESA</span></div>
-                    <div class="cover-tile"><img src="QKFM/CSGS.png" alt=""><span>CSGS</span></div>
-                    <div class="cover-tile"><img src="QKFM/HealthNexus.png" alt=""><span>HN</span></div>
-                    <div class="cover-tile"><img src="QKFM/GPPGR.png" alt=""><span>GPPGR</span></div>
-                    <div class="cover-tile"><img src="QKFM/Silence.png" alt=""><span>Silence</span></div>
-                    <div class="cover-tile"><img src="QKFM/RESONANCE.png" alt=""><span>Resonance</span></div>
-                    <div class="cover-tile"><img src="QKFM/PFR.png" alt=""><span>PFR</span></div>
-                    <div class="cover-tile"><img src="QKFM/AFS.png" alt=""><span>AFS</span></div>
-                    <div class="cover-tile"><img src="QKFM/JESA.png" alt=""><span>JESA</span></div>
-                    <div class="cover-tile"><img src="QKFM/CSGS.png" alt=""><span>CSGS</span></div>
-                    <div class="cover-tile"><img src="QKFM/HealthNexus.png" alt=""><span>HN</span></div>
-                    <div class="cover-tile"><img src="QKFM/GPPGR.png" alt=""><span>GPPGR</span></div>
-                    <div class="cover-tile"><img src="QKFM/Silence.png" alt=""><span>Silence</span></div>
-                    <div class="cover-tile"><img src="QKFM/RESONANCE.png" alt=""><span>Resonance</span></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section surface" id="portfolio">
-            <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">Publishing Fields</span>
-                        <h2>A structured portfolio, not a catalogue wall.</h2>
-                    </div>
-                    <p class="section-copy">The journal directory is organized for practical academic use: discipline first, then journal identity, scope, ISSN status, and submission route.</p>
-                </div>
-                <div class="programme-grid">
-                    <a href="journals.html?group=tech"><span class="label">Cluster 01</span><strong>Technology & Engineering</strong><em>AI, engineering systems, digital health, and computational research.</em></a>
-                    <a href="journals.html?group=env"><span class="label">Cluster 02</span><strong>Health & Sustainability</strong><em>Health, climate systems, food sustainability, sport, and rural governance.</em></a>
-                    <a href="journals.html?group=soc"><span class="label">Cluster 03</span><strong>Policy, Education & Society</strong><em>Governance, education, law, psychology, communication, and public policy.</em></a>
-                    <a href="journals.html?group=arts"><span class="label">Cluster 04</span><strong>Humanities & Arts</strong><em>Philosophy, religion, humanities, music, dance, and cultural studies.</em></a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="authors">
-            <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">For Authors</span>
-                        <h2>From journal fit to submission workflow.</h2>
-                    </div>
-                    <p class="section-copy">The author path is intentionally direct. Choose a journal, check access and ethics requirements, then submit through the selected journal portal.</p>
-                </div>
-                <div class="author-steps">
-                    <a href="journals.html"><span class="label">Step 01</span><strong>Select a journal</strong><em>Browse by title, discipline, abbreviation, ISSN, or A-Z index.</em></a>
-                    <a href="Open Access Policy.html"><span class="label">Step 02</span><strong>Review access terms</strong><em>Confirm licensing, copyright, repository deposit, and journal policy.</em></a>
-                    <a href="Publication Ethics.html"><span class="label">Step 03</span><strong>Prepare declarations</strong><em>Confirm authorship, originality, conflicts, data, and ethics obligations.</em></a>
-                    <a href="journals.html"><span class="label">Step 04</span><strong>Submit through the journal</strong><em>Use the selected journal route for manuscript submission and current issue access.</em></a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section surface">
-            <div class="wrap publishing-grid">
-                <div>
-                    <span class="kicker">Publisher System</span>
-                    <h2>Core pages for public trust.</h2>
-                </div>
-                <div class="index-grid">
-                    <a href="journals.html"><span class="label">Directory</span><strong>Journal Portfolio</strong><p>Searchable entry point for all journal portals, current issues, and submission links.</p></a>
-                    <a href="Publication Ethics.html"><span class="label">Policy</span><strong>Publication Ethics</strong><p>Editorial responsibilities, peer review, originality, conflicts, and corrections.</p></a>
-                    <a href="Open Access Policy.html"><span class="label">Access</span><strong>Open Access Policy</strong><p>Licensing, copyright retention, repository deposit, and journal-level models.</p></a>
-                    <a href="about.html"><span class="label">Institution</span><strong>Publisher Profile</strong><p>Operational profile and publishing commitments for the scholarly community.</p></a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section dark">
-            <div class="wrap">
-                <div class="section-head">
-                    <div>
-                        <span class="kicker">Publishing Standard</span>
-                        <h2>Designed around the academic record.</h2>
-                    </div>
-                    <p class="section-copy">The site prioritizes journal discovery, transparent policy, clear author routing, and durable access over promotional content.</p>
-                </div>
-                <div class="standard-panel">
-                    <article><span>Editorial</span><h3>Independent assessment</h3><p>Journal-level review supported by publisher-wide publication ethics and correction expectations.</p></article>
-                    <article><span>Access</span><h3>Open scholarly communication</h3><p>Public access, licensing clarity, and repository expectations are treated as first-order information.</p></article>
-                    <article><span>Record</span><h3>Discoverable journal identity</h3><p>Each journal is presented with title, field, identifier, portal, submission route, and issue access.</p></article>
+                <div class="trust-links">
+                    <a href="Publication Ethics.html"><strong>Publication Ethics</strong><span>Editorial accountability, review integrity, originality, and record correction protocols.</span></a>
+                    <a href="Open Access Policy.html"><strong>Open Access Policy</strong><span>Licensing, author rights, dissemination terms, and repository-aligned archiving principles.</span></a>
+                    <a href="about.html"><strong>Institutional Profile</strong><span>Publisher orientation, operating framework, and public-facing policy architecture.</span></a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener"><strong>Editorial Directory</strong><span>External editorial profile access for additional transparency.</span></a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <div class="wrap footer-grid">
-            <div>
-                <h3>Panorama</h3>
-                <div class="sub">Scholarly Group</div>
-                <p>An academic publisher dedicated to editorial transparency, responsible peer review, and durable access to research outputs.</p>
-            </div>
-            <div>
-                <h4>Operations</h4>
-                <p><strong>Administrative Contact</strong><br>Room 1508, 15/F., Office Tower Two, Grand Plaza,<br>625 Nathan Road, Kowloon, Hong Kong.</p>
-            </div>
-            <div>
-                <h4>Policies & Links</h4>
-                <ul>
-                    <li><a href="journals.html">Journals</a></li>
-                    <li><a href="Publication Ethics.html">Publication Ethics</a></li>
-                    <li><a href="Open Access Policy.html">Open Access Policy</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
-                </ul>
-            </div>
+        <div class="container footer-grid">
+            <div><h2>Panorama Scholarly Group</h2><p>International academic publishing platform focused on editorial rigor, policy transparency, and open scholarly communication.</p></div>
+            <div><h3>Administrative Contact</h3><p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p></div>
+            <div><h3>Quick Access</h3><ul><li><a href="journals.html">Journal Directory</a></li><li><a href="Publication Ethics.html">Publication Ethics</a></li><li><a href="Open Access Policy.html">Open Access Policy</a></li><li><a href="about.html">About Panorama</a></li></ul></div>
         </div>
-        <div class="wrap footer-bottom">
-            <span>© 2025-2026 Panorama Scholarly Group. All rights reserved.</span>
-            <span>Scholarly Publishing</span>
-        </div>
+        <div class="container footer-bottom"><span>© 2025-2026 Panorama Scholarly Group</span><span>International Journal Publishing</span></div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const heroSearchInput = document.getElementById('hero-journal-search');
-            const heroSearchForm = document.getElementById('home-journal-search-form');
-            if (heroSearchForm) {
-                heroSearchForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    const query = heroSearchInput ? heroSearchInput.value.trim() : '';
-                    window.location.href = query ? `journals.html?q=${encodeURIComponent(query)}` : 'journals.html';
-                });
-            }
-        });
-    </script>
 </body>
 </html>
