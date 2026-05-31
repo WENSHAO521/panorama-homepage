@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Journal Directory | Panorama Scholarly Group</title>
-    <meta name="description" content="Search Panorama journals by title, cluster, and ISSN status to identify the right submission destination.">
+    <title>Journals | PANORAMA SCHOLARLY GROUP</title>
+    <meta name="description" content="Browse and filter PANORAMA SCHOLARLY GROUP journals by keyword, subject cluster, and ISSN status.">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="institutional.css">
 </head>
 <body>
     <header class="header-shell">
-        <div class="container header-topline"><p>International Scholarly Publishing Platform</p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></div>
+        <div class="container header-topline"><p>International Scholarly Journal Platform</p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></div>
         <div class="container nav-row">
-            <a class="brand" href="index.html"><img src="favicon.png" alt="Panorama logo"><div><strong>Panorama Scholarly Group</strong><span>Academic Publisher</span></div></a>
-            <nav class="nav-links"><a href="index.html">Home</a><a href="journals.html" aria-current="page">Journals</a><a href="index.html#author-path">For Authors</a><a href="Publication Ethics.html">Ethics</a><a href="Open Access Policy.html">Open Access</a><a href="about.html">About</a></nav>
+            <a class="brand" href="index.html"><img src="favicon.png" alt="Panorama logo"><div><strong>PANORAMA SCHOLARLY GROUP</strong><span>Scholarly Journals and Editorial Services</span></div></a>
+            <nav class="nav-links"><a href="index.html">Home</a><a href="journals.html" aria-current="page">Journals</a><a href="index.html#author-path">For Authors</a><a href="publication-ethics.html">Ethics</a><a href="open-access-policy.html">Open Access</a><a href="about.html">About</a></nav>
         </div>
     </header>
 
@@ -22,15 +22,15 @@
             <div class="container hero-grid">
                 <div>
                     <p class="kicker">Journal Directory</p>
-                    <h1>Find a journal aligned with your manuscript scope.</h1>
-                    <p class="lead">Filter by title, cluster, and ISSN status, then continue to the journal home page or direct submission route.</p>
+                    <h1>Filter journals and move directly to the right submission route.</h1>
+                    <p class="lead">Use keyword, subject cluster, and ISSN status to identify an appropriate journal, then continue to its journal home page or submission portal.</p>
                 </div>
                 <aside class="panel">
                     <h3>Directory Scope</h3>
                     <dl>
-                        <div><dt>Total Journals</dt><dd id="stat-total">22 titles</dd></div>
-                        <div><dt>Subject Clusters</dt><dd>4 publisher clusters</dd></div>
-                        <div><dt>Access Pattern</dt><dd>Journal home and submission routing</dd></div>
+                        <div><dt>Total Titles</dt><dd id="stat-total">22</dd></div>
+                        <div><dt>Clusters</dt><dd>4 subject clusters</dd></div>
+                        <div><dt>Routing</dt><dd>Direct links to journal home and submission pages</dd></div>
                     </dl>
                 </aside>
             </div>
@@ -39,55 +39,35 @@
         <section class="section">
             <div class="container">
                 <div class="section-head">
-                    <div><p class="kicker">Search & Filter</p><h2>Directory tools for journal selection and submission routing.</h2></div>
+                    <div><p class="kicker">Search Tools</p><h2>Portfolio-level journal discovery and routing.</h2></div>
                     <p id="result-count" class="muted-note">Loading journals...</p>
                 </div>
 
                 <div class="directory-controls">
-                    <label class="control-block">
-                        <span>Keyword</span>
-                        <input id="search-input" type="search" placeholder="Title, abbreviation, field, ISSN">
-                    </label>
-                    <label class="control-block">
-                        <span>Cluster</span>
-                        <select id="group-filter">
-                            <option value="all">All clusters</option>
-                            <option value="tech">Technology & Engineering</option>
-                            <option value="env">Health & Sustainability</option>
-                            <option value="soc">Policy, Education & Society</option>
-                            <option value="arts">Humanities & Arts</option>
-                        </select>
-                    </label>
-                    <label class="control-block">
-                        <span>ISSN</span>
-                        <select id="issn-filter">
-                            <option value="all">All status</option>
-                            <option value="registered">Registered ISSN</option>
-                            <option value="pending">Pending ISSN</option>
-                        </select>
-                    </label>
-                    <label class="control-block">
-                        <span>Sort</span>
-                        <select id="sort-select">
-                            <option value="title">Title A-Z</option>
-                            <option value="group">Cluster</option>
-                            <option value="issn">ISSN status</option>
-                        </select>
-                    </label>
+                    <label class="control-block"><span>Keyword</span><input id="search-input" type="search" placeholder="Title, abbreviation, field, or ISSN"></label>
+                    <label class="control-block"><span>Cluster</span><select id="group-filter"><option value="all">All clusters</option><option value="tech">Technology & Engineering</option><option value="env">Health & Sustainability</option><option value="soc">Policy, Education & Society</option><option value="arts">Humanities & Arts</option></select></label>
+                    <label class="control-block"><span>ISSN</span><select id="issn-filter"><option value="all">All status</option><option value="registered">Registered</option><option value="pending">Pending</option></select></label>
+                    <label class="control-block"><span>Sort</span><select id="sort-select"><option value="title">Title A-Z</option><option value="group">Cluster</option><option value="issn">ISSN status</option></select></label>
                 </div>
 
                 <div id="journal-list" class="directory-list" aria-live="polite"></div>
+                <div class="quick-links" style="margin-top:12px;">
+                    <a href="publication-ethics.html"><strong>Before Submission: Ethics</strong><span>Review authorship, originality, and disclosure requirements.</span></a>
+                    <a href="open-access-policy.html"><strong>Before Submission: Open Access</strong><span>Check licensing and rights conditions.</span></a>
+                    <a href="about.html"><strong>Platform Framework</strong><span>Understand journal operations and policy structure.</span></a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener"><strong>Editorial Directory</strong><span>View external editorial profile references.</span></a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container footer-grid">
-            <div><h2>Panorama Scholarly Group</h2><p>International academic publishing platform focused on editorial rigor, policy transparency, and open scholarly communication.</p></div>
+            <div><h2>PANORAMA SCHOLARLY GROUP</h2><p>International scholarly journals with structured submission workflows and transparent publication policies.</p></div>
             <div><h3>Administrative Contact</h3><p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p></div>
-            <div><h3>Quick Access</h3><ul><li><a href="Publication Ethics.html">Publication Ethics</a></li><li><a href="Open Access Policy.html">Open Access Policy</a></li><li><a href="about.html">About Panorama</a></li></ul></div>
+            <div><h3>Quick Access</h3><ul><li><a href="publication-ethics.html">Publication Ethics</a></li><li><a href="open-access-policy.html">Open Access Policy</a></li><li><a href="about.html">About</a></li></ul></div>
         </div>
-        <div class="container footer-bottom"><span>© 2025-2026 Panorama Scholarly Group</span><span>Journal Directory</span></div>
+        <div class="container footer-bottom"><span>© 2025-2026 PANORAMA SCHOLARLY GROUP</span><span>Journal Directory</span></div>
     </footer>
 
     <script>
@@ -116,21 +96,8 @@
             { id: "JDES", group: "arts", title: "Journal of Dance and Embodied Structure", cat: "Arts", issn: "Pending", img: "JDES.png", slug: "JDES" }
         ];
 
-        const GROUP_LABEL = {
-            tech: "Technology & Engineering",
-            env: "Health & Sustainability",
-            soc: "Policy, Education & Society",
-            arts: "Humanities & Arts"
-        };
-
-        const state = {
-            journals: [],
-            query: "",
-            group: "all",
-            issn: "all",
-            sort: "title"
-        };
-
+        const GROUP_LABEL = { tech: "Technology & Engineering", env: "Health & Sustainability", soc: "Policy, Education & Society", arts: "Humanities & Arts" };
+        const state = { journals: [], query: "", group: "all", issn: "all", sort: "title" };
         const journalList = document.getElementById("journal-list");
         const resultCount = document.getElementById("result-count");
         const statTotal = document.getElementById("stat-total");
@@ -139,55 +106,61 @@
         const issnFilter = document.getElementById("issn-filter");
         const sortSelect = document.getElementById("sort-select");
 
-        function normalize(j) {
-            return {
-                ...j,
-                journalUrl: j.journalUrl || `https://journals.panorama-sg.com/index.php/${j.slug}`,
-                submissionUrl: j.submissionUrl || `https://journals.panorama-sg.com/index.php/${j.slug}/submission`
+        function truncateByWords(text, maxChars) {
+            if (!text || text.length <= maxChars) return text || "";
+            const words = text.trim().split(/\s+/);
+            let out = "";
+            for (const w of words) {
+                const next = out ? `${out} ${w}` : w;
+                if (next.length > maxChars) break;
+                out = next;
+            }
+            return out ? `${out}...` : `${text.slice(0, maxChars)}...`;
+        }
+
+        function debounce(fn, wait = 200) {
+            let t = null;
+            return (...args) => {
+                clearTimeout(t);
+                t = setTimeout(() => fn(...args), wait);
             };
         }
 
-        function filterJournals() {
+        function normalize(j) {
+            return { ...j, journalUrl: j.journalUrl || `https://journals.panorama-sg.com/index.php/${j.slug}`, submissionUrl: j.submissionUrl || `https://journals.panorama-sg.com/index.php/${j.slug}/submission` };
+        }
+
+        function filterRows() {
             const q = state.query.trim().toLowerCase();
             return state.journals
-                .filter(j => state.group === "all" ? true : j.group === state.group)
-                .filter(j => {
-                    if (state.issn === "registered") return j.issn && j.issn !== "Pending";
-                    if (state.issn === "pending") return !j.issn || j.issn === "Pending";
-                    return true;
-                })
-                .filter(j => {
-                    if (!q) return true;
-                    const hay = `${j.id} ${j.title} ${j.cat} ${j.issn} ${j.group} ${j.description || ""}`.toLowerCase();
-                    return hay.includes(q);
-                })
+                .filter(j => state.group === "all" || j.group === state.group)
+                .filter(j => state.issn === "all" ? true : state.issn === "registered" ? (j.issn && j.issn !== "Pending") : (!j.issn || j.issn === "Pending"))
+                .filter(j => !q || `${j.id} ${j.title} ${j.cat} ${j.issn} ${j.group} ${j.description || ""}`.toLowerCase().includes(q))
                 .sort((a, b) => {
                     if (state.sort === "group") return `${a.group}-${a.title}`.localeCompare(`${b.group}-${b.title}`);
                     if (state.sort === "issn") {
-                        const aRank = a.issn && a.issn !== "Pending" ? 0 : 1;
-                        const bRank = b.issn && b.issn !== "Pending" ? 0 : 1;
-                        return aRank - bRank || a.title.localeCompare(b.title);
+                        const ra = a.issn && a.issn !== "Pending" ? 0 : 1;
+                        const rb = b.issn && b.issn !== "Pending" ? 0 : 1;
+                        return ra - rb || a.title.localeCompare(b.title);
                     }
                     return a.title.localeCompare(b.title);
                 });
         }
 
         function render() {
-            const rows = filterJournals();
-            resultCount.textContent = `${rows.length} journals found`;
-
+            const rows = filterRows();
+            resultCount.textContent = `${rows.length} journal${rows.length === 1 ? "" : "s"} found`;
             if (!rows.length) {
-                journalList.innerHTML = `<div class="empty-row">No journals match the current filters. Adjust keyword, cluster, or ISSN status.</div>`;
+                journalList.innerHTML = `<div class="empty-row">No journals match the current filters. Try adjusting keyword, cluster, or ISSN status.</div>`;
                 return;
             }
-
             journalList.innerHTML = rows.map(j => `
                 <article class="directory-item">
                     <img src="QKFM/${j.img}" alt="${j.title}">
                     <div class="directory-body">
                         <p class="directory-meta">${GROUP_LABEL[j.group] || j.group} · ${j.cat} · ISSN: ${j.issn || "Pending"}</p>
                         <h3>${j.title}</h3>
-                        <p>${j.description && j.description.trim() ? j.description.slice(0, 220) : "Peer-reviewed international journal in the Panorama portfolio."}</p>
+                        <p>${j.description && j.description.trim() ? truncateByWords(j.description.trim(), 220) : "A peer-reviewed international journal within the PANORAMA SCHOLARLY GROUP portfolio."}</p>
                         <div class="btn-row">
                             <a class="btn primary" href="${j.journalUrl}" target="_blank" rel="noopener">Journal Home</a>
                             <a class="btn" href="${j.submissionUrl}" target="_blank" rel="noopener">Submission Page</a>
@@ -198,6 +171,12 @@
         }
 
         async function init() {
+            const url = new URL(window.location.href);
+            const q = url.searchParams.get("q");
+            if (q) {
+                state.query = q;
+                searchInput.value = q;
+            }
             let source = FALLBACK;
             try {
                 const res = await fetch("data/journals.json", { cache: "no-store" });
@@ -207,11 +186,12 @@
                 }
             } catch (_) {}
             state.journals = source.map(normalize);
-            statTotal.textContent = `${state.journals.length} titles`;
+            statTotal.textContent = `${state.journals.length}`;
             render();
         }
 
-        searchInput.addEventListener("input", () => { state.query = searchInput.value; render(); });
+        const handleSearchInput = debounce(() => { state.query = searchInput.value; render(); }, 200);
+        searchInput.addEventListener("input", handleSearchInput);
         groupFilter.addEventListener("change", () => { state.group = groupFilter.value; render(); });
         issnFilter.addEventListener("change", () => { state.issn = issnFilter.value; render(); });
         sortSelect.addEventListener("change", () => { state.sort = sortSelect.value; render(); });
