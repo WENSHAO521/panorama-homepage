@@ -1,33 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 
 /* ─────────────────────────────────────────────
-   DESIGN TOKENS — German Academic Publisher
-   Ref: De Gruyter · Springer · Bauhaus tradition
+   DESIGN TOKENS — Black · White · Red
+   Ref: De Gruyter · Bauhaus · Swiss Typography
 ───────────────────────────────────────────── */
 :root {
     --bg:           #ffffff;
     --surface:      #ffffff;
     --surface-2:    #f5f5f5;
-    --ink:          #0f172a;
-    --text:         #1e293b;
-    --muted:        #64748b;
-    --line:         #e2e8f0;
-    --line-strong:  #cbd5e1;
-    --primary:      #1a2f5e;
-    --primary-dark: #0f1f3d;
-    --primary-light:#eff6ff;
-    --accent:       #2563eb;
+    --ink:          #111111;
+    --text:         #1a1a1a;
+    --muted:        #737373;
+    --line:         #e5e5e5;
+    --line-strong:  #d4d4d4;
+    --primary:      #b91c1c;
+    --primary-dark: #991b1b;
+    --primary-light:#fef2f2;
+    --accent:       #b91c1c;
     --max:          1220px;
     --radius:       2px;
-    --shadow-sm:    0 1px 4px rgba(15,23,42,.07);
-    --shadow:       0 4px 14px rgba(15,23,42,.10);
+    --shadow-sm:    0 1px 4px rgba(0,0,0,.07);
+    --shadow:       0 4px 14px rgba(0,0,0,.10);
     --t:            .15s ease;
 
-    /* Subject cluster palette */
-    --c-tech:   #1d4ed8;
-    --c-health: #166534;
-    --c-soc:    #5b21b6;
-    --c-arts:   #92400e;
+    /* Subject cluster palette — within b/w/r */
+    --c-tech:   #b91c1c;
+    --c-health: #111111;
+    --c-soc:    #525252;
+    --c-arts:   #dc2626;
 }
 
 /* ─────────────────────────────────────────────
@@ -131,7 +131,7 @@ h1, h2, h3, p { margin: 0; }
     border-bottom: 1px solid var(--line);
     background-color: #fafafa;
     background-image:
-        radial-gradient(circle, #d1d9e6 1px, transparent 1px);
+        radial-gradient(circle, #e8c6c6 1px, transparent 1px);
     background-size: 22px 22px;
 }
 .hero-grid {
@@ -296,9 +296,9 @@ h1 {
 ───────────────────────────────────────────── */
 .section { padding: 96px 0; background: var(--surface); border-bottom: 1px solid var(--line); }
 .section.alt { background: var(--surface-2); }
-.section-dark { background: #0a0f1e; color: #94a3b8; padding: 96px 0; border-bottom: 0; }
-.section-dark .kicker { color: #475569; }
-.section-dark h2 { color: #f1f5f9; letter-spacing: -0.02em; }
+.section-dark { background: #111111; color: #a3a3a3; padding: 96px 0; border-bottom: 0; }
+.section-dark .kicker { color: #525252; }
+.section-dark h2 { color: #f5f5f5; letter-spacing: -0.02em; }
 
 .section-head { margin-bottom: 36px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .section-head h2 {
@@ -448,8 +448,8 @@ h1 {
     transition: background var(--t), border-color var(--t);
 }
 .trust-links a:hover { background: rgba(255,255,255,.08); border-color: var(--accent); }
-.trust-links strong { color: #f1f5f9; display: block; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
-.trust-links span { color: #64748b; display: block; margin-top: 5px; font-size: 13px; line-height: 1.6; }
+.trust-links strong { color: #f5f5f5; display: block; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
+.trust-links span { color: #737373; display: block; margin-top: 5px; font-size: 13px; line-height: 1.6; }
 
 /* ─────────────────────────────────────────────
    JOURNAL DIRECTORY
@@ -676,11 +676,11 @@ h1 {
 /* ─────────────────────────────────────────────
    FOOTER
 ───────────────────────────────────────────── */
-.site-footer { background: #0a0f1e; color: #64748b; }
+.site-footer { background: #111111; color: #737373; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding: 64px 0 44px; }
-.site-footer h2 { color: #f1f5f9; font-size: 17px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
+.site-footer h2 { color: #f5f5f5; font-size: 17px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
 .site-footer h3 {
-    color: #94a3b8;
+    color: #a3a3a3;
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -693,8 +693,8 @@ h1 {
 .site-footer p + p { margin-top: 8px; }
 .site-footer li { margin-top: 10px; font-size: 14px; }
 .site-footer ul { margin: 0; padding: 0; list-style: none; }
-.site-footer a { color: #64748b; transition: color var(--t); }
-.site-footer a:hover { color: #f1f5f9; }
+.site-footer a { color: #737373; transition: color var(--t); }
+.site-footer a:hover { color: #f5f5f5; }
 .footer-bottom {
     min-height: 48px;
     border-top: 1px solid rgba(255,255,255,.06);
