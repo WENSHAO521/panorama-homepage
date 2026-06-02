@@ -10,10 +10,27 @@
 </head>
 <body>
     <header class="header-shell">
-        <div class="container header-topline"><p>International Scholarly Journal Platform</p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></div>
+        <div class="container header-topline">
+            <p>International Scholarly Journal Platform</p>
+            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
+        </div>
         <div class="container nav-row">
-            <a class="brand" href="index.html"><img src="favicon.png" alt="Panorama logo"><div><strong>PANORAMA SCHOLARLY GROUP</strong><span>Scholarly Journals and Editorial Services</span></div></a>
-            <nav class="nav-links"><a href="index.html">Home</a><a href="journals.html" aria-current="page">Journals</a><a href="index.html#author-path">For Authors</a><a href="publication-ethics.html">Ethics</a><a href="open-access-policy.html">Open Access</a><a href="about.html">About</a></nav>
+            <a class="brand" href="index.html">
+                <img src="favicon.png" alt="Panorama logo">
+                <div><strong>PANORAMA SCHOLARLY GROUP</strong><span>Scholarly Journals and Editorial Services</span></div>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                onclick="var e=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',e?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="journals.html" aria-current="page">Journals</a>
+                <a href="index.html#author-path">For Authors</a>
+                <a href="publication-ethics.html">Ethics</a>
+                <a href="open-access-policy.html">Open Access</a>
+                <a href="about.html">About</a>
+            </nav>
         </div>
     </header>
 
@@ -24,13 +41,19 @@
                     <p class="kicker">Journal Directory</p>
                     <h1>Filter journals and move directly to the right submission route.</h1>
                     <p class="lead">Use keyword, subject cluster, and ISSN status to identify an appropriate journal, then continue to its journal home page or submission portal.</p>
+                    <div class="trust-badges">
+                        <span class="trust-badge peer">Peer Reviewed</span>
+                        <span class="trust-badge oa">Open Access</span>
+                        <span class="trust-badge doi">Crossref DOI</span>
+                    </div>
                 </div>
                 <aside class="panel">
                     <h3>Directory Scope</h3>
                     <dl>
                         <div><dt>Total Titles</dt><dd id="stat-total">22</dd></div>
                         <div><dt>Clusters</dt><dd>4 subject clusters</dd></div>
-                        <div><dt>Routing</dt><dd>Direct links to journal home and submission pages</dd></div>
+                        <div><dt>Submission Routing</dt><dd>Direct links to journal home and submission pages</dd></div>
+                        <div><dt>DOI Registration</dt><dd>Crossref member, prefix 10.63802</dd></div>
                     </dl>
                 </aside>
             </div>
@@ -45,17 +68,18 @@
 
                 <div class="directory-controls">
                     <label class="control-block"><span>Keyword</span><input id="search-input" type="search" placeholder="Title, abbreviation, field, or ISSN"></label>
-                    <label class="control-block"><span>Cluster</span><select id="group-filter"><option value="all">All clusters</option><option value="tech">Technology & Engineering</option><option value="env">Health & Sustainability</option><option value="soc">Policy, Education & Society</option><option value="arts">Humanities & Arts</option></select></label>
+                    <label class="control-block"><span>Cluster</span><select id="group-filter"><option value="all">All clusters</option><option value="tech">Technology &amp; Engineering</option><option value="env">Health &amp; Sustainability</option><option value="soc">Policy, Education &amp; Society</option><option value="arts">Humanities &amp; Arts</option></select></label>
                     <label class="control-block"><span>ISSN</span><select id="issn-filter"><option value="all">All status</option><option value="registered">Registered</option><option value="pending">Pending</option></select></label>
                     <label class="control-block"><span>Sort</span><select id="sort-select"><option value="title">Title A-Z</option><option value="group">Cluster</option><option value="issn">ISSN status</option></select></label>
                 </div>
 
                 <div id="journal-list" class="directory-list" aria-live="polite"></div>
-                <div class="quick-links" style="margin-top:12px;">
+
+                <div class="quick-links" style="margin-top:14px;">
                     <a href="publication-ethics.html"><strong>Before Submission: Ethics</strong><span>Review authorship, originality, and disclosure requirements.</span></a>
                     <a href="open-access-policy.html"><strong>Before Submission: Open Access</strong><span>Check licensing and rights conditions.</span></a>
-                    <a href="about.html"><strong>Platform Framework</strong><span>Understand journal operations and policy structure.</span></a>
-                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener"><strong>Editorial Directory</strong><span>View external editorial profile references.</span></a>
+                    <a href="for-authors.html"><strong>Author Guide</strong><span>Full submission workflow from preparation to decision.</span></a>
+                    <a href="indexing.html"><strong>Indexing &amp; Archiving</strong><span>View discovery databases and preservation archives.</span></a>
                 </div>
             </div>
         </section>
@@ -63,11 +87,38 @@
 
     <footer class="site-footer">
         <div class="container footer-grid">
-            <div><h2>PANORAMA SCHOLARLY GROUP</h2><p>International scholarly journals with structured submission workflows and transparent publication policies.</p></div>
-            <div><h3>Administrative Contact</h3><p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p></div>
-            <div><h3>Quick Access</h3><ul><li><a href="publication-ethics.html">Publication Ethics</a></li><li><a href="open-access-policy.html">Open Access Policy</a></li><li><a href="about.html">About</a></li></ul></div>
+            <div>
+                <h2>PANORAMA SCHOLARLY GROUP</h2>
+                <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
+            </div>
+            <div>
+                <h3>Administrative Contact</h3>
+                <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
+                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            </div>
+            <div>
+                <h3>Journals &amp; Policies</h3>
+                <ul>
+                    <li><a href="journals.html">Journal Directory</a></li>
+                    <li><a href="publication-ethics.html">Publication Ethics</a></li>
+                    <li><a href="open-access-policy.html">Open Access Policy</a></li>
+                    <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Authors &amp; Information</h3>
+                <ul>
+                    <li><a href="for-authors.html">Author Guide</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="container footer-bottom"><span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span><span>Journal Directory</span></div>
+        <div class="container footer-bottom">
+            <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+            <span>Journal Directory</span>
+        </div>
     </footer>
 
     <script>
@@ -120,10 +171,7 @@
 
         function debounce(fn, wait = 200) {
             let t = null;
-            return (...args) => {
-                clearTimeout(t);
-                t = setTimeout(() => fn(...args), wait);
-            };
+            return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
         }
 
         function normalize(j) {
@@ -158,7 +206,7 @@
                 <article class="directory-item">
                     <img src="QKFM/${j.img}" alt="${j.title}">
                     <div class="directory-body">
-                        <p class="directory-meta">${GROUP_LABEL[j.group] || j.group} · ${j.cat} · ISSN: ${j.issn || "Pending"}</p>
+                        <p class="directory-meta">${GROUP_LABEL[j.group] || j.group} &middot; ${j.cat} &middot; ISSN: ${j.issn || "Pending"}</p>
                         <h3>${j.title}</h3>
                         <p>${j.description && j.description.trim() ? truncateByWords(j.description.trim(), 220) : "A peer-reviewed international journal within the PANORAMA SCHOLARLY GROUP portfolio."}</p>
                         <div class="btn-row">
@@ -173,10 +221,7 @@
         async function init() {
             const url = new URL(window.location.href);
             const q = url.searchParams.get("q");
-            if (q) {
-                state.query = q;
-                searchInput.value = q;
-            }
+            if (q) { state.query = q; searchInput.value = q; }
             let source = FALLBACK;
             try {
                 const res = await fetch("data/journals.json", { cache: "no-store" });

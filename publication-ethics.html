@@ -10,10 +10,27 @@
 </head>
 <body>
     <header class="header-shell">
-        <div class="container header-topline"><p>International Scholarly Journal Platform</p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></div>
+        <div class="container header-topline">
+            <p>International Scholarly Journal Platform</p>
+            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
+        </div>
         <div class="container nav-row">
-            <a class="brand" href="index.html"><img src="favicon.png" alt="Panorama logo"><div><strong>PANORAMA SCHOLARLY GROUP</strong><span>Scholarly Journals and Editorial Services</span></div></a>
-            <nav class="nav-links"><a href="index.html">Home</a><a href="journals.html">Journals</a><a href="index.html#author-path">For Authors</a><a href="publication-ethics.html" aria-current="page">Ethics</a><a href="open-access-policy.html">Open Access</a><a href="about.html">About</a></nav>
+            <a class="brand" href="index.html">
+                <img src="favicon.png" alt="Panorama logo">
+                <div><strong>PANORAMA SCHOLARLY GROUP</strong><span>Scholarly Journals and Editorial Services</span></div>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                onclick="var e=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',e?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="journals.html">Journals</a>
+                <a href="index.html#author-path">For Authors</a>
+                <a href="publication-ethics.html" aria-current="page">Ethics</a>
+                <a href="open-access-policy.html">Open Access</a>
+                <a href="about.html">About</a>
+            </nav>
         </div>
     </header>
 
@@ -40,19 +57,47 @@
             <div class="container">
                 <div class="section-head"><div><p class="kicker">Core Rules</p><h2>Ethics requirements used in editorial handling.</h2></div></div>
                 <div class="policy-list">
-                    <article class="policy-item"><span class="policy-number">1.1</span><h3>Editorial decisions</h3><p>Editorial decisions are based on journal scope, scholarly merit, and policy compliance, independent of personal or institutional bias.</p></article>
-                    <article class="policy-item"><span class="policy-number">1.2</span><h3>Peer review conduct</h3><p>Reviewers are expected to provide objective, evidence-based assessments and maintain manuscript confidentiality throughout review.</p></article>
-                    <article class="policy-item"><span class="policy-number">1.3</span><h3>Originality and citation</h3><p>Submissions must be original, properly cited, and free from undisclosed duplicate or redundant publication.</p></article>
-                    <article class="policy-item"><span class="policy-number">1.4</span><h3>Conflict disclosure</h3><p>Authors, reviewers, and editors should disclose relationships that could reasonably be seen as influencing editorial judgment.</p></article>
-                    <article class="policy-item"><span class="policy-number">1.5</span><h3>Corrections and retractions</h3><p>When significant issues are confirmed after publication, journals may issue corrections, expressions of concern, or retractions as appropriate.</p></article>
-                    <article class="policy-item"><span class="policy-number">1.6</span><h3>Confidentiality and data use</h3><p>Unpublished manuscript content should not be used for personal research, teaching, or distribution without explicit permission from the rights holder.</p></article>
-                    <article class="policy-item"><span class="policy-number">1.7</span><h3>Appeals and concerns</h3><p>Authors may submit a reasoned appeal where they identify a substantive procedural or evaluative issue in editorial handling.</p></article>
+                    <article class="policy-item">
+                        <span class="policy-number">1.1</span>
+                        <h3>Editorial decisions</h3>
+                        <p>Editorial decisions are based on journal scope, scholarly merit, and policy compliance, independent of personal or institutional bias.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">1.2</span>
+                        <h3>Peer review conduct</h3>
+                        <p>Reviewers are expected to provide objective, evidence-based assessments and maintain manuscript confidentiality throughout review.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">1.3</span>
+                        <h3>Originality and citation</h3>
+                        <p>Submissions must be original, properly cited, and free from undisclosed duplicate or redundant publication.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">1.4</span>
+                        <h3>Conflict disclosure</h3>
+                        <p>Authors, reviewers, and editors should disclose relationships that could reasonably be seen as influencing editorial judgment.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">1.5</span>
+                        <h3>Corrections and retractions</h3>
+                        <p>When significant issues are confirmed after publication, journals may issue corrections, expressions of concern, or retractions as appropriate.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">1.6</span>
+                        <h3>Confidentiality and data use</h3>
+                        <p>Unpublished manuscript content should not be used for personal research, teaching, or distribution without explicit permission from the rights holder.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">1.7</span>
+                        <h3>Appeals and concerns</h3>
+                        <p>Authors may submit a reasoned appeal where they identify a substantive procedural or evaluative issue in editorial handling.</p>
+                    </article>
                 </div>
-                <div class="quick-links" style="margin-top:12px;">
+                <div class="quick-links" style="margin-top:14px;">
                     <a href="journals.html"><strong>Journal Directory</strong><span>Select a journal and review submission pages.</span></a>
                     <a href="open-access-policy.html"><strong>Open Access Policy</strong><span>Check license and rights conditions before submission.</span></a>
-                    <a href="about.html"><strong>Platform Framework</strong><span>Review operating model and policy architecture.</span></a>
-                    <a href="mailto:contact@panorama-sg.com"><strong>Policy Contact</strong><span>Contact the platform for ethics-policy questions.</span></a>
+                    <a href="for-authors.html"><strong>Author Guide</strong><span>Full submission workflow from preparation to decision.</span></a>
+                    <a href="contact.html"><strong>Policy Contact</strong><span>Contact the platform for ethics-policy questions.</span></a>
                 </div>
             </div>
         </section>
@@ -60,11 +105,38 @@
 
     <footer class="site-footer">
         <div class="container footer-grid">
-            <div><h2>PANORAMA SCHOLARLY GROUP</h2><p>International scholarly journals with structured submission workflows and transparent publication policies.</p></div>
-            <div><h3>Administrative Contact</h3><p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p></div>
-            <div><h3>Quick Access</h3><ul><li><a href="journals.html">Journal Directory</a></li><li><a href="open-access-policy.html">Open Access Policy</a></li><li><a href="about.html">About</a></li></ul></div>
+            <div>
+                <h2>PANORAMA SCHOLARLY GROUP</h2>
+                <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
+            </div>
+            <div>
+                <h3>Administrative Contact</h3>
+                <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
+                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            </div>
+            <div>
+                <h3>Journals &amp; Policies</h3>
+                <ul>
+                    <li><a href="journals.html">Journal Directory</a></li>
+                    <li><a href="publication-ethics.html">Publication Ethics</a></li>
+                    <li><a href="open-access-policy.html">Open Access Policy</a></li>
+                    <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Authors &amp; Information</h3>
+                <ul>
+                    <li><a href="for-authors.html">Author Guide</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="container footer-bottom"><span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span><span>Publication Ethics</span></div>
+        <div class="container footer-bottom">
+            <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+            <span>Publication Ethics</span>
+        </div>
     </footer>
 </body>
 </html>

@@ -10,10 +10,27 @@
 </head>
 <body>
     <header class="header-shell">
-        <div class="container header-topline"><p>International Scholarly Journal Platform</p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></div>
+        <div class="container header-topline">
+            <p>International Scholarly Journal Platform</p>
+            <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>
+        </div>
         <div class="container nav-row">
-            <a class="brand" href="index.html"><img src="favicon.png" alt="Panorama logo"><div><strong>PANORAMA SCHOLARLY GROUP</strong><span>Scholarly Journals and Editorial Services</span></div></a>
-            <nav class="nav-links"><a href="index.html">Home</a><a href="journals.html">Journals</a><a href="index.html#author-path">For Authors</a><a href="publication-ethics.html">Ethics</a><a href="open-access-policy.html" aria-current="page">Open Access</a><a href="about.html">About</a></nav>
+            <a class="brand" href="index.html">
+                <img src="favicon.png" alt="Panorama logo">
+                <div><strong>PANORAMA SCHOLARLY GROUP</strong><span>Scholarly Journals and Editorial Services</span></div>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                onclick="var e=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',e?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+                <a href="index.html">Home</a>
+                <a href="journals.html">Journals</a>
+                <a href="index.html#author-path">For Authors</a>
+                <a href="publication-ethics.html">Ethics</a>
+                <a href="open-access-policy.html" aria-current="page">Open Access</a>
+                <a href="about.html">About</a>
+            </nav>
         </div>
     </header>
 
@@ -24,6 +41,10 @@
                     <p class="kicker">Open Access Policy</p>
                     <h1>Access, licensing, and author-rights framework for journal publication.</h1>
                     <p class="lead">Open-access implementation may vary by journal. This policy defines the shared framework used to communicate access terms, licensing, and repository expectations.</p>
+                    <div class="trust-badges">
+                        <span class="trust-badge oa">Open Access</span>
+                        <span class="trust-badge doi">Crossref DOI</span>
+                    </div>
                 </div>
                 <aside class="panel">
                     <h3>Policy Scope</h3>
@@ -40,19 +61,47 @@
             <div class="container">
                 <div class="section-head"><div><p class="kicker">Core Rules</p><h2>Open-access requirements used across the portfolio.</h2></div></div>
                 <div class="policy-list">
-                    <article class="policy-item"><span class="policy-number">2.1</span><h3>Public access principle</h3><p>Published research is made available online under each journal's open-access policy and publication agreement.</p></article>
-                    <article class="policy-item"><span class="policy-number">2.2</span><h3>Journal-level OA model</h3><p>Journals may apply different operating models. Authors should confirm APC, waiver, or no-APC conditions before final submission.</p></article>
-                    <article class="policy-item"><span class="policy-number">2.3</span><h3>License disclosure</h3><p>Applicable licenses are communicated at journal level. Authors should verify permitted reuse before publication.</p></article>
-                    <article class="policy-item"><span class="policy-number">2.4</span><h3>Author rights and permissions</h3><p>Unless agreements specify otherwise, authors retain key rights while granting non-exclusive publication and distribution permissions.</p></article>
-                    <article class="policy-item"><span class="policy-number">2.5</span><h3>Repository and archiving</h3><p>Repository deposit should follow journal terms and preserve accurate citation of the version of record.</p></article>
-                    <article class="policy-item"><span class="policy-number">2.6</span><h3>Third-party content</h3><p>Authors are responsible for securing permissions for third-party figures, tables, or images where required by license or copyright law.</p></article>
-                    <article class="policy-item"><span class="policy-number">2.7</span><h3>Version clarity</h3><p>Where multiple versions are posted, records should clearly identify accepted manuscript versus final published version.</p></article>
+                    <article class="policy-item">
+                        <span class="policy-number">2.1</span>
+                        <h3>Public access principle</h3>
+                        <p>Published research is made available online under each journal's open-access policy and publication agreement.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">2.2</span>
+                        <h3>Journal-level OA model</h3>
+                        <p>Journals may apply different operating models. Authors should confirm APC, waiver, or no-APC conditions before final submission.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">2.3</span>
+                        <h3>License disclosure</h3>
+                        <p>Applicable licenses are communicated at journal level. Authors should verify permitted reuse before publication.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">2.4</span>
+                        <h3>Author rights and permissions</h3>
+                        <p>Unless agreements specify otherwise, authors retain key rights while granting non-exclusive publication and distribution permissions.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">2.5</span>
+                        <h3>Repository and archiving</h3>
+                        <p>Repository deposit should follow journal terms and preserve accurate citation of the version of record.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">2.6</span>
+                        <h3>Third-party content</h3>
+                        <p>Authors are responsible for securing permissions for third-party figures, tables, or images where required by license or copyright law.</p>
+                    </article>
+                    <article class="policy-item">
+                        <span class="policy-number">2.7</span>
+                        <h3>Version clarity</h3>
+                        <p>Where multiple versions are posted, records should clearly identify accepted manuscript versus final published version.</p>
+                    </article>
                 </div>
-                <div class="quick-links" style="margin-top:12px;">
+                <div class="quick-links" style="margin-top:14px;">
                     <a href="journals.html"><strong>Journal Directory</strong><span>Confirm OA terms on each journal page.</span></a>
                     <a href="publication-ethics.html"><strong>Publication Ethics</strong><span>Review complementary conduct and integrity requirements.</span></a>
-                    <a href="about.html"><strong>Platform Framework</strong><span>Review operating model and policy structure.</span></a>
-                    <a href="mailto:contact@panorama-sg.com"><strong>Policy Contact</strong><span>Contact the platform for rights and OA questions.</span></a>
+                    <a href="indexing.html"><strong>Indexing &amp; Archiving</strong><span>View archiving and preservation commitments.</span></a>
+                    <a href="contact.html"><strong>Policy Contact</strong><span>Contact the platform for rights and OA questions.</span></a>
                 </div>
             </div>
         </section>
@@ -60,11 +109,38 @@
 
     <footer class="site-footer">
         <div class="container footer-grid">
-            <div><h2>PANORAMA SCHOLARLY GROUP</h2><p>International scholarly journals with structured submission workflows and transparent publication policies.</p></div>
-            <div><h3>Administrative Contact</h3><p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p></div>
-            <div><h3>Quick Access</h3><ul><li><a href="journals.html">Journal Directory</a></li><li><a href="publication-ethics.html">Publication Ethics</a></li><li><a href="about.html">About</a></li></ul></div>
+            <div>
+                <h2>PANORAMA SCHOLARLY GROUP</h2>
+                <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
+            </div>
+            <div>
+                <h3>Administrative Contact</h3>
+                <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
+                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            </div>
+            <div>
+                <h3>Journals &amp; Policies</h3>
+                <ul>
+                    <li><a href="journals.html">Journal Directory</a></li>
+                    <li><a href="publication-ethics.html">Publication Ethics</a></li>
+                    <li><a href="open-access-policy.html">Open Access Policy</a></li>
+                    <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Authors &amp; Information</h3>
+                <ul>
+                    <li><a href="for-authors.html">Author Guide</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="container footer-bottom"><span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span><span>Open Access Policy</span></div>
+        <div class="container footer-bottom">
+            <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+            <span>Open Access Policy</span>
+        </div>
     </footer>
 </body>
 </html>
