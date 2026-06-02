@@ -42,7 +42,23 @@ h1, h2, h3, p { margin: 0; }
 .nav-toggle span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 1px; transition: var(--t); }
 
 /* ── Hero ── */
-.hero { padding: 92px 0 68px; border-bottom: 1px solid var(--line); background: linear-gradient(160deg, #f8faff 0%, #edf3fb 100%); }
+@keyframes hero-drift {
+    0%   { background-position: 0% 0%; }
+    50%  { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.hero {
+    padding: 92px 0 68px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(160deg, #f8faff 0%, #e8f2fc 30%, #edf3fb 60%, #f3f7ff 100%);
+    background-size: 220% 220%;
+    animation: hero-drift 12s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero { animation: none; background-size: 100% 100%; background-position: 0% 0%; }
+}
 .hero-grid { display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: 32px; align-items: start; }
 
 .kicker { color: var(--primary); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
