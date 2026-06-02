@@ -706,6 +706,13 @@ h1 {
     padding: 12px 0;
 }
 
+/* PKP logo — white paths on transparent bg, needs a tinted surface */
+img[alt="PKP Preservation Network"] {
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+    border-radius: 2px;
+}
+
 /* ─────────────────────────────────────────────
    FOCUS
 ───────────────────────────────────────────── */
