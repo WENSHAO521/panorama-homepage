@@ -9,218 +9,227 @@
     <link rel="stylesheet" href="institutional.css">
 </head>
 <body>
-    <header class="header-shell">
-        <div class="container nav-row">
-            <a class="brand" href="index.html">
-                <img src="favicon.png" alt="Panorama logo">
-                <div><strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong><span class="brand-tagline">International Scholarly Journals</span></div>
-            </a>
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
-                onclick="var e=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',e?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
-                <a href="index.html">Home</a>
-                <a href="journals.html">Journals</a>
-                <a href="index.html#author-path">For Authors</a>
-                <a href="publication-ethics.html">Ethics</a>
-                <a href="open-access-policy.html">Open Access</a>
-                <a href="about.html">About</a>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-grid">
+<header class="header-shell">
+    <div class="container nav-row">
+        <a class="brand" href="index.html">
+            <img src="favicon.png" alt="Panorama logo">
+            <div>
+                <strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong>
+                <span class="brand-tagline">International Scholarly Journals</span>
+            </div>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+            onclick="var o=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',o?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="journals.html">Journals</a>
+            <a href="index.html#author-path">For Authors</a>
+            <a href="publication-ethics.html">Ethics</a>
+            <a href="open-access-policy.html">Open Access</a>
+            <a href="about.html">About</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-body">
+                <p class="kicker">Author Guide</p>
+                <h1>Submission guidance from manuscript preparation to publication.</h1>
+                <p class="lead">This guide covers the full submission process for Panorama Scholarly Group journals — journal selection, ethics requirements, peer review, and post-publication rights.</p>
+                <div class="btn-row">
+                    <a class="btn primary" href="journals.html">Find a Journal</a>
+                    <a class="btn" href="publication-ethics.html">Ethics Policy</a>
+                </div>
+            </div>
+            <div class="panel">
+                <h3>Quick Reference</h3>
+                <dl>
+                    <div><dt>Step 1</dt><dd>Identify journal fit and scope</dd></div>
+                    <div><dt>Step 2</dt><dd>Review ethics and OA requirements</dd></div>
+                    <div><dt>Step 3</dt><dd>Submit via journal editorial portal</dd></div>
+                    <div><dt>Step 4</dt><dd>Respond to peer review</dd></div>
+                    <div><dt>After Publication</dt><dd>DOI assigned; author rights apply</dd></div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="guide-layout">
+                <nav class="guide-nav" aria-label="Guide sections">
+                    <p class="guide-nav-head">Guide Sections</p>
+                    <a href="#journal-selection">1. Journal Selection</a>
+                    <a href="#before-submission">2. Before You Submit</a>
+                    <a href="#manuscript-preparation">3. Manuscript Preparation</a>
+                    <a href="#submission-process">4. Submission Process</a>
+                    <a href="#peer-review">5. Peer Review</a>
+                    <a href="#after-publication">6. After Publication</a>
+                </nav>
                 <div>
-                    <p class="kicker">Author Guide</p>
-                    <h1>Submission guidance from manuscript preparation to publication.</h1>
-                    <p class="lead">This guide covers the full submission process for Panorama Scholarly Group journals, including journal selection, ethics requirements, peer review, and post-publication rights.</p>
-                    <div class="btn-row">
-                        <a class="btn primary" href="journals.html">Find a Journal</a>
-                        <a class="btn" href="publication-ethics.html">Ethics Policy</a>
-                        <a class="btn" href="open-access-policy.html">Open Access Policy</a>
-                    </div>
+                    <section class="guide-section" id="journal-selection">
+                        <h2>1. Journal Selection</h2>
+                        <p>Selecting the right journal before submission is the first and most important step. A submission to a journal outside its defined scope will typically be desk-rejected without review, delaying your work unnecessarily.</p>
+                        <h3>How to assess journal fit</h3>
+                        <ul>
+                            <li>Review the journal aims and scope statement on the journal home page.</li>
+                            <li>Check published issues to confirm the journal regularly publishes work comparable to yours in discipline, methodology, and scope.</li>
+                            <li>Confirm the subject cluster: Technology &amp; Engineering, Health &amp; Sustainability, Policy, Education &amp; Society, or Humanities &amp; Arts.</li>
+                            <li>Note article types accepted: original research, review articles, theoretical contributions, creative or reflective work (where applicable).</li>
+                        </ul>
+                        <h3>Using the journal directory</h3>
+                        <p>The <a href="journals.html">journal directory</a> allows you to filter by subject cluster and keyword. Each journal entry links directly to the journal home page and submission portal. ISSN status is indicated for journals where registration is complete.</p>
+                    </section>
+
+                    <section class="guide-section" id="before-submission">
+                        <h2>2. Before You Submit</h2>
+                        <p>Before uploading your manuscript, confirm that you have reviewed and can comply with the platform's shared policy requirements. Individual journals may apply additional requirements — these are detailed on each journal's home page.</p>
+                        <h3>Publication ethics requirements</h3>
+                        <ul>
+                            <li>The submission must be original and not under review at another journal simultaneously.</li>
+                            <li>All authors must be listed and must have contributed substantively to the work.</li>
+                            <li>Conflicts of interest, funding sources, or relationships that could be seen as influencing the work must be disclosed.</li>
+                            <li>Any overlap with previously published work must be disclosed and appropriately cited.</li>
+                            <li>All required ethical approvals must be confirmed.</li>
+                        </ul>
+                        <p>The full ethics policy is available at <a href="publication-ethics.html">Publication Ethics</a>.</p>
+                        <h3>Open access and licensing</h3>
+                        <p>Panorama Scholarly Group journals publish on an open access basis. Authors should confirm the applicable licensing terms, APC status, and rights framework before final submission. This information is available on each journal's home page and in the <a href="open-access-policy.html">Open Access Policy</a>.</p>
+                    </section>
+
+                    <section class="guide-section" id="manuscript-preparation">
+                        <h2>3. Manuscript Preparation</h2>
+                        <p>Formatting requirements vary by journal. Authors should follow the instructions for authors published on the relevant journal home page. The following general principles apply across the portfolio.</p>
+                        <h3>General formatting guidance</h3>
+                        <ul>
+                            <li>Manuscripts should be submitted in a standard word-processing format (e.g., .docx or .pdf, as specified by the journal).</li>
+                            <li>Include a structured abstract where the journal requires one.</li>
+                            <li>Keywords should be included as specified in the journal instructions.</li>
+                            <li>References should follow the citation style specified by the journal. Include DOIs for all cited works where available.</li>
+                            <li>Tables, figures, and images should be submitted at the resolution and in the format specified by the journal.</li>
+                        </ul>
+                        <h3>Required declarations</h3>
+                        <ul>
+                            <li><strong>Author contributions:</strong> A statement identifying each author's contribution, where required.</li>
+                            <li><strong>Conflict of interest:</strong> A disclosure statement covering financial, personal, or professional interests relevant to the submission.</li>
+                            <li><strong>Ethics approval:</strong> Confirmation of relevant ethical approvals for studies involving human participants, patient data, or animal subjects.</li>
+                            <li><strong>Data availability:</strong> A statement describing data availability underlying the research, where applicable.</li>
+                            <li><strong>Funding:</strong> Identification of funding sources and grant numbers, where applicable.</li>
+                        </ul>
+                    </section>
+
+                    <section class="guide-section" id="submission-process">
+                        <h2>4. Submission Process</h2>
+                        <p>Submissions are handled at journal level through the journal's editorial submission portal, hosted at <strong>journals.panorama-sg.com</strong>. There is no centralised submission system for the entire portfolio.</p>
+                        <h3>Submitting your manuscript</h3>
+                        <ol>
+                            <li>Go to the journal's home page via the <a href="journals.html">journal directory</a> or directly at journals.panorama-sg.com/index.php/[journal-id].</li>
+                            <li>Click the Submission link and create or log in to an account in the journal's editorial submission portal.</li>
+                            <li>Follow the submission steps to upload your manuscript, metadata, and required declarations.</li>
+                            <li>Submit for editorial review. You will receive a confirmation email from the journal's submission system.</li>
+                        </ol>
+                        <h3>Initial editorial review</h3>
+                        <p>After submission, an editor will assess whether the manuscript is within scope and meets minimum policy requirements. Manuscripts that do not meet these requirements may be desk-rejected at this stage.</p>
+                    </section>
+
+                    <section class="guide-section" id="peer-review">
+                        <h2>5. Peer Review</h2>
+                        <p>All journals in the portfolio use peer review. The specific review model (single-blind, double-blind, or open review) is determined at journal level and described on each journal's home page.</p>
+                        <h3>What to expect during review</h3>
+                        <ul>
+                            <li>After editorial acceptance for review, your manuscript will be sent to independent reviewers with relevant expertise.</li>
+                            <li>Reviewers are expected to provide objective, evidence-based assessments in accordance with the <a href="publication-ethics.html">publication ethics policy</a>.</li>
+                            <li>Review timelines vary by journal and by the availability of reviewers in the relevant field.</li>
+                            <li>The editorial decision will be communicated to the corresponding author.</li>
+                        </ul>
+                        <h3>Responding to reviewer comments</h3>
+                        <ul>
+                            <li>Where revision is requested, submit a detailed response letter addressing each reviewer comment individually.</li>
+                            <li>Revised manuscripts should clearly indicate all changes made.</li>
+                            <li>Authors who disagree with a reviewer comment should provide a substantive, evidence-based explanation in the response letter.</li>
+                        </ul>
+                        <h3>Appeals</h3>
+                        <p>Authors who consider that a rejection decision was based on a procedural or evaluative error may submit a reasoned appeal through the journal's editorial contact. Appeals should identify the specific basis for the appeal.</p>
+                    </section>
+
+                    <section class="guide-section" id="after-publication">
+                        <h2>6. After Publication</h2>
+                        <p>Upon acceptance and publication, the article will receive a Crossref DOI and will be listed on the journal's published content page at journals.panorama-sg.com.</p>
+                        <h3>DOI and citation</h3>
+                        <p>Each published article is assigned a DOI with the prefix 10.63802, registered with Crossref. Authors should use this DOI when citing their own work and when providing citation information to institutions or funding bodies. DOIs resolve via doi.org.</p>
+                        <h3>Author rights</h3>
+                        <p>Authors retain rights as specified in the publication agreement for their journal. Authors may share and post their work consistent with the applicable Creative Commons license. Confirm the specific rights applicable to your article in your publication agreement and on the journal's home page.</p>
+                        <h3>Repository deposit</h3>
+                        <p>Repository deposit of accepted manuscripts or published versions is governed by the <a href="open-access-policy.html">Open Access Policy</a>. Authors depositing work should cite the version of record accurately and include the published DOI.</p>
+                        <h3>Corrections</h3>
+                        <p>If a significant error is identified in a published article, contact the journal editor promptly. The journal will determine whether a correction notice, erratum, or other action is appropriate.</p>
+                    </section>
                 </div>
-                <aside class="panel">
-                    <h3>Quick Reference</h3>
-                    <dl>
-                        <div><dt>Step 1</dt><dd>Identify journal fit and scope</dd></div>
-                        <div><dt>Step 2</dt><dd>Review ethics and OA requirements</dd></div>
-                        <div><dt>Step 3</dt><dd>Submit via journal portal</dd></div>
-                        <div><dt>Step 4</dt><dd>Respond to peer review</dd></div>
-                        <div><dt>After Publication</dt><dd>DOI assigned; author rights apply</dd></div>
-                    </dl>
-                </aside>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="guide-layout">
-                    <!-- Sidebar nav -->
-                    <nav class="guide-nav" aria-label="Guide sections">
-                        <p class="guide-nav-head">Guide Sections</p>
-                        <a href="#journal-selection">Journal Selection</a>
-                        <a href="#before-submission">Before You Submit</a>
-                        <a href="#manuscript-preparation">Manuscript Preparation</a>
-                        <a href="#submission-process">Submission Process</a>
-                        <a href="#peer-review">Peer Review</a>
-                        <a href="#after-publication">After Publication</a>
-                    </nav>
-
-                    <!-- Guide content -->
-                    <div>
-                        <section class="guide-section" id="journal-selection">
-                            <h2>1. Journal Selection</h2>
-                            <p>Selecting the right journal before submission is the first and most important step. A submission to a journal outside its defined scope will typically be desk-rejected without review, delaying your work unnecessarily.</p>
-                            <h3>How to assess journal fit</h3>
-                            <ul>
-                                <li>Review the journal aims and scope statement on the journal home page.</li>
-                                <li>Check published issues to confirm that the journal regularly publishes work comparable to yours in terms of discipline, methodology, and scope.</li>
-                                <li>Confirm the subject cluster: Technology &amp; Engineering, Health &amp; Sustainability, Policy, Education &amp; Society, or Humanities &amp; Arts.</li>
-                                <li>Note article types accepted: original research, review articles, theoretical contributions, creative or reflective work (where applicable).</li>
-                            </ul>
-                            <h3>Using the journal directory</h3>
-                            <p>The <a href="journals.html">journal directory</a> allows you to filter by subject cluster and keyword. Each journal entry links directly to the journal home page and submission portal. ISSN status is also indicated for journals where registration is complete.</p>
-                        </section>
-
-                        <section class="guide-section" id="before-submission">
-                            <h2>2. Before You Submit</h2>
-                            <p>Before uploading your manuscript, confirm that you have reviewed and can comply with the platform's shared policy requirements. Individual journals may apply additional requirements; those are detailed on each journal's home page.</p>
-                            <h3>Publication ethics requirements</h3>
-                            <ul>
-                                <li>The submission must be original and not under review at another journal simultaneously.</li>
-                                <li>All authors must be listed and must have contributed substantively to the work.</li>
-                                <li>Any conflicts of interest, funding sources, or relationships that could be seen as influencing the work must be disclosed.</li>
-                                <li>Any overlap with previously published work must be disclosed and appropriately cited.</li>
-                                <li>All required ethical approvals (for research involving human participants, for example) must be confirmed.</li>
-                            </ul>
-                            <p>The full ethics policy is available at <a href="publication-ethics.html">Publication Ethics</a>.</p>
-                            <h3>Open access and licensing</h3>
-                            <p>Panorama Scholarly Group journals publish on an open access basis. Authors should confirm the applicable licensing terms, APC status, and rights framework before final submission. This information is available on each journal's home page and in the <a href="open-access-policy.html">Open Access Policy</a>.</p>
-                        </section>
-
-                        <section class="guide-section" id="manuscript-preparation">
-                            <h2>3. Manuscript Preparation</h2>
-                            <p>Formatting requirements vary by journal. Authors should follow the instructions for authors published on the relevant journal home page. The following general principles apply across the portfolio.</p>
-                            <h3>General formatting guidance</h3>
-                            <ul>
-                                <li>Manuscripts should be submitted in a standard word-processing format (e.g., .docx or .pdf, as specified by the journal).</li>
-                                <li>Include a structured abstract where the journal requires one.</li>
-                                <li>Keywords should be included as specified in the journal instructions.</li>
-                                <li>References should follow the citation style specified by the journal. Ensure DOIs are included for all cited works where available.</li>
-                                <li>Tables, figures, and images should be submitted at the resolution and in the format specified by the journal.</li>
-                            </ul>
-                            <h3>Required declarations</h3>
-                            <ul>
-                                <li><strong>Author contributions:</strong> A statement identifying each author's contribution to the work, where required.</li>
-                                <li><strong>Conflict of interest:</strong> A disclosure statement covering financial, personal, or professional interests relevant to the submission.</li>
-                                <li><strong>Ethics approval:</strong> Confirmation of relevant ethical approvals for studies involving human participants, patient data, or animal subjects.</li>
-                                <li><strong>Data availability:</strong> A statement describing the availability of data underlying the research, where applicable.</li>
-                                <li><strong>Funding:</strong> Identification of funding sources and grant numbers, where applicable.</li>
-                            </ul>
-                        </section>
-
-                        <section class="guide-section" id="submission-process">
-                            <h2>4. Submission Process</h2>
-                            <p>Submissions are handled at journal level through the journal's own submission portal, hosted at <strong>journals.panorama-sg.com</strong>. There is no centralised submission system for the entire portfolio.</p>
-                            <h3>Submitting your manuscript</h3>
-                            <ol>
-                                <li>Go to the journal's home page via the <a href="journals.html">journal directory</a> or directly at journals.panorama-sg.com/index.php/[journal-id].</li>
-                                <li>Click the Submission link and create or log in to an account in the journal's editorial submission portal.</li>
-                                <li>Follow the submission steps to upload your manuscript, metadata, and required declarations.</li>
-                                <li>Submit for editorial review. You will receive a confirmation email from the journal's submission system.</li>
-                            </ol>
-                            <h3>Initial editorial review</h3>
-                            <p>After submission, an editor will assess whether the manuscript is within scope and meets minimum policy requirements. Manuscripts that do not meet these requirements may be desk-rejected at this stage. Authors whose submissions pass initial review will be notified and their work will proceed to peer review.</p>
-                        </section>
-
-                        <section class="guide-section" id="peer-review">
-                            <h2>5. Peer Review</h2>
-                            <p>All journals in the portfolio use peer review. The specific review model (single-blind, double-blind, or open review) is determined at journal level and is described on each journal's home page.</p>
-                            <h3>What to expect during review</h3>
-                            <ul>
-                                <li>After editorial acceptance for review, your manuscript will be sent to independent reviewers with relevant expertise.</li>
-                                <li>Reviewers are expected to provide objective, evidence-based assessments in accordance with the platform's <a href="publication-ethics.html">publication ethics policy</a>.</li>
-                                <li>Review timelines vary by journal and by the availability of reviewers in the relevant field.</li>
-                                <li>The editorial decision — acceptance, major revision, minor revision, or rejection — will be communicated to the corresponding author.</li>
-                            </ul>
-                            <h3>Responding to reviewer comments</h3>
-                            <ul>
-                                <li>Where revision is requested, authors should submit a detailed response letter addressing each reviewer comment individually.</li>
-                                <li>Revised manuscripts should clearly indicate all changes made, for example by using tracked changes or a summary of revisions.</li>
-                                <li>Authors who disagree with a reviewer comment should provide a substantive, evidence-based explanation in the response letter.</li>
-                            </ul>
-                            <h3>Appeals</h3>
-                            <p>Authors who consider that a rejection decision was based on a procedural error or a substantive evaluative error may submit a reasoned appeal through the journal's editorial contact. Appeals should identify the specific basis for the appeal and not simply re-argue the merits of the work.</p>
-                        </section>
-
-                        <section class="guide-section" id="after-publication">
-                            <h2>6. After Publication</h2>
-                            <p>Upon acceptance and publication, the article will receive a Crossref DOI and will be listed on the journal's published content page at journals.panorama-sg.com.</p>
-                            <h3>DOI and citation</h3>
-                            <p>Each published article is assigned a DOI with the prefix 10.63802, registered with Crossref. Authors should use this DOI when citing their own work and when providing citation information to institutions or funding bodies. DOIs resolve via doi.org.</p>
-                            <h3>Author rights</h3>
-                            <p>Authors retain rights as specified in the publication agreement for their journal. In general, authors may share, discuss, and post their work consistent with the applicable Creative Commons license. Authors should confirm the specific rights applicable to their article in their publication agreement and on the journal's home page.</p>
-                            <h3>Repository deposit</h3>
-                            <p>Repository deposit of accepted manuscripts or published versions is governed by the <a href="open-access-policy.html">Open Access Policy</a>. Authors depositing their work in institutional repositories, Zenodo, or other open repositories should cite the version of record accurately and include the published DOI.</p>
-                            <h3>Corrections</h3>
-                            <p>If a significant error is identified in a published article, authors should contact the journal editor promptly. The journal will determine whether a correction notice, erratum, or other action is appropriate under its editorial policy.</p>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section alt">
-            <div class="container">
-                <div class="section-head"><div><p class="kicker">Related Resources</p><h2>Policies, directory, and contact.</h2></div></div>
-                <div class="quick-links">
-                    <a href="journals.html"><strong>Journal Directory</strong><span>Find and filter journals by subject and ISSN status.</span></a>
-                    <a href="publication-ethics.html"><strong>Publication Ethics</strong><span>Ethics requirements for all submissions and reviews.</span></a>
-                    <a href="open-access-policy.html"><strong>Open Access Policy</strong><span>Licensing, rights, and repository deposit guidance.</span></a>
-                    <a href="contact.html"><strong>Contact</strong><span>Reach the platform for submission or policy questions.</span></a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <h2>Panorama Scholarly Group</h2>
-                <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
-            </div>
-            <div>
-                <h3>Administrative Contact</h3>
-                <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
-                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
-            </div>
-            <div>
-                <h3>Journals &amp; Policies</h3>
-                <ul>
-                    <li><a href="journals.html">Journal Directory</a></li>
-                    <li><a href="publication-ethics.html">Publication Ethics</a></li>
-                    <li><a href="open-access-policy.html">Open Access Policy</a></li>
-                    <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Authors &amp; Information</h3>
-                <ul>
-                    <li><a href="for-authors.html">Author Guide</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
-                </ul>
             </div>
         </div>
-        <div class="container footer-bottom">
-            <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
-            <span>Author Guide</span>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="kicker">Related Resources</p>
+                    <h2>Policies, directory, and contact.</h2>
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="journals.html"><strong>Journal Directory</strong><span>Find and filter journals by subject and ISSN status.</span></a>
+                <a href="publication-ethics.html"><strong>Publication Ethics</strong><span>Ethics requirements for all submissions and reviews.</span></a>
+                <a href="open-access-policy.html"><strong>Open Access Policy</strong><span>Licensing, rights, and repository deposit guidance.</span></a>
+                <a href="contact.html"><strong>Contact</strong><span>Reach the platform for submission or policy questions.</span></a>
+            </div>
         </div>
-    </footer>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h2>Panorama Scholarly Group</h2>
+            <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
+        </div>
+        <div>
+            <h3>Administrative Contact</h3>
+            <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
+            <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+        </div>
+        <div>
+            <h3>Journals &amp; Policies</h3>
+            <ul>
+                <li><a href="journals.html">Journal Directory</a></li>
+                <li><a href="publication-ethics.html">Publication Ethics</a></li>
+                <li><a href="open-access-policy.html">Open Access Policy</a></li>
+                <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Authors &amp; Information</h3>
+            <ul>
+                <li><a href="for-authors.html">Author Guide</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+        <span>Author Guide</span>
+    </div>
+</footer>
+
+<script src="site.js"></script>
 </body>
 </html>

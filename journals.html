@@ -9,234 +9,273 @@
     <link rel="stylesheet" href="institutional.css">
 </head>
 <body>
-    <header class="header-shell">
-        <div class="container nav-row">
-            <a class="brand" href="index.html">
-                <img src="favicon.png" alt="Panorama logo">
-                <div><strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong><span class="brand-tagline">International Scholarly Journals</span></div>
-            </a>
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
-                onclick="var e=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',e?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
-                <a href="index.html">Home</a>
-                <a href="journals.html" aria-current="page">Journals</a>
-                <a href="index.html#author-path">For Authors</a>
-                <a href="publication-ethics.html">Ethics</a>
-                <a href="open-access-policy.html">Open Access</a>
-                <a href="about.html">About</a>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-grid">
+<header class="header-shell">
+    <div class="container nav-row">
+        <a class="brand" href="index.html">
+            <img src="favicon.png" alt="Panorama logo">
+            <div>
+                <strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong>
+                <span class="brand-tagline">International Scholarly Journals</span>
+            </div>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+            onclick="var o=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',o?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="journals.html" aria-current="page">Journals</a>
+            <a href="index.html#author-path">For Authors</a>
+            <a href="publication-ethics.html">Ethics</a>
+            <a href="open-access-policy.html">Open Access</a>
+            <a href="about.html">About</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-body">
+                <p class="kicker">Journal Directory</p>
+                <h1>Filter journals and move directly to the right submission route.</h1>
+                <p class="lead">Use keyword, subject cluster, and ISSN status to identify an appropriate journal, then continue to its journal home page or submission portal.</p>
+                <div class="trust-badges">
+                    <span class="trust-badge peer">Peer Reviewed</span>
+                    <span class="trust-badge oa">Open Access</span>
+                    <span class="trust-badge doi">Crossref DOI</span>
+                </div>
+            </div>
+            <div class="panel">
+                <h3>Directory Scope</h3>
+                <dl>
+                    <div><dt>Total Titles</dt><dd id="stat-total">22</dd></div>
+                    <div><dt>Subject Clusters</dt><dd>4 disciplinary groups</dd></div>
+                    <div><dt>Submission Routing</dt><dd>Direct links to journal home and submission pages</dd></div>
+                    <div><dt>DOI Registration</dt><dd>Crossref — prefix 10.63802</dd></div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
                 <div>
-                    <p class="kicker">Journal Directory</p>
-                    <h1>Filter journals and move directly to the right submission route.</h1>
-                    <p class="lead">Use keyword, subject cluster, and ISSN status to identify an appropriate journal, then continue to its journal home page or submission portal.</p>
-                    <div class="trust-badges">
-                        <span class="trust-badge peer">Peer Reviewed</span>
-                        <span class="trust-badge oa">Open Access</span>
-                        <span class="trust-badge doi">Crossref DOI</span>
-                    </div>
+                    <p class="kicker">Search Tools</p>
+                    <h2>Portfolio-level journal discovery and routing.</h2>
                 </div>
-                <aside class="panel">
-                    <h3>Directory Scope</h3>
-                    <dl>
-                        <div><dt>Total Titles</dt><dd id="stat-total">22</dd></div>
-                        <div><dt>Clusters</dt><dd>4 subject clusters</dd></div>
-                        <div><dt>Submission Routing</dt><dd>Direct links to journal home and submission pages</dd></div>
-                        <div><dt>DOI Registration</dt><dd>Crossref member, prefix 10.63802</dd></div>
-                    </dl>
-                </aside>
+                <p id="result-count" class="muted-note">Loading journals...</p>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <div class="section-head">
-                    <div><p class="kicker">Search Tools</p><h2>Portfolio-level journal discovery and routing.</h2></div>
-                    <p id="result-count" class="muted-note">Loading journals...</p>
-                </div>
-
-                <div class="directory-controls">
-                    <label class="control-block"><span>Keyword</span><input id="search-input" type="search" placeholder="Title, abbreviation, field, or ISSN"></label>
-                    <label class="control-block"><span>Cluster</span><select id="group-filter"><option value="all">All clusters</option><option value="tech">Technology &amp; Engineering</option><option value="env">Health &amp; Sustainability</option><option value="soc">Policy, Education &amp; Society</option><option value="arts">Humanities &amp; Arts</option></select></label>
-                    <label class="control-block"><span>ISSN</span><select id="issn-filter"><option value="all">All status</option><option value="registered">Registered</option><option value="pending">Pending</option></select></label>
-                    <label class="control-block"><span>Sort</span><select id="sort-select"><option value="title">Title A-Z</option><option value="group">Cluster</option><option value="issn">ISSN status</option></select></label>
-                </div>
-
-                <div id="journal-list" class="directory-list" aria-live="polite"></div>
-
-                <div class="quick-links" style="margin-top:14px;">
-                    <a href="publication-ethics.html"><strong>Before Submission: Ethics</strong><span>Review authorship, originality, and disclosure requirements.</span></a>
-                    <a href="open-access-policy.html"><strong>Before Submission: Open Access</strong><span>Check licensing and rights conditions.</span></a>
-                    <a href="for-authors.html"><strong>Author Guide</strong><span>Full submission workflow from preparation to decision.</span></a>
-                    <a href="indexing.html"><strong>Indexing &amp; Archiving</strong><span>View discovery databases and preservation archives.</span></a>
-                </div>
+            <div class="directory-controls">
+                <label class="control-block">
+                    <span>Keyword</span>
+                    <input id="search-input" type="search" placeholder="Title, abbreviation, field, or ISSN">
+                </label>
+                <label class="control-block">
+                    <span>Cluster</span>
+                    <select id="group-filter">
+                        <option value="all">All clusters</option>
+                        <option value="tech">Technology &amp; Engineering</option>
+                        <option value="env">Health &amp; Sustainability</option>
+                        <option value="soc">Policy, Education &amp; Society</option>
+                        <option value="arts">Humanities &amp; Arts</option>
+                    </select>
+                </label>
+                <label class="control-block">
+                    <span>ISSN</span>
+                    <select id="issn-filter">
+                        <option value="all">All status</option>
+                        <option value="registered">Registered</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </label>
+                <label class="control-block">
+                    <span>Sort</span>
+                    <select id="sort-select">
+                        <option value="title">Title A–Z</option>
+                        <option value="group">Cluster</option>
+                        <option value="issn">ISSN status</option>
+                    </select>
+                </label>
             </div>
-        </section>
-    </main>
 
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <h2>Panorama Scholarly Group</h2>
-                <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
-            </div>
-            <div>
-                <h3>Administrative Contact</h3>
-                <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
-                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
-            </div>
-            <div>
-                <h3>Journals &amp; Policies</h3>
-                <ul>
-                    <li><a href="journals.html">Journal Directory</a></li>
-                    <li><a href="publication-ethics.html">Publication Ethics</a></li>
-                    <li><a href="open-access-policy.html">Open Access Policy</a></li>
-                    <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Authors &amp; Information</h3>
-                <ul>
-                    <li><a href="for-authors.html">Author Guide</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
-                </ul>
+            <div id="journal-list" class="directory-list" aria-live="polite"></div>
+
+            <div class="quick-links" style="margin-top:1px;">
+                <a href="publication-ethics.html"><strong>Before Submission: Ethics</strong><span>Review authorship, originality, and disclosure requirements.</span></a>
+                <a href="open-access-policy.html"><strong>Before Submission: Open Access</strong><span>Check licensing and rights conditions.</span></a>
+                <a href="for-authors.html"><strong>Author Guide</strong><span>Full submission workflow from preparation to decision.</span></a>
+                <a href="indexing.html"><strong>Indexing &amp; Archiving</strong><span>View discovery databases and preservation archives.</span></a>
             </div>
         </div>
-        <div class="container footer-bottom">
-            <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
-            <span>Journal Directory</span>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h2>Panorama Scholarly Group</h2>
+            <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
         </div>
-    </footer>
+        <div>
+            <h3>Administrative Contact</h3>
+            <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
+            <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+        </div>
+        <div>
+            <h3>Journals &amp; Policies</h3>
+            <ul>
+                <li><a href="journals.html">Journal Directory</a></li>
+                <li><a href="publication-ethics.html">Publication Ethics</a></li>
+                <li><a href="open-access-policy.html">Open Access Policy</a></li>
+                <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Authors &amp; Information</h3>
+            <ul>
+                <li><a href="for-authors.html">Author Guide</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+        <span>Journal Directory</span>
+    </div>
+</footer>
 
-    <script>
-        const FALLBACK = [
-            { id: "PFR", group: "tech", title: "Panorama Frontier Review", cat: "Multi.", issn: "Pending", img: "PFR.png", slug: "PFR" },
-            { id: "AFS", group: "tech", title: "AI & Future Society", cat: "Tech", issn: "3053-4011", img: "AFS.png", slug: "AFS" },
-            { id: "JESA", group: "tech", title: "Journal of Engineering Systems & Applications", cat: "Eng.", issn: "3053-478X", img: "JESA.png", slug: "JESA" },
-            { id: "HNDH", group: "tech", title: "Health Nexus: Digital Health and Medical AI", cat: "Med AI", issn: "Pending", img: "HNDH.png", slug: "HNDH" },
-            { id: "CSGS", group: "env", title: "Climate Sustainability & Global Systems", cat: "Env.", issn: "3054-9663", img: "CSGS.png", slug: "CSGS" },
-            { id: "RGGD", group: "env", title: "Rural Governance & Green Development", cat: "Env.", issn: "3053-7282", img: "RGGD.png", slug: "RGGD" },
-            { id: "HN", group: "env", title: "Health Nexus", cat: "Med", issn: "3053-7037", img: "HealthNexus.png", slug: "HealthNexus" },
-            { id: "FSSS", group: "env", title: "Food Systems, Safety & Sustainability", cat: "Food Sci.", issn: "Pending", img: "FSSS.png", slug: "FSSS" },
-            { id: "SES", group: "env", title: "Journal of Sport and Exercise Studies", cat: "Sports", issn: "Pending", img: "SES.png", slug: "SES" },
-            { id: "GPPGR", group: "soc", title: "Global Public Policy & Governance Review", cat: "Policy", issn: "Pending", img: "GPPGR.png", slug: "GPPGR" },
-            { id: "PEMR", group: "soc", title: "PoliEcoM Administration Review", cat: "Policy", issn: "3053-3597", img: "REMR.png", slug: "PEMR" },
-            { id: "CSSR", group: "soc", title: "Computational Social Sciences Review", cat: "Data", issn: "Pending", img: "CSSR.png", slug: "cssr" },
-            { id: "JLPCS", group: "soc", title: "Journal of Law, Psychology, & Communication", cat: "Law", issn: "3052-9654", img: "JLPCS.png", slug: "JLPCS" },
-            { id: "IRELS", group: "soc", title: "International Review of Education & Learning", cat: "Edu", issn: "Pending", img: "IRELS.png", slug: "IRELS" },
-            { id: "JSCC", group: "soc", title: "Journal of Social Cognition and Communication", cat: "Soc.", issn: "3054-6958", img: "JSCC.png", slug: "JSCC" },
-            { id: "CRoPT", group: "soc", title: "Contemporary Review of Political Thought", cat: "Pol.", issn: "Pending", img: "CRoPT.png", slug: "CRoPT" },
-            { id: "Silence", group: "arts", title: "Silence", cat: "Phil.", issn: "3054-4386", img: "Silence.png", slug: "Silence" },
-            { id: "GRHAS", group: "arts", title: "Global Review of Humanities, Arts, & Society", cat: "Arts", issn: "3052-539X", img: "GRAHS.png", slug: "files" },
-            { id: "TTS", group: "arts", title: "Three Teachings Studies", cat: "Phil.", issn: "3053-6553", img: "TTS.png", slug: "tts" },
-            { id: "Res", group: "arts", title: "Resonance", cat: "Music", issn: "3053-4410", img: "RESONANCE.png", slug: "Resonance" },
-            { id: "CPRT", group: "arts", title: "Comparative Philosophy & Religious Traditions", cat: "Phil.", issn: "Pending", img: "CPRT.png", slug: "CPRT" },
-            { id: "JDES", group: "arts", title: "Journal of Dance and Embodied Structure", cat: "Arts", issn: "Pending", img: "JDES.png", slug: "JDES" }
-        ];
+<script>
+var FALLBACK = [
+    {id:"PFR",group:"tech",title:"Panorama Frontier Review",cat:"Multi.",issn:"Pending",img:"PFR.png",slug:"PFR"},
+    {id:"AFS",group:"tech",title:"AI & Future Society",cat:"Tech",issn:"3053-4011",img:"AFS.png",slug:"AFS"},
+    {id:"JESA",group:"tech",title:"Journal of Engineering Systems & Applications",cat:"Eng.",issn:"3053-478X",img:"JESA.png",slug:"JESA"},
+    {id:"HNDH",group:"tech",title:"Health Nexus: Digital Health and Medical AI",cat:"Med AI",issn:"Pending",img:"HNDH.png",slug:"HNDH"},
+    {id:"CSGS",group:"env",title:"Climate Sustainability & Global Systems",cat:"Env.",issn:"3054-9663",img:"CSGS.png",slug:"CSGS"},
+    {id:"RGGD",group:"env",title:"Rural Governance & Green Development",cat:"Env.",issn:"3053-7282",img:"RGGD.png",slug:"RGGD"},
+    {id:"HN",group:"env",title:"Health Nexus",cat:"Med",issn:"3053-7037",img:"HealthNexus.png",slug:"HealthNexus"},
+    {id:"FSSS",group:"env",title:"Food Systems, Safety & Sustainability",cat:"Food Sci.",issn:"Pending",img:"FSSS.png",slug:"FSSS"},
+    {id:"SES",group:"env",title:"Journal of Sport and Exercise Studies",cat:"Sports",issn:"Pending",img:"SES.png",slug:"SES"},
+    {id:"GPPGR",group:"soc",title:"Global Public Policy & Governance Review",cat:"Policy",issn:"Pending",img:"GPPGR.png",slug:"GPPGR"},
+    {id:"PEMR",group:"soc",title:"PoliEcoM Administration Review",cat:"Policy",issn:"3053-3597",img:"REMR.png",slug:"PEMR"},
+    {id:"CSSR",group:"soc",title:"Computational Social Sciences Review",cat:"Data",issn:"Pending",img:"CSSR.png",slug:"cssr"},
+    {id:"JLPCS",group:"soc",title:"Journal of Law, Psychology, & Communication",cat:"Law",issn:"3052-9654",img:"JLPCS.png",slug:"JLPCS"},
+    {id:"IRELS",group:"soc",title:"International Review of Education & Learning",cat:"Edu",issn:"Pending",img:"IRELS.png",slug:"IRELS"},
+    {id:"JSCC",group:"soc",title:"Journal of Social Cognition and Communication",cat:"Soc.",issn:"3054-6958",img:"JSCC.png",slug:"JSCC"},
+    {id:"CRoPT",group:"soc",title:"Contemporary Review of Political Thought",cat:"Pol.",issn:"Pending",img:"CRoPT.png",slug:"CRoPT"},
+    {id:"Silence",group:"arts",title:"Silence",cat:"Phil.",issn:"3054-4386",img:"Silence.png",slug:"Silence"},
+    {id:"GRHAS",group:"arts",title:"Global Review of Humanities, Arts, & Society",cat:"Arts",issn:"3052-539X",img:"GRAHS.png",slug:"files"},
+    {id:"TTS",group:"arts",title:"Three Teachings Studies",cat:"Phil.",issn:"3053-6553",img:"TTS.png",slug:"tts"},
+    {id:"Res",group:"arts",title:"Resonance",cat:"Music",issn:"3053-4410",img:"RESONANCE.png",slug:"Resonance"},
+    {id:"CPRT",group:"arts",title:"Comparative Philosophy & Religious Traditions",cat:"Phil.",issn:"Pending",img:"CPRT.png",slug:"CPRT"},
+    {id:"JDES",group:"arts",title:"Journal of Dance and Embodied Structure",cat:"Arts",issn:"Pending",img:"JDES.png",slug:"JDES"}
+];
 
-        const GROUP_LABEL = { tech: "Technology & Engineering", env: "Health & Sustainability", soc: "Policy, Education & Society", arts: "Humanities & Arts" };
-        const state = { journals: [], query: "", group: "all", issn: "all", sort: "title" };
-        const journalList = document.getElementById("journal-list");
-        const resultCount = document.getElementById("result-count");
-        const statTotal = document.getElementById("stat-total");
-        const searchInput = document.getElementById("search-input");
-        const groupFilter = document.getElementById("group-filter");
-        const issnFilter = document.getElementById("issn-filter");
-        const sortSelect = document.getElementById("sort-select");
+var GROUP_LABEL = {tech:"Technology & Engineering",env:"Health & Sustainability",soc:"Policy, Education & Society",arts:"Humanities & Arts"};
+var state = {journals:[],query:"",group:"all",issn:"all",sort:"title"};
+var journalList = document.getElementById("journal-list");
+var resultCount = document.getElementById("result-count");
+var statTotal   = document.getElementById("stat-total");
 
-        function truncateByWords(text, maxChars) {
-            if (!text || text.length <= maxChars) return text || "";
-            const words = text.trim().split(/\s+/);
-            let out = "";
-            for (const w of words) {
-                const next = out ? `${out} ${w}` : w;
-                if (next.length > maxChars) break;
-                out = next;
+function trunc(text, max) {
+    if (!text || text.length <= max) return text || "";
+    var words = text.trim().split(/\s+/), out = "";
+    for (var i = 0; i < words.length; i++) {
+        var next = out ? out + " " + words[i] : words[i];
+        if (next.length > max) break;
+        out = next;
+    }
+    return out ? out + "..." : text.slice(0, max) + "...";
+}
+
+function debounce(fn, wait) {
+    var t = null;
+    return function() { var a = arguments; clearTimeout(t); t = setTimeout(function(){ fn.apply(null,a); }, wait || 200); };
+}
+
+function normalize(j) {
+    return Object.assign({}, j, {
+        journalUrl: j.journalUrl || ("https://journals.panorama-sg.com/index.php/" + j.slug),
+        submissionUrl: j.submissionUrl || ("https://journals.panorama-sg.com/index.php/" + j.slug + "/submission")
+    });
+}
+
+function filterRows() {
+    var q = state.query.trim().toLowerCase();
+    return state.journals
+        .filter(function(j){ return state.group === "all" || j.group === state.group; })
+        .filter(function(j){ return state.issn === "all" ? true : state.issn === "registered" ? (j.issn && j.issn !== "Pending") : (!j.issn || j.issn === "Pending"); })
+        .filter(function(j){ return !q || (j.id+" "+j.title+" "+j.cat+" "+j.issn+" "+j.group+" "+(j.description||"")).toLowerCase().indexOf(q) > -1; })
+        .sort(function(a,b){
+            if (state.sort === "group") return (a.group+a.title).localeCompare(b.group+b.title);
+            if (state.sort === "issn") {
+                var ra = (a.issn && a.issn !== "Pending") ? 0 : 1;
+                var rb = (b.issn && b.issn !== "Pending") ? 0 : 1;
+                return ra - rb || a.title.localeCompare(b.title);
             }
-            return out ? `${out}...` : `${text.slice(0, maxChars)}...`;
-        }
+            return a.title.localeCompare(b.title);
+        });
+}
 
-        function debounce(fn, wait = 200) {
-            let t = null;
-            return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), wait); };
-        }
+function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
-        function normalize(j) {
-            return { ...j, journalUrl: j.journalUrl || `https://journals.panorama-sg.com/index.php/${j.slug}`, submissionUrl: j.submissionUrl || `https://journals.panorama-sg.com/index.php/${j.slug}/submission` };
-        }
+function render() {
+    var rows = filterRows();
+    resultCount.textContent = rows.length + " journal" + (rows.length === 1 ? "" : "s") + " found";
+    if (!rows.length) {
+        journalList.innerHTML = '<div class="empty-row">No journals match the current filters.</div>';
+        return;
+    }
+    journalList.innerHTML = rows.map(function(j) {
+        var desc = j.description && j.description.trim() ? trunc(j.description.trim(), 220) : "A peer-reviewed international journal within the Panorama Scholarly Group portfolio.";
+        return '<article class="directory-item cluster-' + esc(j.group) + '">'
+            + '<img src="QKFM/' + esc(j.img) + '" alt="' + esc(j.title) + '">'
+            + '<div class="directory-body">'
+            + '<p class="directory-meta">' + esc(GROUP_LABEL[j.group]||j.group) + ' &middot; ' + esc(j.cat) + ' &middot; ISSN: ' + esc(j.issn||"Pending") + '</p>'
+            + '<h3>' + esc(j.title) + '</h3>'
+            + '<p>' + esc(desc) + '</p>'
+            + '<div class="btn-row" style="margin-top:14px;">'
+            + '<a class="btn primary light" href="' + esc(j.journalUrl) + '" target="_blank" rel="noopener">Journal Home</a>'
+            + '<a class="btn light" href="' + esc(j.submissionUrl) + '" target="_blank" rel="noopener">Submit</a>'
+            + '</div></div></article>';
+    }).join("");
+}
 
-        function filterRows() {
-            const q = state.query.trim().toLowerCase();
-            return state.journals
-                .filter(j => state.group === "all" || j.group === state.group)
-                .filter(j => state.issn === "all" ? true : state.issn === "registered" ? (j.issn && j.issn !== "Pending") : (!j.issn || j.issn === "Pending"))
-                .filter(j => !q || `${j.id} ${j.title} ${j.cat} ${j.issn} ${j.group} ${j.description || ""}`.toLowerCase().includes(q))
-                .sort((a, b) => {
-                    if (state.sort === "group") return `${a.group}-${a.title}`.localeCompare(`${b.group}-${b.title}`);
-                    if (state.sort === "issn") {
-                        const ra = a.issn && a.issn !== "Pending" ? 0 : 1;
-                        const rb = b.issn && b.issn !== "Pending" ? 0 : 1;
-                        return ra - rb || a.title.localeCompare(b.title);
-                    }
-                    return a.title.localeCompare(b.title);
-                });
-        }
-
-        function render() {
-            const rows = filterRows();
-            resultCount.textContent = `${rows.length} journal${rows.length === 1 ? "" : "s"} found`;
-            if (!rows.length) {
-                journalList.innerHTML = `<div class="empty-row">No journals match the current filters. Try adjusting keyword, cluster, or ISSN status.</div>`;
-                return;
-            }
-            journalList.innerHTML = rows.map(j => `
-                <article class="directory-item cluster-${j.group}">
-                    <img src="QKFM/${j.img}" alt="${j.title}">
-                    <div class="directory-body">
-                        <p class="directory-meta">${GROUP_LABEL[j.group] || j.group} &middot; ${j.cat} &middot; ISSN: ${j.issn || "Pending"}</p>
-                        <h3>${j.title}</h3>
-                        <p>${j.description && j.description.trim() ? truncateByWords(j.description.trim(), 220) : "A peer-reviewed international journal within the Panorama Scholarly Group portfolio."}</p>
-                        <div class="btn-row">
-                            <a class="btn primary" href="${j.journalUrl}" target="_blank" rel="noopener">Journal Home</a>
-                            <a class="btn" href="${j.submissionUrl}" target="_blank" rel="noopener">Submission Page</a>
-                        </div>
-                    </div>
-                </article>
-            `).join("");
-        }
-
-        async function init() {
-            const url = new URL(window.location.href);
-            const q = url.searchParams.get("q");
-            if (q) { state.query = q; searchInput.value = q; }
-            let source = FALLBACK;
-            try {
-                const res = await fetch("data/journals.json", { cache: "no-store" });
-                if (res.ok) {
-                    const payload = await res.json();
-                    if (payload && Array.isArray(payload.journals)) source = payload.journals;
-                }
-            } catch (_) {}
+function init() {
+    var url = new URL(window.location.href);
+    var q = url.searchParams.get("q");
+    if (q) { state.query = q; document.getElementById("search-input").value = q; }
+    var source = FALLBACK;
+    fetch("data/journals.json", {cache:"no-store"})
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(data){
+            if (data && Array.isArray(data.journals)) source = data.journals;
             state.journals = source.map(normalize);
-            statTotal.textContent = `${state.journals.length}`;
+            statTotal.textContent = state.journals.length;
             render();
-        }
+        })
+        .catch(function(){
+            state.journals = source.map(normalize);
+            statTotal.textContent = state.journals.length;
+            render();
+        });
+}
 
-        const handleSearchInput = debounce(() => { state.query = searchInput.value; render(); }, 200);
-        searchInput.addEventListener("input", handleSearchInput);
-        groupFilter.addEventListener("change", () => { state.group = groupFilter.value; render(); });
-        issnFilter.addEventListener("change", () => { state.issn = issnFilter.value; render(); });
-        sortSelect.addEventListener("change", () => { state.sort = sortSelect.value; render(); });
-        init();
-    </script>
+var handleSearch = debounce(function(){ state.query = document.getElementById("search-input").value; render(); });
+document.getElementById("search-input").addEventListener("input", handleSearch);
+document.getElementById("group-filter").addEventListener("change", function(){ state.group = this.value; render(); });
+document.getElementById("issn-filter").addEventListener("change", function(){ state.issn = this.value; render(); });
+document.getElementById("sort-select").addEventListener("change", function(){ state.sort = this.value; render(); });
+init();
+</script>
+
+<script src="site.js"></script>
 </body>
 </html>

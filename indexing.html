@@ -9,256 +9,264 @@
     <link rel="stylesheet" href="institutional.css">
 </head>
 <body>
-    <header class="header-shell">
-        <div class="container nav-row">
-            <a class="brand" href="index.html">
-                <img src="favicon.png" alt="Panorama logo">
-                <div><strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong><span class="brand-tagline">International Scholarly Journals</span></div>
-            </a>
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
-                onclick="var e=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',e?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
-                <span></span><span></span><span></span>
-            </button>
-            <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
-                <a href="index.html">Home</a>
-                <a href="journals.html">Journals</a>
-                <a href="index.html#author-path">For Authors</a>
-                <a href="publication-ethics.html">Ethics</a>
-                <a href="open-access-policy.html">Open Access</a>
-                <a href="about.html">About</a>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-grid">
+<header class="header-shell">
+    <div class="container nav-row">
+        <a class="brand" href="index.html">
+            <img src="favicon.png" alt="Panorama logo">
+            <div>
+                <strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong>
+                <span class="brand-tagline">International Scholarly Journals</span>
+            </div>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+            onclick="var o=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',o?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="journals.html">Journals</a>
+            <a href="index.html#author-path">For Authors</a>
+            <a href="publication-ethics.html">Ethics</a>
+            <a href="open-access-policy.html">Open Access</a>
+            <a href="about.html">About</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-body">
+                <p class="kicker">Indexing &amp; Archiving</p>
+                <h1>Discovery, preservation, and persistent identifier information for all journals.</h1>
+                <p class="lead">Journals in the Panorama Scholarly Group portfolio are indexed in major scholarly discovery databases, preserved in distributed archiving networks, and registered with international identifier systems.</p>
+                <div class="trust-badges">
+                    <span class="trust-badge doi">Crossref DOI</span>
+                    <span class="trust-badge peer">CLOCKSS Archived</span>
+                    <span class="trust-badge oa">Open Access</span>
+                </div>
+            </div>
+            <div class="panel">
+                <h3>At a Glance</h3>
+                <dl>
+                    <div><dt>DOI Registrar</dt><dd>Crossref — prefix 10.63802</dd></div>
+                    <div><dt>Preservation</dt><dd>CLOCKSS, LOCKSS, PKP Preservation Network</dd></div>
+                    <div><dt>Discovery</dt><dd>Google Scholar, BASE, Dimensions, OpenAlex, Semantic Scholar</dd></div>
+                    <div><dt>ISSN Registration</dt><dd>ISSN International Centre</dd></div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
                 <div>
-                    <p class="kicker">Indexing &amp; Archiving</p>
-                    <h1>Discovery, preservation, and persistent identifier information for all journals.</h1>
-                    <p class="lead">Journals in the Panorama Scholarly Group portfolio are indexed in major scholarly discovery databases, preserved in distributed archiving networks, and registered with international identifier systems.</p>
-                    <div class="trust-badges">
-                        <span class="trust-badge doi">Crossref DOI</span>
-                        <span class="trust-badge peer">CLOCKSS Archived</span>
-                        <span class="trust-badge oa">Open Access</span>
-                    </div>
-                </div>
-                <aside class="panel">
-                    <h3>At a Glance</h3>
-                    <dl>
-                        <div><dt>DOI Registrar</dt><dd>Crossref (prefix 10.63802)</dd></div>
-                        <div><dt>Preservation</dt><dd>CLOCKSS, LOCKSS, and PKP Preservation Network</dd></div>
-                        <div><dt>Discovery</dt><dd>Google Scholar, BASE, Dimensions, OpenAlex, Semantic Scholar</dd></div>
-                        <div><dt>Metadata Deposit</dt><dd>Zenodo open repository</dd></div>
-                        <div><dt>ISSN Registration</dt><dd>ISSN International Centre</dd></div>
-                    </dl>
-                </aside>
-            </div>
-        </section>
-
-        <!-- DOI section -->
-        <section class="section">
-            <div class="container">
-                <div class="section-head">
-                    <div>
-                        <p class="kicker">Digital Object Identifiers</p>
-                        <h2>Persistent identifiers registered through Crossref.</h2>
-                    </div>
-                </div>
-                <div class="steps-grid">
-                    <article>
-                        <span>01</span>
-                        <h3>Crossref Membership</h3>
-                        <p>Panorama Scholarly Group is a Crossref member publisher. All accepted articles receive a DOI registered in the Crossref metadata database.</p>
-                    </article>
-                    <article>
-                        <span>02</span>
-                        <h3>DOI Prefix</h3>
-                        <p>The platform DOI prefix is <strong>10.63802</strong>. Individual journal DOIs follow the format 10.63802/[journal-id].[volume].[issue].[article-id].</p>
-                    </article>
-                    <article>
-                        <span>03</span>
-                        <h3>Persistent Resolution</h3>
-                        <p>All DOIs resolve to the article landing page at <strong>journals.panorama-sg.com</strong> via the DOI Foundation resolver at doi.org.</p>
-                    </article>
-                    <article>
-                        <span>04</span>
-                        <h3>Metadata Standards</h3>
-                        <p>Article metadata including title, authors, abstract, and references is deposited with Crossref at the time of publication for downstream discovery and citation.</p>
-                    </article>
-                </div>
-                <div class="archive-statement" style="margin-top:14px;">
-                    <p>DOIs enable persistent citation of the published version of record. Authors and institutions citing Panorama Scholarly Group articles should use the assigned DOI rather than the direct URL to ensure long-term link integrity.</p>
+                    <p class="kicker">Digital Object Identifiers</p>
+                    <h2>Persistent identifiers registered through Crossref.</h2>
                 </div>
             </div>
-        </section>
-
-        <!-- Discovery databases -->
-        <section class="section alt">
-            <div class="container">
-                <div class="section-head">
-                    <div>
-                        <p class="kicker">Discovery Databases</p>
-                        <h2>Journals are indexed in major scholarly search and discovery platforms.</h2>
-                    </div>
-                </div>
-                <div class="indexer-full-grid">
-                    <div class="indexer-card">
-                        <img src="QKFM/Google_Scholar.png" alt="Google Scholar">
-                        <strong>Google Scholar</strong>
-                        <small>Article-level indexing via Google's scholarly search engine.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/BASE.png" alt="BASE">
-                        <strong>BASE</strong>
-                        <small>Bielefeld Academic Search Engine — one of the largest academic search engines worldwide.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/Dimensions.png" alt="Dimensions">
-                        <strong>Dimensions</strong>
-                        <small>Research intelligence platform for scholarly discovery and analytics.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/OpenAlex.png" alt="OpenAlex">
-                        <strong>OpenAlex</strong>
-                        <small>Open catalog of global scholarly metadata and citation networks.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/Semantic_Scholar.png" alt="Semantic Scholar">
-                        <strong>Semantic Scholar</strong>
-                        <small>AI-powered academic search engine from the Allen Institute for AI.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/Crossref.svg" alt="Crossref">
-                        <strong>Crossref</strong>
-                        <small>Official DOI registration and metadata for all published articles.</small>
-                    </div>
-                </div>
+            <div class="steps-grid">
+                <article>
+                    <span class="steps-num">01</span>
+                    <h3 class="step-title">Crossref Membership</h3>
+                    <p>Panorama Scholarly Group is a Crossref member publisher. All accepted articles receive a DOI registered in the Crossref metadata database.</p>
+                </article>
+                <article>
+                    <span class="steps-num">02</span>
+                    <h3 class="step-title">DOI Prefix</h3>
+                    <p>The platform DOI prefix is <strong>10.63802</strong>. Individual journal DOIs follow the format 10.63802/[journal-id].[volume].[issue].[article-id].</p>
+                </article>
+                <article>
+                    <span class="steps-num">03</span>
+                    <h3 class="step-title">Persistent Resolution</h3>
+                    <p>All DOIs resolve to the article landing page at journals.panorama-sg.com via the DOI Foundation resolver at doi.org.</p>
+                </article>
+                <article>
+                    <span class="steps-num">04</span>
+                    <h3 class="step-title">Metadata Standards</h3>
+                    <p>Article metadata including title, authors, abstract, and references is deposited with Crossref at the time of publication for downstream discovery and citation.</p>
+                </article>
             </div>
-        </section>
-
-        <!-- Archiving and preservation -->
-        <section class="section">
-            <div class="container">
-                <div class="section-head">
-                    <div>
-                        <p class="kicker">Preservation &amp; Archiving</p>
-                        <h2>Long-term preservation through distributed archiving networks.</h2>
-                    </div>
-                </div>
-                <div class="indexer-full-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
-                    <div class="indexer-card">
-                        <img src="QKFM/CLOCKSS.png" alt="CLOCKSS">
-                        <strong>CLOCKSS</strong>
-                        <small>Controlled LOCKSS network providing dark archive preservation for journals in the event of publisher discontinuation.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/LOCKSS.png" alt="LOCKSS">
-                        <strong>LOCKSS</strong>
-                        <small>Distributed digital preservation network enabling participating libraries to create and preserve their own copies of content.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/Zenodo.svg" alt="Zenodo">
-                        <strong>Zenodo</strong>
-                        <small>Open research repository operated by CERN, enabling open deposit and citation of research outputs.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/PKP.svg" alt="PKP Preservation Network">
-                        <strong>PKP Preservation Network</strong>
-                        <small>A LOCKSS-based preservation network operated by the Public Knowledge Project, designed specifically for journals on the OJS platform.</small>
-                    </div>
-                </div>
-                <div class="archive-statement">
-                    <p>Panorama Scholarly Group journals participate in the CLOCKSS, LOCKSS, and PKP Preservation Network archiving programs. In the event of publisher discontinuation or content unavailability, archived content will be released by the CLOCKSS network to ensure continued access.</p>
-                    <p>Authors who deposit preprints or accepted manuscripts in Zenodo or institutional repositories should follow the version and citation guidance set out in the <a href="open-access-policy.html">Open Access Policy</a> to preserve the integrity of the version of record.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Registration and identifiers -->
-        <section class="section alt">
-            <div class="container">
-                <div class="section-head">
-                    <div>
-                        <p class="kicker">Registration &amp; Identifiers</p>
-                        <h2>International registration bodies and identifier systems.</h2>
-                    </div>
-                </div>
-                <div class="indexer-full-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
-                    <div class="indexer-card">
-                        <img src="QKFM/ISSN.png" alt="ISSN">
-                        <strong>ISSN</strong>
-                        <small>International Standard Serial Number registered with the ISSN International Centre for each qualifying journal title.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/ISNI.png" alt="ISNI">
-                        <strong>ISNI</strong>
-                        <small>International Standard Name Identifier for publisher and contributor identity management.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/DNB.svg" alt="Deutsche Nationalbibliothek">
-                        <strong>Deutsche Nationalbibliothek</strong>
-                        <small>German national bibliography, providing metadata registration for open access publications.</small>
-                    </div>
-                    <div class="indexer-card">
-                        <img src="QKFM/DOI_Foundation.png" alt="DOI Foundation">
-                        <strong>DOI Foundation</strong>
-                        <small>The international body governing the Digital Object Identifier system used for article persistent identifiers.</small>
-                    </div>
-                </div>
-                <div class="archive-statement" style="margin-top:14px;">
-                    <p>Journals with registered ISSNs have been verified by the ISSN International Centre. Journals with pending ISSN status are in the registration process. Authors requiring ISSN confirmation for institutional submissions should check the individual journal page or contact the platform directly.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="section-head"><div><p class="kicker">Related Resources</p><h2>Policy and submission information.</h2></div></div>
-                <div class="quick-links">
-                    <a href="journals.html"><strong>Journal Directory</strong><span>Browse all 22 journals with ISSN and cluster information.</span></a>
-                    <a href="open-access-policy.html"><strong>Open Access Policy</strong><span>Review licensing, repository, and rights guidance.</span></a>
-                    <a href="publication-ethics.html"><strong>Publication Ethics</strong><span>Editorial integrity and peer review conduct standards.</span></a>
-                    <a href="contact.html"><strong>Enquiries</strong><span>Contact the platform for indexing or archiving questions.</span></a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div>
-                <h2>Panorama Scholarly Group</h2>
-                <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
-            </div>
-            <div>
-                <h3>Administrative Contact</h3>
-                <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
-                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
-            </div>
-            <div>
-                <h3>Journals &amp; Policies</h3>
-                <ul>
-                    <li><a href="journals.html">Journal Directory</a></li>
-                    <li><a href="publication-ethics.html">Publication Ethics</a></li>
-                    <li><a href="open-access-policy.html">Open Access Policy</a></li>
-                    <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Authors &amp; Information</h3>
-                <ul>
-                    <li><a href="for-authors.html">Author Guide</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
-                </ul>
+            <div class="archive-statement">
+                <p>DOIs enable persistent citation of the published version of record. Authors and institutions citing Panorama Scholarly Group articles should use the assigned DOI rather than the direct URL to ensure long-term link integrity.</p>
             </div>
         </div>
-        <div class="container footer-bottom">
-            <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
-            <span>Indexing &amp; Archiving</span>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="kicker">Discovery Databases</p>
+                    <h2>Journals are indexed in major scholarly search and discovery platforms.</h2>
+                </div>
+            </div>
+            <div class="indexer-full-grid">
+                <div class="indexer-card">
+                    <img src="QKFM/Google_Scholar.png" alt="Google Scholar">
+                    <strong>Google Scholar</strong>
+                    <small>Article-level indexing via Google's scholarly search engine.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/BASE.png" alt="BASE">
+                    <strong>BASE</strong>
+                    <small>Bielefeld Academic Search Engine — one of the largest academic search engines worldwide.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/Dimensions.png" alt="Dimensions">
+                    <strong>Dimensions</strong>
+                    <small>Research intelligence platform for scholarly discovery and analytics.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/OpenAlex.png" alt="OpenAlex">
+                    <strong>OpenAlex</strong>
+                    <small>Open catalog of global scholarly metadata and citation networks.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/Semantic_Scholar.png" alt="Semantic Scholar">
+                    <strong>Semantic Scholar</strong>
+                    <small>AI-powered academic search engine from the Allen Institute for AI.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/Crossref.svg" alt="Crossref">
+                    <strong>Crossref</strong>
+                    <small>Official DOI registration and metadata for all published articles.</small>
+                </div>
+            </div>
         </div>
-    </footer>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="kicker">Preservation &amp; Archiving</p>
+                    <h2>Long-term preservation through distributed archiving networks.</h2>
+                </div>
+            </div>
+            <div class="indexer-full-grid">
+                <div class="indexer-card">
+                    <img src="QKFM/CLOCKSS.png" alt="CLOCKSS">
+                    <strong>CLOCKSS</strong>
+                    <small>Controlled LOCKSS network providing dark archive preservation for journals in the event of publisher discontinuation.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/LOCKSS.png" alt="LOCKSS">
+                    <strong>LOCKSS</strong>
+                    <small>Distributed digital preservation network enabling participating libraries to preserve their own copies of content.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/PKP.svg" alt="PKP Preservation Network">
+                    <strong>PKP Preservation Network</strong>
+                    <small>A LOCKSS-based preservation network operated by the Public Knowledge Project, designed specifically for journals on the editorial platform.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/Zenodo.svg" alt="Zenodo">
+                    <strong>Zenodo</strong>
+                    <small>Open research repository operated by CERN, enabling open deposit and citation of research outputs.</small>
+                </div>
+            </div>
+            <div class="archive-statement">
+                <p>Panorama Scholarly Group journals participate in the CLOCKSS, LOCKSS, and PKP Preservation Network archiving programs. In the event of publisher discontinuation or content unavailability, archived content will be released by the CLOCKSS network to ensure continued access.</p>
+                <p>Authors depositing preprints or accepted manuscripts in Zenodo or institutional repositories should follow the version and citation guidance in the <a href="open-access-policy.html">Open Access Policy</a> to preserve the integrity of the version of record.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="kicker">Registration &amp; Identifiers</p>
+                    <h2>International registration bodies and identifier systems.</h2>
+                </div>
+            </div>
+            <div class="indexer-full-grid">
+                <div class="indexer-card">
+                    <img src="QKFM/ISSN.png" alt="ISSN">
+                    <strong>ISSN</strong>
+                    <small>International Standard Serial Number registered with the ISSN International Centre for each qualifying journal title.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/ISNI.png" alt="ISNI">
+                    <strong>ISNI</strong>
+                    <small>International Standard Name Identifier for publisher and contributor identity management.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/DNB.svg" alt="Deutsche Nationalbibliothek">
+                    <strong>Deutsche Nationalbibliothek</strong>
+                    <small>German national bibliography providing metadata registration for open access publications.</small>
+                </div>
+                <div class="indexer-card">
+                    <img src="QKFM/DOI_Foundation.png" alt="DOI Foundation">
+                    <strong>DOI Foundation</strong>
+                    <small>The international body governing the Digital Object Identifier system used for article persistent identifiers.</small>
+                </div>
+            </div>
+            <div class="archive-statement">
+                <p>Journals with registered ISSNs have been verified by the ISSN International Centre. Journals with pending ISSN status are in the registration process. Authors requiring ISSN confirmation should check the individual journal page or contact the platform directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="kicker">Related Resources</p>
+                    <h2>Policy and submission information.</h2>
+                </div>
+            </div>
+            <div class="quick-links">
+                <a href="journals.html"><strong>Journal Directory</strong><span>Browse all 22 journals with ISSN and cluster information.</span></a>
+                <a href="open-access-policy.html"><strong>Open Access Policy</strong><span>Review licensing, repository, and rights guidance.</span></a>
+                <a href="publication-ethics.html"><strong>Publication Ethics</strong><span>Editorial integrity and peer review conduct standards.</span></a>
+                <a href="contact.html"><strong>Enquiries</strong><span>Contact the platform for indexing or archiving questions.</span></a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div>
+            <h2>Panorama Scholarly Group</h2>
+            <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
+        </div>
+        <div>
+            <h3>Administrative Contact</h3>
+            <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
+            <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+        </div>
+        <div>
+            <h3>Journals &amp; Policies</h3>
+            <ul>
+                <li><a href="journals.html">Journal Directory</a></li>
+                <li><a href="publication-ethics.html">Publication Ethics</a></li>
+                <li><a href="open-access-policy.html">Open Access Policy</a></li>
+                <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Authors &amp; Information</h3>
+            <ul>
+                <li><a href="for-authors.html">Author Guide</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+        <span>Indexing &amp; Archiving</span>
+    </div>
+</footer>
+
+<script src="site.js"></script>
 </body>
 </html>
