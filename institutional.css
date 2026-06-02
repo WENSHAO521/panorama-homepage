@@ -27,9 +27,6 @@ h1, h2, h3, p { margin: 0; }
 
 /* ── Header ── */
 .header-shell { position: sticky; top: 0; z-index: 90; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
-.header-topline { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--line); }
-.header-topline a { transition: color var(--t); }
-.header-topline a:hover { color: var(--primary); }
 .nav-row { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; position: relative; }
 
 .brand { display: inline-flex; align-items: center; gap: 12px; }
@@ -247,7 +244,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .hero { padding: 60px 0 48px; }
     .section { padding: 56px 0; }
     .section-dark { padding: 56px 0; }
-    .header-topline { display: none; }
     .nav-row { flex-wrap: nowrap; }
     .nav-toggle { display: flex; }
     .nav-links { display: none; flex-direction: column; position: absolute; top: calc(100% + 1px); left: -14px; right: -14px; background: #fff; border-bottom: 1px solid var(--line); padding: 10px 0; gap: 0; box-shadow: var(--shadow); z-index: 80; }
