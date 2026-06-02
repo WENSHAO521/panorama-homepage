@@ -80,8 +80,9 @@ h1,h2,h3,p,dl,dd { margin: 0; }
 /* ══════════════════════════
    HERO  —  black ground
 ══════════════════════════ */
-.hero { background: var(--ink); padding: 112px 0 88px; border-bottom: 3px solid var(--red); }
-.hero-grid { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 48px; align-items: start; }
+.hero { background: radial-gradient(ellipse 80% 85% at 66% 50%, rgba(38,8,65,.50) 0%, transparent 62%), radial-gradient(ellipse 55% 40% at 8% 92%, rgba(55,6,6,.35) 0%, transparent 52%), #09060e; padding: 112px 0 88px; border-bottom: 3px solid var(--red); position: relative; overflow: hidden; }
+#hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.hero-grid { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 48px; align-items: start; position: relative; z-index: 1; }
 .hero-body { border-left: 4px solid var(--red); padding-left: 28px; }
 
 h1 { font-size: clamp(36px, 4.8vw, 62px); font-weight: 900; line-height: 1.06; letter-spacing: -0.035em; color: #fff; margin-top: 0; }
