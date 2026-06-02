@@ -13,7 +13,7 @@
         <div class="container nav-row">
             <a class="brand" href="index.html">
                 <img src="favicon.png" alt="Panorama logo">
-                <div><strong>Panorama Scholarly Group</strong><span>Scholarly Journals and Editorial Services</span></div>
+                <div><strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong><span class="brand-tagline">International Scholarly Journals</span></div>
             </a>
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
                 onclick="var e=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',e?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
@@ -199,7 +199,7 @@
                 return;
             }
             journalList.innerHTML = rows.map(j => `
-                <article class="directory-item">
+                <article class="directory-item cluster-${j.group}">
                     <img src="QKFM/${j.img}" alt="${j.title}">
                     <div class="directory-body">
                         <p class="directory-meta">${GROUP_LABEL[j.group] || j.group} &middot; ${j.cat} &middot; ISSN: ${j.issn || "Pending"}</p>
