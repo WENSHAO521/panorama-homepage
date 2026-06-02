@@ -208,35 +208,43 @@
 
     <script>
     (function () {
-        fetch("data/selected-recent-articles.json", { cache: "no-store" })
-            .then(r => r.ok ? r.json() : null)
-            .then(data => {
-                if (!data || !Array.isArray(data.articles)) return;
-                const items = data.articles.slice(0, 3);
-                const grid = document.getElementById("articles-grid");
-                if (!grid) return;
-                grid.innerHTML = items.map(a => {
-                    const authors = a.authors && a.authors.length
-                        ? (a.authors.length > 3
-                            ? a.authors.slice(0, 2).map(s => s.split(",")[0]).join(", ") + " et al."
-                            : a.authors.map(s => s.split(",")[0]).join(", "))
-                        : "";
-                    return `<article class="article-card">
-                        <p class="article-journal">${escHtml(a.journal)}</p>
-                        <p class="article-title">${escHtml(a.title)}</p>
-                        ${authors ? `<p class="article-authors">${escHtml(authors)}</p>` : ""}
-                        ${a.doi ? `<p class="article-doi">DOI: ${escHtml(a.doi)}</p>` : ""}
-                        <a class="article-link" href="${escHtml(a.url)}" target="_blank" rel="noopener">Read Article &rarr;</a>
-                    </article>`;
-                }).join("");
-            })
-            .catch(() => {
-                const grid = document.getElementById("articles-grid");
-                if (grid) grid.closest("section").style.display = "none";
-            });
+        const FEATURED = [
+            {
+                journal: "Health Nexus",
+                title: "Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework",
+                authors: "Song, Chengwen; Ma, Siheng et al.",
+                doi: "10.63802/hn.V2.2026.308",
+                url: "https://journals.panorama-sg.com/index.php/HealthNexus/article/view/308"
+            },
+            {
+                journal: "Silence",
+                title: "When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University",
+                authors: "Lenz, Sebastian; Song, Chengwen; Shi, Qin",
+                doi: "10.63802/silence.V1.I1.299",
+                url: "https://journals.panorama-sg.com/index.php/Silence/article/view/299"
+            },
+            {
+                journal: "Three Teachings Studies",
+                title: "Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness",
+                authors: "Song, Chengwen; Zeng, Xinhuan; Zhang, Xuzhuo",
+                doi: "10.63802/tts.V2.2026.298",
+                url: "https://journals.panorama-sg.com/index.php/tts/article/view/298"
+            }
+        ];
 
         function escHtml(s) {
             return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+        }
+
+        const grid = document.getElementById("articles-grid");
+        if (grid) {
+            grid.innerHTML = FEATURED.map(a => `<article class="article-card">
+                <p class="article-journal">${escHtml(a.journal)}</p>
+                <p class="article-title">${escHtml(a.title)}</p>
+                <p class="article-authors">${escHtml(a.authors)}</p>
+                <p class="article-doi">DOI: ${escHtml(a.doi)}</p>
+                <a class="article-link" href="${escHtml(a.url)}" target="_blank" rel="noopener">Read Article &rarr;</a>
+            </article>`).join("");
         }
     })();
     </script>
