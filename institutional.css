@@ -75,7 +75,7 @@ h1,h2,h3,p,dl,dd { margin: 0; }
 ══════════════════════════ */
 .kicker { display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
 .kicker::before { content: ''; display: block; width: 20px; height: 2px; background: var(--red); flex-shrink: 0; }
-.dark .kicker { color: #404040; }
+.dark .kicker { color: #737373; }
 
 /* ══════════════════════════
    HERO  —  black ground
@@ -110,17 +110,17 @@ h1 { font-size: clamp(36px, 4.8vw, 62px); font-weight: 900; line-height: 1.06; l
 
 /* Hero panel — dark glass */
 .hero .panel, .hero-panel { border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.04); align-self: start; }
-.hero .panel h3, .hero-panel-head { padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #404040; }
+.hero .panel h3, .hero-panel-head { padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #737373; }
 .hero .panel dl div { padding: 13px 20px; border-bottom: 1px solid rgba(255,255,255,.06); }
 .hero .panel dl div:last-child { border-bottom: 0; }
-.hero .panel dt { color: #404040; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.hero .panel dt { color: #737373; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .hero .panel dd { margin: 5px 0 0; color: #e5e5e5; font-size: 14px; font-weight: 700; }
 
 /* Hero stats grid (homepage) */
 .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.08); align-self: start; }
 .hero-stat { background: rgba(255,255,255,.03); padding: 22px 20px; }
 .hero-stat strong { display: block; font-size: 36px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -0.04em; }
-.hero-stat span { display: block; font-size: 10px; font-weight: 700; color: #404040; text-transform: uppercase; letter-spacing: 0.12em; margin-top: 7px; line-height: 1.4; }
+.hero-stat span { display: block; font-size: 10px; font-weight: 700; color: #737373; text-transform: uppercase; letter-spacing: 0.12em; margin-top: 7px; line-height: 1.4; }
 
 /* ══════════════════════════
    INDEXER STRIP
@@ -191,7 +191,7 @@ h3.step-title { margin-top: 14px; font-size: 16px; font-weight: 700; line-height
 .trust-links a { background: rgba(255,255,255,.03); padding: 20px 22px; display: block; border-left: 3px solid transparent; transition: background var(--t), border-color var(--t); }
 .trust-links a:hover { background: rgba(255,255,255,.07); border-color: var(--red); }
 .trust-links strong { color: #f5f5f5; display: block; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; }
-.trust-links span { color: #404040; display: block; margin-top: 5px; font-size: 13px; line-height: 1.6; }
+.trust-links span { color: #737373; display: block; margin-top: 5px; font-size: 13px; line-height: 1.6; }
 
 /* ══════════════════════════
    QUICK LINKS
@@ -264,7 +264,7 @@ h3.step-title { margin-top: 14px; font-size: 16px; font-weight: 700; line-height
 ══════════════════════════ */
 .guide-layout { display: grid; grid-template-columns: 196px minmax(0,1fr); gap: 28px; align-items: start; }
 .guide-nav { position: sticky; top: 82px; border: 1px solid var(--line); background: #fff; border-top: 3px solid var(--ink); overflow: hidden; }
-.guide-nav-head { padding: 12px 18px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; border-bottom: 1px solid var(--line); background: var(--ink); color: #737373; }
+.guide-nav-head { padding: 12px 18px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; border-bottom: 1px solid rgba(255,255,255,.08); background: var(--ink); color: #a3a3a3; }
 .guide-nav a { display: block; padding: 9px 18px; font-size: 13px; font-weight: 600; color: var(--muted); border-left: 3px solid transparent; transition: color var(--t), border-color var(--t), background var(--t); }
 .guide-nav a:hover { color: var(--red); border-color: var(--red); background: var(--red-tint); }
 .guide-section { border: 1px solid var(--line); background: #fff; padding: 36px 40px; margin-bottom: 1px; scroll-margin-top: 96px; border-top: 3px solid var(--line); }
@@ -293,15 +293,15 @@ h3.step-title { margin-top: 14px; font-size: 16px; font-weight: 700; line-height
 /* ══════════════════════════
    FOOTER
 ══════════════════════════ */
-.site-footer { background: #111111; color: #525252; }
+.site-footer { background: #111111; color: #737373; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding: 64px 0 44px; }
 .site-footer h2 { color: #f5f5f5; font-size: 17px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; }
-.site-footer h3 { color: #525252; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.site-footer h3 { color: #737373; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.06); }
 .site-footer p { font-size: 14px; line-height: 1.75; margin: 0; }
 .site-footer p + p { margin-top: 8px; }
 .site-footer li { margin-top: 10px; font-size: 14px; }
 .site-footer ul { margin: 0; padding: 0; list-style: none; }
-.site-footer a { color: #525252; transition: color var(--t); }
+.site-footer a { color: #737373; transition: color var(--t); }
 .site-footer a:hover { color: #f5f5f5; }
 .footer-bottom { min-height: 48px; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12px; padding: 12px 0; }
 
