@@ -533,7 +533,9 @@
 
     var LANGUAGES = {
         en: { short: 'EN', name: 'English', htmlLang: 'en' },
-        zh: { short: '繁中', name: '繁體中文', htmlLang: 'zh-HK' }
+        zh: { short: '繁中', name: '繁體中文', htmlLang: 'zh-HK' },
+        ja: { short: '日本語', name: '日本語', htmlLang: 'ja' },
+        ko: { short: '한국어', name: '한국어', htmlLang: 'ko' }
     };
 
     var i18n = {
@@ -748,6 +750,210 @@
             'eb.s3.h2': '瞭解更多期刊資訊'
         }
     };
+
+    i18n.ja = Object.assign({}, i18n.en, {
+        'nav.home': 'ホーム',
+        'nav.journals': 'ジャーナル',
+        'nav.for-authors': '著者向け',
+        'nav.ethics': '出版倫理',
+        'nav.open-access': 'オープンアクセス',
+        'nav.join-eb': '編集委員に参加',
+        'nav.about': '概要',
+        'footer.brand-intro': '明確な投稿ワークフローと透明性のある出版方針を備えた国際学術ジャーナル。',
+        'footer.admin-contact': '管理窓口',
+        'footer.journals-policies': 'ジャーナルと方針',
+        'footer.journal-directory': 'ジャーナル一覧',
+        'footer.pub-ethics': '出版倫理',
+        'footer.oa-policy': 'オープンアクセス方針',
+        'footer.indexing': '索引・アーカイブ',
+        'footer.authors-info': '著者情報',
+        'footer.author-guide': '著者ガイド',
+        'footer.join-eb': '編集委員に参加',
+        'footer.about': '概要',
+        'footer.contact': 'お問い合わせ',
+        'footer.editorial-dir': '編集者ディレクトリ',
+        'footer.copyright': '©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.',
+        'index.kicker': 'ホーム',
+        'index.h1': '適切なジャーナルを見つけ、自信を持って投稿する。',
+        'index.lead': 'Panorama Scholarly Group は、構造化された編集ワークフローを通じて国際学術ジャーナルを支援します。著者はジャーナル適合性を確認し、方針要件を見直し、査読開始前に明確な投稿経路を進めることができます。',
+        'index.badge.peer': '査読付き',
+        'index.badge.oa': 'オープンアクセス',
+        'index.stat.journals': '運営中のジャーナル',
+        'index.stat.clusters': '分野クラスター',
+        'index.stat.articles': '出版済み論文',
+        'index.stat.doi': 'Crossref DOI プレフィックス',
+        'about.kicker': '概要',
+        'about.h1': '機関プロフィールとジャーナル運営フレームワーク。',
+        'about.lead': 'Panorama Scholarly Group は、ジャーナル単位の編集管理と、倫理・アクセスに関する共通方針を備えた学際的ジャーナル群を運営しています。',
+        'contact.kicker': 'お問い合わせ',
+        'contact.h1': 'ジャーナルプラットフォームの管理・方針窓口。',
+        'contact.lead': '本ページは、出版社である Panorama Scholarly Group への一般、管理、方針に関するお問い合わせに使用します。投稿関連事項は、各ジャーナルの編集ポータルから直接お問い合わせください。',
+        'authors.kicker': '著者ガイド',
+        'authors.h1': '原稿準備から出版までの投稿ガイダンス。',
+        'authors.lead': '本ガイドでは、ジャーナル選択、原稿準備、査読、出版後の権利について説明します。',
+        'journals.kicker': 'ジャーナル一覧',
+        'journals.h1': '分野、領域、ISSN でジャーナルを検索・絞り込み。',
+        'journals.lead': 'すべてのジャーナルは個別の編集ポータルから投稿を受け付けます。投稿前に適合性と要件を確認してください。',
+        'ethics.kicker': '出版倫理',
+        'ethics.h1': '投稿、査読、出版に関する基本的な倫理要件。',
+        'ethics.lead': 'これらの要件は Panorama Scholarly Group の全ジャーナルに適用されます。各ジャーナルは分野固有の追加指示を公開する場合があります。',
+        'oa.kicker': 'オープンアクセス方針',
+        'oa.h1': 'アクセス、ライセンス、著者権利に関する出版フレームワーク。',
+        'oa.lead': 'オープンアクセスの実施方法はジャーナルにより異なります。本方針はアクセス条件、ライセンス、リポジトリ要件を示す共通枠組みです。',
+        'indexing.kicker': '索引・アーカイブ',
+        'indexing.h1': '全ジャーナルの発見性、保存、永続識別子情報。',
+        'indexing.lead': 'Panorama Scholarly Group のジャーナルは、主要な学術検索データベース、分散アーカイブネットワーク、国際識別子システムに登録されています。',
+        'eb.kicker': '編集委員に参加',
+        'eb.h1': '編集委員を募集しています。',
+        'eb.lead': 'Panorama Scholarly Group の各ジャーナルは、世界中の研究者に編集委員会への参加を呼びかけています。優れた学術背景と査読経験を持つ研究者を歓迎します。',
+        'eb.panel.title': '応募方法',
+        'eb.panel.materials.dt': '必要書類',
+        'eb.panel.materials.dd': '履歴書（CV）',
+        'eb.panel.email.dt': '送付先',
+        'eb.panel.subject.dt': 'メール件名',
+        'eb.panel.subject.dd': 'Editorial Board Application — [Journal Name]',
+        'eb.panel.reply.dt': '返信目安',
+        'eb.panel.reply.dd': '受領後 4 週間以内',
+        'eb.s1.kicker': '応募要件',
+        'eb.s1.h2': '資格要件と責任。',
+        'eb.s1.q1.h3': '応募資格',
+        'eb.s1.q1.r1.label': '学術的背景',
+        'eb.s1.q1.r1.p': '応募者は博士号または同等の学術資格を有し、関連分野で査読付き出版実績を持つことが望まれます。',
+        'eb.s1.q1.r2.label': '研究経験',
+        'eb.s1.q1.r2.p': '独立した研究経験を持ち、専門分野の最新動向に精通していることが求められます。',
+        'eb.s1.q1.r3.label': '査読経験',
+        'eb.s1.q1.r3.p': '国際学術ジャーナルでの査読経験がある方を優先します。',
+        'eb.s1.q2.h3': '責任',
+        'eb.s1.q2.r1.label': '原稿査読',
+        'eb.s1.q2.r1.p': '専門分野において投稿原稿を査読し、公正で建設的な評価を提供します。',
+        'eb.s1.q2.r2.label': '学術基準',
+        'eb.s1.q2.r2.p': '編集長を支援し、ジャーナルの学術品質基準を維持します。',
+        'eb.s1.q2.r3.label': 'ジャーナル発展',
+        'eb.s1.q2.r3.p': '特集企画、投稿募集、所属機関や学術コミュニティでの広報に参加できます。',
+        'eb.s1.q3.h3': '応募書類',
+        'eb.s1.q3.r1.label': 'CV の内容',
+        'eb.s1.q3.r1.p': '氏名、所属、職位、研究分野、代表的出版物（DOI またはリンク）、査読歴を含めてください。',
+        'eb.s1.q3.r2.label': '希望ジャーナル',
+        'eb.s1.q3.r2.p': '参加を希望するジャーナル名をメール本文に記載してください。',
+        'eb.s1.q3.r3.label': 'ファイル形式',
+        'eb.s1.q3.r3.p': 'CV は PDF または Word 形式で添付してください（最大 10 MB）。',
+        'eb.s1.q4.h3': '編集部への連絡',
+        'eb.s1.q4.r1.label': '一般問い合わせ',
+        'eb.s1.q4.r2.label': '件名形式',
+        'eb.s1.q4.r2.p': 'Editorial Board Application — [Journal Name]',
+        'eb.s1.q4.r3.label': '注意',
+        'eb.s1.q4.r3.p': 'すべての応募は機密扱いです。編集委員職に応募料や会費はありません。',
+        'eb.s2.kicker': 'ジャーナル一覧',
+        'eb.s2.h2': '各ジャーナルの編集部に直接お問い合わせください。',
+        'eb.s2.th.journal': 'ジャーナル',
+        'eb.s2.th.abbr': '略称',
+        'eb.s2.th.cluster': 'クラスター',
+        'eb.s2.th.email': '編集部メール',
+        'eb.s3.kicker': '関連リソース',
+        'eb.s3.h2': 'ジャーナルについてさらに詳しく。'
+    });
+
+    i18n.ko = Object.assign({}, i18n.en, {
+        'nav.home': '홈',
+        'nav.journals': '저널',
+        'nav.for-authors': '저자 안내',
+        'nav.ethics': '출판 윤리',
+        'nav.open-access': '오픈 액세스',
+        'nav.join-eb': '편집위원 지원',
+        'nav.about': '소개',
+        'footer.brand-intro': '명확한 투고 절차와 투명한 출판 정책을 갖춘 국제 학술 저널.',
+        'footer.admin-contact': '행정 문의',
+        'footer.journals-policies': '저널 및 정책',
+        'footer.journal-directory': '저널 목록',
+        'footer.pub-ethics': '출판 윤리',
+        'footer.oa-policy': '오픈 액세스 정책',
+        'footer.indexing': '색인 및 아카이빙',
+        'footer.authors-info': '저자 정보',
+        'footer.author-guide': '저자 가이드',
+        'footer.join-eb': '편집위원 지원',
+        'footer.about': '소개',
+        'footer.contact': '문의',
+        'footer.editorial-dir': '편집진 디렉터리',
+        'footer.copyright': '©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.',
+        'index.kicker': '홈',
+        'index.h1': '적합한 저널을 찾고 자신 있게 투고하세요.',
+        'index.lead': 'Panorama Scholarly Group은 구조화된 편집 워크플로를 통해 국제 학술 저널을 지원합니다. 저자는 저널 적합성, 정책 요건, 명확한 투고 경로를 사전에 확인할 수 있습니다.',
+        'index.badge.peer': '동료 심사',
+        'index.badge.oa': '오픈 액세스',
+        'index.stat.journals': '운영 저널',
+        'index.stat.clusters': '주제 클러스터',
+        'index.stat.articles': '출판 논문',
+        'index.stat.doi': 'Crossref DOI 접두사',
+        'about.kicker': '소개',
+        'about.h1': '기관 소개와 저널 운영 프레임워크.',
+        'about.lead': 'Panorama Scholarly Group은 저널 단위의 편집 관리와 윤리 및 접근성에 관한 공통 정책을 갖춘 다학제 저널 포트폴리오를 운영합니다.',
+        'contact.kicker': '문의',
+        'contact.h1': '저널 플랫폼의 행정 및 정책 문의.',
+        'contact.lead': '이 페이지는 출판사 Panorama Scholarly Group에 대한 일반, 행정, 정책 문의에 사용됩니다. 투고 관련 사항은 해당 저널의 편집 포털로 직접 문의하십시오.',
+        'authors.kicker': '저자 가이드',
+        'authors.h1': '원고 준비부터 출판까지의 투고 안내.',
+        'authors.lead': '이 가이드는 저널 선택, 원고 준비, 동료 심사, 출판 후 권리를 다룹니다.',
+        'journals.kicker': '저널 목록',
+        'journals.h1': '분야, 영역 또는 ISSN으로 저널을 검색하고 필터링하세요.',
+        'journals.lead': '모든 저널은 개별 편집 포털을 통해 투고를 받습니다. 투고 전 저널 적합성과 요건을 확인하십시오.',
+        'ethics.kicker': '출판 윤리',
+        'ethics.h1': '투고, 심사, 출판을 위한 핵심 윤리 요건.',
+        'ethics.lead': '이 요건은 Panorama Scholarly Group의 모든 저널에 적용됩니다. 개별 저널은 분야별 추가 지침을 제공할 수 있습니다.',
+        'oa.kicker': '오픈 액세스 정책',
+        'oa.h1': '접근, 라이선스, 저자 권리에 관한 출판 프레임워크.',
+        'oa.lead': '오픈 액세스 운영 방식은 저널별로 다를 수 있습니다. 이 정책은 접근 조건, 라이선스, 저장소 요건을 설명하는 공통 프레임워크입니다.',
+        'indexing.kicker': '색인 및 아카이빙',
+        'indexing.h1': '모든 저널의 발견성, 보존, 영구 식별자 정보.',
+        'indexing.lead': 'Panorama Scholarly Group의 저널은 주요 학술 검색 데이터베이스, 분산 아카이빙 네트워크, 국제 식별자 시스템에 등록되어 있습니다.',
+        'eb.kicker': '편집위원 지원',
+        'eb.h1': '편집위원을 모집합니다.',
+        'eb.lead': 'Panorama Scholarly Group의 저널은 전 세계 연구자들의 편집위원회 참여를 환영합니다. 우수한 학문적 배경과 심사 경험을 가진 연구자를 초대합니다.',
+        'eb.panel.title': '지원 방법',
+        'eb.panel.materials.dt': '필요 서류',
+        'eb.panel.materials.dd': '이력서(CV)',
+        'eb.panel.email.dt': '보낼 곳',
+        'eb.panel.subject.dt': '이메일 제목',
+        'eb.panel.subject.dd': 'Editorial Board Application — [Journal Name]',
+        'eb.panel.reply.dt': '응답 기간',
+        'eb.panel.reply.dd': '접수 후 4주 이내',
+        'eb.s1.kicker': '지원 요건',
+        'eb.s1.h2': '자격 기준과 역할.',
+        'eb.s1.q1.h3': '자격',
+        'eb.s1.q1.r1.label': '학문적 배경',
+        'eb.s1.q1.r1.p': '지원자는 박사 학위 또는 이에 준하는 학술 자격과 관련 분야의 동료 심사 출판 실적을 갖추어야 합니다.',
+        'eb.s1.q1.r2.label': '연구 경험',
+        'eb.s1.q1.r2.p': '독립적인 연구 경험과 해당 분야의 최신 동향에 대한 이해가 필요합니다.',
+        'eb.s1.q1.r3.label': '심사 경험',
+        'eb.s1.q1.r3.p': '국제 학술 저널의 동료 심사 경험이 있는 지원자를 우대합니다.',
+        'eb.s1.q2.h3': '역할',
+        'eb.s1.q2.r1.label': '원고 심사',
+        'eb.s1.q2.r1.p': '전문 분야의 투고 원고를 심사하고 공정하고 건설적인 평가를 제공합니다.',
+        'eb.s1.q2.r2.label': '학술 기준',
+        'eb.s1.q2.r2.p': '편집장을 지원하여 저널의 학술 품질 기준을 유지합니다.',
+        'eb.s1.q2.r3.label': '저널 발전',
+        'eb.s1.q2.r3.p': '특집 기획, 논문 모집, 기관 및 학술 공동체 내 홍보에 참여할 수 있습니다.',
+        'eb.s1.q3.h3': '지원 서류',
+        'eb.s1.q3.r1.label': 'CV 내용',
+        'eb.s1.q3.r1.p': '성명, 소속, 직위, 연구 분야, 대표 출판물(DOI 또는 링크), 심사 이력을 포함하십시오.',
+        'eb.s1.q3.r2.label': '희망 저널',
+        'eb.s1.q3.r2.p': '참여를 희망하는 저널명을 이메일 본문에 기재하십시오.',
+        'eb.s1.q3.r3.label': '파일 형식',
+        'eb.s1.q3.r3.p': 'CV는 PDF 또는 Word 형식으로 첨부하십시오(최대 10 MB).',
+        'eb.s1.q4.h3': '편집부 연락',
+        'eb.s1.q4.r1.label': '일반 문의',
+        'eb.s1.q4.r2.label': '제목 형식',
+        'eb.s1.q4.r2.p': 'Editorial Board Application — [Journal Name]',
+        'eb.s1.q4.r3.label': '참고',
+        'eb.s1.q4.r3.p': '모든 지원은 비밀로 처리됩니다. 편집위원 지원에는 수수료나 회비가 없습니다.',
+        'eb.s2.kicker': '저널 목록',
+        'eb.s2.h2': '각 저널 편집부에 직접 문의하십시오.',
+        'eb.s2.th.journal': '저널',
+        'eb.s2.th.abbr': '약어',
+        'eb.s2.th.cluster': '클러스터',
+        'eb.s2.th.email': '편집부 이메일',
+        'eb.s3.kicker': '관련 자료',
+        'eb.s3.h2': '저널에 대해 더 알아보기.'
+    });
 
     var autoText = {
         zh: {
@@ -1090,6 +1296,180 @@
         }
     };
 
+    Object.assign(autoText.zh, {
+        'or the journal\'s editorial office — see table below': '或各期刊編輯部 — 見下表',
+        'journal directory': '期刊目錄',
+        'author guide': '作者指南',
+        'publication ethics policy': '出版倫理政策',
+        'with a clear description of the matter.': '並清楚描述相關事項。',
+        'and include the relevant journal name and DOI where applicable.': '並在適用時包含相關期刊名稱與 DOI。',
+        'allows you to filter by subject cluster and keyword. Each journal entry links directly to the journal home page and submission portal. ISSN status is indicated for journals where registration is complete.': '可依學科群組與關鍵字篩選。每個期刊條目均直接連結至期刊首頁與投稿入口。已完成註冊的期刊會標示 ISSN 狀態。',
+        'A statement identifying each author\'s contribution, where required.': '在需要時，提供說明各作者貢獻的聲明。',
+        'A disclosure statement covering financial, personal, or professional interests relevant to the submission.': '提供涵蓋與投稿相關的財務、個人或專業利益的披露聲明。',
+        'Confirmation of relevant ethical approvals for studies involving human participants, patient data, or animal subjects.': '確認涉及人類參與者、患者資料或動物受試的研究已取得相關倫理批准。',
+        'A statement describing data availability underlying the research, where applicable.': '在適用時，提供說明研究基礎資料可得性的聲明。',
+        'Identification of funding sources and grant numbers, where applicable.': '在適用時，列明資助來源與項目編號。',
+        'journals.panorama-sg.com': 'journals.panorama-sg.com',
+        '. There is no centralised submission system for the entire portfolio.': '。整個期刊組合沒有集中式投稿系統。',
+        'or directly at journals.panorama-sg.com/index.php/[journal-id].': '或直接訪問 journals.panorama-sg.com/index.php/[journal-id]。',
+        'to preserve the integrity of the version of record.': '以維護記錄版本的完整性。',
+        'Platform administrative and policy contact.': '平台行政與政策聯絡。',
+        'Panorama Scholarly Group institutional profile.': 'Panorama Scholarly Group 機構簡介。',
+        'Guide sections': '指南章節',
+        'Peer Reviewed': '同行評審',
+        'CLOCKSS Archived': 'CLOCKSS 典藏',
+        'Cluster': '群組',
+        'Abbr.': '縮寫',
+        'Editorial Email': '編輯部郵箱',
+        'Tech': '科技',
+        'Eng': '工程',
+        'Env': '環境',
+        'Med': '醫學',
+        'Food Sci': '食品科學',
+        'Sports': '體育',
+        'Policy': '政策',
+        'Data': '資料',
+        'Law': '法律',
+        'Edu': '教育',
+        'Soc': '社會',
+        'Pol': '政治',
+        'Phil': '哲學',
+        'Arts': '藝術',
+        'Music': '音樂'
+    });
+
+    autoText.ja = {
+        'International Scholarly Journals': '国際学術ジャーナル',
+        'Home': 'ホーム',
+        'Journals': 'ジャーナル',
+        'For Authors': '著者向け',
+        'Ethics': '出版倫理',
+        'Open Access': 'オープンアクセス',
+        'Join Editorial Board': '編集委員に参加',
+        'About': '概要',
+        'Contact': 'お問い合わせ',
+        'Journal Directory': 'ジャーナル一覧',
+        'Publication Ethics': '出版倫理',
+        'Open Access Policy': 'オープンアクセス方針',
+        'Indexing & Archiving': '索引・アーカイブ',
+        'Author Guide': '著者ガイド',
+        'Administrative Contact': '管理窓口',
+        'Journals & Policies': 'ジャーナルと方針',
+        'Authors & Information': '著者情報',
+        'Editorial Directory': '編集者ディレクトリ',
+        'Related Resources': '関連リソース',
+        'Find a Journal': 'ジャーナルを探す',
+        'Search': '検索',
+        'Search by title, abbreviation, field, or ISSN': 'タイトル、略称、分野、ISSN で検索',
+        'Journal Discovery': 'ジャーナル探索',
+        'Browse All Journals': 'すべてのジャーナルを見る',
+        'Active Journals': '運営中のジャーナル',
+        'Subject Clusters': '分野クラスター',
+        'Published Articles': '出版済み論文',
+        'Crossref DOI Prefix': 'Crossref DOI プレフィックス',
+        'Core Information': '基本情報',
+        'Operating Framework': '運営フレームワーク',
+        'Contact Information': '連絡先情報',
+        'General Enquiries': '一般問い合わせ',
+        'Registered Address': '登録住所',
+        'Submission Matters': '投稿に関する事項',
+        'Email': 'メール',
+        'Legal Name': '法人名',
+        'Jurisdiction': '管轄',
+        'Quick Reference': 'クイックリファレンス',
+        'Guide Sections': 'ガイド項目',
+        'Application Requirements': '応募要件',
+        'Eligibility': '応募資格',
+        'Responsibilities': '責任',
+        'Application Materials': '応募書類',
+        'Journal': 'ジャーナル',
+        'Abbr.': '略称',
+        'Cluster': 'クラスター',
+        'Editorial Email': '編集部メール',
+        'Policy Scope': '方針の範囲',
+        'Core Rules': '基本ルール',
+        'Directory Scope': '一覧の範囲',
+        'Search Tools': '検索ツール',
+        'Keyword': 'キーワード',
+        'All clusters': 'すべてのクラスター',
+        'All status': 'すべての状態',
+        'Registered': '登録済み',
+        'Pending': '申請中',
+        'Sort': '並び替え',
+        'Title A–Z': 'タイトル A–Z',
+        'ISSN status': 'ISSN 状態',
+        'Journal Home': 'ジャーナルホーム',
+        'Submit': '投稿',
+        'No journals match the current filters.': '現在の条件に一致するジャーナルはありません。',
+        'Read Article →': '論文を読む →'
+    };
+
+    autoText.ko = {
+        'International Scholarly Journals': '국제 학술 저널',
+        'Home': '홈',
+        'Journals': '저널',
+        'For Authors': '저자 안내',
+        'Ethics': '출판 윤리',
+        'Open Access': '오픈 액세스',
+        'Join Editorial Board': '편집위원 지원',
+        'About': '소개',
+        'Contact': '문의',
+        'Journal Directory': '저널 목록',
+        'Publication Ethics': '출판 윤리',
+        'Open Access Policy': '오픈 액세스 정책',
+        'Indexing & Archiving': '색인 및 아카이빙',
+        'Author Guide': '저자 가이드',
+        'Administrative Contact': '행정 문의',
+        'Journals & Policies': '저널 및 정책',
+        'Authors & Information': '저자 정보',
+        'Editorial Directory': '편집진 디렉터리',
+        'Related Resources': '관련 자료',
+        'Find a Journal': '저널 찾기',
+        'Search': '검색',
+        'Search by title, abbreviation, field, or ISSN': '제목, 약어, 분야 또는 ISSN으로 검색',
+        'Journal Discovery': '저널 탐색',
+        'Browse All Journals': '전체 저널 보기',
+        'Active Journals': '운영 저널',
+        'Subject Clusters': '주제 클러스터',
+        'Published Articles': '출판 논문',
+        'Crossref DOI Prefix': 'Crossref DOI 접두사',
+        'Core Information': '핵심 정보',
+        'Operating Framework': '운영 프레임워크',
+        'Contact Information': '연락처 정보',
+        'General Enquiries': '일반 문의',
+        'Registered Address': '등록 주소',
+        'Submission Matters': '투고 관련 사항',
+        'Email': '이메일',
+        'Legal Name': '법인명',
+        'Jurisdiction': '관할',
+        'Quick Reference': '빠른 참고',
+        'Guide Sections': '가이드 섹션',
+        'Application Requirements': '지원 요건',
+        'Eligibility': '자격',
+        'Responsibilities': '역할',
+        'Application Materials': '지원 서류',
+        'Journal': '저널',
+        'Abbr.': '약어',
+        'Cluster': '클러스터',
+        'Editorial Email': '편집부 이메일',
+        'Policy Scope': '정책 범위',
+        'Core Rules': '핵심 규칙',
+        'Directory Scope': '목록 범위',
+        'Search Tools': '검색 도구',
+        'Keyword': '키워드',
+        'All clusters': '전체 클러스터',
+        'All status': '전체 상태',
+        'Registered': '등록됨',
+        'Pending': '대기 중',
+        'Sort': '정렬',
+        'Title A–Z': '제목 A–Z',
+        'ISSN status': 'ISSN 상태',
+        'Journal Home': '저널 홈',
+        'Submit': '투고',
+        'No journals match the current filters.': '현재 필터와 일치하는 저널이 없습니다.',
+        'Read Article →': '논문 읽기 →'
+    };
+
     function currentLang() {
         return document.documentElement.getAttribute('data-lang') || 'en';
     }
@@ -1120,21 +1500,22 @@
         if (!node || skipAutoNode(node)) return;
         var trimmed = node.nodeValue.trim();
         if (!trimmed) return;
-        if (lang === 'zh') {
+        if (lang !== 'en') {
             var countMatch = trimmed.match(/^(\d+)\s+journals?\s+found$/);
             if (countMatch) {
-                node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, countMatch[1] + ' 種期刊符合條件');
+                var suffix = lang === 'zh' ? ' 種期刊符合條件' : lang === 'ja' ? ' 件のジャーナルが見つかりました' : '개 저널을 찾았습니다';
+                node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, countMatch[1] + suffix);
                 return;
             }
         } else {
-            var zhCountMatch = trimmed.match(/^(\d+)\s+種期刊符合條件$/);
-            if (zhCountMatch) {
-                node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, zhCountMatch[1] + ' journals found');
+            var localizedCountMatch = trimmed.match(/^(\d+)(?:\s+種期刊符合條件|\s+件のジャーナルが見つかりました|개 저널을 찾았습니다)$/);
+            if (localizedCountMatch) {
+                node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, localizedCountMatch[1] + ' journals found');
                 return;
             }
         }
         if (lang === 'en') {
-            ['zh'].forEach(function (code) {
+            Object.keys(LANGUAGES).filter(function (code) { return code !== 'en'; }).forEach(function (code) {
                 var rev = reverseTextMap(code);
                 if (rev[trimmed]) node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, rev[trimmed]);
             });
@@ -1146,7 +1527,12 @@
 
     function translateAutoAttributes(root, lang) {
         var scope = root && root.querySelectorAll ? root : document;
-        var attrMap = lang === 'en' ? reverseTextMap('zh') : textMap(lang);
+        var attrMap = lang === 'en' ? {} : textMap(lang);
+        if (lang === 'en') {
+            Object.keys(LANGUAGES).filter(function (code) { return code !== 'en'; }).forEach(function (code) {
+                Object.assign(attrMap, reverseTextMap(code));
+            });
+        }
         scope.querySelectorAll('input[placeholder], textarea[placeholder], [aria-label]').forEach(function (el) {
             if (skipAutoNode(el)) return;
             ['placeholder', 'aria-label'].forEach(function (attr) {
@@ -1197,21 +1583,23 @@
     }
 
     function applyTranslations(lang) {
+        if (!LANGUAGES[lang]) lang = 'en';
         document.querySelectorAll('[data-i18n]').forEach(function (el) {
             var key = el.getAttribute('data-i18n');
-            if (lang === 'zh') {
+            if (lang !== 'en') {
                 if (!el.hasAttribute('data-i18n-orig')) {
                     el.setAttribute('data-i18n-orig', el.textContent);
                 }
-                var zh = i18n.zh[key];
-                if (zh !== undefined) el.textContent = zh;
+                var translated = i18n[lang] && i18n[lang][key];
+                if (translated !== undefined) el.textContent = translated;
             } else {
                 var orig = el.getAttribute('data-i18n-orig');
                 if (orig !== null) el.textContent = orig;
             }
         });
-        if (!LANGUAGES[lang]) lang = 'en';
         document.documentElement.classList.toggle('lang-zh', lang === 'zh');
+        document.documentElement.classList.toggle('lang-ja', lang === 'ja');
+        document.documentElement.classList.toggle('lang-ko', lang === 'ko');
         document.documentElement.setAttribute('lang', LANGUAGES[lang].htmlLang);
         document.documentElement.setAttribute('data-lang', lang);
         applyAutoTranslations(lang);
@@ -1257,7 +1645,7 @@
 
     var saved;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    applyTranslations(saved === 'zh' ? 'zh' : 'en');
+    applyTranslations(LANGUAGES[saved] ? saved : 'en');
 
     if (window.MutationObserver) {
         new MutationObserver(function (mutations) {
