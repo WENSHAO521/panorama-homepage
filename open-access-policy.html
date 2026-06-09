@@ -24,12 +24,14 @@
             <span></span><span></span><span></span>
         </button>
         <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
-            <a href="index.html">Home</a>
-            <a href="journals.html">Journals</a>
-            <a href="index.html#author-path">For Authors</a>
-            <a href="publication-ethics.html">Ethics</a>
-            <a href="open-access-policy.html" aria-current="page">Open Access</a>
-            <a href="about.html">About</a>
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="journals.html" data-i18n="nav.journals">Journals</a>
+            <a href="index.html#author-path" data-i18n="nav.for-authors">For Authors</a>
+            <a href="publication-ethics.html" data-i18n="nav.ethics">Ethics</a>
+            <a href="open-access-policy.html" aria-current="page" data-i18n="nav.open-access">Open Access</a>
+            <a href="editorial-board-application.html" data-i18n="nav.join-eb">Join Editorial Board</a>
+            <a href="about.html" data-i18n="nav.about">About</a>
+            <button class="lang-btn" onclick="toggleLang()" data-i18n="lang.btn">🇹🇼 繁中</button>
         </nav>
     </div>
 </header>
@@ -39,9 +41,9 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-body">
-                <p class="kicker">Open Access Policy</p>
-                <h1>Access, licensing, and author-rights framework for journal publication.</h1>
-                <p class="lead">Open-access implementation may vary by journal. This policy defines the shared framework used to communicate access terms, licensing, and repository expectations.</p>
+                <p class="kicker" data-i18n="oa.kicker">Open Access Policy</p>
+                <h1 data-i18n="oa.h1">Access, licensing, and author-rights framework for journal publication.</h1>
+                <p class="lead" data-i18n="oa.lead">Open-access implementation may vary by journal. This policy defines the shared framework used to communicate access terms, licensing, and repository expectations.</p>
                 <div class="trust-badges">
                     <span class="trust-badge oa">Open Access</span>
                     <span class="trust-badge doi">Crossref DOI</span>
@@ -118,35 +120,36 @@
     <div class="container footer-grid">
         <div>
             <h2>Panorama Scholarly Group</h2>
-            <p>International scholarly journals with structured submission workflows and transparent publication policies.</p>
+            <p data-i18n="footer.brand-intro">International scholarly journals with structured submission workflows and transparent publication policies.</p>
         </div>
         <div>
-            <h3>Administrative Contact</h3>
+            <h3 data-i18n="footer.admin-contact">Administrative Contact</h3>
             <p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.</p>
             <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
         </div>
         <div>
-            <h3>Journals &amp; Policies</h3>
+            <h3 data-i18n="footer.journals-policies">Journals &amp; Policies</h3>
             <ul>
-                <li><a href="journals.html">Journal Directory</a></li>
-                <li><a href="publication-ethics.html">Publication Ethics</a></li>
-                <li><a href="open-access-policy.html">Open Access Policy</a></li>
-                <li><a href="indexing.html">Indexing &amp; Archiving</a></li>
+                <li><a href="journals.html" data-i18n="footer.journal-directory">Journal Directory</a></li>
+                <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics">Publication Ethics</a></li>
+                <li><a href="open-access-policy.html" data-i18n="footer.oa-policy">Open Access Policy</a></li>
+                <li><a href="indexing.html" data-i18n="footer.indexing">Indexing &amp; Archiving</a></li>
             </ul>
         </div>
         <div>
-            <h3>Authors &amp; Information</h3>
+            <h3 data-i18n="footer.authors-info">Authors &amp; Information</h3>
             <ul>
-                <li><a href="for-authors.html">Author Guide</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a></li>
+                <li><a href="for-authors.html" data-i18n="footer.author-guide">Author Guide</a></li>
+                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb">Join Editorial Board</a></li>
+                <li><a href="about.html" data-i18n="footer.about">About</a></li>
+                <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir">Editorial Directory</a></li>
             </ul>
         </div>
     </div>
     <div class="container footer-bottom">
-        <span>©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
-        <span>Open Access Policy</span>
+        <span data-i18n="footer.copyright">©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+        <span data-i18n="footer.oa-policy">Open Access Policy</span>
     </div>
 </footer>
 
