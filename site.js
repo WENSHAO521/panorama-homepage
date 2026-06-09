@@ -1637,6 +1637,65 @@
         translateAutoAttributes(start, lang);
     }
 
+    function generatedText(lang, key) {
+        var text = {
+            zh: {
+                journalDesc: 'Panorama Scholarly Group 旗下同行評審國際期刊，提供清晰的投稿入口、期刊範圍資訊與出版政策指引。',
+                tech: '科技與工程',
+                env: '健康與永續',
+                soc: '政策、教育與社會',
+                arts: '人文與藝術',
+                issn: 'ISSN',
+                pending: '待註冊'
+            },
+            ja: {
+                journalDesc: 'Panorama Scholarly Group の査読付き国際ジャーナルです。明確な投稿入口、ジャーナル範囲、出版方針の案内を提供します。',
+                tech: '技術・工学',
+                env: '健康・持続可能性',
+                soc: '政策・教育・社会',
+                arts: '人文・芸術',
+                issn: 'ISSN',
+                pending: '申請中'
+            },
+            ko: {
+                journalDesc: 'Panorama Scholarly Group의 동료 심사 국제 저널입니다. 명확한 투고 경로, 저널 범위 정보, 출판 정책 안내를 제공합니다.',
+                tech: '기술 및 공학',
+                env: '건강 및 지속가능성',
+                soc: '정책·교육·사회',
+                arts: '인문·예술',
+                issn: 'ISSN',
+                pending: '대기 중'
+            }
+        };
+        return text[lang] && text[lang][key];
+    }
+
+    function localizeGeneratedBlocks(lang) {
+        document.querySelectorAll('.directory-item').forEach(function (item) {
+            var desc = item.querySelector('.directory-body > p:not(.directory-meta)');
+            if (desc) {
+                if (!desc.hasAttribute('data-orig-text')) desc.setAttribute('data-orig-text', desc.textContent);
+                desc.textContent = lang === 'en' ? desc.getAttribute('data-orig-text') : generatedText(lang, 'journalDesc');
+            }
+            var meta = item.querySelector('.directory-meta');
+            if (meta) {
+                if (!meta.hasAttribute('data-orig-text')) meta.setAttribute('data-orig-text', meta.textContent);
+                if (lang === 'en') {
+                    meta.textContent = meta.getAttribute('data-orig-text');
+                } else {
+                    var cls = item.className.match(/cluster-(tech|env|soc|arts)/);
+                    var group = cls ? generatedText(lang, cls[1]) : '';
+                    var original = meta.getAttribute('data-orig-text');
+                    var parts = original.split(' · ');
+                    var cat = parts[1] || '';
+                    var issnValue = (parts[2] || '').replace(/^ISSN:\s*/, '');
+                    if (issnValue === 'Pending') issnValue = generatedText(lang, 'pending');
+                    meta.textContent = [group, cat, generatedText(lang, 'issn') + ': ' + issnValue].filter(Boolean).join(' · ');
+                }
+            }
+        });
+    }
+
     function setLangMenuOpen(menu, open) {
         if (!menu) return;
         menu.classList.toggle('open', open);
@@ -1687,6 +1746,7 @@
             document.title = textMap(lang)[document.documentElement.getAttribute('data-title-orig')] || document.title;
         }
         applyAutoTranslations(lang);
+        localizeGeneratedBlocks(lang);
         updateLangButtons(lang);
         try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
     }
@@ -1738,6 +1798,7 @@
             mutations.forEach(function (mutation) {
                 mutation.addedNodes.forEach(function (node) { applyAutoTranslations(lang, node); });
             });
+            localizeGeneratedBlocks(lang);
         }).observe(document.body, { childList: true, subtree: true });
     }
 }());
