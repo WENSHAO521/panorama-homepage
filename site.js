@@ -1747,8 +1747,26 @@
         });
     }
 
+    function restoreSourceLanguage() {
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n');
+            if (i18n.en[key] !== undefined) {
+                el.textContent = i18n.en[key];
+            } else {
+                var orig = el.getAttribute('data-i18n-orig');
+                if (orig !== null) el.textContent = orig;
+            }
+        });
+        applyAutoTranslations('en');
+        localizeGeneratedBlocks('en');
+    }
+
     function applyTranslations(lang) {
         if (!LANGUAGES[lang]) lang = 'en';
+        if (!document.documentElement.hasAttribute('data-title-orig')) {
+            document.documentElement.setAttribute('data-title-orig', sourceText(document.title));
+        }
+        restoreSourceLanguage();
         document.querySelectorAll('[data-i18n]').forEach(function (el) {
             var key = el.getAttribute('data-i18n');
             if (lang !== 'en') {
@@ -1767,9 +1785,6 @@
         document.documentElement.classList.toggle('lang-ko', lang === 'ko');
         document.documentElement.setAttribute('lang', LANGUAGES[lang].htmlLang);
         document.documentElement.setAttribute('data-lang', lang);
-        if (!document.documentElement.hasAttribute('data-title-orig')) {
-            document.documentElement.setAttribute('data-title-orig', document.title);
-        }
         if (lang === 'en') {
             document.title = document.documentElement.getAttribute('data-title-orig') || document.title;
         } else {
