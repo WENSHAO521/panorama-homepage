@@ -530,6 +530,7 @@
     'use strict';
 
     var STORAGE_KEY = 'panorama-lang';
+    var autoTextSources = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
 
     var LANGUAGES = {
         en: { short: 'EN', name: 'English', htmlLang: 'en' },
@@ -548,6 +549,7 @@
             'nav.open-access': 'Open Access',
             'nav.join-eb': 'Join Editorial Board',
             'nav.about': 'About',
+            'brand.tagline': 'International Scholarly Journals',
             'footer.brand-intro': 'International scholarly journals with structured submission workflows and transparent publication policies.',
             'footer.admin-contact': 'Administrative Contact',
             'footer.journals-policies': 'Journals & Policies',
@@ -653,6 +655,7 @@
             'nav.open-access': '開放取用',
             'nav.join-eb': '加入編委會',
             'nav.about': '關於我們',
+            'brand.tagline': '國際學術期刊',
             'footer.brand-intro': '出版結合清晰投稿流程與透明出版政策的國際學術期刊。',
             'footer.admin-contact': '行政聯絡',
             'footer.journals-policies': '期刊與政策',
@@ -759,6 +762,7 @@
         'nav.open-access': 'オープンアクセス',
         'nav.join-eb': '編集委員に参加',
         'nav.about': '概要',
+        'brand.tagline': '国際学術ジャーナル',
         'footer.brand-intro': '明確な投稿ワークフローと透明性のある出版方針を備えた国際学術ジャーナル。',
         'footer.admin-contact': '管理窓口',
         'footer.journals-policies': 'ジャーナルと方針',
@@ -863,6 +867,7 @@
         'nav.open-access': '오픈 액세스',
         'nav.join-eb': '편집위원 지원',
         'nav.about': '소개',
+        'brand.tagline': '국제 학술 저널',
         'footer.brand-intro': '명확한 투고 절차와 투명한 출판 정책을 갖춘 국제 학술 저널.',
         'footer.admin-contact': '행정 문의',
         'footer.journals-policies': '저널 및 정책',
@@ -1570,7 +1575,9 @@
     function reverseTextMap(lang) {
         var out = {};
         var map = textMap(lang);
-        Object.keys(map).forEach(function (key) { out[map[key]] = key; });
+        Object.keys(map).forEach(function (key) {
+            if (out[map[key]] === undefined) out[map[key]] = key;
+        });
         return out;
     }
 
@@ -1592,7 +1599,7 @@
     }
 
     function skipAutoNode(node) {
-        var el = node.nodeType === 1 ? node : node.parentElement;
+        var el = node.nodeType === 1 ? node : node.parentNode;
         return !el || !!(el.closest && el.closest('script,style,noscript,pre,code,kbd,samp,textarea,.lang-menu'));
     }
 
@@ -1602,31 +1609,34 @@
         return leading + translated + trailing;
     }
 
+    function nodeMatchesSource(trimmed, source) {
+        if (trimmed === source) return true;
+        return Object.keys(LANGUAGES).some(function (code) {
+            return textMap(code)[source] === trimmed;
+        });
+    }
+
     function translateAutoTextNode(node, lang) {
         if (!node || skipAutoNode(node)) return;
         var trimmed = node.nodeValue.trim();
         if (!trimmed) return;
-        var source = sourceText(trimmed);
-        if (source !== trimmed) {
-            node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, source);
-            trimmed = source;
+        var source = autoTextSources && autoTextSources.get(node);
+        if (!source || !nodeMatchesSource(trimmed, source)) {
+            source = sourceText(trimmed);
+            if (autoTextSources) autoTextSources.set(node, source);
         }
         if (lang !== 'en') {
-            var countMatch = trimmed.match(/^(\d+)\s+journals?\s+found$/);
+            var countMatch = source.match(/^(\d+)\s+journals?\s+found$/);
             if (countMatch) {
                 var suffix = lang === 'zh' ? ' 種期刊符合條件' : lang === 'ja' ? ' 件のジャーナルが見つかりました' : '개 저널을 찾았습니다';
                 node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, countMatch[1] + suffix);
                 return;
             }
         } else {
-            var localizedCountMatch = trimmed.match(/^(\d+)(?:\s+種期刊符合條件|\s+件のジャーナルが見つかりました|개 저널을 찾았습니다)$/);
-            if (localizedCountMatch) {
-                node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, localizedCountMatch[1] + ' journals found');
-                return;
-            }
+            node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, source);
+            return;
         }
-        if (lang === 'en') return;
-        var translated = textMap(lang)[trimmed];
+        var translated = textMap(lang)[source];
         if (translated) node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, translated);
     }
 
@@ -1747,37 +1757,19 @@
         });
     }
 
-    function restoreSourceLanguage() {
-        document.querySelectorAll('[data-i18n]').forEach(function (el) {
-            var key = el.getAttribute('data-i18n');
-            if (i18n.en[key] !== undefined) {
-                el.textContent = i18n.en[key];
-            } else {
-                var orig = el.getAttribute('data-i18n-orig');
-                if (orig !== null) el.textContent = orig;
-            }
-        });
-        applyAutoTranslations('en');
-        localizeGeneratedBlocks('en');
-    }
-
     function applyTranslations(lang) {
         if (!LANGUAGES[lang]) lang = 'en';
-        if (!document.documentElement.hasAttribute('data-title-orig')) {
-            document.documentElement.setAttribute('data-title-orig', sourceText(document.title));
-        }
-        restoreSourceLanguage();
         document.querySelectorAll('[data-i18n]').forEach(function (el) {
             var key = el.getAttribute('data-i18n');
+            var source = i18n.en[key] !== undefined ? i18n.en[key] : sourceText(el.textContent);
+            if (!el.hasAttribute('data-i18n-orig')) {
+                el.setAttribute('data-i18n-orig', source);
+            }
             if (lang !== 'en') {
-                if (!el.hasAttribute('data-i18n-orig')) {
-                    el.setAttribute('data-i18n-orig', el.textContent);
-                }
                 var translated = i18n[lang] && i18n[lang][key];
                 if (translated !== undefined) el.textContent = translated;
             } else {
-                var orig = el.getAttribute('data-i18n-orig');
-                if (orig !== null) el.textContent = orig;
+                el.textContent = source;
             }
         });
         document.documentElement.classList.toggle('lang-zh', lang === 'zh');
@@ -1785,10 +1777,12 @@
         document.documentElement.classList.toggle('lang-ko', lang === 'ko');
         document.documentElement.setAttribute('lang', LANGUAGES[lang].htmlLang);
         document.documentElement.setAttribute('data-lang', lang);
+        var titleSource = sourceText(document.documentElement.getAttribute('data-title-orig') || document.title);
+        document.documentElement.setAttribute('data-title-orig', titleSource);
         if (lang === 'en') {
-            document.title = document.documentElement.getAttribute('data-title-orig') || document.title;
+            document.title = titleSource;
         } else {
-            document.title = textMap(lang)[document.documentElement.getAttribute('data-title-orig')] || document.title;
+            document.title = textMap(lang)[titleSource] || titleSource;
         }
         applyAutoTranslations(lang);
         localizeGeneratedBlocks(lang);
