@@ -531,9 +531,14 @@
 
     var STORAGE_KEY = 'panorama-lang';
 
+    var LANGUAGES = {
+        en: { short: 'EN', name: 'English', htmlLang: 'en' },
+        zh: { short: '繁中', name: '繁體中文', htmlLang: 'zh-HK' }
+    };
+
     var i18n = {
         en: {
-            'lang.btn': '🇭🇰 繁中',
+            'lang.btn': '繁體中文',
             'nav.home': 'Home',
             'nav.journals': 'Journals',
             'nav.for-authors': 'For Authors',
@@ -638,7 +643,7 @@
             'eb.s3.h2': 'Learn more about our journals.'
         },
         zh: {
-            'lang.btn': '🇬🇧 EN',
+            'lang.btn': 'English',
             'nav.home': '首頁',
             'nav.journals': '期刊目錄',
             'nav.for-authors': '投稿指南',
@@ -744,12 +749,450 @@
         }
     };
 
+    var autoText = {
+        zh: {
+            'Panorama Scholarly Group': 'Panorama Scholarly Group',
+            'International Scholarly Journals': '國際學術期刊',
+            'Indexed, archived, and registered with': '已被索引、典藏與註冊於',
+            'View full indexing details': '查看完整索引資訊',
+            'Journal Discovery': '期刊探索',
+            'Search by title, discipline, or ISSN before you submit.': '投稿前可依標題、學科或 ISSN 搜尋。',
+            'Open Journal Directory': '開啟期刊目錄',
+            'Search by title, abbreviation, field, or ISSN': '依標題、縮寫、領域或 ISSN 搜尋',
+            'Search': '搜尋',
+            'Browse All Journals': '瀏覽全部期刊',
+            'Explore the full directory by subject cluster.': '依學科群組瀏覽完整目錄。',
+            'AI & Engineering': 'AI 與工程',
+            'Technology-focused titles.': '聚焦科技領域的期刊。',
+            'Policy & Society': '政策與社會',
+            'Governance and social science journals.': '治理與社會科學期刊。',
+            'Humanities & Arts': '人文與藝術',
+            'Philosophy, religion, and arts journals.': '哲學、宗教與藝術期刊。',
+            'Confirm Journal Fit': '確認期刊適配度',
+            'Review aims, scope, article types, and disciplinary alignment in the journal directory.': '在期刊目錄中查看宗旨、範圍、文章類型與學科匹配度。',
+            'Review Requirements': '審閱投稿要求',
+            'Check ethics declarations, open-access terms, and manuscript formatting requirements.': '確認倫理聲明、開放取用條款與稿件格式要求。',
+            'Submit Manuscript': '提交稿件',
+            'Upload your manuscript, metadata, and required declarations through the journal submission page.': '透過期刊投稿頁面上傳稿件、元資料與必要聲明。',
+            'Complete Peer Review': '完成同行評審',
+            'Address reviewer comments, submit revisions, and proceed through final editorial decisions.': '回應審稿意見、提交修訂稿，並完成最終編輯決定流程。',
+            'Ready to submit? Review the complete author guide first.': '準備投稿？請先查看完整作者指南。',
+            'Covers formatting, declarations, peer review, and post-publication rights.': '涵蓋格式、聲明、同行評審與出版後權利。',
+            'Full Author Guide': '完整作者指南',
+            'Recent Research': '最新研究',
+            'Recent publications from across the journal portfolio.': '期刊組合中的最新出版文章。',
+            'Browse all journals': '瀏覽全部期刊',
+            'Governance': '治理',
+            'Editorial workflows supported by a consistent policy framework.': '以一致政策框架支撐的編輯工作流程。',
+            'All journals operate under shared baseline requirements for authorship integrity, peer-review confidentiality, conflict disclosure, and post-publication correction practices.': '所有期刊均遵循共同基準要求，涵蓋作者署名誠信、同行評審保密、利益衝突披露與出版後更正實務。',
+            'Editorial responsibilities, peer review conduct, originality standards, and correction procedures.': '編輯職責、同行評審行為、原創性標準與更正程序。',
+            'Licensing terms, author rights language, and repository guidance.': '授權條款、作者權利表述與存儲庫指引。',
+            'Discovery databases, preservation archives, and DOI registration details.': '探索資料庫、保存典藏與 DOI 註冊詳情。',
+            'Institutional Profile': '機構簡介',
+            'Operating model, portfolio structure, and policy framework.': '運營模式、期刊組合結構與政策框架。',
+
+            'Core Information': '核心資訊',
+            'Operating Focus': '運營重點',
+            'International scholarly journals': '國際學術期刊',
+            'Workflow Structure': '工作流程結構',
+            'Journal-level editorial processing': '期刊層級編輯處理',
+            'Policy Layer': '政策層面',
+            'Publication ethics and open-access policy framework': '出版倫理與開放取用政策框架',
+            'DOI Registration': 'DOI 註冊',
+            'Crossref member — prefix 10.63802': 'Crossref 會員 — 前綴 10.63802',
+            'Active Journals': '活躍期刊',
+            'Subject Clusters': '學科群組',
+            'Published Articles': '已發表文章',
+            'Crossref DOI Prefix': 'Crossref DOI 前綴',
+            'Operating Framework': '運營框架',
+            'How the journal platform is structured.': '期刊平台的結構方式。',
+            'Portfolio Architecture': '期刊組合架構',
+            'Titles are grouped into four subject clusters for discovery and editorial routing: Technology & Engineering, Health & Sustainability, Policy, Education & Society, and Humanities & Arts.': '期刊按四個學科群組組織，以便探索與編輯分流：科技與工程、健康與永續、政策、教育與社會，以及人文與藝術。',
+            'Editorial Handling': '編輯處理',
+            'Each journal manages submissions and peer review within its defined scope and standards, with editorial oversight at journal level.': '各期刊在其界定範圍與標準內管理投稿與同行評審，並由期刊層級進行編輯監督。',
+            'Policy Consistency': '政策一致性',
+            'Shared policy pages establish baseline requirements across the portfolio for publication ethics, open access, and conflict disclosure.': '共享政策頁面為整個期刊組合建立出版倫理、開放取用與利益衝突披露的基準要求。',
+            'Public Access Layer': '公開取用層',
+            'Journal pages, policy pages, and published articles are publicly available. DOIs are registered with Crossref for persistent citation and discovery.': '期刊頁面、政策頁面與已出版文章均公開可用。DOI 透過 Crossref 註冊，以支援持久引用與探索。',
+            'Discover journals and access submission routes.': '探索期刊並進入投稿路徑。',
+            'View the baseline conduct standards across journals.': '查看各期刊共同遵循的基準行為標準。',
+            'Review access models, licensing, and rights terms.': '審閱取用模式、授權與權利條款。',
+            'Check discovery databases and archiving commitments.': '查看探索資料庫與典藏承諾。',
+            'Journals are indexed and archived for long-term discovery and preservation.': '期刊已被索引與典藏，以支援長期探索與保存。',
+            'Full indexing details': '完整索引資訊',
+            'Journal content is archived in CLOCKSS, LOCKSS, and the PKP Preservation Network to ensure continued access in the event of publisher discontinuation. DOIs are registered through Crossref (prefix 10.63802) for persistent citation and resolution.': '期刊內容典藏於 CLOCKSS、LOCKSS 與 PKP Preservation Network，以確保出版方停止服務時仍可持續取用。DOI 透過 Crossref（前綴 10.63802）註冊，以支援持久引用與解析。',
+            'Editorial Transparency': '編輯透明度',
+            'Policy framework and editorial accountability.': '政策框架與編輯問責。',
+            'The platform operates under shared policy requirements that apply across all journals. Editorial boards and reviewer conduct are governed by published standards. External references for editorial profiles are maintained at the editorial directory.': '平台依據適用於全部期刊的共同政策要求運作。編委會與審稿人行為受已發布標準規範。編輯個人資料的外部參考由編委目錄維護。',
+            'External references for editorial profile transparency.': '用於提升編輯資料透明度的外部參考。',
+            'Reach the platform for administrative or policy enquiries.': '就行政或政策問題聯絡平台。',
+
+            'Contact Summary': '聯絡摘要',
+            'Registered Address': '註冊地址',
+            'Room 1508, 15/F., Grand Plaza, Kowloon, Hong Kong': '香港九龍 Grand Plaza 15 樓 1508 室',
+            'Submission Matters': '投稿事宜',
+            'Contact the relevant journal directly via its editorial portal': '請透過相關期刊的編輯入口直接聯絡',
+            'Contact Information': '聯絡資訊',
+            'How to reach the platform.': '如何聯絡平台。',
+            'Email': '電子郵件',
+            'Use this address for': '此地址適用於',
+            'Administrative questions, policy questions, indexing and archiving enquiries, partnership or institutional enquiries, and any matters addressed to Panorama Scholarly Group as publisher.': '行政問題、政策問題、索引與典藏查詢、合作或機構查詢，以及任何致 Panorama Scholarly Group 作為出版方的事項。',
+            'Response expectation': '回覆預期',
+            'Enquiries are reviewed by administrative staff. Response times vary; complex or policy-related enquiries may require additional time.': '查詢由行政人員審閱。回覆時間不一；複雜或政策相關查詢可能需要較長時間。',
+            'Office Address': '辦公地址',
+            'Legal Name': '法定名稱',
+            'Jurisdiction': '司法管轄區',
+            'Hong Kong Special Administrative Region, China': '中國香港特別行政區',
+            'Submission & Editorial Matters': '投稿與編輯事宜',
+            'Manuscript Submissions': '稿件投稿',
+            'Submissions are handled at journal level. Access the relevant journal\'s submission portal via the journal directory.': '投稿由期刊層級處理。請透過期刊目錄進入相關期刊的投稿入口。',
+            'Review Status Enquiries': '審稿狀態查詢',
+            'Log in to the relevant journal\'s editorial portal at journals.panorama-sg.com to check submission and review status.': '請登入 journals.panorama-sg.com 上相關期刊的編輯入口，查看投稿與審稿狀態。',
+            'The author guide covers journal selection, submission, peer review, and post-publication rights.': '作者指南涵蓋期刊選擇、投稿、同行評審與出版後權利。',
+            'Policy & Ethics Enquiries': '政策與倫理查詢',
+            'Ethics and Conduct': '倫理與行為',
+            'Enquiries regarding publication ethics policy, editorial conduct, or appeals processes should be directed to contact@panorama-sg.com with a clear description of the matter.': '有關出版倫理政策、編輯行為或申訴流程的查詢，請發送至 contact@panorama-sg.com，並清楚描述相關事項。',
+            'Open Access and Rights': '開放取用與權利',
+            'Questions about licensing, author rights, or repository terms should reference the Open Access Policy and include the relevant journal name and DOI where applicable.': '有關授權、作者權利或存儲庫條款的問題，請參考開放取用政策，並在適用時包含相關期刊名稱與 DOI。',
+            'Indexing and Archiving': '索引與典藏',
+            'Institutional or librarian enquiries about ISSN registration, DOI, CLOCKSS, or LOCKSS participation can be directed to the platform email.': '機構或圖書館員關於 ISSN 註冊、DOI、CLOCKSS 或 LOCKSS 參與的查詢，可寄送至平台郵箱。',
+            'Related Resources': '相關資源',
+            'Policies and platform information.': '政策與平台資訊。',
+            'Browse all 22 journals with submission routes.': '瀏覽全部 22 種期刊及其投稿路徑。',
+            'Full submission guidance from preparation to publication.': '從準備到出版的完整投稿指引。',
+            'Editorial conduct and integrity requirements.': '編輯行為與誠信要求。',
+            'DOI, archiving, and discovery database information.': 'DOI、典藏與探索資料庫資訊。',
+
+            'Quick Reference': '快速參考',
+            'Step 1': '步驟 1',
+            'Step 2': '步驟 2',
+            'Step 3': '步驟 3',
+            'Step 4': '步驟 4',
+            'After Publication': '出版後',
+            'Identify journal fit and scope': '確認期刊適配度與範圍',
+            'Review ethics and OA requirements': '審閱倫理與 OA 要求',
+            'Submit via journal editorial portal': '透過期刊編輯入口投稿',
+            'Respond to peer review': '回應同行評審',
+            'DOI assigned; author rights apply': '分配 DOI；適用作者權利',
+            'Find a Journal': '尋找期刊',
+            'Ethics Policy': '倫理政策',
+            'Guide Sections': '指南章節',
+            '1. Journal Selection': '1. 期刊選擇',
+            '2. Before You Submit': '2. 投稿前',
+            '3. Manuscript Preparation': '3. 稿件準備',
+            '4. Submission Process': '4. 投稿流程',
+            '5. Peer Review': '5. 同行評審',
+            '6. After Publication': '6. 出版後',
+            'Selecting the right journal before submission is the first and most important step. A submission to a journal outside its defined scope will typically be desk-rejected without review, delaying your work unnecessarily.': '投稿前選擇合適期刊是第一步，也是最重要的一步。若稿件不符合期刊範圍，通常會在未送審前被退稿，造成不必要延誤。',
+            'How to assess journal fit': '如何評估期刊適配度',
+            'Review the journal aims and scope statement on the journal home page.': '查看期刊首頁的宗旨與範圍說明。',
+            'Check published issues to confirm the journal regularly publishes work comparable to yours in discipline, methodology, and scope.': '查看已出版期次，確認該期刊是否定期發表與你研究在學科、方法與範圍上相近的作品。',
+            'Confirm the subject cluster: Technology & Engineering, Health & Sustainability, Policy, Education & Society, or Humanities & Arts.': '確認學科群組：科技與工程、健康與永續、政策、教育與社會，或人文與藝術。',
+            'Note article types accepted: original research, review articles, theoretical contributions, creative or reflective work (where applicable).': '注意可接受的文章類型：原創研究、綜述文章、理論貢獻、創作或反思性作品（如適用）。',
+            'Using the journal directory': '使用期刊目錄',
+            'The journal directory allows you to filter by subject cluster and keyword. Each journal entry links directly to the journal home page and submission portal. ISSN status is indicated for journals where registration is complete.': '期刊目錄可依學科群組和關鍵字篩選。每個期刊條目均直接連結至期刊首頁與投稿入口。已完成註冊的期刊會標示 ISSN 狀態。',
+            'Before uploading your manuscript, confirm that you have reviewed and can comply with the platform\'s shared policy requirements. Individual journals may apply additional requirements — these are detailed on each journal\'s home page.': '上傳稿件前，請確認你已審閱並能遵守平台共同政策要求。各期刊可能有額外要求，詳情列於各期刊首頁。',
+            'Publication ethics requirements': '出版倫理要求',
+            'The submission must be original and not under review at another journal simultaneously.': '投稿必須為原創，且不得同時在其他期刊審稿中。',
+            'All authors must be listed and must have contributed substantively to the work.': '所有作者均須列名，並對作品有實質貢獻。',
+            'Conflicts of interest, funding sources, or relationships that could be seen as influencing the work must be disclosed.': '必須披露可能被視為影響作品的利益衝突、資助來源或相關關係。',
+            'Any overlap with previously published work must be disclosed and appropriately cited.': '與既有出版作品的任何重疊均須披露並適當引用。',
+            'All required ethical approvals must be confirmed.': '所有必要倫理批准均須確認。',
+            'The full ethics policy is available at': '完整倫理政策見',
+            'Open access and licensing': '開放取用與授權',
+            'Panorama Scholarly Group journals publish on an open access basis. Authors should confirm the applicable licensing terms, APC status, and rights framework before final submission. This information is available on each journal\'s home page and in the Open Access Policy.': 'Panorama Scholarly Group 期刊以開放取用形式出版。作者在最終投稿前應確認適用授權條款、APC 狀態與權利框架。相關資訊可於各期刊首頁與開放取用政策中查看。',
+            'Formatting requirements vary by journal. Authors should follow the instructions for authors published on the relevant journal home page. The following general principles apply across the portfolio.': '格式要求因期刊而異。作者應遵循相關期刊首頁發布的作者須知。以下一般原則適用於整個期刊組合。',
+            'General formatting guidance': '一般格式指引',
+            'Manuscripts should be submitted in a standard word-processing format (e.g., .docx or .pdf, as specified by the journal).': '稿件應以標準文字處理格式提交（例如 .docx 或 .pdf，依期刊規定）。',
+            'Include a structured abstract where the journal requires one.': '若期刊要求，請包含結構式摘要。',
+            'Keywords should be included as specified in the journal instructions.': '請依期刊說明提供關鍵字。',
+            'References should follow the citation style specified by the journal. Include DOIs for all cited works where available.': '參考文獻應遵循期刊指定引用格式。若可取得，請為所有引用作品提供 DOI。',
+            'Tables, figures, and images should be submitted at the resolution and in the format specified by the journal.': '表格、圖表與圖片應依期刊指定解析度與格式提交。',
+            'Required declarations': '必要聲明',
+            'Author contributions:': '作者貢獻：',
+            'Conflict of interest:': '利益衝突：',
+            'Ethics approval:': '倫理批准：',
+            'Data availability:': '資料可得性：',
+            'Funding:': '資助：',
+            'Submissions are handled at journal level through the journal\'s editorial submission portal, hosted at journals.panorama-sg.com. There is no centralised submission system for the entire portfolio.': '投稿透過各期刊在 journals.panorama-sg.com 上的編輯投稿入口於期刊層級處理。整個期刊組合沒有集中式投稿系統。',
+            'Submitting your manuscript': '提交稿件',
+            'Go to the journal\'s home page via the journal directory or directly at journals.panorama-sg.com/index.php/[journal-id].': '透過期刊目錄進入期刊首頁，或直接訪問 journals.panorama-sg.com/index.php/[journal-id]。',
+            'Click the Submission link and create or log in to an account in the journal\'s editorial submission portal.': '點擊投稿連結，並在期刊編輯投稿入口建立帳號或登入。',
+            'Follow the submission steps to upload your manuscript, metadata, and required declarations.': '依照投稿步驟上傳稿件、元資料與必要聲明。',
+            'Submit for editorial review. You will receive a confirmation email from the journal\'s submission system.': '提交進入編輯審查。你將收到期刊投稿系統發出的確認郵件。',
+            'Initial editorial review': '初步編輯審查',
+            'After submission, an editor will assess whether the manuscript is within scope and meets minimum policy requirements. Manuscripts that do not meet these requirements may be desk-rejected at this stage.': '投稿後，編輯會評估稿件是否符合範圍並達到最低政策要求。不符合要求的稿件可能在此階段被初審退稿。',
+            'All journals in the portfolio use peer review. The specific review model (single-blind, double-blind, or open review) is determined at journal level and described on each journal\'s home page.': '期刊組合中的所有期刊均採用同行評審。具體評審模式（單盲、雙盲或開放評審）由期刊層級決定，並於各期刊首頁說明。',
+            'What to expect during review': '評審期間可預期事項',
+            'After editorial acceptance for review, your manuscript will be sent to independent reviewers with relevant expertise.': '經編輯接受進入評審後，稿件將送交具相關專長的獨立審稿人。',
+            'Reviewers are expected to provide objective, evidence-based assessments in accordance with the publication ethics policy.': '審稿人應依據出版倫理政策提供客觀、基於證據的評估。',
+            'Review timelines vary by journal and by the availability of reviewers in the relevant field.': '評審時間因期刊及相關領域審稿人可用性而異。',
+            'The editorial decision will be communicated to the corresponding author.': '編輯決定將通知通訊作者。',
+            'Responding to reviewer comments': '回應審稿意見',
+            'Where revision is requested, submit a detailed response letter addressing each reviewer comment individually.': '若要求修訂，請提交詳細回覆信，逐條回應每位審稿人的意見。',
+            'Revised manuscripts should clearly indicate all changes made.': '修訂稿應清楚標示所有修改內容。',
+            'Authors who disagree with a reviewer comment should provide a substantive, evidence-based explanation in the response letter.': '若作者不同意審稿意見，應在回覆信中提供實質且基於證據的說明。',
+            'Appeals': '申訴',
+            'Authors who consider that a rejection decision was based on a procedural or evaluative error may submit a reasoned appeal through the journal\'s editorial contact. Appeals should identify the specific basis for the appeal.': '若作者認為退稿決定基於程序或評估錯誤，可透過期刊編輯聯絡方式提交有理由的申訴。申訴應指出具體依據。',
+            'Upon acceptance and publication, the article will receive a Crossref DOI and will be listed on the journal\'s published content page at journals.panorama-sg.com.': '文章接收並出版後，將取得 Crossref DOI，並列於 journals.panorama-sg.com 的期刊已出版內容頁。',
+            'DOI and citation': 'DOI 與引用',
+            'Each published article is assigned a DOI with the prefix 10.63802, registered with Crossref. Authors should use this DOI when citing their own work and when providing citation information to institutions or funding bodies. DOIs resolve via doi.org.': '每篇已出版文章均分配前綴為 10.63802 的 DOI，並在 Crossref 註冊。作者引用自身作品或向機構、資助單位提供引用資訊時，應使用該 DOI。DOI 透過 doi.org 解析。',
+            'Author rights': '作者權利',
+            'Authors retain rights as specified in the publication agreement for their journal. Authors may share and post their work consistent with the applicable Creative Commons license. Confirm the specific rights applicable to your article in your publication agreement and on the journal\'s home page.': '作者依其期刊出版協議保留相應權利。作者可依適用的 Creative Commons 授權分享與發布作品。請在出版協議及期刊首頁確認文章適用的具體權利。',
+            'Repository deposit': '存儲庫存放',
+            'Repository deposit of accepted manuscripts or published versions is governed by the Open Access Policy. Authors depositing work should cite the version of record accurately and include the published DOI.': '接收稿或出版版本的存儲庫存放受開放取用政策規範。作者存放作品時應準確引用記錄版本，並包含已出版 DOI。',
+            'Corrections': '更正',
+            'If a significant error is identified in a published article, contact the journal editor promptly. The journal will determine whether a correction notice, erratum, or other action is appropriate.': '若已出版文章發現重大錯誤，請及時聯絡期刊編輯。期刊將判斷是否需要發布更正通知、勘誤或採取其他行動。',
+            'Policies, directory, and contact.': '政策、目錄與聯絡資訊。',
+            'Find and filter journals by subject and ISSN status.': '依學科與 ISSN 狀態尋找及篩選期刊。',
+            'Ethics requirements for all submissions and reviews.': '適用於所有投稿與評審的倫理要求。',
+            'Licensing, rights, and repository deposit guidance.': '授權、權利與存儲庫存放指引。',
+            'Reach the platform for submission or policy questions.': '就投稿或政策問題聯絡平台。',
+
+            'Directory Scope': '目錄範圍',
+            'Total Titles': '期刊總數',
+            '4 disciplinary groups': '4 個學科群組',
+            'Submission Routing': '投稿分流',
+            'Direct links to journal home and submission pages': '直接連結至期刊首頁與投稿頁',
+            'Search Tools': '搜尋工具',
+            'Portfolio-level journal discovery and routing.': '期刊組合層級的探索與分流。',
+            'Loading journals...': '正在載入期刊...',
+            'Keyword': '關鍵字',
+            'Title, abbreviation, field, or ISSN': '標題、縮寫、領域或 ISSN',
+            'Cluster': '群組',
+            'All clusters': '全部群組',
+            'Technology & Engineering': '科技與工程',
+            'Health & Sustainability': '健康與永續',
+            'Policy, Education & Society': '政策、教育與社會',
+            'ISSN': 'ISSN',
+            'All status': '全部狀態',
+            'Registered': '已註冊',
+            'Pending': '待註冊',
+            'Sort': '排序',
+            'Title A–Z': '標題 A–Z',
+            'ISSN status': 'ISSN 狀態',
+            'Before Submission: Ethics': '投稿前：倫理',
+            'Review authorship, originality, and disclosure requirements.': '審閱作者署名、原創性與披露要求。',
+            'Before Submission: Open Access': '投稿前：開放取用',
+            'Check licensing and rights conditions.': '確認授權與權利條件。',
+            'Full submission workflow from preparation to decision.': '從準備到決定的完整投稿流程。',
+            'View discovery databases and preservation archives.': '查看探索資料庫與保存典藏。',
+            'Journal Home': '期刊首頁',
+            'Submit': '投稿',
+            'No journals match the current filters.': '沒有期刊符合目前篩選條件。',
+            'A peer-reviewed international journal within the Panorama Scholarly Group portfolio.': 'Panorama Scholarly Group 期刊組合中的同行評審國際期刊。',
+            'journal found': '種期刊符合條件',
+            'journals found': '種期刊符合條件',
+
+            'Policy Scope': '政策範圍',
+            'Applies To': '適用對象',
+            'Authors, reviewers, editors, and editorial boards': '作者、審稿人、編輯與編委會',
+            'Core Areas': '核心領域',
+            'Originality, review conduct, disclosures, and corrections': '原創性、評審行為、披露與更正',
+            'Outcome': '目標',
+            'Integrity of the scholarly record': '維護學術記錄完整性',
+            'Core Rules': '核心規則',
+            'Ethics requirements used in editorial handling.': '編輯處理中使用的倫理要求。',
+            'Editorial decisions': '編輯決定',
+            'Editorial decisions are based on journal scope, scholarly merit, and policy compliance, independent of personal or institutional bias.': '編輯決定基於期刊範圍、學術價值與政策合規性，不受個人或機構偏見影響。',
+            'Peer review conduct': '同行評審行為',
+            'Reviewers are expected to provide objective, evidence-based assessments and maintain manuscript confidentiality throughout review.': '審稿人應提供客觀、基於證據的評估，並在整個評審期間維護稿件保密性。',
+            'Originality and citation': '原創性與引用',
+            'Submissions must be original, properly cited, and free from undisclosed duplicate or redundant publication.': '投稿必須為原創、引用適當，且不得存在未披露的一稿多投或重複出版。',
+            'Conflict disclosure': '利益衝突披露',
+            'Authors, reviewers, and editors should disclose relationships that could reasonably be seen as influencing editorial judgment.': '作者、審稿人與編輯應披露可能被合理視為影響編輯判斷的關係。',
+            'Corrections and retractions': '更正與撤稿',
+            'When significant issues are confirmed after publication, journals may issue corrections, expressions of concern, or retractions as appropriate.': '出版後若確認存在重大問題，期刊可視情況發布更正、關切聲明或撤稿。',
+            'Confidentiality and data use': '保密與資料使用',
+            'Unpublished manuscript content should not be used for personal research, teaching, or distribution without explicit permission from the rights holder.': '未出版稿件內容不得在未獲權利持有人明確許可下用於個人研究、教學或分發。',
+            'Appeals and concerns': '申訴與關切',
+            'Authors may submit a reasoned appeal where they identify a substantive procedural or evaluative issue in editorial handling.': '若作者認為編輯處理存在實質程序或評估問題，可提交有理由的申訴。',
+            'Select a journal and review submission pages.': '選擇期刊並查看投稿頁面。',
+            'Check license and rights conditions before submission.': '投稿前確認授權與權利條件。',
+            'Contact the platform for ethics-policy questions.': '就倫理政策問題聯絡平台。',
+
+            'Access Models': '取用模式',
+            'Journal-specific (Diamond OA or Gold OA)': '依期刊而定（鑽石 OA 或金色 OA）',
+            'Licensing': '授權',
+            'Creative Commons terms specified at journal level': '由期刊層級指定的 Creative Commons 條款',
+            'Rights Language': '權利表述',
+            'Author rights and publication permissions': '作者權利與出版許可',
+            'Open-access requirements used across the portfolio.': '整個期刊組合使用的開放取用要求。',
+            'Public access principle': '公開取用原則',
+            'Published research is made available online under each journal\'s open-access policy and publication agreement.': '已出版研究依各期刊開放取用政策與出版協議在線提供。',
+            'Journal-level OA model': '期刊層級 OA 模式',
+            'Journals may apply different operating models. Authors should confirm APC, waiver, or no-APC conditions before final submission.': '不同期刊可採用不同運營模式。作者應在最終投稿前確認 APC、豁免或無 APC 條件。',
+            'License disclosure': '授權披露',
+            'Applicable licenses are communicated at journal level. Authors should verify permitted reuse before publication.': '適用授權由期刊層級說明。作者應在出版前確認允許的再使用範圍。',
+            'Author rights and permissions': '作者權利與許可',
+            'Unless agreements specify otherwise, authors retain key rights while granting non-exclusive publication and distribution permissions.': '除非協議另有規定，作者保留主要權利，同時授予非排他性出版與分發許可。',
+            'Repository and archiving': '存儲庫與典藏',
+            'Repository deposit should follow journal terms and preserve accurate citation of the version of record.': '存儲庫存放應遵循期刊條款，並保留對記錄版本的準確引用。',
+            'Third-party content': '第三方內容',
+            'Authors are responsible for securing permissions for third-party figures, tables, or images where required by license or copyright law.': '若授權或著作權法要求，作者負責取得第三方圖、表或圖片的使用許可。',
+            'Version clarity': '版本清晰性',
+            'Where multiple versions are posted, records should clearly identify accepted manuscript versus final published version.': '若發布多個版本，記錄應清楚區分接收稿與最終出版版本。',
+            'Confirm OA terms on each journal page.': '在各期刊頁面確認 OA 條款。',
+            'Review complementary conduct and integrity requirements.': '審閱補充性的行為與誠信要求。',
+            'View archiving and preservation commitments.': '查看典藏與保存承諾。',
+            'Contact the platform for rights and OA questions.': '就權利與 OA 問題聯絡平台。',
+
+            'At a Glance': '概覽',
+            'DOI Registrar': 'DOI 註冊機構',
+            'Preservation': '保存',
+            'CLOCKSS, LOCKSS, PKP Preservation Network': 'CLOCKSS、LOCKSS、PKP Preservation Network',
+            'Discovery': '探索',
+            'Google Scholar, BASE, Dimensions, OpenAlex, Semantic Scholar': 'Google Scholar、BASE、Dimensions、OpenAlex、Semantic Scholar',
+            'ISSN Registration': 'ISSN 註冊',
+            'ISSN International Centre': 'ISSN 國際中心',
+            'Digital Object Identifiers': '數位物件識別碼',
+            'Persistent identifiers registered through Crossref.': '透過 Crossref 註冊的持久識別碼。',
+            'Crossref Membership': 'Crossref 會員資格',
+            'Panorama Scholarly Group is a Crossref member publisher. All accepted articles receive a DOI registered in the Crossref metadata database.': 'Panorama Scholarly Group 是 Crossref 會員出版方。所有接收文章均取得註冊於 Crossref 元資料庫的 DOI。',
+            'DOI Prefix': 'DOI 前綴',
+            'The platform DOI prefix is': '平台 DOI 前綴為',
+            'Individual journal DOIs follow the format 10.63802/[journal-id].[volume].[issue].[article-id].': '各期刊 DOI 遵循格式 10.63802/[journal-id].[volume].[issue].[article-id]。',
+            'Persistent Resolution': '持久解析',
+            'All DOIs resolve to the article landing page at journals.panorama-sg.com via the DOI Foundation resolver at doi.org.': '所有 DOI 均透過 doi.org 的 DOI Foundation 解析器解析至 journals.panorama-sg.com 上的文章落地頁。',
+            'Metadata Standards': '元資料標準',
+            'Article metadata including title, authors, abstract, and references is deposited with Crossref at the time of publication for downstream discovery and citation.': '文章標題、作者、摘要與參考文獻等元資料會在出版時提交至 Crossref，以支援後續探索與引用。',
+            'DOIs enable persistent citation of the published version of record. Authors and institutions citing Panorama Scholarly Group articles should use the assigned DOI rather than the direct URL to ensure long-term link integrity.': 'DOI 可支援對已出版記錄版本的持久引用。作者與機構引用 Panorama Scholarly Group 文章時，應使用分配的 DOI，而非直接 URL，以確保長期連結完整性。',
+            'Discovery Databases': '探索資料庫',
+            'Journals are indexed in major scholarly search and discovery platforms.': '期刊已被主要學術搜尋與探索平台索引。',
+            'Article-level indexing via Google\'s scholarly search engine.': '透過 Google 學術搜尋引擎進行文章層級索引。',
+            'Bielefeld Academic Search Engine — one of the largest academic search engines worldwide.': 'Bielefeld Academic Search Engine，全球最大的學術搜尋引擎之一。',
+            'Research intelligence platform for scholarly discovery and analytics.': '用於學術探索與分析的研究情報平台。',
+            'Open catalog of global scholarly metadata and citation networks.': '全球學術元資料與引用網路的開放目錄。',
+            'AI-powered academic search engine from the Allen Institute for AI.': 'Allen Institute for AI 提供的 AI 驅動學術搜尋引擎。',
+            'Official DOI registration and metadata for all published articles.': '所有已出版文章的官方 DOI 註冊與元資料。',
+            'Preservation & Archiving': '保存與典藏',
+            'Long-term preservation through distributed archiving networks.': '透過分散式典藏網路進行長期保存。',
+            'Controlled LOCKSS network providing dark archive preservation for journals in the event of publisher discontinuation.': '受控 LOCKSS 網路，為期刊在出版方停止服務時提供暗典藏保存。',
+            'Distributed digital preservation network enabling participating libraries to preserve their own copies of content.': '分散式數位保存網路，使參與圖書館能保存其自身內容副本。',
+            'A LOCKSS-based preservation network operated by the Public Knowledge Project, designed specifically for journals on the editorial platform.': '由 Public Knowledge Project 運營、基於 LOCKSS 的保存網路，專為編輯平台上的期刊設計。',
+            'Open research repository operated by CERN, enabling open deposit and citation of research outputs.': '由 CERN 運營的開放研究存儲庫，支援研究成果的開放存放與引用。',
+            'Panorama Scholarly Group journals participate in the CLOCKSS, LOCKSS, and PKP Preservation Network archiving programs. In the event of publisher discontinuation or content unavailability, archived content will be released by the CLOCKSS network to ensure continued access.': 'Panorama Scholarly Group 期刊參與 CLOCKSS、LOCKSS 與 PKP Preservation Network 典藏計畫。若出版方停止服務或內容不可用，典藏內容將由 CLOCKSS 網路釋出，以確保持續取用。',
+            'Authors depositing preprints or accepted manuscripts in Zenodo or institutional repositories should follow the version and citation guidance in the Open Access Policy to preserve the integrity of the version of record.': '作者將預印本或接收稿存放於 Zenodo 或機構存儲庫時，應遵循開放取用政策中的版本與引用指引，以維護記錄版本的完整性。',
+            'Registration & Identifiers': '註冊與識別碼',
+            'International registration bodies and identifier systems.': '國際註冊機構與識別碼系統。',
+            'International Standard Serial Number registered with the ISSN International Centre for each qualifying journal title.': '符合條件的期刊標題向 ISSN 國際中心註冊國際標準連續出版物號。',
+            'International Standard Name Identifier for publisher and contributor identity management.': '用於出版方與貢獻者身份管理的國際標準名稱識別碼。',
+            'German national bibliography providing metadata registration for open access publications.': '德國國家書目，為開放取用出版物提供元資料註冊。',
+            'The international body governing the Digital Object Identifier system used for article persistent identifiers.': '管理數位物件識別碼系統的國際機構，該系統用於文章持久識別碼。',
+            'Journals with registered ISSNs have been verified by the ISSN International Centre. Journals with pending ISSN status are in the registration process. Authors requiring ISSN confirmation should check the individual journal page or contact the platform directly.': '已註冊 ISSN 的期刊已由 ISSN 國際中心核驗。ISSN 待註冊期刊仍在註冊流程中。需要 ISSN 確認的作者應查看單一期刊頁面或直接聯絡平台。',
+            'Policy and submission information.': '政策與投稿資訊。',
+            'Browse all 22 journals with ISSN and cluster information.': '瀏覽全部 22 種期刊及其 ISSN、群組資訊。',
+            'Review licensing, repository, and rights guidance.': '審閱授權、存儲庫與權利指引。',
+            'Editorial integrity and peer review conduct standards.': '編輯誠信與同行評審行為標準。',
+            'Enquiries': '查詢',
+            'Contact the platform for indexing or archiving questions.': '就索引或典藏問題聯絡平台。',
+            'Read Article →': '閱讀文章 →'
+        }
+    };
+
+    function currentLang() {
+        return document.documentElement.getAttribute('data-lang') || 'en';
+    }
+
+    function textMap(lang) {
+        return autoText[lang] || {};
+    }
+
+    function reverseTextMap(lang) {
+        var out = {};
+        var map = textMap(lang);
+        Object.keys(map).forEach(function (key) { out[map[key]] = key; });
+        return out;
+    }
+
+    function skipAutoNode(node) {
+        var el = node.nodeType === 1 ? node : node.parentElement;
+        return !el || !!(el.closest && el.closest('script,style,noscript,pre,code,kbd,samp,textarea,.lang-menu'));
+    }
+
+    function replacePreservingEdgeSpace(value, translated) {
+        var leading = value.match(/^\s*/)[0];
+        var trailing = value.match(/\s*$/)[0];
+        return leading + translated + trailing;
+    }
+
+    function translateAutoTextNode(node, lang) {
+        if (!node || skipAutoNode(node)) return;
+        var trimmed = node.nodeValue.trim();
+        if (!trimmed) return;
+        if (lang === 'zh') {
+            var countMatch = trimmed.match(/^(\d+)\s+journals?\s+found$/);
+            if (countMatch) {
+                node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, countMatch[1] + ' 種期刊符合條件');
+                return;
+            }
+        } else {
+            var zhCountMatch = trimmed.match(/^(\d+)\s+種期刊符合條件$/);
+            if (zhCountMatch) {
+                node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, zhCountMatch[1] + ' journals found');
+                return;
+            }
+        }
+        if (lang === 'en') {
+            ['zh'].forEach(function (code) {
+                var rev = reverseTextMap(code);
+                if (rev[trimmed]) node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, rev[trimmed]);
+            });
+            return;
+        }
+        var translated = textMap(lang)[trimmed];
+        if (translated) node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, translated);
+    }
+
+    function translateAutoAttributes(root, lang) {
+        var scope = root && root.querySelectorAll ? root : document;
+        var attrMap = lang === 'en' ? reverseTextMap('zh') : textMap(lang);
+        scope.querySelectorAll('input[placeholder], textarea[placeholder], [aria-label]').forEach(function (el) {
+            if (skipAutoNode(el)) return;
+            ['placeholder', 'aria-label'].forEach(function (attr) {
+                var value = el.getAttribute(attr);
+                if (value && attrMap[value]) el.setAttribute(attr, attrMap[value]);
+            });
+        });
+    }
+
+    function applyAutoTranslations(lang, root) {
+        var start = root || document.body;
+        if (!start || skipAutoNode(start)) return;
+        if (start.nodeType === 3) {
+            translateAutoTextNode(start, lang);
+            return;
+        }
+        var walker = document.createTreeWalker(start, NodeFilter.SHOW_TEXT, {
+            acceptNode: function (node) {
+                return skipAutoNode(node) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+            }
+        });
+        var nodes = [];
+        var node;
+        while ((node = walker.nextNode())) nodes.push(node);
+        nodes.forEach(function (textNode) { translateAutoTextNode(textNode, lang); });
+        translateAutoAttributes(start, lang);
+    }
+
+    function setLangMenuOpen(menu, open) {
+        if (!menu) return;
+        menu.classList.toggle('open', open);
+        var toggle = menu.querySelector('[data-lang-toggle]');
+        if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
     function updateLangButtons(lang) {
-        document.querySelectorAll('.lang-btn').forEach(function (btn) {
-            var isZh = lang === 'zh';
-            btn.classList.toggle('is-zh', isZh);
-            btn.setAttribute('aria-pressed', isZh ? 'true' : 'false');
-            btn.setAttribute('aria-label', isZh ? 'Switch language to English' : '切換語言為繁體中文');
+        var meta = LANGUAGES[lang] || LANGUAGES.en;
+        document.querySelectorAll('.lang-menu').forEach(function (menu) {
+            var current = menu.querySelector('.lang-current');
+            var toggle = menu.querySelector('[data-lang-toggle]');
+            if (current) current.textContent = meta.short;
+            if (toggle) toggle.setAttribute('aria-label', 'Select language: ' + meta.name);
+            menu.querySelectorAll('[data-lang-option]').forEach(function (option) {
+                var active = option.getAttribute('data-lang-option') === lang;
+                option.setAttribute('aria-checked', active ? 'true' : 'false');
+            });
         });
     }
 
@@ -767,22 +1210,62 @@
                 if (orig !== null) el.textContent = orig;
             }
         });
+        if (!LANGUAGES[lang]) lang = 'en';
         document.documentElement.classList.toggle('lang-zh', lang === 'zh');
-        document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+        document.documentElement.setAttribute('lang', LANGUAGES[lang].htmlLang);
+        document.documentElement.setAttribute('data-lang', lang);
+        applyAutoTranslations(lang);
         updateLangButtons(lang);
         try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
     }
 
     window.toggleLang = function () {
-        var isZh = document.documentElement.classList.contains('lang-zh');
-        applyTranslations(isZh ? 'en' : 'zh');
+        applyTranslations(currentLang() === 'zh' ? 'en' : 'zh');
     };
 
-    document.querySelectorAll('.lang-btn').forEach(function (btn) {
-        btn.addEventListener('click', window.toggleLang);
+    window.setLanguage = function (lang) {
+        applyTranslations(lang);
+    };
+
+    document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
+        btn.addEventListener('click', function (event) {
+            event.stopPropagation();
+            var menu = btn.closest('.lang-menu');
+            var open = !(menu && menu.classList.contains('open'));
+            document.querySelectorAll('.lang-menu.open').forEach(function (other) { setLangMenuOpen(other, false); });
+            setLangMenuOpen(menu, open);
+        });
+    });
+
+    document.querySelectorAll('[data-lang-option]').forEach(function (option) {
+        option.addEventListener('click', function (event) {
+            event.stopPropagation();
+            applyTranslations(option.getAttribute('data-lang-option') || 'en');
+            setLangMenuOpen(option.closest('.lang-menu'), false);
+        });
+    });
+
+    document.addEventListener('click', function () {
+        document.querySelectorAll('.lang-menu.open').forEach(function (menu) { setLangMenuOpen(menu, false); });
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            document.querySelectorAll('.lang-menu.open').forEach(function (menu) { setLangMenuOpen(menu, false); });
+        }
     });
 
     var saved;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     applyTranslations(saved === 'zh' ? 'zh' : 'en');
+
+    if (window.MutationObserver) {
+        new MutationObserver(function (mutations) {
+            var lang = currentLang();
+            if (lang === 'en') return;
+            mutations.forEach(function (mutation) {
+                mutation.addedNodes.forEach(function (node) { applyAutoTranslations(lang, node); });
+            });
+        }).observe(document.body, { childList: true, subtree: true });
+    }
 }());

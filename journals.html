@@ -31,10 +31,15 @@
             <a href="open-access-policy.html" data-i18n="nav.open-access">Open Access</a>
             <a href="editorial-board-application.html" data-i18n="nav.join-eb">Join Editorial Board</a>
             <a href="about.html" data-i18n="nav.about">About</a>
-            <button class="lang-btn" type="button" aria-label="Switch language" aria-pressed="false">
-                <span class="lang-option lang-option-en" aria-hidden="true">🇬🇧 EN</span>
-                <span class="lang-option lang-option-zh" aria-hidden="true">🇭🇰 繁中</span>
-            </button>
+            <div class="lang-menu">
+                <button class="lang-btn" type="button" aria-label="Select language" aria-expanded="false" data-lang-toggle>
+                    <span class="lang-current">EN</span>
+                </button>
+                <div class="lang-options" role="menu" data-lang-menu>
+                    <button type="button" role="menuitemradio" data-lang-option="en">English</button>
+                    <button type="button" role="menuitemradio" data-lang-option="zh">繁體中文</button>
+                </div>
+            </div>
         </nav>
     </div>
 </header>
