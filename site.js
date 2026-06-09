@@ -533,7 +533,7 @@
 
     var i18n = {
         en: {
-            'lang.btn': '🇹🇼 繁中',
+            'lang.btn': '🇭🇰 繁中',
             'nav.home': 'Home',
             'nav.journals': 'Journals',
             'nav.for-authors': 'For Authors',
@@ -744,6 +744,15 @@
         }
     };
 
+    function updateLangButtons(lang) {
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+            var isZh = lang === 'zh';
+            btn.classList.toggle('is-zh', isZh);
+            btn.setAttribute('aria-pressed', isZh ? 'true' : 'false');
+            btn.setAttribute('aria-label', isZh ? 'Switch language to English' : '切換語言為繁體中文');
+        });
+    }
+
     function applyTranslations(lang) {
         document.querySelectorAll('[data-i18n]').forEach(function (el) {
             var key = el.getAttribute('data-i18n');
@@ -760,6 +769,7 @@
         });
         document.documentElement.classList.toggle('lang-zh', lang === 'zh');
         document.documentElement.setAttribute('lang', lang === 'zh' ? 'zh-TW' : 'en');
+        updateLangButtons(lang);
         try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
     }
 
@@ -768,7 +778,11 @@
         applyTranslations(isZh ? 'en' : 'zh');
     };
 
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', window.toggleLang);
+    });
+
     var saved;
     try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    if (saved === 'zh') applyTranslations('zh');
+    applyTranslations(saved === 'zh' ? 'zh' : 'en');
 }());
