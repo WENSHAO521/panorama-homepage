@@ -1297,6 +1297,18 @@
     };
 
     Object.assign(autoText.zh, {
+        'About | Panorama Scholarly Group': '關於我們 | Panorama Scholarly Group',
+        'Contact | Panorama Scholarly Group': '聯絡我們 | Panorama Scholarly Group',
+        'Join Editorial Board | Panorama Scholarly Group': '加入編委會 | Panorama Scholarly Group',
+        'Author Guide | Panorama Scholarly Group': '投稿指南 | Panorama Scholarly Group',
+        'Panorama Scholarly Group | International Scholarly Journals': 'Panorama Scholarly Group | 國際學術期刊',
+        'Indexing & Archiving | Panorama Scholarly Group': '索引與典藏 | Panorama Scholarly Group',
+        'Journals | Panorama Scholarly Group': '期刊目錄 | Panorama Scholarly Group',
+        'Open Access Policy | Panorama Scholarly Group': '開放取用政策 | Panorama Scholarly Group',
+        'Publication Ethics | Panorama Scholarly Group': '出版倫理 | Panorama Scholarly Group',
+        'Toggle navigation': '切換導覽',
+        'Primary navigation': '主要導覽',
+        'Select language': '選擇語言',
         'or the journal\'s editorial office — see table below': '或各期刊編輯部 — 見下表',
         'journal directory': '期刊目錄',
         'author guide': '作者指南',
@@ -1318,6 +1330,65 @@
         'Guide sections': '指南章節',
         'Peer Reviewed': '同行評審',
         'CLOCKSS Archived': 'CLOCKSS 典藏',
+        'CLOCKSS Archive': 'CLOCKSS 典藏',
+        'PKP Preservation': 'PKP 保存',
+        'ISSN Registered': 'ISSN 已註冊',
+        'Editorial responsibilities, peer review conduct, and correction procedures.': '編輯責任、同行評審行為與更正程序。',
+        'Licensing terms, author rights, and repository guidance.': '授權條款、作者權利與存儲庫指引。',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': '香港九龍彌敦道 625 號 Grand Plaza 辦公大樓二座 15 樓 1508 室。',
+        'Room 1508, 15/F., Office Tower Two': '辦公大樓二座 15 樓 1508 室',
+        'Grand Plaza, 625 Nathan Road': '彌敦道 625 號 Grand Plaza',
+        'Kowloon, Hong Kong': '香港九龍',
+        'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
+        'Submissions are handled at journal level. Access the relevant journal\'s submission portal via the': '投稿由期刊層級處理。請透過',
+        'covers journal selection, submission, peer review, and post-publication rights.': '了解期刊選擇、投稿、同行評審與出版後權利。',
+        'Enquiries regarding publication ethics policy, editorial conduct, or appeals processes should be directed to': '有關出版倫理政策、編輯行為或申訴流程的查詢，請寄送至',
+        'Questions about licensing, author rights, or repository terms should reference the': '有關授權、作者權利或存儲庫條款的問題，請參考',
+        'Panorama Scholarly Group\'s journals invite scholars worldwide to join their editorial boards. We welcome researchers with strong academic backgrounds and peer-review experience to help uphold the quality of international scholarly publishing.': 'Panorama Scholarly Group 旗下各期刊誠邀全球學者加入編委會，歡迎具備深厚學術背景與同行評審經驗的研究人員申請，共同維護國際學術出版品質。',
+        'Please state in your email the journal(s) you wish to join. If unsure, browse the': '請在郵件正文中註明希望加入的期刊。如不確定，可瀏覽',
+        'to find the best match for your research.': '以尋找最符合你研究方向的期刊。',
+        'Submission guidance from manuscript preparation to publication.': '從稿件準備到出版的投稿指南。',
+        'This guide covers the full submission process for Panorama Scholarly Group journals — journal selection, ethics requirements, peer review, and post-publication rights.': '本指南涵蓋 Panorama Scholarly Group 期刊的完整投稿流程，包括期刊選擇、倫理要求、同行評審與出版後權利。',
+        'Panorama Scholarly Group journals publish on an open access basis. Authors should confirm the applicable licensing terms, APC status, and rights framework before final submission. This information is available on each journal\'s home page and in the': 'Panorama Scholarly Group 期刊以開放取用形式出版。作者應在最終投稿前確認適用授權條款、APC 狀態與權利框架。相關資訊可在各期刊首頁及',
+        'Submissions are handled at journal level through the journal\'s editorial submission portal, hosted at': '投稿透過各期刊的編輯投稿入口於期刊層級處理，該入口位於',
+        'Go to the journal\'s home page via the': '請透過',
+        'Reviewers are expected to provide objective, evidence-based assessments in accordance with the': '審稿人應依據',
+        'Repository deposit of accepted manuscripts or published versions is governed by the': '接收稿或出版版本的存儲庫存放受',
+        '. Authors depositing work should cite the version of record accurately and include the published DOI.': '規範。作者存放作品時應準確引用記錄版本，並包含已出版 DOI。',
+        'Submission workflow from manuscript preparation to editorial decision.': '從稿件準備到編輯決定的投稿流程。',
+        'Discovery, preservation, and persistent identifier information for all journals.': '所有期刊的探索、保存與持久識別碼資訊。',
+        'Journals in the Panorama Scholarly Group portfolio are indexed in major scholarly discovery databases, preserved in distributed archiving networks, and registered with international identifier systems.': 'Panorama Scholarly Group 期刊組合已被主要學術探索資料庫索引，並保存在分散式典藏網路中，同時註冊於國際識別碼系統。',
+        'Crossref — prefix 10.63802': 'Crossref — 前綴 10.63802',
+        '. Individual journal DOIs follow the format 10.63802/[journal-id].[volume].[issue].[article-id].': '。各期刊 DOI 遵循格式 10.63802/[journal-id].[volume].[issue].[article-id]。',
+        'Authors depositing preprints or accepted manuscripts in Zenodo or institutional repositories should follow the version and citation guidance in the': '作者將預印本或接收稿存放於 Zenodo 或機構存儲庫時，應遵循',
+        'Filter journals and move directly to the right submission route.': '篩選期刊並直接前往合適的投稿路徑。',
+        'Use keyword, subject cluster, and ISSN status to identify an appropriate journal, then continue to its journal home page or submission portal.': '使用關鍵字、學科群組與 ISSN 狀態識別合適期刊，然後前往其期刊首頁或投稿入口。',
+        'Access, licensing, and author-rights framework for journal publication.': '期刊出版的取用、授權與作者權利框架。',
+        'Open-access implementation may vary by journal. This policy defines the shared framework used to communicate access terms, licensing, and repository expectations.': '開放取用實施方式可能因期刊而異。本政策定義用於說明取用條款、授權與存儲庫期望的共同框架。',
+        'Policy Contact': '政策聯絡',
+        'Core ethics requirements for submission, review, and publication.': '投稿、評審與出版的核心倫理要求。',
+        'These requirements apply across Panorama Scholarly Group journals. Individual journals may publish additional discipline-specific instructions.': '這些要求適用於 Panorama Scholarly Group 各期刊。個別期刊可發布額外的學科特定指引。',
+        'Panorama Frontier Review': 'Panorama Frontier Review',
+        'AI & Future Society': 'AI & Future Society',
+        'Journal of Engineering Systems & Applications': 'Journal of Engineering Systems & Applications',
+        'Health Nexus: Digital Health & Medical AI': 'Health Nexus: Digital Health and Medical AI',
+        'Climate Sustainability & Global Systems': 'Climate Sustainability & Global Systems',
+        'Rural Governance & Green Development': 'Rural Governance & Green Development',
+        'Health Nexus': 'Health Nexus',
+        'Food Systems, Safety & Sustainability': 'Food Systems, Safety & Sustainability',
+        'Journal of Sport and Exercise Studies': 'Journal of Sport and Exercise Studies',
+        'Global Public Policy & Governance Review': 'Global Public Policy & Governance Review',
+        'PoliEcoM Administration Review': 'PoliEcoM Administration Review',
+        'Computational Social Sciences Review': 'Computational Social Sciences Review',
+        'Journal of Law, Psychology, & Communication': 'Journal of Law, Psychology, and Communication',
+        'International Review of Education & Learning': 'International Review of Education and Learning',
+        'Journal of Social Cognition and Communication': 'Journal of Social Cognition and Communication',
+        'Contemporary Review of Political Thought': 'Contemporary Review of Political Thought',
+        'Global Review of Humanities, Arts, & Society': 'Global Review of Humanities, Arts, and Society',
+        'Three Teachings Studies': 'Three Teachings Studies',
+        'Comparative Philosophy & Religious Traditions': 'Comparative Philosophy and Religious Traditions',
+        'Journal of Dance and Embodied Structure': 'Journal of Dance and Embodied Structure',
+        'Med AI': '醫療 AI',
         'Cluster': '群組',
         'Abbr.': '縮寫',
         'Editorial Email': '編輯部郵箱',
@@ -1602,6 +1673,14 @@
         document.documentElement.classList.toggle('lang-ko', lang === 'ko');
         document.documentElement.setAttribute('lang', LANGUAGES[lang].htmlLang);
         document.documentElement.setAttribute('data-lang', lang);
+        if (!document.documentElement.hasAttribute('data-title-orig')) {
+            document.documentElement.setAttribute('data-title-orig', document.title);
+        }
+        if (lang === 'en') {
+            document.title = document.documentElement.getAttribute('data-title-orig') || document.title;
+        } else {
+            document.title = textMap(lang)[document.documentElement.getAttribute('data-title-orig')] || document.title;
+        }
         applyAutoTranslations(lang);
         updateLangButtons(lang);
         try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
