@@ -708,7 +708,7 @@
             'eb.panel.materials.dd': '個人簡歷（CV）',
             'eb.panel.email.dt': '發送至',
             'eb.panel.subject.dt': '郵件主題',
-            'eb.panel.subject.dd': 'Editorial Board Application — [期刊名稱]',
+            'eb.panel.subject.dd': '編委會申請 — [期刊名稱]',
             'eb.panel.reply.dt': '回覆周期',
             'eb.panel.reply.dd': '收到申請後 4 週內回覆',
             'eb.s1.kicker': '申請須知',
@@ -737,7 +737,7 @@
             'eb.s1.q4.h3': '聯絡編輯部',
             'eb.s1.q4.r1.label': '通用詢問',
             'eb.s1.q4.r2.label': '郵件主題格式',
-            'eb.s1.q4.r2.p': 'Editorial Board Application — [期刊名稱]，例如：Editorial Board Application — Journal of Engineering Systems & Applications',
+            'eb.s1.q4.r2.p': '編委會申請 — [期刊名稱]，例如：編委會申請 — Journal of Engineering Systems & Applications',
             'eb.s1.q4.r3.label': '注意事項',
             'eb.s1.q4.r3.p': '編輯部將對所有申請進行保密處理。編委職位不收取任何申請費或會員費。',
             'eb.s2.kicker': '期刊目錄',
@@ -772,12 +772,14 @@
         'footer.about': '概要',
         'footer.contact': 'お問い合わせ',
         'footer.editorial-dir': '編集者ディレクトリ',
-        'footer.copyright': '©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.',
+        'footer.copyright': '©2025~2026 Panorama Scholarly Group Ltd. All rights reserved. 無断転載を禁じます。',
         'index.kicker': 'ホーム',
         'index.h1': '適切なジャーナルを見つけ、自信を持って投稿する。',
         'index.lead': 'Panorama Scholarly Group は、構造化された編集ワークフローを通じて国際学術ジャーナルを支援します。著者はジャーナル適合性を確認し、方針要件を見直し、査読開始前に明確な投稿経路を進めることができます。',
         'index.badge.peer': '査読付き',
         'index.badge.oa': 'オープンアクセス',
+        'index.btn.journals': 'ジャーナルを探す',
+        'index.btn.authors': '著者ガイド',
         'index.stat.journals': '運営中のジャーナル',
         'index.stat.clusters': '分野クラスター',
         'index.stat.articles': '出版済み論文',
@@ -811,7 +813,7 @@
         'eb.panel.materials.dd': '履歴書（CV）',
         'eb.panel.email.dt': '送付先',
         'eb.panel.subject.dt': 'メール件名',
-        'eb.panel.subject.dd': 'Editorial Board Application — [Journal Name]',
+        'eb.panel.subject.dd': '編集委員応募 — [ジャーナル名]',
         'eb.panel.reply.dt': '返信目安',
         'eb.panel.reply.dd': '受領後 4 週間以内',
         'eb.s1.kicker': '応募要件',
@@ -840,7 +842,7 @@
         'eb.s1.q4.h3': '編集部への連絡',
         'eb.s1.q4.r1.label': '一般問い合わせ',
         'eb.s1.q4.r2.label': '件名形式',
-        'eb.s1.q4.r2.p': 'Editorial Board Application — [Journal Name]',
+        'eb.s1.q4.r2.p': '編集委員応募 — [ジャーナル名]',
         'eb.s1.q4.r3.label': '注意',
         'eb.s1.q4.r3.p': 'すべての応募は機密扱いです。編集委員職に応募料や会費はありません。',
         'eb.s2.kicker': 'ジャーナル一覧',
@@ -874,12 +876,14 @@
         'footer.about': '소개',
         'footer.contact': '문의',
         'footer.editorial-dir': '편집진 디렉터리',
-        'footer.copyright': '©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.',
+        'footer.copyright': '©2025~2026 Panorama Scholarly Group Ltd. All rights reserved. 무단 전재를 금합니다.',
         'index.kicker': '홈',
         'index.h1': '적합한 저널을 찾고 자신 있게 투고하세요.',
         'index.lead': 'Panorama Scholarly Group은 구조화된 편집 워크플로를 통해 국제 학술 저널을 지원합니다. 저자는 저널 적합성, 정책 요건, 명확한 투고 경로를 사전에 확인할 수 있습니다.',
         'index.badge.peer': '동료 심사',
         'index.badge.oa': '오픈 액세스',
+        'index.btn.journals': '저널 찾기',
+        'index.btn.authors': '저자 가이드',
         'index.stat.journals': '운영 저널',
         'index.stat.clusters': '주제 클러스터',
         'index.stat.articles': '출판 논문',
@@ -913,7 +917,7 @@
         'eb.panel.materials.dd': '이력서(CV)',
         'eb.panel.email.dt': '보낼 곳',
         'eb.panel.subject.dt': '이메일 제목',
-        'eb.panel.subject.dd': 'Editorial Board Application — [Journal Name]',
+        'eb.panel.subject.dd': '편집위원 지원 — [저널명]',
         'eb.panel.reply.dt': '응답 기간',
         'eb.panel.reply.dd': '접수 후 4주 이내',
         'eb.s1.kicker': '지원 요건',
@@ -942,7 +946,7 @@
         'eb.s1.q4.h3': '편집부 연락',
         'eb.s1.q4.r1.label': '일반 문의',
         'eb.s1.q4.r2.label': '제목 형식',
-        'eb.s1.q4.r2.p': 'Editorial Board Application — [Journal Name]',
+        'eb.s1.q4.r2.p': '편집위원 지원 — [저널명]',
         'eb.s1.q4.r3.label': '참고',
         'eb.s1.q4.r3.p': '모든 지원은 비밀로 처리됩니다. 편집위원 지원에는 수수료나 회비가 없습니다.',
         'eb.s2.kicker': '저널 목록',
@@ -1292,7 +1296,10 @@
             'Editorial integrity and peer review conduct standards.': '編輯誠信與同行評審行為標準。',
             'Enquiries': '查詢',
             'Contact the platform for indexing or archiving questions.': '就索引或典藏問題聯絡平台。',
-            'Read Article →': '閱讀文章 →'
+            'Read Article →': '閱讀文章 →',
+            'Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework': '交織危機時代的公共衛生系統重建：氣候敏感型韌性框架',
+            'When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University': '當學術成為地位競爭：對排名、期刊層級與大學靜默侵蝕的反向審視',
+            'Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness': '幻象與真實：《紅樓夢》中道教幻象觀及其與佛教空性的區別'
         }
     };
 
@@ -1472,7 +1479,10 @@
         'Journal Home': 'ジャーナルホーム',
         'Submit': '投稿',
         'No journals match the current filters.': '現在の条件に一致するジャーナルはありません。',
-        'Read Article →': '論文を読む →'
+        'Read Article →': '論文を読む →',
+        'Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework': '複合危機時代における公衆衛生システムの再構築：気候感応型レジリエンス枠組み',
+        'When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University': '学術が地位競争になるとき：ランキング、ジャーナル階層、大学の静かな浸食への逆向きレビュー',
+        'Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness': '幻想と現実：『紅楼夢』における道教的幻想観と仏教の空性との差異'
     };
 
     autoText.ko = {
@@ -1538,7 +1548,10 @@
         'Journal Home': '저널 홈',
         'Submit': '투고',
         'No journals match the current filters.': '현재 필터와 일치하는 저널이 없습니다.',
-        'Read Article →': '논문 읽기 →'
+        'Read Article →': '논문 읽기 →',
+        'Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework': '수렴하는 위기의 시대에 공중보건 시스템 재건: 기후 민감형 회복탄력성 프레임워크',
+        'When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University': '학문이 지위 경쟁이 될 때: 순위, 저널 등급, 대학의 조용한 침식에 대한 역방향 검토',
+        'Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness': '환상과 현실: 홍루몽의 도교적 환상관과 불교 공성과의 차이'
     };
 
     Object.keys(autoText.zh).forEach(function (key) {
@@ -1561,6 +1574,23 @@
         return out;
     }
 
+    function sourceText(value) {
+        var trimmed = String(value || '').trim();
+        if (!trimmed) return trimmed;
+        var localizedCountMatch = trimmed.match(/^(\d+)(?:\s+種期刊符合條件|\s+件のジャーナルが見つかりました|개 저널을 찾았습니다)$/);
+        if (localizedCountMatch) return localizedCountMatch[1] + ' journals found';
+        var source = trimmed;
+        Object.keys(LANGUAGES).filter(function (code) { return code !== 'en'; }).some(function (code) {
+            var rev = reverseTextMap(code);
+            if (rev[source]) {
+                source = rev[source];
+                return true;
+            }
+            return false;
+        });
+        return source;
+    }
+
     function skipAutoNode(node) {
         var el = node.nodeType === 1 ? node : node.parentElement;
         return !el || !!(el.closest && el.closest('script,style,noscript,pre,code,kbd,samp,textarea,.lang-menu'));
@@ -1576,6 +1606,11 @@
         if (!node || skipAutoNode(node)) return;
         var trimmed = node.nodeValue.trim();
         if (!trimmed) return;
+        var source = sourceText(trimmed);
+        if (source !== trimmed) {
+            node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, source);
+            trimmed = source;
+        }
         if (lang !== 'en') {
             var countMatch = trimmed.match(/^(\d+)\s+journals?\s+found$/);
             if (countMatch) {
@@ -1590,30 +1625,25 @@
                 return;
             }
         }
-        if (lang === 'en') {
-            Object.keys(LANGUAGES).filter(function (code) { return code !== 'en'; }).forEach(function (code) {
-                var rev = reverseTextMap(code);
-                if (rev[trimmed]) node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, rev[trimmed]);
-            });
-            return;
-        }
+        if (lang === 'en') return;
         var translated = textMap(lang)[trimmed];
         if (translated) node.nodeValue = replacePreservingEdgeSpace(node.nodeValue, translated);
     }
 
     function translateAutoAttributes(root, lang) {
         var scope = root && root.querySelectorAll ? root : document;
-        var attrMap = lang === 'en' ? {} : textMap(lang);
-        if (lang === 'en') {
-            Object.keys(LANGUAGES).filter(function (code) { return code !== 'en'; }).forEach(function (code) {
-                Object.assign(attrMap, reverseTextMap(code));
-            });
-        }
         scope.querySelectorAll('input[placeholder], textarea[placeholder], [aria-label]').forEach(function (el) {
             if (skipAutoNode(el)) return;
             ['placeholder', 'aria-label'].forEach(function (attr) {
                 var value = el.getAttribute(attr);
-                if (value && attrMap[value]) el.setAttribute(attr, attrMap[value]);
+                if (!value) return;
+                var source = sourceText(value);
+                if (lang === 'en') {
+                    if (source !== value) el.setAttribute(attr, source);
+                    return;
+                }
+                var translated = textMap(lang)[source];
+                if (translated) el.setAttribute(attr, translated);
             });
         });
     }
