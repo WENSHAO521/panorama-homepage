@@ -1541,6 +1541,11 @@
         'Read Article →': '논문 읽기 →'
     };
 
+    Object.keys(autoText.zh).forEach(function (key) {
+        if (autoText.ja[key] === undefined) autoText.ja[key] = autoText.zh[key];
+        if (autoText.ko[key] === undefined) autoText.ko[key] = autoText.zh[key];
+    });
+
     function currentLang() {
         return document.documentElement.getAttribute('data-lang') || 'en';
     }
