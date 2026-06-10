@@ -571,10 +571,37 @@
         '體': '体', '點': '点', '龍': '龙'
     };
 
+    var SIMP_VOCAB_FIX = [
+        ['开放取用政策', '开放获取政策'],
+        ['开放取用', '开放获取'],
+        ['公开取用', '公开获取'],
+        ['数位物件识别码', '数字对象标识符'],
+        ['数位物件', '数字对象'],
+        ['数位保存', '数字保存'],
+        ['数位', '数字'],
+        ['分散式', '分布式'],
+        ['元资料', '元数据'],
+        ['典藏计画', '存档计划'],
+        ['典藏', '存档'],
+        ['资料库', '数据库'],
+        ['网路', '网络'],
+        ['资讯', '信息'],
+        ['透过', '通过'],
+        ['支援', '支持'],
+        ['计画', '计划'],
+        ['连结', '链接'],
+        ['搜寻', '搜索'],
+        ['取用', '获取']
+    ];
+
     function simplifyChineseText(value) {
-        return String(value || '').replace(/[^\x00-\x7F]/g, function (ch) {
+        var result = String(value || '').replace(/[^\x00-\x7F]/g, function (ch) {
             return TRAD_TO_SIMP[ch] || ch;
         });
+        for (var i = 0; i < SIMP_VOCAB_FIX.length; i++) {
+            result = result.split(SIMP_VOCAB_FIX[i][0]).join(SIMP_VOCAB_FIX[i][1]);
+        }
+        return result;
     }
 
     function simplifyTextMap(map) {
