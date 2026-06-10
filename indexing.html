@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -33,13 +33,22 @@
             <a href="about.html" data-i18n="nav.about">About</a>
             <div class="lang-menu">
                 <button class="lang-btn" type="button" aria-label="Select language" aria-expanded="false" data-lang-toggle>
+                    <svg class="lang-globe" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><ellipse cx="8" cy="8" rx="2.6" ry="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.25"/><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1"/><line x1="2" y1="10.5" x2="14" y2="10.5" stroke="currentColor" stroke-width="1"/></svg>
                     <span class="lang-current">EN</span>
+                    <svg class="lang-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
                 <div class="lang-options" role="menu" data-lang-menu>
+                    <div class="lang-options-header">Language</div>
                     <button type="button" role="menuitemradio" data-lang-option="en">English</button>
                     <button type="button" role="menuitemradio" data-lang-option="zh">繁體中文</button>
+                    <button type="button" role="menuitemradio" data-lang-option="zh-cn">简体中文</button>
+                    <div class="lang-divider"></div>
                     <button type="button" role="menuitemradio" data-lang-option="ja">日本語</button>
                     <button type="button" role="menuitemradio" data-lang-option="ko">한국어</button>
+                    <div class="lang-divider"></div>
+                    <button type="button" role="menuitemradio" data-lang-option="es">Español</button>
+                    <button type="button" role="menuitemradio" data-lang-option="fr">Français</button>
+                    <button type="button" role="menuitemradio" data-lang-option="de">Deutsch</button>
                 </div>
             </div>
         </nav>
