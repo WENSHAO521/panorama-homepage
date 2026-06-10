@@ -1144,6 +1144,7 @@
     });
 
     i18n.es = Object.assign({}, i18n.en, {
+        'lang.btn': 'Español',
         'nav.home': 'Inicio',
         'nav.journals': 'Revistas',
         'nav.for-authors': 'Para autores',
@@ -1249,6 +1250,7 @@
     });
 
     i18n.fr = Object.assign({}, i18n.en, {
+        'lang.btn': 'Français',
         'nav.home': 'Accueil',
         'nav.journals': 'Revues',
         'nav.for-authors': 'Pour les auteurs',
@@ -1354,6 +1356,7 @@
     });
 
     i18n.de = Object.assign({}, i18n.en, {
+        'lang.btn': 'Deutsch',
         'nav.home': 'Startseite',
         'nav.journals': 'Zeitschriften',
         'nav.for-authors': 'Für Autoren',
@@ -3368,7 +3371,41 @@
         'Arts': 'Artes',
         'Music': 'Música',
         'Med AI': 'IA Méd.',
-        'CLOCKSS Archive': 'Archivo CLOCKSS'
+        'CLOCKSS Archive': 'Archivo CLOCKSS',
+        'Panorama Scholarly Group': 'Panorama Scholarly Group',
+        'ISSN': 'ISSN',
+        'The': '',
+        'Crossref DOI': 'Crossref DOI',
+        'journals.panorama-sg.com': 'journals.panorama-sg.com',
+        'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
+        'Panorama Frontier Review': 'Panorama Frontier Review',
+        'AI & Future Society': 'AI & Future Society',
+        'Journal of Engineering Systems & Applications': 'Journal of Engineering Systems & Applications',
+        'Health Nexus: Digital Health & Medical AI': 'Health Nexus: Digital Health & Medical AI',
+        'Climate Sustainability & Global Systems': 'Climate Sustainability & Global Systems',
+        'Rural Governance & Green Development': 'Rural Governance & Green Development',
+        'Health Nexus': 'Health Nexus',
+        'Food Systems, Safety & Sustainability': 'Food Systems, Safety & Sustainability',
+        'Journal of Sport and Exercise Studies': 'Journal of Sport and Exercise Studies',
+        'Global Public Policy & Governance Review': 'Global Public Policy & Governance Review',
+        'PoliEcoM Administration Review': 'PoliEcoM Administration Review',
+        'Computational Social Sciences Review': 'Computational Social Sciences Review',
+        'Journal of Law, Psychology, & Communication': 'Journal of Law, Psychology, and Communication',
+        'International Review of Education & Learning': 'International Review of Education and Learning',
+        'Journal of Social Cognition and Communication': 'Journal of Social Cognition and Communication',
+        'Contemporary Review of Political Thought': 'Contemporary Review of Political Thought',
+        'Global Review of Humanities, Arts, & Society': 'Global Review of Humanities, Arts, and Society',
+        'Three Teachings Studies': 'Three Teachings Studies',
+        'Comparative Philosophy & Religious Traditions': 'Comparative Philosophy and Religious Traditions',
+        'Journal of Dance and Embodied Structure': 'Journal of Dance and Embodied Structure',
+        'Room 1508, 15/F., Grand Plaza, Kowloon, Hong Kong': 'Sala 1508, piso 15, Grand Plaza, Kowloon, Hong Kong',
+        'Total Titles': 'Total de títulos',
+        'Licensing': 'Licencias',
+        'Discovery': 'Descubrimiento',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'Sala 1508, piso 15, Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.',
+        'Room 1508, 15/F., Office Tower Two': 'Sala 1508, piso 15, Office Tower Two',
+        'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
+        'Kowloon, Hong Kong': 'Kowloon, Hong Kong'
     };
 
     autoText.fr = {
@@ -3808,7 +3845,41 @@
         'Arts': 'Arts',
         'Music': 'Musique',
         'Med AI': 'IA Méd.',
-        'CLOCKSS Archive': 'Archive CLOCKSS'
+        'CLOCKSS Archive': 'Archive CLOCKSS',
+        'Panorama Scholarly Group': 'Panorama Scholarly Group',
+        'ISSN': 'ISSN',
+        'The': '',
+        'Crossref DOI': 'Crossref DOI',
+        'journals.panorama-sg.com': 'journals.panorama-sg.com',
+        'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
+        'Panorama Frontier Review': 'Panorama Frontier Review',
+        'AI & Future Society': 'AI & Future Society',
+        'Journal of Engineering Systems & Applications': 'Journal of Engineering Systems & Applications',
+        'Health Nexus: Digital Health & Medical AI': 'Health Nexus: Digital Health & Medical AI',
+        'Climate Sustainability & Global Systems': 'Climate Sustainability & Global Systems',
+        'Rural Governance & Green Development': 'Rural Governance & Green Development',
+        'Health Nexus': 'Health Nexus',
+        'Food Systems, Safety & Sustainability': 'Food Systems, Safety & Sustainability',
+        'Journal of Sport and Exercise Studies': 'Journal of Sport and Exercise Studies',
+        'Global Public Policy & Governance Review': 'Global Public Policy & Governance Review',
+        'PoliEcoM Administration Review': 'PoliEcoM Administration Review',
+        'Computational Social Sciences Review': 'Computational Social Sciences Review',
+        'Journal of Law, Psychology, & Communication': 'Journal of Law, Psychology, and Communication',
+        'International Review of Education & Learning': 'International Review of Education and Learning',
+        'Journal of Social Cognition and Communication': 'Journal of Social Cognition and Communication',
+        'Contemporary Review of Political Thought': 'Contemporary Review of Political Thought',
+        'Global Review of Humanities, Arts, & Society': 'Global Review of Humanities, Arts, and Society',
+        'Three Teachings Studies': 'Three Teachings Studies',
+        'Comparative Philosophy & Religious Traditions': 'Comparative Philosophy and Religious Traditions',
+        'Journal of Dance and Embodied Structure': 'Journal of Dance and Embodied Structure',
+        'Room 1508, 15/F., Grand Plaza, Kowloon, Hong Kong': 'Bureau 1508, 15e étage, Grand Plaza, Kowloon, Hong Kong',
+        'Total Titles': 'Nombre total de titres',
+        'Licensing': 'Licences',
+        'Discovery': 'Découverte',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'Bureau 1508, 15e étage, Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.',
+        'Room 1508, 15/F., Office Tower Two': 'Bureau 1508, 15e étage, Office Tower Two',
+        'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
+        'Kowloon, Hong Kong': 'Kowloon, Hong Kong'
     };
 
     autoText.de = {
@@ -4248,7 +4319,41 @@
         'Arts': 'Kunst',
         'Music': 'Musik',
         'Med AI': 'Med. KI',
-        'CLOCKSS Archive': 'CLOCKSS-Archiv'
+        'CLOCKSS Archive': 'CLOCKSS-Archiv',
+        'Panorama Scholarly Group': 'Panorama Scholarly Group',
+        'ISSN': 'ISSN',
+        'The': '',
+        'Crossref DOI': 'Crossref DOI',
+        'journals.panorama-sg.com': 'journals.panorama-sg.com',
+        'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
+        'Panorama Frontier Review': 'Panorama Frontier Review',
+        'AI & Future Society': 'AI & Future Society',
+        'Journal of Engineering Systems & Applications': 'Journal of Engineering Systems & Applications',
+        'Health Nexus: Digital Health & Medical AI': 'Health Nexus: Digital Health & Medical AI',
+        'Climate Sustainability & Global Systems': 'Climate Sustainability & Global Systems',
+        'Rural Governance & Green Development': 'Rural Governance & Green Development',
+        'Health Nexus': 'Health Nexus',
+        'Food Systems, Safety & Sustainability': 'Food Systems, Safety & Sustainability',
+        'Journal of Sport and Exercise Studies': 'Journal of Sport and Exercise Studies',
+        'Global Public Policy & Governance Review': 'Global Public Policy & Governance Review',
+        'PoliEcoM Administration Review': 'PoliEcoM Administration Review',
+        'Computational Social Sciences Review': 'Computational Social Sciences Review',
+        'Journal of Law, Psychology, & Communication': 'Journal of Law, Psychology, and Communication',
+        'International Review of Education & Learning': 'International Review of Education and Learning',
+        'Journal of Social Cognition and Communication': 'Journal of Social Cognition and Communication',
+        'Contemporary Review of Political Thought': 'Contemporary Review of Political Thought',
+        'Global Review of Humanities, Arts, & Society': 'Global Review of Humanities, Arts, and Society',
+        'Three Teachings Studies': 'Three Teachings Studies',
+        'Comparative Philosophy & Religious Traditions': 'Comparative Philosophy and Religious Traditions',
+        'Journal of Dance and Embodied Structure': 'Journal of Dance and Embodied Structure',
+        'Room 1508, 15/F., Grand Plaza, Kowloon, Hong Kong': 'Raum 1508, 15. Etage, Grand Plaza, Kowloon, Hongkong',
+        'Total Titles': 'Gesamtzahl der Titel',
+        'Licensing': 'Lizenzierung',
+        'Discovery': 'Auffindbarkeit',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'Raum 1508, 15. Etage, Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hongkong.',
+        'Room 1508, 15/F., Office Tower Two': 'Raum 1508, 15. Etage, Office Tower Two',
+        'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
+        'Kowloon, Hong Kong': 'Kowloon, Hongkong'
     };
 
     function currentLang() {
