@@ -539,6 +539,7 @@
         'zh-cn': { short: '简中', name: '简体中文',  htmlLang: 'zh-CN' },
         ja:    { short: '日本語', name: '日本語',    htmlLang: 'ja' },
         ko:    { short: '한국어', name: '한국어',    htmlLang: 'ko' },
+        ru:    { short: 'RU',    name: 'Русский',   htmlLang: 'ru' },
         es:    { short: 'ES',    name: 'Español',    htmlLang: 'es' },
         fr:    { short: 'FR',    name: 'Français',   htmlLang: 'fr' },
         de:    { short: 'DE',    name: 'Deutsch',    htmlLang: 'de' }
