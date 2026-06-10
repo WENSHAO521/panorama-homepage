@@ -531,6 +531,7 @@
 
     var STORAGE_KEY = 'panorama-lang';
     var autoTextSources = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+    var reverseTextCache = {};
 
     var LANGUAGES = {
         en:    { short: 'EN',    name: 'English',    htmlLang: 'en' },
@@ -590,8 +591,8 @@
             'authors.h1': 'Complete submission guidance from preparation to publication.',
             'authors.lead': 'This guide covers journal selection, manuscript preparation, peer review expectations, and post-publication rights for Panorama Scholarly Group journals.',
             'journals.kicker': 'Journal Directory',
-            'journals.h1': 'Browse and filter journals by subject, field, or ISSN.',
-            'journals.lead': 'All Panorama Scholarly Group journals accept submissions through their individual editorial portals. Confirm journal fit and review requirements before submitting.',
+            'journals.h1': 'Filter journals and move directly to the right submission route.',
+            'journals.lead': 'Use keyword, subject cluster, and ISSN status to identify an appropriate journal, then continue to its journal home page or submission portal.',
             'ethics.kicker': 'Publication Ethics',
             'ethics.h1': 'Baseline publication ethics requirements across all journals.',
             'ethics.lead': 'All Panorama Scholarly Group journals operate under a shared publication ethics baseline covering editorial conduct, author obligations, and integrity requirements.',
@@ -696,8 +697,8 @@
             'authors.h1': '從準備到出版的完整投稿指引',
             'authors.lead': '本指南涵蓋期刊選擇、稿件準備、同行評審流程，以及出版後版權事宜。',
             'journals.kicker': '期刊目錄',
-            'journals.h1': '依學科、領域或 ISSN 瀏覽與篩選期刊。',
-            'journals.lead': '所有期刊均透過各自的編輯入口接受投稿。投稿前請確認期刊適配度並審閱相關要求。',
+            'journals.h1': '篩選期刊並直接前往合適的投稿路徑。',
+            'journals.lead': '使用關鍵字、學科群組與 ISSN 狀態識別合適期刊，然後前往其期刊首頁或投稿入口。',
             'ethics.kicker': '出版倫理',
             'ethics.h1': '各期刊統一遵守的出版倫理基準',
             'ethics.lead': '所有期刊均遵循共同的出版倫理基準，涵蓋編輯行為規範、作者義務與學術誠信要求。',
@@ -802,8 +803,8 @@
         'authors.h1': '原稿準備から出版までの投稿ガイダンス。',
         'authors.lead': '本ガイドでは、ジャーナル選択、原稿準備、査読、出版後の権利について説明します。',
         'journals.kicker': 'ジャーナル一覧',
-        'journals.h1': '分野、領域、ISSN でジャーナルを検索・絞り込み。',
-        'journals.lead': 'すべてのジャーナルは個別の編集ポータルから投稿を受け付けます。投稿前に適合性と要件を確認してください。',
+        'journals.h1': 'ジャーナルをフィルタリングして、適切な投稿経路に直接進む。',
+        'journals.lead': 'キーワード、分野クラスター、ISSN ステータスを使用して適切なジャーナルを特定し、そのジャーナルホームページまたは投稿ポータルに進んでください。',
         'ethics.kicker': '出版倫理',
         'ethics.h1': '投稿、査読、出版に関する基本的な倫理要件。',
         'ethics.lead': 'これらの要件は Panorama Scholarly Group の全ジャーナルに適用されます。各ジャーナルは分野固有の追加指示を公開する場合があります。',
@@ -907,8 +908,8 @@
         'authors.h1': '원고 준비부터 출판까지의 투고 안내.',
         'authors.lead': '이 가이드는 저널 선택, 원고 준비, 동료 심사, 출판 후 권리를 다룹니다.',
         'journals.kicker': '저널 목록',
-        'journals.h1': '분야, 영역 또는 ISSN으로 저널을 검색하고 필터링하세요.',
-        'journals.lead': '모든 저널은 개별 편집 포털을 통해 투고를 받습니다. 투고 전 저널 적합성과 요건을 확인하십시오.',
+        'journals.h1': '저널을 필터링하여 올바른 투고 경로로 바로 이동하세요.',
+        'journals.lead': '키워드, 주제 클러스터, ISSN 상태를 사용하여 적합한 저널을 찾은 후, 저널 홈페이지 또는 투고 포털로 이동하세요.',
         'ethics.kicker': '출판 윤리',
         'ethics.h1': '투고, 심사, 출판을 위한 핵심 윤리 요건.',
         'ethics.lead': '이 요건은 Panorama Scholarly Group의 모든 저널에 적용됩니다. 개별 저널은 분야별 추가 지침을 제공할 수 있습니다.',
@@ -1011,8 +1012,8 @@
         'authors.h1': '从准备到出版的完整投稿指引',
         'authors.lead': '本指南涵盖期刊选择、稿件准备、同行评审流程，以及出版后版权事宜。',
         'journals.kicker': '期刊目录',
-        'journals.h1': '依学科、领域或 ISSN 浏览与筛选期刊。',
-        'journals.lead': '所有期刊均通过各自的编辑入口接受投稿。投稿前请确认期刊适配度并审阅相关要求。',
+        'journals.h1': '筛选期刊并直接前往合适的投稿路径。',
+        'journals.lead': '使用关键字、学科群组与 ISSN 状态识别合适期刊，然后前往其期刊首页或投稿入口。',
         'ethics.kicker': '出版伦理',
         'ethics.h1': '各期刊统一遵守的出版伦理基准',
         'ethics.lead': '所有期刊均遵循共同的出版伦理基准，涵盖编辑行为规范、作者义务与学术诚信要求。',
@@ -1116,8 +1117,8 @@
         'authors.h1': 'Orientación completa de envío desde la preparación hasta la publicación.',
         'authors.lead': 'Esta guía cubre la selección de revista, preparación del manuscrito, expectativas de revisión por pares y derechos posteriores a la publicación para las revistas de Panorama Scholarly Group.',
         'journals.kicker': 'Directorio de revistas',
-        'journals.h1': 'Explorar y filtrar revistas por tema, campo o ISSN.',
-        'journals.lead': 'Todas las revistas de Panorama Scholarly Group aceptan envíos a través de sus portales editoriales individuales. Confirme la idoneidad de la revista y revise los requisitos antes de enviar.',
+        'journals.h1': 'Filtra revistas y ve directamente a la ruta de envío correcta.',
+        'journals.lead': 'Usa palabra clave, grupo temático y estado ISSN para identificar una revista adecuada, luego continúa a su página principal o portal de envío.',
         'ethics.kicker': 'Ética de publicación',
         'ethics.h1': 'Requisitos básicos de ética de publicación en todas las revistas.',
         'ethics.lead': 'Todas las revistas de Panorama Scholarly Group operan bajo una base de ética de publicación compartida que cubre la conducta editorial, las obligaciones del autor y los requisitos de integridad.',
@@ -1221,8 +1222,8 @@
         'authors.h1': "Conseils complets sur la soumission, de la préparation à la publication.",
         'authors.lead': "Ce guide couvre la sélection de la revue, la préparation du manuscrit, les attentes en matière d'évaluation par les pairs et les droits après publication pour les revues de Panorama Scholarly Group.",
         'journals.kicker': 'Répertoire des revues',
-        'journals.h1': 'Parcourir et filtrer les revues par sujet, domaine ou ISSN.',
-        'journals.lead': "Toutes les revues de Panorama Scholarly Group acceptent les soumissions via leurs portails éditoriaux individuels. Confirmez l'adéquation de la revue et examinez les exigences avant de soumettre.",
+        'journals.h1': 'Filtrez les revues et accédez directement à la bonne voie de soumission.',
+        'journals.lead': "Utilisez le mot-clé, le groupe thématique et le statut ISSN pour identifier une revue appropriée, puis accédez à sa page principale ou à son portail de soumission.",
         'ethics.kicker': "Éthique de la publication",
         'ethics.h1': "Exigences éthiques de base pour toutes les revues.",
         'ethics.lead': "Toutes les revues de Panorama Scholarly Group fonctionnent selon une base d'éthique de publication partagée couvrant la conduite éditoriale, les obligations des auteurs et les exigences d'intégrité.",
@@ -1326,8 +1327,8 @@
         'authors.h1': 'Vollständige Einreichungsanleitung von der Vorbereitung bis zur Publikation.',
         'authors.lead': 'Dieser Leitfaden umfasst Zeitschriftenauswahl, Manuskriptvorbereitung, Peer-Review-Erwartungen und Rechte nach der Veröffentlichung für Zeitschriften von Panorama Scholarly Group.',
         'journals.kicker': 'Zeitschriftenverzeichnis',
-        'journals.h1': 'Zeitschriften nach Thema, Fachgebiet oder ISSN durchsuchen und filtern.',
-        'journals.lead': 'Alle Zeitschriften von Panorama Scholarly Group nehmen Einreichungen über ihre individuellen Redaktionsportale entgegen. Bestätigen Sie die Eignung der Zeitschrift und prüfen Sie die Anforderungen vor der Einreichung.',
+        'journals.h1': 'Zeitschriften filtern und direkt zur richtigen Einreichungsroute weiterleiten.',
+        'journals.lead': 'Verwenden Sie Schlüsselwort, Fachbereich und ISSN-Status, um eine geeignete Zeitschrift zu finden, und gehen Sie dann zur Zeitschriftenhomepage oder zum Einreichungsportal.',
         'ethics.kicker': 'Publikationsethik',
         'ethics.h1': 'Grundlegende Publikationsethikanforderungen für alle Zeitschriften.',
         'ethics.lead': 'Alle Zeitschriften von Panorama Scholarly Group arbeiten unter einer gemeinsamen Grundlage der Publikationsethik, die redaktionelles Verhalten, Autorenpflichten und Integritätsanforderungen abdeckt.',
@@ -1910,7 +1911,27 @@
         'Read Article →': '論文を読む →',
         'Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework': '複合危機時代における公衆衛生システムの再構築：気候感応型レジリエンス枠組み',
         'When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University': '学術が地位競争になるとき：ランキング、ジャーナル階層、大学の静かな浸食への逆向きレビュー',
-        'Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness': '幻想と現実：『紅楼夢』における道教的幻想観と仏教の空性との差異'
+        'Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness': '幻想と現実：『紅楼夢』における道教的幻想観と仏教の空性との差異',
+        'Total Titles': '掲載タイトル数',
+        '4 disciplinary groups': '4 つの分野群',
+        'Submission Routing': '投稿経路',
+        'Direct links to journal home and submission pages': 'ジャーナルホームと投稿ページへの直接リンク',
+        'DOI Registration': 'DOI 登録',
+        'Crossref — prefix 10.63802': 'Crossref — プレフィックス 10.63802',
+        'Portfolio-level journal discovery and routing.': 'ポートフォリオレベルのジャーナル探索と投稿経路。',
+        'Loading journals...': 'ジャーナルを読み込み中...',
+        'Title, abbreviation, field, or ISSN': 'タイトル、略称、分野、または ISSN',
+        'Technology & Engineering': '技術・工学',
+        'Health & Sustainability': '健康・持続可能性',
+        'Policy, Education & Society': '政策・教育・社会',
+        'Humanities & Arts': '人文・芸術',
+        'Before Submission: Ethics': '投稿前：倫理',
+        'Before Submission: Open Access': '投稿前：オープンアクセス',
+        'Peer Reviewed': '査読付き',
+        'Review authorship, originality, and disclosure requirements.': '著者資格、独自性、開示要件を確認してください。',
+        'Check licensing and rights conditions.': 'ライセンスと権利条件を確認してください。',
+        'Full submission workflow from preparation to decision.': '準備から決定までの完全な投稿ワークフロー。',
+        'View discovery databases and preservation archives.': '発見データベースと保存アーカイブを参照してください。'
     };
 
     autoText.ko = {
@@ -1979,7 +2000,27 @@
         'Read Article →': '논문 읽기 →',
         'Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework': '수렴하는 위기의 시대에 공중보건 시스템 재건: 기후 민감형 회복탄력성 프레임워크',
         'When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University': '학문이 지위 경쟁이 될 때: 순위, 저널 등급, 대학의 조용한 침식에 대한 역방향 검토',
-        'Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness': '환상과 현실: 홍루몽의 도교적 환상관과 불교 공성과의 차이'
+        'Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness': '환상과 현실: 홍루몽의 도교적 환상관과 불교 공성과의 차이',
+        'Total Titles': '총 저널 수',
+        '4 disciplinary groups': '4개 학문 분야',
+        'Submission Routing': '투고 경로',
+        'Direct links to journal home and submission pages': '저널 홈과 투고 페이지로의 직접 링크',
+        'DOI Registration': 'DOI 등록',
+        'Crossref — prefix 10.63802': 'Crossref — 접두사 10.63802',
+        'Portfolio-level journal discovery and routing.': '포트폴리오 수준의 저널 탐색 및 투고 경로.',
+        'Loading journals...': '저널 불러오는 중...',
+        'Title, abbreviation, field, or ISSN': '제목, 약어, 분야 또는 ISSN',
+        'Technology & Engineering': '기술 및 공학',
+        'Health & Sustainability': '보건 및 지속가능성',
+        'Policy, Education & Society': '정책, 교육 및 사회',
+        'Humanities & Arts': '인문학 및 예술',
+        'Before Submission: Ethics': '투고 전: 윤리',
+        'Before Submission: Open Access': '투고 전: 오픈 액세스',
+        'Peer Reviewed': '동료 심사',
+        'Review authorship, originality, and disclosure requirements.': '저자 자격, 독창성, 공개 요건을 검토하세요.',
+        'Check licensing and rights conditions.': '라이선스 및 권리 조건을 확인하세요.',
+        'Full submission workflow from preparation to decision.': '준비부터 결정까지의 전체 투고 워크플로우.',
+        'View discovery databases and preservation archives.': '탐색 데이터베이스 및 보존 아카이브를 확인하세요.'
     };
 
     autoText['zh-cn'] = Object.assign({}, autoText.zh, {
@@ -3369,11 +3410,13 @@
     }
 
     function reverseTextMap(lang) {
+        if (reverseTextCache[lang]) return reverseTextCache[lang];
         var out = {};
         var map = textMap(lang);
         Object.keys(map).forEach(function (key) {
             if (out[map[key]] === undefined) out[map[key]] = key;
         });
+        reverseTextCache[lang] = out;
         return out;
     }
 
@@ -3525,18 +3568,22 @@
         return text[lang] && text[lang][key];
     }
 
+    function setTextIfChanged(el, value) {
+        if (el && el.textContent !== value) el.textContent = value;
+    }
+
     function localizeGeneratedBlocks(lang) {
         document.querySelectorAll('.directory-item').forEach(function (item) {
             var desc = item.querySelector('.directory-body > p:not(.directory-meta)');
             if (desc) {
                 if (!desc.hasAttribute('data-orig-text')) desc.setAttribute('data-orig-text', desc.textContent);
-                desc.textContent = lang === 'en' ? desc.getAttribute('data-orig-text') : generatedText(lang, 'journalDesc');
+                setTextIfChanged(desc, lang === 'en' ? desc.getAttribute('data-orig-text') : generatedText(lang, 'journalDesc'));
             }
             var meta = item.querySelector('.directory-meta');
             if (meta) {
                 if (!meta.hasAttribute('data-orig-text')) meta.setAttribute('data-orig-text', meta.textContent);
                 if (lang === 'en') {
-                    meta.textContent = meta.getAttribute('data-orig-text');
+                    setTextIfChanged(meta, meta.getAttribute('data-orig-text'));
                 } else {
                     var cls = item.className.match(/cluster-(tech|env|soc|arts)/);
                     var group = cls ? generatedText(lang, cls[1]) : '';
@@ -3545,7 +3592,7 @@
                     var cat = parts[1] || '';
                     var issnValue = (parts[2] || '').replace(/^ISSN:\s*/, '');
                     if (issnValue === 'Pending') issnValue = generatedText(lang, 'pending');
-                    meta.textContent = [group, cat, generatedText(lang, 'issn') + ': ' + issnValue].filter(Boolean).join(' · ');
+                    setTextIfChanged(meta, [group, cat, generatedText(lang, 'issn') + ': ' + issnValue].filter(Boolean).join(' · '));
                 }
             }
         });
