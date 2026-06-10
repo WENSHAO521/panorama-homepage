@@ -85,7 +85,7 @@ h1,h2,h3,p,dl,dd { margin: 0; }
 .hero-grid { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 48px; align-items: start; position: relative; z-index: 1; }
 .hero-body { border-left: 4px solid var(--red); padding-left: 28px; }
 
-h1 { font-size: clamp(36px, 4.8vw, 62px); font-weight: 900; line-height: 1.06; letter-spacing: -0.035em; color: #fff; margin-top: 0; }
+h1 { font-size: clamp(36px, 4.8vw, 62px); font-weight: 900; line-height: 1.06; letter-spacing: -0.035em; color: #fff; margin-top: 0; hyphens: auto; overflow-wrap: break-word; }
 .lead { margin-top: 20px; font-size: 17px; line-height: 1.8; color: var(--subtle); max-width: 580px; }
 
 /* Trust badges on dark */
