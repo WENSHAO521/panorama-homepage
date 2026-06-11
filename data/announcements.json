@@ -1,0 +1,91 @@
+{
+  "announcements": [
+    {
+      "id": "2026-cfp-002",
+      "date": "2026-06-01",
+      "type": "call-for-papers",
+      "pinned": true,
+      "title": {
+        "en": "Call for Papers: AI Ethics & Governance",
+        "zh": "徵稿：人工智能倫理與治理",
+        "zh-cn": "征稿：人工智能伦理与治理",
+        "ja": "投稿募集：AI倫理とガバナンス",
+        "ko": "논문 모집: AI 윤리 및 거버넌스",
+        "ru": "Приём статей: Этика и управление ИИ",
+        "es": "Convocatoria: Ética y gobernanza de la IA",
+        "fr": "Appel à contributions : Éthique et gouvernance de l'IA",
+        "de": "Call for Papers: KI-Ethik und -Governance"
+      },
+      "body": {
+        "en": "Panorama Journal of AI & Engineering invites submissions for a special issue on ethical frameworks, governance models, and societal impacts of artificial intelligence. Submission deadline: 31 August 2026.",
+        "zh": "Panorama AI 與工程期刊誠邀稿件，主題為人工智能倫理框架、治理模式及社會影響。投稿截止日期：2026年8月31日。",
+        "zh-cn": "Panorama AI 与工程期刊诚邀稿件，主题为人工智能伦理框架、治理模式及社会影响。投稿截止日期：2026年8月31日。",
+        "ja": "Panorama AI・工学ジャーナルは、人工知能の倫理的枠組み、ガバナンスモデル、社会的影響に関する特集号への投稿を募集します。締切：2026年8月31日。",
+        "ko": "Panorama AI & Engineering 저널은 인공지능의 윤리적 프레임워크, 거버넌스 모델 및 사회적 영향에 관한 특별호 논문을 모집합니다. 마감: 2026년 8월 31일.",
+        "ru": "Журнал Panorama AI & Engineering приглашает к подаче статей для специального выпуска об этических основах, моделях управления и социальных последствиях ИИ. Срок подачи: 31 августа 2026 г.",
+        "es": "La revista Panorama AI & Engineering invita a enviar trabajos para un número especial sobre marcos éticos, modelos de gobernanza e impactos sociales de la IA. Fecha límite: 31 de agosto de 2026.",
+        "fr": "La revue Panorama AI & Engineering invite les chercheurs à soumettre des articles pour un numéro spécial sur les cadres éthiques, la gouvernance et les impacts sociétaux de l'IA. Date limite : 31 août 2026.",
+        "de": "Das Panorama AI & Engineering Journal lädt zur Einreichung von Beiträgen für eine Sonderausgabe zu KI-Ethik, Governance und gesellschaftlichen Auswirkungen ein. Einsendeschluss: 31. August 2026."
+      },
+      "link": "https://journals.panorama-sg.com/"
+    },
+    {
+      "id": "2026-new-journal-silence",
+      "date": "2026-05-15",
+      "type": "news",
+      "pinned": false,
+      "title": {
+        "en": "New Journal Launch: Silence",
+        "zh": "新期刊上線：Silence",
+        "zh-cn": "新期刊上线：Silence",
+        "ja": "新ジャーナル公開：Silence",
+        "ko": "신규 저널 출시: Silence",
+        "ru": "Запуск нового журнала: Silence",
+        "es": "Lanzamiento de nueva revista: Silence",
+        "fr": "Lancement d'une nouvelle revue : Silence",
+        "de": "Neue Zeitschrift: Silence"
+      },
+      "body": {
+        "en": "Panorama Scholarly Group announces the launch of Silence, a new interdisciplinary journal dedicated to critical inquiry into academia, knowledge production, and institutional power.",
+        "zh": "Panorama Scholarly Group 宣佈 Silence 正式上線。這是一本跨學科新期刊，致力於探討學術界、知識生產及機構權力的批判性研究。",
+        "zh-cn": "Panorama Scholarly Group 宣布 Silence 正式上线。这是一本跨学科新期刊，致力于探讨学术界、知识生产及机构权力的批判性研究。",
+        "ja": "Panorama Scholarly Groupは、学術界・知識生産・制度的権力の批判的探究を専門とする新しい学際的ジャーナル「Silence」の創刊をお知らせします。",
+        "ko": "Panorama Scholarly Group은 학계, 지식 생산, 제도적 권력에 대한 비판적 탐구를 전문으로 하는 새로운 학제간 저널 Silence의 창간을 발표합니다.",
+        "ru": "Panorama Scholarly Group объявляет о запуске Silence — нового междисциплинарного журнала, посвящённого критическому исследованию академической среды, производства знания и институциональной власти.",
+        "es": "Panorama Scholarly Group anuncia el lanzamiento de Silence, nueva revista interdisciplinar dedicada a la investigación crítica sobre la academia, la producción del conocimiento y el poder institucional.",
+        "fr": "Panorama Scholarly Group annonce le lancement de Silence, nouvelle revue interdisciplinaire dédiée à l'exploration critique de l'académie, de la production des savoirs et du pouvoir institutionnel.",
+        "de": "Panorama Scholarly Group gibt den Start von Silence bekannt, einer neuen interdisziplinären Zeitschrift für kritische Untersuchungen zu Wissenschaft, Wissensproduktion und institutioneller Macht."
+      },
+      "link": "https://journals.panorama-sg.com/index.php/Silence"
+    },
+    {
+      "id": "2026-clockss-indexing",
+      "date": "2026-04-20",
+      "type": "notice",
+      "pinned": false,
+      "title": {
+        "en": "Indexing Update: All Journals Now CLOCKSS-Archived",
+        "zh": "索引更新：所有期刊已納入 CLOCKSS 數位保存",
+        "zh-cn": "索引更新：所有期刊已纳入 CLOCKSS 数字保存",
+        "ja": "インデックス更新：全ジャーナルがCLOCKSSアーカイブに登録",
+        "ko": "인덱싱 업데이트: 전체 저널 CLOCKSS 아카이브 등록 완료",
+        "ru": "Обновление индексации: все журналы теперь архивированы в CLOCKSS",
+        "es": "Actualización de indexación: todas las revistas archivadas en CLOCKSS",
+        "fr": "Mise à jour d'indexation : toutes les revues archivées dans CLOCKSS",
+        "de": "Indexierungsupdate: Alle Zeitschriften jetzt in CLOCKSS archiviert"
+      },
+      "body": {
+        "en": "All Panorama Scholarly Group journals are now enrolled in the CLOCKSS digital preservation archive, ensuring long-term availability of published content.",
+        "zh": "所有 Panorama Scholarly Group 期刊現已加入 CLOCKSS 數位保存計劃，確保已發表內容的長期可獲取性。",
+        "zh-cn": "所有 Panorama Scholarly Group 期刊现已加入 CLOCKSS 数字保存计划，确保已发表内容的长期可获取性。",
+        "ja": "Panorama Scholarly Groupの全ジャーナルがCLOCKSSデジタル保存アーカイブに登録され、公開コンテンツの長期的な利用可能性が保証されます。",
+        "ko": "Panorama Scholarly Group의 모든 저널이 CLOCKSS 디지털 보존 아카이브에 등록되어 출판된 콘텐츠의 장기적 접근성이 보장됩니다.",
+        "ru": "Все журналы Panorama Scholarly Group зарегистрированы в цифровом архиве CLOCKSS, что обеспечивает долгосрочный доступ к опубликованным материалам.",
+        "es": "Todas las revistas de Panorama Scholarly Group están inscritas en el archivo de preservación digital CLOCKSS, garantizando la disponibilidad a largo plazo del contenido publicado.",
+        "fr": "Toutes les revues de Panorama Scholarly Group sont inscrites dans l'archive de préservation numérique CLOCKSS, garantissant la disponibilité à long terme du contenu publié.",
+        "de": "Alle Zeitschriften der Panorama Scholarly Group sind im digitalen Bestandsarchiv CLOCKSS registriert, was die langfristige Verfügbarkeit veröffentlichter Inhalte sicherstellt."
+      },
+      "link": "indexing.html"
+    }
+  ]
+}

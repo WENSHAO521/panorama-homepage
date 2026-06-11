@@ -540,3 +540,79 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .lang-menu { margin-left: 0; align-self: flex-start; }
     .lang-options { left: 0; right: auto; }
 }
+
+/* ══════════════════════════
+   ANNOUNCEMENTS
+══════════════════════════ */
+.ann-section { background: var(--surface); }
+.ann-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    overflow: hidden;
+}
+.ann-card {
+    background: var(--surface);
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 3px solid transparent;
+    transition: border-color var(--t), background var(--t);
+}
+.ann-card:hover { border-top-color: var(--red); background: var(--red-tint); }
+.ann-meta { display: flex; align-items: center; gap: 8px; }
+.ann-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--surface-3);
+    color: var(--muted);
+    white-space: nowrap;
+}
+.ann-type-call-for-papers .ann-badge { background: var(--red-tint); color: var(--red); }
+.ann-type-news .ann-badge { background: #eff6ff; color: #1d4ed8; }
+.ann-date {
+    font-size: 12px;
+    color: var(--muted);
+    margin-left: auto;
+    white-space: nowrap;
+}
+.ann-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    margin: 0;
+}
+.ann-body {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+    flex: 1;
+}
+.ann-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--red);
+    text-decoration: none;
+    margin-top: auto;
+    align-self: flex-start;
+}
+.ann-link:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+    .ann-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .ann-grid { grid-template-columns: 1fr; }
+    .ann-date { display: none; }
+}

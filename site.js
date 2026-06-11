@@ -9,6 +9,7 @@
         '.section-head',
         '.steps-grid article',
         '.article-card',
+        '.ann-card',
         '.policy-item',
         '.indexer-card',
         '.indexer-chip',
@@ -719,7 +720,9 @@
             'eb.s2.th.cluster': 'Cluster',
             'eb.s2.th.email': 'Editorial Email',
             'eb.s3.kicker': 'Related Resources',
-            'eb.s3.h2': 'Learn more about our journals.'
+            'eb.s3.h2': 'Learn more about our journals.',
+            'ann.kicker': 'Announcements',
+            'ann.h2': 'Latest news and updates from the journal portfolio.'
         },
         zh: {
             'lang.btn': 'English',
@@ -825,7 +828,9 @@
             'eb.s2.th.cluster': '學科群組',
             'eb.s2.th.email': '編輯部郵箱',
             'eb.s3.kicker': '相關資源',
-            'eb.s3.h2': '瞭解更多期刊資訊'
+            'eb.s3.h2': '瞭解更多期刊資訊',
+            'ann.kicker': '公告欄',
+            'ann.h2': '期刊群組的最新消息與更新。'
         }
     };
 
@@ -932,7 +937,9 @@
         'eb.s2.th.cluster': 'クラスター',
         'eb.s2.th.email': '編集部メール',
         'eb.s3.kicker': '関連リソース',
-        'eb.s3.h2': 'ジャーナルについてさらに詳しく。'
+        'eb.s3.h2': 'ジャーナルについてさらに詳しく。',
+        'ann.kicker': 'お知らせ',
+        'ann.h2': 'ジャーナルポートフォリオの最新ニュースとアップデート。'
     });
 
     i18n.ko = Object.assign({}, i18n.en, {
@@ -1038,7 +1045,9 @@
         'eb.s2.th.cluster': '클러스터',
         'eb.s2.th.email': '편집부 이메일',
         'eb.s3.kicker': '관련 자료',
-        'eb.s3.h2': '저널에 대해 더 알아보기.'
+        'eb.s3.h2': '저널에 대해 더 알아보기.',
+        'ann.kicker': '공지사항',
+        'ann.h2': '저널 포트폴리오의 최신 소식 및 업데이트.'
     });
 
     i18n['zh-cn'] = Object.assign({}, simplifyTextMap(i18n.zh), {
@@ -1249,7 +1258,9 @@
         'eb.s2.th.cluster': 'Кластер',
         'eb.s2.th.email': 'Редакционная электронная почта',
         'eb.s3.kicker': 'Связанные ресурсы',
-        'eb.s3.h2': 'Узнайте больше о наших журналах.'
+        'eb.s3.h2': 'Узнайте больше о наших журналах.',
+        'ann.kicker': 'Объявления',
+        'ann.h2': 'Последние новости и обновления портфолио журналов.'
     });
 
     i18n.es = Object.assign({}, i18n.en, {
@@ -1355,7 +1366,9 @@
         'eb.s2.th.cluster': 'Grupo',
         'eb.s2.th.email': 'Correo editorial',
         'eb.s3.kicker': 'Recursos relacionados',
-        'eb.s3.h2': 'Conozca más sobre nuestras revistas.'
+        'eb.s3.h2': 'Conozca más sobre nuestras revistas.',
+        'ann.kicker': 'Anuncios',
+        'ann.h2': 'Últimas noticias y actualizaciones del portafolio de revistas.'
     });
 
     i18n.fr = Object.assign({}, i18n.en, {
@@ -1461,7 +1474,9 @@
         'eb.s2.th.cluster': 'Groupe',
         'eb.s2.th.email': 'Email éditorial',
         'eb.s3.kicker': 'Ressources connexes',
-        'eb.s3.h2': 'En savoir plus sur nos revues.'
+        'eb.s3.h2': 'En savoir plus sur nos revues.',
+        'ann.kicker': 'Annonces',
+        'ann.h2': 'Dernières actualités et mises à jour du portefeuille de revues.'
     });
 
     i18n.de = Object.assign({}, i18n.en, {
@@ -1567,7 +1582,9 @@
         'eb.s2.th.cluster': 'Fachbereich',
         'eb.s2.th.email': 'Redaktions-E-Mail',
         'eb.s3.kicker': 'Verwandte Ressourcen',
-        'eb.s3.h2': 'Erfahren Sie mehr über unsere Zeitschriften.'
+        'eb.s3.h2': 'Erfahren Sie mehr über unsere Zeitschriften.',
+        'ann.kicker': 'Ankündigungen',
+        'ann.h2': 'Aktuelle Nachrichten und Updates aus dem Zeitschriftenportfolio.'
     });
 
     var autoText = {

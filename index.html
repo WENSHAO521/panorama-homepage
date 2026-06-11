@@ -130,6 +130,19 @@
         </div>
     </div>
 
+    <!-- ── Announcements ── -->
+    <section class="section ann-section" id="announcements">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="kicker" data-i18n="ann.kicker">Announcements</p>
+                    <h2 data-i18n="ann.h2">Latest news and updates from the journal portfolio.</h2>
+                </div>
+            </div>
+            <div class="ann-grid" id="ann-grid"></div>
+        </div>
+    </section>
+
     <!-- ── Journal discovery ── -->
     <section class="section">
         <div class="container">
@@ -322,6 +335,88 @@
 })();
 </script>
 
+<script>
+(function () {
+    var ANN_DATA = null;
+    var ANN_LANG = 'en';
+
+    var TYPE_LABELS = {
+        'call-for-papers': { en: 'Call for Papers', zh: '徵稿', 'zh-cn': '征稿', ja: '投稿募集', ko: '논문 모집', ru: 'Приём статей', es: 'Convocatoria', fr: 'Appel à contributions', de: 'Call for Papers' },
+        news:    { en: 'News',   zh: '新聞',  'zh-cn': '新闻',  ja: 'ニュース', ko: '뉴스',  ru: 'Новости',       es: 'Noticias',    fr: 'Actualités',           de: 'Neuigkeiten'   },
+        notice:  { en: 'Notice', zh: '公告',  'zh-cn': '公告',  ja: 'お知らせ', ko: '공지',  ru: 'Уведомление',  es: 'Aviso',       fr: 'Avis',                 de: 'Hinweis'       }
+    };
+
+    var READ_MORE = {
+        en: 'Read More', zh: '閱讀更多', 'zh-cn': '阅读更多', ja: '続きを読む',
+        ko: '더 읽기', ru: 'Подробнее', es: 'Leer más', fr: 'Lire la suite', de: 'Weiterlesen'
+    };
+
+    var DATE_LOCALES = {
+        en: 'en-US', zh: 'zh-HK', 'zh-cn': 'zh-CN', ja: 'ja-JP',
+        ko: 'ko-KR', ru: 'ru-RU', es: 'es-ES', fr: 'fr-FR', de: 'de-DE'
+    };
+
+    function esc(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function loc(obj, lang) {
+        return obj[lang] || obj['en'] || '';
+    }
+
+    function fmtDate(str, lang) {
+        try {
+            var d = new Date(str + 'T00:00:00');
+            return d.toLocaleDateString(DATE_LOCALES[lang] || 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        } catch (e) { return str; }
+    }
+
+    function renderGrid() {
+        var grid = document.getElementById('ann-grid');
+        if (!grid || !ANN_DATA || !ANN_DATA.announcements) return;
+        var lang = document.documentElement.getAttribute('data-lang') || 'en';
+        if (lang === ANN_LANG && grid.children.length > 0) return;
+        ANN_LANG = lang;
+
+        var items = ANN_DATA.announcements.slice(0, 6);
+        grid.innerHTML = items.map(function (ann) {
+            var typeLabel = loc(TYPE_LABELS[ann.type] || {}, lang) || ann.type;
+            var isExternal = (ann.link || '').indexOf('http') === 0;
+            var linkAttrs = isExternal ? ' target="_blank" rel="noopener"' : '';
+            return '<article class="ann-card ann-type-' + esc(ann.type) + '">'
+                + '<div class="ann-meta">'
+                + '<span class="ann-badge">' + esc(typeLabel) + '</span>'
+                + '<time class="ann-date" datetime="' + esc(ann.date) + '">' + esc(fmtDate(ann.date, lang)) + '</time>'
+                + '</div>'
+                + '<h3 class="ann-title">' + esc(loc(ann.title, lang)) + '</h3>'
+                + '<p class="ann-body">' + esc(loc(ann.body, lang)) + '</p>'
+                + (ann.link ? '<a class="ann-link" href="' + esc(ann.link) + '"' + linkAttrs + '>' + esc(loc(READ_MORE, lang)) + ' &rarr;</a>' : '')
+                + '</article>';
+        }).join('');
+    }
+
+    var req = new XMLHttpRequest();
+    req.open('GET', 'data/announcements.json', true);
+    req.onload = function () {
+        if (req.status >= 200 && req.status < 300) {
+            try { ANN_DATA = JSON.parse(req.responseText); } catch (e) { return; }
+            renderGrid();
+        }
+    };
+    req.send();
+
+    if (window.MutationObserver) {
+        new MutationObserver(function (mutations) {
+            mutations.forEach(function (m) {
+                if (m.attributeName === 'data-lang') {
+                    ANN_LANG = '';
+                    renderGrid();
+                }
+            });
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
+    }
+}());
+</script>
 <script src="site.js"></script>
 </body>
 </html>
