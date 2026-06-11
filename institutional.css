@@ -620,3 +620,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .ann-grid { grid-template-columns: 1fr; }
     .ann-date { display: none; }
 }
+
+/* ══════════════════════════
+   RTL SUPPORT (Arabic)
+══════════════════════════ */
+[dir="rtl"] .hero-body { border-left: none; border-right: 3px solid var(--red); padding-left: 0; padding-right: 20px; }
+[dir="rtl"] .kicker::before { transform-origin: right; }
+[dir="rtl"] .lang-menu { margin-left: 0; margin-right: 10px; }
+[dir="rtl"] .lang-options { left: auto; right: 0; }
+[dir="rtl"] .nav-links { left: -14px; right: -14px; }
+[dir="rtl"] .policy-item { padding: 22px 66px 22px 20px; }
+[dir="rtl"] .policy-number { left: auto; right: 20px; }
+[dir="rtl"] .ann-date { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .footer-bottom { text-align: right; }
+@media (max-width: 700px) {
+    [dir="rtl"] .lang-menu { margin-right: 0; }
+    [dir="rtl"] .lang-options { left: 0; right: auto; }
+}
