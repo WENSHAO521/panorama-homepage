@@ -1,91 +1,91 @@
 {
   "announcements": [
     {
-      "id": "2026-cfp-002",
-      "date": "2026-06-01",
+      "id": "2026-resonance-dec-cfp",
+      "date": "2026-04-29",
       "type": "call-for-papers",
       "pinned": true,
       "title": {
-        "en": "Call for Papers: AI Ethics & Governance",
-        "zh": "徵稿：人工智能倫理與治理",
-        "zh-cn": "征稿：人工智能伦理与治理",
-        "ja": "投稿募集：AI倫理とガバナンス",
-        "ko": "논문 모집: AI 윤리 및 거버넌스",
-        "ru": "Приём статей: Этика и управление ИИ",
-        "es": "Convocatoria: Ética y gobernanza de la IA",
-        "fr": "Appel à contributions : Éthique et gouvernance de l'IA",
-        "de": "Call for Papers: KI-Ethik und -Governance"
+        "en": "Call for Papers: Resonance December 2026 — Circulating Sounds",
+        "zh": "徵稿啟事：Resonance 2026年12月號——流通之聲",
+        "zh-cn": "征稿启事：Resonance 2026年12月号——流通之声",
+        "ja": "投稿募集：Resonance 2026年12月号「響き渡る音」",
+        "ko": "논문 모집 공고: Resonance 2026년 12월호 — 순환하는 소리",
+        "ru": "Приём статей: Resonance, декабрь 2026 — «Циркулирующие звуки»",
+        "es": "Convocatoria de artículos: Resonance diciembre 2026 — Sonidos en circulación",
+        "fr": "Appel à contributions : Resonance décembre 2026 — Sons en circulation",
+        "de": "Call for Papers: Resonance Dezember 2026 — Circulating Sounds"
       },
       "body": {
-        "en": "Panorama Journal of AI & Engineering invites submissions for a special issue on ethical frameworks, governance models, and societal impacts of artificial intelligence. Submission deadline: 31 August 2026.",
-        "zh": "Panorama AI 與工程期刊誠邀稿件，主題為人工智能倫理框架、治理模式及社會影響。投稿截止日期：2026年8月31日。",
-        "zh-cn": "Panorama AI 与工程期刊诚邀稿件，主题为人工智能伦理框架、治理模式及社会影响。投稿截止日期：2026年8月31日。",
-        "ja": "Panorama AI・工学ジャーナルは、人工知能の倫理的枠組み、ガバナンスモデル、社会的影響に関する特集号への投稿を募集します。締切：2026年8月31日。",
-        "ko": "Panorama AI & Engineering 저널은 인공지능의 윤리적 프레임워크, 거버넌스 모델 및 사회적 영향에 관한 특별호 논문을 모집합니다. 마감: 2026년 8월 31일.",
-        "ru": "Журнал Panorama AI & Engineering приглашает к подаче статей для специального выпуска об этических основах, моделях управления и социальных последствиях ИИ. Срок подачи: 31 августа 2026 г.",
-        "es": "La revista Panorama AI & Engineering invita a enviar trabajos para un número especial sobre marcos éticos, modelos de gobernanza e impactos sociales de la IA. Fecha límite: 31 de agosto de 2026.",
-        "fr": "La revue Panorama AI & Engineering invite les chercheurs à soumettre des articles pour un numéro spécial sur les cadres éthiques, la gouvernance et les impacts sociétaux de l'IA. Date limite : 31 août 2026.",
-        "de": "Das Panorama AI & Engineering Journal lädt zur Einreichung von Beiträgen für eine Sonderausgabe zu KI-Ethik, Governance und gesellschaftlichen Auswirkungen ein. Einsendeschluss: 31. August 2026."
+        "en": "Resonance: Journal of Global Music Studies announces a Call for Papers for its December 2026 issue, themed \"Circulating Sounds: Translation, Mediation, and Publics in Global Music Studies.\" The editorial board invites original scholarly contributions examining how music traverses cultural, linguistic, and institutional boundaries through processes of translation, technological mediation, and public engagement. Submissions are welcomed in English, Chinese, German, Italian, and Russian. English titles and abstracts are required for all submissions. A 2026 promotional Article Processing Charge of USD 140 applies.",
+        "zh": "Resonance：全球音樂研究期刊謹此公告 2026 年 12 月號徵稿，主題為「流通之聲：全球音樂研究中的翻譯、中介與公眾」。編委會誠邀原創學術論文，探討音樂如何藉由翻譯、技術中介與公眾互動等過程跨越文化、語言與制度邊界。接受以英語、中文、德語、義大利語及俄語撰寫的投稿；所有稿件均須附英文標題與摘要。2026 年投稿享論文處理費 USD 140 優惠。",
+        "zh-cn": "Resonance：全球音乐研究期刊谨此公告 2026 年 12 月号征稿，主题为「流通之声：全球音乐研究中的翻译、中介与公众」。编委会诚邀原创学术论文，探讨音乐如何借由翻译、技术中介与公众互动等过程跨越文化、语言与制度边界。接受以英语、中文、德语、意大利语及俄语撰写的投稿；所有稿件均须附英文标题与摘要。2026 年投稿享论文处理费 USD 140 优惠。",
+        "ja": "Resonance：グローバル音楽研究ジャーナルは、2026年12月号のテーマ「響き渡る音：グローバル音楽研究における翻訳・中介・パブリック」への投稿を募集いたします。編集委員会は、翻訳・技術的媒介・公衆参加のプロセスを通じて音楽が文化的・言語的・制度的境界を越える方法を探究する独創的な学術論文を歓迎します。英語・中国語・ドイツ語・イタリア語・ロシア語での投稿を受け付けており、全原稿に英文タイトルと要旨が必要です。2026年投稿分のAPCは特別価格USD 140となります。",
+        "ko": "Resonance: Journal of Global Music Studies는 2026년 12월호 「순환하는 소리: 세계 음악 연구에서의 번역, 매개, 공중(公衆)」을 주제로 논문을 모집합니다. 편집위원회는 번역, 기술적 매개, 공공 참여 과정을 통해 음악이 문화적·언어적·제도적 경계를 넘는 방식을 탐구하는 독창적인 학술 논문을 환영합니다. 영어, 중국어, 독일어, 이탈리아어, 러시아어로 제출 가능하며, 모든 원고에는 영문 제목 및 초록이 필요합니다. 2026년 투고분에는 USD 140 특별 APC가 적용됩니다.",
+        "ru": "Resonance: Журнал глобальных музыкальных исследований объявляет о приёме статей для декабрьского выпуска 2026 года на тему «Циркулирующие звуки: перевод, медиация и публики в глобальных музыкальных исследованиях». Редакционная коллегия приглашает оригинальные академические работы, посвящённые тому, как музыка преодолевает культурные, языковые и институциональные границы посредством перевода, технологической медиации и взаимодействия с публикой. Принимаются рукописи на английском, китайском, немецком, итальянском и русском языках; для всех рукописей обязательны английские название и аннотация. Акционный APC для рукописей 2026 года составляет USD 140.",
+        "es": "Resonance: Revista de Estudios Musicales Globales anuncia la convocatoria de artículos para su número de diciembre de 2026, titulado «Sonidos en circulación: traducción, mediación y públicos en los estudios musicales globales». El consejo editorial invita a contribuciones académicas originales que examinen cómo la música atraviesa fronteras culturales, lingüísticas e institucionales mediante procesos de traducción, mediación tecnológica e implicación pública. Se aceptan envíos en inglés, chino, alemán, italiano y ruso; todos los manuscritos deben incluir título y resumen en inglés. Un APC promocional de USD 140 se aplica a los envíos realizados en 2026.",
+        "fr": "Resonance: Revue des études musicales mondiales lance un appel à contributions pour son numéro de décembre 2026, intitulé « Sons en circulation : traduction, médiation et publics dans les études musicales mondiales ». Le comité éditorial invite des contributions académiques originales examinant la manière dont la musique franchit les frontières culturelles, linguistiques et institutionnelles par des processus de traduction, de médiation technologique et d'engagement public. Les soumissions sont acceptées en anglais, chinois, allemand, italien et russe ; un titre et un résumé en anglais sont exigés pour tous les manuscrits. Un APC promotionnel de USD 140 s'applique aux soumissions effectuées en 2026.",
+        "de": "Resonance: Journal of Global Music Studies gibt einen Call for Papers für die Dezemberausgabe 2026 mit dem Titel „Circulating Sounds: Translation, Mediation und Publics in der globalen Musikwissenschaft“ bekannt. Das Herausgebergremium lädt zu originellen wissenschaftlichen Beiträgen ein, die untersuchen, wie Musik durch Übersetzung, technologische Vermittlung und öffentliches Engagement kulturelle, sprachliche und institutionelle Grenzen überwindet. Einreichungen in Englisch, Chinesisch, Deutsch, Italienisch und Russisch sind willkommen; englischer Titel und Abstract sind für alle Manuskripte erforderlich. Ein Sonder-APC von USD 140 gilt für alle 2026 eingereichten Manuskripte."
       },
-      "link": "https://journals.panorama-sg.com/"
+      "link": "https://journals.panorama-sg.com/index.php/Resonance/announcement"
     },
     {
-      "id": "2026-new-journal-silence",
-      "date": "2026-05-15",
-      "type": "news",
+      "id": "2026-afs-v2n2-cfp",
+      "date": "2026-04-06",
+      "type": "call-for-papers",
       "pinned": false,
       "title": {
-        "en": "New Journal Launch: Silence",
-        "zh": "新期刊上線：Silence",
-        "zh-cn": "新期刊上线：Silence",
-        "ja": "新ジャーナル公開：Silence",
-        "ko": "신규 저널 출시: Silence",
-        "ru": "Запуск нового журнала: Silence",
-        "es": "Lanzamiento de nueva revista: Silence",
-        "fr": "Lancement d'une nouvelle revue : Silence",
-        "de": "Neue Zeitschrift: Silence"
+        "en": "Call for Papers: AI & Future Society Vol. 2, No. 2 — AGI and Its Societal Impact",
+        "zh": "徵稿啟事：AI & Future Society 第2卷第2期——AGI 的社會影響",
+        "zh-cn": "征稿启事：AI & Future Society 第2卷第2期——AGI 的社会影响",
+        "ja": "投稿募集：AI & Future Society 第2巻第2号「AGIとその社会的影響」",
+        "ko": "논문 모집 공고: AI & Future Society 제2권 제2호 — AGI와 그 사회적 영향",
+        "ru": "Приём статей: AI & Future Society, т. 2, № 2 — «AGI и её социальное воздействие»",
+        "es": "Convocatoria de artículos: AI & Future Society Vol. 2, N.º 2 — El impacto social de la AGI",
+        "fr": "Appel à contributions : AI & Future Society vol. 2, n° 2 — L'impact sociétal de l'IAG",
+        "de": "Call for Papers: AI & Future Society Bd. 2, H. 2 — AGI und ihre gesellschaftliche Auswirkung"
       },
       "body": {
-        "en": "Panorama Scholarly Group announces the launch of Silence, a new interdisciplinary journal dedicated to critical inquiry into academia, knowledge production, and institutional power.",
-        "zh": "Panorama Scholarly Group 宣佈 Silence 正式上線。這是一本跨學科新期刊，致力於探討學術界、知識生產及機構權力的批判性研究。",
-        "zh-cn": "Panorama Scholarly Group 宣布 Silence 正式上线。这是一本跨学科新期刊，致力于探讨学术界、知识生产及机构权力的批判性研究。",
-        "ja": "Panorama Scholarly Groupは、学術界・知識生産・制度的権力の批判的探究を専門とする新しい学際的ジャーナル「Silence」の創刊をお知らせします。",
-        "ko": "Panorama Scholarly Group은 학계, 지식 생산, 제도적 권력에 대한 비판적 탐구를 전문으로 하는 새로운 학제간 저널 Silence의 창간을 발표합니다.",
-        "ru": "Panorama Scholarly Group объявляет о запуске Silence — нового междисциплинарного журнала, посвящённого критическому исследованию академической среды, производства знания и институциональной власти.",
-        "es": "Panorama Scholarly Group anuncia el lanzamiento de Silence, nueva revista interdisciplinar dedicada a la investigación crítica sobre la academia, la producción del conocimiento y el poder institucional.",
-        "fr": "Panorama Scholarly Group annonce le lancement de Silence, nouvelle revue interdisciplinaire dédiée à l'exploration critique de l'académie, de la production des savoirs et du pouvoir institutionnel.",
-        "de": "Panorama Scholarly Group gibt den Start von Silence bekannt, einer neuen interdisziplinären Zeitschrift für kritische Untersuchungen zu Wissenschaft, Wissensproduktion und institutioneller Macht."
+        "en": "AI & Future Society is now accepting submissions for Volume 2, Number 2, a regular issue dedicated to the societal impact of artificial general intelligence (AGI). The journal invites original research and critical analyses addressing ethical frameworks, governance mechanisms, labor market transformation, epistemic consequences, and policy responses arising from the development and deployment of AGI systems. No article processing charges will be collected for this issue. The issue is scheduled for publication in early to mid-November 2026.",
+        "zh": "AI & Future Society 現正接受第 2 卷第 2 期稿件，本期為通用人工智能（AGI）社會影響專題。期刊誠邀探討 AGI 系統開發與部署所引發之倫理框架、治理機制、勞動市場轉型、認識論後果及政策回應的原創研究與批判性分析。本期免收論文處理費，預計於 2026 年 11 月上旬至中旬出版。",
+        "zh-cn": "AI & Future Society 现正接受第 2 卷第 2 期稿件，本期为通用人工智能（AGI）社会影响专题。期刊诚邀探讨 AGI 系统开发与部署所引发之伦理框架、治理机制、劳动市场转型、认识论后果及政策回应的原创研究与批判性分析。本期免收论文处理费，预计于 2026 年 11 月上旬至中旬出版。",
+        "ja": "AI & Future Societyは、汎用人工知能（AGI）の社会的影響を特集する第2巻第2号への投稿を受付中です。本誌は、AGIシステムの開発・展開から生じる倫理的枠組み・ガバナンス機構・労働市場変革・認識論的帰結・政策対応を扱う独創的な研究と批評的分析を歓迎します。本号は論文処理費用不要で、2026年11月上旬〜中旬の出版を予定しています。",
+        "ko": "AI & Future Society는 통용 인공지능(AGI)의 사회적 영향을 다루는 제2권 제2호 논문을 모집합니다. 본지는 AGI 시스템의 개발 및 배포로 인한 윤리적 프레임워크, 거버넌스 메커니즘, 노동 시장 변화, 인식론적 결과, 정책 대응에 관한 독창적 연구 및 비판적 분석을 환영합니다. 본호는 논문 처리 비용이 없으며, 2026년 11월 초~중순 출판 예정입니다.",
+        "ru": "AI & Future Society принимает статьи для 2-го тома, выпуска 2, посвящённого социальным последствиям систем общего искусственного интеллекта (AGI). Журнал приглашает к публикации оригинальные исследования и критические аналитические работы по этическим основам, механизмам управления, трансформации рынка труда, эпистемологическим последствиям и политическим ответам на развитие и применение систем AGI. Плата за обработку статей в данном выпуске не взимается; публикация запланирована на начало–середину ноября 2026 г.",
+        "es": "AI & Future Society acepta actualmente trabajos para el Vol. 2, N.º 2, un número regular dedicado al impacto social de la inteligencia artificial general (AGI). La revista invita a investigaciones originales y análisis críticos sobre marcos éticos, mecanismos de gobernanza, transformación del mercado laboral, consecuencias epistémicas y respuestas políticas derivadas del desarrollo y despliegue de sistemas AGI. No se cobrarán cargos por procesamiento de artículos para este número. El número está programado para publicarse a principios o mediados de noviembre de 2026.",
+        "fr": "AI & Future Society accepte actuellement des soumissions pour le volume 2, numéro 2, un numéro régulier consacré à l'impact sociétal de l'intelligence artificielle générale (IAG). La revue invite des recherches originales et des analyses critiques portant sur les cadres éthiques, les mécanismes de gouvernance, la transformation du marché du travail, les conséquences épistémiques et les réponses politiques découlant du développement et du déploiement des systèmes d'IAG. Aucun frais de traitement d'article ne sera perçu pour ce numéro. La publication est prévue pour début à mi-novembre 2026.",
+        "de": "AI & Future Society nimmt Beiträge für Band 2, Heft 2 entgegen, eine reguläre Ausgabe, die den gesellschaftlichen Auswirkungen Künstlicher Allgemeiner Intelligenz (AGI) gewidmet ist. Die Zeitschrift lädt zu Originalforschung und kritischen Analysen ein, die ethische Rahmenbedingungen, Governance-Mechanismen, Transformationen des Arbeitsmarktes, epistemische Konsequenzen und politische Reaktionen auf die Entwicklung und den Einsatz von AGI-Systemen untersuchen. Für diese Ausgabe werden keine Artikelbearbeitungsgebühren erhoben. Die Ausgabe soll Anfang bis Mitte November 2026 erscheinen."
       },
-      "link": "https://journals.panorama-sg.com/index.php/Silence"
+      "link": "https://journals.panorama-sg.com/index.php/afs/announcement"
     },
     {
-      "id": "2026-clockss-indexing",
-      "date": "2026-04-20",
-      "type": "notice",
+      "id": "2026-healthnexus-nsclc-cfp",
+      "date": "2026-03-10",
+      "type": "call-for-papers",
       "pinned": false,
       "title": {
-        "en": "Indexing Update: All Journals Now CLOCKSS-Archived",
-        "zh": "索引更新：所有期刊已納入 CLOCKSS 數位保存",
-        "zh-cn": "索引更新：所有期刊已纳入 CLOCKSS 数字保存",
-        "ja": "インデックス更新：全ジャーナルがCLOCKSSアーカイブに登録",
-        "ko": "인덱싱 업데이트: 전체 저널 CLOCKSS 아카이브 등록 완료",
-        "ru": "Обновление индексации: все журналы теперь архивированы в CLOCKSS",
-        "es": "Actualización de indexación: todas las revistas archivadas en CLOCKSS",
-        "fr": "Mise à jour d'indexation : toutes les revues archivées dans CLOCKSS",
-        "de": "Indexierungsupdate: Alle Zeitschriften jetzt in CLOCKSS archiviert"
+        "en": "Call for Papers: Health Nexus Special Issue on Natural Products in NSCLC",
+        "zh": "徵稿啟事：Health Nexus 特刊——天然產品在非小細胞肺癌中的應用",
+        "zh-cn": "征稿启事：Health Nexus 特刊——天然产品在非小细胞肺癌中的应用",
+        "ja": "投稿募集：Health Nexus 特集号「NSCLCにおける天然産物の治療的可能性」",
+        "ko": "논문 모집 공고: Health Nexus 특별호 — 비소세포폐암(NSCLC)에서의 천연물질",
+        "ru": "Приём статей: специальный выпуск Health Nexus — природные продукты при НМРЛ",
+        "es": "Convocatoria: Health Nexus — Número especial sobre productos naturales en el CPNCP",
+        "fr": "Appel à contributions : numéro spécial Health Nexus — produits naturels dans le CPNPC",
+        "de": "Call for Papers: Health Nexus-Sonderausgabe zu Naturstoffen beim NSCLC"
       },
       "body": {
-        "en": "All Panorama Scholarly Group journals are now enrolled in the CLOCKSS digital preservation archive, ensuring long-term availability of published content.",
-        "zh": "所有 Panorama Scholarly Group 期刊現已加入 CLOCKSS 數位保存計劃，確保已發表內容的長期可獲取性。",
-        "zh-cn": "所有 Panorama Scholarly Group 期刊现已加入 CLOCKSS 数字保存计划，确保已发表内容的长期可获取性。",
-        "ja": "Panorama Scholarly Groupの全ジャーナルがCLOCKSSデジタル保存アーカイブに登録され、公開コンテンツの長期的な利用可能性が保証されます。",
-        "ko": "Panorama Scholarly Group의 모든 저널이 CLOCKSS 디지털 보존 아카이브에 등록되어 출판된 콘텐츠의 장기적 접근성이 보장됩니다.",
-        "ru": "Все журналы Panorama Scholarly Group зарегистрированы в цифровом архиве CLOCKSS, что обеспечивает долгосрочный доступ к опубликованным материалам.",
-        "es": "Todas las revistas de Panorama Scholarly Group están inscritas en el archivo de preservación digital CLOCKSS, garantizando la disponibilidad a largo plazo del contenido publicado.",
-        "fr": "Toutes les revues de Panorama Scholarly Group sont inscrites dans l'archive de préservation numérique CLOCKSS, garantissant la disponibilité à long terme du contenu publié.",
-        "de": "Alle Zeitschriften der Panorama Scholarly Group sind im digitalen Bestandsarchiv CLOCKSS registriert, was die langfristige Verfügbarkeit veröffentlichter Inhalte sicherstellt."
+        "en": "Health Nexus: Interdisciplinary Medical Research Journal announces a Call for Papers for a special issue dedicated to the therapeutic potential of natural products in non-small cell lung cancer (NSCLC). The editorial board welcomes original research articles, systematic reviews, and meta-analyses investigating plant-derived compounds, bioactive natural agents, and herbal formulations as preventive, diagnostic, or therapeutic interventions in NSCLC. Manuscripts submitted prior to 2027 will be published under the Diamond Open Access model at no cost to authors. All submissions must include an anonymized manuscript and an official similarity report with a rate below 15%.",
+        "zh": "Health Nexus 跨學科醫學研究期刊謹此公告徵稿特刊，主題為天然產品在非小細胞肺癌（NSCLC）中的治療潛力。編委會誠邀探討植物源性化合物、生物活性天然藥物及草藥製劑作為 NSCLC 預防、診斷或治療干預手段的原創研究、系統性綜述及薈萃分析。2027 年前投稿的稿件將採鑽石開放取用模式出版，作者免付任何費用。所有投稿須附匿名稿件及相似度低於 15% 的官方查重報告。",
+        "zh-cn": "Health Nexus 跨学科医学研究期刊谨此公告征稿特刊，主题为天然产品在非小细胞肺癌（NSCLC）中的治疗潜力。编委会诚邀探讨植物源性化合物、生物活性天然药物及草药制剂作为 NSCLC 预防、诊断或治疗干预手段的原创研究、系统综述及荟萃分析。2027 年前投稿的稿件将采钻石开放获取模式出版，作者免付任何费用。所有投稿须附匿名稿件及相似度低于 15% 的官方查重报告。",
+        "ja": "Health Nexus：学際的医学研究ジャーナルは、非小細胞肺癌（NSCLC）における天然産物の治療的可能性を特集する号への投稿を募集いたします。編集委員会は、植物由来化合物・生物活性天然薬剤・漢方製剤をNSCLC予防・診断・治療介入として検討した独創的研究論文、系統的レビュー、メタアナリシスを歓迎します。2027年より前に投稿された原稿はダイヤモンドオープンアクセスモデルに基づき著者負担なしで出版されます。全投稿に匿名原稿と15%未満の類似度公式レポートが必要です。",
+        "ko": "Health Nexus: 학제간 의학 연구 저널은 비소세포폐암(NSCLC)에서 천연물질의 치료적 잠재력을 다루는 특별호 논문을 모집합니다. 편집위원회는 식물 유래 화합물, 생리활성 천연물질, 한약 제제를 NSCLC의 예방·진단·치료 개입으로 연구한 원창 연구논문, 체계적 문헌고찰, 메타분석을 환영합니다. 2027년 이전 제출 원고는 다이아몬드 오픈 액세스 모델에 따라 저자 비용 없이 출판됩니다. 모든 투고에는 익명 원고와 15% 미만의 공식 유사도 보고서가 필요합니다.",
+        "ru": "Health Nexus: Журнал мультидисциплинарных медицинских исследований объявляет о приёме статей для специального выпуска, посвящённого терапевтическому потенциалу природных продуктов при немелкоклеточном раке лёгкого (НМРЛ). Редакционная коллегия приглашает оригинальные научные статьи, систематические обзоры и мета-анализы, исследующие растительные соединения, биоактивные природные агенты и травяные препараты как профилактические, диагностические или терапевтические вмешательства при НМРЛ. Рукописи, поданные до 2027 г., публикуются в рамках модели Diamond Open Access без каких-либо затрат для авторов. Все рукописи должны содержать анонимизированный вариант и официальный отчёт о сходстве ниже 15%.",
+        "es": "Health Nexus: Revista de Investigación Médica Interdisciplinaria anuncia la convocatoria de artículos para un número especial dedicado al potencial terapéutico de los productos naturales en el cáncer de pulmón de células no pequeñas (CPNCP). El consejo editorial da la bienvenida a artículos de investigación originales, revisiones sistemáticas y meta-análisis que investiguen compuestos derivados de plantas, agentes naturales bioactivos y formulaciones herbales como intervenciones preventivas, diagnósticas o terapéuticas en el CPNCP. Los manuscritos enviados antes de 2027 serán publicados bajo el modelo Diamond Open Access sin coste alguno para los autores. Todos los envíos deben incluir un manuscrito anonimizado y un informe oficial de similitud con una tasa inferior al 15%.",
+        "fr": "Health Nexus: Revue de recherche médicale interdisciplinaire annonce un appel à contributions pour un numéro spécial consacré au potentiel thérapeutique des produits naturels dans le cancer du poumon non à petites cellules (CPNPC). Le comité éditorial accueille des articles de recherche originaux, des revues systématiques et des méta-analyses étudiant les composés d'origine végétale, les agents naturels bioactifs et les préparations à base de plantes comme interventions préventives, diagnostiques ou thérapeutiques dans le CPNPC. Les manuscrits soumis avant 2027 seront publiés selon le modèle Diamond Open Access sans frais pour les auteurs. Toutes les soumissions doivent inclure un manuscrit anonymisé et un rapport officiel de similarité inférieur à 15 %.",
+        "de": "Health Nexus: Journal für interdisziplinäre medizinische Forschung kündigt einen Call for Papers für eine Sonderausgabe an, die dem therapeutischen Potenzial von Naturstoffen beim nicht-kleinzelligen Lungenkarzinom (NSCLC) gewidmet ist. Das Herausgebergremium begrüßt Originalforschungsartikel, systematische Übersichten und Meta-Analysen, die pflanzliche Verbindungen, bioaktive Naturstoffe und pflanzliche Formulierungen als präventive, diagnostische oder therapeutische Interventionen beim NSCLC untersuchen. Manuskripte, die vor 2027 eingereicht werden, werden kostenlos für Autoren im Diamond Open Access-Modell veröffentlicht. Alle Einreichungen müssen ein anonymisiertes Manuskript und einen offiziellen Ähnlichkeitsbericht unter 15 % enthalten."
       },
-      "link": "indexing.html"
+      "link": "https://journals.panorama-sg.com/index.php/HealthNexus/announcement"
     }
   ]
 }
