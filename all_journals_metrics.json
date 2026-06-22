@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-21",
+    "last_updated": "2026-06-22",
     "afs": {
         "2yr_mean_citedness": 0.45,
         "h_index": 1,
@@ -25,10 +25,10 @@
         "works_count": 11
     },
     "jlpcs": {
-        "2yr_mean_citedness": 0.1,
+        "2yr_mean_citedness": 0.14,
         "h_index": 1,
         "i10_index": 0,
-        "works_count": 21
+        "works_count": 22
     },
     "pemr": {
         "2yr_mean_citedness": 0.0,
@@ -61,8 +61,8 @@
         "works_count": 15
     },
     "jscc": {
-        "2yr_mean_citedness": 0.0,
-        "h_index": 0,
+        "2yr_mean_citedness": 0.33,
+        "h_index": 1,
         "i10_index": 0,
         "works_count": 3
     },
