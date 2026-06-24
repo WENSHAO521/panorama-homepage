@@ -183,7 +183,36 @@ h1,h2,h3,p,dl,dd,ul,ol { margin: 0; }
   display: grid; grid-template-columns: 1fr; gap: 44px;
   position: relative; z-index: 1;
 }
+@media (min-width: 960px) {
+  .hero-grid { grid-template-columns: 1fr 360px; align-items: start; }
+}
 .hero-body { border-left: 5px solid var(--red); padding-left: 32px; }
+
+/* Panel — info sidebar inside dark hero */
+.panel {
+  background: var(--g10);
+  border: 1px solid var(--g20);
+  border-top: 4px solid var(--red);
+  padding: 24px 28px;
+  align-self: start;
+}
+.panel h3 {
+  font-size: 9px; font-weight: 800; color: var(--g50);
+  letter-spacing: 0.22em; text-transform: uppercase; margin: 0 0 16px;
+}
+.panel dl > div {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--g20);
+}
+.panel dl > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.panel dt {
+  color: var(--g50); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0;
+}
+.panel dd {
+  color: var(--white); font-size: 14px; font-weight: 700;
+  text-align: right; margin: 0; line-height: 1.4;
+}
 
 h1 {
   font-size: clamp(34px, 4.8vw, 62px);
