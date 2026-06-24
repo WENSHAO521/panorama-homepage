@@ -294,6 +294,24 @@ h3.step-title { margin-top: 14px; font-size: 16px; font-weight: 700; line-height
 .contact-row a:hover { color: var(--red-dark); }
 
 /* ══════════════════════════
+   POSI SECTION
+══════════════════════════ */
+.posi-block { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.posi-intro { display: flex; flex-direction: column; gap: 16px; }
+.posi-logo-link { display: inline-block; }
+.posi-logo { height: 64px; width: auto; display: block; }
+.posi-intro p { font-size: 15px; line-height: 1.8; color: var(--subtle); margin: 0; }
+.posi-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.posi-stat { background: var(--surface); padding: 24px 20px; }
+.posi-stat strong { display: block; font-size: 28px; font-weight: 900; letter-spacing: -0.03em; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+.posi-stat span { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.posi-metrics { grid-column: 1 / -1; background: var(--surface-2); padding: 20px 20px; }
+.posi-metrics-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+.posi-metrics ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.posi-metrics li { font-size: 13px; color: var(--subtle); display: flex; align-items: center; gap: 10px; line-height: 1.4; }
+.posi-metric-tag { background: var(--ink); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 2px 7px; border-radius: 2px; flex-shrink: 0; }
+
+/* ══════════════════════════
    FOOTER
 ══════════════════════════ */
 .site-footer { background: #111111; color: #737373; }
@@ -374,6 +392,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .quick-links { grid-template-columns: 1fr; }
     .articles-grid { grid-template-columns: 1fr; }
     .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .posi-block { grid-template-columns: 1fr; gap: 32px; }
+    .posi-stats { grid-template-columns: 1fr 1fr; }
     .stat-row { grid-template-columns: 1fr 1fr; }
     .policy-item { padding: 22px 20px 22px 66px; }
     .policy-number { left: 20px; top: 24px; }
