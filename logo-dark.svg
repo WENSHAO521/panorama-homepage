@@ -6,4 +6,6 @@
     <path d="M150 200 H50 V170 H150 V50 H180 V200 Z" fill="#FFFFFF"/>
     <rect x="160" y="10" width="30" height="30" fill="#CC0000"/>
   </g>
+  <text x="200" y="360" font-family="Arial, sans-serif" font-weight="900" font-size="40" text-anchor="middle" fill="#FFFFFF" letter-spacing="8">PSG</text>
+  <text x="200" y="385" font-family="Arial, sans-serif" font-weight="400" font-size="12" text-anchor="middle" fill="#CC0000" letter-spacing="2">PANORAMA SCHOLARLY GROUP</text>
 </svg>
