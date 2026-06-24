@@ -541,7 +541,7 @@ h3.step-title {
 .posi-metric-tag {
   background: var(--red); color: var(--white);
   font-size: 9px; font-weight: 800; letter-spacing: 0.08em;
-  padding: 3px 8px; flex-shrink: 0;
+  padding: 3px 0; min-width: 38px; text-align: center; flex-shrink: 0;
 }
 
 /* ══════════════════════════
