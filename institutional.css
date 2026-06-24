@@ -261,12 +261,17 @@ h1 {
 .hero-stats {
   display: grid; grid-template-columns: 1fr;
   width: 100%;
-  border: 1px solid var(--g15); border-top: 4px solid var(--red);
-  background: var(--g05);
+  border: 1px solid rgba(255,255,255,.12); border-top: 4px solid var(--red);
+  background: rgba(13,13,13,.74);
+  backdrop-filter: blur(14px) saturate(125%);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 18px 54px rgba(0,0,0,.28);
 }
 .hero-stat {
   min-width: 0; padding: 20px 22px;
-  border-bottom: 1px solid var(--g15);
+  border-bottom: 1px solid rgba(255,255,255,.11);
   display: grid; grid-template-columns: minmax(0, 1fr) max-content;
   align-items: baseline; gap: 18px;
 }
