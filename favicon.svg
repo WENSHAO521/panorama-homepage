@@ -1,19 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="88 88 214 226">
-  <!--
-    Panorama Scholarly Group — favicon mark only, no text, transparent background.
-    Red updated to #CC0000 (matches design system).
-    ViewBox tightly crops the geometric mark with 8px padding on all sides.
-  -->
+  <style>
+    .mb { fill: #000000; }
+    @media (prefers-color-scheme: dark) { .mb { fill: #ffffff; } }
+  </style>
   <g transform="translate(100, 100)">
-    <!-- P — vertical bar -->
-    <rect x="0" y="0" width="30" height="200" fill="#000000"/>
-    <!-- P — red curved cap -->
+    <rect class="mb" x="0" y="0" width="30" height="200"/>
     <path d="M30 0 H120 C150 0, 150 70, 120 70 H30 Z" fill="#CC0000"/>
-    <!-- S — interlocking horizontal bars -->
-    <path d="M0 100 H120 V130 H30 V150 H120 V200 H0 V170 H90 V150 H0 Z" fill="#000000"/>
-    <!-- G — enclosing bracket -->
-    <path d="M150 200 H50 V170 H150 V50 H180 V200 Z" fill="#000000"/>
-    <!-- Red accent square -->
+    <path class="mb" d="M0 100 H120 V130 H30 V150 H120 V200 H0 V170 H90 V150 H0 Z"/>
+    <path class="mb" d="M150 200 H50 V170 H150 V50 H180 V200 Z"/>
     <rect x="160" y="10" width="30" height="30" fill="#CC0000"/>
   </g>
 </svg>
