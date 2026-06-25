@@ -60,14 +60,16 @@ def extract_stats(body: str) -> dict:
     patterns = {
         "doi_metadata_records":       r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+DOI\s+METADATA\s+RECORDS",
         "searchable_records":         r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+(?:EXTERNAL\s+)?SEARCHABLE\s+RECORDS",
-        "journal_records_indexed":    r"([\d,]+\+?)\s+AUTO.DISCOVERED\s+JOURNAL\s+RECORDS",
+        "_posi_verified":             r"([\d,]+)\s+POSI\s+VERIFIED\s+JOURNAL\s+RECORDS",
+        "_auto_discovered":           r"([\d,]+)\s+AUTO.DISCOVERED\s+JOURNAL\s+RECORDS",
         "avg_metadata_quality_score": r"AVG\.?\s*MQS\s+([\d]+/[\d]+)",
     }
 
     labels = {
         "doi_metadata_records":       "DOI Metadata Records",
         "searchable_records":         "Searchable Records",
-        "journal_records_indexed":    "Journal Records Indexed",
+        "_posi_verified":             "POSI Verified Journal Records",
+        "_auto_discovered":           "Auto-discovered Journal Records",
         "avg_metadata_quality_score": "Avg. Metadata Quality Score",
     }
 
@@ -78,6 +80,18 @@ def extract_stats(body: str) -> dict:
         stats[key] = {"raw": raw, "display": _fmt(raw)}
         status = raw if raw else "未找到"
         print(f"  {'[OK]' if raw else '[--]'} {labels[key]:<35} {status}")
+
+    # Combine verified + auto-discovered into a single total
+    verified_raw = stats.get("_posi_verified", {}).get("raw")
+    auto_raw = stats.get("_auto_discovered", {}).get("raw")
+    if verified_raw and auto_raw:
+        total = int(verified_raw.replace(",", "")) + int(auto_raw.replace(",", ""))
+        total_str = f"{total:,}"
+        stats["journal_records_indexed"] = {"raw": total_str, "display": _fmt(total_str)}
+        print(f"  [OK] {'Journal Records Indexed (total)':<35} {total_str} ({verified_raw} verified + {auto_raw} auto)")
+    else:
+        stats["journal_records_indexed"] = {"raw": None, "display": None}
+        print(f"  [--] {'Journal Records Indexed (total)':<35} 未找到")
 
     return stats
 
