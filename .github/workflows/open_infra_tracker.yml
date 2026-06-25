@@ -40,4 +40,5 @@ jobs:
           git config --local user.name "GitHub Action Bot"
           git add data/posi_stats.json
           git commit -m "chore(posi): auto-update POSI platform stats [skip ci]" || exit 0
+          git pull --rebase origin main
           git push origin main

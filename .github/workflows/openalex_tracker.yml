@@ -41,4 +41,5 @@ jobs:
         git config --local user.name "GitHub Action Bot"
         git add all_journals_metrics.json
         git commit -m "chore(metrics): auto-update OpenAlex citation data [skip ci]" || exit 0
+        git pull --rebase origin main
         git push origin main

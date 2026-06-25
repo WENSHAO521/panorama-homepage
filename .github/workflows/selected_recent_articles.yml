@@ -65,4 +65,5 @@ jobs:
           git config --local user.name "GitHub Action Bot"
           git add data/articles.json data/journals.json
           git commit -m "chore(data): auto-update publisher site data [skip ci]" || exit 0
+          git pull --rebase origin main
           git push origin main
