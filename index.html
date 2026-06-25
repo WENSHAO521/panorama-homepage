@@ -274,19 +274,19 @@
                 </div>
                 <div class="posi-stats">
                     <div class="posi-stat">
-                        <strong>18.9M</strong>
+                        <strong data-posi="doi_metadata_records">18.4M</strong>
                         <span>DOI Metadata Records</span>
                     </div>
                     <div class="posi-stat">
-                        <strong>250M+</strong>
+                        <strong data-posi="searchable_records">250M+</strong>
                         <span>Searchable Records via OpenAlex</span>
                     </div>
                     <div class="posi-stat">
-                        <strong>24,000+</strong>
+                        <strong data-posi="journal_records_indexed">22,885</strong>
                         <span>Journal Records Indexed</span>
                     </div>
                     <div class="posi-stat">
-                        <strong>76/100</strong>
+                        <strong data-posi="avg_metadata_quality_score">86/100</strong>
                         <span>Average Metadata Quality Score</span>
                     </div>
                     <div class="posi-metrics">
@@ -471,5 +471,12 @@
 }());
 </script>
 <script src="site.js"></script>
+<script>
+fetch('data/posi_stats.json').then(function(r){return r.json();}).then(function(d){
+  document.querySelectorAll('[data-posi]').forEach(function(el){
+    var v=d[el.dataset.posi];if(v)el.textContent=v;
+  });
+}).catch(function(){});
+</script>
 </body>
 </html>

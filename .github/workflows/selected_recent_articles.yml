@@ -65,5 +65,15 @@ jobs:
           git config --local user.name "GitHub Action Bot"
           git add data/articles.json data/journals.json
           git commit -m "chore(data): auto-update publisher site data [skip ci]" || exit 0
-          git pull --rebase origin main
-          git push origin main
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin main; then
+              break
+            fi
+            if [ "$attempt" = "5" ]; then
+              echo "Push failed after 5 attempts"
+              exit 1
+            fi
+            echo "Push rejected, retrying attempt $((attempt + 1))..."
+            sleep 5
+          done
