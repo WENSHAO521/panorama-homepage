@@ -594,8 +594,12 @@ h3.step-title {
   letter-spacing: 0.22em; color: var(--g40) !important; margin-bottom: 12px !important;
   line-height: 1 !important;
 }
+.footer-platforms-logos { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.footer-posi-link,
 .footer-books-link { display: inline-block; }
+.footer-posi-logo { width: 130px; height: auto; opacity: 0.70; transition: opacity var(--t); }
 .footer-books-logo { width: 100px; height: auto; opacity: 0.75; transition: opacity var(--t); }
+.footer-posi-link:hover .footer-posi-logo,
 .footer-books-link:hover .footer-books-logo { opacity: 1; }
 
 /* ══════════════════════════
