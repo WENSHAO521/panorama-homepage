@@ -588,6 +588,15 @@ h3.step-title {
   display: flex; align-items: center; justify-content: space-between;
   gap: 12px; font-size: 11px; letter-spacing: 0.04em; padding: 12px 0;
 }
+.footer-platforms { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--g15); }
+.footer-platforms-label {
+  font-size: 9px !important; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.22em; color: var(--g40) !important; margin-bottom: 12px !important;
+  line-height: 1 !important;
+}
+.footer-books-link { display: inline-block; }
+.footer-books-logo { width: 100px; height: auto; opacity: 0.75; transition: opacity var(--t); }
+.footer-books-link:hover .footer-books-logo { opacity: 1; }
 
 /* ══════════════════════════
    OTHER PAGES — STAT ROW
