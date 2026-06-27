@@ -599,6 +599,51 @@ h3.step-title {
 .footer-books-link:hover .footer-books-logo { opacity: 1; }
 
 /* ══════════════════════════
+   PUBLISHING LINES SECTION
+══════════════════════════ */
+.pub-lines-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border: 2px solid var(--black); border-top: 4px solid var(--black);
+  background: var(--black);
+}
+.pub-line-card {
+  background: var(--white); padding: 40px 36px;
+  border-right: 1px solid var(--black);
+  display: flex; flex-direction: column; gap: 20px;
+  position: relative;
+}
+.pub-line-card:last-child { border-right: 0; }
+.pub-line-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--red);
+}
+.pub-line-card--books::before { background: #1A3A7A; }
+.pub-line-type {
+  font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.22em; color: var(--red); margin: 0;
+}
+.pub-line-card--books .pub-line-type { color: #1A3A7A; }
+.pub-line-card h3 {
+  font-size: 20px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.2; margin: 0;
+}
+.pub-line-card > p { font-size: 14px; line-height: 1.75; color: var(--g40); margin: 0; }
+.pub-line-features {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 8px;
+  border-top: 1px solid var(--line); padding-top: 16px;
+}
+.pub-line-features li {
+  font-size: 13px; padding-left: 20px; position: relative;
+  color: var(--g30); line-height: 1.5;
+}
+.pub-line-features li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--red); font-size: 11px; font-weight: 800;
+}
+.pub-line-card--books .pub-line-features li::before { color: #1A3A7A; }
+.pub-line-card .btn { margin-top: auto; align-self: flex-start; }
+
+/* ══════════════════════════
    OTHER PAGES — STAT ROW
 ══════════════════════════ */
 .stat-row {
@@ -782,6 +827,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .quick-links { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .articles-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .stat-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .pub-lines-grid { grid-template-columns: 1fr; }
+  .pub-line-card { border-right: 0; border-bottom: 1px solid var(--black); }
+  .pub-line-card:last-child { border-bottom: 0; }
   .guide-layout { grid-template-columns: 1fr; }
   .guide-nav { display: none; }
   .contact-grid { grid-template-columns: 1fr; }

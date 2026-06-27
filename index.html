@@ -30,6 +30,7 @@
         <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
             <a href="index.html" aria-current="page" data-i18n="nav.home">Home</a>
             <a href="journals.html" data-i18n="nav.journals">Journals</a>
+            <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.books">Books</a>
             <a href="index.html#author-path" data-i18n="nav.for-authors">For Authors</a>
             <a href="publication-ethics.html" data-i18n="nav.ethics">Ethics</a>
             <a href="open-access-policy.html" data-i18n="nav.open-access">Open Access</a>
@@ -68,16 +69,17 @@
         <canvas id="hero-canvas" aria-hidden="true"></canvas>
         <div class="container hero-grid">
             <div class="hero-body">
-                <h1 data-i18n="index.h1">Find the right journal and submit with confidence.</h1>
-                <p class="lead" data-i18n="index.lead">Panorama Scholarly Group supports international journals through structured editorial workflows. Authors can evaluate journal fit, review policy requirements, and proceed through clearly defined submission pathways before peer review begins.</p>
+                <h1 data-i18n="index.h1">Advancing knowledge through peer-reviewed journals and scholarly books.</h1>
+                <p class="lead" data-i18n="index.lead">Panorama Scholarly Group is an international academic publisher committed to rigorous peer review, open access, and long-term scholarly preservation. We publish peer-reviewed journals and scholarly books across multidisciplinary fields, connecting authors and readers worldwide.</p>
                 <div class="trust-badges">
                     <span class="trust-badge peer" data-i18n="index.badge.peer">Peer Reviewed</span>
                     <span class="trust-badge oa" data-i18n="index.badge.oa">Open Access</span>
                     <span class="trust-badge doi" data-i18n="index.badge.doi">Crossref DOI</span>
+                    <span class="trust-badge" data-i18n="index.badge.books">Scholarly Books</span>
                 </div>
                 <div class="btn-row">
-                    <a class="btn primary" href="journals.html" data-i18n="index.btn.journals">Find a Journal</a>
-                    <a class="btn" href="for-authors.html" data-i18n="index.btn.authors">Author Guide</a>
+                    <a class="btn primary" href="journals.html" data-i18n="index.btn.journals">Browse Journals</a>
+                    <a class="btn" href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.btn.books">Scholarly Books</a>
                 </div>
             </div>
             <div class="hero-stats">
@@ -133,13 +135,51 @@
         </div>
     </div>
 
+    <!-- ── What We Publish ── -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <p class="kicker">What We Publish</p>
+                    <h2>Two publishing lines — one commitment to scholarly excellence.</h2>
+                </div>
+            </div>
+            <div class="pub-lines-grid">
+                <div class="pub-line-card">
+                    <p class="pub-line-type">Journals</p>
+                    <h3>22 Peer-Reviewed Open-Access Journals</h3>
+                    <p>Spanning Technology &amp; Engineering, Health &amp; Sustainability, Policy, Education &amp; Society, and Humanities &amp; Arts. Every article receives a Crossref DOI and is indexed in Google Scholar and major scholarly databases.</p>
+                    <ul class="pub-line-features">
+                        <li>Structured peer review with clear editorial timelines</li>
+                        <li>Open access under Creative Commons licensing</li>
+                        <li>CLOCKSS &amp; PKP Preservation archiving</li>
+                        <li>Crossref DOI registration — prefix 10.63802</li>
+                    </ul>
+                    <a class="btn primary" href="journals.html">Browse Journal Catalogue</a>
+                </div>
+                <div class="pub-line-card pub-line-card--books">
+                    <p class="pub-line-type">Scholarly Books</p>
+                    <h3>Monographs, Edited Volumes &amp; Book Series</h3>
+                    <p>Panorama Scholarly Books publishes peer-reviewed academic books with broad international reach. We welcome proposals from scholars across all disciplines aligned with our publishing mission.</p>
+                    <ul class="pub-line-features">
+                        <li>Full peer review for all book proposals</li>
+                        <li>Open access and standard licensing options</li>
+                        <li>International library and digital distribution</li>
+                        <li>Dedicated editorial team for book projects</li>
+                    </ul>
+                    <a class="btn primary" href="https://books.panorama-sg.com" target="_blank" rel="noopener">Visit Scholarly Books</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ── Announcements ── -->
     <section class="section ann-section" id="announcements">
         <div class="container">
             <div class="section-head">
                 <div>
                     <p class="kicker" data-i18n="ann.kicker">Announcements</p>
-                    <h2 data-i18n="ann.h2">Latest news and updates from the journal portfolio.</h2>
+                    <h2 data-i18n="ann.h2">Latest news and updates from Panorama Scholarly Group.</h2>
                 </div>
             </div>
             <div class="ann-grid" id="ann-grid"></div>
@@ -175,7 +215,7 @@
             <div class="section-head">
                 <div>
                     <p class="kicker">For Authors</p>
-                    <h2>Submission workflow from manuscript preparation to editorial decision.</h2>
+                    <h2>Publish with us — journals, books, and scholarly series.</h2>
                 </div>
             </div>
             <div class="steps-grid">
@@ -202,8 +242,8 @@
             </div>
             <div class="steps-cta">
                 <div>
-                    <p class="steps-cta-text">Ready to submit? Review the complete author guide first.</p>
-                    <span class="steps-cta-sub">Covers formatting, declarations, peer review, and post-publication rights.</span>
+                    <p class="steps-cta-text">Publishing a journal article? Review the complete author guide first.</p>
+                    <span class="steps-cta-sub">Covers journal selection, formatting, peer review, and post-publication rights. For book proposals, visit Scholarly Books.</span>
                 </div>
                 <a class="btn primary light" href="for-authors.html">Full Author Guide</a>
             </div>
@@ -216,7 +256,7 @@
             <div class="section-head">
                 <div>
                     <p class="kicker">Recent Research</p>
-                    <h2>Recent publications from across the journal portfolio.</h2>
+                    <h2>Recent publications from across our journals catalogue.</h2>
                 </div>
                 <a class="text-link" href="journals.html">Browse all journals</a>
             </div>
@@ -229,8 +269,8 @@
         <div class="container trust-grid">
             <div>
                 <p class="kicker">Governance</p>
-                <h2>Editorial workflows supported by a consistent policy framework.</h2>
-                <p>All journals operate under shared baseline requirements for authorship integrity, peer-review confidentiality, conflict disclosure, and post-publication correction practices.</p>
+                <h2>Publishing under a consistent editorial and ethics framework.</h2>
+                <p>All publications — journals and books — operate under shared baseline requirements for authorship integrity, peer-review confidentiality, conflict disclosure, and post-publication correction practices.</p>
             </div>
             <div class="trust-links">
                 <a href="publication-ethics.html">
@@ -246,8 +286,8 @@
                     <span>Discovery databases, preservation archives, and DOI registration details.</span>
                 </a>
                 <a href="about.html">
-                    <strong>Institutional Profile</strong>
-                    <span>Operating model, portfolio structure, and policy framework.</span>
+                    <strong>About the Publisher</strong>
+                    <span>Publisher mission, catalogue structure, and policy framework.</span>
                 </a>
             </div>
         </div>
