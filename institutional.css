@@ -594,13 +594,26 @@ h3.step-title {
   letter-spacing: 0.22em; color: var(--g40) !important; margin-bottom: 12px !important;
   line-height: 1 !important;
 }
-.footer-platforms-logos { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.footer-platforms-logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 22px;
+  row-gap: 12px;
+  align-items: center;
+}
 .footer-posi-link,
 .footer-books-link,
-.footer-journals-link { display: inline-block; }
-.footer-posi-logo { width: 130px; height: auto; opacity: 0.70; transition: opacity var(--t); }
-.footer-books-logo { width: 100px; height: auto; opacity: 0.75; transition: opacity var(--t); }
-.footer-journals-logo { width: 90px; height: auto; opacity: 0.75; transition: opacity var(--t); }
+.footer-journals-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  line-height: 0;
+}
+.footer-posi-logo { width: 118px; max-height: 38px; height: auto; opacity: 0.70; transition: opacity var(--t); }
+.footer-books-logo { width: 58px; max-height: 58px; height: auto; opacity: 0.75; transition: opacity var(--t); }
+.footer-journals-logo { width: 56px; max-height: 56px; height: auto; opacity: 0.88; transition: opacity var(--t); }
 .footer-posi-link:hover .footer-posi-logo,
 .footer-books-link:hover .footer-books-logo,
 .footer-journals-link:hover .footer-journals-logo { opacity: 1; }
