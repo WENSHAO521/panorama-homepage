@@ -750,6 +750,7 @@ h3.step-title {
 .guide-tab:hover { color: var(--black); }
 .guide-tab.guide-tab--active { color: var(--black); border-bottom-color: var(--red); }
 .guide-panel { display: block; }
+[hidden] { display: none !important; }
 .guide-layout { display: grid; grid-template-columns: 196px minmax(0,1fr); gap: 0; align-items: start; }
 .guide-nav { position: sticky; top: 82px; border: 2px solid var(--black); background: var(--white); overflow: hidden; }
 .guide-nav-head {
