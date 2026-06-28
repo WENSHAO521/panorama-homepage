@@ -1010,7 +1010,7 @@
             'contact.books.editorial.p': 'The Panorama Scholarly Books editorial team reviews all proposals. Decisions on whether a proposal falls within scope are typically communicated within six weeks of receipt.',
             'indexing.issn.p': 'Journals with registered ISSNs have been verified by the ISSN International Centre. Journals with pending ISSN status are in the registration process. Authors requiring ISSN confirmation should check the individual journal page or contact the publisher directly.',
             'contact.books.scholarly.p': 'Panorama Scholarly Books considers proposals for peer-reviewed monographs, edited volumes, and book series. Visit <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> for submission guidelines and the proposal form.',
-            'contact.books.proposal-enquiries.p': 'For informal enquiries about book proposals before formal submission, email <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a> with a brief description of your proposed project, your institutional affiliation, and the intended audience.'
+            'contact.books.proposal-enquiries.p': 'For informal enquiries about book proposals before formal submission, email <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> with a brief description of your proposed project, your institutional affiliation, and the intended audience.'
         },
         zh: {
             'lang.btn': 'English',
@@ -1405,7 +1405,7 @@
             'contact.books.editorial.p': 'Panorama Scholarly Books 編輯團隊審閱所有提案。提案是否在範疇內的決定通常在收到後六週內通知。',
             'indexing.issn.p': '已登記 ISSN 的期刊已由 ISSN 國際中心核實。ISSN 狀態待定的期刊正在註冊程序中。需要 ISSN 確認的作者請查看各期刊頁面或直接聯絡出版商。',
             'contact.books.scholarly.p': 'Panorama Scholarly Books 接受同行評審專著、編輯卷集及書系的提案。請前往 <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> 查閱投稿須知及提案表格。',
-            'contact.books.proposal-enquiries.p': '如需在正式提交前進行非正式查詢，請發送電子郵件至 <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>，並簡述擬議項目、所屬機構及目標讀者。'
+            'contact.books.proposal-enquiries.p': '如需在正式提交前進行非正式查詢，請發送電子郵件至 <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a>，並簡述擬議項目、所屬機構及目標讀者。'
         }
     };
 
@@ -1801,7 +1801,7 @@
         'contact.books.editorial.p': 'Panorama Scholarly Booksの編集チームがすべての提案を審査します。提案がスコープ内かどうかの決定は通常、受理後6週間以内に通知されます。',
         'indexing.issn.p': 'ISSNが登録されている雑誌はISSN国際センターによって確認されています。ISSNのステータスが保留中の雑誌は登録プロセス中です。ISSN確認が必要な著者は各雑誌のページを確認するか、出版社に直接お問い合わせください。',
         'contact.books.scholarly.p': 'Panorama Scholarly Books は、査読付き学術書、編集論文集、ブックシリーズの提案を受け付けています。投稿ガイドラインと提案フォームについては <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> をご覧ください。',
-        'contact.books.proposal-enquiries.p': '正式な提出前に書籍提案について非公式なお問い合わせをご希望の場合は、提案プロジェクトの簡単な説明、所属機関、対象読者を記載の上、<a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a> にメールでお問い合わせください。'
+        'contact.books.proposal-enquiries.p': '正式な提出前に書籍提案について非公式なお問い合わせをご希望の場合は、提案プロジェクトの簡単な説明、所属機関、対象読者を記載の上、<a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> にメールでお問い合わせください。'
     });
 
     i18n.ko = Object.assign({}, i18n.en, {
@@ -2196,7 +2196,7 @@
         'contact.books.editorial.p': 'Panorama Scholarly Books 편집팀이 모든 제안을 검토합니다. 제안이 범위 내에 해당하는지 여부는 통상 접수 후 6주 이내에 통보됩니다.',
         'indexing.issn.p': '등록된 ISSN이 있는 저널은 ISSN 국제 센터에 의해 확인되었습니다. ISSN 상태가 보류 중인 저널은 등록 절차 중입니다. ISSN 확인이 필요한 저자는 개별 저널 페이지를 확인하거나 출판사에 직접 문의하세요.',
         'contact.books.scholarly.p': 'Panorama Scholarly Books는 동료 심사 학술 단행본, 편집 논문집 및 도서 시리즈에 대한 제안서를 검토합니다. 제출 지침과 제안서 양식은 <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a>을 방문하세요.',
-        'contact.books.proposal-enquiries.p': '공식 제출 전 도서 제안에 대한 비공식 문의는 제안 프로젝트에 대한 간략한 설명, 소속 기관 및 대상 독자를 포함하여 <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>으로 이메일을 보내주세요.'
+        'contact.books.proposal-enquiries.p': '공식 제출 전 도서 제안에 대한 비공식 문의는 제안 프로젝트에 대한 간략한 설명, 소속 기관 및 대상 독자를 포함하여 <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a>으로 이메일을 보내주세요.'
     });
 
     i18n['zh-cn'] = Object.assign({}, simplifyTextMap(i18n.zh), {
@@ -2589,7 +2589,7 @@
         'contact.books.editorial.p': 'Panorama Scholarly Books 编辑团队将审阅所有提案。提案是否符合范畴的决定通常在收到后六周内告知。',
         'indexing.issn.p': '已注册 ISSN 的期刊已由 ISSN 国际中心核实。ISSN 状态待定的期刊正在注册流程中。需要 ISSN 确认的作者请查看各期刊页面或直接联系出版商。',
         'contact.books.scholarly.p': 'Panorama Scholarly Books 接受同行评审专著、编辑卷集及书系的提案。请前往 <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> 查阅投稿须知及提案表格。',
-        'contact.books.proposal-enquiries.p': '如需在正式提交前进行非正式咨询，请发送电子邮件至 <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>，并简述拟议项目、所属机构及目标读者。'
+        'contact.books.proposal-enquiries.p': '如需在正式提交前进行非正式咨询，请发送电子邮件至 <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a>，并简述拟议项目、所属机构及目标读者。'
     });
 
     i18n.ru = Object.assign({}, i18n.en, {
@@ -2985,7 +2985,7 @@
         'contact.books.editorial.p': 'Редакционная группа Panorama Scholarly Books рассматривает все предложения. Решение о соответствии предложения области охвата, как правило, сообщается в течение шести недель с момента получения.',
         'indexing.issn.p': 'Журналы с зарегистрированными ISSN прошли проверку ISSN International Centre. Журналы с ожидающим статусом ISSN находятся в процессе регистрации. Авторам, которым требуется подтверждение ISSN, следует обратиться на страницу соответствующего журнала или напрямую к издателю.',
         'contact.books.scholarly.p': 'Panorama Scholarly Books рассматривает предложения по рецензируемым монографиям, редактируемым сборникам и книжным сериям. Посетите <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> для ознакомления с руководством по подаче и формой предложения.',
-        'contact.books.proposal-enquiries.p': 'Для неформальных запросов о книжных предложениях до официальной подачи отправьте письмо на <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a> с кратким описанием предлагаемого проекта, вашей институциональной принадлежностью и целевой аудиторией.'
+        'contact.books.proposal-enquiries.p': 'Для неформальных запросов о книжных предложениях до официальной подачи отправьте письмо на <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> с кратким описанием предлагаемого проекта, вашей институциональной принадлежностью и целевой аудиторией.'
     });
 
     i18n.es = Object.assign({}, i18n.en, {
@@ -3380,7 +3380,7 @@
         'contact.books.editorial.p': 'El equipo editorial de Panorama Scholarly Books revisa todas las propuestas. La determinación de si una propuesta está dentro del alcance generalmente se comunica dentro de las seis semanas posteriores a la recepción.',
         'indexing.issn.p': 'Las revistas con ISSNs registrados han sido verificadas por el ISSN International Centre. Las revistas con estado ISSN pendiente están en proceso de registro. Los autores que requieren confirmación de ISSN deben consultar la página de la revista correspondiente o contactar directamente al editor.',
         'contact.books.scholarly.p': 'Panorama Scholarly Books considera propuestas de monografías arbitradas, volúmenes editados y series de libros. Visite <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> para conocer las pautas de presentación y el formulario de propuesta.',
-        'contact.books.proposal-enquiries.p': 'Para consultas informales sobre propuestas de libros antes de la presentación formal, envíe un correo a <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a> con una breve descripción de su proyecto propuesto, su afiliación institucional y el público objetivo.'
+        'contact.books.proposal-enquiries.p': 'Para consultas informales sobre propuestas de libros antes de la presentación formal, envíe un correo a <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> con una breve descripción de su proyecto propuesto, su afiliación institucional y el público objetivo.'
     });
 
     i18n.fr = Object.assign({}, i18n.en, {
@@ -3775,7 +3775,7 @@
         'contact.books.editorial.p': 'L\'équipe éditoriale de Panorama Scholarly Books examine toutes les propositions. La décision sur l\'adéquation d\'une proposition avec le périmètre est généralement communiquée dans les six semaines suivant la réception.',
         'indexing.issn.p': 'Les revues avec des ISSNs enregistrés ont été vérifiées par l\'ISSN International Centre. Les revues dont le statut ISSN est en attente sont en cours d\'enregistrement. Les auteurs nécessitant une confirmation ISSN doivent consulter la page de la revue concernée ou contacter directement l\'éditeur.',
         'contact.books.scholarly.p': 'Panorama Scholarly Books examine les propositions de monographies évaluées par les pairs, de volumes collectifs et de séries de livres. Consultez <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> pour les directives de soumission et le formulaire de proposition.',
-        'contact.books.proposal-enquiries.p': 'Pour des demandes informelles sur des propositions de livres avant la soumission formelle, envoyez un courriel à <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a> avec une brève description de votre projet proposé, votre affiliation institutionnelle et le public visé.'
+        'contact.books.proposal-enquiries.p': 'Pour des demandes informelles sur des propositions de livres avant la soumission formelle, envoyez un courriel à <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> avec une brève description de votre projet proposé, votre affiliation institutionnelle et le public visé.'
     });
 
     i18n.de = Object.assign({}, i18n.en, {
@@ -4170,7 +4170,7 @@
         'contact.books.editorial.p': 'Das Redaktionsteam von Panorama Scholarly Books prüft alle Vorschläge. Die Entscheidung, ob ein Vorschlag dem Themenbereich entspricht, wird in der Regel innerhalb von sechs Wochen nach Eingang mitgeteilt.',
         'indexing.issn.p': 'Zeitschriften mit registrierten ISSNs wurden vom ISSN International Centre verifiziert. Zeitschriften mit ausstehend em ISSN-Status befinden sich im Registrierungsprozess. Autoren, die eine ISSN-Bestätigung benötigen, sollten die Seite der jeweiligen Zeitschrift prüfen oder den Verlag direkt kontaktieren.',
         'contact.books.scholarly.p': 'Panorama Scholarly Books prüft Vorschläge für begutachtete Monographien, herausgegebene Sammelbände und Buchreihen. Besuchen Sie <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> für Einreichungsrichtlinien und das Vorschlagsformular.',
-        'contact.books.proposal-enquiries.p': 'Für informelle Anfragen zu Buchvorschlägen vor der formellen Einreichung senden Sie eine E-Mail an <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a> mit einer kurzen Beschreibung Ihres vorgeschlagenen Projekts, Ihrer institutionellen Zugehörigkeit und der Zielgruppe.'
+        'contact.books.proposal-enquiries.p': 'Für informelle Anfragen zu Buchvorschlägen vor der formellen Einreichung senden Sie eine E-Mail an <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> mit einer kurzen Beschreibung Ihres vorgeschlagenen Projekts, Ihrer institutionellen Zugehörigkeit und der Zielgruppe.'
     });
 
     i18n.ar = Object.assign({}, i18n.en, {
@@ -4566,7 +4566,7 @@
         'contact.books.editorial.p': 'يراجع الفريق التحريري لـ Panorama Scholarly Books جميع المقترحات. يُبلَّغ عادةً بقرار مدى ملاءمة المقترح للنطاق في غضون ستة أسابيع من استلامه.',
         'indexing.issn.p': 'تمت التحقق من المجلات ذات أرقام ISSN المسجلة من قِبل المركز الدولي للـ ISSN. المجلات ذات حالة ISSN المعلقة في طور التسجيل. يتعين على المؤلفين الذين يحتاجون إلى تأكيد ISSN مراجعة صفحة المجلة المعنية أو التواصل مباشرةً مع الناشر.',
         'contact.books.scholarly.p': 'تنظر Panorama Scholarly Books في مقترحات الدراسات المحكّمة والمجلدات المحررة وسلاسل الكتب. تفضلوا بزيارة <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> للاطلاع على إرشادات التقديم واستمارة المقترح.',
-        'contact.books.proposal-enquiries.p': 'للاستفسارات غير الرسمية حول مقترحات الكتب قبل التقديم الرسمي، أرسل بريداً إلكترونياً إلى <a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a> مع وصف موجز لمشروعك المقترح وانتمائك المؤسسي والجمهور المستهدف.'
+        'contact.books.proposal-enquiries.p': 'للاستفسارات غير الرسمية حول مقترحات الكتب قبل التقديم الرسمي، أرسل بريداً إلكترونياً إلى <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> مع وصف موجز لمشروعك المقترح وانتمائك المؤسسي والجمهور المستهدف.'
     });
 
     var autoText = {
