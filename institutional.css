@@ -620,6 +620,16 @@ h3.step-title {
 .footer-books-link:hover .footer-books-logo,
 .footer-journals-link:hover .footer-journals-logo,
 .footer-profiles-link:hover .footer-profiles-logo { opacity: 1; }
+.footer-partners { margin-top: 16px; }
+.footer-partners-logos { display: flex; align-items: center; }
+.footer-partner-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 76px; line-height: 0;
+}
+.footer-taoist-logo {
+  width: 74px; height: auto; opacity: 0.72;
+  filter: brightness(0) invert(1);
+}
 
 /* ══════════════════════════
    PUBLISHING LINES SECTION
