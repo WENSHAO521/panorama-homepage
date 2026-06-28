@@ -740,6 +740,16 @@ h3.step-title {
 /* ══════════════════════════
    AUTHOR GUIDE
 ══════════════════════════ */
+.guide-tabs { display: flex; border-bottom: 2px solid var(--black); margin-bottom: 36px; gap: 0; }
+.guide-tab {
+  padding: 10px 28px; font: inherit; font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer; border: 0; border-bottom: 3px solid transparent;
+  margin-bottom: -2px; background: transparent; color: var(--g50);
+  transition: color var(--t), border-color var(--t);
+}
+.guide-tab:hover { color: var(--black); }
+.guide-tab.guide-tab--active { color: var(--black); border-bottom-color: var(--red); }
+.guide-panel { display: block; }
 .guide-layout { display: grid; grid-template-columns: 196px minmax(0,1fr); gap: 0; align-items: start; }
 .guide-nav { position: sticky; top: 82px; border: 2px solid var(--black); background: var(--white); overflow: hidden; }
 .guide-nav-head {
