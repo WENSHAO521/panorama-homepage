@@ -1025,7 +1025,19 @@
             'authors.books.sec4.p': 'Accepted proposals receive a publishing contract covering rights, production timelines, and open-access terms. The editorial team guides authors through manuscript preparation, copy-editing, and final publication.',
             'index.steps-cta.text': 'Planning to publish a journal article or book? Start with the author guide.',
             'index.steps-cta.sub': 'The author guide covers journal submission and book proposals — one resource for both publishing tracks.',
-            'index.steps-cta.btn.books': 'Book Proposals'
+            'index.steps-cta.btn.books': 'Book Proposals',
+            'authors.books.sec1.h3': 'What to include in your proposal',
+            'authors.books.sec1.ul': '<li>Working title and subtitle</li><li>Abstract or overview (300–500 words)</li><li>Provisional table of contents</li><li>Target audience and market context</li><li>Comparable works and how yours differs</li><li>Current status of the manuscript (complete, in progress, or planned)</li><li>Lead author CV and co-editor or contributor details (if applicable)</li>',
+            'authors.books.sec2.h3a': 'Submission channels',
+            'authors.books.sec2.ul': '<li>Via proposal form at <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> (recommended)</li><li>By email to <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> with a brief outline</li>',
+            'authors.books.sec2.h3b': 'Response timeline',
+            'authors.books.sec2.p2': 'Initial scope assessment is typically communicated within six weeks of receipt.',
+            'authors.books.sec3.h3': 'Review stages',
+            'authors.books.sec3.ol': '<li><strong>Scope assessment</strong> — Does the proposal align with Panorama Scholarly Books\' publishing areas?</li><li><strong>External peer review</strong> — Independent scholars assess academic rigour and significance.</li><li><strong>Editorial decision</strong> — Accept, revise and resubmit, or decline, with feedback provided.</li>',
+            'authors.books.sec4.h3a': 'After signing',
+            'authors.books.sec4.ul': '<li>Manuscript delivery deadline agreed with your editor</li><li>Copy-editing, typesetting, and proofing managed by the editorial team</li><li>Published books receive an ISBN and DOI</li><li>Distribution through major academic library platforms</li>',
+            'authors.books.sec4.h3b': 'Open access',
+            'authors.books.sec4.p2': 'Panorama Scholarly Books publishes under open-access terms. Authors retain rights consistent with the applicable Creative Commons licence. Full rights details are set out in the publication agreement.'
         },
         zh: {
             'lang.btn': 'English',
@@ -1435,7 +1447,19 @@
             'authors.books.sec4.p': '獲接受的提案將獲得出版合同，涵蓋版權、製作時間表及開放取用條款。編輯團隊將指導作者完成稿件準備、文字編輯及最終出版。',
             'index.steps-cta.text': '計劃發表期刊文章或出版書籍？請從作者指南開始。',
             'index.steps-cta.sub': '作者指南涵蓋期刊投稿與圖書提案——兩條出版路線的一站式資源。',
-            'index.steps-cta.btn.books': '圖書提案'
+            'index.steps-cta.btn.books': '圖書提案',
+            'authors.books.sec1.h3': '提案內容清單',
+            'authors.books.sec1.ul': '<li>暫定標題與副標題</li><li>摘要或概述（300–500字）</li><li>暫定目錄</li><li>目標讀者及市場背景</li><li>同類著作比較及本書的差異</li><li>稿件目前狀態（已完成、撰寫中或規劃中）</li><li>主要作者履歷及共同編者或撰稿人資料（如適用）</li>',
+            'authors.books.sec2.h3a': '提交渠道',
+            'authors.books.sec2.ul': '<li>透過 <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> 上的提案表格提交（推薦）</li><li>發送電子郵件至 <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a>，附上簡要說明</li>',
+            'authors.books.sec2.h3b': '回覆時間',
+            'authors.books.sec2.p2': '初步適配範疇評估通常在收到提案後六週內告知。',
+            'authors.books.sec3.h3': '審核階段',
+            'authors.books.sec3.ol': '<li><strong>範疇評估</strong> — 提案是否符合 Panorama Scholarly Books 的出版領域？</li><li><strong>外部同行評審</strong> — 獨立學者評估學術嚴謹性與重要性。</li><li><strong>編輯決定</strong> — 接受、修改後重新提交或拒絕，並提供反饋。</li>',
+            'authors.books.sec4.h3a': '簽約後',
+            'authors.books.sec4.ul': '<li>與編輯商定稿件交付截止日期</li><li>文字編輯、排版及校對由編輯團隊負責</li><li>出版書籍獲分配 ISBN 及 DOI</li><li>透過主要學術圖書館平台發行</li>',
+            'authors.books.sec4.h3b': '開放取用',
+            'authors.books.sec4.p2': 'Panorama Scholarly Books 以開放取用條款出版。作者保留與適用知識共享授權一致的權利。完整版權細節載於出版協議中。'
         }
     };
 
@@ -1846,7 +1870,19 @@
         'authors.books.sec4.p': '受理された提案には、権利、制作スケジュール、オープンアクセス条件を定めた出版契約が発行されます。編集チームは著者が原稿準備、校正、最終出版を進める際にサポートします。',
         'index.steps-cta.text': '学術誌論文や書籍の出版をお考えですか？まず著者ガイドをご確認ください。',
         'index.steps-cta.sub': '著者ガイドには学術誌への投稿と書籍提案の両方が記載されています——両方の出版ルートの一元的なリソースです。',
-        'index.steps-cta.btn.books': '書籍提案'
+        'index.steps-cta.btn.books': '書籍提案',
+        'authors.books.sec1.h3': '提案に含める内容',
+        'authors.books.sec1.ul': '<li>仮タイトルとサブタイトル</li><li>抄録または概要（300〜500語）</li><li>暫定目次</li><li>対象読者と市場背景</li><li>類似著作との比較と本書の差別化</li><li>原稿の現在の状況（完成、執筆中、または計画中）</li><li>筆頭著者の CV および共同編者・寄稿者の詳細（該当する場合）</li>',
+        'authors.books.sec2.h3a': '提出チャンネル',
+        'authors.books.sec2.ul': '<li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> の提案フォームから提出（推奨）</li><li><a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> 宛に概要を添えてメール送信</li>',
+        'authors.books.sec2.h3b': '返答期間',
+        'authors.books.sec2.p2': '初期スコープ評価は、受領後6週間以内に通知されます。',
+        'authors.books.sec3.h3': '審査段階',
+        'authors.books.sec3.ol': '<li><strong>スコープ評価</strong> — 提案は Panorama Scholarly Books の出版分野と一致しているか？</li><li><strong>外部査読</strong> — 独立した学者が学術的厳密性と意義を評価します。</li><li><strong>編集判定</strong> — 受理、改訂後再提出、または却下。フィードバックが提供されます。</li>',
+        'authors.books.sec4.h3a': '契約後',
+        'authors.books.sec4.ul': '<li>編集者と原稿納入期限を合意</li><li>校閲、組版、校正は編集チームが管理</li><li>出版された書籍に ISBN および DOI を付与</li><li>主要学術図書館プラットフォームを通じて配布</li>',
+        'authors.books.sec4.h3b': 'オープンアクセス',
+        'authors.books.sec4.p2': 'Panorama Scholarly Books はオープンアクセス条件で出版します。著者は適用されるクリエイティブ・コモンズ・ライセンスに基づく権利を保持します。完全な権利の詳細は出版契約書に定められています。'
     });
 
     i18n.ko = Object.assign({}, i18n.en, {
@@ -2256,7 +2292,19 @@
         'authors.books.sec4.p': '수락된 제안서에는 권리, 제작 일정 및 오픈 액세스 조건을 다루는 출판 계약서가 발행됩니다. 편집팀은 저자가 원고 준비, 교열 및 최종 출판을 진행하는 데 안내합니다.',
         'index.steps-cta.text': '학술지 논문이나 도서를 출판하려고 하시나요? 저자 가이드에서 시작하세요.',
         'index.steps-cta.sub': '저자 가이드는 학술지 투고와 도서 제안을 모두 다룹니다 — 두 가지 출판 경로를 위한 하나의 리소스.',
-        'index.steps-cta.btn.books': '도서 제안'
+        'index.steps-cta.btn.books': '도서 제안',
+        'authors.books.sec1.h3': '제안서에 포함할 내용',
+        'authors.books.sec1.ul': '<li>가제목 및 부제목</li><li>초록 또는 개요 (300–500단어)</li><li>잠정 목차</li><li>목표 독자 및 시장 맥락</li><li>유사 저작물과의 비교 및 차별성</li><li>원고 현재 상태 (완성, 진행 중, 또는 계획 중)</li><li>주저자 이력서 및 공동 편집자 또는 기고자 세부 정보 (해당되는 경우)</li>',
+        'authors.books.sec2.h3a': '제출 채널',
+        'authors.books.sec2.ul': '<li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a>의 제안 양식을 통해 제출 (권장)</li><li><a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a>으로 간략한 설명을 담아 이메일 제출</li>',
+        'authors.books.sec2.h3b': '응답 기간',
+        'authors.books.sec2.p2': '초기 범위 평가는 일반적으로 수령 후 6주 이내에 통보됩니다.',
+        'authors.books.sec3.h3': '심사 단계',
+        'authors.books.sec3.ol': '<li><strong>범위 평가</strong> — 제안이 Panorama Scholarly Books의 출판 분야와 일치하는가?</li><li><strong>외부 동료 심사</strong> — 독립 학자들이 학문적 엄격성과 중요성을 평가합니다.</li><li><strong>편집 결정</strong> — 수락, 수정 후 재제출, 또는 거절. 피드백이 제공됩니다.</li>',
+        'authors.books.sec4.h3a': '계약 후',
+        'authors.books.sec4.ul': '<li>편집자와 합의된 원고 납품 기한</li><li>교열, 조판 및 교정은 편집팀에서 관리</li><li>출판된 도서에 ISBN 및 DOI 부여</li><li>주요 학술 도서관 플랫폼을 통한 배포</li>',
+        'authors.books.sec4.h3b': '오픈 액세스',
+        'authors.books.sec4.p2': 'Panorama Scholarly Books는 오픈 액세스 조건으로 출판합니다. 저자는 해당 크리에이티브 커먼즈 라이선스에 따른 권리를 보유합니다. 완전한 권리 세부 사항은 출판 계약서에 명시되어 있습니다.'
     });
 
     i18n['zh-cn'] = Object.assign({}, simplifyTextMap(i18n.zh), {
@@ -2664,7 +2712,19 @@
         'authors.books.sec4.p': '获接受的提案将获得出版合同，涵盖版权、制作时间表及开放获取条款。编辑团队将指导作者完成稿件准备、文字编辑及最终出版。',
         'index.steps-cta.text': '计划发表期刊文章或出版书籍？请从作者指南开始。',
         'index.steps-cta.sub': '作者指南涵盖期刊投稿与图书提案——两条出版路线的一站式资源。',
-        'index.steps-cta.btn.books': '图书提案'
+        'index.steps-cta.btn.books': '图书提案',
+        'authors.books.sec1.h3': '提案内容清单',
+        'authors.books.sec1.ul': '<li>暂定标题与副标题</li><li>摘要或概述（300–500字）</li><li>暂定目录</li><li>目标读者及市场背景</li><li>同类著作比较及本书的差异</li><li>稿件目前状态（已完成、撰写中或规划中）</li><li>主要作者履历及共同编者或撰稿人资料（如适用）</li>',
+        'authors.books.sec2.h3a': '提交渠道',
+        'authors.books.sec2.ul': '<li>通过 <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> 上的提案表格提交（推荐）</li><li>发送电子邮件至 <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a>，附上简要说明</li>',
+        'authors.books.sec2.h3b': '回复时间',
+        'authors.books.sec2.p2': '初步适配范畴评估通常在收到提案后六周内告知。',
+        'authors.books.sec3.h3': '审核阶段',
+        'authors.books.sec3.ol': '<li><strong>范畴评估</strong> — 提案是否符合 Panorama Scholarly Books 的出版领域？</li><li><strong>外部同行评审</strong> — 独立学者评估学术严谨性与重要性。</li><li><strong>编辑决定</strong> — 接受、修改后重新提交或拒绝，并提供反馈。</li>',
+        'authors.books.sec4.h3a': '签约后',
+        'authors.books.sec4.ul': '<li>与编辑商定稿件交付截止日期</li><li>文字编辑、排版及校对由编辑团队负责</li><li>出版书籍获分配 ISBN 及 DOI</li><li>通过主要学术图书馆平台发行</li>',
+        'authors.books.sec4.h3b': '开放获取',
+        'authors.books.sec4.p2': 'Panorama Scholarly Books 以开放获取条款出版。作者保留与适用知识共享授权一致的权利。完整版权细节载于出版协议中。'
     });
 
     i18n.ru = Object.assign({}, i18n.en, {
@@ -3060,7 +3120,34 @@
         'contact.books.editorial.p': 'Редакционная группа Panorama Scholarly Books рассматривает все предложения. Решение о соответствии предложения области охвата, как правило, сообщается в течение шести недель с момента получения.',
         'indexing.issn.p': 'Журналы с зарегистрированными ISSN прошли проверку ISSN International Centre. Журналы с ожидающим статусом ISSN находятся в процессе регистрации. Авторам, которым требуется подтверждение ISSN, следует обратиться на страницу соответствующего журнала или напрямую к издателю.',
         'contact.books.scholarly.p': 'Panorama Scholarly Books рассматривает предложения по рецензируемым монографиям, редактируемым сборникам и книжным сериям. Посетите <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> для ознакомления с руководством по подаче и формой предложения.',
-        'contact.books.proposal-enquiries.p': 'Для неформальных запросов о книжных предложениях до официальной подачи отправьте письмо на <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> с кратким описанием предлагаемого проекта, вашей институциональной принадлежностью и целевой аудиторией.'
+        'contact.books.proposal-enquiries.p': 'Для неформальных запросов о книжных предложениях до официальной подачи отправьте письмо на <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> с кратким описанием предлагаемого проекта, вашей институциональной принадлежностью и целевой аудиторией.',
+        'authors.tab.journals': 'Руководство по подаче в журналы',
+        'authors.tab.books': 'Книжные предложения',
+        'authors.btn.book-proposals': 'Книжные предложения',
+        'authors.books.nav.head': 'Этапы предложения',
+        'authors.books.sec1.h2': '1. Подготовка предложения',
+        'authors.books.sec1.p': 'Сильное предложение — отправная точка любого книжного проекта с Panorama Scholarly Books. Ваше предложение должно чётко обозначить охват, целевую аудиторию и научную значимость работы.',
+        'authors.books.sec2.h2': '2. Подача',
+        'authors.books.sec2.p': 'Книжные предложения можно подать через форму на books.panorama-sg.com или по электронной почте на books@panorama-sg.com. Неформальные запросы об области охвата приветствуются до официальной подачи.',
+        'authors.books.sec3.h2': '3. Редакционное рецензирование',
+        'authors.books.sec3.p': 'Редакционная группа Panorama Scholarly Books рассматривает все предложения с точки зрения соответствия области охвата и академического качества. Предложения, отвечающие требованиям, передаются на внешнее рецензирование.',
+        'authors.books.sec4.h2': '4. Контракт и публикация',
+        'authors.books.sec4.p': 'Принятые предложения получают издательский договор, охватывающий права, производственные сроки и условия открытого доступа. Редакционная группа помогает авторам в подготовке рукописи, редактировании и финальной публикации.',
+        'index.steps-cta.text': 'Планируете опубликовать статью в журнале или книгу? Начните с руководства для авторов.',
+        'index.steps-cta.sub': 'Руководство для авторов охватывает подачу в журналы и книжные предложения — единый ресурс для обоих издательских направлений.',
+        'index.steps-cta.btn.books': 'Книжные предложения',
+        'authors.books.sec1.h3': 'Что включить в предложение',
+        'authors.books.sec1.ul': '<li>Рабочее название и подзаголовок</li><li>Аннотация или обзор (300–500 слов)</li><li>Предварительное оглавление</li><li>Целевая аудитория и рыночный контекст</li><li>Сравнение с аналогичными работами и отличия</li><li>Текущее состояние рукописи (завершена, в процессе или запланирована)</li><li>Резюме ведущего автора и данные соредакторов или соавторов (при наличии)</li>',
+        'authors.books.sec2.h3a': 'Каналы подачи',
+        'authors.books.sec2.ul': '<li>Через форму на <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> (рекомендуется)</li><li>По электронной почте на <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> с кратким описанием</li>',
+        'authors.books.sec2.h3b': 'Сроки ответа',
+        'authors.books.sec2.p2': 'Первоначальная оценка соответствия тематике обычно сообщается в течение шести недель с момента получения.',
+        'authors.books.sec3.h3': 'Этапы рецензирования',
+        'authors.books.sec3.ol': '<li><strong>Оценка тематики</strong> — Соответствует ли предложение издательским направлениям Panorama Scholarly Books?</li><li><strong>Внешнее рецензирование</strong> — Независимые учёные оценивают академическую строгость и значимость.</li><li><strong>Редакционное решение</strong> — Принятие, доработка и повторная подача или отказ с предоставлением отзыва.</li>',
+        'authors.books.sec4.h3a': 'После подписания',
+        'authors.books.sec4.ul': '<li>Согласованный с редактором срок сдачи рукописи</li><li>Редактирование, вёрстка и корректура выполняются редакционной командой</li><li>Изданные книги получают ISBN и DOI</li><li>Распространение через крупнейшие платформы академических библиотек</li>',
+        'authors.books.sec4.h3b': 'Открытый доступ',
+        'authors.books.sec4.p2': 'Panorama Scholarly Books публикует работы на условиях открытого доступа. Авторы сохраняют права в соответствии с применимой лицензией Creative Commons. Полные сведения о правах изложены в договоре об издании.'
     });
 
     i18n.es = Object.assign({}, i18n.en, {
@@ -3455,7 +3542,34 @@
         'contact.books.editorial.p': 'El equipo editorial de Panorama Scholarly Books revisa todas las propuestas. La determinación de si una propuesta está dentro del alcance generalmente se comunica dentro de las seis semanas posteriores a la recepción.',
         'indexing.issn.p': 'Las revistas con ISSNs registrados han sido verificadas por el ISSN International Centre. Las revistas con estado ISSN pendiente están en proceso de registro. Los autores que requieren confirmación de ISSN deben consultar la página de la revista correspondiente o contactar directamente al editor.',
         'contact.books.scholarly.p': 'Panorama Scholarly Books considera propuestas de monografías arbitradas, volúmenes editados y series de libros. Visite <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> para conocer las pautas de presentación y el formulario de propuesta.',
-        'contact.books.proposal-enquiries.p': 'Para consultas informales sobre propuestas de libros antes de la presentación formal, envíe un correo a <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> con una breve descripción de su proyecto propuesto, su afiliación institucional y el público objetivo.'
+        'contact.books.proposal-enquiries.p': 'Para consultas informales sobre propuestas de libros antes de la presentación formal, envíe un correo a <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> con una breve descripción de su proyecto propuesto, su afiliación institucional y el público objetivo.',
+        'authors.tab.journals': 'Guía de envío a revistas',
+        'authors.tab.books': 'Propuestas de libros',
+        'authors.btn.book-proposals': 'Propuestas de libros',
+        'authors.books.nav.head': 'Etapas de la propuesta',
+        'authors.books.sec1.h2': '1. Preparación de la propuesta',
+        'authors.books.sec1.p': 'Una propuesta sólida es el punto de partida de cualquier proyecto de libro con Panorama Scholarly Books. Su propuesta debe describir claramente el alcance, el público objetivo y la relevancia académica del trabajo.',
+        'authors.books.sec2.h2': '2. Envío',
+        'authors.books.sec2.p': 'Las propuestas de libros pueden enviarse a través del formulario en books.panorama-sg.com o por correo electrónico a books@panorama-sg.com. Las consultas informales sobre el alcance son bienvenidas antes del envío formal.',
+        'authors.books.sec3.h2': '3. Revisión editorial',
+        'authors.books.sec3.p': 'El equipo editorial de Panorama Scholarly Books revisa todas las propuestas por adecuación al alcance y calidad académica. Las propuestas que cumplen los requisitos se envían para revisión externa por pares.',
+        'authors.books.sec4.h2': '4. Contrato y publicación',
+        'authors.books.sec4.p': 'Las propuestas aceptadas reciben un contrato editorial que cubre los derechos, los plazos de producción y las condiciones de acceso abierto. El equipo editorial guía a los autores en la preparación del manuscrito, la edición y la publicación final.',
+        'index.steps-cta.text': '¿Planea publicar un artículo en una revista o un libro? Comience con la guía para autores.',
+        'index.steps-cta.sub': 'La guía para autores cubre el envío a revistas y las propuestas de libros — un recurso para ambas vías de publicación.',
+        'index.steps-cta.btn.books': 'Propuestas de libros',
+        'authors.books.sec1.h3': 'Contenido de la propuesta',
+        'authors.books.sec1.ul': '<li>Título provisional y subtítulo</li><li>Resumen o descripción general (300–500 palabras)</li><li>Índice provisional</li><li>Público objetivo y contexto de mercado</li><li>Obras comparables y diferenciación</li><li>Estado actual del manuscrito (completo, en proceso o previsto)</li><li>CV del autor principal y datos de coautores o colaboradores (si corresponde)</li>',
+        'authors.books.sec2.h3a': 'Canales de envío',
+        'authors.books.sec2.ul': '<li>Mediante el formulario en <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> (recomendado)</li><li>Por correo electrónico a <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> con una breve descripción</li>',
+        'authors.books.sec2.h3b': 'Plazos de respuesta',
+        'authors.books.sec2.p2': 'La evaluación inicial del alcance se comunica normalmente en un plazo de seis semanas desde la recepción.',
+        'authors.books.sec3.h3': 'Etapas de revisión',
+        'authors.books.sec3.ol': '<li><strong>Evaluación del alcance</strong> — ¿La propuesta se alinea con las áreas editoriales de Panorama Scholarly Books?</li><li><strong>Revisión por pares externa</strong> — Académicos independientes evalúan el rigor académico y la relevancia.</li><li><strong>Decisión editorial</strong> — Aceptación, revisión y reenvío, o rechazo, con retroalimentación.</li>',
+        'authors.books.sec4.h3a': 'Tras la firma',
+        'authors.books.sec4.ul': '<li>Plazo de entrega del manuscrito acordado con el editor</li><li>Corrección, maquetación y revisión de pruebas gestionadas por el equipo editorial</li><li>Los libros publicados reciben ISBN y DOI</li><li>Distribución a través de las principales plataformas de bibliotecas académicas</li>',
+        'authors.books.sec4.h3b': 'Acceso abierto',
+        'authors.books.sec4.p2': 'Panorama Scholarly Books publica bajo términos de acceso abierto. Los autores conservan los derechos conforme a la licencia Creative Commons aplicable. Los detalles completos de los derechos se establecen en el acuerdo de publicación.'
     });
 
     i18n.fr = Object.assign({}, i18n.en, {
@@ -3865,7 +3979,19 @@
         'authors.books.sec4.p': 'Les propositions acceptées reçoivent un contrat d\'édition couvrant les droits, les délais de production et les conditions d\'accès ouvert. L\'équipe guide les auteurs à travers la préparation du manuscrit, la révision et la publication finale.',
         'index.steps-cta.text': 'Vous prévoyez de publier un article ou un livre ? Commencez par le guide des auteurs.',
         'index.steps-cta.sub': 'Le guide des auteurs couvre la soumission aux revues et les propositions de livres — une ressource pour les deux voies de publication.',
-        'index.steps-cta.btn.books': 'Propositions de livres'
+        'index.steps-cta.btn.books': 'Propositions de livres',
+        'authors.books.sec1.h3': 'Contenu de la proposition',
+        'authors.books.sec1.ul': '<li>Titre provisoire et sous-titre</li><li>Résumé ou vue d\'ensemble (300–500 mots)</li><li>Table des matières provisoire</li><li>Public cible et contexte du marché</li><li>Ouvrages comparables et différenciation</li><li>État actuel du manuscrit (achevé, en cours ou prévu)</li><li>CV de l\'auteur principal et coordonnées des coéditeurs ou contributeurs (le cas échéant)</li>',
+        'authors.books.sec2.h3a': 'Canaux de soumission',
+        'authors.books.sec2.ul': '<li>Via le formulaire sur <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> (recommandé)</li><li>Par courriel à <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> avec une brève description</li>',
+        'authors.books.sec2.h3b': 'Délais de réponse',
+        'authors.books.sec2.p2': 'L\'évaluation initiale du périmètre est généralement communiquée dans les six semaines suivant la réception.',
+        'authors.books.sec3.h3': 'Étapes d\'examen',
+        'authors.books.sec3.ol': '<li><strong>Évaluation du périmètre</strong> — La proposition s\'aligne-t-elle sur les domaines éditoriaux de Panorama Scholarly Books ?</li><li><strong>Évaluation externe par les pairs</strong> — Des spécialistes indépendants évaluent la rigueur académique et l\'importance.</li><li><strong>Décision éditoriale</strong> — Acceptation, révision et resoumission, ou refus, avec retour d\'information.</li>',
+        'authors.books.sec4.h3a': 'Après la signature',
+        'authors.books.sec4.ul': '<li>Délai de livraison du manuscrit convenu avec l\'éditeur</li><li>Correction, mise en page et relecture gérées par l\'équipe éditoriale</li><li>Les livres publiés reçoivent un ISBN et un DOI</li><li>Distribution via les principales plateformes des bibliothèques académiques</li>',
+        'authors.books.sec4.h3b': 'Accès ouvert',
+        'authors.books.sec4.p2': 'Panorama Scholarly Books publie sous des conditions d\'accès ouvert. Les auteurs conservent les droits conformément à la licence Creative Commons applicable. Les détails complets des droits sont précisés dans le contrat de publication.'
     });
 
     i18n.de = Object.assign({}, i18n.en, {
@@ -4275,7 +4401,19 @@
         'authors.books.sec4.p': 'Angenommene Vorschläge erhalten einen Verlagsvertrag über Rechte, Produktionszeitplan und Open-Access-Bedingungen. Das Redaktionsteam begleitet die Autoren durch Manuskriptvorbereitung, Lektorat und abschließende Veröffentlichung.',
         'index.steps-cta.text': 'Planen Sie einen Zeitschriftenartikel oder ein Buch? Beginnen Sie mit dem Autorenhandbuch.',
         'index.steps-cta.sub': 'Das Autorenhandbuch deckt Zeitschrifteneinreichung und Buchvorschläge ab — eine Ressource für beide Publikationswege.',
-        'index.steps-cta.btn.books': 'Buchvorschläge'
+        'index.steps-cta.btn.books': 'Buchvorschläge',
+        'authors.books.sec1.h3': 'Inhalt des Vorschlags',
+        'authors.books.sec1.ul': '<li>Arbeitstitel und Untertitel</li><li>Abstract oder Überblick (300–500 Wörter)</li><li>Vorläufiges Inhaltsverzeichnis</li><li>Zielgruppe und Marktumfeld</li><li>Vergleichbare Werke und Unterschiede</li><li>Aktueller Stand des Manuskripts (fertig, in Arbeit oder geplant)</li><li>Lebenslauf des Hauptautors und Angaben zu Mitherausgebern oder Beitragenden (falls zutreffend)</li>',
+        'authors.books.sec2.h3a': 'Einreichungskanäle',
+        'authors.books.sec2.ul': '<li>Über das Formular auf <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> (empfohlen)</li><li>Per E-Mail an <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> mit einer kurzen Beschreibung</li>',
+        'authors.books.sec2.h3b': 'Antwortzeiten',
+        'authors.books.sec2.p2': 'Die erste Beurteilung der Themenbereich-Eignung wird in der Regel innerhalb von sechs Wochen nach Eingang mitgeteilt.',
+        'authors.books.sec3.h3': 'Prüfungsphasen',
+        'authors.books.sec3.ol': '<li><strong>Themenbereichsbeurteilung</strong> — Stimmt der Vorschlag mit den Verlagsbereichen von Panorama Scholarly Books überein?</li><li><strong>Externe Begutachtung</strong> — Unabhängige Wissenschaftler bewerten die wissenschaftliche Strenge und Bedeutung.</li><li><strong>Redaktionelle Entscheidung</strong> — Annahme, Überarbeitung und Wiedereinreichung oder Ablehnung mit Feedback.</li>',
+        'authors.books.sec4.h3a': 'Nach der Unterzeichnung',
+        'authors.books.sec4.ul': '<li>Mit dem Redakteur vereinbarter Abgabetermin für das Manuskript</li><li>Lektorat, Satz und Korrektorat werden vom Redaktionsteam verwaltet</li><li>Veröffentlichte Bücher erhalten eine ISBN und einen DOI</li><li>Verbreitung über wichtige Plattformen wissenschaftlicher Bibliotheken</li>',
+        'authors.books.sec4.h3b': 'Open Access',
+        'authors.books.sec4.p2': 'Panorama Scholarly Books veröffentlicht unter Open-Access-Bedingungen. Die Autoren behalten Rechte gemäß der geltenden Creative-Commons-Lizenz. Vollständige Angaben zu den Rechten sind im Verlagsvertrag festgelegt.'
     });
 
     i18n.ar = Object.assign({}, i18n.en, {
@@ -4686,7 +4824,19 @@
         'authors.books.sec4.p': 'تحصل المقترحات المقبولة على عقد نشر يشمل الحقوق وجداول الإنتاج وشروط الوصول المفتوح. يرشد الفريق التحريري المؤلفين خلال إعداد المخطوطة والتحرير والنشر النهائي.',
         'index.steps-cta.text': 'تخطط لنشر مقال في مجلة أو كتاب؟ ابدأ بدليل المؤلفين.',
         'index.steps-cta.sub': 'يغطي دليل المؤلفين تقديم المجلات ومقترحات الكتب — مورد واحد لمسارَي النشر.',
-        'index.steps-cta.btn.books': 'مقترحات الكتب'
+        'index.steps-cta.btn.books': 'مقترحات الكتب',
+        'authors.books.sec1.h3': 'محتوى المقترح',
+        'authors.books.sec1.ul': '<li>العنوان المؤقت والعنوان الفرعي</li><li>ملخص أو نظرة عامة (300–500 كلمة)</li><li>جدول محتويات مؤقت</li><li>الجمهور المستهدف والسياق السوقي</li><li>الأعمال المماثلة وأوجه الاختلاف</li><li>الوضع الراهن للمخطوطة (مكتملة، قيد الإعداد، أو مخطط لها)</li><li>السيرة الذاتية للمؤلف الرئيسي وبيانات المحررين المشاركين أو المساهمين (عند الانطباق)</li>',
+        'authors.books.sec2.h3a': 'قنوات التقديم',
+        'authors.books.sec2.ul': '<li>عبر استمارة المقترح على <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">books.panorama-sg.com</a> (مُوصى به)</li><li>بالبريد الإلكتروني إلى <a href="mailto:books@panorama-sg.com">books@panorama-sg.com</a> مع وصف مختصر</li>',
+        'authors.books.sec2.h3b': 'مدة الرد',
+        'authors.books.sec2.p2': 'يُبلَّغ عادةً بنتيجة التقييم الأولي لتوافق النطاق في غضون ستة أسابيع من الاستلام.',
+        'authors.books.sec3.h3': 'مراحل المراجعة',
+        'authors.books.sec3.ol': '<li><strong>تقييم النطاق</strong> — هل يتوافق المقترح مع مجالات نشر Panorama Scholarly Books؟</li><li><strong>التحكيم العلمي الخارجي</strong> — يُقيّم علماء مستقلون الصرامة الأكاديمية والأهمية العلمية.</li><li><strong>القرار التحريري</strong> — القبول، أو المراجعة وإعادة التقديم، أو الرفض مع تقديم ملاحظات.</li>',
+        'authors.books.sec4.h3a': 'بعد التوقيع',
+        'authors.books.sec4.ul': '<li>الموعد النهائي لتسليم المخطوطة يُتفق عليه مع المحرر</li><li>يتولى الفريق التحريري التدقيق اللغوي والإخراج الطباعي والتدقيق النهائي</li><li>تحصل الكتب المنشورة على رقم ISBN وDOI</li><li>التوزيع عبر كبريات منصات المكتبات الأكاديمية</li>',
+        'authors.books.sec4.h3b': 'الوصول المفتوح',
+        'authors.books.sec4.p2': 'تنشر Panorama Scholarly Books وفق شروط الوصول المفتوح. يحتفظ المؤلفون بالحقوق وفقاً لرخصة المشاع الإبداعي المعمول بها. تُحدَّد التفاصيل الكاملة للحقوق في اتفاقية النشر.'
     });
 
     var autoText = {
