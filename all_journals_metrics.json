@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-06-30",
+    "last_updated": "2026-07-01",
     "afs": {
         "2yr_mean_citedness": 0.45,
         "h_index": 1,
@@ -71,10 +71,5 @@
         "h_index": 0,
         "i10_index": 0,
         "works_count": 3
-    },
-    "cprt": null,
-    "cssr": null,
-    "jdes": null,
-    "irels": null,
-    "pfr": null
+    }
 }
