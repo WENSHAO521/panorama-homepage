@@ -1,7 +1,7 @@
 {
-    "last_updated": "2026-07-04",
+    "last_updated": "2026-07-05",
     "afs": {
-        "2yr_mean_citedness": 0.45,
+        "2yr_mean_citedness": 0.55,
         "h_index": 1,
         "i10_index": 0,
         "works_count": 11
@@ -13,7 +13,7 @@
         "works_count": 4
     },
     "files": {
-        "2yr_mean_citedness": 0.27,
+        "2yr_mean_citedness": 0.29,
         "h_index": 2,
         "i10_index": 0,
         "works_count": 41
