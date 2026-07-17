@@ -1,7 +1,7 @@
 {
-    "last_updated": "2026-07-16",
+    "last_updated": "2026-07-17",
     "afs": {
-        "2yr_mean_citedness": 0.55,
+        "2yr_mean_citedness": 0.64,
         "h_index": 1,
         "i10_index": 0,
         "works_count": 11
@@ -13,7 +13,7 @@
         "works_count": 4
     },
     "files": {
-        "2yr_mean_citedness": 0.32,
+        "2yr_mean_citedness": 0.34,
         "h_index": 2,
         "i10_index": 0,
         "works_count": 41
@@ -25,8 +25,8 @@
         "works_count": 11
     },
     "jlpcs": {
-        "2yr_mean_citedness": 0.14,
-        "h_index": 1,
+        "2yr_mean_citedness": 0.18,
+        "h_index": 2,
         "i10_index": 0,
         "works_count": 22
     },
