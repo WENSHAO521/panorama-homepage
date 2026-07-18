@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-07-17",
+    "last_updated": "2026-07-18",
     "afs": {
         "2yr_mean_citedness": 0.64,
         "h_index": 1,
@@ -25,14 +25,14 @@
         "works_count": 11
     },
     "jlpcs": {
-        "2yr_mean_citedness": 0.18,
+        "2yr_mean_citedness": 0.23,
         "h_index": 2,
         "i10_index": 0,
         "works_count": 22
     },
     "pemr": {
-        "2yr_mean_citedness": 0.0,
-        "h_index": 0,
+        "2yr_mean_citedness": 0.08,
+        "h_index": 1,
         "i10_index": 0,
         "works_count": 12
     },
