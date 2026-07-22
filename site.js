@@ -1,9 +1,6 @@
 (function () {
     'use strict';
 
-    // Respect user motion preferences
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
     /* ── Scroll-reveal ── */
     var REVEAL_SELECTORS = [
         '.section-head',
@@ -106,7 +103,6 @@
 ───────────────────────────────────────────────────────────────── */
 (function () {
     'use strict';
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
@@ -5452,10 +5448,10 @@
         'ISSN Registered': 'ISSN 已註冊',
         'Editorial responsibilities, peer review conduct, and correction procedures.': '編輯責任、同行評審行為與更正程序。',
         'Licensing terms, author rights, and repository guidance.': '授權條款、作者權利與存儲庫指引。',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': '香港九龍彌敦道 625 號雅蘭中心辦公大樓二座 15 樓 1508 室。',
-        'Room 1508, 15/F., Office Tower Two': '雅蘭中心辦公大樓二座 15 樓 1508 室',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室。',
+        'Room 1508, 15/F., Office Tower Two': '雅蘭中心辦公樓二期 15 樓 1508 室',
         'Grand Plaza, 625 Nathan Road': '彌敦道 625 號雅蘭中心',
-        'Kowloon, Hong Kong': '香港九龍',
+        'Mong Kok, Kowloon, Hong Kong': '香港九龍旺角',
         'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
         'Submissions are handled at journal level. Access the relevant journal\'s submission portal via the': '投稿由期刊層級處理。請透過',
         'covers journal selection, submission, peer review, and post-publication rights.': '涵蓋期刊選擇、投稿、同行評審與出版後權利。',
@@ -5925,10 +5921,10 @@
         'ISSN Registered': 'ISSN 登録済み',
         'Editorial responsibilities, peer review conduct, and correction procedures.': '編集上の責任、査読の実施、および修正手順。',
         'Licensing terms, author rights, and repository guidance.': 'ライセンス条項、作成者の権利、およびリポジトリのガイダンス。',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': '1508号室、15/F.、オフィスタワー2、グランドプラザ、625ネイザンロード、九龍、香港。',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '1508号室、15/F.、オフィスタワー2、グランドプラザ、625ネイザンロード、モンコック、九龍、香港。',
         'Room 1508, 15/F., Office Tower Two': '第2オフィスタワー15階1508号室',
         'Grand Plaza, 625 Nathan Road': 'グランドプラザ、ネイザンロード625',
-        'Kowloon, Hong Kong': '香港、九龍',
+        'Mong Kok, Kowloon, Hong Kong': '香港、九龍モンコック',
         'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
         'Submissions are handled at journal level. Access the relevant journal\'s submission portal via the': '投稿はジャーナルレベルで処理されます。関連するジャーナルの投稿ポータルにアクセスします。',
         'covers journal selection, submission, peer review, and post-publication rights.': 'ジャーナルの選択、投稿、査読、出版後の権利をカバーします。',
@@ -6145,7 +6141,7 @@
         'Reach the platform for administrative or policy enquiries.': '행정 또는 정책 문의를 위한 플랫폼에 접속하세요.',
         'Contact Summary': '연락처 요약',
         'Room 1508, 15/F., Grand Plaza, Kowloon, Hong Kong': '홍콩 구룡 그랜드 플라자 15층 1508호',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong': '홍콩 구룡 네이선 로드 625, 그랜드 플라자 오피스 타워 2, 15층 1508호',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong': '홍콩 구룡 몽콕 네이선 로드 625, 그랜드 플라자 오피스 타워 2, 15층 1508호',
         'Contact the relevant journal directly via its editorial portal': '편집 포털을 통해 해당 저널에 직접 문의하세요.',
         'How to reach the platform.': '플랫폼에 도달하는 방법.',
         'Use this address for': '이 주소를 사용하세요',
@@ -6395,10 +6391,10 @@
         'ISSN Registered': 'ISSN 등록됨',
         'Editorial responsibilities, peer review conduct, and correction procedures.': '편집 책임, 동료 검토 수행 및 수정 절차.',
         'Licensing terms, author rights, and repository guidance.': '라이센스 조건, 작성자 권한 및 저장소 지침.',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': '홍콩 구룡 네이선 로드 625, 그랜드 플라자 오피스 타워 2, 15층 1508호.',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '홍콩 구룡 몽콕 네이선 로드 625, 그랜드 플라자 오피스 타워 2, 15층 1508호.',
         'Room 1508, 15/F., Office Tower Two': '오피스 타워 2, 15층 1508호',
         'Grand Plaza, 625 Nathan Road': '그랜드 플라자, 네이선 로드 625',
-        'Kowloon, Hong Kong': '홍콩 구룡',
+        'Mong Kok, Kowloon, Hong Kong': '홍콩 구룡 몽콕',
         'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
         'Submissions are handled at journal level. Access the relevant journal\'s submission portal via the': '제출물은 저널 수준에서 처리됩니다. 다음을 통해 관련 저널의 제출 포털에 접속하세요.',
         'covers journal selection, submission, peer review, and post-publication rights.': '저널 선택, 제출, 동료 검토 및 출판 후 권리를 다룹니다.',
@@ -6515,10 +6511,10 @@
         'PKP Preservation': 'PKP 保存',
         'ISSN Registered': 'ISSN 已注册',
         'Room 1508, 15/F., Grand Plaza, Kowloon, Hong Kong': '香港九龙 雅兰中心 15 楼 1508 室',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': '香港九龙弥敦道 625 号雅兰中心办公楼二座 15 楼 1508 室。',
-        'Room 1508, 15/F., Office Tower Two': '雅兰中心办公楼二座 15 楼 1508 室',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '香港旺角弥敦道625号雅兰中心办公楼二期15楼1508室。',
+        'Room 1508, 15/F., Office Tower Two': '雅兰中心办公楼二期 15 楼 1508 室',
         'Grand Plaza, 625 Nathan Road': '弥敦道 625 号雅兰中心',
-        'Kowloon, Hong Kong': '香港九龙',
+        'Mong Kok, Kowloon, Hong Kong': '香港九龙旺角',
         'Hong Kong Special Administrative Region, China': '中国香港特别行政区'
     });
 
@@ -6913,10 +6909,10 @@
         'ISSN Registered': 'ISSN зарегистрирован',
         'Editorial responsibilities, peer review conduct, and correction procedures.': 'Редакционные обязанности, проведение рецензирования и процедуры исправления.',
         'Licensing terms, author rights, and repository guidance.': 'Условия лицензирования, права авторов и рекомендации по репозиторию.',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'Офис 1508, 15-й этаж, Office Tower Two, Grand Plaza, 625 Nathan Road, Коулун, Гонконг.',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Офис 1508, 15-й этаж, Office Tower Two, Grand Plaza, 625 Nathan Road, Монгкок, Коулун, Гонконг.',
         'Room 1508, 15/F., Office Tower Two': 'Офис 1508, 15-й этаж, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Гранд Плаза, 625 Натан Роуд',
-        'Kowloon, Hong Kong': 'Коулун, Гонконг',
+        'Mong Kok, Kowloon, Hong Kong': 'Монгкок, Коулун, Гонконг',
         'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
         'Submissions are handled at journal level. Access the relevant journal\'s submission portal via the': 'Заявки обрабатываются на уровне журнала. Получите доступ к порталу подачи материалов соответствующего журнала через',
         'covers journal selection, submission, peer review, and post-publication rights.': 'охватывает выбор журнала, подачу заявок, рецензирование и права после публикации.',
@@ -7455,10 +7451,10 @@
         'Total Titles': 'Total de títulos',
         'Licensing': 'Licencias',
         'Discovery': 'Descubrimiento',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'Sala 1508, piso 15, Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Sala 1508, piso 15, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.',
         'Room 1508, 15/F., Office Tower Two': 'Sala 1508, piso 15, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
-        'Kowloon, Hong Kong': 'Kowloon, Hong Kong'
+        'Mong Kok, Kowloon, Hong Kong': 'Mong Kok, Kowloon, Hong Kong'
     };
 
     autoText.fr = {
@@ -7929,10 +7925,10 @@
         'Total Titles': 'Nombre total de titres',
         'Licensing': 'Licences',
         'Discovery': 'Découverte',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'Bureau 1508, 15e étage, Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Bureau 1508, 15e étage, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.',
         'Room 1508, 15/F., Office Tower Two': 'Bureau 1508, 15e étage, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
-        'Kowloon, Hong Kong': 'Kowloon, Hong Kong'
+        'Mong Kok, Kowloon, Hong Kong': 'Mong Kok, Kowloon, Hong Kong'
     };
 
     autoText.de = {
@@ -8403,10 +8399,10 @@
         'Total Titles': 'Gesamtzahl der Titel',
         'Licensing': 'Lizenzierung',
         'Discovery': 'Auffindbarkeit',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'Raum 1508, 15. Etage, Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hongkong.',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Raum 1508, 15. Etage, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hongkong.',
         'Room 1508, 15/F., Office Tower Two': 'Raum 1508, 15. Etage, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
-        'Kowloon, Hong Kong': 'Kowloon, Hongkong'
+        'Mong Kok, Kowloon, Hong Kong': 'Mong Kok, Kowloon, Hongkong'
     };
 
     autoText.ar = {
@@ -8800,10 +8796,10 @@
         'ISSN Registered': 'مسجّل في ISSN',
         'Editorial responsibilities, peer review conduct, and correction procedures.': 'المسؤوليات التحريرية وسلوك التحكيم العلمي وإجراءات التصحيح.',
         'Licensing terms, author rights, and repository guidance.': 'شروط الترخيص وحقوق المؤلف وتوجيهات المستودع.',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني، Grand Plaza، 625 Nathan Road، كولون، هونغ كونغ.',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني، Grand Plaza، 625 Nathan Road، منغ كوك، كولون، هونغ كونغ.',
         'Room 1508, 15/F., Office Tower Two': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza، 625 Nathan Road',
-        'Kowloon, Hong Kong': 'كولون، هونغ كونغ',
+        'Mong Kok, Kowloon, Hong Kong': 'منغ كوك، كولون، هونغ كونغ',
         'Panorama Scholarly Group Ltd.': 'Panorama Scholarly Group Ltd.',
         'Submissions are handled at journal level. Access the relevant journal\'s submission portal via the': 'تُعالَج التقديمات على مستوى المجلة. يمكن الوصول إلى بوابة التقديم للمجلة المعنية عبر',
         'covers journal selection, submission, peer review, and post-publication rights.': 'يتناول اختيار المجلة والتقديم والتحكيم العلمي والحقوق اللاحقة للنشر.',
@@ -8833,10 +8829,10 @@
         'Total Titles': 'إجمالي العناوين',
         'Licensing': 'الترخيص',
         'Discovery': 'الاكتشاف',
-        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Kowloon, Hong Kong.': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني، Grand Plaza، 625 Nathan Road، كولون، هونغ كونغ.',
+        'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني، Grand Plaza، 625 Nathan Road، منغ كوك، كولون، هونغ كونغ.',
         'Room 1508, 15/F., Office Tower Two': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza، 625 Nathan Road',
-        'Kowloon, Hong Kong': 'كولون، هونغ كونغ'
+        'Mong Kok, Kowloon, Hong Kong': 'منغ كوك، كولون، هونغ كونغ'
     };
 
     function currentLang() {
