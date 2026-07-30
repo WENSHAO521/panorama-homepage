@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-07-29",
+    "last_updated": "2026-07-30",
     "afs": {
         "2yr_mean_citedness": 0.64,
         "h_index": 1,
@@ -25,7 +25,7 @@
         "works_count": 11
     },
     "jlpcs": {
-        "2yr_mean_citedness": 0.27,
+        "2yr_mean_citedness": 0.32,
         "h_index": 2,
         "i10_index": 0,
         "works_count": 22
