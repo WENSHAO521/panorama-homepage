@@ -26,9 +26,34 @@
         </button>
         <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
             <a href="index.html" data-i18n="nav.home">Home</a>
-            <a href="journals.html" data-i18n="nav.journals">Journals</a>
-            <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.books">Books</a>
-            <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research">Research Institute</a>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
+                    <span data-i18n="nav.platforms">Platforms</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="platforms-options" role="menu">
+                    <a href="journals.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.journals">Journals</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.journals-desc">Peer-reviewed journal directory</span>
+                    </a>
+                    <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3">Scholarly Books</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.books-desc">Monographs and edited volumes</span>
+                    </a>
+                    <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.research">Research Institute</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.research-desc">Applied and policy research</span>
+                    </a>
+                    <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name">POSI</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.posi-desc">Open scholarly quality index</span>
+                    </a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.editorial-dir">Editorial Directory</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.directory-desc">Public editorial board profiles</span>
+                    </a>
+                </div>
+            </div>
             <a href="index.html#author-path" data-i18n="nav.for-authors">For Authors</a>
             <a href="publication-ethics.html" data-i18n="nav.ethics">Ethics</a>
             <a href="open-access-policy.html" data-i18n="nav.open-access">Open Access</a>
@@ -261,7 +286,7 @@
     <div class="container footer-grid">
         <div>
             <h2>Panorama Scholarly Group</h2>
-            <p data-i18n="footer.brand-intro">International scholarly publishing and research platform for journals, books, research, and open scholarly infrastructure.</p>
+            <p data-i18n="footer.brand-intro">Panorama Scholarly Group operates five scholarly platforms: journals, books, research, an open index, and an editorial directory.</p>
             <div class="footer-platforms">
                 <p class="footer-platforms-label" data-i18n="footer.platforms-label">Our Platforms</p>
                 <div class="footer-platforms-logos">
