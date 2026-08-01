@@ -113,6 +113,7 @@
     var ctx = canvas.getContext('2d');
     var W = 0, H = 0, raf = null, tick = 0;
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isRTL = false;
 
     /* Approximate hub coordinates (lat, lon) — reads as "global reach,"
        not a literal atlas. Hong Kong is the group's registered office. */
@@ -172,10 +173,12 @@
         var mapH = pxPerDeg * (WORLD_LAT_MAX - WORLD_LAT_MIN);
         var topY = (H - mapH) / 2;
         var ty = (lat - WORLD_LAT_MIN) / (WORLD_LAT_MAX - WORLD_LAT_MIN);
-        return [
-            W * 0.50 + lon * pxPerDeg,
-            topY + (1 - ty) * mapH
-        ];
+        var x = W * 0.50 + lon * pxPerDeg;
+        /* the hero text column swaps to the right side in RTL layouts
+           (see [dir="rtl"] .hero-body in institutional.css) — mirror
+           the map so it still sits on the opposite, clear side */
+        if (isRTL) x = W - x;
+        return [x, topY + (1 - ty) * mapH];
     }
 
     function buildLandBuffer() {
@@ -231,18 +234,20 @@
         pulses = [];
     }
 
-    /* left vignette — keeps hero text readable, strictly black.
-       Below 960px the hero stacks to a single column and the text
-       block spans nearly the full width, so the dark zone (and its
-       darkness) needs to extend much further to keep the network
-       lines from tangling with the headline. */
+    /* vignette on the text side — keeps hero text readable, strictly
+       black. Below 960px the hero stacks to a single column and the
+       text block spans nearly the full width, so the dark zone (and
+       its darkness) needs to extend much further to keep the network
+       lines from tangling with the headline. In RTL layouts the text
+       column swaps to the right, so the gradient direction flips too. */
     function vignette() {
         var stacked = W < 960;
+        var near = isRTL ? W : 0, far = isRTL ? 0 : W;
         var vg;
         if (stacked) {
             /* stacked layout: text spans nearly the full width, so stay
                dark through most of it and only lighten near the edge */
-            vg = ctx.createLinearGradient(0, 0, W, 0);
+            vg = ctx.createLinearGradient(near, 0, far, 0);
             vg.addColorStop(0, 'rgba(0,0,0,.95)');
             vg.addColorStop(0.72, 'rgba(0,0,0,.88)');
             vg.addColorStop(1, 'rgba(0,0,0,.22)');
@@ -252,7 +257,8 @@
                (~960-1580px) a viewport-fraction stop fades out before
                the text does, so floor it in absolute pixels. */
             var stopPx = Math.min(Math.max(W * 0.52, 850), W);
-            vg = ctx.createLinearGradient(0, 0, stopPx, 0);
+            var farStop = isRTL ? W - stopPx : stopPx;
+            vg = ctx.createLinearGradient(near, 0, farStop, 0);
             vg.addColorStop(0, 'rgba(0,0,0,.86)');
             vg.addColorStop(1, 'rgba(0,0,0,0)');
         }
@@ -326,6 +332,7 @@
 
     function resize() {
         var dpr = window.devicePixelRatio || 1;
+        isRTL = document.documentElement.getAttribute('dir') === 'rtl';
         W = canvas.offsetWidth || 1200;
         H = canvas.offsetHeight || 480;
         canvas.width = W * dpr; canvas.height = H * dpr;
@@ -344,6 +351,18 @@
         resize(); tick = 0;
         if (reduceMotion) { draw(0); } else { frame(); }
     });
+
+    /* the language switcher flips document dir between ltr/rtl without
+       a page reload — rebuild so the map mirrors immediately */
+    if (window.MutationObserver) {
+        new MutationObserver(function () {
+            var wasRTL = isRTL;
+            if ((document.documentElement.getAttribute('dir') === 'rtl') === wasRTL) return;
+            if (raf) cancelAnimationFrame(raf);
+            resize(); tick = 0;
+            if (reduceMotion) { draw(0); } else { frame(); }
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+    }
 
     resize();
     if (reduceMotion) { draw(0); } else { frame(); }
