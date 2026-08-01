@@ -157,13 +157,24 @@
        Australia read clearly to the right of the hero text, while the
        Americas fall mostly under the (vignetted) text column — both
        the map dots and the hub markers share this one mapping, so
-       hubs land on their real coastline position. */
+       hubs land on their real coastline position.
+
+       The scale is derived from W, not H. Hero height is driven by
+       how many lines the H1/lead wrap to, which varies a lot by
+       language (en ~725px vs zh-cn/ar ~477px at the same 1440px
+       viewport) — tying scale to H made the map visibly bigger or
+       smaller depending on the active language. W is the same for
+       everyone at a given viewport, so the map now renders at one
+       consistent size and is simply centered in whatever H it gets. */
+    var PX_PER_DEG_FACTOR = 0.0032;
     function project(lat, lon) {
-        var pxPerDeg = (H * 0.94) / (WORLD_LAT_MAX - WORLD_LAT_MIN);
+        var pxPerDeg = W * PX_PER_DEG_FACTOR;
+        var mapH = pxPerDeg * (WORLD_LAT_MAX - WORLD_LAT_MIN);
+        var topY = (H - mapH) / 2;
         var ty = (lat - WORLD_LAT_MIN) / (WORLD_LAT_MAX - WORLD_LAT_MIN);
         return [
             W * 0.50 + lon * pxPerDeg,
-            H * 0.04 + (1 - ty) * H * 0.94
+            topY + (1 - ty) * mapH
         ];
     }
 
