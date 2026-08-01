@@ -196,7 +196,7 @@
 
         dust = [];
         for (var i = 0; i < 60; i++) {
-            dust.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.03, vy: (Math.random() - 0.5) * 0.02, sz: 0.5 + Math.random() * 0.9, op: 0.05 + Math.random() * 0.10 });
+            dust.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.03, vy: (Math.random() - 0.5) * 0.02, sz: 0.6 + Math.random() * 1.1, op: 0.10 + Math.random() * 0.16 });
         }
         pulses = [];
     }
@@ -242,7 +242,7 @@
         ctx.lineCap = 'round';
         for (var i = 0; i < arcs.length; i++) {
             var a = arcs[i];
-            ctx.globalAlpha = 0.16; ctx.strokeStyle = 'rgba(255,255,255,1)'; ctx.lineWidth = 1;
+            ctx.globalAlpha = 0.40; ctx.strokeStyle = 'rgba(255,255,255,1)'; ctx.lineWidth = 1.4;
             ctx.beginPath(); ctx.moveTo(a.x0, a.y0); ctx.quadraticCurveTo(a.cx, a.cy, a.x1, a.y1); ctx.stroke();
         }
 
@@ -273,13 +273,13 @@
         for (var i = 0; i < nodes.length; i++) {
             var n = nodes[i];
             var pulse = reduceMotion ? 1 : 1 + 0.10 * Math.sin(t * 0.02 + n.ph);
-            var r = (n.home ? 4.2 : 2.3) * pulse;
+            var r = (n.home ? 6 : 3.6) * pulse;
             var glow = n.home ? 'rgba(255,60,60,' : 'rgba(255,255,255,';
             var g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 4.5);
-            g.addColorStop(0, glow + (n.home ? '.65)' : '.42)')); g.addColorStop(1, glow + '0)');
+            g.addColorStop(0, glow + (n.home ? '.85)' : '.65)')); g.addColorStop(1, glow + '0)');
             ctx.globalAlpha = 1; ctx.fillStyle = g;
             ctx.beginPath(); ctx.arc(n.x, n.y, r * 4.5, 0, Math.PI * 2); ctx.fill();
-            ctx.globalAlpha = 0.95; ctx.fillStyle = n.home ? 'rgb(255,80,80)' : '#ffffff';
+            ctx.globalAlpha = 1; ctx.fillStyle = n.home ? 'rgb(255,80,80)' : '#ffffff';
             ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2); ctx.fill();
         }
 
