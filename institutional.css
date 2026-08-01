@@ -978,7 +978,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (max-width: 1320px) {
   .nav-toggle { display: flex; }
   .nav-links {
-    display: none; flex-direction: column; justify-content: flex-start;
+    display: none; flex-direction: column; justify-content: flex-start; align-items: stretch;
     position: absolute; top: calc(100% + 3px); left: -14px; right: -14px;
     background: var(--black); border-bottom: 3px solid var(--red);
     padding: 8px 0; gap: 0; row-gap: 0; box-shadow: 0 8px 32px rgba(0,0,0,.9); z-index: 80;
@@ -1051,7 +1051,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   .nav-toggle { display: flex; }
   .nav-links {
-    display: none; flex-direction: column; justify-content: flex-start;
+    display: none; flex-direction: column; justify-content: flex-start; align-items: stretch;
     position: absolute; top: calc(100% + 3px); left: -14px; right: -14px;
     background: var(--black); border-bottom: 3px solid var(--red);
     padding: 8px 0; gap: 0; row-gap: 0; box-shadow: 0 8px 32px rgba(0,0,0,.9); z-index: 80;
