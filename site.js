@@ -229,9 +229,17 @@
 
         dust = [];
         for (var i = 0; i < 60; i++) {
-            dust.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.03, vy: (Math.random() - 0.5) * 0.02, sz: 0.6 + Math.random() * 1.1, op: 0.10 + Math.random() * 0.16 });
+            dust.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - 0.5) * 0.05, vy: (Math.random() - 0.5) * 0.035, sz: 0.6 + Math.random() * 1.1, op: 0.10 + Math.random() * 0.16 });
         }
+        /* pre-seed a few pulses at staggered progress so the very first
+           frame already shows travel instead of a static wait for the
+           random spawn chance to accumulate */
         pulses = [];
+        if (!reduceMotion && arcs.length) {
+            for (var j = 0; j < 4; j++) {
+                pulses.push({ ai: Math.floor(Math.random() * arcs.length), at: Math.random(), spd: 0.006 + Math.random() * 0.006, red: Math.random() < 0.3 });
+            }
+        }
     }
 
     /* vignette on the text side — keeps hero text readable, strictly
@@ -291,7 +299,7 @@
         }
 
         /* citation pulses travelling along random arcs */
-        if (!reduceMotion && Math.random() < 0.03 && pulses.length < 6) {
+        if (!reduceMotion && Math.random() < 0.12 && pulses.length < 10) {
             pulses.push({ ai: Math.floor(Math.random() * arcs.length), at: 0, spd: 0.006 + Math.random() * 0.006, red: Math.random() < 0.3 });
         }
         var live = [];
@@ -316,7 +324,7 @@
         /* hub nodes */
         for (var i = 0; i < nodes.length; i++) {
             var n = nodes[i];
-            var pulse = reduceMotion ? 1 : 1 + 0.10 * Math.sin(t * 0.02 + n.ph);
+            var pulse = reduceMotion ? 1 : 1 + 0.18 * Math.sin(t * 0.035 + n.ph);
             var r = (n.home ? 6 : 3.6) * pulse;
             var glow = n.home ? 'rgba(255,60,60,' : 'rgba(255,255,255,';
             var g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 4.5);
