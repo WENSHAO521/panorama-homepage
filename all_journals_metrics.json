@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-08-03",
+    "last_updated": "2026-08-04",
     "afs": {
         "2yr_mean_citedness": 0.64,
         "h_index": 1,
@@ -13,7 +13,7 @@
         "works_count": 4
     },
     "files": {
-        "2yr_mean_citedness": 0.37,
+        "2yr_mean_citedness": 0.39,
         "h_index": 2,
         "i10_index": 0,
         "works_count": 41
