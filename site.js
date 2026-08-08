@@ -22,13 +22,15 @@
         '.indexer-strip-head'
     ];
 
-    var revealObs = new IntersectionObserver(function (entries) {
+    var supportsIO = typeof IntersectionObserver !== 'undefined';
+
+    var revealObs = supportsIO ? new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
             if (!entry.isIntersecting) return;
             entry.target.classList.add('visible');
             revealObs.unobserve(entry.target);
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }) : null;
 
     REVEAL_SELECTORS.forEach(function (sel) {
         document.querySelectorAll(sel).forEach(function (el) {
@@ -38,10 +40,29 @@
                 var idx = siblings.indexOf(el);
                 if (idx >= 1 && idx <= 4) el.classList.add('d' + idx);
             }
+            if (!supportsIO) {
+                // No IntersectionObserver support: show content immediately rather than leaving it invisible.
+                el.classList.add('visible');
+                return;
+            }
             el.classList.add('reveal');
             revealObs.observe(el);
         });
     });
+
+    // Safety net: guarantee every reveal-tracked element becomes visible within a
+    // bounded time even if the observer never fires for it (fast/momentum scroll
+    // skipping past it, an element left out of the initial DOM pass, screenshot or
+    // print tooling that doesn't scroll, etc.) so content and buttons never end up
+    // permanently stuck at opacity 0.
+    if (supportsIO) {
+        setTimeout(function () {
+            document.querySelectorAll('.reveal:not(.visible)').forEach(function (el) {
+                el.classList.add('visible');
+                revealObs.unobserve(el);
+            });
+        }, 2500);
+    }
 
     /* ── Number counter ── */
     function parseTarget(text) {
