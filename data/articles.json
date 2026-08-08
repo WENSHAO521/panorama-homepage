@@ -1,326 +1,301 @@
 {
-    "harvestedAt":  "2026-05-24T15:12:37Z",
-    "sourcePublisher":  "Panorama Scholarly Group",
-    "metadataSource":  "Panorama journal article records",
-    "selectionMode":  "daily-random-from-recent-panorama-publications",
-    "randomSeed":  20260525,
-    "totalRecordsHarvested":  161,
-    "futureRecordsExcluded":  1,
-    "recentPoolLimit":  100,
-    "recentPoolSize":  100,
-    "selectedArticleCount":  20,
-    "articles":  [
-                     {
-                         "title":  "Recognising Love Across Cultures: A Cross-Cultural Extension of the Love Confirmation Mechanism Model",
-                         "authors":  [
-                                         "Song, Chengwen"
-                                     ],
-                         "journal":  "Journal of Social Cognition and Communication",
-                         "journalSlug":  "JSCC",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/JSCC",
-                         "issue":  "Vol. 1 No. 1 (2026): Advances in Social Cognition and Communication",
-                         "pages":  "10-21",
-                         "publishedAt":  "2026-03-24",
-                         "url":  "https://journals.panorama-sg.com/index.php/JSCC/article/view/290",
-                         "doi":  "10.63802/jscc.V1.I1.290",
-                         "abstract":  "Love is a central concern in psychology, sociology, and cultural studies, yet existing scholarship has concentrated far more on what love consists of than on the epistemic problem of how actors know, judge, and validate that love is present. Structural theories have clarified the components of love, experiential theories have examined attachment and affect, and cultural approaches have analysed romantic discourse and symbolic expression. Much less attention has been given to the interpretive process through which individuals decide that a feeling, relationship, or social bond should count as love. Building on song2025\u0027s Love Confirmation Mechanism (LCM), this article advances the Love Confirmation Mechanism Model (LCMM) as a cross-cultural theoretical extension. The core argument is that love is not simply an internal emotional state but a socially interpretable phenomenon confirmed through multiple forms of evidence. The model identifies four domains of confirmatory signals: affective, relational, symbolic, and institutional. These signals do not possess fixed meaning. Rather, they are interpreted through culturally organised frameworks that shape how actors weigh emotional intensity, behavioural consistency, romantic symbolism, and social legitimacy. By shifting analytic attention from the ontology of love to the epistemology of love recognition, the LCMM makes three contributions. First, it theorises love recognition as a distinct process linking private feeling, interpersonal interpretation, and social validation. Second, it extends the LCM by specifying a multi-signal architecture of confirmation and by distinguishing intrapersonal, interpersonal, and social levels of recognition. Third, it provides a comparative framework for explaining why the same relational act may confirm love in one cultural setting but not in another, while also clarifying how love may be under-recognised, over-recognised, or contested when signals are incongruent or differently weighted. The article concludes by outlining implications for cross-cultural intimacy research, communication studies, and future empirical work on romantic legitimacy."
-                     },
-                     {
-                         "title":  "乡村治理的分寸感：再评“防止规模性返乡滞乡”: The Sense of Proportion in Rural Governance: Rethinking the Policy of \"Preventing Large-Scale Return and Settlement in the Countryside\"",
-                         "authors":  [
-                                         "Yang, Yiming"
-                                     ],
-                         "journal":  "乡村善治与绿色发展",
-                         "journalSlug":  "RGGD",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/RGGD",
-                         "issue":  "卷 1 (2025): 乡村治理现代化与绿色转型路径探索 : Pathways to Rural Governance Modernization and Green Transformation",
-                         "pages":  "Ⅰ-Ⅲ",
-                         "publishedAt":  "2025-11-28",
-                         "url":  "https://journals.panorama-sg.com/index.php/RGGD/article/view/180",
-                         "doi":  "10.63802/rggd.V1.2025.180",
-                         "abstract":  "2025年11月，农业农村部提出“防止形成规模性返乡滞乡”的政策表述，引发社会广泛讨论。本文指出，该政策并非限制农民工返乡的权利，而是着眼于防范因返乡后就业困难所导致的返贫风险。在当前城市就业空间受限、乡村产业承载力不足的背景下，公众对自身生存路径的焦虑日益加剧。文章主张，治理实践应在保障人口流动自由的前提下，提升县域经济“吸纳力”，通过产业扶持、技能培训与返乡创业支持等措施，赋予返乡以发展的可能，使其成为一种体面而可持续的选择，从而体现治理的温度与分寸。 In November 2025, the Chinese Ministry of Agriculture and Rural Affairs emphasized the need to “prevent large-scale return and settlement in the countryside,” sparking widespread public debate. This article argues that the policy aims not to restrict rural migrant workers from returning home, but rather to prevent poverty resurgence due to unemployment after return. Amid economic pressures and shrinking urban job opportunities, the mismatch between urban exclusion and insufficient rural capacity has intensified public anxiety. The article advocates for governance that respects citizens\u0027 migration rights and promotes rural job creation through county-level industrial development, vocational training, and entrepreneurial support. Only when returning to the countryside becomes a dignified and viable choice can the debate over governance boundaries find resolution."
-                     },
-                     {
-                         "title":  "Development and Empirical Study of a Multimodal Educational Agent System in Metaverse for Engineering Education Digital Transformation​",
-                         "authors":  [
-                                         "Xie, Tongwei"
-                                     ],
-                         "journal":  "Journal of Engineering Systems and Applications",
-                         "journalSlug":  "JESA",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/JESA",
-                         "issue":  "Vol. 1 (2025): Inaugural Issue: Foundations of Interdisciplinary Engineering Systems",
-                         "pages":  "42-49",
-                         "publishedAt":  "2025-11-29",
-                         "url":  "https://journals.panorama-sg.com/index.php/JESA/article/view/151",
-                         "doi":  "10.63802/jesa.V1.2025.151",
-                         "abstract":  "Against the backdrop of digital transformation in higher education, engineering education faces critical challenges including the theory-practice divide and high barriers to technical tool adoption. This study develops a tripartite framework (\"functional deconstruction-process modeling-data governance\") for educational agent systems, which is built upon the Coze platform and rigorously aligned with the standards of China\u0027s Emerging Engineering Education (3E) initiative—for deployment in metaverse learning environments. By implementing multimodal interaction and adaptive decision-making mechanisms via three agent roles (teaching assistant/learning companion/management agent), we construct an immersive learning ecosystem and establish a context-aware paradigm for intelligent interactive education tailored to Chinese engineering education contexts. This research pioneers an innovative approach to cultivating engineering talent for the AI era through transformative learning methodologies."
-                     },
-                     {
-                         "title":  "Integrating Artificial Intelligence into Middle School Education: Pathways, Challenges, and an Ethical Reappraisal from a Practitioner-Scholar Perspective",
-                         "authors":  [
-                                         "Zhang, Xiaoling",
-                                         "Xu, Wenwen"
-                                     ],
-                         "journal":  "AI \u0026 Future Society",
-                         "journalSlug":  "AFS",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/AFS",
-                         "issue":  "Vol. 2 No. 1 (2026): AI, Ethics, and Future Society: Governance, Education, and Human–AI Relations",
-                         "pages":  "11-18",
-                         "publishedAt":  "2026-02-09",
-                         "url":  "https://journals.panorama-sg.com/index.php/AFS/article/view/198",
-                         "doi":  "10.63802/afs.V2.I1.198",
-                         "abstract":  "The rapid advancement of Artificial Intelligence (AI) has accelerated its transition in education from conceptual debate to practical classroom implementation. As a pivotal stage in the formation of students’ cognitive structures, learning habits, and value orientations, middle school education occupies a particularly sensitive position in this transformation. Introducing AI at this level offers significant potential to enhance instructional precision and learning efficiency. At the same time, it raises critical concerns related to educational equity, the redefinition of teachers’ professional roles, and the ethical dimensions of technology adoption. Drawing on the authors’ practical experience as middle school mathematics teachers and school administrators and informed by recent scholarship from both domestic and international contexts, this study provides a systematic overview of current AI applications in middle school settings. It examines feasible approaches to the use of AI in personalized instruction, classroom management, assessment practices, and educational resource allocation. Furthermore, from the perspectives of educational ethics and institutional governance, the paper critically analyzes emerging risks, including student data privacy, algorithmic bias, the expansion of the digital divide, and shifts in teacher–student relationships. The study argues that the sustainable and responsible integration of AI in middle school education cannot be achieved through technological advancement alone. Instead, it requires a holistic governance framework that is student-centered, teacher-led, and firmly grounded in ethical principles. Such a framework is essential to ensure that AI functions as an enabling tool for education rather than a source of fragmentation within the teaching and learning process."
-                     },
-                     {
-                         "title":  "Algorithmic Resonance: AI-Driven Curation, Musical Taste, Identity, and Global Cultural Flows",
-                         "authors":  [
-                                         "He, Haoyang"
-                                     ],
-                         "journal":  "Resonance: Journal of Global Music Studies",
-                         "journalSlug":  "Resonance",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/Resonance",
-                         "issue":  "Vol. 2 No. 1 (2026): Volume 2, Number 1, June 2026",
-                         "pages":  "24-34",
-                         "publishedAt":  "2026-05-10",
-                         "url":  "https://journals.panorama-sg.com/index.php/Resonance/article/view/254",
-                         "doi":  "10.63802/rjgms.V2.I1.254",
-                         "abstract":  "Algorithmic curation systems have become an important part of contemporary music platforms, mediating how listeners discover, classify, and engage with sound. This article examines how recommendation infrastructures on Spotify, TikTok, and Douyin participate in the organization of musical taste, identity negotiation, and transnational circulation. Bringing together platform studies, cultural sociology, and qualitative evidence from interviews, platform observations, and case-tracing materials, the study develops algorithmic resonance as a conceptual framework for explaining how engagement signals, platform optimization, and repeated exposure become linked in music culture. The analysis identifies three dynamics: path-dependent taste stabilization, optimization-oriented creative production, and affinity-based global circulation. Rather than claiming direct causal access to proprietary algorithms, the article offers an interpretive account of how platform-visible interfaces, creator practices, and user reflections reveal recurring feedback loops between behavior, visibility, and cultural value. It contributes to debates on algorithmic culture by showing that recommendation systems do not merely distribute music; they help organize the temporal, affective, and infrastructural conditions through which music becomes familiar, valuable, and socially meaningful."
-                     },
-                     {
-                         "title":  "Research on the Mechanisms and Strategies of Financial Product Innovation in Chinese Commercial Banks under the Background of Digital Finance",
-                         "authors":  [
-                                         "Zhou, Wenlu",
-                                         "Chen, Ting"
-                                     ],
-                         "journal":  "Global Review of Humanities, Arts, and Society",
-                         "journalSlug":  "files",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/files",
-                         "issue":  "卷 1 期 5 (2025): Embodied Practices, Cultural Transmission, and Systemic Innovation in the Context of Digital Transformation",
-                         "pages":  "22-30",
-                         "publishedAt":  "2025-11-30",
-                         "url":  "https://journals.panorama-sg.com/index.php/files/article/view/168",
-                         "doi":  "10.63802/grhas.V1.I5.168",
-                         "abstract":  "With the rapid development of digital finance, commercial banks face growing pressures from fintech firms, internet platforms, and shifting customer demands. Against this backdrop, this study develops a theoretical framework grounded in dynamic capability and institutional theories. The framework highlights external drivers, internal transmission mechanisms, and capability reconfiguration, and examines how these elements jointly shape the mechanisms and pathways of financial product innovation in commercial banks. The study finds that technological advancement, industry competition, and evolving customer needs serve as the primary external drivers of financial product innovation in commercial banks, while strategic orientation and organizational restructuring function as the key internal innovation pathways. These pathways enable banks to reconfigure three core capabilities, including data-driven operations, agile innovation, and ecosystem cooperation. These capabilities facilitating a shift from incremental business optimization to comprehensive digital system redesign. In addition, the study identifies major challenges related to technological iteration, data governance, organizational structure, market competition, and customer service. It proposes a set of integrated innovation strategies, including modernization of technological architecture, enhanced data governance, organizational–talent alignment, business model transformation, and customer service enhancement. The research concludes that banks should approach digital transformation from a strategic perspective, strengthen innovation culture, and build organizational capabilities to achieve sustainable financial product innovation and long-term competitive advantage."
-                     },
-                     {
-                         "title":  "A Study of Equity Inheritance and Shareholder Qualification Issues Under Chinese Corporate Law",
-                         "authors":  [
-                                         "Wang, Kexin"
-                                     ],
-                         "journal":  "Journal of Law, Psychology, and Communication Studies",
-                         "journalSlug":  "JLPCS",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/JLPCS",
-                         "issue":  "Vol. 2 No. 1 (2026): 法律、治理与数字社会：跨学科研究视野 / Law, Governance, and Digital Society: Interdisciplinary Perspectives",
-                         "pages":  "35-43",
-                         "publishedAt":  "2025-12-20",
-                         "url":  "https://journals.panorama-sg.com/index.php/JLPCS/article/view/84",
-                         "doi":  "10.63802/jlpcs.V2.I1.84",
-                         "abstract":  "This study examines legal challenges in equity inheritance and shareholder qualification under Chinese company law. As limited liability companies dominate and founders age, unresolved succession issues emerge. The research clarifies the conceptual distinction between equity (a blend of property and identity rights) and shareholder qualification (a mechanism for rights execution). Using normative legal analysis, comparative law, and case studies from China, the UK, US, Germany, and France, the study identifies systemic flaws—especially judicial inconsistencies and vague company articles. It proposes a dual-track inheritance system: internal effectiveness at death and external effectiveness upon registration. This balances inheritance protection with transactional security. The paper further advocates shifting from equity transfer theory to equity succession theory, emphasizing that inheritance is a legal fact triggered by death, not a consensual act. Standardizing company articles is also urged to better accommodate inheritance, reduce disputes, and offer procedural clarity. The findings advance theoretical discourse and offer practical reforms for courts, businesses, and families."
-                     },
-                     {
-                         "title":  "Perception of Flux: A Study of Choreography and Bodily Consciousness under Socio-Ecological Changes",
-                         "authors":  [
-                                         "Lin, Zhiyi",
-                                         "Shi, Keyu"
-                                     ],
-                         "journal":  "Global Review of Humanities, Arts, and Society",
-                         "journalSlug":  "files",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/files",
-                         "issue":  "卷 1 期 5 (2025): Embodied Practices, Cultural Transmission, and Systemic Innovation in the Context of Digital Transformation",
-                         "pages":  "14-21",
-                         "publishedAt":  "2025-11-30",
-                         "url":  "https://journals.panorama-sg.com/index.php/files/article/view/147",
-                         "doi":  "10.63802/grhas.V1.I5.147",
-                         "abstract":  "Contemporary society is undergoing multiple socio-ecological transformations—including urbanization, digitalization, and the climate crisis—that have systematically reshaped individual perceptual structures. As an embodied art form, dance functions as a dynamic response of the body to ecological and social tensions. Grounded in Gibson’s ecological perception theory and the social ecology framework proposed by Haberl et al. (2016), this study introduces the concept of “Perception of Flux”, a mechanism through which socio-ecological inputs are transformed into regenerated bodily consciousness via choreographic practice. Through qualitative analysis and case-based validation, the research reveals how dancers embody environmental stimuli and social experiences into movement vocabularies, forming new ecological cognition within the interrelations of body, space, and society. The study further constructs a dual-cycle model of socio-ecological and bodily perception, offering an ecologically informed and socially oriented theoretical pathway for contemporary choreographic creation."
-                     },
-                     {
-                         "title":  "New advances in the treatment of common conjunctivitis: A review",
-                         "authors":  [
-                                         "Xiao, Zhiyun",
-                                         "Meng, Nana",
-                                         "Zhou, Min",
-                                         "Shi, Chunhe"
-                                     ],
-                         "journal":  "Health Nexus",
-                         "journalSlug":  "HealthNexus",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/HealthNexus",
-                         "issue":  "Vol. 1 (2025): Foundations of Integrative Medical Dialogue: Bridging Systems, Cultures, and Sciences",
-                         "pages":  "22-30",
-                         "publishedAt":  "2025-11-15",
-                         "url":  "https://journals.panorama-sg.com/index.php/HealthNexus/article/view/150",
-                         "doi":  "10.63802/healthnexus.V1.2025.150",
-                         "abstract":  "Background: The conjunctiva serves as a frontline mucosal and immunologic barrier, rendering it highly susceptible to infectious, allergic, and immune-mediated insults. Conjunctivitis remains the most common ocular surface disease globally, yet its clinical management is often challenged by diagnostic ambiguity, empirical treatments, and evolving pathogen resistance. Objective: This review synthesizes recent advancements in the pharmacological management of conjunctivitis, with a focus on aligning therapeutic strategies to distinct etiologic subtypes: bacterial, viral, and allergic. Methods: Evidence from randomized controlled trials, real-world clinical studies, and translational research published between 2010 and 2024 was critically reviewed. First-line pharmacotherapies and emerging treatment modalities were evaluated based on efficacy, safety, accessibility, and mechanism of action. Results: Conventional topical therapies such as antibiotics, antihistamines, and corticosteroids remain central to treatment. However, biologics, immunomodulators, and antiseptic-antiviral combinations have expanded the therapeutic landscape, particularly in refractory or high-severity cases. Innovations in drug delivery systems and immune-targeted agents show promise but require further validation. Conclusion: Optimal conjunctivitis management demands precision diagnosis, stratified treatment selection, and vigilance against overtreatment. Integrating traditional medicine within evidence-based frameworks and ensuring equitable access to novel therapies especially in resource-limited settings represent critical frontiers for future research and policy reform."
-                     },
-                     {
-                         "title":  "Why did I stop wanting to sound certain?",
-                         "authors":  [
-                                         "Lei, Zhihao"
-                                     ],
-                         "journal":  "Silence",
-                         "journalSlug":  "Silence",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/Silence",
-                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
-                         "pages":  "69-71",
-                         "publishedAt":  "2026-04-03",
-                         "url":  "https://journals.panorama-sg.com/index.php/Silence/article/view/279",
-                         "doi":  "10.5281/zenodo.19399076",
-                         "abstract":  "This reflective essay examines the culture of certainty in academic writing and the intellectual costs of equating authority with confidence. Beginning from a personal experience of revising a manuscript into increasingly polished but less honest prose, the essay considers how scholarly communication often rewards statements that sound definitive even when the underlying research process is hesitant, partial, and unresolved. Rather than rejecting rigor, the text argues for a more responsible relationship between knowledge and uncertainty—one that recognizes hesitation not as weakness but as an epistemic condition of serious inquiry. By exploring the difference between clarity and false closure, the essay proposes that uncertainty can function as a legitimate scholarly posture and that reflective forms of writing have a role in making research more transparent, humane, and intellectually trustworthy."
-                     },
-                     {
-                         "title":  "「三人行，必有我师焉」：儒家互学观的现代启示: \"Among Three, One Is My Teacher\": Modern Implications of the Confucian Idea of Mutual Learning",
-                         "authors":  [
-                                         "Shen, Yaqi"
-                                     ],
-                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
-                         "journalSlug":  "tts",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/tts",
-                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
-                         "pages":  "96-100",
-                         "publishedAt":  "2025-11-09",
-                         "url":  "https://journals.panorama-sg.com/index.php/tts/article/view/153",
-                         "doi":  "10.5281/zenodo.17562323",
-                         "abstract":  "中文 孔子提出的“我师”思想，蕴含着一种开放而省察的学习伦理，体现了儒家对德性修养与人际互动的深刻理解。本文以“三人行，必有我师焉”为核心命题，从经典解读、哲学诠释与当代应用三个层面，探讨儒家互学观在教育理念、社会伦理与数字文明中的当代表达。文章指出，此一思想不仅揭示学习的内在动力，也为面对文化多元与科技挑战的现代社会提供了道德坐标。文章最终提出：“在他者之中成己，以学习之道成仁”，此乃儒家互学精神的现代诠释。 English Confucius\u0027 maxim \"Among three people walking, there must be one I can learn from\" encapsulates a profound ethical view of learning grounded in mutual observation and moral cultivation. This paper reinterprets the Confucian concept of mutual learning (互学) through classical analysis, philosophical reflection, and modern application. It argues that the idea of “My Teacher” (我师) offers enduring relevance to contemporary issues such as educational reform, ethical coexistence, and digital transformation. In a world increasingly shaped by pluralism and technology, the Confucian vision of learning through others provides a vital moral compass. The paper concludes with a contemporary interpretation: “To cultivate oneself among others, to realize ren through the path of learning.”"
-                     },
-                     {
-                         "title":  "Application of the Pollutants-FCNN Framework:A Multi-Task Neural Network Approach for Con-taminant Toxicity Prediction Based on Tox21Data",
-                         "authors":  [
-                                         "Zhang, Yaolin",
-                                         "Li, Menghui",
-                                         "Zou, Yiming"
-                                     ],
-                         "journal":  "Climate Sustainability \u0026 Global Systems",
-                         "journalSlug":  "CSGS",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/CSGS",
-                         "issue":  "Vol. 1 No. 1 (2026)",
-                         "pages":  "17-24",
-                         "publishedAt":  "2026-03-04",
-                         "url":  "https://journals.panorama-sg.com/index.php/CSGS/article/view/258",
-                         "doi":  "10.63802/csgs.V1.I1.258",
-                         "abstract":  "Contaminant toxicity prediction is a pivotal technology for environmental risk assessment and chemical safety management, but traditional experimental methods are limited by high resource consumption, prolonged test cycles, and ethical controversies related to animal experimentation. This study proposes the Pollutants-FCNN Framework, a multi-task learning-based neural network architecture integrated with a multi-head attention mechanism, dedicated to predicting four major toxicity types (biological toxicity, cell toxicity, neurotoxicity, genotoxicity) using the Tox21 benchmark dataset. The framework processes 801 dimensional chemical feature vectors through a standardized pipeline including data preprocessing, attention-augmented FCNN modeling, and multi-task optimization. All core mathematical formulations are derived from the framework’s implementation code to ensure consistency between theoretical design and practical application. Experimental validation shows that the Pollutants-FCNN Framework outperforms conventional pure FCNN models and single-task learning paradigms, achieving a macro-average Area Under the ROC Curve (AUC) of 0.789. This method provides an efficient and reliable in silico toxicity assessment tool, resolving key challenges such as data scarcity for specific endpoints and inefficient feature interaction capture in toxicological modeling. The framework’s modular design and reproducible protocol make it suitable for application in environmental risk assessment and chemical safety screening. 1. Integrates multi-task learning and multi-head attention mechanism to address core challenges of data scarcity and inefficient feature interaction capture in toxicological modeling. 2. Achieves a macro-average AUC of 0.789 on the Tox21 dataset, outperforming traditional pure FCNN and single-task learning models. 3. Features modular design and reproducible protocol, which is applicable to environmental risk assessment and chemical safety screening scenarios."
-                     },
-                     {
-                         "title":  "評鄭宗義《從宋明理學到當代新儒家》：儒學演進的形上學路徑與當代表述: A Review of Zheng Zongyi’s From Song-Ming Neo-Confucianism to Contemporary New Confucianism: Metaphysical Trajectories and Modern Articulations of Ruist Thought",
-                         "authors":  [
-                                         "Wang, Hengjie"
-                                     ],
-                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
-                         "journalSlug":  "tts",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/tts",
-                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
-                         "pages":  "17-18",
-                         "publishedAt":  "2025-10-20",
-                         "url":  "https://journals.panorama-sg.com/index.php/tts/article/view/124",
-                         "doi":  "10.5281/zenodo.17305156",
-                         "abstract":  "This review evaluates Zheng Zongyi’s From Song-Ming Neo-Confucianism to Contemporary New Confucianism, a comprehensive and philosophically rigorous study that traces the internal evolution of Confucian metaphysics from classical doctrines to modern interpretations. Emphasizing both ontological analysis and ethical praxis, Zheng’s work bridges traditional Ruist cosmology with contemporary philosophical discourse."
-                     },
-                     {
-                         "title":  "邯郸的城隍，你是谁？: Who Is the City God of Handan?",
-                         "authors":  [
-                                         "Su, Bai"
-                                     ],
-                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
-                         "journalSlug":  "tts",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/tts",
-                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
-                         "pages":  "93-95",
-                         "publishedAt":  "2025-11-05",
-                         "url":  "https://journals.panorama-sg.com/index.php/tts/article/view/145",
-                         "doi":  "10.5281/zenodo.17489829",
-                         "abstract":  "中文 作者身为邯郸人，从童年家门口城隍庙的记忆中萌发了对城隍的好奇—— 比如农历初一、十五庙前的热闹景象，以及城隍诞辰时烧纸扎祭品的仪式。初中时期，他沉迷各类神话故事，接触到 “三教合一” 思想，由此解开了家乡宗教场所中不同神灵混同供奉的谜题。成年后，他主动探访城隍庙，却发现当地供奉的 “姜先生（姜克效）” 并非城隍；邯郸城隍的真实姓名未载入县志，相关石碑也已深埋地下。他仅记录下庙内五尊神像的布局及多神供奉的情况，最终萌生了为邯郸城隍创作一个专属故事的想法。 English The author, a native of Handan, first developed a curiosity about the City God (Chenghuang) from childhood memories of the Chenghuang Temple near his home—such as the bustling scenes on the first and fifteenth days of the lunar month, and the ritual of burning paper effigies during the deity’s birthday celebration. During middle school, he became fascinated with mythology and encountered the concept of the “unity of the Three Teachings” (Confucianism, Buddhism, and Daoism), which allowed him to understand why different deities were worshipped together in local religious spaces. As an adult, he visited the temple intentionally, only to discover that the figure worshipped there—“Master Jiang” (Jiang Kexiao)—was not the actual City God. The true name of Handan’s City God is not recorded in local gazetteers, and related stone inscriptions remain buried underground. All he could document was the placement of five statues within the temple and the coexistence of multiple deities. From this, the idea emerged to create a story of his own for the City God of Handan."
-                     },
-                     {
-                         "title":  "三教融合视域下李翱心性论探析: An Analysis of Li Ao’s Mind-Nature Theory from the Perspective of Confucian-Buddhist-Daoist Syncretism",
-                         "authors":  [
-                                         "Li, Yutong"
-                                     ],
-                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
-                         "journalSlug":  "tts",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/tts",
-                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
-                         "pages":  "152-159",
-                         "publishedAt":  "2025-12-29",
-                         "url":  "https://journals.panorama-sg.com/index.php/tts/article/view/191",
-                         "doi":  "10.63802/tts.V1.2025.191",
-                         "abstract":  "中文 李翱是我国中唐时期著名的哲学家、文学家，核心思想是由其《复性书》而阐发的心性论。本文通梳理中唐三教互动的背景以及李翱与佛道思想的接触渊源，并对其《复性书》进行义理解读，进而比照佛道相关理论，揭示其心性论的内在理路与融合转化。李翱以儒学为本，吸收佛教如来藏与道教思想，构建了以“复性”为核心、贯通天人的儒学体系，呈现出“同归型”三教会通的典型特征。李翱心性论的研究为儒学发展提供了义理阐释的新路径，完善了中古三教思想互动与儒家心性之学。 English Li Ao was a prominent philosopher and litterateur of the Mid-Tang period in China, whose core ideas revolve around the theory of mind-nature as elaborated in his work On Recovering Human Nature (Fu Xing Shu). This article traces the context of the interaction among Confucianism, Buddhism, and Daoism during the Mid-Tang era, examines Li Ao’s intellectual engagement with Buddhist and Daoist thought, and offers a philosophical interpretation of On Recovering Human Nature. By comparing relevant Buddhist and Daoist theories, it elucidates the internal logic and synthetic adaptation underlying Li Ao’s theory of mind and nature.Grounded in Confucianism, Li Ao assimilated elements from Buddhist Tathāgatagarbha thought and Daoist philosophy to construct a Confucian system centered on “recovering human nature,” one that connects heaven and humanity and exemplifies the “syncretic paradigm” of harmonizing the three teachings. Li Ao’s theory of mind and human nature pioneered a novel philosophical trajectory for the development of Confucianism and contributed significantly to the intellectual interplay among the three teachings in medieval China, as well as to the advancement of Confucian learning of mind and nature."
-                     },
-                     {
-                         "title":  "Why did I come up with the idea of “Rubbish”",
-                         "authors":  [
-                                         "wild, utopist"
-                                     ],
-                         "journal":  "Silence",
-                         "journalSlug":  "Silence",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/Silence",
-                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
-                         "pages":  "1-2",
-                         "publishedAt":  "2026-02-16",
-                         "url":  "https://journals.panorama-sg.com/index.php/Silence/article/view/226",
-                         "doi":  "10.5281/zenodo.18681408",
-                         "abstract":  "This experimental essay reflects on the conceptual origins of the “Rubbish” journal idea, an alternative scholarly space that challenges conventional success–failure narratives in academic publishing. Rather than prioritizing polished outcomes, the article explores the value of drafts, failed attempts, and unfinished intellectual processes. By situating personal writing experience within broader discussions of scholarly communication and academic culture, the author proposes a reflective platform that reconsiders how knowledge production is evaluated and shared. The piece contributes to emerging conversations on experimental publishing, post-publication reflection, and alternative academic expression."
-                     },
-                     {
-                         "title":  "When Data Justice Becomes Governance: On the Depoliticization of a Critical Concept",
-                         "authors":  [
-                                         "Zhu, Junyu"
-                                     ],
-                         "journal":  "Global Review of Humanities, Arts, and Society",
-                         "journalSlug":  "files",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/files",
-                         "issue":  "卷 2 期 1 (2026): Digital Transformations, Cultural Dynamics, and Critical Perspectives in Contemporary Society",
-                         "pages":  "24-26",
-                         "publishedAt":  "2026-01-20",
-                         "url":  "https://journals.panorama-sg.com/index.php/files/article/view/204",
-                         "doi":  "",
-                         "abstract":  "This commentary critically examines the contemporary trajectory of as a central concept in critical data studies, focusing on how its political impact risks being diluted as it is incorporated into governance-oriented frameworks. Revisiting the agenda-setting article Data Justice by Lina Dencik and Javier Sánchez-Monedero (2022), the commentary positions data justice not as a fixed normative standard but as an open and contested political framework rooted in critiques of surveillance, datafication, and structural inequality. While Dencik and Sánchez-Monedero emphasize the instability and conflictual nature of justice—drawing on Nancy Fraser’s notion of the “grammar of justice”—this commentary argues that contemporary data governance increasingly seeks to stabilize and operationalize this grammar. Through regulatory compliance, ethical AI frameworks, and technical approaches to fairness and bias mitigation, data justice is progressively translated into a depoliticized language of governance. As a result, the concept often endures at the expense of its inherent political tension. The commentary further highlights a central paradox: although data justice is advocated on behalf of marginalized groups, its incorporation into governance practices often leads to increased regulation of those very populations, rather than their empowerment. By tracing this conceptual shift, the article argues that data justice cannot be understood merely as a policy goal or technical solution. Instead, it should be reclaimed as an ongoing political struggle over data, power, and inequality—one that emphasizes conflict, redistribution, and the reconfiguration of political subjecthood."
-                     },
-                     {
-                         "title":  "Attention: From Tires to Organisms – NationalTransport, Exposure, and Eco-Health Risks of6PPD/6PPD-Q in Terrestrial-Aquatic Systems",
-                         "authors":  [
-                                         "Liu, Yirui",
-                                         "Zhang, Jundong",
-                                         "Zhang, Yaolin",
-                                         "Hu, Yang"
-                                     ],
-                         "journal":  "Climate Sustainability \u0026 Global Systems",
-                         "journalSlug":  "CSGS",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/CSGS",
-                         "issue":  "Vol. 1 No. 1 (2026)",
-                         "pages":  "1-16",
-                         "publishedAt":  "2026-03-03",
-                         "url":  "https://journals.panorama-sg.com/index.php/CSGS/article/view/259",
-                         "doi":  "10.63802/csgs.V1.I1.259",
-                         "abstract":  "Urbanization and global transportation expansion have led to widespread release of tire-derived contaminants N-(1,3-dimethylbutyl)-N’-phenyl-p-phenylenediamine (6PPD) and its quinone derivative (6PPD-Q), posing critical environmental and public healthrisks. As a key tire anti-ozonant, 6PPD rapidly oxidizes to 6PPD-Q, a highly toxic compound linked to aquatic organism mor-tality. This review synthesizes their \"tires-to-organisms\" pollution continuum across terrestrial-aquatic systems. Focusing onChina (the world’s largest tire producer/consumer), 6PPD-Q emissions surged 97.5% (68.2–134.7 tons) from 2013–2023, withsoil as the primary environmental sink (55.67%). 6PPD/6PPD-Q exhibit dual mobility, pervading air, water, and soil, andinduce species-specific toxicity—especially in aquatic early life stages—via conserved pathways (oxidative stress, mitochondrialdysfunction). Ubiquitous in human urine, serum, and cerebrospinal fluid, they pose multi-organ risks, with children, pregnantwomen, and occupational workers most vulnerable, linked to non-alcoholic fatty liver disease, colorectal cancer, and neurologicaldysfunction. Critical research gaps include EV-related tire wear impacts, terrestrial non-model organism toxicity, longitudinalhealth studies, and mitigation validation. This work provides a comprehensive framework to inform evidence-based policiesand safeguard ecosystems and human health."
-                     },
-                     {
-                         "title":  "病本的超越：五类二十八种因行的净土思想——以《维摩诘经·佛国品》为中心: Transcending the Root of Illness: Five Categories and Twenty-eight Causal Practices in Pure Land Thought—Centered on the \"Buddha Realms Chapter\" of the Vimalakirti Sutra",
-                         "authors":  [
-                                         "Huang, Xingwang"
-                                     ],
-                         "journal":  "Three Teachings Studies: Confucianism, Daoism, and Buddhism",
-                         "journalSlug":  "tts",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/tts",
-                         "issue":  "Vol. 1 (2025): Origins and Crossings: Foundations of Three Teachings Studies（起源與交匯：三教研究的奠基之作）",
-                         "pages":  "136-151",
-                         "publishedAt":  "2025-12-29",
-                         "url":  "https://journals.panorama-sg.com/index.php/tts/article/view/194",
-                         "doi":  "10.63802/tts.V1.2025.194",
-                         "abstract":  "中文 大乘净土围绕一定的“差异”与“共性”来论述娑婆、极乐、兜率、药师等净土思想，以定位“他方国土”与“他方佛”的关系。作为印度初期净土的来源，《维摩诘经》所投射的阿閦佛以及妙喜净土成为解明东亚净土的关键。该经虽有“他力”视域，但二十八种菩萨的“因行”赋予净土实践更偏重“自净其心”的“自力”。相较于中国所侧重的“半自力半他力”，以及日本所强调的“纯他力”，该经反应了印度初期净土的“难行道”，但同时又隐藏了《阿閦佛国经》《般若经》等经典的“他力”倾向。故而本文以“病本”为核心，从超克“病本”之心的“六因”以及二十二种“加行”，来反思“因行”与“国土与众生清净”的关系。 English Mahayana Pure Land discusses Pure Land thoughts of Saha , Sukhavati , Tushita , Medicine Buddha , etc., around certain \" differences \" and \" commonalities \" to position the relationship between \"other lands \" and \"other Buddhas .\" As the source of early Indian Pure Land , the Akṣobhya Buddha and Abhirati Pure Land projected in The Vimalakīrti Sūtra become key to elucidating East Asian Pure Land . Although this sutra has the perspective of \" other-power ,\" the \" causal practices \" of the twenty-eight bodhisattvas endow Pure Land practice with more emphasis on the \" self-power \" of \" purifying one\u0027s own mind . \" Compared to China\u0027s emphasis on \" half self-power , half other-power \" and Japan\u0027s emphasis on \" pure other-power ,\" this sutra reflects the \" difficult path of practice \" of early Indian Pure Land , but simultaneously conceals the \" other-power \" tendency of sutras such as The Akṣobhyavyūha Sūtra and The Prajñāpāramitā Sūtra . Therefore , this paper takes \" fundamental illness \" as its core , examining the relationship between \" causal practices \" and \" purity of land and sentient beings \" through the \" six causes \" and twenty-two types of \" preparatory practices \" for overcoming the mind of \" fundamental illness .\""
-                     },
-                     {
-                         "title":  "Efficient Deployment of Multimodal LargeModels: A Surveyon Technical Innovations, Industrial Applications, and Challenges of Heterogeneous MoE Architecture, Low-bit Quantization, and Cloud-Edge-End Collaboration (2024-2026)",
-                         "authors":  [
-                                         "Zhang, Yaolin",
-                                         "Huang, Pengrong"
-                                     ],
-                         "journal":  "Silence",
-                         "journalSlug":  "Silence",
-                         "journalUrl":  "https://journals.panorama-sg.com/index.php/Silence",
-                         "issue":  "Vol. 1 No. 1 (2026): The beginning of the Silence",
-                         "pages":  "13-39",
-                         "publishedAt":  "2026-02-16",
-                         "url":  "https://journals.panorama-sg.com/index.php/Silence/article/view/232",
-                         "doi":  "10.5281/zenodo.18681507",
-                         "abstract":  "This survey focuses on the efficient deployment of multimodal large models (MLLMs) and systematically reviews the core technologies from 2024 to 2026. At the architectural level, heterogeneous Mixture-of-Experts (MoE) architectures represented by ERNIE 4.5 achieve a balance between cross-modal parameter sharing and modality-specific computation through modality-isolated routing and router orthogonal loss, significantly improving computational efficiency. In terms of model compression and inference optimization, methods such as Layerwise Ultra-Low Bit Quantization (LUQ) and MoEQuant effectively address the quantization challenges of multimodal data, while TensorRT-LLM and ONNX Runtime provide deeply optimized inference engine solutions for hardware architectures like Blackwell. Regarding deployment strategies, cloud-edge-end collaborative architectures represented by DistMLLM, AIVD, and NANOMIND meet the requirements of low latency and high privacy while achieving cost savings and energy efficiency improvements through adaptive offloading, dynamic resource scheduling, and hardware-software co-design. Application cases show that these technologies have effectively solved industry pain points such as high latency and data privacy in medical edge diagnostic devices and quality inspection \\\u0026amp; predictive maintenance scenarios in smart manufacturing, balancing efficiency and performance."
-                     }
-                 ]
+  "harvestedAt": "2026-08-08T02:31:42Z",
+  "sourcePublisher": "Panorama Scholarly Group",
+  "metadataSource": "Crossref REST API (api.crossref.org/journals/{issn}/works)",
+  "selectionMode": "daily-random-from-recent-panorama-publications",
+  "randomSeed": 20260808,
+  "totalRecordsHarvested": 50,
+  "futureRecordsExcluded": 1,
+  "recentPoolLimit": 60,
+  "recentPoolSize": 49,
+  "selectedArticleCount": 18,
+  "articles": [
+    {
+      "title": "Integrating Artificial Intelligence into Middle School Education: Pathways, Challenges, and an Ethical Reappraisal from a Practitioner-Scholar Perspective",
+      "authors": [
+        "Zhang, Xiaoling",
+        "Xu, Wenwen"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "AFS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "11-18",
+      "publishedAt": "2026-02-09",
+      "url": "https://journals.panorama-sg.com/index.php/AFS/article/view/198",
+      "doi": "10.63802/afs.v2.i1.198",
+      "abstract": "The rapid advancement of Artificial Intelligence (AI) has accelerated its transition in education from conceptual debate to practical classroom implementation. As a pivotal stage in the formation of students’ cognitive structures, learning habits, and value orientations, middle school education occupies a particularly sensitive position in this transformation. Introducing AI at this level offers significant potential to enhance instructional precision and learning efficiency. At the same time, it raises critical concerns related to educational equity, the redefinition of teachers’ professional roles, and the ethical dimensions of technology adoption. Drawing on the authors’ practical experience as middle school mathematics teachers and school administrators and informed by recent scholarship from both domestic and international contexts, this study provides a systematic overview of current AI applications in middle school settings. It examines feasible approaches to the use of AI in personalized instruction, classroom management, assessment practices, and educational resource allocation. Furthermore, from the perspectives of educational ethics and institutional governance, the paper critically analyzes emerging risks, including student data privacy, algorithmic bias, the expansion of the digital divide, and shifts in teacher–student relationships. The study argues that the sustainable and responsible integration of AI in middle school education cannot be achieved through technological advancement alone. Instead, it requires a holistic governance framework that is student-centered, teacher-led, and firmly grounded in ethical principles. Such a framework is essential to ensure that AI functions as an enabling tool for education rather than a source of fragmentation within the teaching and learning process."
+    },
+    {
+      "title": "Meta-Learned Dynamic Distillation for Automated Hyperparameter Optimization in Machine Learning Systems",
+      "authors": [
+        "Zhou, Yulin"
+      ],
+      "journal": "Journal of Engineering Systems & Applications",
+      "journalSlug": "JESA",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/JESA",
+      "issue": "Vol. 1, No. ",
+      "pages": "8-18",
+      "publishedAt": "2025-08-14",
+      "url": "https://journals.panorama-sg.com/index.php/jesa/article/view/33",
+      "doi": "10.63802/jesa.v1.i1.33",
+      "abstract": "We propose a meta-learned dynamic distillation framework for automated hyperparameter optimization in machine learning systems, which adaptively adjusts knowledge transfer intensity between teacher and student models during training. Traditional distillation methods rely on static intensity schedules or manual tuning, often leading to suboptimal performance when faced with dataset shifts or model uncertainty. The proposed method addresses this limitation by formulating distillation intensity as a learnable hyperparameter, optimized in real-time through a bilevel optimization scheme. Our framework integrates three key components: an Adaptive Distillation Controller (ADC) that meta-learns intensity adjustments based on gradient dynamics and validation loss, a bilevel optimization engine that jointly minimizes student loss and intensity regularization, and a curriculum-aware memory buffer that stabilizes training through historical trajectory analysis. The ADC employs a recurrent neural network to dynamically modulate intensity, while the bilevel optimizer ensures efficient meta-gradient computation without unrolled computational graphs. Furthermore, the memory buffer captures gradient variance patterns to inform intensity adjustments, enabling robust adaptation to evolving training conditions. Experiments demonstrate that our method outperforms conventional static distillation approaches across multiple benchmarks, achieving superior model performance with reduced manual intervention. The unified treatment of hyperparameter optimization and knowledge distillation not only eliminates the need for handcrafted schedules but also provides a principled way to balance task-specific learning and teacher guidance. This work advances the state of automated machine learning by introducing a scalable, adaptive solution for model tuning."
+    },
+    {
+      "title": "When Robots Become More Human: Emotional Disruption and the Boundaries of Social Acceptance",
+      "authors": [
+        "Hu, Yang"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "AFS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "7-10",
+      "publishedAt": "2026-02-03",
+      "url": "https://journals.panorama-sg.com/index.php/AFS/article/view/215",
+      "doi": "10.63802/afs.v2.i1.215",
+      "abstract": "This commentary uses the humanoid facial robot lip-motion generation study by Hu et al., published in Science Robotics, as a starting point to explore the broader cognitive, social, and ethical implications behind its technical achievements. By integrating a soft silicone facial structure, a ten-degree-of-freedom lip actuation system, and a self-supervised learning framework that combines a variational autoencoder with a facial action transformer, the study enables robots to learn natural lip trajectories directly from speech audio. This approach achieves notable improvements in visual naturalness, multilingual generalization, and the mitigation of the “uncanny valley” effect. Yet this seemingly subtle enhancement in lip–speech synchrony effectively pushes human–robot interaction across a critical threshold: robots begin to be perceived not merely as sound-producing tools but as socially present quasi-others. As artificial expressions grow increasingly lifelike, the boundaries by which humans judge emotional authenticity, trust, and intimacy are quietly being rewritten, bringing with them emerging risks of emotional manipulation, over-trust, and even the substitution of interpersonal relationships. At the same time, the study’s limited training data and cultural contexts remind us that technical realism does not automatically translate into universal applicability, and that its implications extend well beyond algorithmic performance. The article therefore argues that, within the widening temporal gap between rapid technological advancement and comparatively slower social norm formation, designers and policymakers share a dual responsibility: to establish transparent and comprehensible interaction boundaries, strengthen informed-consent mechanisms, and enhance public literacy in interpreting artificial social signals. In this sense, the work stands not only as an engineering milestone but also as a societal mirror—it demonstrates how machines are learning to “speak like us” while compelling us to reconsider how we define authenticity, agency, and trust in an increasingly synthetic social world."
+    },
+    {
+      "title": "As an additional institutional player in the area of anti-money laundering, the AMLA has the potential to water down the FATF standard",
+      "authors": [
+        "Zhang, Jiajia"
+      ],
+      "journal": "Journal of Law, Psychology, & Communication",
+      "journalSlug": "JLPCS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/JLPCS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "54-64",
+      "publishedAt": "2026-01-05",
+      "url": "https://journals.panorama-sg.com/index.php/jlpcs/article/view/62",
+      "doi": "10.63802/jlpcs.v2.i1.62",
+      "abstract": "With the establishment of the European Anti-Money Laundering Authority (AMLA), the European Union aims to address long-standing shortcomings in the implementation of Financial Action Task Force (FATF) standards across its member states. This paper examines the legal motives behind AMLA’s creation, its operating mechanisms, and its relationship with FATF. It argues that AMLA does not undermine FATF standards but rather functions as a regional complement to strengthen their implementation within the EU. The analysis highlights the challenges AMLA faces, including jurisdictional limits, operational capacity, and resource constraints. It further explores the prospects of cooperation between AMLA and FATF, suggesting the development of coordinated mechanisms such as joint assessments, information sharing, and cross-border supervision. Ultimately, the coexistence of AMLA and FATF may enhance global anti-money laundering governance, despite some regulatory and coordination challenges."
+    },
+    {
+      "title": "乡村治理的分寸感：再评“防止规模性返乡滞乡”",
+      "authors": [
+        "Yang, Yiming"
+      ],
+      "journal": "Rural Governance & Green Development",
+      "journalSlug": "RGGD",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/RGGD",
+      "issue": "Vol. 1, No. ",
+      "pages": "",
+      "publishedAt": "2025-11-28",
+      "url": "https://journals.panorama-sg.com/index.php/RGGD/article/view/180",
+      "doi": "10.63802/rggd.v1.2025.180",
+      "abstract": "2025年11月，农业农村部提出“防止形成规模性返乡滞乡”的政策表述，引发社会广泛讨论。本文指出，该政策并非限制农民工返乡的权利，而是着眼于防范因返乡后就业困难所导致的返贫风险。在当前城市就业空间受限、乡村产业承载力不足的背景下，公众对自身生存路径的焦虑日益加剧。文章主张，治理实践应在保障人口流动自由的前提下，提升县域经济“吸纳力”，通过产业扶持、技能培训与返乡创业支持等措施，赋予返乡以发展的可能，使其成为一种体面而可持续的选择，从而体现治理的温度与分寸。 In November 2025, the Chinese Ministry of Agriculture and Rural Affairs emphasized the need to “prevent large-scale return and settlement in the countryside,” sparking widespread public debate. This article argues that the policy aims not to restrict rural migrant workers from returning home, but rather to prevent poverty resurgence due to unemployment after return. Amid economic pressures and shrinking urban job opportunities, the mismatch between urban exclusion and insufficient rural capacity has intensified public anxiety. The article advocates for governance that respects citizens' migration rights and promotes rural job creation through county-level industrial development, vocational training, and entrepreneurial support. Only when returning to the countryside becomes a dignified and viable choice can the debate over governance boundaries find resolution."
+    },
+    {
+      "title": "Rebuilding Public Health Systems in an Era of Converging Crises: A Climate-Sensitive Resilience Framework",
+      "authors": [
+        "Song, Chengwen",
+        "Ma, Siheng",
+        "Rousitanmu, Gulifeire",
+        "He, Yuxuan",
+        "Lu, Yunze",
+        "Fang, Jialuo",
+        "Li, Jiayi",
+        "Zhu, Zhili",
+        "Wang, Qilong",
+        "Zhang, Xingkai",
+        "Dong, Wanlin",
+        "Shao, Yufei"
+      ],
+      "journal": "Health Nexus",
+      "journalSlug": "HealthNexus",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/HealthNexus",
+      "issue": "Vol. 2, No. ",
+      "pages": "24-39",
+      "publishedAt": "2026-04-19",
+      "url": "https://journals.panorama-sg.com/index.php/HealthNexus/article/view/308",
+      "doi": "10.63802/hn.v2.2026.308",
+      "abstract": "Background: The COVID-19 pandemic exposed deep structural weaknesses in public health systems across the world, including fragmented surveillance, fragile service capacity, inconsistent risk communication, and persistent health inequities. At the same time, the climate crisis is intensifying heat-related illness, vector-borne disease, extreme weather disruptions, displacement, and pressures on health infrastructure and workforces. Contemporary health threats are increasingly converging rather than isolated. Methods: Drawing on a conceptual synthesis of COVID-19 lessons, health system resilience scholarship, and recent guidance from the World Health Organization and the IPCC, this article develops the Integrated Climate-Sensitive Public Health Resilience (ICPHR) Framework, a four-dimensional and system-based model organized around preparedness, absorption, adaptation, and recovery. Results: The framework conceptualizes resilience as a dynamic and cyclical process through which public health systems anticipate, withstand, learn from, and transform after shocks while maintaining essential functions. The analysis identifies five strategic pathways for resilient system transformation: integrated surveillance and early warning, stronger primary health care, trust-based risk communication, equity-centered design, and cross-sectoral governance. Conclusions: Resilience in the coming decade must be climate-sensitive, institutionally embedded, and oriented toward long-term system transformation rather than temporary emergency response. Unlike existing models, the proposed framework explicitly integrates climate-sensitive risks into a cyclical and system-based structure. This framework provides actionable insights for public health system strengthening, particularly in integrating pandemic preparedness with climate-sensitive health risk management. Public health resilience should become the central paradigm guiding health system transformation in an era of converging global crises."
+    },
+    {
+      "title": "新时代下党建引领乡贤回引助推乡村振兴的路径探析",
+      "authors": [
+        "Song, Yun"
+      ],
+      "journal": "Rural Governance & Green Development",
+      "journalSlug": "RGGD",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/RGGD",
+      "issue": "Vol. 1, No. ",
+      "pages": "10-25",
+      "publishedAt": "2025-12-13",
+      "url": "https://journals.panorama-sg.com/index.php/RGGD/article/view/164",
+      "doi": "10.63802/rggd.v1.2025.164",
+      "abstract": "乡村振兴是关乎国计民生的重大战略举措，人才振兴在其中发挥着关键支撑作用。本文聚焦党建引领乡贤回引这一核心主题，深入剖析其对乡村振兴的多元推动路径及深远实践意义。综合运用文献研究法、案例分析法、访谈调查法与实证研究法，从组织建设强化、产业发展驱动、文化传承创新、生态环境优化及基层治理提升五大维度，系统揭示党建引领乡贤回引整合乡村资源、激发内生发展动力、重塑乡村发展格局的内在逻辑，为乡村振兴提供可持续的智力支持与实践指引，助力农业农村现代化建设迈向高质量发展新阶段。 Rural revitalization is a major strategic initiative vital to national development and public well-being, with talent revitalization playing a critical supporting role. This paper focuses on the core theme of Party building-led return of local elites (\"xiangxian\") and provides an in-depth analysis of its multifaceted pathways and profound practical significance in promoting rural revitalization. Through a comprehensive methodology combining literature review, case studies, interviews, and empirical research, the study explores five key dimensions: strengthening organizational construction, driving industrial development, innovating cultural heritage, optimizing the ecological environment, and enhancing grassroots governance. It systematically reveals the internal logic by which Party-led mechanisms for mobilizing local elites integrate rural resources, stimulate endogenous development momentum, and reshape rural development patterns. The findings offer sustainable intellectual support and practical guidance for advancing rural revitalization and accelerating the high-quality development of agricultural and rural modernization."
+    },
+    {
+      "title": "AI-Mediated Public Decision-Making and Democratic Exclusion: Governance Risks and Accountability Frameworks",
+      "authors": [
+        "Stanizzi, Salvatore"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "AFS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "26-34",
+      "publishedAt": "2026-04-01",
+      "url": "https://journals.panorama-sg.com/index.php/afs/article/view/242",
+      "doi": "10.63802/afs.v2.i1.242",
+      "abstract": "Artificial intelligence is increasingly embedded within public administration, shaping welfare allocation, migration control and regulatory enforcement. Existing debates on AI governance have primarily focused on bias mitigation, transparency and risk-based compliance. While these approaches have advanced oversight mechanisms, they remain largely oriented toward managing harm at the level of system performance. This article advances a distinct analytical claim: democratic exclusion in AI-mediated public decision-making is infrastructural rather than merely output-based. By conceptualising AI systems as governance infrastructures, the paper argues that exclusion may arise from the architectural embedding of optimisation logics within public authority. Algorithmic systems can pre-structure access pathways, recalibrate discretion and redistribute justificatory responsibility prior to individual decisions. These transformations may not be fully captured by bias detection or rights-impact assessments. Drawing on constitutional principles and governance theory, the article identifies structural risks associated with epistemic asymmetry, automated filtering and procedural compression. A comparative analysis of European Union and United Kingdom regulatory trajectories demonstrates that both risk-based and principle-based frameworks remain predominantly compliance-oriented. The paper concludes by proposing democratic inclusion safeguards that operate at the level of institutional embedding, emphasising domain-sensitive justification, substantive oversight and inclusion monitoring. Democratic resilience in algorithmically mediated governance depends not only on technical robustness, but on preserving the justificatory foundations of public authority."
+    },
+    {
+      "title": "Research Advances and Innovative Optimization Routes of Midwifery Models for Advanced-Age Pregnant Women",
+      "authors": [
+        "Chen, Feifei"
+      ],
+      "journal": "Health Nexus",
+      "journalSlug": "HealthNexus",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/HealthNexus",
+      "issue": "Vol. 1, No. ",
+      "pages": "1-7",
+      "publishedAt": "2026-01-08",
+      "url": "https://journals.panorama-sg.com/index.php/HealthNexus/article/view/135",
+      "doi": "10.63802/healthnexus.v1.2025.135",
+      "abstract": "Advanced-age parturients (maternal age≥35years at delivery) have become a key population for maternal and infant safety protection due to age-related physiological decline and high incidence of pregnancy complications (e.g., pregnancy-induced hypertension, gestational diabetes mellitus). With the global trend of delayed childbearing and the implementation of China’s three-child policy, the number of advanced-age parturients has continued to rise. The traditional physician-led single midwifery model can no longer meet their individualized care needs. This article systematically reviews the research status of midwifery models for advanced-age parturients at home and abroad from 2019 to 2025, analyzing the application scenarios, implementation effects, and existing limitations of various models from two dimensions: \"typical international models\" (obstetrician-led care, midwife-led continuous care, group prenatal care, etc.) and \"domestic innovative practices\" (group-based prenatal care, midwife clinics, integrated delivery rooms, MDT multidisciplinary collaboration, etc.). It focuses on comparing the differential advantages of different models in reducing the cesarean section rate, decreasing postpartum complications, and improving the psychological status of advanced-age parturients, and identifies core issues in domestic models, such as \"uneven resource allocation, inconsistent evaluation standards, and shortage of midwives\". Based on this, an optimization path of \"midwife-centered multidisciplinary collaborative model\" is proposed, including improving the primary-level service network, establishing a unified evaluation system, and strengthening midwife competency training. This study aims to provide references for enhancing maternal and infant outcomes of advanced-age parturients and promoting the high-quality development of obstetric care."
+    },
+    {
+      "title": "The Breakthrough of Impressionist Music in Traditional Functional Harmony and Its Enlightenment for Contemporary Music",
+      "authors": [
+        "Sun, Ke"
+      ],
+      "journal": "Resonance",
+      "journalSlug": "Resonance",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/Resonance",
+      "issue": "Vol. 2, No. 1",
+      "pages": "7-16",
+      "publishedAt": "2026-03-14",
+      "url": "https://journals.panorama-sg.com/index.php/Resonance/article/view/257",
+      "doi": "10.63802/resonance.v2.i1.257",
+      "abstract": "Impressionist music emerged at the turn of the twentieth century as a significant reorientation of traditional functional harmony. Rather than prioritizing tonal stability and structural teleology, Impressionist composers foregrounded harmonic color, timbre, and atmospheric resonance as primary expressive elements. Drawing on existing scholarship on Impressionist harmony, this article examines how the use of whole-tone scales, pentatonic materials, blurred cadences, and pedal techniques reshaped conventional harmonic logic and rebalanced the relationship between function and sonority. Moving beyond a purely historical account, the study further explores how this color-oriented harmonic thinking continues to inform contemporary film scoring. By emphasizing atmosphere, timbral space, and perceptual immersion, contemporary film music extends the Impressionist sonic paradigm into modern audiovisual contexts. In this sense, Impressionist harmony may be understood not merely as a historical technique, but as an enduring mode of sonic perception that bridges past and present listening practices."
+    },
+    {
+      "title": "Theoretical Construction of Love Anxiety: A Multi-Stage Relational Threat Model",
+      "authors": [
+        "Song, Chengwen",
+        "Chen, Feifei",
+        "Wang, Qilong",
+        "Ren, Yangyi"
+      ],
+      "journal": "Journal of Law, Psychology, & Communication",
+      "journalSlug": "JLPCS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/JLPCS",
+      "issue": "Vol. 2, No. 2",
+      "pages": "1-8",
+      "publishedAt": "2026-06-21",
+      "url": "https://journals.panorama-sg.com/index.php/jlpcs/article/view/329",
+      "doi": "10.63802/jlpcs.v2.i2.329",
+      "abstract": "Contemporary romantic relationships are increasingly marked by ambiguous boundaries, delayed commitment, social media comparison, and sociocultural pressure, which may intensify anxiety across the romantic trajectory. This conceptual article proposes love anxiety as a cross-stage relational threat response characterized by persistent worry, tension, rumination, avoidance, jealousy, and reassurance seeking during love attainment, relationship initiation, confirmation, maintenance, loss, and future commitment. Integrating the triangular theory of love, adult attachment theory, relational uncertainty theory, rejection sensitivity, intolerance of uncertainty, self-worth contingency theory, social media relationship research, and the Love Confirmation Mechanism Model, the article develops a Multi-Stage Relational Threat Model. Six theoretical dimensions are proposed: love attainment anxiety, relationship initiation anxiety, relationship certainty anxiety, lovability anxiety, loss and separation anxiety, and commitment and future anxiety. The model clarifies conceptual boundaries and offers directions for qualitative inquiry, scale development, validation, and cross-cultural testing."
+    },
+    {
+      "title": "An Inquiry Beneath the Twin Peaks: Examining University Physics Education in Mainland China from the Perspectives of Feynman’s Intuition and Landau’s Rigor",
+      "authors": [
+        "Luo, Junyu"
+      ],
+      "journal": "Journal of Engineering Systems & Applications",
+      "journalSlug": "JESA",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/JESA",
+      "issue": "Vol. 1, No. ",
+      "pages": "1-7",
+      "publishedAt": "2025-08-13",
+      "url": "https://journals.panorama-sg.com/index.php/jesa/article/view/77",
+      "doi": "10.63802/jesa.v1.i1.77",
+      "abstract": "The essence of physics lies in a synthesis of childlike curiosity and meticulous rigor, used to comprehend the universe. Consequently, the mission of physics education is not merely the transmission of formulas but the cultivation of an exploratory spirit and critical thinking. This paper presents a critical examination of the current state of university-level physics education in mainland China. A profound disconnect is observed between the intrinsic beauty of the discipline and the prevalent pedagogical methods, which often reduce physics to a tool for examinations. Students are frequently found to be proficient in formulaic application but lacking in a deep understanding of the underlying physical pictures, their motivation driven by academic scores rather than genuine interest. To diagnose these issues and propose reforms, we draw upon the pedagogical philosophies of two titans of physics: Richard P. Feynman, who championed intuitive understanding and the joy of discovery, and Lev D. Landau, who epitomized logical rigor and systematic construction of theory. By using their distinct yet complementary approaches as a lens, we analyze the systemic problems in physics education in mainland China, from utilitarian student motivation and flawed evaluation systems to the inadequacy of teaching materials. Ultimately, we argue for a synthetic approach, integrating Feynman’s emphasis on intuition with Landau’s demand for rigor, to forge a new path that revitalizes physics education and restores its true purpose: to inspire a profound and lasting passion for understanding the natural world."
+    },
+    {
+      "title": "《幻與真：〈紅樓夢〉中的道家「幻」及其與佛教空觀之區辨》—Illusion and Reality: Daoist Conceptions of Illusion in Hongloumeng and Their Distinction from Buddhist Emptiness",
+      "authors": [
+        "Song, Chengwen",
+        "Zeng, Xinhuan",
+        "Zhang, Xuzhuo"
+      ],
+      "journal": "Three Teachings Studies",
+      "journalSlug": "tts",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/tts",
+      "issue": "Vol. 2, No. ",
+      "pages": "1-5",
+      "publishedAt": "2026-04-03",
+      "url": "https://journals.panorama-sg.com/index.php/tts/article/view/298",
+      "doi": "10.63802/tts.v2.2026.298",
+      "abstract": "《紅樓夢》長期被視為三教交涉的典型文本，但在具體闡釋上，學界往往更傾向於以佛教「色空」與「度脫」來統攝其思想結構。此一路徑固然揭示了作品的重要宗教面向，卻也容易將小說中的「幻」直接等同於佛教「空」，從而遮蔽其更深層的道家思想脈絡。本文結合思想史分析、概念比較與文本細讀指出：道家之「幻」主要指向存在的流變性、主體的不穩定性以及真偽關係的相對性；佛教之「空」則以緣起、無自性與破除執著為中心，並最終通向解脫實踐。回到《紅樓夢》文本內部，開篇石頭神話、甄士隱夢遊、太虛幻境、判詞系統、「假作真時真亦假」以及賈寶玉與通靈寶玉的關係，都表明「幻」首先是一種結構性的敘事原則與認識論裝置，而非單純的宗教結論。佛教語彙與空觀意識固然在小說中廣泛存在，但更接近一種滲透性的終極解釋框架；就文本運行邏輯而言，《紅樓夢》的「幻」更接近莊子式的夢醒難分、物我互化與有無流轉。由此可見，《紅樓夢》並非一個無差別的佛道融合文本，而更適宜被理解為「道家主導、佛教滲透」的複合思想結構。 This article argues that “illusion” in Hongloumeng should not be reduced to Buddhist emptiness. Although Buddhist notions of emptiness, karmic retribution, and salvation are indispensable to the novel, they fail to fully account for the novel’s underlying narrative logic. Combining conceptual comparison, intellectual history, and close reading, this study distinguishes Daoist “illusion” from Buddhist “emptiness” not merely at the level of doctrine but in terms of ontological instability, epistemic orientation, and textual function. In Daoist thought, especially in the Zhuangzi, illusion is bound up with transformation, perspectival instability, and the fluidity of truth and falsity; in Buddhist thought, emptiness centers on dependent origination, non-self-nature, and the removal of attachment, ultimately pointing toward liberation. Read from this perspective, the mythic prologue, Zhen Shiyin’s dream, the Land of Illusion, the system of prophecies, the line “when false is taken for true, true becomes false,” and the relation between Jia Baoyu and the jade all suggest that “illusion” in Hongloumeng functions primarily as a structural narrative principle and an epistemological device rather than as a straightforward doctrinal statement. At the same time, Buddhism remains crucial to the novel’s moral and eschatological horizon, especially in its language of disenchantment, karmic consequence, and ultimate withdrawal. Even so, a predominantly Buddhist model leaves several major textual phenomena insufficiently explained, including the novel’s investment in perspectival shifts, symbolic differentiation, and unstable modes of being. Hongloumeng should therefore be understood not as an undifferentiated synthesis of Buddhism and Daoism, but as a composite text marked by a form of relative Daoist structural dominance and Buddhist permeation."
+    },
+    {
+      "title": "自内证悟，破执显真——《楞伽经》自觉圣智思想对现代社会的启示",
+      "authors": [
+        "Li, Zirui"
+      ],
+      "journal": "Three Teachings Studies",
+      "journalSlug": "tts",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/tts",
+      "issue": "Vol. 1, No. ",
+      "pages": "126-135",
+      "publishedAt": "2025-12-23",
+      "url": "https://journals.panorama-sg.com/index.php/tts/article/view/182",
+      "doi": "10.63802/tts.v1.2025.182",
+      "abstract": "中文 《楞伽经》作为融汇唯识学与如来藏思想的重要大乘经典，其“自觉圣智”（pratyātma-ārya-jñāna）概念构成理解该经认识论与解脱论的关键枢纽。本文基于文本细读的方法，系统考察“自觉圣智”在“五法、三自性、八识、二无我”教义结构中的理论地位，指出该概念并非指向外在获取的知识形态或经验状态，而是一种通过破除名相执著与妄想分别而显现的内证智慧。文章进一步论证，“自觉圣智”在唯识学对心识运作机制的分析与如来藏思想关于本具清净觉性的理论关怀之间，构成贯通现象认知与解脱境界的认识论枢纽。在此基础上，本文从认识论层面对“自觉圣智”进行当代理解的理论对读，指出《楞伽经》对妄想、名相执与我执的结构性批判，可为反思现代认知、价值与主体性困境提供一种不同于工具理性与经验主义路径的佛教思想视角。 English As a key Mahayana Buddhist text synthesizing Yogācāra (consciousness-only) and Tathāgatagarbha (Buddha-nature) thought, the Laṅkāvatāra-sūtra (Scripture of the Entry into Laṅkā) presents the concept of \"self-realized sacred wisdom\" (pratyātma-ārya-jñāna) as a pivotal epistemological and soteriological framework. This article, through close textual analysis, systematically examines the theoretical position of \"self-realized sacred wisdom\" within the doctrinal structure of the \"Five Dharmas, Three Natures, Eight Consciousnesses, and Two Non-Selves.\" It argues that this concept does not denote an externally acquired form of knowledge or an empirical state but rather an innate wisdom manifested through the transcendence of conceptual attachments and discriminative illusions. The study further demonstrates that \"self-realized sacred wisdom\" serves as an epistemological nexus between Yogācāra’s analytical framework of consciousness dynamics and Tathāgatagarbha’s emphasis on innate pure awareness, bridging phenomenological cognition and liberative realization. Building upon this analysis, the article engages in a theoretical dialogue to explore the contemporary relevance of \"self-realized sacred wisdom,\" highlighting how the Laṅkāvatāra-sūtra’s systemic critique of deluded thoughts, conceptual reifications, and self-attachment offers a Buddhist philosophical perspective distinct from instrumental rationality and empiricist approaches, thereby providing insights for rethinking modern epistemological, axiological, and subjectivity crises."
+    },
+    {
+      "title": "How Modern Academia Shapes Philosophical Questioning: Institutional Conditions, Logics of Publishability, andInstitutional Silence",
+      "authors": [
+        "Song, Huayang"
+      ],
+      "journal": "Silence",
+      "journalSlug": "Silence",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/Silence",
+      "issue": "Vol. 1, No. 1",
+      "pages": "48-53",
+      "publishedAt": "2026-02-25",
+      "url": "https://journals.panorama-sg.com/index.php/Silence/article/view/251",
+      "doi": "10.63802/silence.v1.i1.251",
+      "abstract": "This article challenges the widely held assumption that philosophical questions arise spontaneously from thought itself. By situating contemporary philosophy within the institutional transformations of neoliberal higher education, it argues that inquiry is pre-structured by what is termed the logic of publishability. Through an analysis of evaluation metrics, grant-based project governance, and journal gatekeeping, the paper conceptualizes a “triple mechanism” that regulates not the answers philosophers produce, but the forms, tempos, and boundaries of the questions they are permitted to ask. The dominance of gap-spotting as a model of innovation, the demand for methodological controllability, and the requirement for definitive conclusions function as anticipatory filters at the inception of inquiry. Building on insights from agnotology and the sociology of absences, this article introduces the concept of Institutional Silence to describe the structural exclusion of foundational, slow, or non-instrumental philosophical problems. It further examines the paradox of metacritique, arguing that reflexivity itself has become institutionalized and ritualized within contemporary academic writing. Rather than advocating for administrative reforms, the article introduces the concepts of slow questions and Quiet Research as intellectual approaches that resist acceleration, metric fetishism, and epistemic domestication. The paper concludes by leaving open the question of whether philosophy, under current institutional conditions, is still genuinely asking questions or merely managing them within a standardized regime of conceptual production."
+    },
+    {
+      "title": "AI literacy beyond tools: Safeguarding human judgment in research and higher education",
+      "authors": [
+        "Weng, Yueh-Sung"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "AFS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "35-44",
+      "publishedAt": "2026-04-08",
+      "url": "https://journals.panorama-sg.com/index.php/afs/article/view/207",
+      "doi": "10.63802/afs.v2.i1.207",
+      "abstract": "Artificial intelligence has emerged as a pioneering tool for assisting researchers and students in conducting complex tasks, including designing questionnaires, proofreading academic works, and rebutting reviewers’ criticisms. Beyond being a tool, this advanced technology highlights its impact on the future of research and education and makes the audience feel that their engagement with AI is necessary. However, AI-related ethical issues arise when people apply AI in their learning and research, especially when it involves sensitive information in humanities and social sciences and questions users’ epistemic positions and reflexivity of their studies. The contribution of AI literacy has not yet been fully recognized, as current studies focus on the AI models’ competencies rather than on human capabilities to adapt AI technologies for educational and research purposes in responsible, ethical, and comprehensive ways. This article first discusses the role of AI literacy in academia and higher education. Then, it examines four controversial AI ethical issues that potentially jeopardize research and learning, including biases in AI, sycophantic chatbot services, inaccuracy, randomness, and ethical concerns of AI models’ outputs. This article represents a further step toward developing clear AI literacy guidelines, assuring that audiences’ skills and judgment remain central to responsible AI use."
+    },
+    {
+      "title": "When AI Weakens Evidence Traceability: Ethical Challenges for Credibility and Responsibility in Digital Forensics",
+      "authors": [
+        "Zhang, Xuzhuo"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "AFS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "19-25",
+      "publishedAt": "2026-03-07",
+      "url": "https://journals.panorama-sg.com/index.php/afs/article/view/208",
+      "doi": "10.63802/afs.v2.i1.208",
+      "abstract": "Artificial intelligence (AI) is increasingly used in digital forensic workflows to support the analysis, interpretation, and reporting of large datasets. While this integration offers efficiency benefits, it also raises ethical concerns. This paper examines the weakening of evidence traceability in AI-assisted digital forensic workflows as a challenge in digital forensics and argues that reduced traceability threatens two core requirements of forensic practice: evidence credibility and responsibility attribution. Unlike conventional technical errors, traceability breakdowns may generate analytic statements that appear plausible but lack explicit grounding in identifiable forensic artifacts, thereby weakening the link between evidence and inference. Through an ethics- and governance-focused analysis, the paper shows how AI-assisted workflows can undermine evidentiary trust, distribute responsibility across human and institutional actors, and produce accountability gaps that conflict with forensic norms. The analysis also examines human and institutional effects of AI use, including automation bias, institutional reliance on AI outputs, and the displacement of responsibility. The paper concludes that technical validation alone cannot address these issues. Responsible use of AI in digital forensics requires clear human–AI role definition, procedures that support auditability and contestability, and governance frameworks that assign accountability across the AI lifecycle. These conditions are necessary to maintain the credibility and legitimacy of digital forensic evidence."
+    },
+    {
+      "title": "Exploring North Korea–China Relations in the Kim Jong-un Era: A Pluralistic Construction from Geopolitics to a Community of Shared Destiny",
+      "authors": [
+        "Liu, Leyuan"
+      ],
+      "journal": "PoliEcoM Administration Review",
+      "journalSlug": "PEMR",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/PEMR",
+      "issue": "Vol. 2, No. 1",
+      "pages": "4-11",
+      "publishedAt": "2026-03-05",
+      "url": "https://journals.panorama-sg.com/index.php/pemr/article/view/266",
+      "doi": "10.63802/pemr.v2.i1.266",
+      "abstract": "Since Kim Jong Un came to power, North Korea has undergone significant changes in areas such as nuclear weapons development, economic reform, and cultural openness. As a traditional ally and key geopolitical partner of North Korea, China’s perceptions and understanding of its development trajectory have exhibited diverse characteristics. This article examines the latest developments in China–North Korea relations during the Kim Jong Un era by analyzing recent political interactions, economic cooperation, cultural exchanges, and efforts to shape international discourse. The study employs a literature review method, drawing on official documents, academic works, and media reports from both China and North Korea. It argues that during the Kim Jong Un era, the two countries have moved beyond traditional security concerns toward a more rational assessment and cultural resonance regarding North Korea’s path to modernization."
+    }
+  ]
 }

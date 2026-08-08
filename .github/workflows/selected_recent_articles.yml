@@ -4,15 +4,6 @@ on:
   schedule:
     - cron: '10 1 * * *'
   workflow_dispatch:
-    inputs:
-      refresh_articles:
-        description: 'Refresh article records from public journal pages'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
 
 jobs:
   update-publisher-data:
@@ -26,24 +17,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Build daily article selection
-        if: github.event_name == 'workflow_dispatch' && inputs.refresh_articles == 'true'
-        shell: pwsh
-        run: |
-          try {
-            ./scripts/fetch-selected-recent-articles.ps1 -PoolLimit 50 -Limit 20 -RequestDelaySeconds 8
-          } catch {
-            Write-Warning "Article refresh failed: $($_.Exception.Message)"
-            if (Test-Path data/articles.json) {
-              Write-Warning "Keeping existing data/articles.json cache."
-              exit 0
-            }
-            throw
-          }
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.10'
 
-      - name: Use committed article cache
-        if: github.event_name != 'workflow_dispatch' || inputs.refresh_articles != 'true'
-        run: echo "Scheduled runs keep the committed data/articles.json cache to avoid Cloudflare challenges on public journal pages."
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Refresh recent articles from Crossref
+        env:
+          CROSSREF_EMAIL: ${{ secrets.CROSSREF_EMAIL }}
+        run: python scripts/fetch_recent_articles.py
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Refresh journal announcements
+        run: node scripts/fetch_announcements.mjs
 
       - name: Refresh journal descriptions
         shell: pwsh
@@ -63,7 +64,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
-          git add data/articles.json data/journals.json
+          git add data/articles.json data/journals.json data/announcements.json
           git commit -m "chore(data): auto-update publisher site data [skip ci]" || exit 0
           for attempt in 1 2 3 4 5; do
             git pull --rebase origin main

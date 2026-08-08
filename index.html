@@ -436,6 +436,7 @@
 
 <script>
 (function () {
+    // Fallback shown only if data/articles.json can't be fetched, so the section never renders empty.
     var FEATURED = [
         {
             journal: "Health Nexus",
@@ -464,9 +465,16 @@
         return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
     }
 
-    var grid = document.getElementById("articles-grid");
-    if (grid) {
-        grid.innerHTML = FEATURED.map(function(a) {
+    function authorsLine(authors) {
+        if (!authors || !authors.length) return "";
+        var shown = authors.slice(0, 3).join("; ");
+        return authors.length > 3 ? shown + " et al." : shown;
+    }
+
+    function renderArticles(items) {
+        var grid = document.getElementById("articles-grid");
+        if (!grid) return;
+        grid.innerHTML = items.map(function(a) {
             return '<article class="article-card">'
                 + '<p class="article-journal">' + esc(a.journal) + '</p>'
                 + '<p class="article-title">' + esc(a.title) + '</p>'
@@ -476,6 +484,23 @@
                 + '</article>';
         }).join("");
     }
+
+    fetch('data/articles.json')
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            var items = (d.articles || []).slice(0, 6).map(function (a) {
+                return {
+                    journal: a.journal,
+                    title: a.title,
+                    authors: authorsLine(a.authors),
+                    doi: a.doi,
+                    url: a.url
+                };
+            });
+            if (!items.length) throw new Error("empty");
+            renderArticles(items);
+        })
+        .catch(function () { renderArticles(FEATURED); });
 })();
 </script>
 
