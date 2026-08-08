@@ -476,8 +476,12 @@ h3.step-title {
 }
 .steps-cta-text { font-size: 15px; font-weight: 700; color: var(--white); margin: 0; }
 .steps-cta-sub { font-size: 13px; color: var(--g50); margin-top: 3px; display: block; }
-.steps-cta .btn { border-color: var(--red); background: var(--red); color: var(--white); }
-.steps-cta .btn:hover { background: var(--red-dk); border-color: var(--red-dk); }
+.steps-cta .btn,
+.section .steps-cta .btn,
+.section.alt .steps-cta .btn { border-color: var(--red); background: var(--red); color: var(--white); }
+.steps-cta .btn:hover,
+.section .steps-cta .btn:hover,
+.section.alt .steps-cta .btn:hover { background: var(--red-dk); border-color: var(--red-dk); }
 
 /* ══════════════════════════
    ANNOUNCEMENTS
