@@ -813,6 +813,9 @@ h3.step-title {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
   gap: 0; background: var(--line); border: 2px solid var(--black);
 }
+/* Fixed 3-column layout for grids whose item count leaves an empty trailing
+   row under auto-fit (e.g. 9 Discovery Database cards wrapping past 7 columns). */
+.indexer-full-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .indexer-card {
   background: var(--white); padding: 32px 20px 26px;
   display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;
@@ -1095,6 +1098,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .quick-links { grid-template-columns: 1fr; }
   .quick-links a { border-right: 0; border-bottom: 1px solid var(--line); }
   .quick-links a:last-child { border-bottom: 0; }
+
+  .indexer-full-grid.cols-3 { grid-template-columns: 1fr; }
+  .indexer-full-grid.cols-3 .indexer-card { border-right: 0; border-bottom: 1px solid var(--line); }
+  .indexer-full-grid.cols-3 .indexer-card:last-child { border-bottom: 0; }
 
   .articles-grid { grid-template-columns: 1fr; }
   .article-card { border-right: 0; border-bottom: 1px solid var(--line); }
