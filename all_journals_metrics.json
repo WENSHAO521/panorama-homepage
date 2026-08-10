@@ -1,80 +1,76 @@
 {
     "last_updated": "2026-08-10",
+    "source_url": "https://posi.panorama-sg.com/",
     "afs": {
-        "2yr_mean_citedness": 0.73,
-        "h_index": 1,
-        "i10_index": 0,
-        "works_count": 11
+        "pci": 0.82,
+        "pcs": 1.4,
+        "h_index": 2,
+        "total_citations": 9
     },
     "jesa": {
-        "2yr_mean_citedness": 0.0,
+        "pci": 0.0,
+        "pcs": 0.0,
         "h_index": 0,
-        "i10_index": 0,
-        "works_count": 4
+        "total_citations": 0
     },
     "files": {
-        "2yr_mean_citedness": 0.39,
+        "pci": 0.39,
+        "pcs": 0.35,
         "h_index": 2,
-        "i10_index": 0,
-        "works_count": 41
+        "total_citations": 16
     },
     "HealthNexus": {
-        "2yr_mean_citedness": 0.27,
+        "pci": 0.27,
+        "pcs": 0.4,
         "h_index": 1,
-        "i10_index": 0,
-        "works_count": 11
+        "total_citations": 3
     },
     "jlpcs": {
-        "2yr_mean_citedness": 0.32,
+        "pci": 0.32,
+        "pcs": null,
         "h_index": 2,
-        "i10_index": 0,
-        "works_count": 22
+        "total_citations": 7
     },
     "pemr": {
-        "2yr_mean_citedness": 0.08,
+        "pci": 0.08,
+        "pcs": 0.1,
         "h_index": 1,
-        "i10_index": 0,
-        "works_count": 12
+        "total_citations": 1
     },
     "rggd": {
-        "2yr_mean_citedness": 0.0,
+        "pci": 0.0,
+        "pcs": null,
         "h_index": 0,
-        "i10_index": 0,
-        "works_count": 3
+        "total_citations": 0
     },
     "Resonance": {
-        "2yr_mean_citedness": 0.0,
+        "pci": 0.0,
+        "pcs": 0.0,
         "h_index": 0,
-        "i10_index": 0,
-        "works_count": 18
+        "total_citations": 0
     },
     "Silence": {
-        "2yr_mean_citedness": 0.0,
+        "pci": 0.0,
+        "pcs": null,
         "h_index": 0,
-        "i10_index": 0,
-        "works_count": 3
+        "total_citations": 0
     },
     "tts": {
-        "2yr_mean_citedness": 0.0,
+        "pci": 0.0,
+        "pcs": 0.0,
         "h_index": 0,
-        "i10_index": 0,
-        "works_count": 15
+        "total_citations": 0
     },
     "jscc": {
-        "2yr_mean_citedness": 0.33,
+        "pci": 0.33,
+        "pcs": null,
         "h_index": 1,
-        "i10_index": 0,
-        "works_count": 3
+        "total_citations": 1
     },
     "csgs": {
-        "2yr_mean_citedness": 0.0,
+        "pci": 0.0,
+        "pcs": null,
         "h_index": 0,
-        "i10_index": 0,
-        "works_count": 3
-    },
-    "cprt": null,
-    "cssr": null,
-    "jdes": null,
-    "irels": null,
-    "pfr": null
+        "total_citations": 0
+    }
 }
