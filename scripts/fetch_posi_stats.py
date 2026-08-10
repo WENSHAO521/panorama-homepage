@@ -2,15 +2,19 @@
 Weekly scraper for https://posi.panorama-sg.com/
 Extracts 4 headline stats from the homepage and writes to data/posi_stats.json.
 
+POSI relaunched its homepage around a lifecycle-based journal database
+(Core Collection / Global Benchmark / Lifecycle Rated / PSC Subject
+Categories), replacing the older DOI-metadata / searchable-records /
+avg-quality-score framing this scraper used to look for.
+
 Stats tracked (keys match what the main homepage widget displays):
-  doi_metadata_records        raw: 18358499   display: "18.4M"
-  searchable_records          raw: "250M+"     display: "250M+"
-  journal_records_indexed     raw: 22856       display: "22,856"
-  avg_metadata_quality_score  raw: "86/100"    display: "86/100"
+  core_collection             raw: 30      display: "30"
+  global_benchmark             raw: "1,000" display: "1,000"
+  lifecycle_rated              raw: 110     display: "110"
+  psc_subject_categories       raw: 48      display: "48"
 """
 
 import json
-import math
 import os
 import re
 import sys
@@ -29,10 +33,9 @@ def _fmt(raw: str | None) -> str | None:
     """Format a raw number string to a human-readable display form.
 
     Examples:
-        "18,358,499" → "18.4M"
-        "22,856"     → "22,856"
-        "250M+"      → "250M+"
-        "86/100"     → "86/100"
+        "1,000" → "1,000"
+        "30"    → "30"
+        "250M+" → "250M+"
     """
     if raw is None:
         return None
@@ -53,24 +56,22 @@ def extract_stats(body: str) -> dict:
 
     # Pattern: value immediately before the label in the page flow.
     # The POSI hero section reads: "<number>\n<LABEL TEXT>" so after flattening:
-    #   "18,358,499 DOI METADATA RECORDS"
-    #   "250M+ EXTERNAL SEARCHABLE RECORDS"
-    #   "22,856 AUTO-DISCOVERED JOURNAL RECORDS"
-    #   "Avg. MQS\n86/100" → "AVG. MQS 86/100"
+    #   "30 CORE COLLECTION"
+    #   "1,000 GLOBAL BENCHMARK"
+    #   "110 LIFECYCLE RATED"
+    #   "48 PSC SUBJECT CATEGORIES"
     patterns = {
-        "doi_metadata_records":       r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+DOI\s+METADATA\s+RECORDS",
-        "searchable_records":         r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+(?:EXTERNAL\s+)?SEARCHABLE\s+RECORDS",
-        "_posi_verified":             r"([\d,]+)\s+POSI\s+VERIFIED\s+JOURNAL\s+RECORDS",
-        "_auto_discovered":           r"([\d,]+)\s+AUTO.DISCOVERED\s+JOURNAL\s+RECORDS",
-        "avg_metadata_quality_score": r"AVG\.?\s*MQS\s+([\d]+/[\d]+)",
+        "core_collection":       r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+CORE\s+COLLECTION",
+        "global_benchmark":      r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+GLOBAL\s+BENCHMARK",
+        "lifecycle_rated":       r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+LIFECYCLE\s+RATED",
+        "psc_subject_categories": r"([\d,]+(?:\.\d+)?[MBKT]?\+?)\s+PSC\s+SUBJECT\s+CATEGORIES",
     }
 
     labels = {
-        "doi_metadata_records":       "DOI Metadata Records",
-        "searchable_records":         "Searchable Records",
-        "_posi_verified":             "POSI Verified Journal Records",
-        "_auto_discovered":           "Auto-discovered Journal Records",
-        "avg_metadata_quality_score": "Avg. Metadata Quality Score",
+        "core_collection":       "Core Collection",
+        "global_benchmark":      "Global Benchmark",
+        "lifecycle_rated":       "Lifecycle Rated",
+        "psc_subject_categories": "PSC Subject Categories",
     }
 
     stats = {}
@@ -79,19 +80,7 @@ def extract_stats(body: str) -> dict:
         raw = m.group(1) if m else None
         stats[key] = {"raw": raw, "display": _fmt(raw)}
         status = raw if raw else "未找到"
-        print(f"  {'[OK]' if raw else '[--]'} {labels[key]:<35} {status}")
-
-    # Combine verified + auto-discovered into a single total
-    verified_raw = stats.get("_posi_verified", {}).get("raw")
-    auto_raw = stats.get("_auto_discovered", {}).get("raw")
-    if verified_raw and auto_raw:
-        total = int(verified_raw.replace(",", "")) + int(auto_raw.replace(",", ""))
-        total_str = f"{total:,}"
-        stats["journal_records_indexed"] = {"raw": total_str, "display": _fmt(total_str)}
-        print(f"  [OK] {'Journal Records Indexed (total)':<35} {total_str} ({verified_raw} verified + {auto_raw} auto)")
-    else:
-        stats["journal_records_indexed"] = {"raw": None, "display": None}
-        print(f"  [--] {'Journal Records Indexed (total)':<35} 未找到")
+        print(f"  {'[OK]' if raw else '[--]'} {labels[key]:<25} {status}")
 
     return stats
 
@@ -120,10 +109,10 @@ def main():
     result = {
         "last_updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "source_url": URL,
-        "doi_metadata_records": stats["doi_metadata_records"]["display"],
-        "searchable_records": stats["searchable_records"]["display"],
-        "journal_records_indexed": stats["journal_records_indexed"]["display"],
-        "avg_metadata_quality_score": stats["avg_metadata_quality_score"]["display"],
+        "core_collection": stats["core_collection"]["display"],
+        "global_benchmark": stats["global_benchmark"]["display"],
+        "lifecycle_rated": stats["lifecycle_rated"]["display"],
+        "psc_subject_categories": stats["psc_subject_categories"]["display"],
     }
 
     root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-08-10T04:01:23Z",
+  "last_updated": "2026-08-10T15:01:49Z",
   "source_url": "https://posi.panorama-sg.com/",
-  "doi_metadata_records": null,
-  "searchable_records": null,
-  "journal_records_indexed": null,
-  "avg_metadata_quality_score": null
+  "core_collection": "30",
+  "global_benchmark": "1,000",
+  "lifecycle_rated": "110",
+  "psc_subject_categories": "48"
 }

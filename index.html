@@ -322,7 +322,7 @@
             <div class="section-head">
                 <div>
                     <p class="kicker" data-i18n="index.posi.kicker">Open Infrastructure</p>
-                    <h2 data-i18n="index.posi.h2">Transparent, evidence-based journal quality data — open to all.</h2>
+                    <h2 data-i18n="index.posi.h2">A growing open database of journal ratings, rankings, and citation analytics — built from versioned, reproducible evidence.</h2>
                 </div>
                 <a class="text-link" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.posi.visit">Visit POSI &rarr;</a>
             </div>
@@ -331,33 +331,33 @@
                     <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" class="posi-logo-link">
                         <img src="assets/logos/posi-logo.svg" alt="Panorama Scholarly Index" class="posi-logo">
                     </a>
-                    <p>The <strong>Panorama Open Scholarly Index (POSI)</strong> is a publicly auditable platform that evaluates journal quality across metadata completeness, transparency, governance, and technical accessibility. Rather than relying on opaque impact metrics, POSI provides structured, machine-readable evidence so that researchers, librarians, and institutions can make informed decisions about where to publish and what to read.</p>
-                    <p>POSI integrates data from Crossref, OpenAlex, DOAJ, ROR, ORCID, and OAI-PMH repositories, synthesising them into a unified quality framework built for open science.</p>
+                    <p>The <strong>Panorama Open Scholarly Index (POSI)</strong> has grown into an open database of journal-level evidence: lifecycle-based ratings (AJR-E for early-stage journals, AJR-M for mature ones), subject rankings across 48 PSC categories, and citation analytics (PCI, PCI-5, PNCI). Every rating, evidence source, and calculation is versioned and independently reproducible — nothing is scored behind closed doors.</p>
+                    <p>POSI integrates data from Crossref, OpenAlex, OpenCitations, DOAJ, ROR, and ORCID, synthesising them into an openly queryable index of journal coverage, ratings, and citation impact.</p>
                     <a class="btn primary" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.posi.btn">Explore the Index</a>
                 </div>
                 <div class="posi-stats">
                     <div class="posi-stat">
-                        <strong data-posi="doi_metadata_records">18.4M</strong>
-                        <span data-i18n="index.posi.stat.doi-records">DOI Metadata Records</span>
+                        <strong data-posi="core_collection">30</strong>
+                        <span data-i18n="index.posi.stat.doi-records">Core Collection</span>
                     </div>
                     <div class="posi-stat">
-                        <strong data-posi="searchable_records">250M+</strong>
-                        <span data-i18n="index.posi.stat.searchable">Searchable Records via OpenAlex</span>
+                        <strong data-posi="global_benchmark">1,000</strong>
+                        <span data-i18n="index.posi.stat.searchable">Global Benchmark Records</span>
                     </div>
                     <div class="posi-stat">
-                        <strong data-posi="journal_records_indexed">22,885</strong>
-                        <span data-i18n="index.posi.stat.indexed">Journal Records Indexed</span>
+                        <strong data-posi="lifecycle_rated">110</strong>
+                        <span data-i18n="index.posi.stat.indexed">Lifecycle-Rated Journals</span>
                     </div>
                     <div class="posi-stat">
-                        <strong data-posi="avg_metadata_quality_score">86/100</strong>
-                        <span data-i18n="index.posi.stat.avg-quality">Average Metadata Quality Score</span>
+                        <strong data-posi="psc_subject_categories">48</strong>
+                        <span data-i18n="index.posi.stat.avg-quality">PSC Subject Categories</span>
                     </div>
                     <div class="posi-metrics">
                         <p class="posi-metrics-label" data-i18n="index.posi.metrics.label">Quality dimensions assessed</p>
                         <ul>
                             <li><span class="posi-metric-tag">PQF</span> POSI Quality Framework (0–100 composite score)</li>
                             <li><span class="posi-metric-tag">MQS</span> Metadata Quality Score per article</li>
-                            <li><span class="posi-metric-tag">CVI</span> Citation Visibility Index</li>
+                            <li><span class="posi-metric-tag">PCI</span> POSI Citation Impact (OpenAlex-derived)</li>
                             <li><span class="posi-metric-tag">IRS</span> Indexing Readiness Score</li>
                         </ul>
                     </div>
@@ -586,7 +586,7 @@
     }
 }());
 </script>
-<script src="site.js?v=20260808-2"></script>
+<script src="site.js?v=20260811-1"></script>
 <script>
 fetch('data/posi_stats.json').then(function(r){return r.json();}).then(function(d){
   document.querySelectorAll('[data-posi]').forEach(function(el){
