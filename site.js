@@ -14,6 +14,7 @@
         '.trust-links a',
         '.stat-cell',
         '.hero-stat',
+        '.posi-stat',
         '.directory-item',
         '.guide-section',
         '.contact-block',
@@ -38,7 +39,7 @@
             if (parent) {
                 var siblings = Array.prototype.slice.call(parent.children);
                 var idx = siblings.indexOf(el);
-                if (idx >= 1 && idx <= 4) el.classList.add('d' + idx);
+                if (idx >= 1 && idx <= 8) el.classList.add('d' + idx);
             }
             if (!supportsIO) {
                 // No IntersectionObserver support: show content immediately rather than leaving it invisible.
@@ -115,6 +116,61 @@
     document.querySelectorAll('.kicker').forEach(function (el) {
         kickerObs.observe(el);
     });
+
+    /* ── Hero parallax depth ──
+       Native CSS scroll-driven animation (animation-timeline: scroll())
+       handles this with zero JS cost on browsers that support it -- see
+       the @supports (animation-timeline: scroll()) block in
+       institutional.css. This is the fallback for browsers that don't:
+       a CSS custom property updated via an rAF-throttled scroll
+       listener. Skipped entirely when the native path is available, or
+       under prefers-reduced-motion. */
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var supportsScrollTimeline = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()'));
+    var heroSection = document.querySelector('.hero-home');
+    if (heroSection && !reduceMotion && !supportsScrollTimeline) {
+        var parallaxTicking = false;
+        var updateParallax = function () {
+            var rect = heroSection.getBoundingClientRect();
+            var y = (rect.bottom > 0 && rect.top < window.innerHeight) ? -rect.top : 0;
+            document.documentElement.style.setProperty('--parallax-y', y);
+            parallaxTicking = false;
+        };
+        window.addEventListener('scroll', function () {
+            if (!parallaxTicking) {
+                requestAnimationFrame(updateParallax);
+                parallaxTicking = true;
+            }
+        }, { passive: true });
+        updateParallax();
+    }
+
+    /* ── Author-guide reading progress (for-authors.html only) ──
+       Same native-CSS-first, JS-fallback pattern as the hero parallax
+       above: the fill itself is a scroll(root)-driven animation in CSS
+       where supported; this listener only exists for browsers without
+       that feature. Not gated on prefers-reduced-motion -- it's a 1:1
+       reflection of the user's own scroll input (like a scrollbar), not
+       autonomous motion, so it isn't the kind of effect that guidance
+       asks to suppress. */
+    var guideProgress = document.querySelector('.guide-progress');
+    if (guideProgress && !supportsScrollTimeline) {
+        var progressTicking = false;
+        var updateGuideProgress = function () {
+            var doc = document.documentElement;
+            var scrollable = doc.scrollHeight - doc.clientHeight;
+            var pct = scrollable > 0 ? Math.min(Math.max(window.scrollY / scrollable, 0), 1) : 0;
+            guideProgress.style.transform = 'scaleX(' + pct + ')';
+            progressTicking = false;
+        };
+        window.addEventListener('scroll', function () {
+            if (!progressTicking) {
+                requestAnimationFrame(updateGuideProgress);
+                progressTicking = true;
+            }
+        }, { passive: true });
+        updateGuideProgress();
+    }
 
 })();
 

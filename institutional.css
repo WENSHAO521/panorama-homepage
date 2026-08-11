@@ -197,7 +197,12 @@ h1,h2,h3,p,dl,dd,ul,ol { margin: 0; }
   font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--red); margin-bottom: 12px;
 }
-.kicker::before { content: ''; display: block; width: 24px; height: 2px; background: var(--red); flex-shrink: 0; }
+.kicker::before {
+  content: ''; display: block; width: 24px; height: 2px; background: var(--red); flex-shrink: 0;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.kicker.animated::before { transform: scaleX(1); }
 
 /* ══════════════════════════
    HERO
@@ -962,21 +967,90 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero-body .trust-badges { animation: fade-up .5s ease .24s both; }
 .hero-body .btn-row    { animation: fade-up .5s ease .3s both; }
 .hero-stats            { animation: fade-up .6s ease .2s both; }
-.kicker::before        { transform-origin: left; }
 .reveal {
-  opacity: 0; transform: translateY(18px);
-  transition: opacity .5s ease, transform .5s ease;
+  opacity: 0; transform: translateY(22px) scale(.985);
+  transition: opacity .7s cubic-bezier(0.16, 1, 0.3, 1), transform .7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal.d1 { transition-delay: .07s; }
-.reveal.d2 { transition-delay: .14s; }
-.reveal.d3 { transition-delay: .21s; }
-.reveal.d4 { transition-delay: .28s; }
+.reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+.reveal.d1 { transition-delay: .09s; }
+.reveal.d2 { transition-delay: .18s; }
+.reveal.d3 { transition-delay: .27s; }
+.reveal.d4 { transition-delay: .36s; }
+.reveal.d5 { transition-delay: .45s; }
+.reveal.d6 { transition-delay: .54s; }
+.reveal.d7 { transition-delay: .63s; }
+.reveal.d8 { transition-delay: .72s; }
+
+/* Stat/counter moments read as the page's "beats" -- give them a touch
+   more lift than a generic card so the number lands with more weight. */
+.stat-cell.reveal, .hero-stat.reveal { transform: translateY(26px) scale(.96); }
+.stat-cell.reveal.visible, .hero-stat.reveal.visible { transform: translateY(0) scale(1); }
+
+/* A key credential number (DOI prefix, journal counts, POSI coverage
+   figures) gets a red underline that draws in just after the number has
+   settled, reinforcing "this is a verifiable figure" rather than
+   decoration for its own sake. Piggybacks on the .reveal.visible timing
+   already driving the number's own fade-in -- no separate observer. */
+.stat-cell strong, .hero-stat strong, .posi-stat strong { position: relative; display: inline-block; }
+.stat-cell strong::after, .hero-stat strong::after, .posi-stat strong::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+  background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: .5s;
+}
+.stat-cell.reveal.visible strong::after,
+.hero-stat.reveal.visible strong::after,
+.posi-stat.reveal.visible strong::after { transform: scaleX(1); }
+
+/* Hero-section parallax depth: hero body and canvas drift at different
+   rates as the hero scrolls out of view, for a sense of depth.
+   Native CSS scroll-driven animation where supported (zero JS, GPU
+   composited); site.js only attaches a scroll-listener fallback (see
+   the "Hero parallax depth" block there) when this isn't available. */
+.hero-home .hero-body, #hero-canvas { will-change: transform; }
+@supports not (animation-timeline: scroll()) {
+  .hero-home .hero-body { transform: translate3d(0, calc(var(--parallax-y, 0) * 0.18px), 0); }
+  #hero-canvas { transform: translate3d(0, calc(var(--parallax-y, 0) * 0.08px), 0); }
+}
+@supports (animation-timeline: scroll()) {
+  @keyframes hero-parallax-body { to { transform: translate3d(0, 54px, 0); } }
+  @keyframes hero-parallax-canvas { to { transform: translate3d(0, 24px, 0); } }
+  .hero-home .hero-body {
+    animation: hero-parallax-body linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 100vh;
+  }
+  #hero-canvas {
+    animation: hero-parallax-canvas linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 100vh;
+  }
+}
+
+/* Investor/author guide reading-progress rail (for-authors.html only --
+   see .header-shell.has-progress). Native scroll-driven fill where
+   supported; site.js supplies the scroll-listener fallback otherwise. */
+.header-shell.has-progress { border-bottom-color: rgba(255,255,255,.14); }
+.guide-progress {
+  position: absolute; left: 0; bottom: -3px; height: 3px; width: 100%;
+  background: var(--red); transform-origin: left; transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  @keyframes guide-progress-fill { to { transform: scaleX(1); } }
+  .guide-progress {
+    animation: guide-progress-fill linear both;
+    animation-timeline: scroll(root);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .hero-body, .hero-body h1, .hero-body .lead,
   .hero-body .trust-badges, .hero-body .btn-row, .hero-stats { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .kicker::before { transform: scaleX(1); transition: none; }
+  .hero-home .hero-body, #hero-canvas { animation: none; transform: none; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
