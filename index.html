@@ -331,8 +331,8 @@
                     <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" class="posi-logo-link">
                         <img src="assets/logos/posi-logo.svg" alt="Panorama Scholarly Index" class="posi-logo">
                     </a>
-                    <p>The <strong>Panorama Open Scholarly Index (POSI)</strong> has grown into an open database of journal-level evidence: lifecycle-based ratings (AJR-E for early-stage journals, AJR-M for mature ones), subject rankings across 48 PSC categories, and citation analytics (PCI, PCI-5, PNCI). Every rating, evidence source, and calculation is versioned and independently reproducible — nothing is scored behind closed doors.</p>
-                    <p>POSI integrates data from Crossref, OpenAlex, OpenCitations, DOAJ, ROR, and ORCID, synthesising them into an openly queryable index of journal coverage, ratings, and citation impact.</p>
+                    <p data-i18n-html="index.posi.evidence.p">The <strong>Panorama Open Scholarly Index (POSI)</strong> has grown into an open database of journal-level evidence: lifecycle-based ratings (AJR-E for early-stage journals, AJR-M for mature ones), subject rankings across 48 PSC categories, and citation analytics (PCI, PCI-5, PNCI). Every rating, evidence source, and calculation is versioned and independently reproducible — nothing is scored behind closed doors.</p>
+                    <p data-i18n="index.posi.integration.p">POSI integrates data from Crossref, OpenAlex, OpenCitations, DOAJ, ROR, and ORCID, synthesising them into an openly queryable index of journal coverage, ratings, and citation impact.</p>
                     <a class="btn primary" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.posi.btn">Explore the Index</a>
                 </div>
                 <div class="posi-stats">
@@ -429,7 +429,7 @@
         </div>
     </div>
     <div class="container footer-bottom">
-        <span data-i18n="footer.copyright">©2025~2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
+        <span data-i18n="footer.copyright">©2025–2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
         <span data-i18n="brand.tagline">International Scholarly Publishing and Research Platform</span>
     </div>
 </footer>
@@ -586,7 +586,7 @@
     }
 }());
 </script>
-<script src="site.js?v=20260811-1"></script>
+<script src="site.js?v=20260811-3"></script>
 <script>
 fetch('data/posi_stats.json').then(function(r){return r.json();}).then(function(d){
   document.querySelectorAll('[data-posi]').forEach(function(el){

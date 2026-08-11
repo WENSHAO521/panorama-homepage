@@ -51,18 +51,7 @@ jobs:
         run: node scripts/fetch_announcements.mjs
 
       - name: Refresh journal descriptions
-        shell: pwsh
-        run: |
-          try {
-            ./scripts/fetch-journal-descriptions.ps1 -BatchSize 10 -BatchDelaySeconds 15 -RequestDelaySeconds 2
-          } catch {
-            Write-Warning "Journal description refresh failed: $($_.Exception.Message)"
-            if (Test-Path data/journals.json) {
-              Write-Warning "Keeping existing data/journals.json cache."
-              exit 0
-            }
-            throw
-          }
+        run: node scripts/fetch_journal_descriptions.mjs
 
       - name: Commit and push updated site data
         run: |
