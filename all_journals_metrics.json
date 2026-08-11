@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-08-10",
+    "last_updated": "2026-08-11",
     "source_url": "https://posi.panorama-sg.com/",
     "afs": {
         "pci": 0.82,
@@ -7,70 +7,15 @@
         "h_index": 2,
         "total_citations": 9
     },
-    "jesa": {
-        "pci": 0.0,
-        "pcs": 0.0,
-        "h_index": 0,
-        "total_citations": 0
-    },
-    "files": {
-        "pci": 0.39,
-        "pcs": 0.35,
-        "h_index": 2,
-        "total_citations": 16
-    },
-    "HealthNexus": {
-        "pci": 0.27,
-        "pcs": 0.4,
-        "h_index": 1,
-        "total_citations": 3
-    },
-    "jlpcs": {
-        "pci": 0.32,
-        "pcs": null,
-        "h_index": 2,
-        "total_citations": 7
-    },
-    "pemr": {
-        "pci": 0.08,
-        "pcs": 0.1,
-        "h_index": 1,
-        "total_citations": 1
-    },
-    "rggd": {
-        "pci": 0.0,
-        "pcs": null,
-        "h_index": 0,
-        "total_citations": 0
-    },
-    "Resonance": {
-        "pci": 0.0,
-        "pcs": 0.0,
-        "h_index": 0,
-        "total_citations": 0
-    },
-    "Silence": {
-        "pci": 0.0,
-        "pcs": null,
-        "h_index": 0,
-        "total_citations": 0
-    },
-    "tts": {
-        "pci": 0.0,
-        "pcs": 0.0,
-        "h_index": 0,
-        "total_citations": 0
-    },
-    "jscc": {
-        "pci": 0.33,
-        "pcs": null,
-        "h_index": 1,
-        "total_citations": 1
-    },
-    "csgs": {
-        "pci": 0.0,
-        "pcs": null,
-        "h_index": 0,
-        "total_citations": 0
-    }
+    "jesa": null,
+    "files": null,
+    "HealthNexus": null,
+    "jlpcs": null,
+    "pemr": null,
+    "rggd": null,
+    "Resonance": null,
+    "Silence": null,
+    "tts": null,
+    "jscc": null,
+    "csgs": null
 }
