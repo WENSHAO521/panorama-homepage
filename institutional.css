@@ -992,7 +992,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    settled, reinforcing "this is a verifiable figure" rather than
    decoration for its own sake. Piggybacks on the .reveal.visible timing
    already driving the number's own fade-in -- no separate observer. */
-.stat-cell strong, .hero-stat strong, .posi-stat strong { position: relative; display: inline-block; }
+.stat-cell strong, .hero-stat strong, .posi-stat strong { position: relative; display: inline-block; font-variant-numeric: tabular-nums; }
 .stat-cell strong::after, .hero-stat strong::after, .posi-stat strong::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
   background: var(--red);
@@ -1011,12 +1011,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    the "Hero parallax depth" block there) when this isn't available. */
 .hero-home .hero-body, #hero-canvas { will-change: transform; }
 @supports not (animation-timeline: scroll()) {
-  .hero-home .hero-body { transform: translate3d(0, calc(var(--parallax-y, 0) * 0.18px), 0); }
-  #hero-canvas { transform: translate3d(0, calc(var(--parallax-y, 0) * 0.08px), 0); }
+  .hero-home .hero-body { transform: translate3d(0, calc(var(--parallax-y, 0) * 0.2px), 0); }
+  #hero-canvas { transform: translate3d(0, calc(var(--parallax-y, 0) * 0.09px), 0); }
 }
 @supports (animation-timeline: scroll()) {
-  @keyframes hero-parallax-body { to { transform: translate3d(0, 54px, 0); } }
-  @keyframes hero-parallax-canvas { to { transform: translate3d(0, 24px, 0); } }
+  @keyframes hero-parallax-body { to { transform: translate3d(0, 100px, 0); } }
+  @keyframes hero-parallax-canvas { to { transform: translate3d(0, 46px, 0) scale(1.045); } }
   .hero-home .hero-body {
     animation: hero-parallax-body linear both;
     animation-timeline: scroll(root);
@@ -1029,9 +1029,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 }
 
-/* Investor/author guide reading-progress rail (for-authors.html only --
-   see .header-shell.has-progress). Native scroll-driven fill where
-   supported; site.js supplies the scroll-listener fallback otherwise. */
+/* Full-width section-boundary rule: a red line draws left-to-right the
+   first time each major section crosses into view, echoing the kicker's
+   draw-in at a page-structural scale so scroll progress through the
+   page reads as a sequence of deliberate beats, not a continuous blur.
+   Applied via JS to every direct <section> in <main> except the hero
+   (which already has its own entrance animation) -- see the
+   "Section-boundary draw-in" block in site.js. */
+main section:not(.hero) { position: relative; }
+main section:not(.hero)::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--red); transform: scaleX(0); transform-origin: left;
+  transition: transform .9s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+main section:not(.hero).section-draw::before { transform: scaleX(1); }
+[dir="rtl"] main section:not(.hero)::before { transform-origin: right; }
+
+/* Site-wide reading-progress rail: the header's bottom rule fills red
+   as the visitor scrolls down the current page (see .header-shell
+   .has-progress on every page's <header>). Native scroll-driven fill
+   where supported; site.js supplies the scroll-listener fallback. */
 .header-shell.has-progress { border-bottom-color: rgba(255,255,255,.14); }
 .guide-progress {
   position: absolute; left: 0; bottom: -3px; height: 3px; width: 100%;
@@ -1050,6 +1068,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero-body .trust-badges, .hero-body .btn-row, .hero-stats { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .kicker::before { transform: scaleX(1); transition: none; }
+  main section:not(.hero)::before { transform: scaleX(1); transition: none; }
   .hero-home .hero-body, #hero-canvas { animation: none; transform: none; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     /* ── Scroll-reveal ── */
     var REVEAL_SELECTORS = [
         '.section-head',
@@ -65,27 +67,40 @@
         }, 2500);
     }
 
-    /* ── Number counter ── */
+    /* ── Number counter ──
+       Credential numbers (journal counts, POSI coverage figures) count
+       up from zero as they enter view instead of just fading in --
+       these are the site's core trust signals, so they get the most
+       visible motion on the page. Skipped for identifiers with a
+       decimal point (the Crossref DOI prefix) since those aren't a
+       quantity that "grew"; the comma flag preserves thousands
+       separators (POSI's "1,000" reads as 1,000 throughout, not 1000). */
     function parseTarget(text) {
         var clean = text.trim();
         var isPlus = clean.slice(-1) === '+';
         var hasDot = clean.indexOf('.') !== -1 && !isPlus;
         if (hasDot) return null;
+        var hasComma = clean.indexOf(',') !== -1;
         var num = parseInt(clean.replace(/[^0-9]/g, ''), 10);
         if (isNaN(num) || num <= 0) return null;
-        return { value: num, suffix: isPlus ? '+' : '' };
+        return { value: num, suffix: isPlus ? '+' : '', comma: hasComma };
     }
 
-    function runCounter(el, target, suffix) {
+    function formatCount(n, comma) {
+        return comma ? n.toLocaleString('en-US') : String(n);
+    }
+
+    function runCounter(el, target, suffix, comma) {
+        if (reduceMotion) { el.textContent = formatCount(target, comma) + suffix; return; }
         var duration = 1100, startTime = null;
-        el.textContent = '0' + suffix;
+        el.textContent = formatCount(0, comma) + suffix;
         function tick(ts) {
             if (!startTime) startTime = ts;
             var p = Math.min((ts - startTime) / duration, 1);
             var eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = Math.floor(eased * target) + suffix;
+            el.textContent = formatCount(Math.floor(eased * target), comma) + suffix;
             if (p < 1) requestAnimationFrame(tick);
-            else el.textContent = target + suffix;
+            else el.textContent = formatCount(target, comma) + suffix;
         }
         requestAnimationFrame(tick);
     }
@@ -95,12 +110,12 @@
             if (!entry.isIntersecting) return;
             var el = entry.target;
             var parsed = parseTarget(el.textContent);
-            if (parsed) runCounter(el, parsed.value, parsed.suffix);
+            if (parsed) runCounter(el, parsed.value, parsed.suffix, parsed.comma);
             counterObs.unobserve(el);
         });
     }, { threshold: 0.6 });
 
-    document.querySelectorAll('.stat-cell strong, .hero-stat strong').forEach(function (el) {
+    document.querySelectorAll('.stat-cell strong, .hero-stat strong, .posi-stat strong').forEach(function (el) {
         counterObs.observe(el);
     });
 
@@ -117,6 +132,24 @@
         kickerObs.observe(el);
     });
 
+    /* ── Section-boundary draw-in ──
+       A full-width red rule draws across the top of every major section
+       the first time it crosses into view -- the kicker's small
+       draw-in line, but at page-structural scale, so scrolling through
+       the page reads as a sequence of deliberate beats. CSS lives at
+       "main section:not(.hero)::before" in institutional.css. */
+    var sectionDrawObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('section-draw');
+            sectionDrawObs.unobserve(entry.target);
+        });
+    }, { threshold: 0, rootMargin: '0px 0px -15% 0px' });
+
+    document.querySelectorAll('main section:not(.hero)').forEach(function (el) {
+        sectionDrawObs.observe(el);
+    });
+
     /* ── Hero parallax depth ──
        Native CSS scroll-driven animation (animation-timeline: scroll())
        handles this with zero JS cost on browsers that support it -- see
@@ -125,7 +158,6 @@
        a CSS custom property updated via an rAF-throttled scroll
        listener. Skipped entirely when the native path is available, or
        under prefers-reduced-motion. */
-    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var supportsScrollTimeline = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()'));
     var heroSection = document.querySelector('.hero-home');
     if (heroSection && !reduceMotion && !supportsScrollTimeline) {
