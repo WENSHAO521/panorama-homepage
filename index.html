@@ -49,7 +49,7 @@
                     </a>
                     <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name">POSI</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.posi-desc">Open scholarly quality index</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.posi-desc">Open lifecycle ratings & citation index</span>
                     </a>
                     <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="footer.editorial-dir">Editorial Directory</span>
@@ -180,7 +180,7 @@
                 <div class="platform-card platform-card--posi">
                     <p class="platform-type">POSI</p>
                     <h3 data-i18n="index.platforms.posi.h3">Panorama Open Scholarly Index</h3>
-                    <p data-i18n="index.platforms.posi.p">A publicly auditable framework for journal quality, transparency, and governance.</p>
+                    <p data-i18n="index.platforms.posi.p">An open database of lifecycle-based journal ratings, subject rankings, and citation analytics.</p>
                     <a class="text-link" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.platforms.posi.link">Explore POSI &rarr;</a>
                 </div>
                 <div class="platform-card platform-card--directory">
@@ -355,10 +355,10 @@
                     <div class="posi-metrics">
                         <p class="posi-metrics-label" data-i18n="index.posi.metrics.label">Quality dimensions assessed</p>
                         <ul>
-                            <li><span class="posi-metric-tag">PQF</span> POSI Quality Framework (0–100 composite score)</li>
-                            <li><span class="posi-metric-tag">MQS</span> Metadata Quality Score per article</li>
-                            <li><span class="posi-metric-tag">PCI</span> POSI Citation Impact (OpenAlex-derived)</li>
-                            <li><span class="posi-metric-tag">IRS</span> Indexing Readiness Score</li>
+                            <li data-i18n-html="index.posi.metrics.ajre"><span class="posi-metric-tag">AJR-E</span> Early-Stage Journal Rating (12–59 months)</li>
+                            <li data-i18n-html="index.posi.metrics.ajrm"><span class="posi-metric-tag">AJR-M</span> Mature Journal Rating (60+ months)</li>
+                            <li data-i18n-html="index.posi.metrics.pci"><span class="posi-metric-tag">PCI</span> POSI Citation Impact (PCI-5: 5-year window)</li>
+                            <li data-i18n-html="index.posi.metrics.pqf"><span class="posi-metric-tag">PQF</span> POSI Quality Framework — transparency &amp; metadata quality</li>
                         </ul>
                     </div>
                 </div>
@@ -586,7 +586,7 @@
     }
 }());
 </script>
-<script src="site.js?v=20260811-3"></script>
+<script src="site.js?v=20260811-4"></script>
 <script>
 fetch('data/posi_stats.json').then(function(r){return r.json();}).then(function(d){
   document.querySelectorAll('[data-posi]').forEach(function(el){
