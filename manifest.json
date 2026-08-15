@@ -1,0 +1,20 @@
+{
+  "name": "Panorama Scholarly Group",
+  "short_name": "Panorama",
+  "start_url": "/index.html",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#CC0000",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

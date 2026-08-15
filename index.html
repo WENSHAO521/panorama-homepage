@@ -5,9 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panorama Scholarly Group | International Scholarly Publishing and Research Platform</title>
     <meta name="description" content="Panorama Scholarly Group — international scholarly publishing and research platform for peer-reviewed journals, scholarly books, research, and open scholarly infrastructure.">
+    <link rel="canonical" href="https://panorama-sg.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Panorama Scholarly Group">
+    <meta property="og:title" content="Panorama Scholarly Group | International Scholarly Publishing and Research Platform">
+    <meta property="og:description" content="Panorama Scholarly Group — international scholarly publishing and research platform for peer-reviewed journals, scholarly books, research, and open scholarly infrastructure.">
+    <meta property="og:url" content="https://panorama-sg.com/">
+    <meta property="og:image" content="https://panorama-sg.com/favicon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Panorama Scholarly Group | International Scholarly Publishing and Research Platform">
+    <meta name="twitter:description" content="Panorama Scholarly Group — international scholarly publishing and research platform for peer-reviewed journals, scholarly books, research, and open scholarly infrastructure.">
+    <meta name="twitter:image" content="https://panorama-sg.com/favicon.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="institutional.css?v=20260811-3">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Panorama Scholarly Group",
+      "url": "https://panorama-sg.com",
+      "logo": "https://panorama-sg.com/assets/logos/logo-dark.svg",
+      "email": "contact@panorama-sg.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon",
+        "addressLocality": "Hong Kong",
+        "addressCountry": "HK"
+      },
+      "sameAs": [
+        "https://journals.panorama-sg.com",
+        "https://books.panorama-sg.com",
+        "https://research.panorama-sg.com",
+        "https://posi.panorama-sg.com",
+        "https://profiles.panorama-sg.com",
+        "https://credentials.panorama-sg.com"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Panorama Scholarly Group",
+      "url": "https://panorama-sg.com"
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -55,6 +100,10 @@
                     <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="footer.editorial-dir">Editorial Directory</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.directory-desc">Public editorial board profiles</span>
+                    </a>
+                    <a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.credential-verify">Credential Verification</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.credential-desc">Verify editorial and reviewer certificates</span>
                     </a>
                 </div>
             </div>
@@ -426,6 +475,7 @@
                 <li><a href="about.html" data-i18n="footer.about">About</a></li>
                 <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
                 <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir">Editorial Directory</a></li>
+                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify">Credential Verification</a></li>
             </ul>
         </div>
     </div>
@@ -587,7 +637,7 @@
     }
 }());
 </script>
-<script src="site.js?v=20260811-8"></script>
+<script src="site.js?v=20260811-9"></script>
 <script>
 fetch('data/posi_stats.json').then(function(r){return r.json();}).then(function(d){
   document.querySelectorAll('[data-posi]').forEach(function(el){
