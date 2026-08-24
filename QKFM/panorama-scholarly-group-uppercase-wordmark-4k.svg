@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160" role="img" aria-labelledby="title desc">
+  <title id="title">PANORAMA SCHOLARLY GROUP — monochrome wordmark</title>
+  <desc id="desc">A minimalist uppercase wordmark for Panorama Scholarly Group.</desc>
+
+  <defs>
+    <style>
+      .word-primary {
+        font-family: "Arial Nova Cond", "Arial Narrow", "Arial", "Helvetica", sans-serif;
+        font-size: 300px;
+        font-weight: 700;
+        letter-spacing: 10px;
+        fill: #111111;
+      }
+      .word-secondary {
+        font-family: "Arial Nova Cond", "Arial Narrow", "Arial", "Helvetica", sans-serif;
+        font-size: 220px;
+        font-weight: 400;
+        letter-spacing: 18px;
+        fill: #5E5E5E;
+      }
+      .word-tertiary {
+        font-family: "Arial Nova Cond", "Arial Narrow", "Arial", "Helvetica", sans-serif;
+        font-size: 220px;
+        font-weight: 400;
+        font-style: italic;
+        letter-spacing: 18px;
+        fill: #929292;
+      }
+    </style>
+  </defs>
+
+  <!-- Uppercase lockup: weight, spacing, and grayscale create the identity. -->
+  <g transform="translate(100 0)">
+    <text class="word-primary" x="0" y="1190">PANORAMA</text>
+    <text class="word-secondary" x="1560" y="1190">SCHOLARLY</text>
+    <text class="word-tertiary" x="2875" y="1190">GROUP</text>
+  </g>
+</svg>
