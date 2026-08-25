@@ -10703,9 +10703,7 @@
     });
 
     var pageLang = document.documentElement.getAttribute('data-page-lang');
-    var saved;
-    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
-    applyTranslations((pageLang && LANGUAGES[pageLang]) ? pageLang : (LANGUAGES[saved] ? saved : 'en'));
+    applyTranslations((pageLang && LANGUAGES[pageLang]) ? pageLang : 'en');
 
     if (window.MutationObserver) {
         new MutationObserver(function (mutations) {
