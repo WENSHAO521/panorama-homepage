@@ -24,7 +24,7 @@ const PORT = 8791;
 
 const ALL_PAGES = [
     'index.html', 'about.html', 'contact.html', 'editorial-board-application.html',
-    'for-authors.html', 'indexing.html', 'sub-brands.html', 'open-access-policy.html',
+    'for-authors.html', 'indexing.html', 'open-access-policy.html',
     'publication-ethics.html', 'privacy-policy.html',
 ];
 const ALL_LANGS = ['zh', 'zh-cn', 'ja', 'ko', 'ru', 'es', 'fr', 'de', 'ar'];

@@ -7,7 +7,7 @@ BASE_URL = "https://panorama-sg.com"
 SITEMAP_FILE = "sitemap.xml"
 
 # 排除的目录（版本控制、依赖、非公开目录）
-EXCLUDED_DIRS = {".git", ".github", "node_modules", ".claude", ".agents"}
+EXCLUDED_DIRS = {".git", ".github", "node_modules", ".claude", ".agents", ".next", "out"}
 
 # 排除的文件（草稿/非站点页面，不在导航中）
 EXCLUDED_FILES = {"code.html", "404.html"}

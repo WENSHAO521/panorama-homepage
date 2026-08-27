@@ -82,23 +82,34 @@
 .nx-section-head h2 { font-size: clamp(22px, 2.8vw, 28px); font-weight: 700; letter-spacing: -.01em; margin: 0; max-width: 26ch; }
 .nx-section-head .nx-note { font-size: 14px; color: #787A7D; max-width: 42ch; }
 
-.nx-journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.nx-journal-card {
-  border: 1px solid #E7E3DB; border-radius: 10px; overflow: hidden; background: #fff;
-  display: flex; flex-direction: column;
-  transition: border-color .15s ease, transform .15s ease, opacity .7s cubic-bezier(0.16, 1, 0.3, 1);
+/* Scalable journal listing: a compact, hairline-divided row per journal
+   (title + subject tag + small cover thumbnail on the left, ISSN + explore
+   link trailing on the right) rather than a fixed-column wall of large
+   image cards. New rows just append to the list -- no re-templating as an
+   imprint's journal count grows. Modeled on how Springer's BMC brand hub
+   (link.springer.com/brands/bmc) lists journals within a subject: a
+   scannable list, not a card grid. */
+.nx-journal-list { display: flex; flex-direction: column; border-top: 1px solid #E7E3DB; }
+.nx-journal-row {
+  display: flex; align-items: center; gap: 18px; padding: 16px 6px;
+  border-bottom: 1px solid #E7E3DB; flex-wrap: wrap;
+  transition: background .15s ease, opacity .7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.nx-journal-card:hover { border-color: var(--brand, #C4443D); transform: translateY(-2px); }
-.nx-journal-cover { aspect-ratio: 5/7; background: #F2F0EA; overflow: hidden; }
+.nx-journal-row:hover { background: #FAF9F6; }
+.nx-journal-cover { flex: none; width: 44px; height: 60px; border-radius: 4px; background: #F2F0EA; overflow: hidden; }
 .nx-journal-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.nx-journal-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.nx-journal-info { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
 .nx-journal-tag { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--brand, #C4443D); font-weight: 700; }
 .nx-journal-tag.new { color: #fff; background: var(--brand, #C4443D); display: inline-block; padding: 2px 8px; border-radius: 100px; width: fit-content; }
-.nx-journal-title { font-size: 16px; font-weight: 600; line-height: 1.3; color: #15171A; }
-.nx-journal-meta { font-size: 12px; color: #787A7D; font-family: 'IBM Plex Mono', ui-monospace, monospace; margin-top: auto; }
-.nx-journal-link { font-size: 13px; font-weight: 600; color: var(--brand-dk, #970E1A); text-decoration: none; margin-top: 6px; }
+.nx-journal-title { font-size: 15.5px; font-weight: 600; line-height: 1.35; color: #15171A; margin: 0; }
+.nx-journal-trail { flex: none; display: flex; align-items: center; gap: 22px; margin-left: auto; }
+.nx-journal-meta { font-size: 12px; color: #787A7D; font-family: 'IBM Plex Mono', ui-monospace, monospace; white-space: nowrap; }
+.nx-journal-link { font-size: 13px; font-weight: 600; color: var(--brand-dk, #970E1A); text-decoration: none; white-space: nowrap; }
 .nx-journal-link:hover { text-decoration: underline; }
 .nx-journal-link[aria-disabled="true"] { color: #A6A9AC; pointer-events: none; }
+@media (max-width: 560px) {
+  .nx-journal-trail { margin-left: 0; flex-basis: 100%; padding-left: 62px; gap: 16px; }
+}
 
 .nx-subject-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
 .nx-subject-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #E7E3DB; font-size: 14.5px; }
@@ -132,9 +143,5 @@
 .nx-sib-chip.current { border-color: var(--brand, #C4443D); color: var(--brand-dk, #970E1A); background: var(--brand-tint, #FBEEEC); }
 
 @media (max-width: 860px) {
-  .nx-journal-grid { grid-template-columns: repeat(2, 1fr); }
   .nx-subject-list { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .nx-journal-grid { grid-template-columns: 1fr; }
 }
