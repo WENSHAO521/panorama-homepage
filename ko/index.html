@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ko" class="lang-ko" dir="ltr" data-lang="ko" data-title-orig="Panorama Scholarly Group | International Scholarly Publishing and Research Platform" data-page-lang="ko"><head>
+<!DOCTYPE html><html lang="ko" dir="ltr" data-lang="ko" data-title-orig="Panorama Scholarly Group | International Scholarly Publishing and Research Platform" class="lang-ko" data-page-lang="ko"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Panorama Scholarly Group | 국제학술지</title>
@@ -29,7 +29,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260811-3">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-1">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -89,9 +89,25 @@
                     <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </button>
                 <div class="platforms-options" role="menu">
-                    <a href="journals.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="nav.journals" data-i18n-orig="Journals">저널</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.journals-desc" data-i18n-orig="Peer-reviewed journal directory">동료 심사 저널 목록</span>
+                    <a href="ridgeline.html" role="menuitem">
+                        <span class="platform-opt-name">Ridgeline</span>
+                        <span class="platform-opt-desc">Technology, engineering &amp; AI</span>
+                    </a>
+                    <a href="health-nexus.html" role="menuitem">
+                        <span class="platform-opt-name">Health Nexus</span>
+                        <span class="platform-opt-desc">Medicine &amp; health sciences</span>
+                    </a>
+                    <a href="verdant-science.html" role="menuitem">
+                        <span class="platform-opt-name">Verdant Science</span>
+                        <span class="platform-opt-desc">Environment &amp; life sciences</span>
+                    </a>
+                    <a href="charter.html" role="menuitem">
+                        <span class="platform-opt-name">Charter</span>
+                        <span class="platform-opt-desc">Policy, law &amp; governance</span>
+                    </a>
+                    <a href="threnody.html" role="menuitem">
+                        <span class="platform-opt-name">Threnody</span>
+                        <span class="platform-opt-desc">Humanities, arts &amp; philosophy</span>
                     </a>
                     <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">학술 서적</span>
@@ -150,11 +166,11 @@
 
     <!-- ── Hero ── -->
     <section class="hero hero-home">
-        <canvas id="hero-canvas" aria-hidden="true" width="1280" height="721"></canvas>
+        <canvas id="hero-canvas" aria-hidden="true" width="1280" height="443"></canvas>
         <div class="container hero-grid">
             <div class="hero-body">
                 <h1 data-i18n="index.h1" data-i18n-orig="One group, five platforms advancing scholarly publishing and research.">하나의 그룹, 다섯 개의 플랫폼으로 학술 출판과 연구를 발전시킵니다.</h1>
-                <p class="lead" data-i18n="index.lead" data-i18n-orig="Panorama Scholarly Group operates five scholarly platforms: journals, books, research, an open index, and an editorial directory.">Panorama Scholarly Group은 저널, 서적, 연구원, 오픈 학술 지수, 편집진 디렉터리 등 다섯 개의 학술 플랫폼을 운영합니다.</p>
+                <p class="lead" data-i18n="index.lead" data-i18n-orig="Panorama Scholarly Group publishes peer-reviewed research and runs the open, lifecycle-rated index that tracks it, across five scholarly platforms.">Panorama Scholarly Group은 저널, 서적, 연구원, 오픈 학술 지수, 편집진 디렉터리 등 다섯 개의 학술 플랫폼을 운영합니다.</p>
                 <div class="trust-badges">
                     <span class="trust-badge peer" data-i18n="index.badge.peer" data-i18n-orig="Peer Reviewed">동료 심사</span>
                     <span class="trust-badge oa" data-i18n="index.badge.oa" data-i18n-orig="Open Access">오픈 액세스</span>
@@ -162,7 +178,7 @@
                     <span class="trust-badge" data-i18n="index.badge.books" data-i18n-orig="Scholarly Books">학술 서적</span>
                 </div>
                 <div class="btn-row">
-                    <a class="btn primary" href="journals.html" data-i18n="index.btn.journals" data-i18n-orig="Browse Journals">저널 목록</a>
+                    <a class="btn primary" href="sub-brands.html" data-i18n="index.btn.journals" data-i18n-orig="Browse Journals">저널 목록</a>
                     <a class="btn" href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.btn.books" data-i18n-orig="Scholarly Books">학술 서적</a>
                 </div>
             </div>
@@ -177,23 +193,23 @@
                 <a class="text-link" href="indexing.html" data-i18n="index.indexer-strip.link" data-i18n-orig="View full indexing details">전체 색인 정보 보기</a>
             </div>
             <div class="indexer-cards">
-                <div class="indexer-chip reveal">
+                <div class="indexer-chip reveal visible">
                     <img src="/QKFM/Crossref.svg" alt="Crossref">
                     <span>Crossref DOI</span>
                 </div>
-                <div class="indexer-chip d1 reveal">
+                <div class="indexer-chip d1 reveal visible">
                     <img src="/QKFM/Google_Scholar.png" alt="Google Scholar">
                     <span>Google Scholar</span>
                 </div>
-                <div class="indexer-chip d2 reveal">
+                <div class="indexer-chip d2 reveal visible">
                     <img src="/QKFM/CLOCKSS.png" alt="CLOCKSS">
                     <span>CLOCKSS 아카이브</span>
                 </div>
-                <div class="indexer-chip d3 reveal">
+                <div class="indexer-chip d3 reveal visible">
                     <img src="/QKFM/PKP.svg" alt="PKP Preservation Network">
                     <span>PKP 보존</span>
                 </div>
-                <div class="indexer-chip d4 reveal">
+                <div class="indexer-chip d4 reveal visible">
                     <img src="/QKFM/ISSN.png" alt="ISSN">
                     <span>ISSN 등록됨</span>
                 </div>
@@ -213,15 +229,15 @@
             <div class="platform-grid">
                 <div class="platform-card platform-card--flagship">
                     <p class="platform-type" data-i18n="index.pub-lines.journals.h3" data-i18n-orig="Journals">저널</p>
-                    <h3 data-i18n="index.pub-lines.journals.h3-full" data-i18n-orig="22 Peer-Reviewed Open-Access Journals">22개의 동료 심사 오픈 액세스 저널</h3>
-                    <p data-i18n="index.pub-lines.journals.p" data-i18n-orig="Spanning Technology &amp; Engineering, Health &amp; Sustainability, Policy, Education &amp; Society, and Humanities &amp; Arts. Every article receives a Crossref DOI and is indexed in Google Scholar and major scholarly databases.">기술 &amp; 공학, 건강 &amp; 지속 가능성, 정책·교육·사회, 인문학 &amp; 예술을 아우릅니다. 모든 논문에 Crossref DOI가 부여되고 Google Scholar 및 주요 학술 데이터베이스에 등재됩니다.</p>
+                    <h3 data-i18n="index.pub-lines.journals.h3-full" data-i18n-orig="24 Peer-Reviewed Open-Access Journals">22개의 동료 심사 오픈 액세스 저널</h3>
+                    <p data-i18n="index.pub-lines.journals.p" data-i18n-orig="Twenty-four journals across five imprints, each with a Crossref DOI and indexing in Google Scholar and major scholarly databases.">기술 &amp; 공학, 건강 &amp; 지속 가능성, 정책·교육·사회, 인문학 &amp; 예술을 아우릅니다. 모든 논문에 Crossref DOI가 부여되고 Google Scholar 및 주요 학술 데이터베이스에 등재됩니다.</p>
                     <ul class="platform-features">
                         <li data-i18n="index.pub-lines.f1" data-i18n-orig="Structured peer review with clear editorial timelines">명확한 편집 일정을 갖춘 동료 심사</li>
                         <li data-i18n="index.pub-lines.f2" data-i18n-orig="Open access under Creative Commons licensing">Creative Commons 라이선스하의 오픈 액세스</li>
                         <li data-i18n="index.pub-lines.f3" data-i18n-orig="CLOCKSS &amp; PKP Preservation archiving">CLOCKSS &amp; PKP Preservation 아카이브</li>
                         <li data-i18n="index.pub-lines.f4" data-i18n-orig="Crossref DOI registration, prefix 10.63802">Crossref DOI 등록, 접두사 10.63802</li>
                     </ul>
-                    <a class="btn primary" href="journals.html" data-i18n="index.pub-lines.journals.btn" data-i18n-orig="Browse Journal Catalogue">저널 카탈로그 탐색</a>
+                    <a class="btn primary" href="sub-brands.html" data-i18n="index.pub-lines.journals.btn" data-i18n-orig="Browse Journal Catalogue">저널 카탈로그 탐색</a>
                 </div>
                 <div class="platform-card platform-card--books">
                     <p class="platform-type" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">학술 서적</p>
@@ -238,7 +254,7 @@
                 <div class="platform-card platform-card--posi">
                     <p class="platform-type">POSI</p>
                     <h3 data-i18n="index.platforms.posi.h3" data-i18n-orig="Panorama Open Scholarly Index">Panorama Open Scholarly Index</h3>
-                    <p data-i18n="index.platforms.posi.p" data-i18n-orig="An open database of lifecycle-based journal ratings, subject rankings, and citation analytics.">생애주기 기반 등급, 주제별 순위, 인용 분석을 제공하는 개방형 데이터베이스.</p>
+                    <p data-i18n="index.platforms.posi.p" data-i18n-orig="An open, algorithmically computed database of lifecycle-based journal ratings, subject rankings, and citation analytics, updated as new data arrives.">생애주기 기반 등급, 주제별 순위, 인용 분석을 제공하는 개방형 데이터베이스.</p>
                     <a class="text-link" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.platforms.posi.link" data-i18n-orig="Explore POSI">POSI 살펴보기</a>
                 </div>
                 <div class="platform-card platform-card--directory">
@@ -248,6 +264,27 @@
                     <a class="text-link" href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.platforms.directory.link" data-i18n-orig="View Directory">디렉터리 보기</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ── Five Imprints ── -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-head reveal">
+                <div>
+                    <p class="kicker" data-i18n="index.imprints.kicker" data-i18n-orig="Five Imprints">Five Imprints</p>
+                    <h2 data-i18n="index.imprints.h2" data-i18n-orig="One group, five editorial identities.">One group, five editorial identities.</h2>
+                </div>
+            </div>
+            <p class="imprints-intro d1 reveal" data-i18n="index.imprints.p" data-i18n-orig="Panorama Scholarly Group's twenty-four journals are organized under five imprints, each with its own editorial focus: Ridgeline for technology, engineering, and AI; Health Nexus for medicine and health sciences; Verdant Science for environment and life sciences; Charter for policy, law, and governance; and Threnody for humanities, arts, and philosophy.">Panorama Scholarly Group's twenty-four journals are organized under five imprints, each with its own editorial focus: Ridgeline for technology, engineering, and AI; Health Nexus for medicine and health sciences; Verdant Science for environment and life sciences; Charter for policy, law, and governance; and Threnody for humanities, arts, and philosophy.</p>
+            <div class="imprints-logos d2 reveal">
+                <a href="ridgeline.html" aria-label="Ridgeline"><img src="assets/nexus/ridgeline-logo-light.svg" alt="Ridgeline"></a>
+                <a href="health-nexus.html" aria-label="Health Nexus"><img src="assets/nexus/health-nexus-logo-light.svg" alt="Health Nexus"></a>
+                <a href="verdant-science.html" aria-label="Verdant Science"><img src="assets/nexus/verdant-science-logo-light.svg" alt="Verdant Science"></a>
+                <a href="charter.html" aria-label="Charter"><img src="assets/nexus/charter-logo-light.svg" alt="Charter"></a>
+                <a href="threnody.html" aria-label="Threnody"><img src="assets/nexus/threnody-logo-light.svg" alt="Threnody"></a>
+            </div>
+            <a class="text-link imprints-all-link" href="sub-brands.html" data-i18n="index.imprints.link" data-i18n-orig="Browse all journals by imprint →">Browse all journals by imprint →</a>
         </div>
     </section>
 
@@ -370,19 +407,15 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
             <div class="section-head reveal">
                 <div>
                     <p class="kicker" data-i18n="index.discovery.kicker" data-i18n-orig="Journal Discovery">저널 찾기</p>
-                    <h2 data-i18n="index.discovery.h2" data-i18n-orig="Search by title, discipline, or ISSN before you submit.">제출 전 제목, 학문 분야 또는 ISSN으로 검색하세요.</h2>
+                    <h2 data-i18n="index.discovery.h2" data-i18n-orig="Find the right imprint before you submit.">제출 전 제목, 학문 분야 또는 ISSN으로 검색하세요.</h2>
                 </div>
-                <a class="text-link" href="journals.html" data-i18n="index.discovery.link" data-i18n-orig="Open Journal Directory">저널 디렉토리 열기</a>
+                <a class="text-link" href="sub-brands.html" data-i18n="index.discovery.link" data-i18n-orig="Open Journal Directory">저널 디렉토리 열기</a>
             </div>
-            <form class="finder" onsubmit="event.preventDefault();var q=document.getElementById('home-q').value.trim();location.href=q?'journals.html?q='+encodeURIComponent(q):'journals.html';">
-                <input id="home-q" type="search" placeholder="제목, 약어, 분야 또는 ISSN으로 검색">
-                <button class="btn primary" type="submit" data-i18n="index.search.btn" data-i18n-orig="Search">검색</button>
-            </form>
             <div class="quick-links" style="margin-top:1px;">
-                <a href="journals.html" class="reveal"><strong data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">모든 저널 탐색</strong><span data-i18n="index.ql.browse-all.desc" data-i18n-orig="Explore the full directory by subject cluster.">주제 클러스터별로 전체 디렉토리를 탐색하세요.</span></a>
-                <a href="journals.html?q=AI" class="d1 reveal"><strong data-i18n="index.ql.ai" data-i18n-orig="AI &amp; Engineering">AI 및 공학</strong><span data-i18n="index.ql.ai.desc" data-i18n-orig="Technology-focused titles.">기술 중심 저널.</span></a>
-                <a href="journals.html?q=Policy" class="d2 reveal"><strong data-i18n="index.ql.policy-soc" data-i18n-orig="Policy &amp; Society">정책 및 사회</strong><span data-i18n="index.ql.policy-soc.desc" data-i18n-orig="Governance and social science journals.">거버넌스 및 사회과학 저널.</span></a>
-                <a href="journals.html?q=Humanities" class="d3 reveal"><strong data-i18n="index.ql.humanities" data-i18n-orig="Humanities &amp; Arts">인문학 및 예술</strong><span data-i18n="index.ql.humanities.desc" data-i18n-orig="Philosophy, religion, and arts journals.">철학, 종교, 예술 저널.</span></a>
+                <a href="sub-brands.html" class="reveal"><strong data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">모든 저널 탐색</strong><span data-i18n="index.ql.browse-all.desc" data-i18n-orig="Explore all five imprints.">주제 클러스터별로 전체 디렉토리를 탐색하세요.</span></a>
+                <a href="ridgeline.html" class="d1 reveal"><strong data-i18n="index.ql.ai" data-i18n-orig="AI &amp; Engineering">AI 및 공학</strong><span data-i18n="index.ql.ai.desc" data-i18n-orig="Ridgeline: technology-focused titles.">기술 중심 저널.</span></a>
+                <a href="charter.html" class="d2 reveal"><strong data-i18n="index.ql.policy-soc" data-i18n-orig="Policy &amp; Society">정책 및 사회</strong><span data-i18n="index.ql.policy-soc.desc" data-i18n-orig="Charter: governance and social science journals.">거버넌스 및 사회과학 저널.</span></a>
+                <a href="threnody.html" class="d3 reveal"><strong data-i18n="index.ql.humanities" data-i18n-orig="Humanities &amp; Arts">인문학 및 예술</strong><span data-i18n="index.ql.humanities.desc" data-i18n-orig="Threnody: philosophy, religion, and arts journals.">철학, 종교, 예술 저널.</span></a>
             </div>
         </div>
     </section>
@@ -439,9 +472,9 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
                     <p class="kicker" data-i18n="index.recent.kicker" data-i18n-orig="Recent Research">최근 연구</p>
                     <h2 data-i18n="index.recent.h2" data-i18n-orig="Recent publications from our journals catalogue.">저널 카탈로그의 최근 출판물.</h2>
                 </div>
-                <a class="text-link" href="journals.html" data-i18n="index.recent.link" data-i18n-orig="Browse all journals">모든 저널 보기</a>
+                <a class="text-link" href="sub-brands.html" data-i18n="index.recent.link" data-i18n-orig="Browse all journals">모든 저널 보기</a>
             </div>
-            <div class="articles-grid" id="articles-grid"><article class="article-card"><p class="article-journal">PoliEcoM Administration Review</p><p class="article-title">Exploring North Korea–China Relations in the Kim Jong-un Era: A Pluralistic Construction from Geopolitics to a Community of Shared Destiny</p><p class="article-authors">Liu, Leyuan</p><p class="article-doi">DOI: 10.63802/pemr.v2.i1.266</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/pemr/article/view/266" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Resonance</p><p class="article-title">The Breakthrough of Impressionist Music in Traditional Functional Harmony and Its Enlightenment for Contemporary Music</p><p class="article-authors">Sun, Ke</p><p class="article-doi">DOI: 10.63802/resonance.v2.i1.257</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/Resonance/article/view/257" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Three Teachings Studies</p><p class="article-title">自内证悟，破执显真——《楞伽经》自觉圣智思想对现代社会的启示</p><p class="article-authors">Li, Zirui</p><p class="article-doi">DOI: 10.63802/tts.v1.2025.182</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/tts/article/view/182" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Three Teachings Studies</p><p class="article-title">三教融合视域下李翱心性论探析</p><p class="article-authors">Li, Yutong</p><p class="article-doi">DOI: 10.63802/tts.v1.2025.191</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/tts/article/view/191" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Silence</p><p class="article-title">A Componential Analysis of “Fuck”</p><p class="article-authors">Gou, Eloise</p><p class="article-doi">DOI: 10.63802/silence.v1.i1.247</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/Silence/article/view/247" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">AI &amp; Future Society</p><p class="article-title">AI-Mediated Public Decision-Making and Democratic Exclusion: Governance Risks and Accountability Frameworks</p><p class="article-authors">Stanizzi, Salvatore</p><p class="article-doi">DOI: 10.63802/afs.v2.i1.242</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/afs/article/view/242" target="_blank" rel="noopener">논문 읽기 →</a></article></div>
+            <div class="articles-grid" id="articles-grid"><article class="article-card"><p class="article-journal">Journal of Law, Psychology, and Communication Studies</p><p class="article-title">限期认缴制下股东出资义务加速到期的理论证成与实践路径</p><p class="article-authors">Zhang, Lejing</p><p class="article-doi">DOI: 10.63802/jlpcs.v2.i1.137</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/jlpcs/article/view/137" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">AI &amp; Future Society</p><p class="article-title">AI literacy beyond tools: Safeguarding human judgment in research and higher education</p><p class="article-authors">Weng, Yueh-Sung</p><p class="article-doi">DOI: 10.63802/afs.v2.i1.207</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/afs/article/view/207" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Global Review of Humanities, Arts, &amp; Society</p><p class="article-title">Understanding the Digital Transformation of SMEs: A Systematic Review from a Dynamic Capabilities Perspective Across Business, Technology, and Societal Domains</p><p class="article-authors">Hu, Yang; Jusoh, Sufian; Faliq Abd Razak, Muhammad et al.</p><p class="article-doi">DOI: 10.63802/grhas.v2.i1.186</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/files/article/view/186" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Journal of Law, Psychology, and Communication Studies</p><p class="article-title">数字文旅场景中的临场感、沉浸体验与游客满意度关系研究</p><p class="article-authors">Wang, Pengcheng; Qiao, Xiuqi; Kong, Fanyao</p><p class="article-doi">DOI: 10.63802/jlpcs.v2.i1.196</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/jlpcs/article/view/196" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Resonance</p><p class="article-title">Beyond the Keyboard: Pianists’ Project-Based Practice and Transferable Capacities</p><p class="article-authors">Yan, Xiaoyue</p><p class="article-doi">DOI: 10.63802/rjgms.v2.i1.322</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/Resonance/article/view/322" target="_blank" rel="noopener">논문 읽기 →</a></article><article class="article-card"><p class="article-journal">Three Teachings Studies</p><p class="article-title">三教融合视域下李翱心性论探析</p><p class="article-authors">Li, Yutong</p><p class="article-doi">DOI: 10.63802/tts.v1.2025.191</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/tts/article/view/191" target="_blank" rel="noopener">논문 읽기 →</a></article></div>
         </div>
     </section>
 
@@ -495,15 +528,15 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
                 </div>
                 <div class="posi-stats">
                     <div class="posi-stat reveal">
-                        <strong data-posi="core_collection">30</strong>
+                        <strong data-posi="core_collection">31</strong>
                         <span data-i18n="index.posi.stat.doi-records" data-i18n-orig="Core Collection">핵심 컬렉션 수록 저널</span>
                     </div>
                     <div class="posi-stat d1 reveal">
-                        <strong data-posi="global_benchmark">1,000</strong>
+                        <strong data-posi="global_benchmark">4,289</strong>
                         <span data-i18n="index.posi.stat.searchable" data-i18n-orig="Global Benchmark Records">글로벌 벤치마크 레코드</span>
                     </div>
                     <div class="posi-stat d2 reveal">
-                        <strong data-posi="lifecycle_rated">110</strong>
+                        <strong data-posi="lifecycle_rated">8</strong>
                         <span data-i18n="index.posi.stat.indexed" data-i18n-orig="Lifecycle-Rated Journals">라이프사이클 평가 완료 저널</span>
                     </div>
                     <div class="posi-stat d3 reveal">
@@ -535,7 +568,7 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
             <div class="footer-platforms">
                 <p class="footer-platforms-label" data-i18n="footer.platforms-label" data-i18n-orig="Our Platforms">플랫폼</p>
                 <div class="footer-platforms-logos">
-                    <a href="journals.html" class="footer-journals-link">
+                    <a href="https://journals.panorama-sg.com" target="_blank" rel="noopener" class="footer-journals-link">
                         <img src="/assets/logos/journals-logo.svg" alt="Panorama Scholarly Journals" class="footer-journals-logo">
                     </a>
                     <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" class="footer-posi-link">
@@ -569,7 +602,7 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
         <div>
             <h3 data-i18n="footer.journals-policies" data-i18n-orig="Journals &amp; Policies">저널 및 정책</h3>
             <ul>
-                <li><a href="journals.html" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">저널 목록</a></li>
+                <li><a href="sub-brands.html" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">저널 목록</a></li>
                 <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">출판 윤리</a></li>
                 <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">오픈 액세스 정책</a></li>
                 <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">색인 및 아카이빙</a></li>

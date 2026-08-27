@@ -29,7 +29,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260811-3">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-1">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -89,9 +89,25 @@
                     <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </button>
                 <div class="platforms-options" role="menu">
-                    <a href="journals.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="nav.journals" data-i18n-orig="Journals">期刊目錄</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.journals-desc" data-i18n-orig="Peer-reviewed journal directory">同儕審閱期刊目錄</span>
+                    <a href="ridgeline.html" role="menuitem">
+                        <span class="platform-opt-name">Ridgeline</span>
+                        <span class="platform-opt-desc">Technology, engineering &amp; AI</span>
+                    </a>
+                    <a href="health-nexus.html" role="menuitem">
+                        <span class="platform-opt-name">Health Nexus</span>
+                        <span class="platform-opt-desc">Medicine &amp; health sciences</span>
+                    </a>
+                    <a href="verdant-science.html" role="menuitem">
+                        <span class="platform-opt-name">Verdant Science</span>
+                        <span class="platform-opt-desc">Environment &amp; life sciences</span>
+                    </a>
+                    <a href="charter.html" role="menuitem">
+                        <span class="platform-opt-name">Charter</span>
+                        <span class="platform-opt-desc">Policy, law &amp; governance</span>
+                    </a>
+                    <a href="threnody.html" role="menuitem">
+                        <span class="platform-opt-name">Threnody</span>
+                        <span class="platform-opt-desc">Humanities, arts &amp; philosophy</span>
                     </a>
                     <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</span>
@@ -150,11 +166,11 @@
 
     <!-- ── Hero ── -->
     <section class="hero hero-home">
-        <canvas id="hero-canvas" aria-hidden="true" width="1280" height="721"></canvas>
+        <canvas id="hero-canvas" aria-hidden="true" width="1280" height="443"></canvas>
         <div class="container hero-grid">
             <div class="hero-body">
                 <h1 data-i18n="index.h1" data-i18n-orig="One group, five platforms advancing scholarly publishing and research.">一個集團，五個平台，推進全球學術出版與研究。</h1>
-                <p class="lead" data-i18n="index.lead" data-i18n-orig="Panorama Scholarly Group operates five scholarly platforms: journals, books, research, an open index, and an editorial directory.">全景學術集團旗下運營五個學術平台：期刊、書籍、研究院、開放學術指數與編委目錄。</p>
+                <p class="lead" data-i18n="index.lead" data-i18n-orig="Panorama Scholarly Group publishes peer-reviewed research and runs the open, lifecycle-rated index that tracks it, across five scholarly platforms.">全景學術集團旗下運營五個學術平台：期刊、書籍、研究院、開放學術指數與編委目錄。</p>
                 <div class="trust-badges">
                     <span class="trust-badge peer" data-i18n="index.badge.peer" data-i18n-orig="Peer Reviewed">同行評審</span>
                     <span class="trust-badge oa" data-i18n="index.badge.oa" data-i18n-orig="Open Access">開放取用</span>
@@ -162,7 +178,7 @@
                     <span class="trust-badge" data-i18n="index.badge.books" data-i18n-orig="Scholarly Books">學術書籍</span>
                 </div>
                 <div class="btn-row">
-                    <a class="btn primary" href="journals.html" data-i18n="index.btn.journals" data-i18n-orig="Browse Journals">瀏覽期刊</a>
+                    <a class="btn primary" href="sub-brands.html" data-i18n="index.btn.journals" data-i18n-orig="Browse Journals">瀏覽期刊</a>
                     <a class="btn" href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.btn.books" data-i18n-orig="Scholarly Books">學術書籍</a>
                 </div>
             </div>
@@ -204,7 +220,7 @@
     <!-- ── Our Platforms ── -->
     <section class="section">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="footer.platforms-label" data-i18n-orig="Our Platforms">我們的平台</p>
                     <h2 data-i18n="index.pub-lines.h2" data-i18n-orig="Panorama Scholarly Group operates five scholarly platforms.">全景學術集團旗下運營五個學術平台。</h2>
@@ -213,15 +229,15 @@
             <div class="platform-grid">
                 <div class="platform-card platform-card--flagship">
                     <p class="platform-type" data-i18n="index.pub-lines.journals.h3" data-i18n-orig="Journals">期刊</p>
-                    <h3 data-i18n="index.pub-lines.journals.h3-full" data-i18n-orig="22 Peer-Reviewed Open-Access Journals">22本同行評審開放取用期刊</h3>
-                    <p data-i18n="index.pub-lines.journals.p" data-i18n-orig="Spanning Technology &amp; Engineering, Health &amp; Sustainability, Policy, Education &amp; Society, and Humanities &amp; Arts. Every article receives a Crossref DOI and is indexed in Google Scholar and major scholarly databases.">涵蓋科技與工程、健康與永續、政策、教育與社會，以及人文與藝術。每篇文章均獲分配Crossref DOI，並收錄於Google Scholar及各主要學術數據庫。</p>
+                    <h3 data-i18n="index.pub-lines.journals.h3-full" data-i18n-orig="24 Peer-Reviewed Open-Access Journals">22本同行評審開放取用期刊</h3>
+                    <p data-i18n="index.pub-lines.journals.p" data-i18n-orig="Twenty-four journals across five imprints, each with a Crossref DOI and indexing in Google Scholar and major scholarly databases.">涵蓋科技與工程、健康與永續、政策、教育與社會，以及人文與藝術。每篇文章均獲分配Crossref DOI，並收錄於Google Scholar及各主要學術數據庫。</p>
                     <ul class="platform-features">
                         <li data-i18n="index.pub-lines.f1" data-i18n-orig="Structured peer review with clear editorial timelines">具清晰編輯時程的同行評審</li>
                         <li data-i18n="index.pub-lines.f2" data-i18n-orig="Open access under Creative Commons licensing">Creative Commons授權下的開放取用</li>
                         <li data-i18n="index.pub-lines.f3" data-i18n-orig="CLOCKSS &amp; PKP Preservation archiving">CLOCKSS &amp; PKP Preservation 存檔</li>
                         <li data-i18n="index.pub-lines.f4" data-i18n-orig="Crossref DOI registration, prefix 10.63802">Crossref DOI 注冊，前綴 10.63802</li>
                     </ul>
-                    <a class="btn primary" href="journals.html" data-i18n="index.pub-lines.journals.btn" data-i18n-orig="Browse Journal Catalogue">瀏覽期刊目錄</a>
+                    <a class="btn primary" href="sub-brands.html" data-i18n="index.pub-lines.journals.btn" data-i18n-orig="Browse Journal Catalogue">瀏覽期刊目錄</a>
                 </div>
                 <div class="platform-card platform-card--books">
                     <p class="platform-type" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</p>
@@ -238,7 +254,7 @@
                 <div class="platform-card platform-card--posi">
                     <p class="platform-type">POSI</p>
                     <h3 data-i18n="index.platforms.posi.h3" data-i18n-orig="Panorama Open Scholarly Index">全景開放學術指數</h3>
-                    <p data-i18n="index.platforms.posi.p" data-i18n-orig="An open database of lifecycle-based journal ratings, subject rankings, and citation analytics.">一個基於生命週期評級、學科排名及引文分析之開放資料庫。</p>
+                    <p data-i18n="index.platforms.posi.p" data-i18n-orig="An open, algorithmically computed database of lifecycle-based journal ratings, subject rankings, and citation analytics, updated as new data arrives.">一個基於生命週期評級、學科排名及引文分析之開放資料庫。</p>
                     <a class="text-link" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.platforms.posi.link" data-i18n-orig="Explore POSI">探索 POSI</a>
                 </div>
                 <div class="platform-card platform-card--directory">
@@ -251,10 +267,31 @@
         </div>
     </section>
 
+    <!-- ── Five Imprints ── -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-head reveal visible">
+                <div>
+                    <p class="kicker" data-i18n="index.imprints.kicker" data-i18n-orig="Five Imprints">Five Imprints</p>
+                    <h2 data-i18n="index.imprints.h2" data-i18n-orig="One group, five editorial identities.">One group, five editorial identities.</h2>
+                </div>
+            </div>
+            <p class="imprints-intro d1 reveal visible" data-i18n="index.imprints.p" data-i18n-orig="Panorama Scholarly Group's twenty-four journals are organized under five imprints, each with its own editorial focus: Ridgeline for technology, engineering, and AI; Health Nexus for medicine and health sciences; Verdant Science for environment and life sciences; Charter for policy, law, and governance; and Threnody for humanities, arts, and philosophy.">Panorama Scholarly Group's twenty-four journals are organized under five imprints, each with its own editorial focus: Ridgeline for technology, engineering, and AI; Health Nexus for medicine and health sciences; Verdant Science for environment and life sciences; Charter for policy, law, and governance; and Threnody for humanities, arts, and philosophy.</p>
+            <div class="imprints-logos d2 reveal visible">
+                <a href="ridgeline.html" aria-label="Ridgeline"><img src="assets/nexus/ridgeline-logo-light.svg" alt="Ridgeline"></a>
+                <a href="health-nexus.html" aria-label="Health Nexus"><img src="assets/nexus/health-nexus-logo-light.svg" alt="Health Nexus"></a>
+                <a href="verdant-science.html" aria-label="Verdant Science"><img src="assets/nexus/verdant-science-logo-light.svg" alt="Verdant Science"></a>
+                <a href="charter.html" aria-label="Charter"><img src="assets/nexus/charter-logo-light.svg" alt="Charter"></a>
+                <a href="threnody.html" aria-label="Threnody"><img src="assets/nexus/threnody-logo-light.svg" alt="Threnody"></a>
+            </div>
+            <a class="text-link imprints-all-link" href="sub-brands.html" data-i18n="index.imprints.link" data-i18n-orig="Browse all journals by imprint →">Browse all journals by imprint →</a>
+        </div>
+    </section>
+
     <!-- ── Announcements ── -->
     <section class="section ann-section" id="announcements">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="ann.kicker" data-i18n-orig="Announcements">公告欄</p>
                     <h2 data-i18n="ann.h2" data-i18n-orig="Latest news and updates from Panorama Scholarly Group.">Panorama Scholarly Group 的最新消息與更新。</h2>
@@ -367,22 +404,18 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
     <!-- ── Journal discovery ── -->
     <section class="section-discovery">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.discovery.kicker" data-i18n-orig="Journal Discovery">期刊搜尋</p>
-                    <h2 data-i18n="index.discovery.h2" data-i18n-orig="Search by title, discipline, or ISSN before you submit.">投稿前按名稱、學科或ISSN搜尋期刊。</h2>
+                    <h2 data-i18n="index.discovery.h2" data-i18n-orig="Find the right imprint before you submit.">投稿前按名稱、學科或ISSN搜尋期刊。</h2>
                 </div>
-                <a class="text-link" href="journals.html" data-i18n="index.discovery.link" data-i18n-orig="Open Journal Directory">開啟期刊目錄</a>
+                <a class="text-link" href="sub-brands.html" data-i18n="index.discovery.link" data-i18n-orig="Open Journal Directory">開啟期刊目錄</a>
             </div>
-            <form class="finder" onsubmit="event.preventDefault();var q=document.getElementById('home-q').value.trim();location.href=q?'journals.html?q='+encodeURIComponent(q):'journals.html';">
-                <input id="home-q" type="search" placeholder="依標題、縮寫、領域或 ISSN 搜尋">
-                <button class="btn primary" type="submit" data-i18n="index.search.btn" data-i18n-orig="Search">搜尋</button>
-            </form>
             <div class="quick-links" style="margin-top:1px;">
-                <a href="journals.html" class="reveal"><strong data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">瀏覽所有期刊</strong><span data-i18n="index.ql.browse-all.desc" data-i18n-orig="Explore the full directory by subject cluster.">按學科群組探索完整目錄。</span></a>
-                <a href="journals.html?q=AI" class="d1 reveal"><strong data-i18n="index.ql.ai" data-i18n-orig="AI &amp; Engineering">人工智能與工程</strong><span data-i18n="index.ql.ai.desc" data-i18n-orig="Technology-focused titles.">科技類期刊。</span></a>
-                <a href="journals.html?q=Policy" class="d2 reveal"><strong data-i18n="index.ql.policy-soc" data-i18n-orig="Policy &amp; Society">政策與社會</strong><span data-i18n="index.ql.policy-soc.desc" data-i18n-orig="Governance and social science journals.">治理與社會科學期刊。</span></a>
-                <a href="journals.html?q=Humanities" class="d3 reveal"><strong data-i18n="index.ql.humanities" data-i18n-orig="Humanities &amp; Arts">人文與藝術</strong><span data-i18n="index.ql.humanities.desc" data-i18n-orig="Philosophy, religion, and arts journals.">哲學、宗教與藝術期刊。</span></a>
+                <a href="sub-brands.html" class="reveal visible"><strong data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">瀏覽所有期刊</strong><span data-i18n="index.ql.browse-all.desc" data-i18n-orig="Explore all five imprints.">按學科群組探索完整目錄。</span></a>
+                <a href="ridgeline.html" class="d1 reveal visible"><strong data-i18n="index.ql.ai" data-i18n-orig="AI &amp; Engineering">人工智能與工程</strong><span data-i18n="index.ql.ai.desc" data-i18n-orig="Ridgeline: technology-focused titles.">科技類期刊。</span></a>
+                <a href="charter.html" class="d2 reveal visible"><strong data-i18n="index.ql.policy-soc" data-i18n-orig="Policy &amp; Society">政策與社會</strong><span data-i18n="index.ql.policy-soc.desc" data-i18n-orig="Charter: governance and social science journals.">治理與社會科學期刊。</span></a>
+                <a href="threnody.html" class="d3 reveal visible"><strong data-i18n="index.ql.humanities" data-i18n-orig="Humanities &amp; Arts">人文與藝術</strong><span data-i18n="index.ql.humanities.desc" data-i18n-orig="Threnody: philosophy, religion, and arts journals.">哲學、宗教與藝術期刊。</span></a>
             </div>
         </div>
     </section>
@@ -390,35 +423,35 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
     <!-- ── For Authors ── -->
     <section class="section alt" id="author-path">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.for-authors.kicker" data-i18n-orig="For Authors">投稿指引</p>
                     <h2 data-i18n="index.for-authors.h2" data-i18n-orig="Publish with us — journals, books, and scholarly series.">與我們合作出版——期刊、書籍及學術叢書。</h2>
                 </div>
             </div>
             <div class="steps-grid">
-                <article class="reveal">
+                <article class="reveal visible">
                     <span class="steps-num">01</span>
                     <h3 class="step-title" data-i18n="index.step1.h3" data-i18n-orig="Confirm Journal Fit">確認期刊適配性</h3>
                     <p data-i18n="index.step1.p" data-i18n-orig="Review aims, scope, article types, and disciplinary alignment in the journal directory.">在期刊目錄中查閱期刊宗旨、範疇、文章類型及學科方向。</p>
                 </article>
-                <article class="d1 reveal">
+                <article class="d1 reveal visible">
                     <span class="steps-num">02</span>
                     <h3 class="step-title" data-i18n="index.step2.h3" data-i18n-orig="Review Requirements">查閱投稿要求</h3>
                     <p data-i18n="index.step2.p" data-i18n-orig="Check ethics declarations, open-access terms, and manuscript formatting requirements.">確認倫理聲明、開放取用條款及稿件格式要求。</p>
                 </article>
-                <article class="d2 reveal">
+                <article class="d2 reveal visible">
                     <span class="steps-num">03</span>
                     <h3 class="step-title" data-i18n="index.step3.h3" data-i18n-orig="Submit Manuscript">提交稿件</h3>
                     <p data-i18n="index.step3.p" data-i18n-orig="Upload your manuscript, metadata, and required declarations through the journal submission page.">透過期刊投稿頁面上傳稿件、元數據及所需聲明。</p>
                 </article>
-                <article class="d3 reveal">
+                <article class="d3 reveal visible">
                     <span class="steps-num">04</span>
                     <h3 class="step-title" data-i18n="index.step4.h3" data-i18n-orig="Complete Peer Review">完成同行評審</h3>
                     <p data-i18n="index.step4.p" data-i18n-orig="Address reviewer comments, submit revisions, and proceed through final editorial decisions.">回應審稿意見，提交修改稿，並完成最終編輯決定流程。</p>
                 </article>
             </div>
-            <div class="steps-cta d2 reveal">
+            <div class="steps-cta d2 reveal visible">
                 <div>
                     <p class="steps-cta-text" data-i18n="index.steps-cta.text" data-i18n-orig="Planning to publish a journal article or book? Start with the author guide.">計劃發表期刊文章或出版書籍？請從作者指南開始。</p>
                     <span class="steps-cta-sub" data-i18n="index.steps-cta.sub" data-i18n-orig="The author guide covers journal submission and book proposals — one resource for both publishing tracks.">作者指南涵蓋期刊投稿與圖書提案——兩條出版路線的一站式資源。</span>
@@ -434,14 +467,14 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
     <!-- ── Recent Research ── -->
     <section class="section" id="recent-research">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.recent.kicker" data-i18n-orig="Recent Research">近期研究</p>
                     <h2 data-i18n="index.recent.h2" data-i18n-orig="Recent publications from our journals catalogue.">來自期刊目錄的近期發表文章。</h2>
                 </div>
-                <a class="text-link" href="journals.html" data-i18n="index.recent.link" data-i18n-orig="Browse all journals">瀏覽所有期刊</a>
+                <a class="text-link" href="sub-brands.html" data-i18n="index.recent.link" data-i18n-orig="Browse all journals">瀏覽所有期刊</a>
             </div>
-            <div class="articles-grid" id="articles-grid"><article class="article-card"><p class="article-journal">PoliEcoM Administration Review</p><p class="article-title">Exploring North Korea–China Relations in the Kim Jong-un Era: A Pluralistic Construction from Geopolitics to a Community of Shared Destiny</p><p class="article-authors">Liu, Leyuan</p><p class="article-doi">DOI: 10.63802/pemr.v2.i1.266</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/pemr/article/view/266" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Resonance</p><p class="article-title">The Breakthrough of Impressionist Music in Traditional Functional Harmony and Its Enlightenment for Contemporary Music</p><p class="article-authors">Sun, Ke</p><p class="article-doi">DOI: 10.63802/resonance.v2.i1.257</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/Resonance/article/view/257" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Three Teachings Studies</p><p class="article-title">自内证悟，破执显真——《楞伽经》自觉圣智思想对现代社会的启示</p><p class="article-authors">Li, Zirui</p><p class="article-doi">DOI: 10.63802/tts.v1.2025.182</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/tts/article/view/182" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Three Teachings Studies</p><p class="article-title">三教融合视域下李翱心性论探析</p><p class="article-authors">Li, Yutong</p><p class="article-doi">DOI: 10.63802/tts.v1.2025.191</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/tts/article/view/191" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Silence</p><p class="article-title">A Componential Analysis of “Fuck”</p><p class="article-authors">Gou, Eloise</p><p class="article-doi">DOI: 10.63802/silence.v1.i1.247</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/Silence/article/view/247" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">AI &amp; Future Society</p><p class="article-title">AI-Mediated Public Decision-Making and Democratic Exclusion: Governance Risks and Accountability Frameworks</p><p class="article-authors">Stanizzi, Salvatore</p><p class="article-doi">DOI: 10.63802/afs.v2.i1.242</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/afs/article/view/242" target="_blank" rel="noopener">閱讀文章 →</a></article></div>
+            <div class="articles-grid" id="articles-grid"><article class="article-card"><p class="article-journal">Journal of Law, Psychology, and Communication Studies</p><p class="article-title">限期认缴制下股东出资义务加速到期的理论证成与实践路径</p><p class="article-authors">Zhang, Lejing</p><p class="article-doi">DOI: 10.63802/jlpcs.v2.i1.137</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/jlpcs/article/view/137" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">AI &amp; Future Society</p><p class="article-title">AI literacy beyond tools: Safeguarding human judgment in research and higher education</p><p class="article-authors">Weng, Yueh-Sung</p><p class="article-doi">DOI: 10.63802/afs.v2.i1.207</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/afs/article/view/207" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Global Review of Humanities, Arts, and Society</p><p class="article-title">Understanding the Digital Transformation of SMEs: A Systematic Review from a Dynamic Capabilities Perspective Across Business, Technology, and Societal Domains</p><p class="article-authors">Hu, Yang; Jusoh, Sufian; Faliq Abd Razak, Muhammad et al.</p><p class="article-doi">DOI: 10.63802/grhas.v2.i1.186</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/files/article/view/186" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Journal of Law, Psychology, and Communication Studies</p><p class="article-title">数字文旅场景中的临场感、沉浸体验与游客满意度关系研究</p><p class="article-authors">Wang, Pengcheng; Qiao, Xiuqi; Kong, Fanyao</p><p class="article-doi">DOI: 10.63802/jlpcs.v2.i1.196</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/jlpcs/article/view/196" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Resonance</p><p class="article-title">Beyond the Keyboard: Pianists’ Project-Based Practice and Transferable Capacities</p><p class="article-authors">Yan, Xiaoyue</p><p class="article-doi">DOI: 10.63802/rjgms.v2.i1.322</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/Resonance/article/view/322" target="_blank" rel="noopener">閱讀文章 →</a></article><article class="article-card"><p class="article-journal">Three Teachings Studies</p><p class="article-title">三教融合视域下李翱心性论探析</p><p class="article-authors">Li, Yutong</p><p class="article-doi">DOI: 10.63802/tts.v1.2025.191</p><a class="article-link" href="https://journals.panorama-sg.com/index.php/tts/article/view/191" target="_blank" rel="noopener">閱讀文章 →</a></article></div>
         </div>
     </section>
 
@@ -454,19 +487,19 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
                 <p data-i18n="index.governance.p" data-i18n-orig="All platforms operate under shared baseline requirements for authorship integrity, peer-review confidentiality, conflict disclosure, and post-publication correction practices.">所有平台均遵循共同的基本要求，涵蓋作者誠信、同行評審保密、利益衝突披露及出版後更正慣例。</p>
             </div>
             <div class="trust-links">
-                <a href="publication-ethics.html" class="reveal">
+                <a href="publication-ethics.html" class="reveal visible">
                     <strong data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</strong>
                     <span data-i18n="index.tl.ethics.desc" data-i18n-orig="Editorial responsibilities, peer review conduct, originality standards, and correction procedures.">編輯職責、同行評審規範、原創性標準及更正程序。</span>
                 </a>
-                <a href="open-access-policy.html" class="d1 reveal">
+                <a href="open-access-policy.html" class="d1 reveal visible">
                     <strong data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</strong>
                     <span data-i18n="index.tl.oa.desc" data-i18n-orig="Licensing terms, author rights language, and repository guidance.">授權條款、作者版權說明及存儲庫指引。</span>
                 </a>
-                <a href="indexing.html" class="d2 reveal">
+                <a href="indexing.html" class="d2 reveal visible">
                     <strong data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</strong>
                     <span data-i18n="index.tl.indexing.desc" data-i18n-orig="Discovery databases, preservation archives, and DOI registration details.">探索數據庫、保存檔案及 DOI 註冊詳情。</span>
                 </a>
-                <a href="about.html" class="d3 reveal">
+                <a href="about.html" class="d3 reveal visible">
                     <strong data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">關於出版商</strong>
                     <span data-i18n="index.tl.about-pub.desc" data-i18n-orig="Group mission, platform structure, and policy framework.">出版商使命、目錄結構及政策框架。</span>
                 </a>
@@ -477,7 +510,7 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
     <!-- ── POSI ── -->
     <section class="section alt" id="posi">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.posi.kicker" data-i18n-orig="Open Infrastructure">開放基礎設施</p>
                     <h2 data-i18n="index.posi.h2" data-i18n-orig="A growing open database of journal ratings, rankings, and citation analytics — built from versioned, reproducible evidence.">一個不斷成長的開放資料庫，涵蓋期刊評級、排名與引文分析——建立於版本化、可重現的證據之上。</h2>
@@ -494,19 +527,19 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
                     <a class="btn primary" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.posi.btn" data-i18n-orig="Explore the Index">探索索引</a>
                 </div>
                 <div class="posi-stats">
-                    <div class="posi-stat reveal">
-                        <strong data-posi="core_collection">30</strong>
+                    <div class="posi-stat reveal visible">
+                        <strong data-posi="core_collection">31</strong>
                         <span data-i18n="index.posi.stat.doi-records" data-i18n-orig="Core Collection">核心收錄期刊</span>
                     </div>
-                    <div class="posi-stat d1 reveal">
-                        <strong data-posi="global_benchmark">1,000</strong>
+                    <div class="posi-stat d1 reveal visible">
+                        <strong data-posi="global_benchmark">4,289</strong>
                         <span data-i18n="index.posi.stat.searchable" data-i18n-orig="Global Benchmark Records">全球基準記錄</span>
                     </div>
-                    <div class="posi-stat d2 reveal">
-                        <strong data-posi="lifecycle_rated">110</strong>
+                    <div class="posi-stat d2 reveal visible">
+                        <strong data-posi="lifecycle_rated">8</strong>
                         <span data-i18n="index.posi.stat.indexed" data-i18n-orig="Lifecycle-Rated Journals">已完成生命週期評級的期刊</span>
                     </div>
-                    <div class="posi-stat d3 reveal">
+                    <div class="posi-stat d3 reveal visible">
                         <strong data-posi="psc_subject_categories">48</strong>
                         <span data-i18n="index.posi.stat.avg-quality" data-i18n-orig="PSC Subject Categories">PSC 學科分類</span>
                     </div>
@@ -535,7 +568,7 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
             <div class="footer-platforms">
                 <p class="footer-platforms-label" data-i18n="footer.platforms-label" data-i18n-orig="Our Platforms">我們的平台</p>
                 <div class="footer-platforms-logos">
-                    <a href="journals.html" class="footer-journals-link">
+                    <a href="https://journals.panorama-sg.com" target="_blank" rel="noopener" class="footer-journals-link">
                         <img src="/assets/logos/journals-logo.svg" alt="Panorama Scholarly Journals" class="footer-journals-logo">
                     </a>
                     <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" class="footer-posi-link">
@@ -569,7 +602,7 @@ Climate Sustainability &amp; Global Systems looks forward to working with schola
         <div>
             <h3 data-i18n="footer.journals-policies" data-i18n-orig="Journals &amp; Policies">期刊與政策</h3>
             <ul>
-                <li><a href="journals.html" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">期刊目錄</a></li>
+                <li><a href="sub-brands.html" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">期刊目錄</a></li>
                 <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</a></li>
                 <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</a></li>
                 <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</a></li>
