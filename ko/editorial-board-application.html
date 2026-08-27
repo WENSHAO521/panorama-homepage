@@ -56,15 +56,15 @@
     </script>
     <style>
         .journal-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; }
-        .journal-table th { background: var(--surface-3); padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--line-md); white-space: nowrap; }
+        .journal-table th { background: var(--paper-3); padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--line-md); white-space: nowrap; }
         .journal-table td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; line-height: 1.4; }
         .journal-table tr:last-child td { border-bottom: 0; }
-        .journal-table tr:hover td { background: var(--surface-2); }
-        .journal-table td a { color: var(--red); font-weight: 600; }
+        .journal-table tr:hover td { background: var(--paper-2); }
+        .journal-table td a { color: var(--accent); font-weight: 600; }
         .journal-table td a:hover { text-decoration: underline; }
-        .cluster-tag { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--surface-3); color: var(--muted); }
+        .cluster-tag { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--paper-3); color: var(--muted); }
         .journal-name-link { font-weight: 600; color: var(--ink); }
-        .journal-name-link:hover { color: var(--red); }
+        .journal-name-link:hover { color: var(--accent); }
         @media (max-width: 700px) {
             .journal-table th:nth-child(2),
             .journal-table td:nth-child(2) { display: none; }
@@ -185,7 +185,7 @@
                     </div>
                     <div>
                         <dt data-i18n="eb.panel.email.dt" data-i18n-orig="Send To">보낼 곳</dt>
-                        <dd><a href="mailto:contact@panorama-sg.com" style="color:#e5e5e5;">contact@panorama-sg.com</a><br><small style="color:#737373;font-size:11px;">또는 저널 편집실 - 아래 표 참조</small></dd>
+                        <dd><a href="mailto:contact@panorama-sg.com" style="color:var(--on-dark);">contact@panorama-sg.com</a><br><small style="color:var(--on-dark-muted);font-size:11px;">또는 저널 편집실 - 아래 표 참조</small></dd>
                     </div>
                     <div>
                         <dt data-i18n="eb.panel.subject.dt" data-i18n-orig="Email Subject">이메일 제목</dt>
