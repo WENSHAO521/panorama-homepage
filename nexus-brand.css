@@ -102,13 +102,17 @@
 .nx-journal-tag { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--brand, #C4443D); font-weight: 700; }
 .nx-journal-tag.new { color: #fff; background: var(--brand, #C4443D); display: inline-block; padding: 2px 8px; border-radius: 100px; width: fit-content; }
 .nx-journal-title { font-size: 15.5px; font-weight: 600; line-height: 1.35; color: #15171A; margin: 0; }
-.nx-journal-trail { flex: none; display: flex; align-items: center; gap: 22px; margin-left: auto; }
+.nx-journal-trail { flex: none; display: flex; align-items: center; gap: 22px; margin-left: auto; flex-wrap: wrap; justify-content: flex-end; row-gap: 4px; }
+.nx-journal-meta-col { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
 .nx-journal-meta { font-size: 12px; color: #787A7D; font-family: 'IBM Plex Mono', ui-monospace, monospace; white-space: nowrap; }
+.nx-journal-email { font-size: 11.5px; color: #A6A9AC; font-family: 'IBM Plex Mono', ui-monospace, monospace; white-space: nowrap; text-decoration: none; }
+.nx-journal-email:hover { color: var(--brand-dk, #970E1A); }
 .nx-journal-link { font-size: 13px; font-weight: 600; color: var(--brand-dk, #970E1A); text-decoration: none; white-space: nowrap; }
 .nx-journal-link:hover { text-decoration: underline; }
 .nx-journal-link[aria-disabled="true"] { color: #A6A9AC; pointer-events: none; }
 @media (max-width: 560px) {
-  .nx-journal-trail { margin-left: 0; flex-basis: 100%; padding-left: 62px; gap: 16px; }
+  .nx-journal-trail { margin-left: 0; flex-basis: 100%; padding-left: 62px; gap: 16px; justify-content: flex-start; }
+  .nx-journal-meta-col { align-items: flex-start; }
 }
 
 .nx-subject-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
