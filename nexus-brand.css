@@ -76,6 +76,40 @@
   .nx-hero-visual img { position: static; }
 }
 
+/* Local sub-navigation: a second, brand-scoped tab strip beneath the
+   site's main header, the way link.springer.com/brands/bmc separates
+   "Home / Journals / About / Choose the right journal / Updates" from
+   Springer's own global nav. Anchors into this single page's sections
+   rather than routing to separate URLs -- the content per imprint is
+   modest enough (one hero, one about, a handful of journals) that a
+   real multi-page split would be over-engineering; the sub-nav gives
+   the same "brand site within the site" feel without it. */
+.nx-subnav {
+  position: sticky; top: 80px; z-index: 40;
+  background: #FFFFFF; border-bottom: 1px solid #E7E3DB;
+}
+.nx-subnav-row {
+  display: flex; gap: 28px; overflow-x: auto; scrollbar-width: none;
+  padding: 14px 0;
+}
+.nx-subnav-row::-webkit-scrollbar { display: none; }
+.nx-subnav-row a {
+  font-size: 13px; font-weight: 600; color: #42454A; text-decoration: none;
+  white-space: nowrap; padding-bottom: 3px; border-bottom: 2px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.nx-subnav-row a:hover { color: var(--brand-dk, #970E1A); border-color: var(--brand-tint, transparent); }
+
+/* Why-publish benefits grid: short, factual claims only -- each one is
+   a policy or infrastructure commitment already stated elsewhere on
+   the site (About, indexing, footer), not invented marketing copy. */
+.nx-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; margin-top: 8px; }
+.nx-benefit h3 { font-size: 15px; font-weight: 700; color: #15171A; margin: 0 0 6px; }
+.nx-benefit p { font-size: 14px; color: #42454A; line-height: 1.65; margin: 0; }
+@media (max-width: 700px) {
+  .nx-benefits { grid-template-columns: 1fr; }
+}
+
 .nx-section { padding: clamp(48px, 7vw, 80px) 0; border-bottom: 1px solid #E7E3DB; }
 .nx-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
 .nx-eyebrow { display: flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--brand, #C4443D); font-weight: 700; margin-bottom: 10px; }
@@ -102,17 +136,13 @@
 .nx-journal-tag { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--brand, #C4443D); font-weight: 700; }
 .nx-journal-tag.new { color: #fff; background: var(--brand, #C4443D); display: inline-block; padding: 2px 8px; border-radius: 100px; width: fit-content; }
 .nx-journal-title { font-size: 15.5px; font-weight: 600; line-height: 1.35; color: #15171A; margin: 0; }
-.nx-journal-trail { flex: none; display: flex; align-items: center; gap: 22px; margin-left: auto; flex-wrap: wrap; justify-content: flex-end; row-gap: 4px; }
-.nx-journal-meta-col { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.nx-journal-trail { flex: none; display: flex; align-items: center; gap: 22px; margin-left: auto; }
 .nx-journal-meta { font-size: 12px; color: #787A7D; font-family: 'IBM Plex Mono', ui-monospace, monospace; white-space: nowrap; }
-.nx-journal-email { font-size: 11.5px; color: #A6A9AC; font-family: 'IBM Plex Mono', ui-monospace, monospace; white-space: nowrap; text-decoration: none; }
-.nx-journal-email:hover { color: var(--brand-dk, #970E1A); }
 .nx-journal-link { font-size: 13px; font-weight: 600; color: var(--brand-dk, #970E1A); text-decoration: none; white-space: nowrap; }
 .nx-journal-link:hover { text-decoration: underline; }
 .nx-journal-link[aria-disabled="true"] { color: #A6A9AC; pointer-events: none; }
 @media (max-width: 560px) {
-  .nx-journal-trail { margin-left: 0; flex-basis: 100%; padding-left: 62px; gap: 16px; justify-content: flex-start; }
-  .nx-journal-meta-col { align-items: flex-start; }
+  .nx-journal-trail { margin-left: 0; flex-basis: 100%; padding-left: 62px; gap: 16px; }
 }
 
 .nx-subject-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }

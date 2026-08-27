@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="institutional.css?v=20260828-1">
-    <link rel="stylesheet" href="nexus-brand.css?v=20260828-3">
+    <link rel="stylesheet" href="nexus-brand.css?v=20260828-4">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <style>
       :root{ --brand:#3F6B2E; --brand-dk:#2B4A1F; --brand-tint:#EEF3E7; --brand-font:'Cormorant Garamond'; }
@@ -85,7 +85,6 @@
             <a href="index.html#author-path" data-i18n="nav.for-authors">For Authors</a>
             <a href="publication-ethics.html" data-i18n="nav.ethics">Ethics</a>
             <a href="open-access-policy.html" data-i18n="nav.open-access">Open Access</a>
-            <a href="editorial-board-application.html" data-i18n="nav.join-eb">Join Editorial Board</a>
             <a href="about.html" data-i18n="nav.about">About</a>
         </nav>
     </div>
@@ -93,7 +92,18 @@
 
 <main>
 
-  <section class="nx-hero">
+  <nav class="nx-subnav" aria-label="Verdant Science section navigation">
+    <div class="container nx-subnav-row">
+      <a href="#top">Overview</a>
+      <a href="#about">About</a>
+      <a href="#why-publish">Why Publish</a>
+      <a href="#featured-journals">Journals</a>
+      <a href="#submissions">Submit</a>
+      <a href="#editorial-contacts">Contacts</a>
+    </div>
+  </nav>
+
+  <section class="nx-hero" id="top">
     <div class="nx-hero-grid">
       <div class="nx-hero-text">
         <div class="nx-hero-breadcrumb">
@@ -116,7 +126,7 @@
     </div>
   </section>
 
-  <section class="nx-section">
+  <section class="nx-section" id="about">
     <div class="container">
       <div class="nx-about">
         <h2>About Verdant Science.</h2>
@@ -127,6 +137,48 @@
           <span class="nx-fact-pill">Open access, CC BY</span>
           <span class="nx-fact-pill">Crossref DOI</span>
           <span class="nx-fact-pill">Rolling submission</span>
+        </div>
+      </div>
+      <div class="nx-subject-list" style="margin-top:36px;">
+        <div class="nx-subject-row"><a href="publication-ethics.html">Publication ethics</a><span>Editorial conduct</span></div>
+        <div class="nx-subject-row"><a href="open-access-policy.html">Open access policy</a><span>Licensing &amp; rights</span></div>
+        <div class="nx-subject-row"><a href="indexing.html">Indexing &amp; archiving</a><span>Discovery &amp; preservation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nx-section" id="why-publish">
+    <div class="container">
+      <div class="nx-section-head">
+        <div>
+          <div class="nx-eyebrow">Why Publish With Us</div>
+          <h2>What every Verdant Science journal commits to.</h2>
+        </div>
+      </div>
+      <div class="nx-benefits">
+        <div class="nx-benefit">
+          <h3>Rigorous, transparent peer review</h3>
+          <p>Every submission goes through structured peer review with clear editorial timelines, overseen by the journal's own editorial board.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Open access, no reader paywalls</h3>
+          <p>Articles publish under Creative Commons (CC BY) licensing, free to read, download, and reuse from the day of publication.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Persistent identification</h3>
+          <p>Every article receives a Crossref DOI, registered under prefix 10.63802, for permanent citation and resolution.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Indexed for discovery</h3>
+          <p>Published research is indexed in Google Scholar, extending reach beyond the journal's own readership.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Archived for the long term</h3>
+          <p>Content is preserved in CLOCKSS and the PKP Preservation Network, so it stays accessible even if a title or publisher discontinues.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Rolling submission</h3>
+          <p>No fixed issue deadlines. Manuscripts are reviewed and published on a continuous basis.</p>
         </div>
       </div>
     </div>
@@ -151,10 +203,7 @@
             <h3 class="nx-journal-title">Climate Sustainability &amp; Global Systems</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN 3054-9663</span>
-              <a class="nx-journal-email" href="mailto:csgs@panorama-sg.com">Editorial: csgs@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN 3054-9663</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/CSGS" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -166,10 +215,7 @@
             <h3 class="nx-journal-title">Rural Governance &amp; Green Development</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN 3053-7282</span>
-              <a class="nx-journal-email" href="mailto:rggd@panorama-sg.com">Editorial: rggd@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN 3053-7282</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/RGGD" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -181,10 +227,7 @@
             <h3 class="nx-journal-title">Food Systems, Safety &amp; Sustainability</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN Pending</span>
-              <a class="nx-journal-email" href="mailto:fsss@panorama-sg.com">Editorial: fsss@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN Pending</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/FSSS" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -196,10 +239,7 @@
             <h3 class="nx-journal-title">Journal of Sport and Exercise Studies</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN Pending</span>
-              <a class="nx-journal-email" href="mailto:ses@panorama-sg.com">Editorial: ses@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN Pending</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/SES" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -208,7 +248,7 @@
     </div>
   </section>
 
-  <section class="nx-section">
+  <section class="nx-section" id="submissions">
     <div class="container">
       <div class="nx-section-head">
         <div>
@@ -221,6 +261,25 @@
         <div class="nx-subject-row"><a href="https://journals.panorama-sg.com/index.php/RGGD/submission" target="_blank" rel="noopener">Rural Governance &amp; Green Development: submit a manuscript</a><span>Rolling</span></div>
         <div class="nx-subject-row"><a href="https://journals.panorama-sg.com/index.php/FSSS/submission" target="_blank" rel="noopener">Food Systems, Safety &amp; Sustainability: submit a manuscript</a><span>Rolling</span></div>
         <div class="nx-subject-row"><a href="https://journals.panorama-sg.com/index.php/SES/submission" target="_blank" rel="noopener">Sport and Exercise Studies: submit a manuscript</a><span>Rolling</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nx-section" id="editorial-contacts">
+    <div class="container">
+      <div class="nx-section-head">
+        <div>
+          <div class="nx-eyebrow">Editorial Contacts</div>
+          <h2>Reach a Verdant Science editorial office directly.</h2>
+        </div>
+        <p class="nx-note">Each journal runs its own inbox for manuscript queries and editorial board interest. For a formal application, use the editorial board form.</p>
+      </div>
+      <div class="nx-subject-list">
+        <div class="nx-subject-row"><a href="mailto:csgs@panorama-sg.com">Climate Sustainability &amp; Global Systems: editorial office</a><span>csgs@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:rggd@panorama-sg.com">Rural Governance &amp; Green Development: editorial office</a><span>rggd@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:fsss@panorama-sg.com">Food Systems, Safety &amp; Sustainability: editorial office</a><span>fsss@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:ses@panorama-sg.com">Sport and Exercise Studies: editorial office</a><span>ses@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="editorial-board-application.html">Apply to join a Verdant Science editorial board</a><span>Form</span></div>
       </div>
     </div>
   </section>

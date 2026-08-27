@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="institutional.css?v=20260828-1">
-    <link rel="stylesheet" href="nexus-brand.css?v=20260828-3">
+    <link rel="stylesheet" href="nexus-brand.css?v=20260828-4">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <style>
       :root{ --brand:#93764C; --brand-dk:#6B5636; --brand-tint:#F1EAE0; --brand-font:'EB Garamond'; }
@@ -92,7 +92,6 @@
             <a href="index.html#author-path" data-i18n="nav.for-authors">For Authors</a>
             <a href="publication-ethics.html" data-i18n="nav.ethics">Ethics</a>
             <a href="open-access-policy.html" data-i18n="nav.open-access">Open Access</a>
-            <a href="editorial-board-application.html" data-i18n="nav.join-eb">Join Editorial Board</a>
             <a href="about.html" data-i18n="nav.about">About</a>
         </nav>
     </div>
@@ -100,7 +99,18 @@
 
 <main>
 
-  <section class="nx-hero">
+  <nav class="nx-subnav" aria-label="Threnody section navigation">
+    <div class="container nx-subnav-row">
+      <a href="#top">Overview</a>
+      <a href="#about">About</a>
+      <a href="#why-publish">Why Publish</a>
+      <a href="#featured-journals">Journals</a>
+      <a href="#submissions">Submit</a>
+      <a href="#editorial-contacts">Contacts</a>
+    </div>
+  </nav>
+
+  <section class="nx-hero" id="top">
     <div class="nx-hero-grid">
       <div class="nx-hero-text">
         <div class="nx-hero-breadcrumb">
@@ -123,7 +133,7 @@
     </div>
   </section>
 
-  <section class="nx-section">
+  <section class="nx-section" id="about">
     <div class="container">
       <div class="nx-about">
         <h2>About Threnody.</h2>
@@ -134,6 +144,48 @@
           <span class="nx-fact-pill">Open access, CC BY</span>
           <span class="nx-fact-pill">Crossref DOI</span>
           <span class="nx-fact-pill">Rolling submission</span>
+        </div>
+      </div>
+      <div class="nx-subject-list" style="margin-top:36px;">
+        <div class="nx-subject-row"><a href="publication-ethics.html">Publication ethics</a><span>Editorial conduct</span></div>
+        <div class="nx-subject-row"><a href="open-access-policy.html">Open access policy</a><span>Licensing &amp; rights</span></div>
+        <div class="nx-subject-row"><a href="indexing.html">Indexing &amp; archiving</a><span>Discovery &amp; preservation</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nx-section" id="why-publish">
+    <div class="container">
+      <div class="nx-section-head">
+        <div>
+          <div class="nx-eyebrow">Why Publish With Us</div>
+          <h2>What every Threnody journal commits to.</h2>
+        </div>
+      </div>
+      <div class="nx-benefits">
+        <div class="nx-benefit">
+          <h3>Rigorous, transparent peer review</h3>
+          <p>Every submission goes through structured peer review with clear editorial timelines, overseen by the journal's own editorial board.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Open access, no reader paywalls</h3>
+          <p>Articles publish under Creative Commons (CC BY) licensing, free to read, download, and reuse from the day of publication.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Persistent identification</h3>
+          <p>Every article receives a Crossref DOI, registered under prefix 10.63802, for permanent citation and resolution.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Indexed for discovery</h3>
+          <p>Published research is indexed in Google Scholar, extending reach beyond the journal's own readership.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Archived for the long term</h3>
+          <p>Content is preserved in CLOCKSS and the PKP Preservation Network, so it stays accessible even if a title or publisher discontinues.</p>
+        </div>
+        <div class="nx-benefit">
+          <h3>Rolling submission</h3>
+          <p>No fixed issue deadlines. Manuscripts are reviewed and published on a continuous basis.</p>
         </div>
       </div>
     </div>
@@ -158,10 +210,7 @@
             <h3 class="nx-journal-title">Silence</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN 3054-4386</span>
-              <a class="nx-journal-email" href="mailto:silence@panorama-sg.com">Editorial: silence@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN 3054-4386</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/Silence" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -173,10 +222,7 @@
             <h3 class="nx-journal-title">Global Review of Humanities, Arts, &amp; Society</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN 3052-539X</span>
-              <a class="nx-journal-email" href="mailto:grhas@panorama-sg.com">Editorial: grhas@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN 3052-539X</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/files" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -188,10 +234,7 @@
             <h3 class="nx-journal-title">Three Teachings Studies</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN 3053-6553</span>
-              <a class="nx-journal-email" href="mailto:tts@panorama-sg.com">Editorial: tts@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN 3053-6553</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/tts" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -203,10 +246,7 @@
             <h3 class="nx-journal-title">Resonance</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN 3053-4410</span>
-              <a class="nx-journal-email" href="mailto:rjgms.editorial@panorama-sg.com">Editorial: rjgms.editorial@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN 3053-4410</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/Resonance" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -218,10 +258,7 @@
             <h3 class="nx-journal-title">Comparative Philosophy &amp; Religious Traditions</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN Pending</span>
-              <a class="nx-journal-email" href="mailto:cprt@panorama-sg.com">Editorial: cprt@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN Pending</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/CPRT" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -233,10 +270,7 @@
             <h3 class="nx-journal-title">Journal of Dance and Embodied Structure</h3>
           </div>
           <div class="nx-journal-trail">
-            <div class="nx-journal-meta-col">
-              <span class="nx-journal-meta">ISSN Pending</span>
-              <a class="nx-journal-email" href="mailto:jdes@panorama-sg.com">Editorial: jdes@panorama-sg.com</a>
-            </div>
+            <span class="nx-journal-meta">ISSN Pending</span>
             <a class="nx-journal-link" href="https://journals.panorama-sg.com/index.php/JDES" target="_blank" rel="noopener">Visit journal &rarr;</a>
           </div>
         </div>
@@ -245,7 +279,7 @@
     </div>
   </section>
 
-  <section class="nx-section">
+  <section class="nx-section" id="submissions">
     <div class="container">
       <div class="nx-section-head">
         <div>
@@ -260,6 +294,27 @@
         <div class="nx-subject-row"><a href="https://journals.panorama-sg.com/index.php/Resonance/submission" target="_blank" rel="noopener">Resonance: submit a manuscript</a><span>Rolling</span></div>
         <div class="nx-subject-row"><a href="https://journals.panorama-sg.com/index.php/CPRT/submission" target="_blank" rel="noopener">Comparative Philosophy &amp; Religious Traditions: submit a manuscript</a><span>Rolling</span></div>
         <div class="nx-subject-row"><a href="https://journals.panorama-sg.com/index.php/JDES/submission" target="_blank" rel="noopener">Dance and Embodied Structure: submit a manuscript</a><span>Rolling</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nx-section" id="editorial-contacts">
+    <div class="container">
+      <div class="nx-section-head">
+        <div>
+          <div class="nx-eyebrow">Editorial Contacts</div>
+          <h2>Reach a Threnody editorial office directly.</h2>
+        </div>
+        <p class="nx-note">Each journal runs its own inbox for manuscript queries and editorial board interest. For a formal application, use the editorial board form.</p>
+      </div>
+      <div class="nx-subject-list">
+        <div class="nx-subject-row"><a href="mailto:silence@panorama-sg.com">Silence: editorial office</a><span>silence@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:grhas@panorama-sg.com">Humanities, Arts, &amp; Society: editorial office</a><span>grhas@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:tts@panorama-sg.com">Three Teachings Studies: editorial office</a><span>tts@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:rjgms.editorial@panorama-sg.com">Resonance: editorial office</a><span>rjgms.editorial@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:cprt@panorama-sg.com">Comparative Philosophy &amp; Religious Traditions: editorial office</a><span>cprt@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="mailto:jdes@panorama-sg.com">Dance and Embodied Structure: editorial office</a><span>jdes@panorama-sg.com</span></div>
+        <div class="nx-subject-row"><a href="editorial-board-application.html">Apply to join a Threnody editorial board</a><span>Form</span></div>
       </div>
     </div>
   </section>
