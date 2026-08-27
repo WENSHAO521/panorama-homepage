@@ -748,36 +748,19 @@ h3.step-title {
 .platform-card .text-link { margin-top: auto; }
 
 /* ══════════════════════════
-   IMPRINTS STRIP (five sub-brands, parent-site view)
-   Each mark keeps the sub-brand's own accent color as a thin top rule,
-   the same convention already used for platform-card::before, rather
-   than importing the sub-brand's own display typeface here -- the
-   parent shell stays in the Bauhaus system, the personality is what
-   you find when you click through to the imprint's own page.
+   FIVE IMPRINTS (parent-site view)
+   The real brand marks, not a typographic stand-in -- the group's
+   multi-brand structure is best shown as the five logos themselves.
 ══════════════════════════ */
-.imprints-strip {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
-  border: 2px solid var(--g20); background: var(--g20);
+.imprints-intro { max-width: 640px; font-size: 15px; line-height: 1.85; color: var(--g70); margin: 0 0 40px; }
+.imprints-logos {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 44px;
+  padding-bottom: 36px; margin-bottom: 28px; border-bottom: 1px solid var(--g15);
 }
-.imprint-mark {
-  background: var(--g05); padding: 28px 20px 24px;
-  border-right: 1px solid var(--g20);
-  display: flex; flex-direction: column; gap: 10px;
-  position: relative; transition: background var(--t);
-}
-.imprint-mark:last-child { border-right: 0; }
-.imprint-mark::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: var(--im-accent, var(--red));
-}
-.imprint-mark:hover { background: var(--g10); }
-.imprint-word {
-  font-size: 18px; font-weight: 800; letter-spacing: -0.01em;
-  color: var(--white); line-height: 1.2; transition: color var(--t);
-}
-.imprint-mark:hover .imprint-word { color: var(--im-accent, var(--red)); }
-.imprint-scope { font-size: 11px; color: var(--g50); line-height: 1.5; }
-.imprints-all-link { display: inline-block; margin-top: 24px; }
+.imprints-logos a { display: inline-flex; align-items: center; opacity: .82; transition: opacity var(--t); }
+.imprints-logos a:hover { opacity: 1; }
+.imprints-logos img { height: 34px; width: auto; display: block; }
+.imprints-all-link { display: inline-block; }
 
 /* ══════════════════════════
    OTHER PAGES — STAT ROW
@@ -1014,14 +997,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .reveal.d7 { transition-delay: .63s; }
 .reveal.d8 { transition-delay: .72s; }
 
-/* Components that carry their own hover transition (background/border/
-   transform) would otherwise have that transition property clobbered
-   wholesale by .reveal's own same-specificity rule -- compound-select
-   to merge both instead of letting source order pick a winner. */
-.imprint-mark.reveal {
-  transition: background var(--t), opacity .7s cubic-bezier(0.16, 1, 0.3, 1), transform .7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 /* Stat/counter moments read as the page's "beats" -- give them a touch
    more lift than a generic card so the number lands with more weight. */
 .stat-cell.reveal, .hero-stat.reveal { transform: translateY(26px) scale(.96); }
@@ -1161,8 +1136,6 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .indexer-cards { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .posi-block { grid-template-columns: 1fr; gap: 32px; }
   .hero-body { padding-left: 22px; }
-  .imprints-strip { grid-template-columns: repeat(3, 1fr); }
-  .imprint-mark:nth-child(3) { border-right: 0; }
 }
 
 /* ══════════════════════════
@@ -1234,9 +1207,8 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .quick-links a { border-right: 0; border-bottom: 1px solid var(--line); }
   .quick-links a:last-child { border-bottom: 0; }
 
-  .imprints-strip { grid-template-columns: 1fr; }
-  .imprint-mark { border-right: 0; border-bottom: 1px solid var(--g20); }
-  .imprint-mark:last-child { border-bottom: 0; }
+  .imprints-logos { gap: 28px; }
+  .imprints-logos img { height: 26px; }
 
   .indexer-full-grid.cols-3 { grid-template-columns: 1fr; }
   .indexer-full-grid.cols-3 .indexer-card { border-right: 0; border-bottom: 1px solid var(--line); }
