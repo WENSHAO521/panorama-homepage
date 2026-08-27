@@ -2,11 +2,19 @@
     "harvestedAt": "2026-08-26T02:58:42Z",
     "sourcePublisher": "Panorama Scholarly Group",
     "source": "Panorama journal home pages (hero banner blurb)",
-    "journalCount": 22,
+    "journalCount": 24,
+    "subBrands": {
+        "tech": { "name": "Ridgeline", "scope": "Technology, Engineering & AI", "page": "ridgeline.html" },
+        "health": { "name": "Health Nexus", "scope": "Medicine & Health Sciences", "page": "health-nexus.html" },
+        "earth": { "name": "Verdant Science", "scope": "Sustainability, Environment & Life Sciences", "page": "verdant-science.html" },
+        "civic": { "name": "Charter", "scope": "Policy, Law & Governance", "page": "charter.html" },
+        "culture": { "name": "Threnody", "scope": "Humanities, Arts & Philosophy", "page": "threnody.html" }
+    },
     "journals": [
         {
             "id": "PFR",
             "group": "tech",
+            "subBrand": "tech",
             "title": "Panorama Frontier Review",
             "cat": "Multi.",
             "issn": "Pending",
@@ -20,6 +28,7 @@
         {
             "id": "AFS",
             "group": "tech",
+            "subBrand": "tech",
             "title": "AI & Future Society",
             "cat": "Tech",
             "issn": "3053-4011",
@@ -33,6 +42,7 @@
         {
             "id": "JESA",
             "group": "tech",
+            "subBrand": "tech",
             "title": "Journal of Engineering Systems & Applications",
             "cat": "Eng.",
             "issn": "3053-478X",
@@ -46,6 +56,7 @@
         {
             "id": "HNDH",
             "group": "tech",
+            "subBrand": "health",
             "title": "Health Nexus: Digital Health and Medical AI",
             "cat": "Med AI",
             "issn": "Pending",
@@ -57,8 +68,25 @@
             "descriptionSource": "https://journals.panorama-sg.com/index.php/HNDH"
         },
         {
+            "id": "HNCBT",
+            "group": "env",
+            "subBrand": "health",
+            "title": "Health Nexus: Cancer Biology and Therapeutics",
+            "cat": "Med",
+            "issn": "Pending",
+            "img": "HNCBT.png",
+            "slug": "HNCBT",
+            "journalUrl": "https://journals.panorama-sg.com/index.php/HNCBT",
+            "submissionUrl": "https://journals.panorama-sg.com/index.php/HNCBT/submission",
+            "description": "",
+            "descriptionSource": "",
+            "status": "active",
+            "note": "Cover added 2026-08-27. Journal page went live 2026-08-28; ISSN and description still pending from publisher."
+        },
+        {
             "id": "CSGS",
             "group": "env",
+            "subBrand": "earth",
             "title": "Climate Sustainability & Global Systems",
             "cat": "Env.",
             "issn": "3054-9663",
@@ -72,6 +100,7 @@
         {
             "id": "RGGD",
             "group": "env",
+            "subBrand": "earth",
             "title": "Rural Governance & Green Development",
             "cat": "Env.",
             "issn": "3053-7282",
@@ -85,6 +114,7 @@
         {
             "id": "HN",
             "group": "env",
+            "subBrand": "health",
             "title": "Health Nexus",
             "cat": "Med",
             "issn": "3053-7037",
@@ -98,6 +128,7 @@
         {
             "id": "FSSS",
             "group": "env",
+            "subBrand": "earth",
             "title": "Food Systems, Safety & Sustainability",
             "cat": "Food Sci.",
             "issn": "Pending",
@@ -111,6 +142,7 @@
         {
             "id": "SES",
             "group": "env",
+            "subBrand": "earth",
             "title": "Journal of Sport and Exercise Studies",
             "cat": "Sports",
             "issn": "Pending",
@@ -124,6 +156,7 @@
         {
             "id": "GPPGR",
             "group": "soc",
+            "subBrand": "civic",
             "title": "Global Public Policy & Governance Review",
             "cat": "Policy",
             "issn": "Pending",
@@ -132,11 +165,14 @@
             "journalUrl": "https://journals.panorama-sg.com/index.php/GPPGR",
             "submissionUrl": "https://journals.panorama-sg.com/index.php/GPPGR/submission",
             "description": "Global Public Policy & Governance Review (GPPGR) is an international peer-reviewed journal dedicated to public policy analysis, governance, public administration, and comparative institutional research.",
-            "descriptionSource": "https://journals.panorama-sg.com/index.php/GPPGR (manual, no live content yet)"
+            "descriptionSource": "https://journals.panorama-sg.com/index.php/GPPGR (manual, no live content yet)",
+            "status": "retired",
+            "note": "Retired 2026-08. Governance scope succeeded by GGSR. Keep record (do not hard-delete) for redirect/'merged into GGSR' notice."
         },
         {
             "id": "PEMR",
             "group": "soc",
+            "subBrand": "civic",
             "title": "PoliEcoM Administration Review",
             "cat": "Policy",
             "issn": "3053-3597",
@@ -150,6 +186,7 @@
         {
             "id": "CSSR",
             "group": "soc",
+            "subBrand": "civic",
             "title": "Computational Social Sciences Review",
             "cat": "Data",
             "issn": "Pending",
@@ -163,6 +200,7 @@
         {
             "id": "JLPCS",
             "group": "soc",
+            "subBrand": "civic",
             "title": "Journal of Law, Psychology, and Communication Studies",
             "cat": "Law",
             "issn": "3052-9654",
@@ -176,6 +214,7 @@
         {
             "id": "IRELS",
             "group": "soc",
+            "subBrand": "civic",
             "title": "International Review of Education & Learning",
             "cat": "Edu",
             "issn": "Pending",
@@ -189,6 +228,7 @@
         {
             "id": "JSCC",
             "group": "soc",
+            "subBrand": "civic",
             "title": "Journal of Social Cognition and Communication",
             "cat": "Soc.",
             "issn": "3054-6958",
@@ -202,6 +242,7 @@
         {
             "id": "CRoPT",
             "group": "soc",
+            "subBrand": "civic",
             "title": "Contemporary Review of Political Thought",
             "cat": "Pol.",
             "issn": "3056-0977",
@@ -213,8 +254,41 @@
             "descriptionSource": "https://journals.panorama-sg.com/index.php/CRoPT"
         },
         {
+            "id": "JPOII",
+            "group": "soc",
+            "subBrand": "civic",
+            "title": "Journal of Public Oversight and Institutional Integrity",
+            "cat": "Policy",
+            "issn": "Pending",
+            "img": "JPOII.png",
+            "slug": "JPOII",
+            "journalUrl": "https://journals.panorama-sg.com/index.php/JPOII",
+            "submissionUrl": "https://journals.panorama-sg.com/index.php/JPOII/submission",
+            "description": "",
+            "descriptionSource": "",
+            "status": "active",
+            "note": "Cover added 2026-08-27. Journal page went live 2026-08-28; ISSN and description still pending from publisher."
+        },
+        {
+            "id": "GGSR",
+            "group": "soc",
+            "subBrand": "civic",
+            "title": "Global Governance Systems Review",
+            "cat": "Policy",
+            "issn": "Pending",
+            "img": "GGSR.png",
+            "slug": "GGSR",
+            "journalUrl": "https://journals.panorama-sg.com/index.php/GGSR",
+            "submissionUrl": "https://journals.panorama-sg.com/index.php/GGSR/submission",
+            "description": "",
+            "descriptionSource": "",
+            "status": "active",
+            "note": "Cover added 2026-08-27. Succeeds GPPGR's governance scope. Journal page went live 2026-08-28; ISSN and description still pending from publisher."
+        },
+        {
             "id": "Silence",
             "group": "arts",
+            "subBrand": "culture",
             "title": "Silence",
             "cat": "Phil.",
             "issn": "3054-4386",
@@ -228,6 +302,7 @@
         {
             "id": "GRHAS",
             "group": "arts",
+            "subBrand": "culture",
             "title": "Global Review of Humanities, Arts, & Society",
             "cat": "Arts",
             "issn": "3052-539X",
@@ -241,6 +316,7 @@
         {
             "id": "TTS",
             "group": "arts",
+            "subBrand": "culture",
             "title": "Three Teachings Studies",
             "cat": "Phil.",
             "issn": "3053-6553",
@@ -254,6 +330,7 @@
         {
             "id": "Res",
             "group": "arts",
+            "subBrand": "culture",
             "title": "Resonance",
             "cat": "Music",
             "issn": "3053-4410",
@@ -267,6 +344,7 @@
         {
             "id": "CPRT",
             "group": "arts",
+            "subBrand": "culture",
             "title": "Comparative Philosophy & Religious Traditions",
             "cat": "Phil.",
             "issn": "Pending",
@@ -280,6 +358,7 @@
         {
             "id": "JDES",
             "group": "arts",
+            "subBrand": "culture",
             "title": "Journal of Dance and Embodied Structure",
             "cat": "Arts",
             "issn": "Pending",

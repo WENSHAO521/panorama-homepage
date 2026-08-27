@@ -3,14 +3,57 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found | Panorama Scholarly Group</title>
-    <meta name="description" content="The page you requested could not be found on the Panorama Scholarly Group website.">
-    <meta name="robots" content="noindex">
+    <title>Our Sub-brands | Panorama Scholarly Group</title>
+    <meta name="description" content="Panorama Scholarly Group's 24 journals, organized into five imprints: Ridgeline, Health Nexus, Verdant Science, Charter, and Threnody.">
+    <link rel="canonical" href="https://panorama-sg.com/sub-brands.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Panorama Scholarly Group">
+    <meta property="og:title" content="Our Sub-brands | Panorama Scholarly Group">
+    <meta property="og:description" content="Panorama Scholarly Group's 24 journals, organized into five imprints.">
+    <meta property="og:url" content="https://panorama-sg.com/sub-brands.html">
+    <meta property="og:image" content="https://panorama-sg.com/favicon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Our Sub-brands | Panorama Scholarly Group">
+    <meta name="twitter:description" content="Panorama Scholarly Group's 24 journals, organized into five imprints.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="institutional.css?v=20260811-3">
+    <link rel="stylesheet" href="nexus-brand.css?v=20260828-1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Manrope:wght@700;800&family=Cormorant+Garamond:wght@600;700&family=Spectral:wght@700&family=EB+Garamond:ital,wght@1,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+    <style>
+      .sb-hero{ padding:clamp(56px,8vw,88px) 0 clamp(40px,6vw,56px); background:#FAF9F6; border-bottom:1px solid #E7E3DB; }
+      .sb-hero h1{ font-size:clamp(28px,3.8vw,42px); font-weight:700; letter-spacing:-.01em; max-width:16ch; margin:0 0 16px; color:#15171A; }
+      .sb-hero p{ font-size:16px; color:#42454A; max-width:56ch; margin:0; }
+      .sb-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; padding:clamp(40px,6vw,64px) 0; }
+      .sb-card{ grid-column:span 1; border:1px solid #E7E3DB; border-radius:12px; padding:32px; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:14px; transition:border-color .15s ease, transform .15s ease, opacity .7s cubic-bezier(0.16, 1, 0.3, 1); }
+      .sb-card:hover{ transform:translateY(-2px); }
+      .sb-card .sb-word{ font-size:28px; line-height:1; }
+      .sb-card .sb-scope{ font-size:13.5px; color:#787A7D; }
+      .sb-card .sb-desc{ font-size:14.5px; color:#42454A; line-height:1.6; flex:1; }
+      .sb-card .sb-meta{ display:flex; justify-content:space-between; align-items:center; font-size:13px; font-weight:600; padding-top:10px; border-top:1px solid #E7E3DB; }
+      .sb-card .sb-count{ font-family:'IBM Plex Mono',monospace; color:#787A7D; font-weight:400; }
+      .sb-card.sb-tech{ border-left:4px solid #3E5F8A; } .sb-card.sb-tech:hover{ border-color:#3E5F8A; }
+      .sb-card.sb-health{ border-left:4px solid #C4443D; } .sb-card.sb-health:hover{ border-color:#C4443D; }
+      .sb-card.sb-earth{ border-left:4px solid #3F6B2E; } .sb-card.sb-earth:hover{ border-color:#3F6B2E; }
+      .sb-card.sb-civic{ border-left:4px solid #A8701E; } .sb-card.sb-civic:hover{ border-color:#A8701E; }
+      .sb-card.sb-culture{ grid-column:span 2; border-left:4px solid #93764C; background:#15100F; }
+      .sb-card.sb-culture .sb-scope, .sb-card.sb-culture .sb-desc{ color:rgba(241,234,224,.75); }
+      .sb-card.sb-culture .sb-meta{ border-top-color:rgba(241,234,224,.16); color:#F1EAE0; }
+      .sb-card.sb-culture .sb-count{ color:rgba(241,234,224,.6); }
+      .sb-card.sb-culture:hover{ border-color:#C2A276; }
+      @media (max-width:760px){ .sb-grid{ grid-template-columns:1fr; } .sb-card.sb-culture{ grid-column:span 1; } }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Our Sub-brands",
+      "isPartOf": { "@type": "Organization", "name": "Panorama Scholarly Group", "url": "https://panorama-sg.com" },
+      "url": "https://panorama-sg.com/sub-brands.html"
+    }
+    </script>
 </head>
 <body>
 
@@ -31,7 +74,7 @@
         <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
             <a href="index.html" data-i18n="nav.home">Home</a>
             <div class="platforms-menu">
-                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
+                <button class="platforms-btn current" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
                     <span data-i18n="nav.platforms">Platforms</span>
                     <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
@@ -83,48 +126,61 @@
             <a href="open-access-policy.html" data-i18n="nav.open-access">Open Access</a>
             <a href="editorial-board-application.html" data-i18n="nav.join-eb">Join Editorial Board</a>
             <a href="about.html" data-i18n="nav.about">About</a>
-            <div class="lang-menu">
-                <button class="lang-btn" type="button" aria-label="Select language" aria-expanded="false" data-lang-toggle>
-                    <svg class="lang-globe" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><ellipse cx="8" cy="8" rx="2.6" ry="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.25"/><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1"/><line x1="2" y1="10.5" x2="14" y2="10.5" stroke="currentColor" stroke-width="1"/></svg>
-                    <span class="lang-current">EN</span>
-                    <svg class="lang-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <div class="lang-options" role="menu" data-lang-menu>
-                    <div class="lang-options-header">Language</div>
-                    <button type="button" role="menuitemradio" data-lang-option="en">English</button>
-                    <button type="button" role="menuitemradio" data-lang-option="zh">繁體中文</button>
-                    <button type="button" role="menuitemradio" data-lang-option="zh-cn">简体中文</button>
-                    <div class="lang-divider"></div>
-                    <button type="button" role="menuitemradio" data-lang-option="ja">日本語</button>
-                    <button type="button" role="menuitemradio" data-lang-option="ko">한국어</button>
-                    <div class="lang-divider"></div>
-                    <button type="button" role="menuitemradio" data-lang-option="ru">Русский</button>
-                    <button type="button" role="menuitemradio" data-lang-option="es">Español</button>
-                    <button type="button" role="menuitemradio" data-lang-option="fr">Français</button>
-                    <button type="button" role="menuitemradio" data-lang-option="de">Deutsch</button>
-                    <button type="button" role="menuitemradio" data-lang-option="ar">العربية</button>
-                </div>
-            </div>
         </nav>
     </div>
 </header>
 
 <main>
 
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-body">
-                <p class="kicker">Error 404</p>
-                <h1>This page could not be found.</h1>
-                <p class="lead">The link may be outdated, mistyped, or the page may have moved. Use the links below to find what you're looking for.</p>
-                <div class="btn-row">
-                    <a class="btn primary" href="index.html">Back to Home</a>
-                    <a class="btn" href="sub-brands.html">Browse Journals</a>
-                    <a class="btn" href="contact.html">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="sb-hero">
+    <div class="container">
+      <h1>24 journals, five imprints.</h1>
+      <p>Panorama Scholarly Group organizes its journals into five sub-brands, each with its own editorial focus, cover identity, and name. Pick a field to see the journals in it.</p>
+    </div>
+  </section>
+
+  <section class="nx-section" style="border-bottom:none;">
+    <div class="container">
+      <div class="sb-grid">
+
+        <a class="sb-card sb-tech" href="ridgeline.html">
+          <span class="sb-word" style="font-family:'Archivo';font-weight:800;">Ridgeline</span>
+          <span class="sb-scope">Technology, Engineering &amp; AI</span>
+          <span class="sb-desc">Applied technology, engineering systems, and artificial intelligence research at the frontier.</span>
+          <span class="sb-meta"><span>Explore &rarr;</span><span class="sb-count">3 journals</span></span>
+        </a>
+
+        <a class="sb-card sb-health" href="health-nexus.html">
+          <span class="sb-word" style="font-family:'Manrope';font-weight:800;">Health Ne<span style="color:#C4443D;">x</span>us</span>
+          <span class="sb-scope">Medicine &amp; Health Sciences</span>
+          <span class="sb-desc">Medicine, digital health, and clinical and translational research, from bench to bedside.</span>
+          <span class="sb-meta"><span>Explore &rarr;</span><span class="sb-count">3 journals</span></span>
+        </a>
+
+        <a class="sb-card sb-earth" href="verdant-science.html">
+          <span class="sb-word" style="font-family:'Cormorant Garamond';font-weight:700;"><span style="color:#3F6B2E;">verdant</span> science</span>
+          <span class="sb-scope">Environment &amp; Life Sciences</span>
+          <span class="sb-desc">Climate, rural development, food systems, and sport science scholarship.</span>
+          <span class="sb-meta"><span>Explore &rarr;</span><span class="sb-count">4 journals</span></span>
+        </a>
+
+        <a class="sb-card sb-civic" href="charter.html">
+          <span class="sb-word" style="font-family:'Spectral';font-weight:700;letter-spacing:.06em;">CHARTER</span>
+          <span class="sb-scope">Policy, Law &amp; Governance</span>
+          <span class="sb-desc">Public policy, law, education, computational social science, and political thought.</span>
+          <span class="sb-meta"><span>Explore &rarr;</span><span class="sb-count">8 journals</span></span>
+        </a>
+
+        <a class="sb-card sb-culture" href="threnody.html">
+          <span class="sb-word" style="font-family:'EB Garamond';font-style:italic;font-weight:600;color:#F1EAE0;">Threnody</span>
+          <span class="sb-scope">Humanities, Arts &amp; Philosophy</span>
+          <span class="sb-desc">Philosophy, comparative religion, the arts, music, and dance, for scholarship that takes its time.</span>
+          <span class="sb-meta"><span>Explore &rarr;</span><span class="sb-count">6 journals</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
 
 </main>
 
@@ -153,14 +209,6 @@
                     </a>
                 </div>
             </div>
-            <div class="footer-partners">
-                <p class="footer-platforms-label" data-i18n="footer.partners-label">Partners</p>
-                <div class="footer-partners-logos">
-                    <span class="footer-partner-mark">
-                        <img src="assets/logos/taoist-association-korea-logo.png" alt="Taoist Association of Korea" class="footer-taoist-logo">
-                    </span>
-                </div>
-            </div>
         </div>
         <div>
             <h3 data-i18n="footer.admin-contact">Administrative Contact</h3>
@@ -184,14 +232,12 @@
                 <li><a href="editorial-board-application.html" data-i18n="footer.join-eb">Join Editorial Board</a></li>
                 <li><a href="about.html" data-i18n="footer.about">About</a></li>
                 <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir">Editorial Directory</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify">Credential Verification</a></li>
             </ul>
         </div>
     </div>
     <div class="container footer-bottom">
         <span data-i18n="footer.copyright">©2025–2026 Panorama Scholarly Group Ltd. All rights reserved.</span>
-        <span data-i18n="footer.contact">Contact</span>
+        <span>Our Sub-brands</span>
     </div>
 </footer>
 

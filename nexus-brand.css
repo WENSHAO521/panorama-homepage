@@ -1,0 +1,140 @@
+/* ═══════════════════════════════════════════════════
+   NEXUS SUB-BRAND HUB — shared template
+   Used by: health-nexus.html, ridgeline.html, verdant-science.html,
+            charter.html, threnody.html
+   Brand accent tokens (--brand / --brand-dk / --brand-tint / --brand-font)
+   are set per-page in a small inline <style> block before this file
+   is used, so this stylesheet stays brand-agnostic.
+   ═══════════════════════════════════════════════════ */
+
+/* Split hero: text sits on a plain, brand-tinted ground (never on top of the photo),
+   the real wallpaper photo bleeds full-bleed in its own column to the right.
+   This mirrors link.springer.com/brands/bmc's actual hero (text column + bleed-right
+   picture), not a photo-behind-text wash. Threnody overrides --hero-* to go dark,
+   because its wallpaper is dark and the brand's mood is meant to be. */
+.nx-hero {
+  --hero-bg: var(--brand-tint, #FAF9F6);
+  --hero-ink: #15171A;
+  --hero-ink-soft: #42454A;
+  --hero-stat-bg: #FFFFFF;
+  --hero-stat-border: rgba(21,23,26,0.12);
+  background: var(--hero-bg);
+  color: var(--hero-ink);
+}
+.nx-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: stretch;
+  min-height: 440px;
+}
+.nx-hero-text {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 56px 40px 56px max(24px, calc((100vw - var(--max, 1280px)) / 2 + 24px));
+}
+.nx-hero-visual { position: relative; min-height: 280px; overflow: hidden; }
+.nx-hero-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.nx-hero-breadcrumb {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--hero-ink-soft); opacity: .75; margin-bottom: 24px;
+}
+.nx-hero-breadcrumb a { color: inherit; text-decoration: none; }
+.nx-hero-breadcrumb a:hover { color: var(--brand, #C4443D); }
+.nx-hero-logo { height: 34px; margin-bottom: 22px; }
+.nx-hero-logo img { height: 100%; display: block; }
+.nx-hero h1 {
+  font-family: var(--brand-font, 'Jost'), sans-serif;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 700; line-height: 1.16; letter-spacing: -.01em;
+  text-transform: none; hyphens: none; color: var(--hero-ink);
+  max-width: 20ch; margin: 0 0 18px;
+}
+.nx-hero p.lede {
+  max-width: 50ch; font-size: clamp(15px, 1.4vw, 17px); font-weight: 400;
+  line-height: 1.6; color: var(--hero-ink-soft); margin: 0 0 28px;
+}
+.nx-hero-cta {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  background: var(--brand, #C4443D); color: #fff; text-decoration: none;
+  font-size: 14.5px; font-weight: 600; padding: 13px 22px; border-radius: 100px;
+  margin-bottom: 32px; white-space: nowrap; transition: transform .15s ease;
+}
+.nx-hero-cta:hover { transform: translateY(-1px); }
+.nx-hero-stats {
+  display: flex; flex-wrap: wrap; gap: 1px;
+  background: var(--hero-stat-border); border: 1px solid var(--hero-stat-border);
+  border-radius: 8px; overflow: hidden; max-width: 560px;
+}
+.nx-hero-stats > div { flex: 1 1 148px; background: var(--hero-stat-bg); padding: 14px 16px; }
+.nx-hero-stats dd { white-space: nowrap; }
+.nx-hero-stats dt { font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--hero-ink-soft); opacity: .75; margin-bottom: 6px; }
+.nx-hero-stats dd { margin: 0; font-size: 18px; font-weight: 700; color: var(--hero-ink); }
+@media (max-width: 860px) {
+  .nx-hero-grid { grid-template-columns: 1fr; min-height: 0; }
+  .nx-hero-text { padding: 40px 24px; }
+  .nx-hero-visual { min-height: 0; aspect-ratio: 16/10; }
+  .nx-hero-visual img { position: static; }
+}
+
+.nx-section { padding: clamp(48px, 7vw, 80px) 0; border-bottom: 1px solid #E7E3DB; }
+.nx-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+.nx-eyebrow { display: flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--brand, #C4443D); font-weight: 700; margin-bottom: 10px; }
+.nx-section-head h2 { font-size: clamp(22px, 2.8vw, 28px); font-weight: 700; letter-spacing: -.01em; margin: 0; max-width: 26ch; }
+.nx-section-head .nx-note { font-size: 14px; color: #787A7D; max-width: 42ch; }
+
+.nx-journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.nx-journal-card {
+  border: 1px solid #E7E3DB; border-radius: 10px; overflow: hidden; background: #fff;
+  display: flex; flex-direction: column;
+  transition: border-color .15s ease, transform .15s ease, opacity .7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nx-journal-card:hover { border-color: var(--brand, #C4443D); transform: translateY(-2px); }
+.nx-journal-cover { aspect-ratio: 5/7; background: #F2F0EA; overflow: hidden; }
+.nx-journal-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nx-journal-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.nx-journal-tag { font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--brand, #C4443D); font-weight: 700; }
+.nx-journal-tag.new { color: #fff; background: var(--brand, #C4443D); display: inline-block; padding: 2px 8px; border-radius: 100px; width: fit-content; }
+.nx-journal-title { font-size: 16px; font-weight: 600; line-height: 1.3; color: #15171A; }
+.nx-journal-meta { font-size: 12px; color: #787A7D; font-family: 'IBM Plex Mono', ui-monospace, monospace; margin-top: auto; }
+.nx-journal-link { font-size: 13px; font-weight: 600; color: var(--brand-dk, #970E1A); text-decoration: none; margin-top: 6px; }
+.nx-journal-link:hover { text-decoration: underline; }
+.nx-journal-link[aria-disabled="true"] { color: #A6A9AC; pointer-events: none; }
+
+.nx-subject-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; }
+.nx-subject-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #E7E3DB; font-size: 14.5px; }
+.nx-subject-row a { color: #15171A; text-decoration: none; font-weight: 500; }
+.nx-subject-row a:hover { color: var(--brand-dk, #970E1A); }
+.nx-subject-row span { color: #787A7D; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; }
+
+.nx-about { max-width: 640px; }
+.nx-about h2 { font-size: clamp(22px, 2.8vw, 28px); font-weight: 700; letter-spacing: -.01em; margin: 0 0 18px; max-width: 20ch; color: #15171A; }
+.nx-about p { font-size: 15.5px; line-height: 1.8; color: #42454A; margin: 0 0 16px; }
+.nx-about p:last-of-type { margin-bottom: 0; }
+.nx-about-facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.nx-fact-pill { display: inline-flex; align-items: center; padding: 7px 14px; border-radius: 100px; background: var(--brand-tint, #FAF9F6); color: var(--brand-dk, #42454A); font-size: 12.5px; font-weight: 600; }
+
+.nx-follow { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.nx-follow-links { display: flex; gap: 14px; }
+.nx-follow-links a {
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid #E7E3DB;
+  display: flex; align-items: center; justify-content: center; color: #42454A; text-decoration: none;
+}
+.nx-follow-links a:hover { border-color: var(--brand, #C4443D); color: var(--brand-dk, #970E1A); }
+
+.nx-siblings { background: #FAF9F6; }
+.nx-siblings-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.nx-sib-chip {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px;
+  border: 1px solid #E7E3DB; border-radius: 100px; font-size: 13.5px; font-weight: 500;
+  color: #42454A; text-decoration: none; background: #fff;
+}
+.nx-sib-chip:hover { border-color: #15171A; color: #15171A; }
+.nx-sib-chip.current { border-color: var(--brand, #C4443D); color: var(--brand-dk, #970E1A); background: var(--brand-tint, #FBEEEC); }
+
+@media (max-width: 860px) {
+  .nx-journal-grid { grid-template-columns: repeat(2, 1fr); }
+  .nx-subject-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .nx-journal-grid { grid-template-columns: 1fr; }
+}
