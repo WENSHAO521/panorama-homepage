@@ -82,7 +82,10 @@ function hreflangBlock(pageFile) {
 function injectHreflangBlock(html, pageFile, lang) {
     const canonicalRe = /<link rel="canonical" href="[^"]*">/;
     const ogUrlRe = /<meta property="og:url" content="[^"]*">/;
-    const existingHreflangRe = /(\n[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*">)+/;
+    // Global, non-anchored: strips every hreflang link found anywhere in the
+    // head regardless of contiguity, so a partial/non-adjacent leftover from
+    // a previous run (whatever its cause) can never accumulate into duplicates.
+    const existingHreflangRe = /\n[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*">/g;
     if (!canonicalRe.test(html) || !ogUrlRe.test(html)) {
         throw new Error(`${pageFile} (${lang}): missing canonical or og:url line, cannot inject hreflang block`);
     }
