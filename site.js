@@ -603,6 +603,19 @@
             'nav.platforms.posi-desc': 'Open lifecycle ratings & citation index',
             'nav.platforms.directory-desc': 'Public editorial board profiles',
             'nav.platforms.credential-desc': 'Verify editorial and reviewer certificates',
+            'nav.publications': 'Publications',
+            'nav.publish': 'Publish',
+            'nav.research-infra': 'Research & Infrastructure',
+            'nav.find-journal': 'Find a Journal',
+            'nav.search.placeholder': 'Search journals…',
+            'nav.publications.journals-label': 'Journals',
+            'nav.publications.books-label': 'Scholarly Books',
+            'nav.publications.imprints-label': 'By Editorial Imprint',
+            'nav.publish.journal-authors': 'Journal Authors',
+            'nav.publish.book-authors': 'Book Authors',
+            'nav.publish.publish-book': 'Publish a Book',
+            'nav.publish.editors': 'Editors & Reviewers',
+            'nav.publish.standards': 'Publishing Standards',
             'brand.tagline': 'International Scholarly Publishing and Research Platform',
             'footer.brand-intro': 'Panorama Scholarly Group operates five scholarly platforms: journals, books, research, an open index, and an editorial directory.',
             'footer.admin-contact': 'Administrative Contact',
@@ -661,6 +674,8 @@
             'index.badge.books': 'Scholarly Books',
             'index.btn.journals': 'Browse Journals',
             'index.btn.books': 'Scholarly Books',
+            'index.btn.publish-with-us': 'Publish with Us',
+            'index.btn.explore-research': 'Explore Research',
             'index.btn.authors': 'Author Guide',
             'index.stat.journals': 'Active Journals',
             'index.stat.clusters': 'Subject Clusters',
@@ -739,10 +754,11 @@
             'ann.kicker': 'Announcements',
             'ann.h2': 'Latest news and updates from Panorama Scholarly Group.',
             'index.pub-lines.kicker': 'What We Publish',
-            'index.pub-lines.h2': 'Panorama Scholarly Group operates five scholarly platforms.',
+            'index.pub-lines.h2': 'Publish and discover with Panorama.',
             'index.imprints.kicker': 'Five Imprints',
-            'index.imprints.h2': 'One group, five editorial identities.',
-            'index.imprints.p': "Panorama Scholarly Group's twenty-four journals are organized under five imprints, each with its own editorial focus: Ridgeline for technology, engineering, and AI; Health Nexus for medicine and health sciences; Verdant Science for environment and life sciences; Charter for policy, law, and governance; and Threnody for humanities, arts, and philosophy.",
+            'index.imprints.h2': 'Five editorial identities. One publishing standard.',
+            'index.imprints.explore': 'Explore →',
+            'index.imprints.p': 'Distinct scholarly communities, united by shared standards for peer review, open access, integrity and preservation.',
             'index.imprints.link': 'Browse all journals by imprint →',
             'index.platforms.research.h3': 'Applied & Policy Research',
             'index.platforms.research.link': 'Visit Research Institute',
@@ -1214,6 +1230,19 @@
             'nav.platforms.posi-desc': '開放生命週期評級與引文索引',
             'nav.platforms.directory-desc': '公開編委會檔案',
             'nav.platforms.credential-desc': '查詢編委與審稿人證書真偽',
+            'nav.publications': '出版品',
+            'nav.publish': '投稿',
+            'nav.research-infra': '研究與基礎設施',
+            'nav.find-journal': '尋找期刊',
+            'nav.search.placeholder': '搜尋期刊…',
+            'nav.publications.journals-label': '期刊',
+            'nav.publications.books-label': '學術書籍',
+            'nav.publications.imprints-label': '依編輯品牌',
+            'nav.publish.journal-authors': '期刊作者',
+            'nav.publish.book-authors': '書籍作者',
+            'nav.publish.publish-book': '出版書籍',
+            'nav.publish.editors': '編輯與審稿人',
+            'nav.publish.standards': '出版準則',
             'brand.tagline': '國際學術出版與研究平台',
             'footer.brand-intro': '全景學術集團旗下運營五個學術平台：期刊、書籍、研究院、開放學術指數與編委目錄。',
             'footer.admin-contact': '行政聯絡',
@@ -1272,6 +1301,8 @@
             'index.badge.books': '學術書籍',
             'index.btn.journals': '瀏覽期刊',
             'index.btn.books': '學術書籍',
+            'index.btn.publish-with-us': '與我們合作出版',
+            'index.btn.explore-research': '探索研究院',
             'index.btn.authors': '投稿指南',
             'index.stat.journals': '活躍期刊',
             'index.stat.clusters': '學科群組',
@@ -1468,7 +1499,7 @@
             'index.tl.about-pub.desc': '出版商使命、目錄結構及政策框架。',
             'about.tl.standards': '編輯標準',
             'about.tl.oa-commitment': '開放获取承諾',
-            'about.tl.catalogue.desc': '22 本跨 4 個學科群組的同行評審開放获取期刊。',
+            'about.tl.catalogue.desc': '24 本跨五個編輯品牌的同行評審開放取用期刊。',
             'about.tl.books.desc': '專著、編著及書系，全部經過同行評審。',
             'about.tl.standards.desc': '同行評審誠信、著作權政策及更正程序。',
             'about.tl.oa-commitment.desc': '所有出版物均在創用 CC 授權下免費獲取。',
@@ -1487,7 +1518,7 @@
             'about.tl2.oa.desc': '授權條款、作者版權及存儲庫指引。',
             'about.tl2.editorial-dir.desc': '編輯檔案透明度的外部參考資料。',
             'about.tl2.contact.desc': '就行政或政策事宜聯絡出版商。',
-            'contact.ql.journals.desc': '瀏覽所有 22 份附投稿途徑的期刊。',
+            'contact.ql.journals.desc': '瀏覽所有 24 份附投稿途徑的期刊。',
             'contact.ql.books.desc': '提交書籍提案或探索書籍目錄。',
             'contact.ql.guide.desc': '從準備到出版的完整期刊投稿指引。',
             'contact.ql.ethics.desc': '編輯行為及誠信要求。',
@@ -1555,7 +1586,7 @@
             'indexing.doi.step3.h3': '持久解析',
             'indexing.doi.step4.h3': '元數據標準',
             'indexing.ql.enquiries': '查詢',
-            'indexing.ql.journals.desc': '瀏覽所有 22 份含 ISSN 及學科群組資訊的期刊。',
+            'indexing.ql.journals.desc': '瀏覽所有 24 份含 ISSN 及編輯品牌資訊的期刊。',
             'indexing.ql.oa.desc': '查閱授權、存儲庫及版權指引。',
             'indexing.ql.ethics.desc': '編輯誠信及同行評審行為標準。',
             'indexing.ql.contact.desc': '就收錄或存檔問題聯絡出版商。',
@@ -1574,7 +1605,7 @@
             'authors.ql.ethics.desc': '所有投稿及評審的倫理要求。',
             'authors.ql.oa.desc': '授權、版權及存儲庫存放指引。',
             'authors.ql.contact.desc': '就投稿或政策問題聯絡出版商。',
-            'index.pub-lines.journals.h3-full': '22本同行評審開放取用期刊',
+            'index.pub-lines.journals.h3-full': '24本同行評審開放取用期刊',
             'index.pub-lines.journals.btn': '瀏覽期刊目錄',
             'index.pub-lines.books.h3-full': '專著、編輯論文集與書系',
             'index.pub-lines.books.btn': '瀏覽學術書籍',
@@ -1823,6 +1854,19 @@
         'nav.platforms.posi-desc': 'ライフサイクル評価・引用のオープン指数',
         'nav.platforms.directory-desc': '公開編集委員会プロフィール',
         'nav.platforms.credential-desc': '編集委員・査読者の証明書を確認',
+        'nav.publications': '出版物',
+        'nav.publish': '投稿',
+        'nav.research-infra': '研究・基盤インフラ',
+        'nav.find-journal': 'ジャーナルを探す',
+        'nav.search.placeholder': 'ジャーナルを検索…',
+        'nav.publications.journals-label': 'ジャーナル',
+        'nav.publications.books-label': '学術書籍',
+        'nav.publications.imprints-label': '出版インプリント別',
+        'nav.publish.journal-authors': 'ジャーナル投稿者',
+        'nav.publish.book-authors': '書籍著者',
+        'nav.publish.publish-book': '書籍を出版する',
+        'nav.publish.editors': '編集者・査読者',
+        'nav.publish.standards': '出版基準',
         'brand.tagline': '国際学術出版・研究プラットフォーム',
         'footer.brand-intro': 'Panorama Scholarly Groupは、ジャーナル、書籍、研究院、オープン学術指数、編集者ディレクトリという五つの学術プラットフォームを運営しています。',
         'footer.admin-contact': '管理窓口',
@@ -1880,6 +1924,8 @@
         'index.badge.books': '学術書籍',
         'index.btn.journals': 'ジャーナルを閲覧',
         'index.btn.books': '学術書籍',
+        'index.btn.publish-with-us': '当社で出版する',
+        'index.btn.explore-research': '研究を見る',
         'index.btn.authors': '著者ガイド',
         'index.stat.journals': '運営中のジャーナル',
         'index.stat.clusters': '分野クラスター',
@@ -2076,7 +2122,7 @@
         'index.tl.about-pub.desc': 'グループの使命、プラットフォーム構造、政策フレームワーク。',
         'about.tl.standards': '編集基準',
         'about.tl.oa-commitment': 'オープンアクセスへの取り組み',
-        'about.tl.catalogue.desc': '4 つの学科クラスターにわたる 22 誌の査読付きオープンアクセス誌。',
+        'about.tl.catalogue.desc': '5つの出版インプリントにわたる24誌の査読付きオープンアクセス誌。',
         'about.tl.books.desc': 'モノグラフ、編著書、書籍シリーズ、すべて査読付き。',
         'about.tl.standards.desc': '査読の誠実性、著作権ポリシー、修正手順。',
         'about.tl.oa-commitment.desc': 'すべての出版物をクリエイティブ・コモンズライセンスで無料提供。',
@@ -2095,7 +2141,7 @@
         'about.tl2.oa.desc': 'ライセンス条件、著者権利、リポジトリガイダンス。',
         'about.tl2.editorial-dir.desc': '編集プロフィールの透明性に関する外部参照資料。',
         'about.tl2.contact.desc': '管理または政策事項について出版社にお問い合わせ。',
-        'contact.ql.journals.desc': '投稿経路付きの全 22 誌を閲覧。',
+        'contact.ql.journals.desc': '投稿経路付きの全24誌を閲覧。',
         'contact.ql.books.desc': '書籍提案を送付するか書籍カタログを探索。',
         'contact.ql.guide.desc': '準備から出版までの完全な投稿ガイド。',
         'contact.ql.ethics.desc': '編集行為および誠実性要件。',
@@ -2163,7 +2209,7 @@
         'indexing.doi.step3.h3': '永続的な解決',
         'indexing.doi.step4.h3': 'メタデータ標準',
         'indexing.ql.enquiries': 'お問い合わせ',
-        'indexing.ql.journals.desc': 'ISSN およびクラスター情報付きの全 22 誌を閲覧。',
+        'indexing.ql.journals.desc': 'ISSN およびインプリント情報付きの全24誌を閲覧。',
         'indexing.ql.oa.desc': 'ライセンス、リポジトリ、権利ガイダンスを確認。',
         'indexing.ql.ethics.desc': '編集誠実性と査読行為基準。',
         'indexing.ql.contact.desc': '収録やアーカイブについて出版社にお問い合わせ。',
@@ -2182,7 +2228,7 @@
         'authors.ql.ethics.desc': 'すべての投稿および査読の倫理要件。',
         'authors.ql.oa.desc': 'ライセンス、権利、リポジトリ寄託ガイダンス。',
         'authors.ql.contact.desc': '投稿または政策について出版社にお問い合わせ。',
-        'index.pub-lines.journals.h3-full': '22誌の査読済みオープンアクセス誌',
+        'index.pub-lines.journals.h3-full': '24誌の査読済みオープンアクセス誌',
         'index.pub-lines.journals.btn': '雑誌カタログを閲覧する',
         'index.pub-lines.books.h3-full': 'モノグラフ、編著、ブックシリーズ',
         'index.pub-lines.books.btn': '学術書籍を見る',
@@ -2430,6 +2476,19 @@
         'nav.platforms.posi-desc': '개방형 생애주기 등급 및 인용 지수',
         'nav.platforms.directory-desc': '공개 편집위원회 프로필',
         'nav.platforms.credential-desc': '편집위원 및 심사위원 증명서 확인',
+        'nav.publications': '출판물',
+        'nav.publish': '투고',
+        'nav.research-infra': '연구 및 인프라',
+        'nav.find-journal': '저널 찾기',
+        'nav.search.placeholder': '저널 검색…',
+        'nav.publications.journals-label': '저널',
+        'nav.publications.books-label': '학술 도서',
+        'nav.publications.imprints-label': '편집 임프린트별',
+        'nav.publish.journal-authors': '저널 저자',
+        'nav.publish.book-authors': '도서 저자',
+        'nav.publish.publish-book': '도서 출판',
+        'nav.publish.editors': '편집자 및 심사위원',
+        'nav.publish.standards': '출판 기준',
         'brand.tagline': '국제 학술 출판 및 연구 플랫폼',
         'footer.brand-intro': 'Panorama Scholarly Group은 저널, 서적, 연구원, 오픈 학술 지수, 편집진 디렉터리 등 다섯 개의 학술 플랫폼을 운영합니다.',
         'footer.admin-contact': '행정 문의',
@@ -2487,6 +2546,8 @@
         'index.badge.books': '학술 서적',
         'index.btn.journals': '저널 목록',
         'index.btn.books': '학술 서적',
+        'index.btn.publish-with-us': '우리와 함께 출판하기',
+        'index.btn.explore-research': '연구 살펴보기',
         'index.btn.authors': '저자 가이드',
         'index.stat.journals': '운영 저널',
         'index.stat.clusters': '주제 클러스터',
@@ -2683,7 +2744,7 @@
         'index.tl.about-pub.desc': '출판사 사명, 카탈로그 구조 및 정책 프레임워크.',
         'about.tl.standards': '편집 기준',
         'about.tl.oa-commitment': '오픈 액세스 약속',
-        'about.tl.catalogue.desc': '4개 주제 클러스터에 걸친 22개 동료 심사 오픈 액세스 저널.',
+        'about.tl.catalogue.desc': '5개 편집 임프린트에 걸친 24개 동료 심사 오픈 액세스 저널.',
         'about.tl.books.desc': '단행본, 편집서 및 도서 시리즈, 모두 동료 심사 완료.',
         'about.tl.standards.desc': '동료 심사 무결성, 저작권 정책 및 수정 절차.',
         'about.tl.oa-commitment.desc': '모든 출판물을 크리에이티브 커먼즈 라이선스로 무료 제공.',
@@ -2702,7 +2763,7 @@
         'about.tl2.oa.desc': '라이선스 조건, 저자 권리 및 저장소 안내.',
         'about.tl2.editorial-dir.desc': '편집 프로필 투명성을 위한 외부 참고 자료.',
         'about.tl2.contact.desc': '행정 또는 정책 문의를 위해 출판사에 연락하세요.',
-        'contact.ql.journals.desc': '투고 경로가 있는 전체 22개 저널을 탐색하세요.',
+        'contact.ql.journals.desc': '투고 경로가 있는 전체 24개 저널을 탐색하세요.',
         'contact.ql.books.desc': '도서 제안을 제출하거나 도서 카탈로그를 탐색하세요.',
         'contact.ql.guide.desc': '준비부터 출판까지의 전체 저널 투고 안내.',
         'contact.ql.ethics.desc': '편집 행위 및 무결성 요건.',
@@ -2770,7 +2831,7 @@
         'indexing.doi.step3.h3': '영구 해석',
         'indexing.doi.step4.h3': '메타데이터 표준',
         'indexing.ql.enquiries': '문의',
-        'indexing.ql.journals.desc': 'ISSN 및 클러스터 정보가 있는 전체 22개 저널을 탐색하세요.',
+        'indexing.ql.journals.desc': 'ISSN 및 임프린트 정보가 있는 전체 24개 저널을 탐색하세요.',
         'indexing.ql.oa.desc': '라이선스, 저장소 및 권리 안내를 검토하세요.',
         'indexing.ql.ethics.desc': '편집 무결성 및 동료 심사 행위 기준.',
         'indexing.ql.contact.desc': '색인 또는 아카이브에 대해 Panorama Scholarly Group에 문의하세요.',
@@ -2789,7 +2850,7 @@
         'authors.ql.ethics.desc': '모든 투고 및 심사의 윤리 요건.',
         'authors.ql.oa.desc': '라이선스, 권리 및 저장소 기탁 안내.',
         'authors.ql.contact.desc': '투고 또는 정책에 대해 Panorama Scholarly Group에 문의하세요.',
-        'index.pub-lines.journals.h3-full': '22개의 동료 심사 오픈 액세스 저널',
+        'index.pub-lines.journals.h3-full': '24개의 동료 심사 오픈 액세스 저널',
         'index.pub-lines.journals.btn': '저널 카탈로그 탐색',
         'index.pub-lines.books.h3-full': '단행본, 편집 저서 및 도서 시리즈',
         'index.pub-lines.books.btn': '학술 도서 방문',
@@ -3036,6 +3097,19 @@
         'nav.platforms.posi-desc': '开放生命周期评级与引文索引',
         'nav.platforms.directory-desc': '公开编委会档案',
         'nav.platforms.credential-desc': '查询编委与审稿人证书真伪',
+        'nav.publications': '出版物',
+        'nav.publish': '投稿',
+        'nav.research-infra': '研究与基础设施',
+        'nav.find-journal': '查找期刊',
+        'nav.search.placeholder': '搜索期刊…',
+        'nav.publications.journals-label': '期刊',
+        'nav.publications.books-label': '学术书籍',
+        'nav.publications.imprints-label': '按编辑品牌',
+        'nav.publish.journal-authors': '期刊作者',
+        'nav.publish.book-authors': '图书作者',
+        'nav.publish.publish-book': '出版图书',
+        'nav.publish.editors': '编辑与审稿人',
+        'nav.publish.standards': '出版准则',
         'brand.tagline': '国际学术出版与研究平台',
         'footer.brand-intro': '全景学术集团旗下运营五个学术平台：期刊、书籍、研究院、开放学术指数与编委目录。',
         'footer.admin-contact': '行政联络',
@@ -3092,6 +3166,8 @@
         'index.badge.books': '学术书籍',
         'index.btn.journals': '浏览期刊',
         'index.btn.books': '学术书籍',
+        'index.btn.publish-with-us': '与我们合作出版',
+        'index.btn.explore-research': '探索研究院',
         'index.btn.authors': '投稿指南',
         'index.stat.journals': '活跃期刊',
         'index.stat.clusters': '学科群组',
@@ -3288,7 +3364,7 @@
         'index.tl.about-pub.desc': '出版商使命、目录结构及政策框架。',
         'about.tl.standards': '编辑标准',
         'about.tl.oa-commitment': '开放获取承诺',
-        'about.tl.catalogue.desc': '22 本跨 4 个学科群组的同行评审开放获取期刊。',
+        'about.tl.catalogue.desc': '24 本涵盖五个编辑品牌的同行评审开放获取期刊。',
         'about.tl.books.desc': '专著、编著及书系，全部经过同行评审。',
         'about.tl.standards.desc': '同行评审诚信、著作权政策及更正程序。',
         'about.tl.oa-commitment.desc': '所有出版物均在创用 CC 授权下免费获取。',
@@ -3307,7 +3383,7 @@
         'about.tl2.oa.desc': '授权条款、作者版权及存储库指引。',
         'about.tl2.editorial-dir.desc': '编辑档案透明度的外部参考资料。',
         'about.tl2.contact.desc': '就行政或政策事宜联络出版商。',
-        'contact.ql.journals.desc': '浏览所有 22 份附投稿途径的期刊。',
+        'contact.ql.journals.desc': '浏览所有 24 份附投稿途径的期刊。',
         'contact.ql.books.desc': '提交书籍提案或探索书籍目录。',
         'contact.ql.guide.desc': '从准备到出版的完整期刊投稿指引。',
         'contact.ql.ethics.desc': '编辑行为及诚信要求。',
@@ -3375,7 +3451,7 @@
         'indexing.doi.step3.h3': '持久解析',
         'indexing.doi.step4.h3': '元数据标准',
         'indexing.ql.enquiries': '查询',
-        'indexing.ql.journals.desc': '浏览所有 22 份含 ISSN 及学科群组资讯的期刊。',
+        'indexing.ql.journals.desc': '浏览所有 24 份含 ISSN 及编辑品牌资讯的期刊。',
         'indexing.ql.oa.desc': '查阅授权、存储库及版权指引。',
         'indexing.ql.ethics.desc': '编辑诚信及同行评审行为标准。',
         'indexing.ql.contact.desc': '就收录或存档问题联络出版商。',
@@ -3394,7 +3470,7 @@
         'authors.ql.ethics.desc': '所有投稿及评审的伦理要求。',
         'authors.ql.oa.desc': '授权、版权及存储库存放指引。',
         'authors.ql.contact.desc': '就投稿或政策问题联络出版商。',
-        'index.pub-lines.journals.h3-full': '22本同行评审开放获取期刊',
+        'index.pub-lines.journals.h3-full': '24本同行评审开放获取期刊',
         'index.pub-lines.journals.btn': '浏览期刊目录',
         'index.pub-lines.books.h3-full': '专著、编辑论文集与书系',
         'index.pub-lines.books.btn': '浏览学术书籍',
@@ -3531,6 +3607,19 @@
         'nav.platforms.posi-desc': 'Открытый индекс жизненного цикла и цитирования',
         'nav.platforms.directory-desc': 'Публичные профили редколлегии',
         'nav.platforms.credential-desc': 'Проверка сертификатов редакторов и рецензентов',
+        'nav.publications': 'Публикации',
+        'nav.publish': 'Публиковаться',
+        'nav.research-infra': 'Исследования и инфраструктура',
+        'nav.find-journal': 'Найти журнал',
+        'nav.search.placeholder': 'Поиск журналов…',
+        'nav.publications.journals-label': 'Журналы',
+        'nav.publications.books-label': 'Научные книги',
+        'nav.publications.imprints-label': 'По издательским импринтам',
+        'nav.publish.journal-authors': 'Авторам журнальных статей',
+        'nav.publish.book-authors': 'Авторам книг',
+        'nav.publish.publish-book': 'Издать книгу',
+        'nav.publish.editors': 'Редакторам и рецензентам',
+        'nav.publish.standards': 'Издательские стандарты',
         'brand.tagline': 'Международная платформа научных публикаций и исследований',
         'footer.brand-intro': 'Panorama Scholarly Group управляет пятью научными платформами: журналами, книгами, исследовательским институтом, открытым индексом и редакционным каталогом.',
         'footer.admin-contact': 'Административный контакт',
@@ -3589,6 +3678,8 @@
         'index.badge.books': 'Научные книги',
         'index.btn.journals': 'Журналы',
         'index.btn.books': 'Научные книги',
+        'index.btn.publish-with-us': 'Публикуйтесь с нами',
+        'index.btn.explore-research': 'Исследования института',
         'index.btn.authors': 'Руководство для авторов',
         'index.stat.journals': 'Активные журналы',
         'index.stat.clusters': 'Предметные кластеры',
@@ -3785,7 +3876,7 @@
         'index.tl.about-pub.desc': 'Миссия издателя, структура каталога и политическая база.',
         'about.tl.standards': 'Редакционные стандарты',
         'about.tl.oa-commitment': 'Обязательства по открытому доступу',
-        'about.tl.catalogue.desc': '22 рецензируемых журнала открытого доступа в 4 предметных кластерах.',
+        'about.tl.catalogue.desc': '24 рецензируемых журнала открытого доступа в рамках пяти издательских импринтов.',
         'about.tl.books.desc': 'Монографии, сборники и книжные серии — с полным рецензированием.',
         'about.tl.standards.desc': 'Добросовестность рецензирования, политика авторства и процедуры исправлений.',
         'about.tl.oa-commitment.desc': 'Все публикации в свободном доступе по лицензии Creative Commons.',
@@ -3804,7 +3895,7 @@
         'about.tl2.oa.desc': 'Условия лицензирования, права авторов и руководство по репозиторию.',
         'about.tl2.editorial-dir.desc': 'Внешние ссылки для прозрачности редакционного профиля.',
         'about.tl2.contact.desc': 'Обратитесь к издателю по административным или политическим вопросам.',
-        'contact.ql.journals.desc': 'Просмотрите все 22 журнала с маршрутами подачи.',
+        'contact.ql.journals.desc': 'Просмотрите все 24 журнала с маршрутами подачи.',
         'contact.ql.books.desc': 'Отправьте предложение книги или просмотрите каталог.',
         'contact.ql.guide.desc': 'Полное руководство по подаче от подготовки до публикации.',
         'contact.ql.ethics.desc': 'Требования к редакционному поведению и добросовестности.',
@@ -3872,7 +3963,7 @@
         'indexing.doi.step3.h3': 'Постоянное разрешение',
         'indexing.doi.step4.h3': 'Стандарты метаданных',
         'indexing.ql.enquiries': 'Запросы',
-        'indexing.ql.journals.desc': 'Просмотрите все 22 журнала с информацией об ISSN и кластерах.',
+        'indexing.ql.journals.desc': 'Просмотрите все 24 журнала с информацией об ISSN и импринтах.',
         'indexing.ql.oa.desc': 'Изучите руководство по лицензированию, репозиторию и правам.',
         'indexing.ql.ethics.desc': 'Стандарты редакционной добросовестности и рецензирования.',
         'indexing.ql.contact.desc': 'Обратитесь к издателю по вопросам индексирования или архивирования.',
@@ -3891,7 +3982,7 @@
         'authors.ql.ethics.desc': 'Требования этики для всех подач и рецензий.',
         'authors.ql.oa.desc': 'Руководство по лицензированию, правам и депонированию.',
         'authors.ql.contact.desc': 'Обратитесь к издателю по вопросам подачи или политики.',
-        'index.pub-lines.journals.h3-full': '22 рецензируемых журнала с открытым доступом',
+        'index.pub-lines.journals.h3-full': '24 рецензируемых журнала с открытым доступом',
         'index.pub-lines.journals.btn': 'Просмотр каталога журналов',
         'index.pub-lines.books.h3-full': 'Монографии, сборники и книжные серии',
         'index.pub-lines.books.btn': 'Посетить Scholarly Books',
@@ -4139,6 +4230,19 @@
         'nav.platforms.posi-desc': 'Índice abierto de calificación por ciclo de vida y citas',
         'nav.platforms.directory-desc': 'Perfiles públicos del comité editorial',
         'nav.platforms.credential-desc': 'Verifique certificados de editores y revisores',
+        'nav.publications': 'Publicaciones',
+        'nav.publish': 'Publicar',
+        'nav.research-infra': 'Investigación e infraestructura',
+        'nav.find-journal': 'Buscar una revista',
+        'nav.search.placeholder': 'Buscar revistas…',
+        'nav.publications.journals-label': 'Revistas',
+        'nav.publications.books-label': 'Libros académicos',
+        'nav.publications.imprints-label': 'Por sello editorial',
+        'nav.publish.journal-authors': 'Autores de revistas',
+        'nav.publish.book-authors': 'Autores de libros',
+        'nav.publish.publish-book': 'Publicar un libro',
+        'nav.publish.editors': 'Editores y revisores',
+        'nav.publish.standards': 'Normas de publicación',
         'brand.tagline': 'Plataforma internacional de publicación e investigación académica',
         'footer.brand-intro': 'Panorama Scholarly Group opera cinco plataformas académicas: revistas, libros, un instituto de investigación, un índice abierto y un directorio editorial.',
         'footer.admin-contact': 'Contacto administrativo',
@@ -4196,6 +4300,8 @@
         'index.badge.books': 'Libros académicos',
         'index.btn.journals': 'Ver revistas',
         'index.btn.books': 'Libros académicos',
+        'index.btn.publish-with-us': 'Publique con nosotros',
+        'index.btn.explore-research': 'Explorar investigación',
         'index.btn.authors': 'Guía para autores',
         'index.stat.journals': 'Revistas activas',
         'index.stat.clusters': 'Grupos temáticos',
@@ -4392,7 +4498,7 @@
         'index.tl.about-pub.desc': 'Misión del editor, estructura del catálogo y marco de políticas.',
         'about.tl.standards': 'Estándares editoriales',
         'about.tl.oa-commitment': 'Compromiso de acceso abierto',
-        'about.tl.catalogue.desc': '22 revistas de acceso abierto revisadas por pares en 4 grupos temáticos.',
+        'about.tl.catalogue.desc': '24 revistas de acceso abierto revisadas por pares en cinco sellos editoriales.',
         'about.tl.books.desc': 'Monografías, volúmenes editados y series de libros con revisión por pares completa.',
         'about.tl.standards.desc': 'Integridad de la revisión por pares, política de autoría y procedimientos de corrección.',
         'about.tl.oa-commitment.desc': 'Todas las publicaciones disponibles gratuitamente bajo licencia Creative Commons.',
@@ -4411,7 +4517,7 @@
         'about.tl2.oa.desc': 'Condiciones de licencia, derechos de autor y orientación sobre repositorios.',
         'about.tl2.editorial-dir.desc': 'Referencias externas para la transparencia del perfil editorial.',
         'about.tl2.contact.desc': 'Contacte al editor para consultas administrativas o de política.',
-        'contact.ql.journals.desc': 'Explore las 22 revistas con rutas de envío.',
+        'contact.ql.journals.desc': 'Explore las 24 revistas con rutas de envío.',
         'contact.ql.books.desc': 'Envíe una propuesta de libro o explore el catálogo.',
         'contact.ql.guide.desc': 'Guía completa de envío desde la preparación hasta la publicación.',
         'contact.ql.ethics.desc': 'Requisitos de conducta editorial e integridad.',
@@ -4479,7 +4585,7 @@
         'indexing.doi.step3.h3': 'Resolución persistente',
         'indexing.doi.step4.h3': 'Estándares de metadatos',
         'indexing.ql.enquiries': 'Consultas',
-        'indexing.ql.journals.desc': 'Explore las 22 revistas con información de ISSN y grupos.',
+        'indexing.ql.journals.desc': 'Explore las 24 revistas con información de ISSN y sellos editoriales.',
         'indexing.ql.oa.desc': 'Revise la guía de licencias, repositorios y derechos.',
         'indexing.ql.ethics.desc': 'Estándares de integridad editorial y revisión por pares.',
         'indexing.ql.contact.desc': 'Contacte al editor sobre indexación o archivo.',
@@ -4498,7 +4604,7 @@
         'authors.ql.ethics.desc': 'Requisitos éticos para todos los envíos y revisiones.',
         'authors.ql.oa.desc': 'Orientación sobre licencias, derechos y depósito en repositorios.',
         'authors.ql.contact.desc': 'Contacte al editor para preguntas sobre envío o política.',
-        'index.pub-lines.journals.h3-full': '22 revistas de acceso abierto con revisión por pares',
+        'index.pub-lines.journals.h3-full': '24 revistas de acceso abierto con revisión por pares',
         'index.pub-lines.journals.btn': 'Ver catálogo de revistas',
         'index.pub-lines.books.h3-full': 'Monografías, volúmenes editados y series de libros',
         'index.pub-lines.books.btn': 'Visitar Scholarly Books',
@@ -4746,6 +4852,19 @@
         'nav.platforms.posi-desc': 'Index ouvert des notations de cycle de vie et des citations',
         'nav.platforms.directory-desc': 'Profils publics du comité éditorial',
         'nav.platforms.credential-desc': 'Vérifiez les certificats des rédacteurs et évaluateurs',
+        'nav.publications': 'Publications',
+        'nav.publish': 'Publier',
+        'nav.research-infra': 'Recherche et infrastructure',
+        'nav.find-journal': 'Trouver une revue',
+        'nav.search.placeholder': 'Rechercher une revue…',
+        'nav.publications.journals-label': 'Revues',
+        'nav.publications.books-label': 'Livres académiques',
+        'nav.publications.imprints-label': 'Par label éditorial',
+        'nav.publish.journal-authors': 'Auteurs de revues',
+        'nav.publish.book-authors': 'Auteurs de livres',
+        'nav.publish.publish-book': 'Publier un livre',
+        'nav.publish.editors': 'Rédacteurs et évaluateurs',
+        'nav.publish.standards': 'Normes de publication',
         'brand.tagline': 'Plateforme internationale de publication et de recherche académique',
         'footer.brand-intro': "Panorama Scholarly Group exploite cinq plateformes savantes : revues, ouvrages, institut de recherche, index ouvert et répertoire éditorial.",
         'footer.admin-contact': 'Contact administratif',
@@ -4803,6 +4922,8 @@
         'index.badge.books': 'Ouvrages académiques',
         'index.btn.journals': 'Voir les revues',
         'index.btn.books': 'Ouvrages académiques',
+        'index.btn.publish-with-us': 'Publier avec nous',
+        'index.btn.explore-research': 'Explorer la recherche',
         'index.btn.authors': 'Guide des auteurs',
         'index.stat.journals': 'Revues actives',
         'index.stat.clusters': 'Groupes thématiques',
@@ -4999,7 +5120,7 @@
         'index.tl.about-pub.desc': 'Mission de l\'éditeur, structure du catalogue et cadre de politiques.',
         'about.tl.standards': 'Normes éditoriales',
         'about.tl.oa-commitment': 'Engagement en faveur du libre accès',
-        'about.tl.catalogue.desc': '22 revues en libre accès évaluées par les pairs en 4 groupes thématiques.',
+        'about.tl.catalogue.desc': '24 revues en libre accès évaluées par les pairs, réparties en cinq labels éditoriaux.',
         'about.tl.books.desc': 'Monographies, volumes collectifs et séries de livres avec évaluation complète par les pairs.',
         'about.tl.standards.desc': 'Intégrité de l\'évaluation par les pairs, politique d\'auteur et procédures de correction.',
         'about.tl.oa-commitment.desc': 'Toutes les publications disponibles gratuitement sous licence Creative Commons.',
@@ -5018,7 +5139,7 @@
         'about.tl2.oa.desc': 'Conditions de licence, droits d\'auteur et orientation sur les dépôts.',
         'about.tl2.editorial-dir.desc': 'Références externes pour la transparence du profil éditorial.',
         'about.tl2.contact.desc': 'Contactez l\'éditeur pour toute demande administrative ou de politique.',
-        'contact.ql.journals.desc': 'Explorez les 22 revues avec leurs voies de soumission.',
+        'contact.ql.journals.desc': 'Explorez les 24 revues avec leurs voies de soumission.',
         'contact.ql.books.desc': 'Soumettez une proposition de livre ou explorez le catalogue.',
         'contact.ql.guide.desc': 'Guide complet de soumission de la préparation à la publication.',
         'contact.ql.ethics.desc': 'Exigences de conduite éditoriale et d\'intégrité.',
@@ -5086,7 +5207,7 @@
         'indexing.doi.step3.h3': 'Résolution persistante',
         'indexing.doi.step4.h3': 'Normes de métadonnées',
         'indexing.ql.enquiries': 'Demandes de renseignements',
-        'indexing.ql.journals.desc': 'Explorez les 22 revues avec informations ISSN et groupes.',
+        'indexing.ql.journals.desc': 'Explorez les 24 revues avec informations ISSN et labels éditoriaux.',
         'indexing.ql.oa.desc': 'Consultez le guide sur les licences, dépôts et droits.',
         'indexing.ql.ethics.desc': 'Normes d\'intégrité éditoriale et d\'évaluation par les pairs.',
         'indexing.ql.contact.desc': 'Contactez l\'éditeur au sujet de l\'indexation ou de l\'archivage.',
@@ -5105,7 +5226,7 @@
         'authors.ql.ethics.desc': 'Exigences éthiques pour toutes les soumissions et évaluations.',
         'authors.ql.oa.desc': 'Orientation sur les licences, droits et dépôts en dépôt.',
         'authors.ql.contact.desc': 'Contactez l\'éditeur pour toute question de soumission ou de politique.',
-        'index.pub-lines.journals.h3-full': '22 revues en libre accès évaluées par les pairs',
+        'index.pub-lines.journals.h3-full': '24 revues en libre accès évaluées par les pairs',
         'index.pub-lines.journals.btn': 'Parcourir le catalogue des revues',
         'index.pub-lines.books.h3-full': 'Monographies, volumes collectifs et séries de livres',
         'index.pub-lines.books.btn': 'Visiter Scholarly Books',
@@ -5353,6 +5474,19 @@
         'nav.platforms.posi-desc': 'Offener Index für Lebenszyklusbewertungen und Zitationen',
         'nav.platforms.directory-desc': 'Öffentliche Profile des Herausgebergremiums',
         'nav.platforms.credential-desc': 'Zertifikate von Redakteuren und Gutachtern prüfen',
+        'nav.publications': 'Publikationen',
+        'nav.publish': 'Veröffentlichen',
+        'nav.research-infra': 'Forschung & Infrastruktur',
+        'nav.find-journal': 'Zeitschrift finden',
+        'nav.search.placeholder': 'Zeitschriften durchsuchen…',
+        'nav.publications.journals-label': 'Zeitschriften',
+        'nav.publications.books-label': 'Wissenschaftliche Bücher',
+        'nav.publications.imprints-label': 'Nach Verlagsimprint',
+        'nav.publish.journal-authors': 'Zeitschriftenautoren',
+        'nav.publish.book-authors': 'Buchautoren',
+        'nav.publish.publish-book': 'Ein Buch veröffentlichen',
+        'nav.publish.editors': 'Redakteure & Gutachter',
+        'nav.publish.standards': 'Publikationsstandards',
         'brand.tagline': 'Internationale Plattform für wissenschaftliches Publizieren und Forschung',
         'footer.brand-intro': 'Panorama Scholarly Group betreibt fünf wissenschaftliche Plattformen: Zeitschriften, Bücher, ein Forschungsinstitut, einen offenen Index und ein Redaktionsverzeichnis.',
         'footer.admin-contact': 'Verwaltungskontakt',
@@ -5410,6 +5544,8 @@
         'index.badge.books': 'Wissenschaftliche Bücher',
         'index.btn.journals': 'Zeitschriften',
         'index.btn.books': 'Wissenschaftliche Bücher',
+        'index.btn.publish-with-us': 'Mit uns veröffentlichen',
+        'index.btn.explore-research': 'Forschung entdecken',
         'index.btn.authors': 'Autorenleitfaden',
         'index.stat.journals': 'Aktive Zeitschriften',
         'index.stat.clusters': 'Fachbereiche',
@@ -5606,7 +5742,7 @@
         'index.tl.about-pub.desc': 'Mission des Verlags, Katalogstruktur und Politikrahmen.',
         'about.tl.standards': 'Redaktionelle Standards',
         'about.tl.oa-commitment': 'Open-Access-Verpflichtung',
-        'about.tl.catalogue.desc': '22 peer-reviewed Open-Access-Zeitschriften in 4 Themenclustern.',
+        'about.tl.catalogue.desc': '24 peer-reviewed Open-Access-Zeitschriften unter fünf Verlagsimprints.',
         'about.tl.books.desc': 'Monografien, Sammelbände und Buchserien mit vollständigem Peer-Review.',
         'about.tl.standards.desc': 'Integrität des Peer-Reviews, Autorenrichtlinie und Korrekturverfahren.',
         'about.tl.oa-commitment.desc': 'Alle Publikationen kostenlos unter Creative-Commons-Lizenz verfügbar.',
@@ -5625,7 +5761,7 @@
         'about.tl2.oa.desc': 'Lizenzbedingungen, Urheberrecht und Leitlinien zu Repositorien.',
         'about.tl2.editorial-dir.desc': 'Externe Referenzen zur Transparenz des Redaktionsprofils.',
         'about.tl2.contact.desc': 'Kontaktieren Sie den Verlag für administrative oder Richtlinienanfragen.',
-        'contact.ql.journals.desc': 'Durchsuchen Sie alle 22 Zeitschriften mit Einreichungswegen.',
+        'contact.ql.journals.desc': 'Durchsuchen Sie alle 24 Zeitschriften mit Einreichungswegen.',
         'contact.ql.books.desc': 'Reichen Sie einen Buchvorschlag ein oder erkunden Sie den Katalog.',
         'contact.ql.guide.desc': 'Vollständige Einreichungsanleitung von der Vorbereitung bis zur Veröffentlichung.',
         'contact.ql.ethics.desc': 'Anforderungen an redaktionelles Verhalten und Integrität.',
@@ -5693,7 +5829,7 @@
         'indexing.doi.step3.h3': 'Persistente Auflösung',
         'indexing.doi.step4.h3': 'Metadatenstandards',
         'indexing.ql.enquiries': 'Anfragen',
-        'indexing.ql.journals.desc': 'Durchsuchen Sie alle 22 Zeitschriften mit ISSN- und Cluster-Informationen.',
+        'indexing.ql.journals.desc': 'Durchsuchen Sie alle 24 Zeitschriften mit ISSN- und Imprint-Informationen.',
         'indexing.ql.oa.desc': 'Lesen Sie den Leitfaden zu Lizenzen, Repositorien und Rechten.',
         'indexing.ql.ethics.desc': 'Redaktionelle Integritäts- und Peer-Review-Standards.',
         'indexing.ql.contact.desc': 'Kontaktieren Sie den Verlag zu Indizierung oder Archivierung.',
@@ -5712,7 +5848,7 @@
         'authors.ql.ethics.desc': 'Ethische Anforderungen für alle Einreichungen und Gutachten.',
         'authors.ql.oa.desc': 'Leitlinien zu Lizenzen, Rechten und Repositoriumshinterlegung.',
         'authors.ql.contact.desc': 'Kontaktieren Sie den Verlag bei Einreichungs- oder Richtlinienfragen.',
-        'index.pub-lines.journals.h3-full': '22 begutachtete Open-Access-Zeitschriften',
+        'index.pub-lines.journals.h3-full': '24 begutachtete Open-Access-Zeitschriften',
         'index.pub-lines.journals.btn': 'Zeitschriftenkatalog durchsuchen',
         'index.pub-lines.books.h3-full': 'Monografien, Sammelbände und Buchserien',
         'index.pub-lines.books.btn': 'Scholarly Books besuchen',
@@ -5960,6 +6096,19 @@
         'nav.platforms.posi-desc': 'مؤشر مفتوح لتقييمات دورة الحياة والاستشهادات',
         'nav.platforms.directory-desc': 'ملفات عامة لهيئة التحرير',
         'nav.platforms.credential-desc': 'تحقق من شهادات المحررين والمراجعين',
+        'nav.publications': 'المنشورات',
+        'nav.publish': 'النشر',
+        'nav.research-infra': 'الأبحاث والبنية التحتية',
+        'nav.find-journal': 'ابحث عن مجلة',
+        'nav.search.placeholder': 'ابحث عن المجلات…',
+        'nav.publications.journals-label': 'المجلات',
+        'nav.publications.books-label': 'الكتب العلمية',
+        'nav.publications.imprints-label': 'حسب العلامة التحريرية',
+        'nav.publish.journal-authors': 'مؤلفو المجلات',
+        'nav.publish.book-authors': 'مؤلفو الكتب',
+        'nav.publish.publish-book': 'انشر كتابًا',
+        'nav.publish.editors': 'المحررون والمراجعون',
+        'nav.publish.standards': 'معايير النشر',
         'brand.tagline': 'منصة دولية للنشر والبحث الأكاديمي',
         'footer.brand-intro': 'تدير Panorama Scholarly Group خمس منصات أكاديمية: المجلات والكتب ومعهد البحث والفهرس المفتوح والدليل التحريري.',
         'footer.admin-contact': 'التواصل الإداري',
@@ -6018,6 +6167,8 @@
         'index.badge.books': 'الكتب الأكاديمية',
         'index.btn.journals': 'استعرض المجلات',
         'index.btn.books': 'الكتب الأكاديمية',
+        'index.btn.publish-with-us': 'انشر معنا',
+        'index.btn.explore-research': 'استكشف الأبحاث',
         'index.btn.authors': 'دليل المؤلف',
         'index.stat.journals': 'المجلات النشطة',
         'index.stat.clusters': 'مجموعات الموضوعات',
@@ -6214,7 +6365,7 @@
         'index.tl.about-pub.desc': 'مهمة الناشر وهيكل الكتالوج وإطار السياسات.',
         'about.tl.standards': 'المعايير التحريرية',
         'about.tl.oa-commitment': 'الالتزام بالوصول المفتوح',
-        'about.tl.catalogue.desc': '22 مجلة علمية محكَّمة بوصول مفتوح في 4 مجموعات موضوعية.',
+        'about.tl.catalogue.desc': '24 مجلة علمية محكَّمة بوصول مفتوح ضمن خمس علامات نشر تحريرية.',
         'about.tl.books.desc': 'دراسات منفردة ومجلدات محررة وسلاسل كتب مع تحكيم علمي كامل.',
         'about.tl.standards.desc': 'نزاهة التحكيم العلمي وسياسة التأليف وإجراءات التصحيح.',
         'about.tl.oa-commitment.desc': 'جميع المنشورات متاحة مجاناً بموجب ترخيص Creative Commons.',
@@ -6233,7 +6384,7 @@
         'about.tl2.oa.desc': 'شروط الترخيص وحقوق النشر والتوجيه بشأن المستودعات.',
         'about.tl2.editorial-dir.desc': 'مراجع خارجية لشفافية الملف التحريري.',
         'about.tl2.contact.desc': 'تواصل مع الناشر للاستفسارات الإدارية أو السياساتية.',
-        'contact.ql.journals.desc': 'استكشف جميع المجلات الـ22 مع مسارات التقديم.',
+        'contact.ql.journals.desc': 'استكشف جميع المجلات الـ24 مع مسارات التقديم.',
         'contact.ql.books.desc': 'قدم مقترح كتاب أو استكشف الكتالوج.',
         'contact.ql.guide.desc': 'دليل تقديم كامل من التحضير حتى النشر.',
         'contact.ql.ethics.desc': 'متطلبات السلوك التحريري والنزاهة.',
@@ -6301,7 +6452,7 @@
         'indexing.doi.step3.h3': 'الحل الدائم',
         'indexing.doi.step4.h3': 'معايير البيانات الوصفية',
         'indexing.ql.enquiries': 'الاستفسارات',
-        'indexing.ql.journals.desc': 'استكشف جميع المجلات الـ22 مع معلومات ISSN والمجموعات.',
+        'indexing.ql.journals.desc': 'استكشف جميع المجلات الـ24 مع معلومات ISSN والعلامات التحريرية.',
         'indexing.ql.oa.desc': 'راجع دليل التراخيص والمستودعات والحقوق.',
         'indexing.ql.ethics.desc': 'معايير النزاهة التحريرية والتحكيم العلمي.',
         'indexing.ql.contact.desc': 'تواصل مع الناشر بشأن الفهرسة أو الأرشفة.',
@@ -6320,7 +6471,7 @@
         'authors.ql.ethics.desc': 'المتطلبات الأخلاقية لجميع التقديمات والمراجعات.',
         'authors.ql.oa.desc': 'التوجيه بشأن التراخيص والحقوق والإيداع في المستودعات.',
         'authors.ql.contact.desc': 'تواصل مع الناشر لأسئلة التقديم أو السياسة.',
-        'index.pub-lines.journals.h3-full': '22 مجلة علمية محكَّمة بوصول مفتوح',
+        'index.pub-lines.journals.h3-full': '24 مجلة علمية محكَّمة بوصول مفتوح',
         'index.pub-lines.journals.btn': 'تصفح كتالوج المجلات',
         'index.pub-lines.books.h3-full': 'دراسات منفردة ومجلدات محررة وسلاسل كتب',
         'index.pub-lines.books.btn': 'زيارة Scholarly Books',
@@ -10638,6 +10789,19 @@
                 el.textContent = source;
             }
         });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+            var key = el.getAttribute('data-i18n-placeholder');
+            var source = i18n.en[key] !== undefined ? i18n.en[key] : el.getAttribute('placeholder');
+            if (!el.hasAttribute('data-i18n-placeholder-orig')) {
+                el.setAttribute('data-i18n-placeholder-orig', source);
+            }
+            if (lang !== 'en') {
+                var translated = i18n[lang] && i18n[lang][key];
+                el.setAttribute('placeholder', translated !== undefined ? translated : source);
+            } else {
+                el.setAttribute('placeholder', source);
+            }
+        });
         document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
             var key = el.getAttribute('data-i18n-html');
             if (!el.hasAttribute('data-i18n-html-orig')) {
@@ -10720,15 +10884,88 @@
         });
     });
 
+    /* ── Header journal search ──
+       Real, scoped search: filters the group's own journal titles from
+       data/journals.json (client-side, fetched once and cached) and links
+       straight to each journal's real journalUrl. Not a stand-in for a
+       full-text article/research search the site can't actually run. */
+    function setNavSearchOpen(wrap, open) {
+        if (!wrap) return;
+        wrap.classList.toggle('open', open);
+        var toggle = wrap.querySelector('[data-search-toggle]');
+        if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function escSearch(s) {
+        return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    var journalIndexPromise = null;
+    function loadJournalIndex() {
+        if (!journalIndexPromise) {
+            journalIndexPromise = fetch('data/journals.json').then(function (r) { return r.json(); }).then(function (d) {
+                return (d.journals || []).filter(function (j) { return j.status !== 'retired'; });
+            }).catch(function () { return []; });
+        }
+        return journalIndexPromise;
+    }
+
+    function renderSearchResults(panel, items, query) {
+        var list = panel && panel.querySelector('[data-search-results]');
+        if (!list) return;
+        if (!query) { list.innerHTML = ''; return; }
+        if (!items.length) {
+            list.innerHTML = '<li class="nav-search-empty">No journals matched &ldquo;' + escSearch(query) + '&rdquo;.</li>';
+            return;
+        }
+        list.innerHTML = items.slice(0, 8).map(function (j) {
+            return '<li><a href="' + escSearch(j.journalUrl) + '" target="_blank" rel="noopener">'
+                + '<span class="nav-search-result-title">' + escSearch(j.title) + '</span>'
+                + '<span class="nav-search-result-meta">' + escSearch(j.cat || '') + '</span>'
+                + '</a></li>';
+        }).join('');
+    }
+
+    document.querySelectorAll('[data-search-toggle]').forEach(function (btn) {
+        btn.addEventListener('click', function (event) {
+            event.stopPropagation();
+            var wrap = btn.closest('.nav-search');
+            var open = !(wrap && wrap.classList.contains('open'));
+            document.querySelectorAll('.nav-search.open').forEach(function (other) { setNavSearchOpen(other, false); });
+            setNavSearchOpen(wrap, open);
+            if (open) {
+                var input = wrap.querySelector('[data-search-input]');
+                if (input) setTimeout(function () { input.focus(); }, 0);
+            }
+        });
+    });
+
+    document.querySelectorAll('.nav-search-panel').forEach(function (panel) {
+        panel.addEventListener('click', function (event) { event.stopPropagation(); });
+        var input = panel.querySelector('[data-search-input]');
+        if (!input) return;
+        input.addEventListener('input', function () {
+            var query = input.value.trim();
+            loadJournalIndex().then(function (all) {
+                if (!query) { renderSearchResults(panel, [], ''); return; }
+                var q = query.toLowerCase();
+                var matches = all.filter(function (j) { return (j.title || '').toLowerCase().indexOf(q) !== -1; });
+                renderSearchResults(panel, matches, query);
+            });
+        });
+    });
+
     document.addEventListener('click', function () {
         document.querySelectorAll('.lang-menu.open').forEach(function (menu) { setLangMenuOpen(menu, false); });
         document.querySelectorAll('.platforms-menu.open').forEach(function (menu) { setPlatformsMenuOpen(menu, false); });
+        document.querySelectorAll('.nav-search.open').forEach(function (menu) { setNavSearchOpen(menu, false); });
     });
 
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
             document.querySelectorAll('.lang-menu.open').forEach(function (menu) { setLangMenuOpen(menu, false); });
             document.querySelectorAll('.platforms-menu.open').forEach(function (menu) { setPlatformsMenuOpen(menu, false); });
+            document.querySelectorAll('.nav-search.open').forEach(function (menu) { setNavSearchOpen(menu, false); });
         }
     });
 

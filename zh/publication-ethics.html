@@ -29,7 +29,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260828-1">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-2">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,17 +71,92 @@
             <span></span><span></span><span></span>
         </button>
         <nav class="nav-links" id="primary-nav" aria-label="主要導覽">
-            <a href="index.html" data-i18n="nav.home" data-i18n-orig="Home">首頁</a>
             <div class="platforms-menu">
                 <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
-                    <span data-i18n="nav.platforms" data-i18n-orig="Platforms">平台</span>
+                    <span data-i18n="nav.publications" data-i18n-orig="Publications">出版品</span>
                     <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </button>
-                <div class="platforms-options" role="menu">
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publications.journals-label" data-i18n-orig="Journals">期刊</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">瀏覽所有期刊</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.journals-desc" data-i18n-orig="Peer-reviewed journal directory">同儕審閱期刊目錄</span>
+                    </a>
+                    <a href="https://journals.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.books-label" data-i18n-orig="Scholarly Books">學術書籍</p>
                     <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.books-desc" data-i18n-orig="Monographs and edited volumes">專著與編輯論文集</span>
                     </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.imprints-label" data-i18n-orig="By Editorial Imprint">依編輯品牌</p>
+                    <a href="ridgeline.html" role="menuitem">
+                        <span class="platform-opt-name">Ridgeline</span>
+                        <span class="platform-opt-desc">Technology · Engineering · AI</span>
+                    </a>
+                    <a href="health-nexus.html" role="menuitem">
+                        <span class="platform-opt-name">Health Nexus</span>
+                        <span class="platform-opt-desc">Medicine · Health Sciences</span>
+                    </a>
+                    <a href="verdant-science.html" role="menuitem">
+                        <span class="platform-opt-name">Verdant Science</span>
+                        <span class="platform-opt-desc">Environment · Life Sciences</span>
+                    </a>
+                    <a href="charter.html" role="menuitem">
+                        <span class="platform-opt-name">Charter</span>
+                        <span class="platform-opt-desc">Policy · Law · Governance</span>
+                    </a>
+                    <a href="threnody.html" role="menuitem">
+                        <span class="platform-opt-name">Threnody</span>
+                        <span class="platform-opt-desc">Humanities · Arts · Philosophy</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
+                    <span data-i18n="nav.publish" data-i18n-orig="Publish">投稿</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publish.journal-authors" data-i18n-orig="Journal Authors">期刊作者</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</span>
+                    </a>
+                    <a href="for-authors.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.book-authors" data-i18n-orig="Book Authors">書籍作者</p>
+                    <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">出版書籍</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.editors" data-i18n-orig="Editors &amp; Reviewers">編輯與審稿人</p>
+                    <a href="editorial-board-application.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</span>
+                    </a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.standards" data-i18n-orig="Publishing Standards">出版準則</p>
+                    <a href="publication-ethics.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</span>
+                    </a>
+                    <a href="open-access-policy.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
+                    <span data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究與基礎設施</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                <div class="platforms-options" role="menu">
                     <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.research-desc" data-i18n-orig="Applied and policy research">應用與政策研究</span>
@@ -97,23 +172,6 @@
                     <a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">證書查詢</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.credential-desc" data-i18n-orig="Verify editorial and reviewer certificates">查詢編委與審稿人證書真偽</span>
-                    </a>
-                </div>
-            </div>
-            <div class="platforms-menu">
-                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
-                    <span data-i18n="nav.for-authors" data-i18n-orig="For Authors">投稿指南</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="for-authors.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</span>
-                    </a>
-                    <a href="index.html#imprints" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">瀏覽所有期刊</span>
-                    </a>
-                    <a href="editorial-board-application.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</span>
                     </a>
                 </div>
             </div>
@@ -151,6 +209,15 @@
                     </a>
                 </div>
             </div>
+            <div class="nav-search" data-nav-search="">
+                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Search journals" data-search-toggle="">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"></circle><line x1="10.8" y1="10.8" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
+                </button>
+                <div class="nav-search-panel">
+                    <input class="nav-search-input" type="text" placeholder="搜尋期刊…" data-i18n-placeholder="nav.search.placeholder" data-search-input="" autocomplete="off" data-i18n-placeholder-orig="Search journals…">
+                    <ul class="nav-search-results" data-search-results=""></ul>
+                </div>
+            </div>
             <div class="lang-menu">
                 <button class="lang-btn" type="button" aria-label="Select language: 繁體中文" aria-expanded="false" data-lang-toggle="">
                     <svg class="lang-globe" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"></circle><ellipse cx="8" cy="8" rx="2.6" ry="6.5" stroke="currentColor" stroke-width="1.25"></ellipse><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.25"></line><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1"></line><line x1="2" y1="10.5" x2="14" y2="10.5" stroke="currentColor" stroke-width="1"></line></svg>
@@ -173,6 +240,7 @@
                     <button type="button" role="menuitemradio" data-lang-option="ar" aria-checked="false">العربية</button>
                 </div>
             </div>
+            <a class="btn header-cta" href="https://journals.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a>
         </nav>
     </div>
 </header>
@@ -206,37 +274,37 @@
                 </div>
             </div>
             <div class="policy-list">
-                <article class="policy-item reveal visible">
+                <article class="policy-item reveal visible" id="editorial-decisions">
                     <span class="policy-number">1.1</span>
                     <h3 data-i18n="ethics.policy1.h3" data-i18n-orig="Editorial decisions">編輯決定</h3>
                     <p data-i18n="ethics.policy1.p" data-i18n-orig="Editorial decisions are based on journal scope, scholarly merit, and policy compliance, independent of personal or institutional bias.">編輯決定依據期刊範疇、學術價值及政策合規性作出，不受個人或機構偏見影響。</p>
                 </article>
-                <article class="policy-item d1 reveal">
+                <article class="policy-item d1 reveal" id="peer-review-conduct">
                     <span class="policy-number">1.2</span>
                     <h3 data-i18n="ethics.policy2.h3" data-i18n-orig="Peer review conduct">同行評審規範</h3>
                     <p data-i18n="ethics.policy2.p" data-i18n-orig="Reviewers are expected to provide objective, evidence-based assessments and maintain manuscript confidentiality throughout review.">評審人須提供客觀、有實證依據的評估意見，並在評審全程對稿件內容保密。</p>
                 </article>
-                <article class="policy-item d2 reveal">
+                <article class="policy-item d2 reveal" id="originality-citation">
                     <span class="policy-number">1.3</span>
                     <h3 data-i18n="ethics.policy3.h3" data-i18n-orig="Originality and citation">原創性與引用</h3>
                     <p data-i18n="ethics.policy3.p" data-i18n-orig="Submissions must be original, properly cited, and free from undisclosed duplicate or redundant publication.">投稿須為原創內容，並附正確引註，不得存在未經揭露的重複或冗餘發表情況。</p>
                 </article>
-                <article class="policy-item d3 reveal">
+                <article class="policy-item d3 reveal" id="conflict-disclosure">
                     <span class="policy-number">1.4</span>
                     <h3 data-i18n="ethics.policy4.h3" data-i18n-orig="Conflict disclosure">利益衝突披露</h3>
                     <p data-i18n="ethics.policy4.p" data-i18n-orig="Authors, reviewers, and editors should disclose relationships that could reasonably be seen as influencing editorial judgment.">作者、評審人及編輯應揭露可能被合理認為影響編輯判斷的任何關係。</p>
                 </article>
-                <article class="policy-item d4 reveal">
+                <article class="policy-item d4 reveal" id="corrections-retractions">
                     <span class="policy-number">1.5</span>
                     <h3 data-i18n="ethics.policy5.h3" data-i18n-orig="Corrections and retractions">更正與撤稿</h3>
                     <p data-i18n="ethics.policy5.p" data-i18n-orig="When significant issues are confirmed after publication, journals may issue corrections, expressions of concern, or retractions as appropriate.">如發表後證實存在重大問題，期刊得視情況發布更正聲明、關注聲明或撤稿。</p>
                 </article>
-                <article class="policy-item d5 reveal">
+                <article class="policy-item d5 reveal" id="confidentiality-data-use">
                     <span class="policy-number">1.6</span>
                     <h3 data-i18n="ethics.policy6.h3" data-i18n-orig="Confidentiality and data use">保密與數據使用</h3>
                     <p data-i18n="ethics.policy6.p" data-i18n-orig="Unpublished manuscript content should not be used for personal research, teaching, or distribution without explicit permission from the rights holder.">未發表稿件之內容，未經權利人明確許可，不得用於個人研究、教學或散布用途。</p>
                 </article>
-                <article class="policy-item d6 reveal">
+                <article class="policy-item d6 reveal" id="appeals-concerns">
                     <span class="policy-number">1.7</span>
                     <h3 data-i18n="ethics.policy7.h3" data-i18n-orig="Appeals and concerns">申訴與關切</h3>
                     <p data-i18n="ethics.policy7.p" data-i18n-orig="Authors may submit a reasoned appeal where they identify a substantive procedural or evaluative issue in editorial handling.">如作者發現編輯處理過程存在實質性程序或評估問題，得提出附理由之申訴。</p>
@@ -294,9 +362,38 @@
             <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
         </div>
         <div>
-            <h3 data-i18n="footer.journals-policies" data-i18n-orig="Journals &amp; Policies">期刊與政策</h3>
+            <h3 data-i18n="nav.publications" data-i18n-orig="Publications">出版品</h3>
             <ul>
                 <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">期刊目錄</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</a></li>
+                <li><a href="ridgeline.html">Ridgeline</a></li>
+                <li><a href="health-nexus.html">Health Nexus</a></li>
+                <li><a href="verdant-science.html">Verdant Science</a></li>
+                <li><a href="charter.html">Charter</a></li>
+                <li><a href="threnody.html">Threnody</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.publish" data-i18n-orig="Publish">投稿</h3>
+            <ul>
+                <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a></li>
+                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">出版書籍</a></li>
+                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究與基礎設施</h3>
+            <ul>
+                <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a></li>
+                <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a></li>
+                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">證書查詢</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.policies" data-i18n-orig="Policies">政策</h3>
+            <ul>
                 <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</a></li>
                 <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</a></li>
                 <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</a></li>
@@ -304,14 +401,10 @@
             </ul>
         </div>
         <div>
-            <h3 data-i18n="footer.authors-info" data-i18n-orig="Authors &amp; Information">作者資訊</h3>
+            <h3 data-i18n="nav.about" data-i18n-orig="About">關於我們</h3>
             <ul>
-                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</a></li>
-                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</a></li>
-                <li><a href="about.html" data-i18n="footer.about" data-i18n-orig="About">關於我們</a></li>
+                <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">關於出版商</a></li>
                 <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">聯絡我們</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">證書查詢</a></li>
             </ul>
         </div>
     </div>
@@ -321,7 +414,7 @@
     </div>
 </footer>
 
-<script src="/site.js?v=20260811-12"></script>
+<script src="/site.js?v=20260828-13"></script>
 
 
 </body></html>

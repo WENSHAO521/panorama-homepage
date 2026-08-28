@@ -29,7 +29,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260828-1">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-2">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,17 +71,92 @@
             <span></span><span></span><span></span>
         </button>
         <nav class="nav-links" id="primary-nav" aria-label="プライマリナビゲーション">
-            <a href="index.html" data-i18n="nav.home" data-i18n-orig="Home">ホーム</a>
             <div class="platforms-menu">
                 <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
-                    <span data-i18n="nav.platforms" data-i18n-orig="Platforms">プラットフォーム</span>
+                    <span data-i18n="nav.publications" data-i18n-orig="Publications">出版物</span>
                     <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </button>
-                <div class="platforms-options" role="menu">
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publications.journals-label" data-i18n-orig="Journals">ジャーナル</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">すべての雑誌を閲覧</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.journals-desc" data-i18n-orig="Peer-reviewed journal directory">査読付きジャーナルディレクトリ</span>
+                    </a>
+                    <a href="https://journals.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">ジャーナルを探す</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.books-label" data-i18n-orig="Scholarly Books">学術書籍</p>
                     <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">学術書籍</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.books-desc" data-i18n-orig="Monographs and edited volumes">モノグラフと編著</span>
                     </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.imprints-label" data-i18n-orig="By Editorial Imprint">出版インプリント別</p>
+                    <a href="ridgeline.html" role="menuitem">
+                        <span class="platform-opt-name">Ridgeline</span>
+                        <span class="platform-opt-desc">Technology · Engineering · AI</span>
+                    </a>
+                    <a href="health-nexus.html" role="menuitem">
+                        <span class="platform-opt-name">Health Nexus</span>
+                        <span class="platform-opt-desc">Medicine · Health Sciences</span>
+                    </a>
+                    <a href="verdant-science.html" role="menuitem">
+                        <span class="platform-opt-name">Verdant Science</span>
+                        <span class="platform-opt-desc">Environment · Life Sciences</span>
+                    </a>
+                    <a href="charter.html" role="menuitem">
+                        <span class="platform-opt-name">Charter</span>
+                        <span class="platform-opt-desc">Policy · Law · Governance</span>
+                    </a>
+                    <a href="threnody.html" role="menuitem">
+                        <span class="platform-opt-name">Threnody</span>
+                        <span class="platform-opt-desc">Humanities · Arts · Philosophy</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
+                    <span data-i18n="nav.publish" data-i18n-orig="Publish">投稿</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publish.journal-authors" data-i18n-orig="Journal Authors">ジャーナル投稿者</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">ジャーナルを探す</span>
+                    </a>
+                    <a href="for-authors.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">著者ガイド</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.book-authors" data-i18n-orig="Book Authors">書籍著者</p>
+                    <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">書籍を出版する</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.editors" data-i18n-orig="Editors &amp; Reviewers">編集者・査読者</p>
+                    <a href="editorial-board-application.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">編集委員に参加</span>
+                    </a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編集者ディレクトリ</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.standards" data-i18n-orig="Publishing Standards">出版基準</p>
+                    <a href="publication-ethics.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</span>
+                    </a>
+                    <a href="open-access-policy.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">オープンアクセス方針</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
+                    <span data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究・基盤インフラ</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                <div class="platforms-options" role="menu">
                     <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.research-desc" data-i18n-orig="Applied and policy research">応用研究と政策研究</span>
@@ -97,23 +172,6 @@
                     <a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">証明書照会</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.credential-desc" data-i18n-orig="Verify editorial and reviewer certificates">編集委員・査読者の証明書を確認</span>
-                    </a>
-                </div>
-            </div>
-            <div class="platforms-menu">
-                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
-                    <span data-i18n="nav.for-authors" data-i18n-orig="For Authors">著者向け</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="for-authors.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">著者ガイド</span>
-                    </a>
-                    <a href="index.html#imprints" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">すべての雑誌を閲覧</span>
-                    </a>
-                    <a href="editorial-board-application.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">編集委員に参加</span>
                     </a>
                 </div>
             </div>
@@ -151,6 +209,15 @@
                     </a>
                 </div>
             </div>
+            <div class="nav-search" data-nav-search="">
+                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Search journals" data-search-toggle="">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"></circle><line x1="10.8" y1="10.8" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
+                </button>
+                <div class="nav-search-panel">
+                    <input class="nav-search-input" type="text" placeholder="ジャーナルを検索…" data-i18n-placeholder="nav.search.placeholder" data-search-input="" autocomplete="off" data-i18n-placeholder-orig="Search journals…">
+                    <ul class="nav-search-results" data-search-results=""></ul>
+                </div>
+            </div>
             <div class="lang-menu">
                 <button class="lang-btn" type="button" aria-label="Select language: 日本語" aria-expanded="false" data-lang-toggle="">
                     <svg class="lang-globe" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"></circle><ellipse cx="8" cy="8" rx="2.6" ry="6.5" stroke="currentColor" stroke-width="1.25"></ellipse><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.25"></line><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1"></line><line x1="2" y1="10.5" x2="14" y2="10.5" stroke="currentColor" stroke-width="1"></line></svg>
@@ -173,6 +240,7 @@
                     <button type="button" role="menuitemradio" data-lang-option="ar" aria-checked="false">العربية</button>
                 </div>
             </div>
+            <a class="btn header-cta" href="https://journals.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">ジャーナルを探す</a>
         </nav>
     </div>
 </header>
@@ -210,37 +278,37 @@
                 </div>
             </div>
             <div class="policy-list">
-                <article class="policy-item reveal">
+                <article class="policy-item reveal" id="public-access-principle">
                     <span class="policy-number">2.1</span>
                     <h3 data-i18n="oa.policy1.h3" data-i18n-orig="Public access principle">公開アクセス原則</h3>
                     <p data-i18n="oa.policy1.p" data-i18n-orig="Published research is made available online under each journal's open-access policy and publication agreement.">出版された研究成果は、各雑誌のオープンアクセス方針および出版契約に基づき、オンラインで公開されます。</p>
                 </article>
-                <article class="policy-item d1 reveal">
+                <article class="policy-item d1 reveal" id="journal-level-oa-model">
                     <span class="policy-number">2.2</span>
                     <h3 data-i18n="oa.policy2.h3" data-i18n-orig="Journal-level OA model">雑誌レベルの OA モデル</h3>
                     <p data-i18n="oa.policy2.p" data-i18n-orig="Journals may apply different operating models. Authors should confirm APC, waiver, or no-APC conditions before final submission.">雑誌によって運用モデルが異なる場合があります。著者は最終投稿前に、論文処理費用（APC）、免除、または APC 不要の条件を確認してください。</p>
                 </article>
-                <article class="policy-item d2 reveal">
+                <article class="policy-item d2 reveal" id="license-disclosure">
                     <span class="policy-number">2.3</span>
                     <h3 data-i18n="oa.policy3.h3" data-i18n-orig="License disclosure">ライセンス開示</h3>
                     <p data-i18n="oa.policy3.p" data-i18n-orig="Applicable licenses are communicated at journal level. Authors should verify permitted reuse before publication.">適用されるライセンスは雑誌ごとに明示されます。著者は出版前に許可される再利用範囲を確認してください。</p>
                 </article>
-                <article class="policy-item d3 reveal">
+                <article class="policy-item d3 reveal" id="author-rights-permissions">
                     <span class="policy-number">2.4</span>
                     <h3 data-i18n="oa.policy4.h3" data-i18n-orig="Author rights and permissions">著者権利と許可</h3>
                     <p data-i18n="oa.policy4.p" data-i18n-orig="Unless agreements specify otherwise, authors retain key rights while granting non-exclusive publication and distribution permissions.">契約に別段の定めがない限り、著者は主要な権利を保持しつつ、非独占的な出版および頒布の許諾を付与します。</p>
                 </article>
-                <article class="policy-item d4 reveal">
+                <article class="policy-item d4 reveal" id="repository-archiving">
                     <span class="policy-number">2.5</span>
                     <h3 data-i18n="oa.policy5.h3" data-i18n-orig="Repository and archiving">リポジトリとアーカイブ</h3>
                     <p data-i18n="oa.policy5.p" data-i18n-orig="Repository deposit should follow journal terms and preserve accurate citation of the version of record.">リポジトリへの登録は、雑誌の規定に従い、正式版（version of record）への正確な引用情報を保持してください。</p>
                 </article>
-                <article class="policy-item d5 reveal">
+                <article class="policy-item d5 reveal" id="third-party-content">
                     <span class="policy-number">2.6</span>
                     <h3 data-i18n="oa.policy6.h3" data-i18n-orig="Third-party content">第三者コンテンツ</h3>
                     <p data-i18n="oa.policy6.p" data-i18n-orig="Authors are responsible for securing permissions for third-party figures, tables, or images where required by license or copyright law.">ライセンスまたは著作権法により必要とされる場合、著者は第三者の図表や画像の使用許諾を取得する責任を負います。</p>
                 </article>
-                <article class="policy-item d6 reveal">
+                <article class="policy-item d6 reveal" id="version-clarity">
                     <span class="policy-number">2.7</span>
                     <h3 data-i18n="oa.policy7.h3" data-i18n-orig="Version clarity">バージョンの明確化</h3>
                     <p data-i18n="oa.policy7.p" data-i18n-orig="Where multiple versions are posted, records should clearly identify accepted manuscript versus final published version.">複数のバージョンが公開される場合、受理稿と最終出版版とを明確に区別して記録してください。</p>
@@ -298,9 +366,38 @@
             <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
         </div>
         <div>
-            <h3 data-i18n="footer.journals-policies" data-i18n-orig="Journals &amp; Policies">ジャーナルと方針</h3>
+            <h3 data-i18n="nav.publications" data-i18n-orig="Publications">出版物</h3>
             <ul>
                 <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">ジャーナル一覧</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">学術書籍</a></li>
+                <li><a href="ridgeline.html">Ridgeline</a></li>
+                <li><a href="health-nexus.html">Health Nexus</a></li>
+                <li><a href="verdant-science.html">Verdant Science</a></li>
+                <li><a href="charter.html">Charter</a></li>
+                <li><a href="threnody.html">Threnody</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.publish" data-i18n-orig="Publish">投稿</h3>
+            <ul>
+                <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">ジャーナルを探す</a></li>
+                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">著者ガイド</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">書籍を出版する</a></li>
+                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">編集委員に参加</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究・基盤インフラ</h3>
+            <ul>
+                <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a></li>
+                <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編集者ディレクトリ</a></li>
+                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">証明書照会</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.policies" data-i18n-orig="Policies">ポリシー</h3>
+            <ul>
                 <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</a></li>
                 <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">オープンアクセス方針</a></li>
                 <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引・アーカイブ</a></li>
@@ -308,14 +405,10 @@
             </ul>
         </div>
         <div>
-            <h3 data-i18n="footer.authors-info" data-i18n-orig="Authors &amp; Information">著者情報</h3>
+            <h3 data-i18n="nav.about" data-i18n-orig="About">概要</h3>
             <ul>
-                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">著者ガイド</a></li>
-                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">編集委員に参加</a></li>
-                <li><a href="about.html" data-i18n="footer.about" data-i18n-orig="About">概要</a></li>
+                <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">グループについて</a></li>
                 <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">お問い合わせ</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編集者ディレクトリ</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">証明書照会</a></li>
             </ul>
         </div>
     </div>
@@ -325,7 +418,7 @@
     </div>
 </footer>
 
-<script src="/site.js?v=20260811-12"></script>
+<script src="/site.js?v=20260828-13"></script>
 
 
 </body></html>

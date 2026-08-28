@@ -21,6 +21,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="institutional.css?v=20260828-1">
     <link rel="stylesheet" href="nexus-brand.css?v=20260828-4">
+    <link rel="stylesheet" href="imprint-nav.css?v=20260828-1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
     <style>
       :root{ --brand:#C4443D; --brand-dk:#970E1A; --brand-tint:#FBEEEC; --brand-font:'Manrope'; }
@@ -37,119 +38,110 @@
     }
     </script>
 </head>
-<body>
+<body data-imprint="health-nexus">
 
-<header class="header-shell has-progress">
-    <div class="guide-progress" aria-hidden="true"></div>
-    <div class="container nav-row">
-        <a class="brand" href="index.html">
-            <img src="assets/logos/logo-dark.svg" alt="Panorama logo">
-            <div>
-                <strong class="brand-name">Panorama<span class="brand-sub"> Scholarly Group</span></strong>
-                <span class="brand-tagline" data-i18n="brand.tagline">International Scholarly Publishing and Research Platform</span>
-            </div>
-        </a>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
-            onclick="var o=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',o?'false':'true');document.getElementById('primary-nav').classList.toggle('open')">
-            <span></span><span></span><span></span>
-        </button>
-        <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
-            <a href="index.html" data-i18n="nav.home">Home</a>
-            <div class="platforms-menu">
-                <button class="platforms-btn current" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
-                    <span data-i18n="nav.platforms">Platforms</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3">Scholarly Books</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.books-desc">Monographs and edited volumes</span>
-                    </a>
-                    <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="nav.research">Research Institute</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.research-desc">Applied and policy research</span>
-                    </a>
-                    <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
-                        <span class="platform-opt-name">POSI</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.posi-desc">Open lifecycle ratings & citation index</span>
-                    </a>
-                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.editorial-dir">Editorial Directory</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.directory-desc">Public editorial board profiles</span>
-                    </a>
-                    <a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.credential-verify">Credential Verification</span>
-                        <span class="platform-opt-desc" data-i18n="nav.platforms.credential-desc">Verify editorial and reviewer certificates</span>
-                    </a>
-                </div>
-            </div>
-            <div class="platforms-menu">
-                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
-                    <span data-i18n="nav.for-authors">For Authors</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="for-authors.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.author-guide">Author Guide</span>
-                    </a>
-                    <a href="index.html#imprints" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="index.ql.browse-all">Browse All Journals</span>
-                    </a>
-                    <a href="editorial-board-application.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.join-eb">Join Editorial Board</span>
-                    </a>
-                </div>
-            </div>
-            <div class="platforms-menu">
-                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
-                    <span data-i18n="nav.policies">Policies</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="publication-ethics.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.pub-ethics">Publication Ethics</span>
-                    </a>
-                    <a href="open-access-policy.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.oa-policy">Open Access Policy</span>
-                    </a>
-                    <a href="indexing.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.indexing">Indexing &amp; Archiving</span>
-                    </a>
-                    <a href="privacy-policy.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.privacy">Privacy Policy</span>
-                    </a>
-                </div>
-            </div>
-            <div class="platforms-menu">
-                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
-                    <span data-i18n="nav.about">About</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="about.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="index.tl.about-pub">About the Group</span>
-                    </a>
-                    <a href="contact.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.contact">Contact</span>
-                    </a>
-                </div>
-            </div>
-        </nav>
+<a href="#in-main" class="in-skip">Skip to content</a>
+
+<nav class="in-utility" aria-label="Panorama Scholarly Group utility navigation" data-in-utility>
+  <div class="in-utility-row">
+    <a class="in-utility-back" href="index.html">
+      <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M7.5 2.5L3 6l4.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Panorama Scholarly Group
+    </a>
+    <div class="in-utility-links">
+      <a href="index.html#imprints">Journals</a>
+      <a href="https://books.panorama-sg.com" target="_blank" rel="noopener">Books</a>
+      <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener">Research</a>
+      <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a>
+      <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">Editorial Directory</a>
     </div>
+  </div>
+</nav>
+
+<header class="in-header" data-in-header>
+  <div class="in-header-row">
+    <a class="in-logo" href="health-nexus.html" aria-label="Health Nexus home">
+      <img src="assets/nexus/health-nexus-logo.svg" alt="Health Nexus">
+    </a>
+
+    <nav class="in-nav" aria-label="Health Nexus navigation">
+      <div class="in-nav-item" data-in-menu="journals">
+        <button class="in-nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mega-journals">Journals<svg class="in-nav-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="in-mega" id="mega-journals" role="menu" data-in-fill="journals"></div>
+      </div>
+
+      <a class="in-nav-link" href="#why-health-nexus">Why Health Nexus</a>
+
+      <div class="in-nav-item" data-in-menu="authors">
+        <button class="in-nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mega-authors">For Authors<svg class="in-nav-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="in-mega" id="mega-authors" role="menu" data-in-fill="authors"></div>
+      </div>
+
+      <div class="in-nav-item" data-in-menu="editorial">
+        <button class="in-nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mega-editorial">Editorial<svg class="in-nav-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="in-mega" id="mega-editorial" role="menu" data-in-fill="editorial"></div>
+      </div>
+
+      <div class="in-nav-item" data-in-menu="policies">
+        <button class="in-nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mega-policies">Policies<svg class="in-nav-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="in-mega in-mega-wide" id="mega-policies" role="menu" data-in-fill="policies"></div>
+      </div>
+
+      <div class="in-nav-item" data-in-menu="about">
+        <button class="in-nav-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="mega-about">About<svg class="in-nav-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="in-dropdown" id="mega-about" role="menu" data-in-fill="about"></div>
+      </div>
+    </nav>
+
+    <div class="in-tools">
+      <button class="in-search-btn" type="button" aria-label="Search Health Nexus" data-in-search-open>
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="6.5" stroke="currentColor" stroke-width="1.6"/><path d="M14 14l4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <button class="in-submit-btn" type="button" data-in-submit-open>Submit Manuscript <svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6h7M6 2.5L9.5 6 6 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+
+    <button class="in-mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-in-drawer-open>
+      <svg viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
 </header>
 
-<main>
+<div class="in-drawer-backdrop" data-in-drawer-backdrop></div>
+<div class="in-drawer" role="dialog" aria-modal="true" aria-label="Health Nexus menu" data-in-drawer>
+  <div class="in-drawer-head">
+    <span class="in-logo-text">HEALTH NEXUS</span>
+    <button class="in-drawer-close" type="button" aria-label="Close menu" data-in-drawer-close>
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="in-drawer-body" data-in-drawer-body></div>
+</div>
 
-  <nav class="nx-subnav" aria-label="Health Nexus section navigation">
-    <div class="container nx-subnav-row">
-      <a href="#top">Overview</a>
-      <a href="#about">About</a>
-      <a href="#why-publish">Why Publish</a>
-      <a href="#featured-journals">Journals</a>
-      <a href="#submissions">Submit</a>
-      <a href="#editorial-contacts">Contacts</a>
-    </div>
-  </nav>
+<div class="in-modal-backdrop" data-in-modal-backdrop></div>
+<div class="in-modal" role="dialog" aria-modal="true" aria-labelledby="in-modal-title" data-in-modal>
+  <div class="in-modal-head">
+    <h2 class="in-modal-title" id="in-modal-title">Submit to Health Nexus</h2>
+    <p class="in-modal-sub">Choose the journal that best matches your manuscript.</p>
+    <button class="in-modal-close" type="button" aria-label="Close" data-in-modal-close>
+      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="in-modal-body" data-in-modal-body></div>
+  <div class="in-modal-foot">
+    <span>Not sure where to submit?</span>
+    <a href="#featured-journals" data-in-modal-close-link>Explore All Journals &rarr;</a>
+  </div>
+</div>
+
+<div class="in-search-backdrop" data-in-search-backdrop></div>
+<div class="in-search-panel" role="dialog" aria-modal="true" aria-label="Search Health Nexus" data-in-search>
+  <div class="in-search-input-row">
+    <input type="text" placeholder="Search journals, policies and information..." data-in-search-input aria-label="Search">
+  </div>
+  <div class="in-search-results" data-in-search-results></div>
+</div>
+
+<main id="in-main">
 
   <section class="nx-hero" id="top">
     <div class="nx-hero-grid">
@@ -195,7 +187,7 @@
     </div>
   </section>
 
-  <section class="nx-section" id="why-publish">
+  <section class="nx-section" id="why-health-nexus">
     <div class="container">
       <div class="nx-section-head">
         <div>
@@ -397,5 +389,6 @@
 </footer>
 
 <script src="site.js?v=20260811-12"></script>
+<script src="imprint-nav.js?v=20260828-1"></script>
 </body>
 </html>

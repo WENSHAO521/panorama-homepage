@@ -15,6 +15,17 @@
     <link rel="alternate" hreflang="de" href="https://panorama-sg.com/de/indexing.html">
     <link rel="alternate" hreflang="ar" href="https://panorama-sg.com/ar/indexing.html">
     <link rel="alternate" hreflang="x-default" href="https://panorama-sg.com/indexing.html">
+
+
+
+
+
+
+
+
+
+
+
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Panorama Scholarly Group">
     <meta property="og:title" content="Indexing &amp; Archiving | Panorama Scholarly Group">
@@ -29,7 +40,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260828-1">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-2">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,17 +82,92 @@
             <span></span><span></span><span></span>
         </button>
         <nav class="nav-links" id="primary-nav" aria-label="기본 탐색">
-            <a href="index.html" data-i18n="nav.home" data-i18n-orig="Home">홈</a>
             <div class="platforms-menu">
                 <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
-                    <span data-i18n="nav.platforms" data-i18n-orig="Platforms">플랫폼</span>
+                    <span data-i18n="nav.publications" data-i18n-orig="Publications">출판물</span>
                     <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                 </button>
-                <div class="platforms-options" role="menu">
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publications.journals-label" data-i18n-orig="Journals">저널</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">모든 저널 탐색</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.journals-desc" data-i18n-orig="Peer-reviewed journal directory">동료 심사 저널 목록</span>
+                    </a>
+                    <a href="https://journals.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">저널 찾기</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.books-label" data-i18n-orig="Scholarly Books">학술 도서</p>
                     <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">학술 서적</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.books-desc" data-i18n-orig="Monographs and edited volumes">단행본 및 편집 저서</span>
                     </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.imprints-label" data-i18n-orig="By Editorial Imprint">편집 임프린트별</p>
+                    <a href="ridgeline.html" role="menuitem">
+                        <span class="platform-opt-name">Ridgeline</span>
+                        <span class="platform-opt-desc">Technology · Engineering · AI</span>
+                    </a>
+                    <a href="health-nexus.html" role="menuitem">
+                        <span class="platform-opt-name">Health Nexus</span>
+                        <span class="platform-opt-desc">Medicine · Health Sciences</span>
+                    </a>
+                    <a href="verdant-science.html" role="menuitem">
+                        <span class="platform-opt-name">Verdant Science</span>
+                        <span class="platform-opt-desc">Environment · Life Sciences</span>
+                    </a>
+                    <a href="charter.html" role="menuitem">
+                        <span class="platform-opt-name">Charter</span>
+                        <span class="platform-opt-desc">Policy · Law · Governance</span>
+                    </a>
+                    <a href="threnody.html" role="menuitem">
+                        <span class="platform-opt-name">Threnody</span>
+                        <span class="platform-opt-desc">Humanities · Arts · Philosophy</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
+                    <span data-i18n="nav.publish" data-i18n-orig="Publish">투고</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publish.journal-authors" data-i18n-orig="Journal Authors">저널 저자</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">저널 찾기</span>
+                    </a>
+                    <a href="for-authors.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">저자 가이드</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.book-authors" data-i18n-orig="Book Authors">도서 저자</p>
+                    <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">도서 출판</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.editors" data-i18n-orig="Editors &amp; Reviewers">편집자 및 심사위원</p>
+                    <a href="editorial-board-application.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">편집위원 지원</span>
+                    </a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">편집진 디렉터리</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.standards" data-i18n-orig="Publishing Standards">출판 기준</p>
+                    <a href="publication-ethics.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">출판 윤리</span>
+                    </a>
+                    <a href="open-access-policy.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">오픈 액세스 정책</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
+                    <span data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">연구 및 인프라</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </button>
+                <div class="platforms-options" role="menu">
                     <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="nav.research" data-i18n-orig="Research Institute">연구원</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.research-desc" data-i18n-orig="Applied and policy research">응용 및 정책 연구</span>
@@ -97,23 +183,6 @@
                     <a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">증명서 조회</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.credential-desc" data-i18n-orig="Verify editorial and reviewer certificates">편집위원 및 심사위원 증명서 확인</span>
-                    </a>
-                </div>
-            </div>
-            <div class="platforms-menu">
-                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle="">
-                    <span data-i18n="nav.for-authors" data-i18n-orig="For Authors">저자 안내</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="for-authors.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">저자 가이드</span>
-                    </a>
-                    <a href="index.html#imprints" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="index.ql.browse-all" data-i18n-orig="Browse All Journals">모든 저널 탐색</span>
-                    </a>
-                    <a href="editorial-board-application.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">편집위원 지원</span>
                     </a>
                 </div>
             </div>
@@ -151,6 +220,15 @@
                     </a>
                 </div>
             </div>
+            <div class="nav-search" data-nav-search="">
+                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Search journals" data-search-toggle="">
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"></circle><line x1="10.8" y1="10.8" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
+                </button>
+                <div class="nav-search-panel">
+                    <input class="nav-search-input" type="text" placeholder="저널 검색…" data-i18n-placeholder="nav.search.placeholder" data-search-input="" autocomplete="off" data-i18n-placeholder-orig="Search journals…">
+                    <ul class="nav-search-results" data-search-results=""></ul>
+                </div>
+            </div>
             <div class="lang-menu">
                 <button class="lang-btn" type="button" aria-label="Select language: 한국어" aria-expanded="false" data-lang-toggle="">
                     <svg class="lang-globe" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"></circle><ellipse cx="8" cy="8" rx="2.6" ry="6.5" stroke="currentColor" stroke-width="1.25"></ellipse><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.25"></line><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1"></line><line x1="2" y1="10.5" x2="14" y2="10.5" stroke="currentColor" stroke-width="1"></line></svg>
@@ -173,6 +251,7 @@
                     <button type="button" role="menuitemradio" data-lang-option="ar" aria-checked="false">العربية</button>
                 </div>
             </div>
+            <a class="btn header-cta" href="https://journals.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">저널 찾기</a>
         </nav>
     </div>
 </header>
@@ -384,7 +463,7 @@
                 </div>
             </div>
             <div class="quick-links">
-                <a href="index.html#imprints" class="reveal"><strong data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">저널 목록</strong><span data-i18n="indexing.ql.journals.desc" data-i18n-orig="Browse all 24 journals with ISSN information.">ISSN 및 클러스터 정보가 있는 전체 22개 저널을 탐색하세요.</span></a>
+                <a href="index.html#imprints" class="reveal"><strong data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">저널 목록</strong><span data-i18n="indexing.ql.journals.desc" data-i18n-orig="Browse all 24 journals with ISSN information.">ISSN 및 임프린트 정보가 있는 전체 24개 저널을 탐색하세요.</span></a>
                 <a href="open-access-policy.html" class="d1 reveal"><strong data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">오픈 액세스 정책</strong><span data-i18n="indexing.ql.oa.desc" data-i18n-orig="Review licensing, repository, and rights guidance.">라이선스, 저장소 및 권리 안내를 검토하세요.</span></a>
                 <a href="publication-ethics.html" class="d2 reveal"><strong data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">출판 윤리</strong><span data-i18n="indexing.ql.ethics.desc" data-i18n-orig="Editorial integrity and peer review conduct standards.">편집 무결성 및 동료 심사 행위 기준.</span></a>
                 <a href="contact.html" class="d3 reveal"><strong data-i18n="indexing.ql.enquiries" data-i18n-orig="Enquiries">문의</strong><span data-i18n="indexing.ql.contact.desc" data-i18n-orig="Contact the publisher for indexing or archiving questions.">색인 또는 아카이브에 대해 Panorama Scholarly Group에 문의하세요.</span></a>
@@ -435,9 +514,38 @@
             <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
         </div>
         <div>
-            <h3 data-i18n="footer.journals-policies" data-i18n-orig="Journals &amp; Policies">저널 및 정책</h3>
+            <h3 data-i18n="nav.publications" data-i18n-orig="Publications">출판물</h3>
             <ul>
                 <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">저널 목록</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">학술 서적</a></li>
+                <li><a href="ridgeline.html">Ridgeline</a></li>
+                <li><a href="health-nexus.html">Health Nexus</a></li>
+                <li><a href="verdant-science.html">Verdant Science</a></li>
+                <li><a href="charter.html">Charter</a></li>
+                <li><a href="threnody.html">Threnody</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.publish" data-i18n-orig="Publish">투고</h3>
+            <ul>
+                <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">저널 찾기</a></li>
+                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">저자 가이드</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">도서 출판</a></li>
+                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">편집위원 지원</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">연구 및 인프라</h3>
+            <ul>
+                <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">연구원</a></li>
+                <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">편집진 디렉터리</a></li>
+                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">증명서 조회</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.policies" data-i18n-orig="Policies">정책</h3>
+            <ul>
                 <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">출판 윤리</a></li>
                 <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">오픈 액세스 정책</a></li>
                 <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">색인 및 아카이빙</a></li>
@@ -445,14 +553,10 @@
             </ul>
         </div>
         <div>
-            <h3 data-i18n="footer.authors-info" data-i18n-orig="Authors &amp; Information">저자 정보</h3>
+            <h3 data-i18n="nav.about" data-i18n-orig="About">소개</h3>
             <ul>
-                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">저자 가이드</a></li>
-                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">편집위원 지원</a></li>
-                <li><a href="about.html" data-i18n="footer.about" data-i18n-orig="About">소개</a></li>
+                <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">출판사 소개</a></li>
                 <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">문의</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">편집진 디렉터리</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">증명서 조회</a></li>
             </ul>
         </div>
     </div>
@@ -462,7 +566,7 @@
     </div>
 </footer>
 
-<script src="/site.js?v=20260811-12"></script>
+<script src="/site.js?v=20260828-13"></script>
 
 
 </body></html>

@@ -107,6 +107,8 @@ function rootRelativize(html) {
         [/src="site\.js\?v=/g, 'src="/site.js?v='],
         [/src="assets\/logos\//g, 'src="/assets/logos/'],
         [/href="assets\/logos\//g, 'href="/assets/logos/'],
+        [/src="assets\/nexus\//g, 'src="/assets/nexus/'],
+        [/href="assets\/nexus\//g, 'href="/assets/nexus/'],
         [/src="QKFM\//g, 'src="/QKFM/'],
         [/data\/articles\.json/g, '/data/articles.json'],
         [/data\/journals\.json/g, '/data/journals.json'],
@@ -121,6 +123,15 @@ async function generate() {
     const server = await startServer();
     const browser = await chromium.launch();
     const page = await browser.newPage();
+    // Stat numbers (.stat-cell/.hero-stat/.posi-stat strong) count up from
+    // zero via requestAnimationFrame over ~1100ms once scrolled into view
+    // (site.js). Above-the-fold stat rows start that animation immediately
+    // on load, and the 300ms settle below captures whatever mid-animation
+    // digit the easing curve had reached at that instant -- not the real
+    // target -- baking a wrong number into the static page. Emulating
+    // prefers-reduced-motion makes site.js's own reduceMotion branch skip
+    // the animation and set the final value synchronously instead.
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     let count = 0;
 
     try {

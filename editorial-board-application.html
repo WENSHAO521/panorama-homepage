@@ -16,7 +16,7 @@
     <link rel="alternate" hreflang="fr" href="https://panorama-sg.com/fr/editorial-board-application.html">
     <link rel="alternate" hreflang="de" href="https://panorama-sg.com/de/editorial-board-application.html">
     <link rel="alternate" hreflang="ar" href="https://panorama-sg.com/ar/editorial-board-application.html">
-    <link rel="alternate" hreflang="x-default" href="https://panorama-sg.com/editorial-board-application.html">
+    <link rel="alternate" hreflang="x-default" href="https://panorama-sg.com/editorial-board-application.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Panorama Scholarly Group">
     <meta property="og:title" content="Join Editorial Board | Panorama Scholarly Group">
@@ -31,7 +31,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="institutional.css?v=20260828-1">
+    <link rel="stylesheet" href="institutional.css?v=20260828-2">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,17 +90,92 @@
             <span></span><span></span><span></span>
         </button>
         <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
-            <a href="index.html" data-i18n="nav.home">Home</a>
             <div class="platforms-menu">
                 <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
-                    <span data-i18n="nav.platforms">Platforms</span>
+                    <span data-i18n="nav.publications">Publications</span>
                     <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
-                <div class="platforms-options" role="menu">
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publications.journals-label">Journals</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="index.ql.browse-all">Browse Journals</span>
+                        <span class="platform-opt-desc" data-i18n="nav.platforms.journals-desc">Peer-reviewed journal directory</span>
+                    </a>
+                    <a href="https://journals.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal">Find a Journal</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.books-label">Scholarly Books</p>
                     <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="index.pub-lines.books.h3">Scholarly Books</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.books-desc">Monographs and edited volumes</span>
                     </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publications.imprints-label">By Editorial Imprint</p>
+                    <a href="ridgeline.html" role="menuitem">
+                        <span class="platform-opt-name">Ridgeline</span>
+                        <span class="platform-opt-desc">Technology &middot; Engineering &middot; AI</span>
+                    </a>
+                    <a href="health-nexus.html" role="menuitem">
+                        <span class="platform-opt-name">Health Nexus</span>
+                        <span class="platform-opt-desc">Medicine &middot; Health Sciences</span>
+                    </a>
+                    <a href="verdant-science.html" role="menuitem">
+                        <span class="platform-opt-name">Verdant Science</span>
+                        <span class="platform-opt-desc">Environment &middot; Life Sciences</span>
+                    </a>
+                    <a href="charter.html" role="menuitem">
+                        <span class="platform-opt-name">Charter</span>
+                        <span class="platform-opt-desc">Policy &middot; Law &middot; Governance</span>
+                    </a>
+                    <a href="threnody.html" role="menuitem">
+                        <span class="platform-opt-name">Threnody</span>
+                        <span class="platform-opt-desc">Humanities &middot; Arts &middot; Philosophy</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn current" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
+                    <span data-i18n="nav.publish">Publish</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="platforms-options mega" role="menu">
+                    <p class="menu-group-label" data-i18n="nav.publish.journal-authors">Journal Authors</p>
+                    <a href="index.html#imprints" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.find-journal">Find a Journal</span>
+                    </a>
+                    <a href="for-authors.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.author-guide">Author Guide</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.book-authors">Book Authors</p>
+                    <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="nav.publish.publish-book">Publish a Book</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.editors">Editors &amp; Reviewers</p>
+                    <a href="editorial-board-application.html" aria-current="page" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.join-eb">Join Editorial Board</span>
+                    </a>
+                    <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.editorial-dir">Editorial Directory</span>
+                    </a>
+                    <div class="menu-divider" role="separator"></div>
+                    <p class="menu-group-label" data-i18n="nav.publish.standards">Publishing Standards</p>
+                    <a href="publication-ethics.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.pub-ethics">Publication Ethics</span>
+                    </a>
+                    <a href="open-access-policy.html" role="menuitem">
+                        <span class="platform-opt-name" data-i18n="footer.oa-policy">Open Access Policy</span>
+                    </a>
+                </div>
+            </div>
+            <div class="platforms-menu">
+                <button class="platforms-btn" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
+                    <span data-i18n="nav.research-infra">Research &amp; Infrastructure</span>
+                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="platforms-options" role="menu">
                     <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="nav.research">Research Institute</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.research-desc">Applied and policy research</span>
@@ -116,23 +191,6 @@
                     <a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" role="menuitem">
                         <span class="platform-opt-name" data-i18n="footer.credential-verify">Credential Verification</span>
                         <span class="platform-opt-desc" data-i18n="nav.platforms.credential-desc">Verify editorial and reviewer certificates</span>
-                    </a>
-                </div>
-            </div>
-            <div class="platforms-menu">
-                <button class="platforms-btn current" type="button" aria-haspopup="true" aria-expanded="false" data-platforms-toggle>
-                    <span data-i18n="nav.for-authors">For Authors</span>
-                    <svg class="platforms-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <div class="platforms-options" role="menu">
-                    <a href="for-authors.html" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.author-guide">Author Guide</span>
-                    </a>
-                    <a href="index.html#imprints" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="index.ql.browse-all">Browse All Journals</span>
-                    </a>
-                    <a href="editorial-board-application.html" aria-current="page" role="menuitem">
-                        <span class="platform-opt-name" data-i18n="footer.join-eb">Join Editorial Board</span>
                     </a>
                 </div>
             </div>
@@ -170,6 +228,15 @@
                     </a>
                 </div>
             </div>
+            <div class="nav-search" data-nav-search>
+                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Search journals" data-search-toggle>
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><line x1="10.8" y1="10.8" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <div class="nav-search-panel">
+                    <input class="nav-search-input" type="text" placeholder="Search journals…" data-i18n-placeholder="nav.search.placeholder" data-search-input autocomplete="off">
+                    <ul class="nav-search-results" data-search-results></ul>
+                </div>
+            </div>
             <div class="lang-menu">
                 <button class="lang-btn" type="button" aria-label="Select language" aria-expanded="false" data-lang-toggle>
                     <svg class="lang-globe" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><ellipse cx="8" cy="8" rx="2.6" ry="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.25"/><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1"/><line x1="2" y1="10.5" x2="14" y2="10.5" stroke="currentColor" stroke-width="1"/></svg>
@@ -192,6 +259,7 @@
                     <button type="button" role="menuitemradio" data-lang-option="ar">العربية</button>
                 </div>
             </div>
+            <a class="btn header-cta" href="https://journals.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.find-journal">Find a Journal</a>
         </nav>
     </div>
 </header>
@@ -484,7 +552,7 @@
                 </div>
             </div>
             <div class="quick-links">
-                <a href="index.html#imprints"><strong data-i18n="footer.journal-directory">Journal Directory</strong><span>Browse all 24 journals with submission routes.</span></a>
+                <a href="index.html#imprints"><strong data-i18n="footer.journal-directory">Journal Directory</strong><span data-i18n="contact.ql.journals.desc">Browse all 24 journals with submission routes.</span></a>
                 <a href="publication-ethics.html"><strong data-i18n="footer.pub-ethics">Publication Ethics</strong><span>Editorial conduct and integrity requirements.</span></a>
                 <a href="about.html"><strong data-i18n="footer.about">About</strong><span>Panorama Scholarly Group institutional profile.</span></a>
                 <a href="contact.html"><strong data-i18n="footer.contact">Contact</strong><span>Platform administrative and policy contact.</span></a>
@@ -535,9 +603,38 @@
             <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
         </div>
         <div>
-            <h3 data-i18n="footer.journals-policies">Journals &amp; Policies</h3>
+            <h3 data-i18n="nav.publications">Publications</h3>
             <ul>
                 <li><a href="index.html#imprints" data-i18n="footer.journal-directory">Journal Directory</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3">Scholarly Books</a></li>
+                <li><a href="ridgeline.html">Ridgeline</a></li>
+                <li><a href="health-nexus.html">Health Nexus</a></li>
+                <li><a href="verdant-science.html">Verdant Science</a></li>
+                <li><a href="charter.html">Charter</a></li>
+                <li><a href="threnody.html">Threnody</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.publish">Publish</h3>
+            <ul>
+                <li><a href="index.html#imprints" data-i18n="nav.find-journal">Find a Journal</a></li>
+                <li><a href="for-authors.html" data-i18n="footer.author-guide">Author Guide</a></li>
+                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book">Publish a Book</a></li>
+                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb">Join Editorial Board</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.research-infra">Research &amp; Infrastructure</h3>
+            <ul>
+                <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research">Research Institute</a></li>
+                <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
+                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir">Editorial Directory</a></li>
+                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify">Credential Verification</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 data-i18n="nav.policies">Policies</h3>
+            <ul>
                 <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics">Publication Ethics</a></li>
                 <li><a href="open-access-policy.html" data-i18n="footer.oa-policy">Open Access Policy</a></li>
                 <li><a href="indexing.html" data-i18n="footer.indexing">Indexing &amp; Archiving</a></li>
@@ -545,14 +642,10 @@
             </ul>
         </div>
         <div>
-            <h3 data-i18n="footer.authors-info">Authors &amp; Information</h3>
+            <h3 data-i18n="nav.about">About</h3>
             <ul>
-                <li><a href="for-authors.html" data-i18n="footer.author-guide">Author Guide</a></li>
-                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb">Join Editorial Board</a></li>
-                <li><a href="about.html" data-i18n="footer.about">About</a></li>
+                <li><a href="about.html" data-i18n="index.tl.about-pub">About the Group</a></li>
                 <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir">Editorial Directory</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify">Credential Verification</a></li>
             </ul>
         </div>
     </div>
@@ -562,6 +655,6 @@
     </div>
 </footer>
 
-<script src="site.js?v=20260811-12"></script>
+<script src="site.js?v=20260828-13"></script>
 </body>
 </html>
