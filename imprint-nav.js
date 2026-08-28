@@ -672,6 +672,9 @@
     if (cfg.journalsIndexHref) {
       idx.push({ group: 'Journals', title: 'All ' + cfg.name + ' Journals', desc: 'Full journal portfolio', href: cfg.journalsIndexHref });
     }
+    if (cfg.updatesHref) {
+      idx.push({ group: 'Updates', title: cfg.name + ' Updates', desc: 'Calls for papers, new issues and notices', href: cfg.updatesHref });
+    }
     return idx;
   }
 
