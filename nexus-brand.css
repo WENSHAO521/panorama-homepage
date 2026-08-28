@@ -76,6 +76,15 @@
   .nx-hero-visual img { position: static; }
 }
 
+/* Sub-pages (For Authors / Editorial / Policies) -- no wallpaper photo, so
+   skip the two-column grid entirely and let the text column set its own
+   width, same background/breadcrumb/h1/lede language as the brand hero. */
+.nx-hero--sub .nx-hero-text {
+  padding: 56px 24px; max-width: var(--max, 1280px); margin: 0 auto;
+}
+.nx-hero--sub h1 { max-width: 26ch; }
+.nx-hero--sub p.lede { max-width: 62ch; }
+
 /* Local sub-navigation: a second, brand-scoped tab strip beneath the
    site's main header, the way link.springer.com/brands/bmc separates
    "Home / Journals / About / Choose the right journal / Updates" from

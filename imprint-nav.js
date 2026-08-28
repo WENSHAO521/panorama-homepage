@@ -303,6 +303,30 @@
     return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
+  // For Authors / Editorial / Policies each live on their own page now
+  // (ridgeline-for-authors.html etc.), not as anchors on the imprint
+  // homepage. IMPRINT_CONFIG data and the shared render functions still
+  // author their hrefs as short placeholder anchors so the same data can
+  // render correctly regardless of which page it's rendered from -- this
+  // is the one place that resolves a placeholder to the real, current
+  // imprint's URL. Anything not in the map (external URLs, mailto:,
+  // journal URLs, real relative page.html links) passes through untouched.
+  var PAGE_ANCHOR_MAP = {
+    '#for-authors': '{slug}-for-authors.html',
+    '#editorial': '{slug}-editorial.html',
+    '#policies': '{slug}-policies.html',
+    '#submissions': '{slug}-for-authors.html#submissions',
+    '#editorial-contacts': '{slug}-editorial.html#editorial-contacts',
+    '#featured-journals': '{slug}.html#featured-journals',
+    '#about': '{slug}.html#about'
+  };
+  function resolveHref(href, slug) {
+    var mapped = PAGE_ANCHOR_MAP[href];
+    if (mapped) return mapped.replace(/\{slug\}/g, slug);
+    if (href === ('#why-' + slug)) return slug + '.html#why-' + slug;
+    return href;
+  }
+
   // ---- render: mega menu content --------------------------------------
   function renderJournalsRows(journals) {
     var html = '<div class="in-mega-eyebrow">Journals</div><div class="in-journal-rows">';
@@ -368,7 +392,7 @@
     else if (cfg.layout === 'grouped') body = renderJournalsGrouped(cfg);
     else body = renderJournalsIndex(cfg);
     return body + '<div class="in-mega-foot">' +
-      '<a href="#featured-journals">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>' +
+      '<a href="' + esc(resolveHref('#featured-journals', slug)) + '">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>' +
       '<button type="button" data-in-submit-open>Submit a Manuscript &rarr;</button></div>';
   }
 
@@ -377,14 +401,14 @@
   // then each category as its own labelled group with a short description
   // under every item -- matching the same groups shown on the imprint's
   // own page section, not a flat sitemap dump.
-  function renderGroupedMega(eyebrow, lede, groups, cols) {
+  function renderGroupedMega(slug, eyebrow, lede, groups, cols) {
     var html = '<div class="in-mega-eyebrow">' + esc(eyebrow) + '</div>';
     if (lede) html += '<p class="in-mega-lede">' + esc(lede) + '</p>';
     html += '<div class="in-mega-groups" style="--in-cols:' + (cols || 3) + ';">';
     groups.forEach(function (group) {
       html += '<div class="in-mega-group"><p class="in-mega-group-head">' + esc(group.head) + '</p><ul>';
       group.items.forEach(function (it) {
-        html += '<li><a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' +
+        html += '<li><a href="' + esc(resolveHref(it.href, slug)) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' +
           '<span class="in-mega-item-label">' + esc(it.label) + '</span>' +
           (it.desc ? '<span class="in-mega-item-desc">' + esc(it.desc) + '</span>' : '') +
           '</a></li>';
@@ -395,27 +419,27 @@
     return html;
   }
 
-  function renderAuthorsMega(cfg) {
-    return renderGroupedMega('For Authors', cfg.authorsLede, cfg.authors, 3) +
-      '<div class="in-mega-foot"><a href="#for-authors">Prepare Your Manuscript &rarr;</a>' +
+  function renderAuthorsMega(slug, cfg) {
+    return renderGroupedMega(slug, 'For Authors', cfg.authorsLede, cfg.authors, 3) +
+      '<div class="in-mega-foot"><a href="' + esc(resolveHref('#for-authors', slug)) + '">Prepare Your Manuscript &rarr;</a>' +
       '<button type="button" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
   }
 
-  function renderEditorialMega(cfg) {
-    return renderGroupedMega('Editorial', cfg.editorialLede, sharedEditorial(cfg), 2) +
-      '<div class="in-mega-foot"><a href="#editorial">Read Editorial &rarr;</a>' +
+  function renderEditorialMega(slug, cfg) {
+    return renderGroupedMega(slug, 'Editorial', cfg.editorialLede, sharedEditorial(cfg), 2) +
+      '<div class="in-mega-foot"><a href="' + esc(resolveHref('#editorial', slug)) + '">Read Editorial &rarr;</a>' +
       '<a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">View Editorial Directory &rarr;</a></div>';
   }
 
-  function renderPoliciesMega(cfg) {
-    return renderGroupedMega('Policies & Standards', cfg.policiesLede, cfg.policies, 3) +
-      '<div class="in-mega-foot"><a href="#policies">Read Publishing Policies &rarr;</a></div>';
+  function renderPoliciesMega(slug, cfg) {
+    return renderGroupedMega(slug, 'Policies & Standards', cfg.policiesLede, cfg.policies, 3) +
+      '<div class="in-mega-foot"><a href="' + esc(resolveHref('#policies', slug)) + '">Read Publishing Policies &rarr;</a></div>';
   }
 
-  function renderAboutDropdown(imprintName) {
+  function renderAboutDropdown(slug, imprintName) {
     var html = '';
     sharedAbout(imprintName).forEach(function (it) {
-      html += '<a href="' + esc(it.href) + '">' + esc(it.label) + '</a>';
+      html += '<a href="' + esc(resolveHref(it.href, slug)) + '">' + esc(it.label) + '</a>';
     });
     return html;
   }
@@ -454,12 +478,12 @@
     return out;
   }
 
-  function groupedLinksHtml(groups) {
+  function groupedLinksHtml(groups, slug) {
     var html = '';
     groups.forEach(function (g) {
       html += '<p class="in-drawer-group-head">' + esc(g.head) + '</p>';
       g.items.forEach(function (it) {
-        html += '<a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>';
+        html += '<a href="' + esc(resolveHref(it.href, slug)) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>';
       });
     });
     return html;
@@ -481,12 +505,12 @@
     }
 
     var html = '';
-    html += accordion('journals', 'Journals', journalLinks() + '<a href="#featured-journals">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>');
-    html += '<div class="in-drawer-item"><a class="in-drawer-row" href="#why-' + esc(slug) + '" style="text-decoration:none;">Why ' + esc(cfg.name) + '</a></div>';
-    html += accordion('authors', 'For Authors', groupedLinksHtml(cfg.authors) + '<a href="#for-authors">Full Author Guide &rarr;</a>');
-    html += accordion('editorial', 'Editorial', groupedLinksHtml(sharedEditorial(cfg)));
-    html += accordion('policies', 'Policies', groupedLinksHtml(cfg.policies));
-    html += '<div class="in-drawer-item"><a class="in-drawer-row" href="#about" style="text-decoration:none;">About</a></div>';
+    html += accordion('journals', 'Journals', journalLinks() + '<a href="' + esc(resolveHref('#featured-journals', slug)) + '">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>');
+    html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(resolveHref('#why-' + slug, slug)) + '" style="text-decoration:none;">Why ' + esc(cfg.name) + '</a></div>';
+    html += accordion('authors', 'For Authors', groupedLinksHtml(cfg.authors, slug) + '<a href="' + esc(resolveHref('#for-authors', slug)) + '">Full Author Guide &rarr;</a>');
+    html += accordion('editorial', 'Editorial', groupedLinksHtml(sharedEditorial(cfg), slug));
+    html += accordion('policies', 'Policies', groupedLinksHtml(cfg.policies, slug));
+    html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(resolveHref('#about', slug)) + '" style="text-decoration:none;">About</a></div>';
     html += '<div class="in-drawer-submit"><button type="button" class="in-submit-btn" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
     html += '<div class="in-drawer-psg"><p class="in-drawer-psg-label">Panorama Scholarly Group</p>' +
       '<a href="index.html">Group Homepage</a>' +
@@ -507,7 +531,7 @@
     }
     function linkList(items) {
       return '<ul>' + items.map(function (it) {
-        return '<li><a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a></li>';
+        return '<li><a href="' + esc(resolveHref(it.href, slug)) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a></li>';
       }).join('') + '</ul>';
     }
 
@@ -520,8 +544,8 @@
     })));
 
     var publishCol = accordionCol('Publish',
-      '<ul><li><a href="#for-authors">Author Guidelines</a></li>' +
-      '<li><a href="#featured-journals" data-in-submit-open>Submit a Manuscript</a></li>' +
+      '<ul><li><a href="' + esc(resolveHref('#for-authors', slug)) + '">Author Guidelines</a></li>' +
+      '<li><a href="' + esc(resolveHref('#featured-journals', slug)) + '" data-in-submit-open>Submit a Manuscript</a></li>' +
       '<li><a href="editorial-board-application.html">Join Editorial Board</a></li></ul>');
 
     var editorialCol = accordionCol('Editorial', linkList(flattenGroups(sharedEditorial(cfg))));
@@ -551,20 +575,20 @@
     });
     cfg.authors.forEach(function (g) {
       g.items.forEach(function (it) {
-        idx.push({ group: 'For Authors', title: it.label, desc: it.desc || g.head, href: it.href });
+        idx.push({ group: 'For Authors', title: it.label, desc: it.desc || g.head, href: resolveHref(it.href, cfg.slug) });
       });
     });
     flattenGroups(sharedEditorial(cfg)).forEach(function (it) {
-      idx.push({ group: 'Editorial', title: it.label, desc: it.desc || 'Editorial', href: it.href, external: it.external });
+      idx.push({ group: 'Editorial', title: it.label, desc: it.desc || 'Editorial', href: resolveHref(it.href, cfg.slug), external: it.external });
     });
     cfg.policies.forEach(function (g) {
       g.items.forEach(function (it) {
-        idx.push({ group: 'Policies', title: it.label, desc: it.desc || g.head, href: it.href });
+        idx.push({ group: 'Policies', title: it.label, desc: it.desc || g.head, href: resolveHref(it.href, cfg.slug) });
       });
     });
-    idx.push({ group: 'About', title: 'Why ' + cfg.name, desc: 'Publishing commitments', href: '#why-' + cfg.slug });
-    idx.push({ group: 'About', title: 'About ' + cfg.name, desc: 'About this imprint', href: '#about' });
-    idx.push({ group: 'About', title: 'Contact', desc: 'Reach the publisher', href: '#editorial-contacts' });
+    idx.push({ group: 'About', title: 'Why ' + cfg.name, desc: 'Publishing commitments', href: resolveHref('#why-' + cfg.slug, cfg.slug) });
+    idx.push({ group: 'About', title: 'About ' + cfg.name, desc: 'About this imprint', href: resolveHref('#about', cfg.slug) });
+    idx.push({ group: 'About', title: 'Contact', desc: 'Reach the publisher', href: resolveHref('#editorial-contacts', cfg.slug) });
     return idx;
   }
 
@@ -579,10 +603,10 @@
     document.querySelectorAll('[data-in-fill]').forEach(function (el) {
       var kind = el.getAttribute('data-in-fill');
       if (kind === 'journals') el.innerHTML = renderJournalsMega(slug, cfg);
-      else if (kind === 'authors') el.innerHTML = renderAuthorsMega(cfg);
-      else if (kind === 'editorial') el.innerHTML = renderEditorialMega(cfg);
-      else if (kind === 'policies') el.innerHTML = renderPoliciesMega(cfg);
-      else if (kind === 'about') el.innerHTML = renderAboutDropdown(cfg.name);
+      else if (kind === 'authors') el.innerHTML = renderAuthorsMega(slug, cfg);
+      else if (kind === 'editorial') el.innerHTML = renderEditorialMega(slug, cfg);
+      else if (kind === 'policies') el.innerHTML = renderPoliciesMega(slug, cfg);
+      else if (kind === 'about') el.innerHTML = renderAboutDropdown(slug, cfg.name);
     });
 
     var modalBody = document.querySelector('[data-in-modal-body]');
