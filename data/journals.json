@@ -1,14 +1,34 @@
 {
-    "harvestedAt": "2026-08-27T11:30:07Z",
+    "harvestedAt": "2026-08-28T13:05:41Z",
     "sourcePublisher": "Panorama Scholarly Group",
     "source": "Panorama journal home pages (hero banner blurb)",
     "journalCount": 24,
     "subBrands": {
-        "tech": { "name": "Ridgeline", "scope": "Technology, Engineering & AI", "page": "ridgeline.html" },
-        "health": { "name": "Health Nexus", "scope": "Medicine & Health Sciences", "page": "health-nexus.html" },
-        "earth": { "name": "Verdant Science", "scope": "Sustainability, Environment & Life Sciences", "page": "verdant-science.html" },
-        "civic": { "name": "Charter", "scope": "Policy, Law & Governance", "page": "charter.html" },
-        "culture": { "name": "Threnody", "scope": "Humanities, Arts & Philosophy", "page": "threnody.html" }
+        "tech": {
+            "name": "Ridgeline",
+            "scope": "Technology, Engineering & AI",
+            "page": "ridgeline.html"
+        },
+        "health": {
+            "name": "Health Nexus",
+            "scope": "Medicine & Health Sciences",
+            "page": "health-nexus.html"
+        },
+        "earth": {
+            "name": "Verdant Science",
+            "scope": "Sustainability, Environment & Life Sciences",
+            "page": "verdant-science.html"
+        },
+        "civic": {
+            "name": "Charter",
+            "scope": "Policy, Law & Governance",
+            "page": "charter.html"
+        },
+        "culture": {
+            "name": "Threnody",
+            "scope": "Humanities, Arts & Philosophy",
+            "page": "threnody.html"
+        }
     },
     "journals": [
         {
