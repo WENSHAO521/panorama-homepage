@@ -608,6 +608,7 @@
             'nav.research-infra': 'Research & Infrastructure',
             'nav.find-journal': 'Find a Journal',
             'nav.search.placeholder': 'Search journals…',
+            'nav.search.button-label': 'Search journals',
             'nav.publications.journals-label': 'Journals',
             'nav.publications.books-label': 'Scholarly Books',
             'nav.publications.imprints-label': 'By Editorial Imprint',
@@ -763,6 +764,7 @@
             'index.imprints.kicker': 'Five Imprints',
             'index.imprints.h2': 'Five editorial identities. One publishing standard.',
             'index.imprints.explore': 'Explore →',
+            'nav.quick-access': 'Quick Access',
             'index.imprints.p': 'Distinct scholarly communities, united by shared standards for peer review, open access, integrity and preservation.',
             'index.imprints.link': 'Browse all journals by imprint →',
             'index.platforms.research.h3': 'Applied & Policy Research',
@@ -1240,6 +1242,7 @@
             'nav.research-infra': '研究與基礎設施',
             'nav.find-journal': '尋找期刊',
             'nav.search.placeholder': '搜尋期刊…',
+            'nav.search.button-label': '搜尋期刊',
             'nav.publications.journals-label': '期刊',
             'nav.publications.books-label': '學術書籍',
             'nav.publications.imprints-label': '依編輯品牌',
@@ -1254,6 +1257,7 @@
             'imprint.charter.scope': '政策 · 法律 · 治理',
             'imprint.threnody.scope': '人文 · 藝術 · 哲學',
             'index.imprints.explore': '探索 →',
+            'nav.quick-access': '快速連結',
             'brand.tagline': '國際學術出版與研究平台',
             'footer.brand-intro': '全景學術集團旗下運營五個學術平台：期刊、書籍、研究院、開放學術指數與編委目錄。',
             'footer.admin-contact': '行政聯絡',
@@ -1873,6 +1877,7 @@
         'nav.research-infra': '研究・基盤インフラ',
         'nav.find-journal': 'ジャーナルを探す',
         'nav.search.placeholder': 'ジャーナルを検索…',
+        'nav.search.button-label': 'ジャーナルを検索',
         'nav.publications.journals-label': 'ジャーナル',
         'nav.publications.books-label': '学術書籍',
         'nav.publications.imprints-label': '出版インプリント別',
@@ -1888,6 +1893,7 @@
         'imprint.charter.scope': '政策・法律・ガバナンス',
         'imprint.threnody.scope': '人文学・芸術・哲学',
         'index.imprints.explore': '詳しく見る →',
+        'nav.quick-access': 'クイックアクセス',
         'brand.tagline': '国際学術出版・研究プラットフォーム',
         'footer.brand-intro': 'Panorama Scholarly Groupは、ジャーナル、書籍、研究院、オープン学術指数、編集者ディレクトリという五つの学術プラットフォームを運営しています。',
         'footer.admin-contact': '管理窓口',
@@ -2505,6 +2511,7 @@
         'nav.research-infra': '연구 및 인프라',
         'nav.find-journal': '저널 찾기',
         'nav.search.placeholder': '저널 검색…',
+        'nav.search.button-label': '저널 검색',
         'nav.publications.journals-label': '저널',
         'nav.publications.books-label': '학술 도서',
         'nav.publications.imprints-label': '편집 임프린트별',
@@ -2520,6 +2527,7 @@
         'imprint.charter.scope': '정책 · 법률 · 거버넌스',
         'imprint.threnody.scope': '인문학 · 예술 · 철학',
         'index.imprints.explore': '살펴보기 →',
+        'nav.quick-access': '빠른 액세스',
         'brand.tagline': '국제 학술 출판 및 연구 플랫폼',
         'footer.brand-intro': 'Panorama Scholarly Group은 저널, 서적, 연구원, 오픈 학술 지수, 편집진 디렉터리 등 다섯 개의 학술 플랫폼을 운영합니다.',
         'footer.admin-contact': '행정 문의',
@@ -3136,6 +3144,7 @@
         'nav.research-infra': '研究与基础设施',
         'nav.find-journal': '查找期刊',
         'nav.search.placeholder': '搜索期刊…',
+        'nav.search.button-label': '搜索期刊',
         'nav.publications.journals-label': '期刊',
         'nav.publications.books-label': '学术书籍',
         'nav.publications.imprints-label': '按编辑品牌',
@@ -3150,6 +3159,7 @@
         'imprint.charter.scope': '政策 · 法律 · 治理',
         'imprint.threnody.scope': '人文 · 艺术 · 哲学',
         'index.imprints.explore': '探索 →',
+        'nav.quick-access': '快速链接',
         'brand.tagline': '国际学术出版与研究平台',
         'footer.brand-intro': '全景学术集团旗下运营五个学术平台：期刊、书籍、研究院、开放学术指数与编委目录。',
         'footer.admin-contact': '行政联络',
@@ -3652,6 +3662,7 @@
         'nav.research-infra': 'Исследования и инфраструктура',
         'nav.find-journal': 'Найти журнал',
         'nav.search.placeholder': 'Поиск журналов…',
+        'nav.search.button-label': 'Поиск журналов',
         'nav.publications.journals-label': 'Журналы',
         'nav.publications.books-label': 'Научные книги',
         'nav.publications.imprints-label': 'По издательским импринтам',
@@ -3666,6 +3677,7 @@
         'imprint.charter.scope': 'Политика · право · управление',
         'imprint.threnody.scope': 'Гуманитарные науки · искусство · философия',
         'index.imprints.explore': 'Подробнее →',
+        'nav.quick-access': 'Быстрый доступ',
         'brand.tagline': 'Международная платформа научных публикаций и исследований',
         'footer.brand-intro': 'Panorama Scholarly Group управляет пятью научными платформами: журналами, книгами, исследовательским институтом, открытым индексом и редакционным каталогом.',
         'footer.admin-contact': 'Административный контакт',
@@ -4284,6 +4296,7 @@
         'nav.research-infra': 'Investigación e infraestructura',
         'nav.find-journal': 'Buscar una revista',
         'nav.search.placeholder': 'Buscar revistas…',
+        'nav.search.button-label': 'Buscar revistas',
         'nav.publications.journals-label': 'Revistas',
         'nav.publications.books-label': 'Libros académicos',
         'nav.publications.imprints-label': 'Por sello editorial',
@@ -4299,6 +4312,7 @@
         'imprint.charter.scope': 'Política · Derecho · Gobernanza',
         'imprint.threnody.scope': 'Humanidades · Artes · Filosofía',
         'index.imprints.explore': 'Explorar →',
+        'nav.quick-access': 'Acceso rápido',
         'brand.tagline': 'Plataforma internacional de publicación e investigación académica',
         'footer.brand-intro': 'Panorama Scholarly Group opera cinco plataformas académicas: revistas, libros, un instituto de investigación, un índice abierto y un directorio editorial.',
         'footer.admin-contact': 'Contacto administrativo',
@@ -4916,6 +4930,7 @@
         'nav.research-infra': 'Recherche et infrastructure',
         'nav.find-journal': 'Trouver une revue',
         'nav.search.placeholder': 'Rechercher une revue…',
+        'nav.search.button-label': 'Rechercher une revue',
         'nav.publications.journals-label': 'Revues',
         'nav.publications.books-label': 'Livres académiques',
         'nav.publications.imprints-label': 'Par label éditorial',
@@ -4931,6 +4946,7 @@
         'imprint.charter.scope': 'Politique · Droit · Gouvernance',
         'imprint.threnody.scope': 'Sciences humaines · Arts · Philosophie',
         'index.imprints.explore': 'Explorer →',
+        'nav.quick-access': 'Accès rapide',
         'brand.tagline': 'Plateforme internationale de publication et de recherche académique',
         'footer.brand-intro': "Panorama Scholarly Group exploite cinq plateformes savantes : revues, ouvrages, institut de recherche, index ouvert et répertoire éditorial.",
         'footer.admin-contact': 'Contact administratif',
@@ -5548,6 +5564,7 @@
         'nav.research-infra': 'Forschung & Infrastruktur',
         'nav.find-journal': 'Zeitschrift finden',
         'nav.search.placeholder': 'Zeitschriften durchsuchen…',
+        'nav.search.button-label': 'Zeitschriften durchsuchen',
         'nav.publications.journals-label': 'Zeitschriften',
         'nav.publications.books-label': 'Wissenschaftliche Bücher',
         'nav.publications.imprints-label': 'Nach Verlagsimprint',
@@ -5563,6 +5580,7 @@
         'imprint.charter.scope': 'Politik · Recht · Governance',
         'imprint.threnody.scope': 'Geisteswissenschaften · Kunst · Philosophie',
         'index.imprints.explore': 'Entdecken →',
+        'nav.quick-access': 'Schnellzugriff',
         'brand.tagline': 'Internationale Plattform für wissenschaftliches Publizieren und Forschung',
         'footer.brand-intro': 'Panorama Scholarly Group betreibt fünf wissenschaftliche Plattformen: Zeitschriften, Bücher, ein Forschungsinstitut, einen offenen Index und ein Redaktionsverzeichnis.',
         'footer.admin-contact': 'Verwaltungskontakt',
@@ -6180,6 +6198,7 @@
         'nav.research-infra': 'الأبحاث والبنية التحتية',
         'nav.find-journal': 'ابحث عن مجلة',
         'nav.search.placeholder': 'ابحث عن المجلات…',
+        'nav.search.button-label': 'ابحث عن المجلات',
         'nav.publications.journals-label': 'المجلات',
         'nav.publications.books-label': 'الكتب العلمية',
         'nav.publications.imprints-label': 'حسب العلامة التحريرية',
@@ -6194,6 +6213,7 @@
         'imprint.charter.scope': 'السياسات · القانون · الحوكمة',
         'imprint.threnody.scope': 'الإنسانيات · الفنون · الفلسفة',
         'index.imprints.explore': 'استكشف →',
+        'nav.quick-access': 'الوصول السريع',
         'brand.tagline': 'منصة دولية للنشر والبحث الأكاديمي',
         'footer.brand-intro': 'تدير Panorama Scholarly Group خمس منصات أكاديمية: المجلات والكتب ومعهد البحث والفهرس المفتوح والدليل التحريري.',
         'footer.admin-contact': 'التواصل الإداري',
@@ -10970,6 +10990,21 @@
             } else {
                 el.setAttribute('placeholder', source);
             }
+        });
+        document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+            el.getAttribute('data-i18n-attr').split(',').forEach(function (pair, i) {
+                var sepIdx = pair.indexOf(':');
+                var attr = pair.slice(0, sepIdx), key = pair.slice(sepIdx + 1);
+                var origAttr = 'data-i18n-attr-orig' + (i || '');
+                var source = i18n.en[key] !== undefined ? i18n.en[key] : el.getAttribute(attr);
+                if (!el.hasAttribute(origAttr)) el.setAttribute(origAttr, source);
+                if (lang !== 'en') {
+                    var translated = i18n[lang] && i18n[lang][key];
+                    el.setAttribute(attr, translated !== undefined ? translated : source);
+                } else {
+                    el.setAttribute(attr, source);
+                }
+            });
         });
         document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
             var key = el.getAttribute('data-i18n-html');

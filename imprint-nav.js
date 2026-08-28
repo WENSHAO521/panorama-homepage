@@ -19,6 +19,7 @@
   var IMPRINT_CONFIG = {
     ridgeline: {
       name: 'Ridgeline',
+      scope: 'Technology · Engineering · AI',
       layout: 'rows',
       journals: [
         { title: 'Panorama Frontier Review', tag: 'Multidisciplinary', issn: 'ISSN Pending', view: J + 'PFR', submit: J + 'PFR/submission' },
@@ -28,6 +29,7 @@
     },
     'health-nexus': {
       name: 'Health Nexus',
+      scope: 'Medicine · Health Sciences',
       layout: 'rows',
       journals: [
         { title: 'Health Nexus', tag: 'Interdisciplinary Medicine', issn: 'ISSN 3053-7037', view: J + 'HealthNexus', submit: J + 'HealthNexus/submission' },
@@ -37,6 +39,7 @@
     },
     'verdant-science': {
       name: 'Verdant Science',
+      scope: 'Environment · Sustainability · Life Sciences',
       layout: 'grid',
       journals: [
         { title: 'Climate Sustainability & Global Systems', tag: 'Climate & Sustainability', issn: 'ISSN 3054-9663', view: J + 'CSGS', submit: J + 'CSGS/submission' },
@@ -47,6 +50,7 @@
     },
     charter: {
       name: 'Charter',
+      scope: 'Policy · Law · Governance',
       layout: 'grouped',
       groupOrder: ['governance', 'law', 'data', 'education'],
       groupLabels: { governance: 'Governance & Political Economy', law: 'Law & Society', data: 'Data & Social Science', education: 'Education & Political Thought' },
@@ -70,6 +74,7 @@
     },
     threnody: {
       name: 'Threnody',
+      scope: 'Humanities · Arts · Philosophy',
       layout: 'index',
       groupOrder: ['philosophy', 'religion', 'humanities', 'music'],
       groupLabels: { philosophy: 'Philosophy', religion: 'Religion & Traditions', humanities: 'Humanities & Arts', music: 'Music & Performance' },
@@ -303,6 +308,57 @@
     return html;
   }
 
+  // ---- render: footer -------------------------------------------------------
+  // Reuses the exact same config (cfg.journals, sharedEditorial, the group's
+  // real policy pages) the mega menu and drawer already render from -- one
+  // data source, not a sixth hand-written HTML block per imprint.
+  function renderFooter(slug, cfg) {
+    function accordionCol(headLabel, innerHtml) {
+      return '<div><details class="footer-accordion" open><summary><h3>' + esc(headLabel) + '</h3></summary>' + innerHtml + '</details></div>';
+    }
+    function linkList(items) {
+      return '<ul>' + items.map(function (it) {
+        return '<li><a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a></li>';
+      }).join('') + '</ul>';
+    }
+
+    var brandCol = '<div class="in-footer-brand">' +
+      '<h2 style="color:var(--brand);font-family:var(--brand-font,\'Playfair Display\'),\'Playfair Display\',serif;">' + esc(cfg.name.toUpperCase()) + '</h2>' +
+      '<p>' + esc(cfg.scope) + ' &mdash; a Panorama Scholarly Group imprint.</p></div>';
+
+    var journalsCol = accordionCol('Journals', linkList(cfg.journals.map(function (j) {
+      return { label: j.title, href: j.view, external: true };
+    })));
+
+    var publishCol = accordionCol('Publish',
+      '<ul><li><a href="for-authors.html">Author Guidelines</a></li>' +
+      '<li><a href="#featured-journals" data-in-submit-open>Submit a Manuscript</a></li>' +
+      '<li><a href="editorial-board-application.html">Join Editorial Board</a></li></ul>');
+
+    var editorialCol = accordionCol('Editorial', linkList(sharedEditorial()));
+
+    var policiesCol = accordionCol('Policies', linkList([
+      { label: 'Publication Ethics', href: 'publication-ethics.html' },
+      { label: 'Open Access Policy', href: 'open-access-policy.html' },
+      { label: 'Indexing & Archiving', href: 'indexing.html' },
+      { label: 'Privacy Policy', href: 'privacy-policy.html' }
+    ]));
+
+    var groupLinks = '<div class="container in-footer-group">' +
+      '<span class="in-footer-group-label">Panorama Scholarly Group</span>' +
+      '<a href="index.html">Group Homepage</a>' +
+      '<a href="index.html#imprints">Journals</a>' +
+      '<a href="https://books.panorama-sg.com" target="_blank" rel="noopener">Books</a>' +
+      '<a href="https://research.panorama-sg.com/" target="_blank" rel="noopener">Research</a>' +
+      '<a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></div>';
+
+    return '<div class="container footer-grid footer-grid--5col">' + brandCol + journalsCol + publishCol + editorialCol + policiesCol + '</div>' +
+      groupLinks +
+      '<div class="container footer-bottom">' +
+      '<span>&copy;2025&ndash;2026 Panorama Scholarly Group Ltd. All rights reserved.</span>' +
+      '<span>' + esc(cfg.name) + ', a Panorama Scholarly Group imprint</span></div>';
+  }
+
   // ---- search index -------------------------------------------------------
   function buildSearchIndex(cfg) {
     var idx = [];
@@ -348,6 +404,9 @@
 
     var drawerBody = document.querySelector('[data-in-drawer-body]');
     if (drawerBody) drawerBody.innerHTML = renderDrawer(slug, cfg);
+
+    var footerTarget = document.querySelector('[data-in-footer]');
+    if (footerTarget) footerTarget.innerHTML = renderFooter(slug, cfg);
 
     initMegaMenus();
     initModal(cfg);

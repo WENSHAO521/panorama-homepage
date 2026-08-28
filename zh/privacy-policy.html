@@ -40,7 +40,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260828-2">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-3">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -221,7 +221,7 @@
                 </div>
             </div>
             <div class="nav-search" data-nav-search="">
-                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Search journals" data-search-toggle="">
+                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="搜尋期刊" data-label="搜尋期刊" data-i18n-attr="aria-label:nav.search.button-label,data-label:nav.search.button-label" data-search-toggle="" data-i18n-attr-orig="Search journals" data-i18n-attr-orig1="Search journals">
                     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"></circle><line x1="10.8" y1="10.8" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
                 </button>
                 <div class="nav-search-panel">
@@ -253,6 +253,14 @@
                 </div>
             </div>
             <a class="btn header-cta" href="https://journals.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a>
+            <div class="nav-quick-access">
+                <p class="nav-quick-access-label" data-i18n="nav.quick-access" data-i18n-orig="Quick Access">快速連結</p>
+                <a href="index.html#imprints" data-i18n="nav.journals" data-i18n-orig="Journals">期刊目錄</a>
+                <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</a>
+                <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a>
+                <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a>
+                <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a>
+            </div>
         </nav>
     </div>
 </header>
@@ -372,56 +380,68 @@
             </div>
         </div>
         <div>
-            <h3 data-i18n="footer.admin-contact" data-i18n-orig="Administrative Contact">行政聯絡</h3>
-            <p>香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室。</p>
-            <p><strong data-i18n="footer.china-office" data-i18n-orig="China Office">中國辦事處</strong>: 南京市江宁区天行西路9号3幢1106室</p>
-            <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="footer.admin-contact" data-i18n-orig="Administrative Contact">行政聯絡</h3></summary>
+                <p>香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室。</p>
+                <p><strong data-i18n="footer.china-office" data-i18n-orig="China Office">中國辦事處</strong>: 南京市江宁区天行西路9号3幢1106室</p>
+                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.publications" data-i18n-orig="Publications">出版品</h3>
-            <ul>
-                <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">期刊目錄</a></li>
-                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</a></li>
-                <li><a href="ridgeline.html">Ridgeline</a></li>
-                <li><a href="health-nexus.html">Health Nexus</a></li>
-                <li><a href="verdant-science.html">Verdant Science</a></li>
-                <li><a href="charter.html">Charter</a></li>
-                <li><a href="threnody.html">Threnody</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.publications" data-i18n-orig="Publications">出版品</h3></summary>
+                <ul>
+                    <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">期刊目錄</a></li>
+                    <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</a></li>
+                    <li><a href="ridgeline.html">Ridgeline</a></li>
+                    <li><a href="health-nexus.html">Health Nexus</a></li>
+                    <li><a href="verdant-science.html">Verdant Science</a></li>
+                    <li><a href="charter.html">Charter</a></li>
+                    <li><a href="threnody.html">Threnody</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.publish" data-i18n-orig="Publish">投稿</h3>
-            <ul>
-                <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a></li>
-                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</a></li>
-                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">出版書籍</a></li>
-                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.publish" data-i18n-orig="Publish">投稿</h3></summary>
+                <ul>
+                    <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a></li>
+                    <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</a></li>
+                    <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">出版書籍</a></li>
+                    <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究與基礎設施</h3>
-            <ul>
-                <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a></li>
-                <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">證書查詢</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究與基礎設施</h3></summary>
+                <ul>
+                    <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a></li>
+                    <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a></li>
+                    <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">證書查詢</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.policies" data-i18n-orig="Policies">政策</h3>
-            <ul>
-                <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</a></li>
-                <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</a></li>
-                <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</a></li>
-                <li><a href="privacy-policy.html" data-i18n="footer.privacy" data-i18n-orig="Privacy Policy">隱私政策</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.policies" data-i18n-orig="Policies">政策</h3></summary>
+                <ul>
+                    <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</a></li>
+                    <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</a></li>
+                    <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</a></li>
+                    <li><a href="privacy-policy.html" data-i18n="footer.privacy" data-i18n-orig="Privacy Policy">隱私政策</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.about" data-i18n-orig="About">關於我們</h3>
-            <ul>
-                <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">關於出版商</a></li>
-                <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">聯絡我們</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.about" data-i18n-orig="About">關於我們</h3></summary>
+                <ul>
+                    <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">關於出版商</a></li>
+                    <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">聯絡我們</a></li>
+                </ul>
+            </details>
         </div>
     </div>
     <div class="container footer-bottom">
@@ -430,7 +450,7 @@
     </div>
 </footer>
 
-<script src="/site.js?v=20260828-15"></script>
+<script src="/site.js?v=20260828-17"></script>
 
 
 </body></html>

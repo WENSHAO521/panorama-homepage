@@ -35,15 +35,6 @@
   --gold-ink:     #56441F;
   --sage:         #ADCEC0;
 
-  /* Imprint accents — introduced only on hover/focus of imprint-specific
-     elements (panels, mega-menu rows); the group identity stays PSG green
-     everywhere else. */
-  --im-ridgeline: #4A5D71;
-  --im-health:    #1F7A6C;
-  --im-verdant:   #5C8F3D;
-  --im-charter:   #2E3B63;
-  --im-threnody:  #5B534A;
-
   --max: 1280px;
   --r:   2px;
   --t:   .16s ease;
@@ -205,6 +196,10 @@ h1, h2, h3 { font-family: 'Playfair Display', 'Noto Serif', serif; }
   margin-left: 4px; flex-shrink: 0;
 }
 .header-cta.btn:hover { background: var(--gold); border-color: var(--gold); color: var(--forest-dk); }
+
+/* Quick Access -- mobile-drawer-only shortcut list, hidden on desktop where
+   these destinations are already one click away via the mega menus. */
+.nav-quick-access { display: none; }
 
 /* ══════════════════════════
    LANG MENU
@@ -695,6 +690,38 @@ h3.step-title {
 .site-footer ul { margin: 0; padding: 0; list-style: none; }
 .site-footer a { color: var(--on-dark-muted); transition: color var(--t); }
 .site-footer a:hover { color: var(--gold); }
+
+/* Footer accordion -- native <details>/<summary>, open by default so it
+   degrades gracefully with no CSS/JS at all. Desktop shows every column
+   permanently expanded with no toggle affordance; only the mobile
+   breakpoint below turns the heading into a tappable disclosure row. */
+.footer-accordion summary {
+  display: block; cursor: default; list-style: none;
+  border-bottom: 1px solid var(--line-dark); padding-bottom: 10px; margin-bottom: 16px;
+}
+.footer-accordion summary::-webkit-details-marker { display: none; }
+.footer-accordion summary::marker { content: ''; }
+.footer-accordion summary h3 { border: 0; padding: 0; margin: 0; }
+.footer-accordion summary::after { content: ''; }
+
+/* Imprint footer: same footer system, 5 columns (brand + 4), a brand-flavoured
+   heading, and a compact group-attribution row above the copyright bar. */
+.footer-grid--5col { grid-template-columns: 1.3fr repeat(4, 1fr); }
+.in-footer-brand h2 { margin-bottom: 14px; font-size: 15px; font-weight: 600; letter-spacing: 0.01em; }
+.in-footer-brand p { color: var(--on-dark-muted); }
+.in-footer-group {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+  padding: 20px 0; border-top: 1px solid var(--line-dark); font-size: 12px;
+}
+.in-footer-group-label {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--on-dark-muted);
+}
+.in-footer-group a { color: var(--on-dark-muted); transition: color var(--t); }
+.in-footer-group a:hover { color: var(--gold); }
+.in-footer-lang { display: flex; justify-content: flex-end; padding: 16px 0 0; }
+.in-footer-lang .lang-menu { margin-left: 0; }
+.in-footer-lang .lang-options { top: auto; bottom: calc(100% + 8px); }
 .footer-bottom {
   min-height: 48px; border-top: 1px solid var(--line-dark);
   display: flex; align-items: center; justify-content: space-between;
@@ -810,51 +837,38 @@ h3.step-title {
 .platform-card .text-link { margin-top: auto; }
 
 /* ══════════════════════════
-   FIVE IMPRINTS
-   Editorial panels on the group's default ivory surface -- each imprint's
-   accent color is introduced only on hover/focus (see --im-* tokens),
-   keeping the section itself in the shared PSG green + paper language.
+   FIVE IMPRINTS — publisher portfolio
+   Logo-led, in the manner of a Springer Nature / BMC brand portfolio:
+   no cards, no numbering, no per-brand colour fields. Each imprint's
+   own official wordmark carries the identity; the section itself stays
+   on the group's plain paper surface with generous whitespace doing
+   the separating instead of borders or backgrounds.
 ══════════════════════════ */
-.imprints-intro { max-width: 640px; font-size: 15px; line-height: 1.85; color: var(--muted); margin: 0 0 40px; }
-.imprints-logos {
-  display: flex; flex-wrap: wrap; align-items: center; gap: 44px;
-  padding-bottom: 36px; margin-bottom: 28px; border-bottom: 1px solid var(--line-dark);
+.imprints-portfolio-head { justify-content: center; text-align: center; margin-bottom: 64px; }
+.imprints-portfolio-head > div { display: flex; flex-direction: column; align-items: center; }
+.imprints-portfolio-head .kicker { justify-content: center; }
+.imprints-intro { max-width: 560px; font-size: 15px; line-height: 1.85; color: var(--muted); margin: 16px 0 0; }
+.imprint-portfolio {
+  display: grid; grid-template-columns: 1fr 1fr;
+  column-gap: clamp(48px, 10vw, 160px); row-gap: clamp(56px, 8vw, 110px);
+  max-width: 1150px; margin: 0 auto; padding: 12px 0;
 }
-.imprints-logos a { display: inline-flex; align-items: center; opacity: .82; transition: opacity var(--t); }
-.imprints-logos a:hover { opacity: 1; }
-.imprints-logos img { height: 34px; width: auto; display: block; }
-.imprints-all-link { display: inline-block; }
-
-.imprint-panels { border-top: 1px solid var(--line-md); }
-.imprint-panel {
-  display: grid; grid-template-columns: 48px 1fr auto; align-items: center; gap: 24px;
-  padding: 26px 4px; border-bottom: 1px solid var(--line-md);
-  border-left: 3px solid transparent;
-  transition: border-color var(--t), background var(--t), padding-left var(--t);
+.imprint-brand {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; text-align: center; padding: 8px;
+  opacity: .85; transition: opacity var(--t), transform var(--t);
 }
-.imprint-panel:hover, .imprint-panel:focus-visible {
-  background: var(--paper); padding-left: 16px;
-  border-left-color: var(--im-accent, var(--accent));
-  outline: 0;
+.imprint-brand:hover, .imprint-brand:focus-visible { opacity: 1; transform: translateY(-2px); outline: 0; }
+.imprint-brand:focus-visible img { outline: 2px solid var(--accent); outline-offset: 6px; }
+.imprint-brand img {
+  max-height: 52px; max-width: min(320px, 100%); width: auto; height: auto;
+  object-fit: contain; display: block;
 }
-.imprint-panel-num {
-  font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600;
-  color: var(--subtle); transition: color var(--t);
+.imprint-brand-scope {
+  font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle);
 }
-.imprint-panel:hover .imprint-panel-num { color: var(--im-accent, var(--accent)); }
-.imprint-panel-body { min-width: 0; }
-.imprint-panel-logo { height: 22px; width: auto; display: block; margin-bottom: 8px; }
-.imprint-panel-scope { font-size: 13px; color: var(--muted); letter-spacing: 0.01em; }
-.imprint-panel-arrow {
-  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--subtle); white-space: nowrap; transition: color var(--t);
-}
-.imprint-panel:hover .imprint-panel-arrow { color: var(--im-accent, var(--accent)); }
-.imprint-panel--ridgeline { --im-accent: var(--im-ridgeline); }
-.imprint-panel--health    { --im-accent: var(--im-health); }
-.imprint-panel--verdant   { --im-accent: var(--im-verdant); }
-.imprint-panel--charter   { --im-accent: var(--im-charter); }
-.imprint-panel--threnody  { --im-accent: var(--im-threnody); }
+.imprint-brand--wide { grid-column: 1 / -1; }
 
 /* ══════════════════════════
    OTHER PAGES — STAT ROW
@@ -1217,13 +1231,28 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
 
   .nav-search { width: 100%; margin-left: 0; order: 1; }
   .nav-search-btn { width: 100%; justify-content: flex-start; gap: 8px; padding: 12px 22px; border: 0; }
-  .nav-search-btn::after { content: 'Search journals'; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .nav-search-btn::after { content: attr(data-label); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
   .nav-search-panel {
     position: static; width: 100%; display: none;
     border: 0; box-shadow: none; background: var(--forest-dk-3); padding: 10px 22px;
   }
   .nav-search.open .nav-search-panel { display: block; }
   .header-cta.btn { width: calc(100% - 44px); margin: 12px 22px 8px; order: 2; }
+
+  .nav-quick-access {
+    display: flex; flex-direction: column; order: 3;
+    margin: 20px 22px 8px; padding-top: 20px; border-top: 1px solid var(--line-dark);
+  }
+  .nav-quick-access-label {
+    font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--on-dark-muted); margin: 0 0 10px;
+  }
+  .nav-quick-access a {
+    min-height: 40px; display: flex; align-items: center;
+    font-size: 13px; font-weight: 600; color: var(--on-dark-muted);
+    transition: color var(--t);
+  }
+  .nav-quick-access a:hover, .nav-quick-access a:focus-visible { color: var(--on-dark); }
 }
 
 /* ══════════════════════════
@@ -1312,8 +1341,22 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .steps-grid { grid-template-columns: 1fr; }
   .steps-cta { flex-direction: column; align-items: flex-start; gap: 16px; }
 
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 4px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+  .footer-accordion summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    cursor: pointer; min-height: 48px; padding: 14px 0; margin-bottom: 0;
+  }
+  .footer-accordion summary h3 { margin-bottom: 0; }
+  .footer-accordion summary::after {
+    content: '+'; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400;
+    color: var(--on-dark-muted); line-height: 1; flex-shrink: 0;
+  }
+  .footer-accordion[open] summary::after { content: '\2212'; }
+  .footer-accordion > ul, .footer-accordion > p { padding-bottom: 18px; }
+  .footer-grid > div + div { border-top: 1px solid var(--line-dark); padding-top: 4px; }
+  .footer-grid > div:first-child { padding-bottom: 20px; }
 
   .directory-controls { grid-template-columns: 1fr; }
   .directory-item { grid-template-columns: 80px minmax(0,1fr); gap: 14px; padding: 16px 18px; }
@@ -1321,12 +1364,9 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
 
   .quick-links { grid-template-columns: 1fr; }
 
-  .imprints-logos { gap: 28px; }
-  .imprints-logos img { height: 26px; }
-
-  .imprint-panel { grid-template-columns: 32px 1fr; row-gap: 8px; padding: 20px 4px; }
-  .imprint-panel-arrow { grid-column: 2; }
-  .imprint-panel:hover, .imprint-panel:focus-visible { padding-left: 12px; }
+  .imprint-portfolio { grid-template-columns: 1fr; row-gap: 56px; column-gap: 0; padding: 0; }
+  .imprint-brand--wide { grid-column: 1; }
+  .imprint-brand img { max-height: 46px; max-width: min(72vw, 300px); }
 
   .nav-search-panel { right: -14px; width: calc(100vw - 28px); }
   .header-cta.btn { padding: 0 12px; }
@@ -1375,8 +1415,6 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
 [dir="rtl"] .nav-search { margin-left: 0; margin-right: 4px; }
 [dir="rtl"] .nav-search-panel { right: auto; left: 0; }
 [dir="rtl"] .header-cta.btn { margin-left: 0; margin-right: 4px; }
-[dir="rtl"] .imprint-panel { border-left: none; border-right: 3px solid transparent; }
-[dir="rtl"] .imprint-panel:hover, [dir="rtl"] .imprint-panel:focus-visible { padding-left: 4px; padding-right: 16px; border-right-color: var(--im-accent, var(--accent)); }
 [dir="rtl"] .policy-item { padding: 22px 66px 22px 20px; }
 [dir="rtl"] .policy-number { left: auto; right: 20px; }
 [dir="rtl"] .ann-date { margin-left: 0; margin-right: auto; }

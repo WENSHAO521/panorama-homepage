@@ -34,6 +34,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Panorama Scholarly Group">
     <meta property="og:title" content="Panorama Scholarly Group | International Scholarly Publishing and Research Platform">
@@ -48,7 +67,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260828-2">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-3">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -240,7 +259,7 @@
                 </div>
             </div>
             <div class="nav-search" data-nav-search="">
-                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Search journals" data-search-toggle="">
+                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Rechercher une revue" data-label="Rechercher une revue" data-i18n-attr="aria-label:nav.search.button-label,data-label:nav.search.button-label" data-search-toggle="" data-i18n-attr-orig="Search journals" data-i18n-attr-orig1="Search journals">
                     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"></circle><line x1="10.8" y1="10.8" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
                 </button>
                 <div class="nav-search-panel">
@@ -272,6 +291,14 @@
                 </div>
             </div>
             <a class="btn header-cta" href="https://journals.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">Trouver une revue</a>
+            <div class="nav-quick-access">
+                <p class="nav-quick-access-label" data-i18n="nav.quick-access" data-i18n-orig="Quick Access">Accès rapide</p>
+                <a href="index.html#imprints" data-i18n="nav.journals" data-i18n-orig="Journals">Revues</a>
+                <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">Ouvrages académiques</a>
+                <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">Institut de recherche</a>
+                <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a>
+                <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">Répertoire éditorial</a>
+            </div>
         </nav>
     </div>
 </header>
@@ -383,55 +410,35 @@
     </section>
 
     <!-- ── Five Imprints ── -->
-    <section class="section alt" id="imprints">
+    <section class="section alt imprints-portfolio-section" id="imprints">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head imprints-portfolio-head reveal">
                 <div>
                     <p class="kicker" data-i18n="index.imprints.kicker" data-i18n-orig="Five Imprints">Cinq labels éditoriaux</p>
                     <h2 data-i18n="index.imprints.h2" data-i18n-orig="Five editorial identities. One publishing standard.">Cinq identités éditoriales. Une seule norme de publication.</h2>
+                    <p class="imprints-intro d2 reveal" data-i18n="index.imprints.p" data-i18n-orig="Distinct scholarly communities, united by shared standards for peer review, open access, integrity and preservation.">Des communautés savantes distinctes, réunies par des normes communes d'évaluation par les pairs, de libre accès, d'intégrité et de préservation.</p>
                 </div>
             </div>
-            <p class="imprints-intro d1 reveal" data-i18n="index.imprints.p" data-i18n-orig="Distinct scholarly communities, united by shared standards for peer review, open access, integrity and preservation.">Des communautés savantes distinctes, réunies par des normes communes d'évaluation par les pairs, de libre accès, d'intégrité et de préservation.</p>
-            <div class="imprint-panels">
-                <a class="imprint-panel imprint-panel--ridgeline" href="ridgeline.html">
-                    <span class="imprint-panel-num">01</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/ridgeline-logo.svg" alt="Ridgeline">
-                        <span class="imprint-panel-scope" data-i18n="imprint.ridgeline.scope" data-i18n-orig="Technology · Engineering · AI">Technologie · Ingénierie · IA</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">Explorer →</span>
+            <div class="imprint-portfolio">
+                <a class="imprint-brand" href="ridgeline.html" aria-label="Ridgeline">
+                    <img src="/assets/nexus/ridgeline-logo.svg" alt="Ridgeline">
+                    <span class="imprint-brand-scope" data-i18n="imprint.ridgeline.scope" data-i18n-orig="Technology · Engineering · AI">Technologie · Ingénierie · IA</span>
                 </a>
-                <a class="imprint-panel imprint-panel--health" href="health-nexus.html">
-                    <span class="imprint-panel-num">02</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/health-nexus-logo.svg" alt="Health Nexus">
-                        <span class="imprint-panel-scope" data-i18n="imprint.health-nexus.scope" data-i18n-orig="Medicine · Health Sciences">Médecine · Sciences de la santé</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">Explorer →</span>
+                <a class="imprint-brand" href="health-nexus.html" aria-label="Health Nexus">
+                    <img src="/assets/nexus/health-nexus-logo.svg" alt="Health Nexus">
+                    <span class="imprint-brand-scope" data-i18n="imprint.health-nexus.scope" data-i18n-orig="Medicine · Health Sciences">Médecine · Sciences de la santé</span>
                 </a>
-                <a class="imprint-panel imprint-panel--verdant" href="verdant-science.html">
-                    <span class="imprint-panel-num">03</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/verdant-science-logo.svg" alt="Verdant Science">
-                        <span class="imprint-panel-scope" data-i18n="imprint.verdant-science.scope" data-i18n-orig="Environment · Sustainability · Life Sciences">Environnement · Durabilité · Sciences de la vie</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">Explorer →</span>
+                <a class="imprint-brand" href="verdant-science.html" aria-label="Verdant Science">
+                    <img src="/assets/nexus/verdant-science-logo.svg" alt="Verdant Science">
+                    <span class="imprint-brand-scope" data-i18n="imprint.verdant-science.scope" data-i18n-orig="Environment · Sustainability · Life Sciences">Environnement · Durabilité · Sciences de la vie</span>
                 </a>
-                <a class="imprint-panel imprint-panel--charter" href="charter.html">
-                    <span class="imprint-panel-num">04</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/charter-logo.svg" alt="Charter">
-                        <span class="imprint-panel-scope" data-i18n="imprint.charter.scope" data-i18n-orig="Policy · Law · Governance">Politique · Droit · Gouvernance</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">Explorer →</span>
+                <a class="imprint-brand" href="charter.html" aria-label="Charter">
+                    <img src="/assets/nexus/charter-logo.svg" alt="Charter">
+                    <span class="imprint-brand-scope" data-i18n="imprint.charter.scope" data-i18n-orig="Policy · Law · Governance">Politique · Droit · Gouvernance</span>
                 </a>
-                <a class="imprint-panel imprint-panel--threnody" href="threnody.html">
-                    <span class="imprint-panel-num">05</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/threnody-logo.svg" alt="Threnody">
-                        <span class="imprint-panel-scope" data-i18n="imprint.threnody.scope" data-i18n-orig="Humanities · Arts · Philosophy">Sciences humaines · Arts · Philosophie</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">Explorer →</span>
+                <a class="imprint-brand imprint-brand--wide" href="threnody.html" aria-label="Threnody">
+                    <img src="/assets/nexus/threnody-logo.svg" alt="Threnody">
+                    <span class="imprint-brand-scope" data-i18n="imprint.threnody.scope" data-i18n-orig="Humanities · Arts · Philosophy">Sciences humaines · Arts · Philosophie</span>
                 </a>
             </div>
         </div>
@@ -679,56 +686,68 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
             </div>
         </div>
         <div>
-            <h3 data-i18n="footer.admin-contact" data-i18n-orig="Administrative Contact">Contact administratif</h3>
-            <p>Bureau 1508, 15e étage, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.</p>
-            <p><strong data-i18n="footer.china-office" data-i18n-orig="China Office">Bureau en Chine</strong>: 南京市江宁区天行西路9号3幢1106室</p>
-            <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="footer.admin-contact" data-i18n-orig="Administrative Contact">Contact administratif</h3></summary>
+                <p>Bureau 1508, 15e étage, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.</p>
+                <p><strong data-i18n="footer.china-office" data-i18n-orig="China Office">Bureau en Chine</strong>: 南京市江宁区天行西路9号3幢1106室</p>
+                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.publications" data-i18n-orig="Publications">Publications</h3>
-            <ul>
-                <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">Répertoire des revues</a></li>
-                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">Ouvrages académiques</a></li>
-                <li><a href="ridgeline.html">Ridgeline</a></li>
-                <li><a href="health-nexus.html">Health Nexus</a></li>
-                <li><a href="verdant-science.html">Verdant Science</a></li>
-                <li><a href="charter.html">Charter</a></li>
-                <li><a href="threnody.html">Threnody</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.publications" data-i18n-orig="Publications">Publications</h3></summary>
+                <ul>
+                    <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">Répertoire des revues</a></li>
+                    <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">Ouvrages académiques</a></li>
+                    <li><a href="ridgeline.html">Ridgeline</a></li>
+                    <li><a href="health-nexus.html">Health Nexus</a></li>
+                    <li><a href="verdant-science.html">Verdant Science</a></li>
+                    <li><a href="charter.html">Charter</a></li>
+                    <li><a href="threnody.html">Threnody</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.publish" data-i18n-orig="Publish">Publier</h3>
-            <ul>
-                <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">Trouver une revue</a></li>
-                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">Guide des auteurs</a></li>
-                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">Publier un livre</a></li>
-                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">Rejoindre le comité éditorial</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.publish" data-i18n-orig="Publish">Publier</h3></summary>
+                <ul>
+                    <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">Trouver une revue</a></li>
+                    <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">Guide des auteurs</a></li>
+                    <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">Publier un livre</a></li>
+                    <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">Rejoindre le comité éditorial</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">Recherche et infrastructure</h3>
-            <ul>
-                <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">Institut de recherche</a></li>
-                <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">Répertoire éditorial</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">Vérification des Certificats</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">Recherche et infrastructure</h3></summary>
+                <ul>
+                    <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">Institut de recherche</a></li>
+                    <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">Répertoire éditorial</a></li>
+                    <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">Vérification des Certificats</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.policies" data-i18n-orig="Policies">Politiques</h3>
-            <ul>
-                <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">Éthique de la publication</a></li>
-                <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">Politique de libre accès</a></li>
-                <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">Indexation et archivage</a></li>
-                <li><a href="privacy-policy.html" data-i18n="footer.privacy" data-i18n-orig="Privacy Policy">Politique de Confidentialité</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.policies" data-i18n-orig="Policies">Politiques</h3></summary>
+                <ul>
+                    <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">Éthique de la publication</a></li>
+                    <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">Politique de libre accès</a></li>
+                    <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">Indexation et archivage</a></li>
+                    <li><a href="privacy-policy.html" data-i18n="footer.privacy" data-i18n-orig="Privacy Policy">Politique de Confidentialité</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.about" data-i18n-orig="About">À propos</h3>
-            <ul>
-                <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">À propos de l'éditeur</a></li>
-                <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">Contact</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.about" data-i18n-orig="About">À propos</h3></summary>
+                <ul>
+                    <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">À propos de l'éditeur</a></li>
+                    <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">Contact</a></li>
+                </ul>
+            </details>
         </div>
     </div>
     <div class="container footer-bottom">
@@ -889,7 +908,7 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
     }
 }());
 </script>
-<script src="/site.js?v=20260828-15"></script>
+<script src="/site.js?v=20260828-17"></script>
 <script>
 fetch('/data/posi_stats.json').then(function(r){return r.json();}).then(function(d){
   document.querySelectorAll('[data-posi]').forEach(function(el){

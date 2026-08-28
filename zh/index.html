@@ -34,6 +34,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Panorama Scholarly Group">
     <meta property="og:title" content="Panorama Scholarly Group | International Scholarly Publishing and Research Platform">
@@ -48,7 +67,7 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/institutional.css?v=20260828-2">
+    <link rel="stylesheet" href="/institutional.css?v=20260828-3">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -240,7 +259,7 @@
                 </div>
             </div>
             <div class="nav-search" data-nav-search="">
-                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Search journals" data-search-toggle="">
+                <button class="nav-search-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="搜尋期刊" data-label="搜尋期刊" data-i18n-attr="aria-label:nav.search.button-label,data-label:nav.search.button-label" data-search-toggle="" data-i18n-attr-orig="Search journals" data-i18n-attr-orig1="Search journals">
                     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"></circle><line x1="10.8" y1="10.8" x2="14.5" y2="14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></line></svg>
                 </button>
                 <div class="nav-search-panel">
@@ -272,6 +291,14 @@
                 </div>
             </div>
             <a class="btn header-cta" href="https://journals.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a>
+            <div class="nav-quick-access">
+                <p class="nav-quick-access-label" data-i18n="nav.quick-access" data-i18n-orig="Quick Access">快速連結</p>
+                <a href="index.html#imprints" data-i18n="nav.journals" data-i18n-orig="Journals">期刊目錄</a>
+                <a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</a>
+                <a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a>
+                <a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a>
+                <a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a>
+            </div>
         </nav>
     </div>
 </header>
@@ -335,7 +362,7 @@
     <!-- ── Our Platforms ── -->
     <section class="section">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="footer.platforms-label" data-i18n-orig="Our Platforms">我們的平台</p>
                     <h2 data-i18n="index.pub-lines.h2" data-i18n-orig="Publish and discover with Panorama.">全景學術集團旗下運營五個學術平台。</h2>
@@ -383,55 +410,35 @@
     </section>
 
     <!-- ── Five Imprints ── -->
-    <section class="section alt" id="imprints">
+    <section class="section alt imprints-portfolio-section" id="imprints">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head imprints-portfolio-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.imprints.kicker" data-i18n-orig="Five Imprints">五大編輯品牌</p>
                     <h2 data-i18n="index.imprints.h2" data-i18n-orig="Five editorial identities. One publishing standard.">五個編輯身份，統一出版標準。</h2>
+                    <p class="imprints-intro d2 reveal visible" data-i18n="index.imprints.p" data-i18n-orig="Distinct scholarly communities, united by shared standards for peer review, open access, integrity and preservation.">各具特色的學術社群，共同遵循同行評審、開放取用、誠信與典藏保存的一致標準。</p>
                 </div>
             </div>
-            <p class="imprints-intro d1 reveal" data-i18n="index.imprints.p" data-i18n-orig="Distinct scholarly communities, united by shared standards for peer review, open access, integrity and preservation.">各具特色的學術社群，共同遵循同行評審、開放取用、誠信與典藏保存的一致標準。</p>
-            <div class="imprint-panels">
-                <a class="imprint-panel imprint-panel--ridgeline" href="ridgeline.html">
-                    <span class="imprint-panel-num">01</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/ridgeline-logo.svg" alt="Ridgeline">
-                        <span class="imprint-panel-scope" data-i18n="imprint.ridgeline.scope" data-i18n-orig="Technology · Engineering · AI">科技 · 工程 · 人工智慧</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">探索 →</span>
+            <div class="imprint-portfolio">
+                <a class="imprint-brand" href="ridgeline.html" aria-label="Ridgeline">
+                    <img src="/assets/nexus/ridgeline-logo.svg" alt="Ridgeline">
+                    <span class="imprint-brand-scope" data-i18n="imprint.ridgeline.scope" data-i18n-orig="Technology · Engineering · AI">科技 · 工程 · 人工智慧</span>
                 </a>
-                <a class="imprint-panel imprint-panel--health" href="health-nexus.html">
-                    <span class="imprint-panel-num">02</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/health-nexus-logo.svg" alt="Health Nexus">
-                        <span class="imprint-panel-scope" data-i18n="imprint.health-nexus.scope" data-i18n-orig="Medicine · Health Sciences">醫學 · 健康科學</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">探索 →</span>
+                <a class="imprint-brand" href="health-nexus.html" aria-label="Health Nexus">
+                    <img src="/assets/nexus/health-nexus-logo.svg" alt="Health Nexus">
+                    <span class="imprint-brand-scope" data-i18n="imprint.health-nexus.scope" data-i18n-orig="Medicine · Health Sciences">醫學 · 健康科學</span>
                 </a>
-                <a class="imprint-panel imprint-panel--verdant" href="verdant-science.html">
-                    <span class="imprint-panel-num">03</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/verdant-science-logo.svg" alt="Verdant Science">
-                        <span class="imprint-panel-scope" data-i18n="imprint.verdant-science.scope" data-i18n-orig="Environment · Sustainability · Life Sciences">環境 · 永續發展 · 生命科學</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">探索 →</span>
+                <a class="imprint-brand" href="verdant-science.html" aria-label="Verdant Science">
+                    <img src="/assets/nexus/verdant-science-logo.svg" alt="Verdant Science">
+                    <span class="imprint-brand-scope" data-i18n="imprint.verdant-science.scope" data-i18n-orig="Environment · Sustainability · Life Sciences">環境 · 永續發展 · 生命科學</span>
                 </a>
-                <a class="imprint-panel imprint-panel--charter" href="charter.html">
-                    <span class="imprint-panel-num">04</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/charter-logo.svg" alt="Charter">
-                        <span class="imprint-panel-scope" data-i18n="imprint.charter.scope" data-i18n-orig="Policy · Law · Governance">政策 · 法律 · 治理</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">探索 →</span>
+                <a class="imprint-brand" href="charter.html" aria-label="Charter">
+                    <img src="/assets/nexus/charter-logo.svg" alt="Charter">
+                    <span class="imprint-brand-scope" data-i18n="imprint.charter.scope" data-i18n-orig="Policy · Law · Governance">政策 · 法律 · 治理</span>
                 </a>
-                <a class="imprint-panel imprint-panel--threnody" href="threnody.html">
-                    <span class="imprint-panel-num">05</span>
-                    <span class="imprint-panel-body">
-                        <img class="imprint-panel-logo" src="/assets/nexus/threnody-logo.svg" alt="Threnody">
-                        <span class="imprint-panel-scope" data-i18n="imprint.threnody.scope" data-i18n-orig="Humanities · Arts · Philosophy">人文 · 藝術 · 哲學</span>
-                    </span>
-                    <span class="imprint-panel-arrow" data-i18n="index.imprints.explore" data-i18n-orig="Explore →">探索 →</span>
+                <a class="imprint-brand imprint-brand--wide" href="threnody.html" aria-label="Threnody">
+                    <img src="/assets/nexus/threnody-logo.svg" alt="Threnody">
+                    <span class="imprint-brand-scope" data-i18n="imprint.threnody.scope" data-i18n-orig="Humanities · Arts · Philosophy">人文 · 藝術 · 哲學</span>
                 </a>
             </div>
         </div>
@@ -440,7 +447,7 @@
     <!-- ── Announcements ── -->
     <section class="section ann-section" id="announcements">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="ann.kicker" data-i18n-orig="Announcements">公告欄</p>
                     <h2 data-i18n="ann.h2" data-i18n-orig="Latest news and updates from Panorama Scholarly Group.">Panorama Scholarly Group 的最新消息與更新。</h2>
@@ -507,35 +514,35 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
     <!-- ── For Authors ── -->
     <section class="section alt" id="author-path">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.for-authors.kicker" data-i18n-orig="For Authors">投稿指引</p>
                     <h2 data-i18n="index.for-authors.h2" data-i18n-orig="Publish with us — journals, books, and scholarly series.">與我們合作出版——期刊、書籍及學術叢書。</h2>
                 </div>
             </div>
             <div class="steps-grid">
-                <article class="reveal">
+                <article class="reveal visible">
                     <span class="steps-num">01</span>
                     <h3 class="step-title" data-i18n="index.step1.h3" data-i18n-orig="Confirm Journal Fit">確認期刊適配性</h3>
                     <p data-i18n="index.step1.p" data-i18n-orig="Review aims, scope, article types, and disciplinary alignment in the journal directory.">在期刊目錄中查閱期刊宗旨、範疇、文章類型及學科方向。</p>
                 </article>
-                <article class="d1 reveal">
+                <article class="d1 reveal visible">
                     <span class="steps-num">02</span>
                     <h3 class="step-title" data-i18n="index.step2.h3" data-i18n-orig="Review Requirements">查閱投稿要求</h3>
                     <p data-i18n="index.step2.p" data-i18n-orig="Check ethics declarations, open-access terms, and manuscript formatting requirements.">確認倫理聲明、開放取用條款及稿件格式要求。</p>
                 </article>
-                <article class="d2 reveal">
+                <article class="d2 reveal visible">
                     <span class="steps-num">03</span>
                     <h3 class="step-title" data-i18n="index.step3.h3" data-i18n-orig="Submit Manuscript">提交稿件</h3>
                     <p data-i18n="index.step3.p" data-i18n-orig="Upload your manuscript, metadata, and required declarations through the journal submission page.">透過期刊投稿頁面上傳稿件、元數據及所需聲明。</p>
                 </article>
-                <article class="d3 reveal">
+                <article class="d3 reveal visible">
                     <span class="steps-num">04</span>
                     <h3 class="step-title" data-i18n="index.step4.h3" data-i18n-orig="Complete Peer Review">完成同行評審</h3>
                     <p data-i18n="index.step4.p" data-i18n-orig="Address reviewer comments, submit revisions, and proceed through final editorial decisions.">回應審稿意見，提交修改稿，並完成最終編輯決定流程。</p>
                 </article>
             </div>
-            <div class="steps-cta d2 reveal">
+            <div class="steps-cta d2 reveal visible">
                 <div>
                     <p class="steps-cta-text" data-i18n="index.steps-cta.text" data-i18n-orig="Planning to publish a journal article or book? Start with the author guide.">計劃發表期刊文章或出版書籍？請從作者指南開始。</p>
                     <span class="steps-cta-sub" data-i18n="index.steps-cta.sub" data-i18n-orig="The author guide covers journal submission and book proposals — one resource for both publishing tracks.">作者指南涵蓋期刊投稿與圖書提案——兩條出版路線的一站式資源。</span>
@@ -551,7 +558,7 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
     <!-- ── Recent Research ── -->
     <section class="section" id="recent-research">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.recent.kicker" data-i18n-orig="Recent Research">近期研究</p>
                     <h2 data-i18n="index.recent.h2" data-i18n-orig="Recent publications from our journals catalogue.">來自期刊目錄的近期發表文章。</h2>
@@ -571,19 +578,19 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
                 <p data-i18n="index.governance.p" data-i18n-orig="All platforms operate under shared baseline requirements for authorship integrity, peer-review confidentiality, conflict disclosure, and post-publication correction practices.">所有平台均遵循共同的基本要求，涵蓋作者誠信、同行評審保密、利益衝突披露及出版後更正慣例。</p>
             </div>
             <div class="trust-links">
-                <a href="publication-ethics.html" class="reveal">
+                <a href="publication-ethics.html" class="reveal visible">
                     <strong data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</strong>
                     <span data-i18n="index.tl.ethics.desc" data-i18n-orig="Editorial responsibilities, peer review conduct, originality standards, and correction procedures.">編輯職責、同行評審規範、原創性標準及更正程序。</span>
                 </a>
-                <a href="open-access-policy.html" class="d1 reveal">
+                <a href="open-access-policy.html" class="d1 reveal visible">
                     <strong data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</strong>
                     <span data-i18n="index.tl.oa.desc" data-i18n-orig="Licensing terms, author rights language, and repository guidance.">授權條款、作者版權說明及存儲庫指引。</span>
                 </a>
-                <a href="indexing.html" class="d2 reveal">
+                <a href="indexing.html" class="d2 reveal visible">
                     <strong data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</strong>
                     <span data-i18n="index.tl.indexing.desc" data-i18n-orig="Discovery databases, preservation archives, and DOI registration details.">探索數據庫、保存檔案及 DOI 註冊詳情。</span>
                 </a>
-                <a href="about.html" class="d3 reveal">
+                <a href="about.html" class="d3 reveal visible">
                     <strong data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">關於出版商</strong>
                     <span data-i18n="index.tl.about-pub.desc" data-i18n-orig="Group mission, platform structure, and policy framework.">出版商使命、目錄結構及政策框架。</span>
                 </a>
@@ -594,7 +601,7 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
     <!-- ── POSI ── -->
     <section class="section alt" id="posi">
         <div class="container">
-            <div class="section-head reveal">
+            <div class="section-head reveal visible">
                 <div>
                     <p class="kicker" data-i18n="index.posi.kicker" data-i18n-orig="Open Infrastructure">開放基礎設施</p>
                     <h2 data-i18n="index.posi.h2" data-i18n-orig="A growing open database of journal ratings, rankings, and citation analytics — built from versioned, reproducible evidence.">一個不斷成長的開放資料庫，涵蓋期刊評級、排名與引文分析——建立於版本化、可重現的證據之上。</h2>
@@ -611,19 +618,19 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
                     <a class="btn primary" href="https://posi.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="index.posi.btn" data-i18n-orig="Explore the Index">探索索引</a>
                 </div>
                 <div class="posi-stats">
-                    <div class="posi-stat reveal">
+                    <div class="posi-stat reveal visible">
                         <strong data-posi="core_collection">31</strong>
                         <span data-i18n="index.posi.stat.doi-records" data-i18n-orig="Core Collection">核心收錄期刊</span>
                     </div>
-                    <div class="posi-stat d1 reveal">
+                    <div class="posi-stat d1 reveal visible">
                         <strong data-posi="global_benchmark">4,289</strong>
                         <span data-i18n="index.posi.stat.searchable" data-i18n-orig="Global Benchmark Records">全球基準記錄</span>
                     </div>
-                    <div class="posi-stat d2 reveal">
+                    <div class="posi-stat d2 reveal visible">
                         <strong data-posi="lifecycle_rated">8</strong>
                         <span data-i18n="index.posi.stat.indexed" data-i18n-orig="Lifecycle-Rated Journals">已完成生命週期評級的期刊</span>
                     </div>
-                    <div class="posi-stat d3 reveal">
+                    <div class="posi-stat d3 reveal visible">
                         <strong data-posi="psc_subject_categories">48</strong>
                         <span data-i18n="index.posi.stat.avg-quality" data-i18n-orig="PSC Subject Categories">PSC 學科分類</span>
                     </div>
@@ -679,56 +686,68 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
             </div>
         </div>
         <div>
-            <h3 data-i18n="footer.admin-contact" data-i18n-orig="Administrative Contact">行政聯絡</h3>
-            <p>香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室。</p>
-            <p><strong data-i18n="footer.china-office" data-i18n-orig="China Office">中國辦事處</strong>: 南京市江宁区天行西路9号3幢1106室</p>
-            <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="footer.admin-contact" data-i18n-orig="Administrative Contact">行政聯絡</h3></summary>
+                <p>香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室。</p>
+                <p><strong data-i18n="footer.china-office" data-i18n-orig="China Office">中國辦事處</strong>: 南京市江宁区天行西路9号3幢1106室</p>
+                <p><a href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a></p>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.publications" data-i18n-orig="Publications">出版品</h3>
-            <ul>
-                <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">期刊目錄</a></li>
-                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</a></li>
-                <li><a href="ridgeline.html">Ridgeline</a></li>
-                <li><a href="health-nexus.html">Health Nexus</a></li>
-                <li><a href="verdant-science.html">Verdant Science</a></li>
-                <li><a href="charter.html">Charter</a></li>
-                <li><a href="threnody.html">Threnody</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.publications" data-i18n-orig="Publications">出版品</h3></summary>
+                <ul>
+                    <li><a href="index.html#imprints" data-i18n="footer.journal-directory" data-i18n-orig="Journal Directory">期刊目錄</a></li>
+                    <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3" data-i18n-orig="Scholarly Books">學術書籍</a></li>
+                    <li><a href="ridgeline.html">Ridgeline</a></li>
+                    <li><a href="health-nexus.html">Health Nexus</a></li>
+                    <li><a href="verdant-science.html">Verdant Science</a></li>
+                    <li><a href="charter.html">Charter</a></li>
+                    <li><a href="threnody.html">Threnody</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.publish" data-i18n-orig="Publish">投稿</h3>
-            <ul>
-                <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a></li>
-                <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</a></li>
-                <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">出版書籍</a></li>
-                <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.publish" data-i18n-orig="Publish">投稿</h3></summary>
+                <ul>
+                    <li><a href="index.html#imprints" data-i18n="nav.find-journal" data-i18n-orig="Find a Journal">尋找期刊</a></li>
+                    <li><a href="for-authors.html" data-i18n="footer.author-guide" data-i18n-orig="Author Guide">投稿指南</a></li>
+                    <li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book" data-i18n-orig="Publish a Book">出版書籍</a></li>
+                    <li><a href="editorial-board-application.html" data-i18n="footer.join-eb" data-i18n-orig="Join Editorial Board">加入編委會</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究與基礎設施</h3>
-            <ul>
-                <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a></li>
-                <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
-                <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a></li>
-                <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">證書查詢</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.research-infra" data-i18n-orig="Research &amp; Infrastructure">研究與基礎設施</h3></summary>
+                <ul>
+                    <li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research" data-i18n-orig="Research Institute">研究院</a></li>
+                    <li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>
+                    <li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir" data-i18n-orig="Editorial Directory">編委目錄</a></li>
+                    <li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify" data-i18n-orig="Credential Verification">證書查詢</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.policies" data-i18n-orig="Policies">政策</h3>
-            <ul>
-                <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</a></li>
-                <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</a></li>
-                <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</a></li>
-                <li><a href="privacy-policy.html" data-i18n="footer.privacy" data-i18n-orig="Privacy Policy">隱私政策</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.policies" data-i18n-orig="Policies">政策</h3></summary>
+                <ul>
+                    <li><a href="publication-ethics.html" data-i18n="footer.pub-ethics" data-i18n-orig="Publication Ethics">出版倫理</a></li>
+                    <li><a href="open-access-policy.html" data-i18n="footer.oa-policy" data-i18n-orig="Open Access Policy">開放取用政策</a></li>
+                    <li><a href="indexing.html" data-i18n="footer.indexing" data-i18n-orig="Indexing &amp; Archiving">索引與典藏</a></li>
+                    <li><a href="privacy-policy.html" data-i18n="footer.privacy" data-i18n-orig="Privacy Policy">隱私政策</a></li>
+                </ul>
+            </details>
         </div>
         <div>
-            <h3 data-i18n="nav.about" data-i18n-orig="About">關於我們</h3>
-            <ul>
-                <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">關於出版商</a></li>
-                <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">聯絡我們</a></li>
-            </ul>
+            <details class="footer-accordion" open="">
+                <summary><h3 data-i18n="nav.about" data-i18n-orig="About">關於我們</h3></summary>
+                <ul>
+                    <li><a href="about.html" data-i18n="index.tl.about-pub" data-i18n-orig="About the Group">關於出版商</a></li>
+                    <li><a href="contact.html" data-i18n="footer.contact" data-i18n-orig="Contact">聯絡我們</a></li>
+                </ul>
+            </details>
         </div>
     </div>
     <div class="container footer-bottom">
@@ -889,7 +908,7 @@ Authors are encouraged to submit manuscripts in advance to allow sufficient time
     }
 }());
 </script>
-<script src="/site.js?v=20260828-15"></script>
+<script src="/site.js?v=20260828-17"></script>
 <script>
 fetch('/data/posi_stats.json').then(function(r){return r.json();}).then(function(d){
   document.querySelectorAll('[data-posi]').forEach(function(el){
