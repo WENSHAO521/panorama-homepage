@@ -57,10 +57,26 @@
       ],
       layout: 'rows',
       journals: [
-        { title: 'Panorama Frontier Review', tag: 'Multidisciplinary', issn: 'ISSN Pending', view: J + 'PFR', submit: J + 'PFR/submission' },
-        { title: 'AI & Future Society', tag: 'AI Ethics & Governance', issn: 'ISSN 3053-4011', view: J + 'AFS', submit: J + 'AFS/submission' },
-        { title: 'Journal of Engineering Systems & Applications', tag: 'Engineering Systems', issn: 'ISSN 3053-478X', view: J + 'JESA', submit: J + 'JESA/submission' }
-      ]
+        { title: 'Panorama Frontier Review', tag: 'Multidisciplinary', issn: 'ISSN Pending', view: J + 'PFR', submit: J + 'PFR/submission', profile: 'ridgeline-pfr.html' },
+        { title: 'AI & Future Society', tag: 'AI Ethics & Governance', issn: 'ISSN 3053-4011', view: J + 'AFS', submit: J + 'AFS/submission', profile: 'ridgeline-afs.html' },
+        { title: 'Journal of Engineering Systems & Applications', tag: 'Engineering Systems', issn: 'ISSN 3053-478X', view: J + 'JESA', submit: J + 'JESA/submission', profile: 'ridgeline-jesa.html' }
+      ],
+      // Ridgeline-only, purely additive overrides: About Ridgeline, Journals and
+      // Contact now live on their own pages instead of homepage anchors. Every
+      // render function below falls back to its pre-existing generic behavior
+      // when a given field is absent, so the other four imprints (which do not
+      // set these fields) are unaffected.
+      aboutItems: [
+        { label: 'About Ridgeline', href: 'ridgeline-about.html' },
+        { label: 'Mission & Editorial Identity', href: 'ridgeline-about.html#mission' },
+        { label: 'Scope & Disciplines', href: 'ridgeline-about.html#scope' },
+        { label: 'Why Ridgeline', href: 'ridgeline.html#why-ridgeline' },
+        { label: 'Contact', href: 'ridgeline-contact.html' }
+      ],
+      journalsIndexHref: 'ridgeline-journals.html',
+      editorialMenuLabel: 'Community',
+      policiesMenuLabel: 'Standards',
+      contactHref: 'ridgeline-contact.html'
     },
     'health-nexus': {
       name: 'Health Nexus',
@@ -391,8 +407,9 @@
     else if (cfg.layout === 'grid') body = renderJournalsGrid(cfg.journals);
     else if (cfg.layout === 'grouped') body = renderJournalsGrouped(cfg);
     else body = renderJournalsIndex(cfg);
+    var journalsHref = cfg.journalsIndexHref || resolveHref('#featured-journals', slug);
     return body + '<div class="in-mega-foot">' +
-      '<a href="' + esc(resolveHref('#featured-journals', slug)) + '">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>' +
+      '<a href="' + esc(journalsHref) + '">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>' +
       '<button type="button" data-in-submit-open>Submit a Manuscript &rarr;</button></div>';
   }
 
@@ -426,8 +443,9 @@
   }
 
   function renderEditorialMega(slug, cfg) {
-    return renderGroupedMega(slug, 'Editorial', cfg.editorialLede, sharedEditorial(cfg), 2) +
-      '<div class="in-mega-foot"><a href="' + esc(resolveHref('#editorial', slug)) + '">Read Editorial &rarr;</a>' +
+    var label = cfg.editorialMenuLabel || 'Editorial';
+    return renderGroupedMega(slug, label, cfg.editorialLede, sharedEditorial(cfg), 2) +
+      '<div class="in-mega-foot"><a href="' + esc(resolveHref('#editorial', slug)) + '">Read ' + esc(label) + ' &rarr;</a>' +
       '<a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">View Editorial Directory &rarr;</a></div>';
   }
 
@@ -436,10 +454,11 @@
       '<div class="in-mega-foot"><a href="' + esc(resolveHref('#policies', slug)) + '">Read Publishing Policies &rarr;</a></div>';
   }
 
-  function renderAboutDropdown(slug, imprintName) {
+  function renderAboutDropdown(slug, cfg) {
     var html = '';
-    sharedAbout(imprintName).forEach(function (it) {
-      html += '<a href="' + esc(resolveHref(it.href, slug)) + '">' + esc(it.label) + '</a>';
+    var items = cfg.aboutItems || sharedAbout(cfg.name);
+    items.forEach(function (it) {
+      html += '<a href="' + esc(resolveHref(it.href, slug)) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>';
     });
     return html;
   }
@@ -459,7 +478,7 @@
         '<div class="in-modal-card-title">' + esc(j.title) + (j.badge ? ' <span style="color:var(--brand-dk,#0F4C5C);font-weight:700;">· ' + esc(j.badge) + '</span>' : '') + '</div>' +
         '<div class="in-modal-card-tag">' + esc(j.tag) + '</div>' +
         '<div class="in-modal-card-actions">' +
-        '<a href="' + esc(j.view) + '" target="_blank" rel="noopener">Explore Scope</a>' +
+        (j.profile ? '<a href="' + esc(j.profile) + '">Journal Profile</a>' : '<a href="' + esc(j.view) + '" target="_blank" rel="noopener">Explore Scope</a>') +
         '<a href="' + esc(j.submit) + '" target="_blank" rel="noopener">Submit Manuscript</a>' +
         '</div></div>';
     });
@@ -504,13 +523,26 @@
         '<div class="in-drawer-panel">' + innerHtml + '</div></div>';
     }
 
+    var journalsHref = cfg.journalsIndexHref || resolveHref('#featured-journals', slug);
+    var editorialLabel = cfg.editorialMenuLabel || 'Editorial';
+
     var html = '';
-    html += accordion('journals', 'Journals', journalLinks() + '<a href="' + esc(resolveHref('#featured-journals', slug)) + '">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>');
+    html += accordion('journals', 'Journals', journalLinks() + '<a href="' + esc(journalsHref) + '">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>');
     html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(resolveHref('#why-' + slug, slug)) + '" style="text-decoration:none;">Why ' + esc(cfg.name) + '</a></div>';
     html += accordion('authors', 'For Authors', groupedLinksHtml(cfg.authors, slug) + '<a href="' + esc(resolveHref('#for-authors', slug)) + '">Full Author Guide &rarr;</a>');
-    html += accordion('editorial', 'Editorial', groupedLinksHtml(sharedEditorial(cfg), slug));
-    html += accordion('policies', 'Policies', groupedLinksHtml(cfg.policies, slug));
-    html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(resolveHref('#about', slug)) + '" style="text-decoration:none;">About</a></div>';
+    html += accordion('editorial', editorialLabel, groupedLinksHtml(sharedEditorial(cfg), slug));
+    html += accordion('policies', cfg.policiesMenuLabel || 'Policies', groupedLinksHtml(cfg.policies, slug));
+    if (cfg.aboutItems) {
+      var aboutLinks = cfg.aboutItems.map(function (it) {
+        return '<a href="' + esc(resolveHref(it.href, slug)) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>';
+      }).join('');
+      html += accordion('about', 'About', aboutLinks);
+    } else {
+      html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(resolveHref('#about', slug)) + '" style="text-decoration:none;">About</a></div>';
+    }
+    if (cfg.contactHref) {
+      html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(cfg.contactHref) + '" style="text-decoration:none;">Contact</a></div>';
+    }
     html += '<div class="in-drawer-submit"><button type="button" class="in-submit-btn" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
     html += '<div class="in-drawer-psg"><p class="in-drawer-psg-label">Panorama Scholarly Group</p>' +
       '<a href="index.html">Group Homepage</a>' +
@@ -546,11 +578,13 @@
     var publishCol = accordionCol('Publish',
       '<ul><li><a href="' + esc(resolveHref('#for-authors', slug)) + '">Author Guidelines</a></li>' +
       '<li><a href="' + esc(resolveHref('#featured-journals', slug)) + '" data-in-submit-open>Submit a Manuscript</a></li>' +
-      '<li><a href="editorial-board-application.html">Join Editorial Board</a></li></ul>');
+      '<li><a href="editorial-board-application.html">Join Editorial Board</a></li>' +
+      (cfg.contactHref ? '<li><a href="' + esc(cfg.contactHref) + '">Contact</a></li>' : '') +
+      '</ul>');
 
-    var editorialCol = accordionCol('Editorial', linkList(flattenGroups(sharedEditorial(cfg))));
+    var editorialCol = accordionCol(cfg.editorialMenuLabel || 'Editorial', linkList(flattenGroups(sharedEditorial(cfg))));
 
-    var policiesCol = accordionCol('Policies', linkList(flattenGroups(cfg.policies)));
+    var policiesCol = accordionCol(cfg.policiesMenuLabel || 'Policies', linkList(flattenGroups(cfg.policies)));
 
     var groupLinks = '<div class="container in-footer-group">' +
       '<span class="in-footer-group-label">Panorama Scholarly Group</span>' +
@@ -586,9 +620,18 @@
         idx.push({ group: 'Policies', title: it.label, desc: it.desc || g.head, href: resolveHref(it.href, cfg.slug) });
       });
     });
-    idx.push({ group: 'About', title: 'Why ' + cfg.name, desc: 'Publishing commitments', href: resolveHref('#why-' + cfg.slug, cfg.slug) });
-    idx.push({ group: 'About', title: 'About ' + cfg.name, desc: 'About this imprint', href: resolveHref('#about', cfg.slug) });
-    idx.push({ group: 'About', title: 'Contact', desc: 'Reach the publisher', href: resolveHref('#editorial-contacts', cfg.slug) });
+    if (cfg.aboutItems) {
+      cfg.aboutItems.forEach(function (it) {
+        idx.push({ group: 'About', title: it.label, desc: 'About ' + cfg.name, href: resolveHref(it.href, cfg.slug), external: it.external });
+      });
+    } else {
+      idx.push({ group: 'About', title: 'Why ' + cfg.name, desc: 'Publishing commitments', href: resolveHref('#why-' + cfg.slug, cfg.slug) });
+      idx.push({ group: 'About', title: 'About ' + cfg.name, desc: 'About this imprint', href: resolveHref('#about', cfg.slug) });
+      idx.push({ group: 'About', title: 'Contact', desc: 'Reach the publisher', href: resolveHref('#editorial-contacts', cfg.slug) });
+    }
+    if (cfg.journalsIndexHref) {
+      idx.push({ group: 'Journals', title: 'All ' + cfg.name + ' Journals', desc: 'Full journal portfolio', href: cfg.journalsIndexHref });
+    }
     return idx;
   }
 
@@ -606,7 +649,7 @@
       else if (kind === 'authors') el.innerHTML = renderAuthorsMega(slug, cfg);
       else if (kind === 'editorial') el.innerHTML = renderEditorialMega(slug, cfg);
       else if (kind === 'policies') el.innerHTML = renderPoliciesMega(slug, cfg);
-      else if (kind === 'about') el.innerHTML = renderAboutDropdown(slug, cfg.name);
+      else if (kind === 'about') el.innerHTML = renderAboutDropdown(slug, cfg);
     });
 
     var modalBody = document.querySelector('[data-in-modal-body]');

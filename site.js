@@ -849,6 +849,11 @@
             'panel.contact-summary': 'Contact Summary',
             'footer.platforms-label': 'Our Platforms',
             'footer.partners-label': 'Partners',
+            'footer.publishing': 'Publishing',
+            'footer.our-imprints': 'Our Imprints',
+            'footer.policies-governance': 'Policies & Governance',
+            'footer.ecosystem': 'PSG Ecosystem',
+            'footer.hk-office': 'Hong Kong Office',
             'about.stat.journals': 'Active Journals',
             'about.stat.clusters': 'Imprints',
             'about.stat.articles': 'Published Articles',
@@ -1482,6 +1487,11 @@
             'panel.contact-summary': '聯絡摘要',
             'footer.platforms-label': '我們的平台',
             'footer.partners-label': '合作夥伴',
+            'footer.publishing': '出版',
+            'footer.our-imprints': '出版品牌',
+            'footer.policies-governance': '政策與治理',
+            'footer.ecosystem': 'PSG 生態系統',
+            'footer.hk-office': '香港辦事處',
             'about.stat.journals': '現刊',
             'about.stat.clusters': '編輯品牌',
             'index.imprints.kicker': '五大編輯品牌',
@@ -2117,6 +2127,11 @@
         'panel.contact-summary': '連絡先概要',
         'footer.platforms-label': 'プラットフォーム',
         'footer.partners-label': 'パートナー',
+        'footer.publishing': '出版',
+        'footer.our-imprints': 'インプリント',
+        'footer.policies-governance': '方針とガバナンス',
+        'footer.ecosystem': 'PSGエコシステム',
+        'footer.hk-office': '香港オフィス',
         'about.stat.journals': '掲載誌数',
         'about.stat.clusters': '出版インプリント',
         'index.imprints.kicker': '5つのインプリント',
@@ -2751,6 +2766,11 @@
         'panel.contact-summary': '연락처 요약',
         'footer.platforms-label': '플랫폼',
         'footer.partners-label': '협력 기관',
+        'footer.publishing': '출판',
+        'footer.our-imprints': '임프린트',
+        'footer.policies-governance': '정책 및 거버넌스',
+        'footer.ecosystem': 'PSG 생태계',
+        'footer.hk-office': '홍콩 사무소',
         'about.stat.journals': '활성 저널 수',
         'about.stat.clusters': '편집 임프린트',
         'index.imprints.kicker': '5개 임프린트',
@@ -3382,6 +3402,11 @@
         'panel.contact-summary': '联络摘要',
         'footer.platforms-label': '我们的平台',
         'footer.partners-label': '合作伙伴',
+        'footer.publishing': '出版',
+        'footer.our-imprints': '出版品牌',
+        'footer.policies-governance': '政策与治理',
+        'footer.ecosystem': 'PSG 生态系统',
+        'footer.hk-office': '香港办事处',
         'about.stat.journals': '现刊',
         'about.stat.clusters': '编辑品牌',
         'about.stat.articles': '已发表文章',
@@ -3902,6 +3927,11 @@
         'panel.contact-summary': 'Контактная сводка',
         'footer.platforms-label': 'Наши платформы',
         'footer.partners-label': 'Партнеры',
+        'footer.publishing': 'Публикации',
+        'footer.our-imprints': 'Импринты',
+        'footer.policies-governance': 'Политика и управление',
+        'footer.ecosystem': 'Экосистема PSG',
+        'footer.hk-office': 'Офис в Гонконге',
         'about.stat.journals': 'Активных журналов',
         'about.stat.clusters': 'Издательских импринтов',
         'index.imprints.kicker': 'Пять импринтов',
@@ -4536,6 +4566,11 @@
         'panel.contact-summary': 'Resumen de contacto',
         'footer.platforms-label': 'Nuestras plataformas',
         'footer.partners-label': 'Socios',
+        'footer.publishing': 'Publicación',
+        'footer.our-imprints': 'Nuestros Sellos Editoriales',
+        'footer.policies-governance': 'Políticas y Gobernanza',
+        'footer.ecosystem': 'Ecosistema PSG',
+        'footer.hk-office': 'Oficina en Hong Kong',
         'about.stat.journals': 'Revistas activas',
         'about.stat.clusters': 'Sellos editoriales',
         'index.imprints.kicker': 'Cinco sellos editoriales',
@@ -5170,6 +5205,11 @@
         'panel.contact-summary': 'Résumé des contacts',
         'footer.platforms-label': 'Nos plateformes',
         'footer.partners-label': 'Partenaires',
+        'footer.publishing': 'Publication',
+        'footer.our-imprints': 'Nos Marques Éditoriales',
+        'footer.policies-governance': 'Politiques et Gouvernance',
+        'footer.ecosystem': 'Écosystème PSG',
+        'footer.hk-office': 'Bureau de Hong Kong',
         'about.stat.journals': 'Revues actives',
         'about.stat.clusters': 'Labels éditoriaux',
         'index.imprints.kicker': 'Cinq labels éditoriaux',
@@ -5804,6 +5844,11 @@
         'panel.contact-summary': 'Kontaktübersicht',
         'footer.platforms-label': 'Unsere Plattformen',
         'footer.partners-label': 'Partner',
+        'footer.publishing': 'Veröffentlichung',
+        'footer.our-imprints': 'Unsere Imprints',
+        'footer.policies-governance': 'Richtlinien und Governance',
+        'footer.ecosystem': 'PSG-Ökosystem',
+        'footer.hk-office': 'Büro Hongkong',
         'about.stat.journals': 'Aktive Zeitschriften',
         'about.stat.clusters': 'Verlagsimprints',
         'index.imprints.kicker': 'Fünf Imprints',
@@ -6438,6 +6483,11 @@
         'panel.contact-summary': 'ملخص التواصل',
         'footer.platforms-label': 'منصاتنا',
         'footer.partners-label': 'الشركاء',
+        'footer.publishing': 'النشر',
+        'footer.our-imprints': 'علاماتنا التحريرية',
+        'footer.policies-governance': 'السياسات والحوكمة',
+        'footer.ecosystem': 'منظومة PSG',
+        'footer.hk-office': 'مكتب هونغ كونغ',
         'about.stat.journals': 'المجلات النشطة',
         'about.stat.clusters': 'العلامات التحريرية',
         'index.imprints.kicker': 'خمس علامات تحريرية',
@@ -11194,6 +11244,134 @@
             document.querySelectorAll('.nav-search.open').forEach(function (menu) { setNavSearchOpen(menu, false); });
         }
     });
+
+    // ── Global footer ──────────────────────────────────────────────────
+    // One shared component rendered into footer.site-footer[data-site-footer]
+    // on every root page (index/about/contact/policy/research/etc.) instead
+    // of a hand-copied <footer> block per file. Runs before the initial
+    // applyTranslations() call below so its data-i18n nodes are translated
+    // like any other markup, and before generate-lang-pages.mjs snapshots
+    // the page (it waits for networkidle, then calls window.setLanguage).
+    function renderSiteFooter() {
+        var target = document.querySelector('[data-site-footer]');
+        if (!target) return;
+
+        var ecosystem = [
+            { href: 'https://journals.panorama-sg.com', src: 'assets/logos/journals-logo.svg', name: 'Panorama Scholarly Journals', invert: false },
+            { href: 'https://books.panorama-sg.com', src: 'assets/logos/books-logo-light.svg', name: 'Panorama Scholarly Books', invert: false },
+            { href: 'https://research.panorama-sg.com/', src: 'assets/logos/research-institute-logo.svg', name: 'Panorama Research Institute', invert: true },
+            { href: 'https://posi.panorama-sg.com/', src: 'assets/logos/posi-logo-light.svg', name: 'POSI', invert: false },
+            { href: 'https://profiles.panorama-sg.com/', src: 'assets/logos/editorial-directory-logo-transparent.png', name: 'Panorama Scholarly Group Editorial Directory', invert: true }
+        ];
+        var ecosystemHtml = ecosystem.map(function (p) {
+            return '<a class="pf-eco-item" href="' + p.href + '" target="_blank" rel="noopener" aria-label="' + p.name + '">' +
+                '<img src="' + p.src + '" alt=""' + (p.invert ? ' style="filter:brightness(0) invert(1);opacity:.85;"' : '') + '>' +
+                '<span class="pf-eco-name">' + p.name + '</span></a>';
+        }).join('');
+
+        target.innerHTML =
+            '<div class="container pf-primary">' +
+                '<div class="pf-brand">' +
+                    '<h2>Panorama Scholarly Group</h2>' +
+                    '<p class="pf-tagline" data-i18n="brand.tagline">International Scholarly Publishing and Research Platform</p>' +
+                    '<div class="pf-offices">' +
+                        '<div class="pf-office">' +
+                            '<p class="pf-office-label" data-i18n="footer.hk-office">Hong Kong Office</p>' +
+                            '<p>Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.</p>' +
+                        '</div>' +
+                        '<div class="pf-office">' +
+                            '<p class="pf-office-label" data-i18n="footer.china-office">China Office</p>' +
+                            '<p>南京市江宁区天行西路9号3幢1106室</p>' +
+                        '</div>' +
+                    '</div>' +
+                    '<a class="pf-email" href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>' +
+                '</div>' +
+
+                '<div class="pf-col">' +
+                    '<details class="footer-accordion" open>' +
+                        '<summary><h3 data-i18n="footer.publishing">Publishing</h3></summary>' +
+                        '<ul>' +
+                            '<li><a href="index.html#imprints" data-i18n="footer.journal-directory">Journal Directory</a></li>' +
+                            '<li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="index.pub-lines.books.h3">Scholarly Books</a></li>' +
+                            '<li><a href="index.html#imprints" data-i18n="nav.find-journal">Find a Journal</a></li>' +
+                            '<li><a href="for-authors.html" data-i18n="footer.author-guide">Author Guide</a></li>' +
+                            '<li><a href="https://books.panorama-sg.com" target="_blank" rel="noopener" data-i18n="nav.publish.publish-book">Publish a Book</a></li>' +
+                            '<li><a href="editorial-board-application.html" data-i18n="footer.join-eb">Join Editorial Board</a></li>' +
+                        '</ul>' +
+                    '</details>' +
+                '</div>' +
+
+                '<div class="pf-col">' +
+                    '<details class="footer-accordion" open>' +
+                        '<summary><h3 data-i18n="footer.our-imprints">Our Imprints</h3></summary>' +
+                        '<ul>' +
+                            '<li><a href="ridgeline.html">Ridgeline</a></li>' +
+                            '<li><a href="health-nexus.html">Health Nexus</a></li>' +
+                            '<li><a href="verdant-science.html">Verdant Science</a></li>' +
+                            '<li><a href="charter.html">Charter</a></li>' +
+                            '<li><a href="threnody.html">Threnody</a></li>' +
+                        '</ul>' +
+                    '</details>' +
+                '</div>' +
+
+                '<div class="pf-col">' +
+                    '<details class="footer-accordion" open>' +
+                        '<summary><h3 data-i18n="nav.research-infra">Research &amp; Infrastructure</h3></summary>' +
+                        '<ul>' +
+                            '<li><a href="https://research.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="nav.research">Research Institute</a></li>' +
+                            '<li><a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></li>' +
+                            '<li><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.editorial-dir">Editorial Directory</a></li>' +
+                            '<li><a href="https://credentials.panorama-sg.com/" target="_blank" rel="noopener" data-i18n="footer.credential-verify">Credential Verification</a></li>' +
+                        '</ul>' +
+                    '</details>' +
+                '</div>' +
+
+                '<div class="pf-col">' +
+                    '<details class="footer-accordion" open>' +
+                        '<summary><h3 data-i18n="footer.policies-governance">Policies &amp; Governance</h3></summary>' +
+                        '<ul>' +
+                            '<li><a href="publication-ethics.html" data-i18n="footer.pub-ethics">Publication Ethics</a></li>' +
+                            '<li><a href="open-access-policy.html" data-i18n="footer.oa-policy">Open Access Policy</a></li>' +
+                            '<li><a href="indexing.html" data-i18n="footer.indexing">Indexing &amp; Archiving</a></li>' +
+                            '<li><a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a></li>' +
+                            '<li><a href="about.html" data-i18n="index.tl.about-pub">About the Group</a></li>' +
+                            '<li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>' +
+                        '</ul>' +
+                    '</details>' +
+                '</div>' +
+            '</div>' +
+
+            '<div class="container pf-ecosystem">' +
+                '<p class="pf-section-label" data-i18n="footer.ecosystem">PSG Ecosystem</p>' +
+                '<div class="pf-ecosystem-row">' + ecosystemHtml + '</div>' +
+            '</div>' +
+
+            '<div class="container pf-partners">' +
+                '<p class="pf-section-label" data-i18n="footer.partners-label">Partners</p>' +
+                '<div class="pf-partners-row">' +
+                    '<span class="pf-partner-item"><img src="assets/logos/taoist-association-korea-logo.png" alt="Taoist Association of Korea" style="filter:brightness(0) invert(1);"></span>' +
+                '</div>' +
+            '</div>' +
+
+            '<div class="container pf-legal">' +
+                '<span data-i18n="footer.copyright">©2025–2026 Panorama Scholarly Group Ltd. All rights reserved.</span>' +
+                '<nav class="pf-legal-links" aria-label="Legal">' +
+                    '<a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>' +
+                    '<a href="publication-ethics.html" data-i18n="footer.pub-ethics">Publication Ethics</a>' +
+                    '<a href="contact.html" data-i18n="footer.contact">Contact</a>' +
+                '</nav>' +
+            '</div>';
+
+        // Desktop keeps every nav group permanently expanded (no toggle
+        // affordance shown); on narrow viewports the same markup becomes a
+        // collapsed-by-default accordion so the mobile footer isn't one
+        // long scroll of every link at once. <details> visibility can't be
+        // driven by CSS alone, hence this one-time width check.
+        if (window.innerWidth <= 760) {
+            target.querySelectorAll('.footer-accordion').forEach(function (d) { d.removeAttribute('open'); });
+        }
+    }
+    renderSiteFooter();
 
     var pageLang = document.documentElement.getAttribute('data-page-lang');
     applyTranslations((pageLang && LANGUAGES[pageLang]) ? pageLang : 'en');

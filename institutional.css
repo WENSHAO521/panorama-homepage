@@ -727,51 +727,59 @@ h3.step-title {
   display: flex; align-items: center; justify-content: space-between;
   gap: 12px; font-size: 11px; letter-spacing: 0.02em; padding: 12px 0;
 }
-.footer-platforms { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line-dark); }
-.footer-platforms-label {
-  font-size: 9px !important; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.2em; color: var(--on-dark-muted) !important; margin-bottom: 12px !important;
-  line-height: 1 !important;
+/* ── Global footer (pf- = "Panorama footer"): four layers — primary
+   footer (institutional column + weighted nav grid), ecosystem strip,
+   partners strip, legal bar. Rendered by site.js into
+   footer.site-footer[data-site-footer]; typography (h2/h3/p/li/a) comes
+   from the shared .site-footer rules above, shared with the per-imprint
+   footer so both stay visually consistent. ── */
+.site-footer .container { --max: 1440px; }
+
+.pf-primary {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr 1fr 1.05fr 1.05fr;
+  gap: 44px 48px;
+  padding: 72px 0 48px;
 }
-.footer-platforms-logos {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  column-gap: 22px;
-  row-gap: 12px;
-  align-items: center;
+.pf-brand h2 { font-size: 20px; margin-bottom: 10px; }
+.pf-brand .pf-tagline { max-width: 32ch; margin-bottom: 22px; }
+.pf-offices { display: flex; flex-direction: column; gap: 14px; margin-bottom: 18px; }
+.pf-office-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.9; margin-bottom: 4px;
 }
-.footer-posi-link,
-.footer-books-link,
-.footer-journals-link,
-.footer-research-link,
-.footer-profiles-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 58px;
-  line-height: 0;
+.pf-office p { font-size: 13px; }
+.pf-email { display: inline-block; color: var(--on-dark); border-bottom: 1px solid transparent; }
+.pf-email:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+.pf-section-label {
+  font-size: 9px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.2em; color: var(--on-dark-muted); margin: 0 0 20px;
 }
-.footer-posi-logo { width: 118px; max-height: 38px; height: auto; opacity: 0.70; transition: opacity var(--t); }
-.footer-books-logo { width: 58px; max-height: 58px; height: auto; opacity: 0.75; transition: opacity var(--t); }
-.footer-journals-logo { width: 56px; max-height: 56px; height: auto; opacity: 0.88; transition: opacity var(--t); }
-.footer-research-logo { width: 132px; max-height: 36px; height: auto; opacity: 0.82; filter: brightness(0) invert(1); transition: opacity var(--t); }
-.footer-profiles-logo { width: 92px; max-height: 74px; height: auto; opacity: 0.82; filter: brightness(0) invert(1); transition: opacity var(--t); }
-.footer-posi-link:hover .footer-posi-logo,
-.footer-books-link:hover .footer-books-logo,
-.footer-journals-link:hover .footer-journals-logo,
-.footer-research-link:hover .footer-research-logo,
-.footer-profiles-link:hover .footer-profiles-logo { opacity: 1; }
-.footer-partners { margin-top: 16px; }
-.footer-partners-logos { display: flex; align-items: center; }
-.footer-partner-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-height: 76px; line-height: 0;
+
+.pf-ecosystem { padding: 26px 0; border-top: 1px solid var(--line-dark); }
+.pf-ecosystem-row { display: flex; flex-wrap: wrap; align-items: center; gap: 36px; }
+.pf-eco-item {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 40px; flex-shrink: 0;
+  opacity: 0.82; transition: opacity var(--t);
 }
-.footer-taoist-logo {
-  width: 74px; height: auto; opacity: 0.72;
-  filter: brightness(0) invert(1);
+.pf-eco-item:hover, .pf-eco-item:focus-visible { opacity: 1; }
+.pf-eco-item img { height: 26px; width: auto; max-width: 140px; object-fit: contain; flex-shrink: 0; }
+.pf-eco-item .pf-eco-name { font-size: 12px; color: var(--on-dark-muted); white-space: nowrap; }
+
+.pf-partners { padding: 22px 0 26px; border-top: 1px solid var(--line-dark); }
+.pf-partners-row { display: flex; flex-wrap: wrap; align-items: center; gap: 30px; }
+.pf-partner-item { display: inline-flex; align-items: center; min-height: 36px; opacity: 0.78; }
+.pf-partner-item img { max-height: 32px; width: auto; }
+
+.pf-legal {
+  min-height: 64px; border-top: 1px solid var(--line-dark);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 10px 24px; padding: 16px 0; font-size: 11px; letter-spacing: 0.02em; color: var(--on-dark-muted);
 }
+.pf-legal-links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.pf-legal-links a { color: var(--on-dark-muted); }
+.pf-legal-links a:hover { color: var(--gold); }
 
 /* ══════════════════════════
    PLATFORMS SECTION (bento)
@@ -849,9 +857,9 @@ h3.step-title {
 .imprints-portfolio-head .kicker { justify-content: center; }
 .imprints-intro { max-width: 560px; font-size: 15px; line-height: 1.85; color: var(--muted); margin: 16px 0 0; }
 .imprint-portfolio {
-  display: grid; grid-template-columns: 1fr 1fr;
-  column-gap: clamp(48px, 10vw, 160px); row-gap: clamp(56px, 8vw, 110px);
-  max-width: 1150px; margin: 0 auto; padding: 12px 0;
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  column-gap: clamp(24px, 4vw, 56px); row-gap: 56px;
+  max-width: 1400px; margin: 0 auto; padding: 12px 0;
 }
 .imprint-brand {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -868,7 +876,7 @@ h3.step-title {
   font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase; color: var(--subtle);
 }
-.imprint-brand--wide { grid-column: 1 / -1; }
+.imprint-brand--wide { grid-column: auto; }
 
 /* ══════════════════════════
    OTHER PAGES — STAT ROW
@@ -1226,8 +1234,14 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .platforms-options a:hover .platform-opt-desc { color: var(--sage); }
   .menu-group-label { color: var(--on-dark-muted); }
   .menu-divider { background: var(--line-dark); }
-  .lang-menu { margin-left: 0; align-self: flex-start; }
-  .lang-options { left: 0; right: auto; }
+  .lang-menu { width: 100%; margin-left: 0; }
+  .lang-btn { width: 100%; justify-content: space-between; padding: 12px 22px; border: 0; }
+  .lang-btn:hover, .lang-menu.open .lang-btn { background: var(--forest-dk-2); color: var(--on-dark); }
+  .lang-options {
+    position: static; width: 100%; left: auto; right: auto; min-width: 0;
+    border: 0; box-shadow: none; background: var(--forest-dk-3);
+    padding: 4px 0 4px 22px;
+  }
 
   .nav-search { width: 100%; margin-left: 0; order: 1; }
   .nav-search-btn { width: 100%; justify-content: flex-start; gap: 8px; padding: 12px 22px; border: 0; }
@@ -1263,6 +1277,8 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .steps-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .footer-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
   .footer-grid > div:first-child { grid-column: 1 / -1; }
+  .pf-primary { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 36px 28px; padding: 64px 0 44px; }
+  .pf-brand { grid-column: 1 / -1; padding-bottom: 8px; border-bottom: 1px solid var(--line-dark); }
   .directory-controls { grid-template-columns: 1fr 1fr; }
   .quick-links { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .articles-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -1275,6 +1291,7 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .indexer-cards { grid-template-columns: repeat(3, minmax(0,1fr)); }
   .posi-block { grid-template-columns: 1fr; gap: 32px; }
   .hero-body { padding-left: 22px; }
+  .imprint-portfolio { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* ══════════════════════════
@@ -1332,8 +1349,14 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .platforms-options a:hover .platform-opt-desc { color: var(--sage); }
   .menu-group-label { color: var(--on-dark-muted); }
   .menu-divider { background: var(--line-dark); }
-  .lang-menu { margin-left: 0; align-self: flex-start; }
-  .lang-options { left: 0; right: auto; }
+  .lang-menu { width: 100%; margin-left: 0; }
+  .lang-btn { width: 100%; justify-content: space-between; padding: 12px 22px; border: 0; }
+  .lang-btn:hover, .lang-menu.open .lang-btn { background: var(--forest-dk-2); color: var(--on-dark); }
+  .lang-options {
+    position: static; width: 100%; left: auto; right: auto; min-width: 0;
+    border: 0; box-shadow: none; background: var(--forest-dk-3);
+    padding: 4px 0 4px 22px;
+  }
 
   .finder { grid-template-columns: 1fr; }
   .finder input { border-right: 0; border-bottom: 1px solid var(--line-dark); }
@@ -1357,6 +1380,15 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .footer-accordion > ul, .footer-accordion > p { padding-bottom: 18px; }
   .footer-grid > div + div { border-top: 1px solid var(--line-dark); padding-top: 4px; }
   .footer-grid > div:first-child { padding-bottom: 20px; }
+
+  .pf-primary { display: block; padding: 40px 0 4px; }
+  .pf-brand { padding-bottom: 22px; margin-bottom: 4px; border-bottom: 1px solid var(--line-dark); }
+  .pf-col + .pf-col { border-top: 1px solid var(--line-dark); }
+  .pf-ecosystem-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px; }
+  .pf-eco-item { min-width: 0; }
+  .pf-eco-item .pf-eco-name { white-space: normal; }
+  .pf-partners-row { gap: 24px; }
+  .pf-legal { flex-direction: column; align-items: flex-start; gap: 10px; min-height: 0; padding: 20px 0; }
 
   .directory-controls { grid-template-columns: 1fr; }
   .directory-item { grid-template-columns: 80px minmax(0,1fr); gap: 14px; padding: 16px 18px; }
@@ -1419,6 +1451,7 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
 [dir="rtl"] .policy-number { left: auto; right: 20px; }
 [dir="rtl"] .ann-date { margin-left: 0; margin-right: auto; }
 [dir="rtl"] .footer-bottom { text-align: right; }
+[dir="rtl"] .pf-legal { text-align: right; }
 @media (max-width: 1320px) {
   [dir="rtl"] .lang-menu { margin-right: 0; }
   [dir="rtl"] .lang-options { left: 0; right: auto; }
