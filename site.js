@@ -7276,6 +7276,7 @@
         'Editorial responsibilities, peer review conduct, and correction procedures.': '編輯責任、同行評審行為與更正程序。',
         'Licensing terms, author rights, and repository guidance.': '授權條款、作者權利與存儲庫指引。',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '香港旺角彌敦道625號雅蘭中心辦公樓二期15樓1508室。',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': '中國南京市江寧區天行西路9號3幢1106室。',
         'Room 1508, 15/F., Office Tower Two': '雅蘭中心辦公樓二期 15 樓 1508 室',
         'Grand Plaza, 625 Nathan Road': '彌敦道 625 號雅蘭中心',
         'Mong Kok, Kowloon, Hong Kong': '香港九龍旺角',
@@ -7763,6 +7764,7 @@
         'Editorial responsibilities, peer review conduct, and correction procedures.': '編集上の責任、査読の実施、および修正手順。',
         'Licensing terms, author rights, and repository guidance.': 'ライセンス条項、作成者の権利、およびリポジトリのガイダンス。',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '1508号室、15/F.、オフィスタワー2、グランドプラザ、625ネイザンロード、モンコック、九龍、香港。',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': '1106号室、3棟、天行西路9号、江寧区、南京市、中国。',
         'Room 1508, 15/F., Office Tower Two': '第2オフィスタワー15階1508号室',
         'Grand Plaza, 625 Nathan Road': 'グランドプラザ、ネイザンロード625',
         'Mong Kok, Kowloon, Hong Kong': '香港、九龍モンコック',
@@ -8247,6 +8249,7 @@
         'Editorial responsibilities, peer review conduct, and correction procedures.': '편집 책임, 동료 검토 수행 및 수정 절차.',
         'Licensing terms, author rights, and repository guidance.': '라이센스 조건, 작성자 권한 및 저장소 지침.',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '홍콩 구룡 몽콕 네이선 로드 625, 그랜드 플라자 오피스 타워 2, 15층 1508호.',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': '중국 난징 장닝구 톈싱시로 9, 3동 1106호.',
         'Room 1508, 15/F., Office Tower Two': '오피스 타워 2, 15층 1508호',
         'Grand Plaza, 625 Nathan Road': '그랜드 플라자, 네이선 로드 625',
         'Mong Kok, Kowloon, Hong Kong': '홍콩 구룡 몽콕',
@@ -8377,6 +8380,7 @@
         'ISSN Registered': 'ISSN 已注册',
         'Room 1508, 15/F., Grand Plaza, Kowloon, Hong Kong': '香港九龙 雅兰中心 15 楼 1508 室',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': '香港旺角弥敦道625号雅兰中心办公楼二期15楼1508室。',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': '中国南京市江宁区天行西路9号3幢1106室。',
         'Room 1508, 15/F., Office Tower Two': '雅兰中心办公楼二期 15 楼 1508 室',
         'Grand Plaza, 625 Nathan Road': '弥敦道 625 号雅兰中心',
         'Mong Kok, Kowloon, Hong Kong': '香港九龙旺角',
@@ -8789,6 +8793,7 @@
         'Editorial responsibilities, peer review conduct, and correction procedures.': 'Редакционные обязанности, проведение рецензирования и процедуры исправления.',
         'Licensing terms, author rights, and repository guidance.': 'Условия лицензирования, права авторов и рекомендации по репозиторию.',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Офис 1508, 15-й этаж, Office Tower Two, Grand Plaza, 625 Nathan Road, Монгкок, Коулун, Гонконг.',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': 'Офис 1106, здание 3, ул. Тяньсин Си, 9, район Цзянин, Нанкин, Китай.',
         'Room 1508, 15/F., Office Tower Two': 'Офис 1508, 15-й этаж, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Гранд Плаза, 625 Натан Роуд',
         'Mong Kok, Kowloon, Hong Kong': 'Монгкок, Коулун, Гонконг',
@@ -9345,6 +9350,7 @@
         'Licensing': 'Licencias',
         'Discovery': 'Descubrimiento',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Sala 1508, piso 15, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': 'Sala 1106, edificio 3, n.º 9 Tianxing West Road, distrito de Jiangning, Nankín, China.',
         'Room 1508, 15/F., Office Tower Two': 'Sala 1508, piso 15, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
         'Mong Kok, Kowloon, Hong Kong': 'Mong Kok, Kowloon, Hong Kong'
@@ -9833,6 +9839,7 @@
         'Licensing': 'Licences',
         'Discovery': 'Découverte',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Bureau 1508, 15e étage, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': 'Bureau 1106, bâtiment 3, n° 9 Tianxing West Road, district de Jiangning, Nankin, Chine.',
         'Room 1508, 15/F., Office Tower Two': 'Bureau 1508, 15e étage, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
         'Mong Kok, Kowloon, Hong Kong': 'Mong Kok, Kowloon, Hong Kong'
@@ -10321,6 +10328,7 @@
         'Licensing': 'Lizenzierung',
         'Discovery': 'Auffindbarkeit',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'Raum 1508, 15. Etage, Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hongkong.',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': 'Raum 1106, Gebäude 3, Nr. 9 Tianxing West Road, Bezirk Jiangning, Nanjing, China.',
         'Room 1508, 15/F., Office Tower Two': 'Raum 1508, 15. Etage, Office Tower Two',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza, 625 Nathan Road',
         'Mong Kok, Kowloon, Hong Kong': 'Mong Kok, Kowloon, Hongkong'
@@ -10732,6 +10740,7 @@
         'Editorial responsibilities, peer review conduct, and correction procedures.': 'المسؤوليات التحريرية وسلوك التحكيم العلمي وإجراءات التصحيح.',
         'Licensing terms, author rights, and repository guidance.': 'شروط الترخيص وحقوق المؤلف وتوجيهات المستودع.',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني، Grand Plaza، 625 Nathan Road، منغ كوك، كولون، هونغ كونغ.',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': 'الغرفة 1106، المبنى 3، رقم 9 طريق تيانشينغ الغربي، حي جيانغننغ، نانجينغ، الصين.',
         'Room 1508, 15/F., Office Tower Two': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza، 625 Nathan Road',
         'Mong Kok, Kowloon, Hong Kong': 'منغ كوك، كولون، هونغ كونغ',
@@ -10765,6 +10774,7 @@
         'Licensing': 'الترخيص',
         'Discovery': 'الاكتشاف',
         'Room 1508, 15/F., Office Tower Two, Grand Plaza, 625 Nathan Road, Mong Kok, Kowloon, Hong Kong.': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني، Grand Plaza، 625 Nathan Road، منغ كوك، كولون، هونغ كونغ.',
+        'Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.': 'الغرفة 1106، المبنى 3، رقم 9 طريق تيانشينغ الغربي، حي جيانغننغ، نانجينغ، الصين.',
         'Room 1508, 15/F., Office Tower Two': 'الغرفة 1508، الطابق 15، برج المكاتب الثاني',
         'Grand Plaza, 625 Nathan Road': 'Grand Plaza، 625 Nathan Road',
         'Mong Kok, Kowloon, Hong Kong': 'منغ كوك، كولون، هونغ كونغ'
@@ -11281,7 +11291,7 @@
                         '</div>' +
                         '<div class="pf-office">' +
                             '<p class="pf-office-label" data-i18n="footer.china-office">China Office</p>' +
-                            '<p>南京市江宁区天行西路9号3幢1106室</p>' +
+                            '<p>Room 1106, Building 3, No. 9 Tianxing West Road, Jiangning District, Nanjing, China.</p>' +
                         '</div>' +
                     '</div>' +
                     '<a class="pf-email" href="mailto:contact@panorama-sg.com">contact@panorama-sg.com</a>' +
