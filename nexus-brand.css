@@ -179,3 +179,20 @@
 @media (max-width: 860px) {
   .nx-subject-list { grid-template-columns: 1fr; }
 }
+
+/* Grouped subject lists -- For Authors / Editorial / Policies page sections
+   group their .nx-subject-list rows under a small category label, so a
+   longer list (8-12 items) still reads as organised categories rather
+   than one undifferentiated wall of links. */
+.nx-groups { display: flex; flex-direction: column; gap: 36px; }
+.nx-group-head {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: #787A7D; margin: 0 0 4px;
+}
+.nx-group .nx-subject-list { margin-top: 4px; }
+.nx-lede { font-size: 15px; color: #42454A; line-height: 1.75; max-width: 62ch; margin: 0 0 28px; }
+.nx-framework-note {
+  font-size: 13.5px; color: #787A7D; line-height: 1.7; max-width: 62ch;
+  margin: 28px 0 0; padding-top: 20px; border-top: 1px solid #E7E3DB;
+}
+.nx-framework-note a { color: var(--brand-dk, #970E1A); font-weight: 600; }

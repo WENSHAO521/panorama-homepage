@@ -156,6 +156,8 @@ body.in-compact .in-header-row{ height: 66px; }
   line-height: 1.4; overflow-wrap: break-word;
 }
 .in-mega-group a:hover{ color: var(--brand-dk, #0F4C5C); }
+.in-mega-item-label{ display: block; }
+.in-mega-item-desc{ display: block; font-size: 12px; font-weight: 400; color: #8B969C; margin-top: 2px; }
 
 /* Journals: list layout (Ridgeline, Health Nexus) */
 .in-journal-rows{ display: flex; flex-direction: column; }
@@ -361,6 +363,11 @@ body.in-compact .in-header-row{ height: 66px; }
   border-left: 2px solid rgba(20,40,50,.10);
 }
 .in-drawer-panel a:hover{ color: var(--brand-dk, #0F4C5C); border-left-color: var(--brand, #0F4C5C); }
+.in-drawer-group-head{
+  font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: #9AA5AA; padding: 14px 0 4px 14px;
+}
+.in-drawer-panel > .in-drawer-group-head:first-child{ padding-top: 4px; }
 .in-drawer-submit{ margin: 20px 0; }
 .in-drawer-submit .in-submit-btn{ width: 100%; height: 46px; }
 .in-drawer-psg{

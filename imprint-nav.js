@@ -20,6 +20,41 @@
     ridgeline: {
       name: 'Ridgeline',
       scope: 'Technology · Engineering · AI',
+      authorsLede: "Ridgeline publishes applied technology, engineering and AI research under Panorama Scholarly Group's shared editorial and open-access framework.",
+      authors: [
+        { head: 'Prepare Your Research', items: [
+          { label: 'Article Types', desc: 'Research, review, perspective', href: '#for-authors' },
+          { label: 'Manuscript Preparation', desc: 'References, figures, tables', href: '#for-authors' },
+          { label: 'Before You Submit', desc: 'Ethics & OA requirements', href: '#for-authors' }
+        ] },
+        { head: 'Submission & Review', items: [
+          { label: 'Submission Process', desc: 'Journal editorial portal', href: '#submissions' },
+          { label: 'Peer Review', desc: 'Editorial assessment', href: '#for-authors' },
+          { label: 'Revision & Resubmission', desc: 'Reviewer response', href: '#for-authors' }
+        ] },
+        { head: 'Publication', items: [
+          { label: 'Open Access', desc: 'CC BY licensing', href: '#for-authors' },
+          { label: 'Publication Fees & Waivers', desc: 'Journal-specific', href: '#for-authors' },
+          { label: 'After Acceptance', desc: 'DOI & production', href: '#for-authors' }
+        ] }
+      ],
+      editorialLede: "Each Ridgeline journal is guided by its own editorial board of practicing engineers and computer scientists, working to the group's shared standards for peer review and editorial independence.",
+      policiesLede: "Ridgeline follows Panorama Scholarly Group's publication ethics and open-access framework, applied to the specific disclosure needs of technology, engineering and AI-related research.",
+      policies: [
+        { head: 'Research Integrity', items: [
+          { label: 'Publication Ethics', desc: 'Authorship & originality', href: '#policies' },
+          { label: 'AI Use & Disclosure', desc: 'Where applicable', href: '#policies' },
+          { label: 'Competing Interests', desc: 'Disclosure requirements', href: '#policies' }
+        ] },
+        { head: 'Editorial Process', items: [
+          { label: 'Peer Review Policy', desc: 'Review & confidentiality', href: '#policies' },
+          { label: 'Corrections & Retractions', desc: 'Post-publication record', href: '#policies' }
+        ] },
+        { head: 'Access & Preservation', items: [
+          { label: 'Open Access & Licensing', desc: 'Rights & reuse', href: '#policies' },
+          { label: 'Digital Preservation', desc: 'CLOCKSS & PKP', href: '#policies' }
+        ] }
+      ],
       layout: 'rows',
       journals: [
         { title: 'Panorama Frontier Review', tag: 'Multidisciplinary', issn: 'ISSN Pending', view: J + 'PFR', submit: J + 'PFR/submission' },
@@ -30,6 +65,43 @@
     'health-nexus': {
       name: 'Health Nexus',
       scope: 'Medicine · Health Sciences',
+      authorsLede: "Health Nexus publishes clinical, translational and digital-health research under Panorama Scholarly Group's shared editorial and open-access framework, with particular attention to the ethical requirements of health-related research.",
+      authors: [
+        { head: 'Prepare', items: [
+          { label: 'Article Types', desc: 'Research, review, case report', href: '#for-authors' },
+          { label: 'Manuscript Preparation', desc: 'References, figures, tables', href: '#for-authors' },
+          { label: 'Reporting Guidance', desc: 'Discipline-specific, where applicable', href: '#for-authors' }
+        ] },
+        { head: 'Ethics & Responsible Research', items: [
+          { label: 'Research Ethics', desc: 'Biomedical & health research', href: '#for-authors' },
+          { label: 'Human Participant Research', desc: 'Ethics approval, where applicable', href: '#for-authors' },
+          { label: 'Consent & Data Transparency', desc: 'Declarations at submission', href: '#for-authors' }
+        ] },
+        { head: 'Submission, Review & Publication', items: [
+          { label: 'Submission Process', desc: 'Journal editorial portal', href: '#submissions' },
+          { label: 'Peer Review', desc: 'Editorial assessment', href: '#for-authors' },
+          { label: 'Open Access', desc: 'CC BY licensing', href: '#for-authors' },
+          { label: 'Publication Fees & Waivers', desc: 'Journal-specific', href: '#for-authors' }
+        ] }
+      ],
+      editorialLede: "Health Nexus launched in 2025 and is still building out its editorial boards; registered clinicians and biomedical researchers make up the primary reviewer pool across its titles today.",
+      policiesLede: "Health Nexus follows Panorama Scholarly Group's publication ethics and open-access framework, applied to the specific integrity requirements of biomedical and health research.",
+      policies: [
+        { head: 'Research Ethics', items: [
+          { label: 'Biomedical Research Ethics', desc: 'Responsible research', href: '#policies' },
+          { label: 'Human Participants & Consent', desc: 'Where applicable', href: '#policies' },
+          { label: 'Authorship & Competing Interests', desc: 'Disclosure requirements', href: '#policies' }
+        ] },
+        { head: 'Publication Integrity', items: [
+          { label: 'Publication Ethics', desc: 'Originality & citation', href: '#policies' },
+          { label: 'Data & Research Transparency', desc: 'Confidentiality & data use', href: '#policies' },
+          { label: 'Corrections & Retractions', desc: 'Post-publication record', href: '#policies' }
+        ] },
+        { head: 'Access', items: [
+          { label: 'Open Access & Licensing', desc: 'Rights & reuse', href: '#policies' },
+          { label: 'Digital Preservation', desc: 'CLOCKSS & PKP', href: '#policies' }
+        ] }
+      ],
       layout: 'rows',
       journals: [
         { title: 'Health Nexus', tag: 'Interdisciplinary Medicine', issn: 'ISSN 3053-7037', view: J + 'HealthNexus', submit: J + 'HealthNexus/submission' },
@@ -40,6 +112,42 @@
     'verdant-science': {
       name: 'Verdant Science',
       scope: 'Environment · Sustainability · Life Sciences',
+      authorsLede: "Verdant Science publishes environmental, sustainability and life-science research under Panorama Scholarly Group's shared editorial and open-access framework, with particular attention to field-research and data-transparency expectations.",
+      authors: [
+        { head: 'Prepare', items: [
+          { label: 'Article Types', desc: 'Research, review, field study', href: '#for-authors' },
+          { label: 'Manuscript Preparation', desc: 'References, figures, tables', href: '#for-authors' },
+          { label: 'Data Availability', desc: 'Declaration at submission', href: '#for-authors' }
+        ] },
+        { head: 'Research Reporting', items: [
+          { label: 'Field & Environmental Research', desc: 'Site & sampling detail', href: '#for-authors' },
+          { label: 'Research Transparency', desc: 'Methods & reproducibility', href: '#for-authors' }
+        ] },
+        { head: 'Submission, Review & Publication', items: [
+          { label: 'Submission Process', desc: 'Journal editorial portal', href: '#submissions' },
+          { label: 'Peer Review', desc: 'Editorial assessment', href: '#for-authors' },
+          { label: 'Open Access', desc: 'CC BY licensing', href: '#for-authors' },
+          { label: 'Publication Fees & Waivers', desc: 'Journal-specific', href: '#for-authors' }
+        ] }
+      ],
+      editorialLede: "Verdant Science journals are reviewed on a rolling basis by subject-area editors, with shared imprint-level oversight for open-access licensing and data availability.",
+      policiesLede: "Verdant Science follows Panorama Scholarly Group's publication ethics and open-access framework, applied to the specific reproducibility and data-transparency needs of environmental and life-science research.",
+      policies: [
+        { head: 'Research Integrity', items: [
+          { label: 'Publication Ethics', desc: 'Authorship & originality', href: '#policies' },
+          { label: 'Environmental & Field Research', desc: 'Reporting expectations', href: '#policies' },
+          { label: 'Data Availability & Reproducibility', desc: 'Where applicable', href: '#policies' }
+        ] },
+        { head: 'Editorial Process', items: [
+          { label: 'Authorship & Competing Interests', desc: 'Disclosure requirements', href: '#policies' },
+          { label: 'Peer Review Policy', desc: 'Review & confidentiality', href: '#policies' },
+          { label: 'Corrections & Retractions', desc: 'Post-publication record', href: '#policies' }
+        ] },
+        { head: 'Access & Preservation', items: [
+          { label: 'Open Access & Licensing', desc: 'Rights & reuse', href: '#policies' },
+          { label: 'Digital Preservation', desc: 'CLOCKSS & PKP', href: '#policies' }
+        ] }
+      ],
       layout: 'grid',
       journals: [
         { title: 'Climate Sustainability & Global Systems', tag: 'Climate & Sustainability', issn: 'ISSN 3054-9663', view: J + 'CSGS', submit: J + 'CSGS/submission' },
@@ -51,6 +159,43 @@
     charter: {
       name: 'Charter',
       scope: 'Policy · Law · Governance',
+      authorsLede: "Charter publishes scholarship on governance, law, policy, education and the social sciences under Panorama Scholarly Group's shared editorial and open-access framework, with particular attention to research-methods transparency and citation practice.",
+      authors: [
+        { head: 'Prepare', items: [
+          { label: 'Article Types', desc: 'Research, review, theoretical', href: '#for-authors' },
+          { label: 'Manuscript Preparation', desc: 'References, figures, tables', href: '#for-authors' },
+          { label: 'Citation & References', desc: 'Journal-specified style', href: '#for-authors' }
+        ] },
+        { head: 'Research Standards', items: [
+          { label: 'Research Methods & Data', desc: 'Transparency at submission', href: '#for-authors' },
+          { label: 'Research Ethics', desc: 'Where applicable to study design', href: '#for-authors' }
+        ] },
+        { head: 'Submission, Review & Publication', items: [
+          { label: 'Submission Process', desc: 'Journal editorial portal', href: '#submissions' },
+          { label: 'Peer Review', desc: 'Editorial assessment', href: '#for-authors' },
+          { label: 'Open Access', desc: 'CC BY licensing', href: '#for-authors' },
+          { label: 'Publication Fees & Waivers', desc: 'Journal-specific', href: '#for-authors' }
+        ] }
+      ],
+      editorialLede: "Each Charter journal is guided by its own editorial board, with shared attention across the imprint to editorial independence in scholarship that examines governance, policy and public institutions.",
+      policiesLede: "Charter follows Panorama Scholarly Group's publication ethics and open-access framework, applied to the editorial-independence expectations of scholarship examining governance, law and public institutions.",
+      policies: [
+        { head: 'Editorial Governance', items: [
+          { label: 'Editorial Independence', desc: 'Decision-making principles', href: '#policies' },
+          { label: 'Peer Review Policy', desc: 'Review & confidentiality', href: '#policies' }
+        ] },
+        { head: 'Research Integrity', items: [
+          { label: 'Publication Ethics', desc: 'Authorship & originality', href: '#policies' },
+          { label: 'Data Transparency', desc: 'Where applicable', href: '#policies' },
+          { label: 'Competing Interests', desc: 'Disclosure requirements', href: '#policies' }
+        ] },
+        { head: 'Scholarly Record', items: [
+          { label: 'Corrections & Retractions', desc: 'Post-publication record', href: '#policies' },
+          { label: 'Complaints & Appeals', desc: 'Editorial handling', href: '#policies' },
+          { label: 'Open Access & Licensing', desc: 'Rights & reuse', href: '#policies' },
+          { label: 'Digital Preservation', desc: 'CLOCKSS & PKP', href: '#policies' }
+        ] }
+      ],
       layout: 'grouped',
       groupOrder: ['governance', 'law', 'data', 'education'],
       groupLabels: { governance: 'Governance & Political Economy', law: 'Law & Society', data: 'Data & Social Science', education: 'Education & Political Thought' },
@@ -75,6 +220,42 @@
     threnody: {
       name: 'Threnody',
       scope: 'Humanities · Arts · Philosophy',
+      authorsLede: "Threnody publishes philosophy, religious studies, humanities and arts scholarship under Panorama Scholarly Group's shared editorial and open-access framework, with particular attention to sources, translations and permissions.",
+      authors: [
+        { head: 'Prepare', items: [
+          { label: 'Article Types', desc: 'Research, essay, interpretive', href: '#for-authors' },
+          { label: 'Manuscript Preparation', desc: 'References, citation style', href: '#for-authors' },
+          { label: 'Primary Sources & Translations', desc: 'Attribution & permissions', href: '#for-authors' }
+        ] },
+        { head: 'Images, Archives & Permissions', items: [
+          { label: 'Images & Permissions', desc: 'Third-party content', href: '#for-authors' },
+          { label: 'Archival Materials', desc: 'Citation & provenance', href: '#for-authors' }
+        ] },
+        { head: 'Submission, Review & Publication', items: [
+          { label: 'Submission Process', desc: 'Journal editorial portal', href: '#submissions' },
+          { label: 'Peer Review', desc: 'Editorial assessment', href: '#for-authors' },
+          { label: 'Open Access', desc: 'CC BY licensing', href: '#for-authors' },
+          { label: 'Publication Fees & Waivers', desc: 'Journal-specific', href: '#for-authors' }
+        ] }
+      ],
+      editorialLede: "Each Threnody journal is guided by its own editorial board, working to the group's shared standards for peer review and editorial independence, at a pace suited to interpretive scholarship.",
+      policiesLede: "Threnody follows Panorama Scholarly Group's publication ethics and open-access framework, applied to the sourcing, translation and attribution needs of humanities and arts scholarship.",
+      policies: [
+        { head: 'Originality & Attribution', items: [
+          { label: 'Publication Ethics', desc: 'Authorship & originality', href: '#policies' },
+          { label: 'Sources, Translations & Permissions', desc: 'Attribution requirements', href: '#policies' },
+          { label: 'Archival Materials', desc: 'Citation & provenance', href: '#policies' }
+        ] },
+        { head: 'Editorial Process', items: [
+          { label: 'Competing Interests', desc: 'Disclosure requirements', href: '#policies' },
+          { label: 'Peer Review Policy', desc: 'Review & confidentiality', href: '#policies' },
+          { label: 'Corrections & Retractions', desc: 'Post-publication record', href: '#policies' }
+        ] },
+        { head: 'Access & Preservation', items: [
+          { label: 'Open Access & Licensing', desc: 'Rights & reuse', href: '#policies' },
+          { label: 'Digital Preservation', desc: 'CLOCKSS & PKP', href: '#policies' }
+        ] }
+      ],
       layout: 'index',
       groupOrder: ['philosophy', 'religion', 'humanities', 'music'],
       groupLabels: { philosophy: 'Philosophy', religion: 'Religion & Traditions', humanities: 'Humanities & Arts', music: 'Music & Performance' },
@@ -89,42 +270,24 @@
     }
   };
 
-  // ---- shared, group-wide content (identical across all 5 imprints) --
-  var SHARED_AUTHORS = [
-    { label: 'Journal Selection', href: 'for-authors.html#journal-selection' },
-    { label: 'Before You Submit', href: 'for-authors.html#before-submission' },
-    { label: 'Manuscript Preparation', href: 'for-authors.html#manuscript-preparation' },
-    { label: 'Submission Process', href: 'for-authors.html#submission-process' },
-    { label: 'Peer Review', href: 'for-authors.html#peer-review' },
-    { label: 'After Publication', href: 'for-authors.html#after-publication' }
-  ];
-
-  var SHARED_POLICIES = [
-    { head: 'Publication', items: [
-      { label: 'Publication Ethics', href: 'publication-ethics.html' },
-      { label: 'Peer Review Conduct', href: 'publication-ethics.html#peer-review-conduct' },
-      { label: 'Corrections & Retractions', href: 'publication-ethics.html#corrections-retractions' },
-      { label: 'Appeals & Concerns', href: 'publication-ethics.html#appeals-concerns' }
-    ] },
-    { head: 'Research Integrity', items: [
-      { label: 'Originality & Citation', href: 'publication-ethics.html#originality-citation' },
-      { label: 'Conflict Disclosure', href: 'publication-ethics.html#conflict-disclosure' },
-      { label: 'Confidentiality & Data Use', href: 'publication-ethics.html#confidentiality-data-use' }
-    ] },
-    { head: 'Access & Preservation', items: [
-      { label: 'Open Access Policy', href: 'open-access-policy.html' },
-      { label: 'Author Rights & Permissions', href: 'open-access-policy.html#author-rights-permissions' },
-      { label: 'Indexing & Archiving', href: 'indexing.html' },
-      { label: 'Privacy Policy', href: 'privacy-policy.html' }
-    ] }
-  ];
-
-  function sharedEditorial() {
+  // ---- editorial content -----------------------------------------------
+  // For Authors and Policies content is brand-specific (cfg.authors,
+  // cfg.policies, both set per imprint in IMPRINT_CONFIG above) and links
+  // to that imprint's own page anchors -- never to the group's generic
+  // for-authors.html / publication-ethics.html as the primary destination.
+  // Editorial structure (boards, standards, how to join) is genuinely the
+  // same mechanism group-wide, so only its intro sentence varies by brand.
+  function sharedEditorial(cfg) {
     return [
-      { label: 'Editorial Boards', href: 'https://profiles.panorama-sg.com/', external: true },
-      { label: 'Join an Editorial Board', href: 'editorial-board-application.html' },
-      { label: 'Peer Review Standards', href: 'publication-ethics.html#peer-review-conduct' },
-      { label: 'Editorial Contacts', href: '#editorial-contacts' }
+      { head: 'Editorial Leadership', items: [
+        { label: 'Editorial Boards', desc: 'Directory profiles', href: 'https://profiles.panorama-sg.com/', external: true },
+        { label: 'Editorial Standards', desc: 'Assessment principles', href: 'publication-ethics.html#editorial-decisions' },
+        { label: 'Peer Review Standards', desc: 'Review conduct', href: 'publication-ethics.html#peer-review-conduct' }
+      ] },
+      { head: 'Participate', items: [
+        { label: 'Join an Editorial Board', desc: 'Application form', href: 'editorial-board-application.html' },
+        { label: 'Become a Reviewer', desc: 'Application form', href: 'editorial-board-application.html' }
+      ] }
     ];
   }
 
@@ -132,7 +295,7 @@
     return [
       { label: 'About ' + imprintName, href: '#about' },
       { label: 'Panorama Scholarly Group', href: 'index.html' },
-      { label: 'Contact', href: 'contact.html' }
+      { label: 'Contact', href: '#editorial-contacts' }
     ];
   }
 
@@ -209,39 +372,44 @@
       '<button type="button" data-in-submit-open>Submit a Manuscript &rarr;</button></div>';
   }
 
-  function renderList(eyebrow, lede, items) {
-    var html = (eyebrow ? '<div class="in-mega-eyebrow">' + esc(eyebrow) + '</div>' : '') +
-      (lede ? '<p class="in-mega-lede">' + esc(lede) + '</p>' : '') +
-      '<div class="in-mega-group"><ul>';
-    items.forEach(function (it) {
-      html += '<li><a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a></li>';
-    });
-    html += '</ul></div>';
-    return html;
-  }
-
-  function renderAuthorsMega() {
-    return renderList('For Authors', null, SHARED_AUTHORS) +
-      '<div class="in-mega-foot"><a href="for-authors.html">Full Author Guide &rarr;</a>' +
-      '<button type="button" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
-  }
-
-  function renderEditorialMega() {
-    return renderList('Editorial', null, sharedEditorial()) +
-      '<div class="in-mega-foot"><a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">View Editorial Directory &rarr;</a></div>';
-  }
-
-  function renderPoliciesMega() {
-    var html = '<div class="in-mega-eyebrow">Policies &amp; Standards</div><div class="in-mega-groups" style="--in-cols:3;">';
-    SHARED_POLICIES.forEach(function (group) {
+  // Renders a grouped mega-menu panel: eyebrow, an introductory sentence
+  // (the "editorial navigation experience" lede, not a bare link list),
+  // then each category as its own labelled group with a short description
+  // under every item -- matching the same groups shown on the imprint's
+  // own page section, not a flat sitemap dump.
+  function renderGroupedMega(eyebrow, lede, groups, cols) {
+    var html = '<div class="in-mega-eyebrow">' + esc(eyebrow) + '</div>';
+    if (lede) html += '<p class="in-mega-lede">' + esc(lede) + '</p>';
+    html += '<div class="in-mega-groups" style="--in-cols:' + (cols || 3) + ';">';
+    groups.forEach(function (group) {
       html += '<div class="in-mega-group"><p class="in-mega-group-head">' + esc(group.head) + '</p><ul>';
       group.items.forEach(function (it) {
-        html += '<li><a href="' + esc(it.href) + '">' + esc(it.label) + '</a></li>';
+        html += '<li><a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' +
+          '<span class="in-mega-item-label">' + esc(it.label) + '</span>' +
+          (it.desc ? '<span class="in-mega-item-desc">' + esc(it.desc) + '</span>' : '') +
+          '</a></li>';
       });
       html += '</ul></div>';
     });
     html += '</div>';
     return html;
+  }
+
+  function renderAuthorsMega(cfg) {
+    return renderGroupedMega('For Authors', cfg.authorsLede, cfg.authors, 3) +
+      '<div class="in-mega-foot"><a href="#for-authors">Prepare Your Manuscript &rarr;</a>' +
+      '<button type="button" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
+  }
+
+  function renderEditorialMega(cfg) {
+    return renderGroupedMega('Editorial', cfg.editorialLede, sharedEditorial(cfg), 2) +
+      '<div class="in-mega-foot"><a href="#editorial">Read Editorial &rarr;</a>' +
+      '<a href="https://profiles.panorama-sg.com/" target="_blank" rel="noopener">View Editorial Directory &rarr;</a></div>';
+  }
+
+  function renderPoliciesMega(cfg) {
+    return renderGroupedMega('Policies & Standards', cfg.policiesLede, cfg.policies, 3) +
+      '<div class="in-mega-foot"><a href="#policies">Read Publishing Policies &rarr;</a></div>';
   }
 
   function renderAboutDropdown(imprintName) {
@@ -274,6 +442,29 @@
     return html;
   }
 
+  // Flattens grouped {head, items:[{label,href,external}]} data into a
+  // single link list, prefixed with each group's own sub-heading -- used
+  // wherever the destination (drawer accordion body, footer column,
+  // search index) doesn't need the full mega-menu grouping treatment.
+  function flattenGroups(groups) {
+    var out = [];
+    groups.forEach(function (g) {
+      g.items.forEach(function (it) { out.push(it); });
+    });
+    return out;
+  }
+
+  function groupedLinksHtml(groups) {
+    var html = '';
+    groups.forEach(function (g) {
+      html += '<p class="in-drawer-group-head">' + esc(g.head) + '</p>';
+      g.items.forEach(function (it) {
+        html += '<a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>';
+      });
+    });
+    return html;
+  }
+
   // ---- render: mobile drawer --------------------------------------------
   function renderDrawer(slug, cfg) {
     function journalLinks() {
@@ -292,15 +483,13 @@
     var html = '';
     html += accordion('journals', 'Journals', journalLinks() + '<a href="#featured-journals">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>');
     html += '<div class="in-drawer-item"><a class="in-drawer-row" href="#why-' + esc(slug) + '" style="text-decoration:none;">Why ' + esc(cfg.name) + '</a></div>';
-    html += accordion('authors', 'For Authors', SHARED_AUTHORS.map(function (it) { return '<a href="' + esc(it.href) + '">' + esc(it.label) + '</a>'; }).join('') + '<a href="for-authors.html">Full Author Guide &rarr;</a>');
-    html += accordion('editorial', 'Editorial', sharedEditorial().map(function (it) { return '<a href="' + esc(it.href) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>'; }).join(''));
-    html += accordion('policies', 'Policies', SHARED_POLICIES.map(function (g) {
-      return g.items.map(function (it) { return '<a href="' + esc(it.href) + '">' + esc(it.label) + '</a>'; }).join('');
-    }).join(''));
+    html += accordion('authors', 'For Authors', groupedLinksHtml(cfg.authors) + '<a href="#for-authors">Full Author Guide &rarr;</a>');
+    html += accordion('editorial', 'Editorial', groupedLinksHtml(sharedEditorial(cfg)));
+    html += accordion('policies', 'Policies', groupedLinksHtml(cfg.policies));
     html += '<div class="in-drawer-item"><a class="in-drawer-row" href="#about" style="text-decoration:none;">About</a></div>';
     html += '<div class="in-drawer-submit"><button type="button" class="in-submit-btn" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
     html += '<div class="in-drawer-psg"><p class="in-drawer-psg-label">Panorama Scholarly Group</p>' +
-      '<a href="index.html#imprints">Journals</a>' +
+      '<a href="index.html">Group Homepage</a>' +
       '<a href="https://books.panorama-sg.com" target="_blank" rel="noopener">Books</a>' +
       '<a href="https://research.panorama-sg.com/" target="_blank" rel="noopener">Research</a>' +
       '<a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a>' +
@@ -331,18 +520,13 @@
     })));
 
     var publishCol = accordionCol('Publish',
-      '<ul><li><a href="for-authors.html">Author Guidelines</a></li>' +
+      '<ul><li><a href="#for-authors">Author Guidelines</a></li>' +
       '<li><a href="#featured-journals" data-in-submit-open>Submit a Manuscript</a></li>' +
       '<li><a href="editorial-board-application.html">Join Editorial Board</a></li></ul>');
 
-    var editorialCol = accordionCol('Editorial', linkList(sharedEditorial()));
+    var editorialCol = accordionCol('Editorial', linkList(flattenGroups(sharedEditorial(cfg))));
 
-    var policiesCol = accordionCol('Policies', linkList([
-      { label: 'Publication Ethics', href: 'publication-ethics.html' },
-      { label: 'Open Access Policy', href: 'open-access-policy.html' },
-      { label: 'Indexing & Archiving', href: 'indexing.html' },
-      { label: 'Privacy Policy', href: 'privacy-policy.html' }
-    ]));
+    var policiesCol = accordionCol('Policies', linkList(flattenGroups(cfg.policies)));
 
     var groupLinks = '<div class="container in-footer-group">' +
       '<span class="in-footer-group-label">Panorama Scholarly Group</span>' +
@@ -365,20 +549,22 @@
     cfg.journals.forEach(function (j) {
       idx.push({ group: 'Journals', title: j.title, desc: j.tag, href: j.view, external: true });
     });
-    SHARED_AUTHORS.forEach(function (it) {
-      idx.push({ group: 'For Authors', title: it.label, desc: 'Author guide', href: it.href });
-    });
-    sharedEditorial().forEach(function (it) {
-      idx.push({ group: 'Editorial', title: it.label, desc: 'Editorial', href: it.href, external: it.external });
-    });
-    SHARED_POLICIES.forEach(function (g) {
+    cfg.authors.forEach(function (g) {
       g.items.forEach(function (it) {
-        idx.push({ group: 'Policies', title: it.label, desc: g.head, href: it.href });
+        idx.push({ group: 'For Authors', title: it.label, desc: it.desc || g.head, href: it.href });
+      });
+    });
+    flattenGroups(sharedEditorial(cfg)).forEach(function (it) {
+      idx.push({ group: 'Editorial', title: it.label, desc: it.desc || 'Editorial', href: it.href, external: it.external });
+    });
+    cfg.policies.forEach(function (g) {
+      g.items.forEach(function (it) {
+        idx.push({ group: 'Policies', title: it.label, desc: it.desc || g.head, href: it.href });
       });
     });
     idx.push({ group: 'About', title: 'Why ' + cfg.name, desc: 'Publishing commitments', href: '#why-' + cfg.slug });
     idx.push({ group: 'About', title: 'About ' + cfg.name, desc: 'About this imprint', href: '#about' });
-    idx.push({ group: 'About', title: 'Contact', desc: 'Reach the publisher', href: 'contact.html' });
+    idx.push({ group: 'About', title: 'Contact', desc: 'Reach the publisher', href: '#editorial-contacts' });
     return idx;
   }
 
@@ -393,9 +579,9 @@
     document.querySelectorAll('[data-in-fill]').forEach(function (el) {
       var kind = el.getAttribute('data-in-fill');
       if (kind === 'journals') el.innerHTML = renderJournalsMega(slug, cfg);
-      else if (kind === 'authors') el.innerHTML = renderAuthorsMega();
-      else if (kind === 'editorial') el.innerHTML = renderEditorialMega();
-      else if (kind === 'policies') el.innerHTML = renderPoliciesMega();
+      else if (kind === 'authors') el.innerHTML = renderAuthorsMega(cfg);
+      else if (kind === 'editorial') el.innerHTML = renderEditorialMega(cfg);
+      else if (kind === 'policies') el.innerHTML = renderPoliciesMega(cfg);
       else if (kind === 'about') el.innerHTML = renderAboutDropdown(cfg.name);
     });
 
