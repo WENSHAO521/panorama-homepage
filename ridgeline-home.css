@@ -171,11 +171,10 @@ button.rl-cta-text { cursor: pointer; }
 }
 .rl-jrow-brand {
   grid-area: brand;
-  display: flex; align-items: center; gap: 8px;
-  font-family: var(--rl-sans); font-size: 11.5px; font-weight: 700;
-  letter-spacing: .16em; text-transform: uppercase; color: var(--rl-on-deep-soft);
-  padding-bottom: 14px; border-bottom: 1px solid var(--rl-on-deep-line);
+  display: flex; align-items: center;
+  padding-bottom: 16px; border-bottom: 1px solid var(--rl-on-deep-line);
 }
+.rl-jrow-brand img { height: 22px; width: auto; display: block; }
 .rl-jrow-cover { grid-area: cover; aspect-ratio: 5 / 7; overflow: hidden; background: rgba(242,245,249,0.08); }
 .rl-jrow-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .rl-jrow-body { grid-area: body; min-width: 0; }
