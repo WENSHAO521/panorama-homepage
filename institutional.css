@@ -153,15 +153,15 @@ h1, h2, h3 { font-family: 'Playfair Display', 'Noto Serif', serif; }
 /* ══════════════════════════
    HEADER SEARCH
 ══════════════════════════ */
-.nav-search { position: relative; margin-left: 4px; flex-shrink: 0; }
+.nav-search { position: relative; margin-left: 8px; flex-shrink: 0; }
 .nav-search-btn {
-  width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
   border: 1.5px solid var(--line-dark); background: transparent; color: var(--on-dark-muted);
   cursor: pointer; transition: border-color var(--t), color var(--t);
 }
 .nav-search-btn:hover, .nav-search.open .nav-search-btn { border-color: var(--gold); color: var(--on-dark); }
 .nav-search-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.nav-search-btn svg { width: 15px; height: 15px; }
+.nav-search-btn svg { width: 16px; height: 16px; }
 .nav-search-panel {
   position: absolute; top: calc(100% + 8px); right: 0; z-index: 120;
   width: min(340px, 88vw); padding: 10px;
@@ -191,9 +191,9 @@ h1, h2, h3 { font-family: 'Playfair Display', 'Noto Serif', serif; }
    HEADER CTA
 ══════════════════════════ */
 .header-cta.btn {
-  min-height: 34px; padding: 0 16px; font-size: 10px;
+  min-height: 40px; padding: 0 18px; font-size: 10px;
   background: var(--sage); border-color: var(--sage); color: var(--forest-dk);
-  margin-left: 4px; flex-shrink: 0;
+  margin-left: 8px; flex-shrink: 0;
 }
 .header-cta.btn:hover { background: var(--gold); border-color: var(--gold); color: var(--forest-dk); }
 
@@ -203,24 +203,28 @@ h1, h2, h3 { font-family: 'Playfair Display', 'Noto Serif', serif; }
 
 /* ══════════════════════════
    LANG MENU
+   Same 40px control height as search/CTA so the three utility controls sit
+   flush on one baseline; deliberately restrained (border + transparent, no
+   filled hover) so it reads as secondary to the filled "Find a Journal" CTA.
 ══════════════════════════ */
-.lang-menu { position: relative; margin-left: 12px; flex-shrink: 0; }
+.lang-menu { position: relative; margin-left: 8px; flex-shrink: 0; }
 .lang-btn {
-  min-height: 32px; display: inline-flex; align-items: center; gap: 5px;
-  font-family: inherit; font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; padding: 0 10px 0 8px;
+  min-height: 40px; display: inline-flex; align-items: center; gap: 8px;
+  font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0 12px;
   border: 1.5px solid var(--line-dark); background: transparent; color: var(--on-dark-muted);
   cursor: pointer; white-space: nowrap;
   transition: border-color var(--t), color var(--t), background var(--t);
 }
 .lang-btn:hover, .lang-menu.open .lang-btn {
-  border-color: var(--gold); color: var(--forest-dk); background: var(--gold);
+  border-color: var(--sage); color: var(--on-dark); background: var(--forest-dk-2);
 }
 .lang-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.lang-globe { width: 12px; height: 12px; flex-shrink: 0; opacity: .7; }
+.lang-globe { width: 14px; height: 14px; flex-shrink: 0; opacity: .7; }
 .lang-menu.open .lang-btn .lang-globe, .lang-btn:hover .lang-globe { opacity: 1; }
-.lang-current { font-size: 10px; font-weight: 800; }
-.lang-chevron { width: 9px; height: 9px; flex-shrink: 0; opacity: .55; transition: transform var(--t); }
+.lang-current { font-size: 11px; font-weight: 800; }
+.lang-current-full { display: none; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; text-transform: none; }
+.lang-chevron { width: 10px; height: 10px; flex-shrink: 0; opacity: .55; transition: transform var(--t); }
 .lang-menu.open .lang-chevron { transform: rotate(180deg); opacity: .8; }
 .lang-options {
   position: absolute; top: calc(100% + 8px); right: 0; z-index: 110;
@@ -1234,9 +1238,18 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .platforms-options a:hover .platform-opt-desc { color: var(--sage); }
   .menu-group-label { color: var(--on-dark-muted); }
   .menu-divider { background: var(--line-dark); }
+  /* Grouped as one control -- globe + name flush left, chevron pinned to
+     the far right via margin-left:auto -- instead of the old space-between
+     layout that scattered the globe/label/chevron across the full row. */
   .lang-menu { width: 100%; margin-left: 0; }
-  .lang-btn { width: 100%; justify-content: space-between; padding: 12px 22px; border: 0; }
+  .lang-btn {
+    width: 100%; justify-content: flex-start; align-items: center; gap: 8px;
+    min-height: 48px; padding: 0 22px; border: 0;
+  }
   .lang-btn:hover, .lang-menu.open .lang-btn { background: var(--forest-dk-2); color: var(--on-dark); }
+  .lang-current { display: none; }
+  .lang-current-full { display: inline; }
+  .lang-chevron { margin-left: auto; }
   .lang-options {
     position: static; width: 100%; left: auto; right: auto; min-width: 0;
     border: 0; box-shadow: none; background: var(--forest-dk-3);
@@ -1349,9 +1362,18 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
   .platforms-options a:hover .platform-opt-desc { color: var(--sage); }
   .menu-group-label { color: var(--on-dark-muted); }
   .menu-divider { background: var(--line-dark); }
+  /* Grouped as one control -- globe + name flush left, chevron pinned to
+     the far right via margin-left:auto -- instead of the old space-between
+     layout that scattered the globe/label/chevron across the full row. */
   .lang-menu { width: 100%; margin-left: 0; }
-  .lang-btn { width: 100%; justify-content: space-between; padding: 12px 22px; border: 0; }
+  .lang-btn {
+    width: 100%; justify-content: flex-start; align-items: center; gap: 8px;
+    min-height: 48px; padding: 0 22px; border: 0;
+  }
   .lang-btn:hover, .lang-menu.open .lang-btn { background: var(--forest-dk-2); color: var(--on-dark); }
+  .lang-current { display: none; }
+  .lang-current-full { display: inline; }
+  .lang-chevron { margin-left: auto; }
   .lang-options {
     position: static; width: 100%; left: auto; right: auto; min-width: 0;
     border: 0; box-shadow: none; background: var(--forest-dk-3);
@@ -1441,12 +1463,12 @@ main section:not(.hero).section-draw::before { transform: scaleX(1); }
 ══════════════════════════ */
 [dir="rtl"] .hero-body { border-left: none; border-right: 3px solid var(--gold); padding-left: 0; padding-right: 28px; }
 [dir="rtl"] .kicker::before { transform-origin: right; }
-[dir="rtl"] .lang-menu { margin-left: 0; margin-right: 12px; }
+[dir="rtl"] .lang-menu { margin-left: 0; margin-right: 8px; }
 [dir="rtl"] .lang-options { left: auto; right: 0; }
 [dir="rtl"] .platforms-options { left: auto; right: 0; }
-[dir="rtl"] .nav-search { margin-left: 0; margin-right: 4px; }
+[dir="rtl"] .nav-search { margin-left: 0; margin-right: 8px; }
 [dir="rtl"] .nav-search-panel { right: auto; left: 0; }
-[dir="rtl"] .header-cta.btn { margin-left: 0; margin-right: 4px; }
+[dir="rtl"] .header-cta.btn { margin-left: 0; margin-right: 8px; }
 [dir="rtl"] .policy-item { padding: 22px 66px 22px 20px; }
 [dir="rtl"] .policy-number { left: auto; right: 20px; }
 [dir="rtl"] .ann-date { margin-left: 0; margin-right: auto; }

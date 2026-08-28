@@ -594,8 +594,16 @@
       '<a href="https://research.panorama-sg.com/" target="_blank" rel="noopener">Research</a>' +
       '<a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></div>';
 
+    // Renders through the same LanguageSelector markup source as every other
+    // instance on the site (site.js's window.PSGLang.render) rather than a
+    // hand-duplicated block per imprint, and sits ahead of footer-bottom so
+    // language selection always resolves before the copyright/legal line,
+    // not after it.
+    var langHtml = '<div class="container in-footer-lang">' + (window.PSGLang ? window.PSGLang.render() : '') + '</div>';
+
     return '<div class="container footer-grid footer-grid--5col">' + brandCol + journalsCol + publishCol + editorialCol + policiesCol + '</div>' +
       groupLinks +
+      langHtml +
       '<div class="container footer-bottom">' +
       '<span>&copy;2025&ndash;2026 Panorama Scholarly Group Ltd. All rights reserved.</span>' +
       '<span>' + esc(cfg.name) + ', a Panorama Scholarly Group imprint</span></div>';
@@ -659,7 +667,14 @@
     if (drawerBody) drawerBody.innerHTML = renderDrawer(slug, cfg);
 
     var footerTarget = document.querySelector('[data-in-footer]');
-    if (footerTarget) footerTarget.innerHTML = renderFooter(slug, cfg);
+    if (footerTarget) {
+      footerTarget.innerHTML = renderFooter(slug, cfg);
+      // site.js already ran its one-time language-menu setup before this
+      // DOMContentLoaded callback fires, so the footer's freshly-injected
+      // .lang-menu needs an explicit re-sync (current language, labels,
+      // aria) -- its click handling itself is delegated, so no rebind needed.
+      if (window.PSGLang && window.PSGLang.refresh) window.PSGLang.refresh();
+    }
 
     initMegaMenus();
     initModal(cfg);

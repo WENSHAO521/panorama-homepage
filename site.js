@@ -11007,13 +11007,23 @@
         es: 'Idioma', fr: 'Langue', de: 'Sprache', ar: 'اللغة'
     };
 
+    // Mobile shows a readable full name ("English (EN)", "Deutsch", "한국어")
+    // instead of the compact desktop code, so the control never reads as an
+    // obscure locale abbreviation on a full-width row.
+    function fullLangLabel(lang) {
+        var meta = LANGUAGES[lang] || LANGUAGES.en;
+        return lang === 'en' ? 'English (EN)' : meta.name;
+    }
+
     function updateLangButtons(lang) {
         var meta = LANGUAGES[lang] || LANGUAGES.en;
         document.querySelectorAll('.lang-menu').forEach(function (menu) {
             var current = menu.querySelector('.lang-current');
+            var currentFull = menu.querySelector('.lang-current-full');
             var toggle = menu.querySelector('[data-lang-toggle]');
             var header = menu.querySelector('.lang-options-header');
             if (current) current.textContent = meta.short;
+            if (currentFull) currentFull.textContent = fullLangLabel(lang);
             if (toggle) toggle.setAttribute('aria-label', 'Select language: ' + meta.name);
             if (header) header.textContent = langMenuHeaders[lang] || 'Language';
             menu.querySelectorAll('[data-lang-option]').forEach(function (option) {
@@ -11022,6 +11032,63 @@
             });
         });
     }
+
+    // Single markup source for the control (desktop and mobile are the same
+    // DOM, styled per-breakpoint in CSS) -- used both to backfill the mobile
+    // full-name span/aria-haspopup onto the static copies already in the
+    // page, and to render the imprint footer's copy from imprint-nav.js so
+    // that instance isn't hand-duplicated per imprint either.
+    function buildLangMenuHTML() {
+        return '<div class="lang-menu">' +
+            '<button class="lang-btn" type="button" aria-label="Select language" aria-haspopup="true" aria-expanded="false" data-lang-toggle>' +
+                '<svg class="lang-globe" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><ellipse cx="8" cy="8" rx="2.6" ry="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.25"/><line x1="2" y1="5.5" x2="14" y2="5.5" stroke="currentColor" stroke-width="1"/><line x1="2" y1="10.5" x2="14" y2="10.5" stroke="currentColor" stroke-width="1"/></svg>' +
+                '<span class="lang-current">EN</span>' +
+                '<span class="lang-current-full">English (EN)</span>' +
+                '<svg class="lang-chevron" viewBox="0 0 9 9" fill="none" aria-hidden="true"><path d="M1.5 3L4.5 6L7.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</button>' +
+            '<div class="lang-options" role="menu" data-lang-menu>' +
+                '<div class="lang-options-header">Language</div>' +
+                '<button type="button" role="menuitemradio" data-lang-option="en">English</button>' +
+                '<button type="button" role="menuitemradio" data-lang-option="zh-cn">简体中文</button>' +
+                '<button type="button" role="menuitemradio" data-lang-option="zh">繁體中文</button>' +
+                '<div class="lang-divider"></div>' +
+                '<button type="button" role="menuitemradio" data-lang-option="de">Deutsch</button>' +
+                '<button type="button" role="menuitemradio" data-lang-option="fr">Français</button>' +
+                '<button type="button" role="menuitemradio" data-lang-option="es">Español</button>' +
+                '<button type="button" role="menuitemradio" data-lang-option="ru">Русский</button>' +
+                '<div class="lang-divider"></div>' +
+                '<button type="button" role="menuitemradio" data-lang-option="ja">日本語</button>' +
+                '<button type="button" role="menuitemradio" data-lang-option="ko">한국어</button>' +
+                '<div class="lang-divider"></div>' +
+                '<button type="button" role="menuitemradio" data-lang-option="ar">العربية</button>' +
+            '</div>' +
+        '</div>';
+    }
+
+    // Backfills aria-haspopup and the mobile full-name span onto every
+    // .lang-menu already in the DOM (the header copy on every page, plus any
+    // legacy static footer copy) without having to hand-edit each page.
+    function enhanceLangMenus() {
+        document.querySelectorAll('.lang-menu').forEach(function (menu) {
+            var toggle = menu.querySelector('[data-lang-toggle]');
+            if (toggle && !toggle.hasAttribute('aria-haspopup')) toggle.setAttribute('aria-haspopup', 'true');
+            var current = menu.querySelector('.lang-current');
+            if (current && !menu.querySelector('.lang-current-full')) {
+                var full = document.createElement('span');
+                full.className = 'lang-current-full';
+                full.textContent = fullLangLabel(currentLang());
+                current.insertAdjacentElement('afterend', full);
+            }
+        });
+    }
+
+    // Exposed so imprint-nav.js can render this same control into the
+    // imprint footer (instead of duplicating the markup in every imprint
+    // HTML file) and re-sync it after that late injection.
+    window.PSGLang = {
+        render: buildLangMenuHTML,
+        refresh: function () { enhanceLangMenus(); updateLangButtons(currentLang()); }
+    };
 
     function applyTranslations(lang) {
         if (!LANGUAGES[lang]) lang = 'en';
@@ -11120,15 +11187,11 @@
         applyTranslations(lang);
     };
 
-    document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
-        btn.addEventListener('click', function (event) {
-            event.stopPropagation();
-            var menu = btn.closest('.lang-menu');
-            var open = !(menu && menu.classList.contains('open'));
-            document.querySelectorAll('.lang-menu.open').forEach(function (other) { setLangMenuOpen(other, false); });
-            setLangMenuOpen(menu, open);
-        });
-    });
+    // Toggle-open and option-select are handled by the delegated document
+    // click listener below (not attached per-element here) so a .lang-menu
+    // injected later -- e.g. the imprint footer copy, rendered by
+    // imprint-nav.js on DOMContentLoaded after this script has already run --
+    // works without needing its own listeners re-bound.
 
     function currentPageFile() {
         var segments = window.location.pathname.split('/').filter(Boolean);
@@ -11149,16 +11212,6 @@
         'publication-ethics.html': true, 'privacy-policy.html': true
     };
 
-    document.querySelectorAll('[data-lang-option]').forEach(function (option) {
-        option.addEventListener('click', function (event) {
-            event.stopPropagation();
-            var lang = option.getAttribute('data-lang-option') || 'en';
-            var file = currentPageFile();
-            if (!TRANSLATED_PAGES[file]) file = 'index.html';
-            try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
-            window.location.href = lang === 'en' ? '/' + file : '/' + lang + '/' + file;
-        });
-    });
 
     document.querySelectorAll('[data-platforms-toggle]').forEach(function (btn) {
         btn.addEventListener('click', function (event) {
@@ -11241,17 +11294,58 @@
         });
     });
 
-    document.addEventListener('click', function () {
+    // Single delegated listener (rather than a listener per .lang-menu
+    // instance) so it keeps working for a menu injected after this script
+    // ran -- e.g. imprint-nav.js renders the footer's copy of this control
+    // on DOMContentLoaded, later than this file's synchronous top-level code.
+    document.addEventListener('click', function (event) {
+        var toggle = event.target.closest && event.target.closest('[data-lang-toggle]');
+        if (toggle) {
+            event.stopPropagation();
+            var menu = toggle.closest('.lang-menu');
+            var open = !(menu && menu.classList.contains('open'));
+            document.querySelectorAll('.lang-menu.open').forEach(function (other) { setLangMenuOpen(other, false); });
+            setLangMenuOpen(menu, open);
+            return;
+        }
+        var option = event.target.closest && event.target.closest('[data-lang-option]');
+        if (option) {
+            event.stopPropagation();
+            var lang = option.getAttribute('data-lang-option') || 'en';
+            var file = currentPageFile();
+            if (!TRANSLATED_PAGES[file]) file = 'index.html';
+            try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+            window.location.href = lang === 'en' ? '/' + file : '/' + lang + '/' + file;
+            return;
+        }
         document.querySelectorAll('.lang-menu.open').forEach(function (menu) { setLangMenuOpen(menu, false); });
         document.querySelectorAll('.platforms-menu.open').forEach(function (menu) { setPlatformsMenuOpen(menu, false); });
         document.querySelectorAll('.nav-search.open').forEach(function (menu) { setNavSearchOpen(menu, false); });
     });
 
     document.addEventListener('keydown', function (event) {
+        var openLangMenu = document.querySelector('.lang-menu.open');
+        if (openLangMenu && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
+            var opts = Array.prototype.slice.call(openLangMenu.querySelectorAll('[data-lang-option]'));
+            var toggleEl = openLangMenu.querySelector('[data-lang-toggle]');
+            var idx = opts.indexOf(document.activeElement);
+            if (idx !== -1 || document.activeElement === toggleEl) {
+                event.preventDefault();
+                var next;
+                if (idx === -1) {
+                    next = event.key === 'ArrowDown' ? 0 : opts.length - 1;
+                } else {
+                    next = event.key === 'ArrowDown' ? (idx + 1) % opts.length : (idx - 1 + opts.length) % opts.length;
+                }
+                if (opts[next]) opts[next].focus();
+            }
+        }
         if (event.key === 'Escape') {
+            var toggleToRefocus = openLangMenu && openLangMenu.querySelector('[data-lang-toggle]');
             document.querySelectorAll('.lang-menu.open').forEach(function (menu) { setLangMenuOpen(menu, false); });
             document.querySelectorAll('.platforms-menu.open').forEach(function (menu) { setPlatformsMenuOpen(menu, false); });
             document.querySelectorAll('.nav-search.open').forEach(function (menu) { setNavSearchOpen(menu, false); });
+            if (toggleToRefocus) toggleToRefocus.focus();
         }
     });
 
@@ -11382,6 +11476,8 @@
         }
     }
     renderSiteFooter();
+
+    enhanceLangMenus();
 
     var pageLang = document.documentElement.getAttribute('data-page-lang');
     applyTranslations((pageLang && LANGUAGES[pageLang]) ? pageLang : 'en');
