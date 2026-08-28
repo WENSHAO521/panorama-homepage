@@ -113,6 +113,58 @@ body.in-compact .in-header-row{ height: 66px; }
 .in-submit-btn:active{ transform: translateY(1px); }
 .in-submit-btn svg{ width: 13px; height: 13px; }
 
+/* ══════════════════════════
+   LANGUAGE SELECTOR (in header tools row)
+   Renders the same .lang-menu markup/JS as the rest of the site (see
+   site.js window.PSGLang + institutional.css's base sizing) but restyled
+   for this header's light surface and per-brand accent instead of the
+   PSG dark-header palette. Stays a fixed-size pill at every width --
+   institutional.css's mobile "full-width drawer row" treatment doesn't
+   apply here, it's overridden below (this header collapses into its own
+   .in-drawer instead, and .in-tools keeps rendering as inline pills).
+══════════════════════════ */
+.in-tools-lang{ flex: none; }
+.in-tools .lang-menu{ position: relative; margin-left: 0; width: auto; flex-shrink: 0; }
+.in-tools .lang-btn{
+  width: auto; justify-content: flex-start; align-items: center; gap: 8px;
+  min-height: 40px; padding: 0 12px;
+  border: 1.5px solid rgba(20,40,50,.16); background: transparent; color: #4E5A60;
+  font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; border-radius: 6px; cursor: pointer; white-space: nowrap;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.in-tools .lang-btn:hover, .in-tools .lang-menu.in-open .lang-btn, .in-tools .lang-menu.open .lang-btn{
+  border-color: var(--brand-dk, #0F4C5C); color: #1D2D34; background: var(--brand-tint, #F1F1EC);
+}
+.in-tools .lang-btn:focus-visible{ outline: 2px solid var(--brand-dk, #0F4C5C); outline-offset: 2px; }
+.in-tools .lang-globe{ width: 14px; height: 14px; opacity: .65; }
+.in-tools .lang-current{ display: inline; font-size: 11px; font-weight: 800; }
+.in-tools .lang-current-full{ display: none; }
+.in-tools .lang-chevron{ width: 10px; height: 10px; margin-left: 0; opacity: .55; }
+.in-tools .lang-options{
+  position: absolute; top: calc(100% + 8px); right: 0; left: auto; width: auto; min-width: 196px;
+  z-index: var(--in-z-mega); padding: 4px; display: none;
+  background: #fff; border: 1px solid rgba(20,40,50,.10); border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(20,35,40,.14);
+}
+.in-tools .lang-menu.open .lang-options{ display: grid; gap: 1px; }
+.in-tools .lang-options-header{ color: #9AA5AA; padding: 6px 10px; font-size: 9px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+.in-tools .lang-divider{ height: 1px; background: rgba(20,40,50,.08); margin: 3px 0; }
+.in-tools .lang-options button{
+  width: 100%; min-height: 34px; border: 0; background: transparent;
+  color: #4E5A60; cursor: pointer; font: inherit; font-size: 12.5px; font-weight: 600;
+  text-align: left; padding: 0 10px 0 32px; position: relative; display: flex; align-items: center;
+}
+.in-tools .lang-options button::before{
+  content: ''; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  width: 12px; height: 12px; border: 1.5px solid rgba(20,40,50,.2); background: transparent;
+}
+.in-tools .lang-options button:hover{ background: rgba(20,40,50,.05); color: #1D2D34; }
+.in-tools .lang-options button:hover::before{ border-color: var(--brand, #0F4C5C); }
+.in-tools .lang-options button[aria-checked="true"]{ color: #1D2D34; font-weight: 700; }
+.in-tools .lang-options button[aria-checked="true"]::before{ border-color: var(--brand-dk, #0F4C5C); background: var(--brand-dk, #0F4C5C); }
+.in-tools .lang-options button:focus-visible{ outline: 2px solid var(--brand-dk, #0F4C5C); outline-offset: -2px; }
+
 .in-mobile-toggle{
   display: none; flex: none; align-items: center; justify-content: center;
   width: 36px; height: 36px; border: 0; background: none; cursor: pointer; color: #253238;
@@ -398,7 +450,13 @@ body.in-compact .in-header-row{ height: 66px; }
   .in-utility{ display: none; }
   .in-header-row{ height: 60px; gap: 12px; }
   .in-nav{ display: none; }
+  .in-tools{ gap: 10px; }
   .in-tools .in-search-btn{ display: none; }
+  /* Unlike search, language has no equivalent control inside .in-drawer --
+     hiding it here on mobile too would leave visitors with no way at all
+     to change language on an imprint page, so it stays visible (shrunk to
+     match the mobile-sized submit button). */
+  .in-tools .lang-btn{ min-height: 36px; padding: 0 10px; }
   .in-submit-btn{ height: 36px; padding: 0 13px; font-size: 12px; }
   .in-mobile-toggle{ display: flex; }
 }

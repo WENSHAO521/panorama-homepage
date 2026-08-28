@@ -68,15 +68,32 @@
       // set these fields) are unaffected.
       aboutItems: [
         { label: 'About Ridgeline', href: 'ridgeline-about.html' },
-        { label: 'Mission & Editorial Identity', href: 'ridgeline-about.html#mission' },
-        { label: 'Scope & Disciplines', href: 'ridgeline-about.html#scope' },
-        { label: 'Why Ridgeline', href: 'ridgeline.html#why-ridgeline' },
+        { label: 'Research Scope', href: 'ridgeline-about.html#scope' },
+        { label: 'Editorial Standards', href: 'ridgeline-policies.html#editorial-standards' },
+        { label: 'For Editors', href: 'ridgeline-editorial.html#academic-editors' },
+        { label: 'For Reviewers', href: 'ridgeline-editorial.html#peer-reviewers' },
         { label: 'Contact', href: 'ridgeline-contact.html' }
       ],
       journalsIndexHref: 'ridgeline-journals.html',
       editorialMenuLabel: 'Community',
       policiesMenuLabel: 'Standards',
-      contactHref: 'ridgeline-contact.html'
+      contactHref: 'ridgeline-contact.html',
+      updatesHref: 'ridgeline-updates.html',
+      // Desktop top nav consolidates "For Authors" + "Standards" into one
+      // "Publishing with Ridgeline" dropdown (BMC-style brand nav). When
+      // publishingItems is set, renderAuthorsMega/renderDrawer render this
+      // flat pathway list instead of the generic 3-column author-prep
+      // groups; cfg.authors/cfg.policies stay intact underneath for the
+      // footer columns and search index, so no real page is orphaned.
+      publishingMenuLabel: 'Publishing with Ridgeline',
+      publishingLede: 'Everything an author needs to choose a journal, prepare a manuscript and understand the editorial process.',
+      publishingItems: [
+        { label: 'Why Publish with Ridgeline', desc: 'Editorial and publishing commitments', href: 'ridgeline-for-authors.html#publishing-with-ridgeline' },
+        { label: 'Open Access Publishing', desc: 'CC BY licensing and rights', href: 'ridgeline-policies.html#open-access' },
+        { label: 'Choose the Right Journal', desc: 'Compare scope across all three', href: 'ridgeline-for-authors.html#choosing-a-journal' },
+        { label: 'Submission Process', desc: 'From manuscript to publication', href: 'ridgeline-for-authors.html#review-process' },
+        { label: 'Author Guide', desc: 'Preparation, ethics, article types', href: 'ridgeline-for-authors.html' }
+      ]
     },
     'health-nexus': {
       name: 'Health Nexus',
@@ -437,6 +454,12 @@
   }
 
   function renderAuthorsMega(slug, cfg) {
+    if (cfg.publishingItems) {
+      var pubLabel = cfg.publishingMenuLabel || ('Publishing with ' + cfg.name);
+      return renderGroupedMega(slug, pubLabel, cfg.publishingLede, [{ head: 'Ways to Publish', items: cfg.publishingItems }], 2) +
+        '<div class="in-mega-foot"><a href="' + esc(resolveHref('#for-authors', slug)) + '">Full Author Guide &rarr;</a>' +
+        '<button type="button" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
+    }
     return renderGroupedMega(slug, 'For Authors', cfg.authorsLede, cfg.authors, 3) +
       '<div class="in-mega-foot"><a href="' + esc(resolveHref('#for-authors', slug)) + '">Prepare Your Manuscript &rarr;</a>' +
       '<button type="button" data-in-submit-open>Submit Manuscript &rarr;</button></div>';
@@ -528,10 +551,21 @@
 
     var html = '';
     html += accordion('journals', 'Journals', journalLinks() + '<a href="' + esc(journalsHref) + '">Explore All ' + esc(cfg.name) + ' Journals &rarr;</a>');
-    html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(resolveHref('#why-' + slug, slug)) + '" style="text-decoration:none;">Why ' + esc(cfg.name) + '</a></div>';
-    html += accordion('authors', 'For Authors', groupedLinksHtml(cfg.authors, slug) + '<a href="' + esc(resolveHref('#for-authors', slug)) + '">Full Author Guide &rarr;</a>');
+    if (!cfg.publishingItems) {
+      html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(resolveHref('#why-' + slug, slug)) + '" style="text-decoration:none;">Why ' + esc(cfg.name) + '</a></div>';
+    }
+    if (cfg.publishingItems) {
+      html += accordion('authors', cfg.publishingMenuLabel || ('Publishing with ' + cfg.name), groupedLinksHtml([{ head: 'Ways to Publish', items: cfg.publishingItems }], slug) + '<a href="' + esc(resolveHref('#for-authors', slug)) + '">Full Author Guide &rarr;</a>');
+    } else {
+      html += accordion('authors', 'For Authors', groupedLinksHtml(cfg.authors, slug) + '<a href="' + esc(resolveHref('#for-authors', slug)) + '">Full Author Guide &rarr;</a>');
+    }
     html += accordion('editorial', editorialLabel, groupedLinksHtml(sharedEditorial(cfg), slug));
-    html += accordion('policies', cfg.policiesMenuLabel || 'Policies', groupedLinksHtml(cfg.policies, slug));
+    if (!cfg.publishingItems) {
+      html += accordion('policies', cfg.policiesMenuLabel || 'Policies', groupedLinksHtml(cfg.policies, slug));
+    }
+    if (cfg.updatesHref) {
+      html += '<div class="in-drawer-item"><a class="in-drawer-row" href="' + esc(cfg.updatesHref) + '" style="text-decoration:none;">Updates</a></div>';
+    }
     if (cfg.aboutItems) {
       var aboutLinks = cfg.aboutItems.map(function (it) {
         return '<a href="' + esc(resolveHref(it.href, slug)) + '"' + (it.external ? ' target="_blank" rel="noopener"' : '') + '>' + esc(it.label) + '</a>';
@@ -579,6 +613,7 @@
       '<ul><li><a href="' + esc(resolveHref('#for-authors', slug)) + '">Author Guidelines</a></li>' +
       '<li><a href="' + esc(resolveHref('#featured-journals', slug)) + '" data-in-submit-open>Submit a Manuscript</a></li>' +
       '<li><a href="editorial-board-application.html">Join Editorial Board</a></li>' +
+      (cfg.updatesHref ? '<li><a href="' + esc(cfg.updatesHref) + '">Latest Updates</a></li>' : '') +
       (cfg.contactHref ? '<li><a href="' + esc(cfg.contactHref) + '">Contact</a></li>' : '') +
       '</ul>');
 
@@ -594,16 +629,8 @@
       '<a href="https://research.panorama-sg.com/" target="_blank" rel="noopener">Research</a>' +
       '<a href="https://posi.panorama-sg.com/" target="_blank" rel="noopener">POSI</a></div>';
 
-    // Renders through the same LanguageSelector markup source as every other
-    // instance on the site (site.js's window.PSGLang.render) rather than a
-    // hand-duplicated block per imprint, and sits ahead of footer-bottom so
-    // language selection always resolves before the copyright/legal line,
-    // not after it.
-    var langHtml = '<div class="container in-footer-lang">' + (window.PSGLang ? window.PSGLang.render() : '') + '</div>';
-
     return '<div class="container footer-grid footer-grid--5col">' + brandCol + journalsCol + publishCol + editorialCol + policiesCol + '</div>' +
       groupLinks +
-      langHtml +
       '<div class="container footer-bottom">' +
       '<span>&copy;2025&ndash;2026 Panorama Scholarly Group Ltd. All rights reserved.</span>' +
       '<span>' + esc(cfg.name) + ', a Panorama Scholarly Group imprint</span></div>';
@@ -620,6 +647,11 @@
         idx.push({ group: 'For Authors', title: it.label, desc: it.desc || g.head, href: resolveHref(it.href, cfg.slug) });
       });
     });
+    if (cfg.publishingItems) {
+      cfg.publishingItems.forEach(function (it) {
+        idx.push({ group: cfg.publishingMenuLabel || 'Publishing', title: it.label, desc: it.desc || 'Publishing pathway', href: resolveHref(it.href, cfg.slug) });
+      });
+    }
     flattenGroups(sharedEditorial(cfg)).forEach(function (it) {
       idx.push({ group: 'Editorial', title: it.label, desc: it.desc || 'Editorial', href: resolveHref(it.href, cfg.slug), external: it.external });
     });
@@ -667,13 +699,20 @@
     if (drawerBody) drawerBody.innerHTML = renderDrawer(slug, cfg);
 
     var footerTarget = document.querySelector('[data-in-footer]');
-    if (footerTarget) {
-      footerTarget.innerHTML = renderFooter(slug, cfg);
-      // site.js already ran its one-time language-menu setup before this
-      // DOMContentLoaded callback fires, so the footer's freshly-injected
-      // .lang-menu needs an explicit re-sync (current language, labels,
-      // aria) -- its click handling itself is delegated, so no rebind needed.
-      if (window.PSGLang && window.PSGLang.refresh) window.PSGLang.refresh();
+    if (footerTarget) footerTarget.innerHTML = renderFooter(slug, cfg);
+
+    // Language selector lives in the header tools row (Search -> Language ->
+    // Submit), same as the main PSG site, rendered from the single shared
+    // template in site.js rather than duplicated per imprint. site.js already
+    // ran its one-time language-menu setup before this DOMContentLoaded
+    // callback fires, so the freshly-injected .lang-menu needs an explicit
+    // re-sync (current language, labels, aria) -- its click handling itself
+    // is delegated, so no rebind needed.
+    if (window.PSGLang) {
+      document.querySelectorAll('[data-in-tools-lang]').forEach(function (el) {
+        el.innerHTML = window.PSGLang.render();
+      });
+      if (window.PSGLang.refresh) window.PSGLang.refresh();
     }
 
     initMegaMenus();

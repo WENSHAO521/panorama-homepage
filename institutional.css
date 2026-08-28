@@ -723,9 +723,6 @@ h3.step-title {
 }
 .in-footer-group a { color: var(--on-dark-muted); transition: color var(--t); }
 .in-footer-group a:hover { color: var(--gold); }
-.in-footer-lang { display: flex; justify-content: flex-end; padding: 16px 0 0; }
-.in-footer-lang .lang-menu { margin-left: 0; }
-.in-footer-lang .lang-options { top: auto; bottom: calc(100% + 8px); }
 .footer-bottom {
   min-height: 48px; border-top: 1px solid var(--line-dark);
   display: flex; align-items: center; justify-content: space-between;
