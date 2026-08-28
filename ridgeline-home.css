@@ -96,7 +96,7 @@
 button.rl-cta-text { cursor: pointer; }
 .rl-cta-text:hover { color: var(--rl-ink); border-color: var(--rl-ink); }
 .rl-arrow { display: inline-block; transition: transform .15s ease; }
-.rl-cta-text:hover .rl-arrow, .rl-link-row:hover .rl-arrow, .rl-jc-link:hover .rl-arrow { transform: translateX(3px); }
+.rl-cta-text:hover .rl-arrow, .rl-link-row:hover .rl-arrow, .rl-jrow-link:hover .rl-arrow { transform: translateX(3px); }
 
 /* ═══ HERO (500–620px total) ═══ */
 .rl-hero { background: var(--paper); border-bottom: 1px solid var(--rl-line-soft); }
@@ -154,30 +154,54 @@ button.rl-cta-text { cursor: pointer; }
   font-size: 16.5px; line-height: 1.68; color: var(--rl-ink-soft); margin: 0 0 18px;
 }
 
-/* ═══ FEATURED JOURNALS (cards — restrained, sharp corners) ═══ */
-.rl-journal-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rl-line); border: 1px solid var(--rl-line); }
-.rl-journal-card { background: var(--rl-card); display: flex; flex-direction: column; }
-.rl-jc-cover { aspect-ratio: 5 / 6; overflow: hidden; border-bottom: 1px solid var(--rl-line); background: var(--rl-stone); }
-.rl-jc-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.rl-jc-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
-.rl-jc-tag {
-  font-family: var(--rl-sans); font-size: 10.5px; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase; color: var(--rl-accent); margin-bottom: 10px;
+/* ═══ FEATURED JOURNALS ═══
+   Row cards (cover + copy + a verified metadata table), the structural
+   pattern BMC uses for its own featured-journal rows -- adapted, not
+   copied: Ridgeline's own deep surface instead of BMC teal, sharp
+   corners instead of BMC's rounded geometry, and only metadata Ridgeline
+   actually has (publishing model, peer review, ISSN, DOI registration).
+   No impact factor / downloads / decision-time rows -- those aren't
+   tracked or published for these journals, so they're not shown. */
+.rl-journal-rows { display: flex; flex-direction: column; gap: 20px; }
+.rl-jrow {
+  background: var(--rl-deep); color: var(--rl-on-deep);
+  display: grid; grid-template-columns: 128px 1fr 260px;
+  gap: 32px; align-items: start; padding: 32px;
 }
-.rl-jc-title {
-  font-family: var(--rl-serif); font-weight: 600; font-size: 19px; line-height: 1.25;
-  color: var(--rl-ink); margin: 0 0 10px;
+.rl-jrow-cover { aspect-ratio: 5 / 7; overflow: hidden; background: rgba(242,245,249,0.08); }
+.rl-jrow-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rl-jrow-body { min-width: 0; }
+.rl-jrow-tag {
+  display: block; font-family: var(--rl-sans); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--rl-on-deep-soft); margin-bottom: 10px;
 }
-.rl-jc-desc { font-size: 13.5px; line-height: 1.58; color: var(--rl-ink-soft); margin: 0 0 16px; flex: 1; }
-.rl-jc-meta { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--rl-mono); font-size: 11.5px; color: var(--rl-muted); margin-bottom: 16px; padding-top: 14px; border-top: 1px solid var(--rl-line-soft); }
-.rl-jc-links { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-.rl-jc-link {
+.rl-jrow-title {
+  font-family: var(--rl-serif); font-weight: 600; font-size: 22px; line-height: 1.25;
+  color: var(--rl-on-deep); margin: 0 0 12px;
+}
+.rl-jrow-desc { font-size: 14px; line-height: 1.62; color: var(--rl-on-deep-soft); margin: 0 0 18px; max-width: 56ch; }
+.rl-jrow-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.rl-jrow-link {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--rl-sans); font-size: 13px; font-weight: 600;
-  color: var(--rl-ink); text-decoration: none;
+  color: var(--rl-on-deep); text-decoration: none; border-bottom: 1px solid var(--rl-on-deep-line); padding-bottom: 2px;
 }
-.rl-jc-link:hover { color: var(--rl-accent); }
-@media (max-width: 900px) { .rl-journal-cards { grid-template-columns: 1fr; } }
+.rl-jrow-link:hover { color: #fff; border-color: #fff; }
+.rl-jrow-meta { display: flex; flex-direction: column; gap: 0; border-left: 1px solid var(--rl-on-deep-line); padding-left: 28px; }
+.rl-jrow-meta div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--rl-on-deep-line); }
+.rl-jrow-meta div:last-child { border-bottom: 0; }
+.rl-jrow-meta dt { font-size: 12px; color: var(--rl-on-deep-soft); }
+.rl-jrow-meta dd { margin: 0; font-family: var(--rl-mono); font-size: 12.5px; font-weight: 500; color: var(--rl-on-deep); text-align: right; }
+@media (max-width: 900px) {
+  .rl-jrow { grid-template-columns: 96px 1fr; padding: 24px; gap: 20px; }
+  .rl-jrow-meta { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; border-left: 0; border-top: 1px solid var(--rl-on-deep-line); padding: 16px 0 0; margin-top: 4px; }
+  .rl-jrow-meta div { flex: 1 1 45%; flex-direction: column; gap: 4px; border-bottom: 0; }
+  .rl-jrow-meta dd { text-align: left; }
+}
+@media (max-width: 560px) {
+  .rl-jrow { grid-template-columns: 1fr; }
+  .rl-jrow-cover { width: 96px; }
+}
 
 /* ═══ CALLS FOR PAPERS ═══ */
 .rl-cfp { border: 1px solid var(--rl-stone-line); background: var(--rl-card); padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 20px 32px; align-items: start; }
