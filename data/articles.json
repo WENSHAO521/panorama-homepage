@@ -1,15 +1,31 @@
 {
-  "harvestedAt": "2026-09-12T05:40:12Z",
+  "harvestedAt": "2026-09-13T06:00:37Z",
   "sourcePublisher": "Panorama Scholarly Group",
   "metadataSource": "Crossref REST API (api.crossref.org/journals/{issn}/works)",
   "selectionMode": "daily-random-from-recent-panorama-publications",
-  "randomSeed": 20260912,
+  "randomSeed": 20260913,
   "totalRecordsHarvested": 53,
   "futureRecordsExcluded": 1,
   "recentPoolLimit": 60,
   "recentPoolSize": 52,
   "selectedArticleCount": 18,
   "articles": [
+    {
+      "title": "From Resource Endowment to Innovation-Driven Development: A Quantitative Analysis of the Integration Dynamics in Regional Cultural Tourism",
+      "authors": [
+        "Mou, Lili",
+        "Wang, Pengcheng"
+      ],
+      "journal": "Global Review of Humanities, Arts, & Society",
+      "journalSlug": "files",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/files",
+      "issue": "Vol. 2, No. 1",
+      "pages": "29-35",
+      "publishedAt": "2026-02-27",
+      "url": "https://journals.panorama-sg.com/index.php/files/article/view/262",
+      "doi": "10.63802/grhas.v2.i1.262",
+      "abstract": "This study addresses the critical transition of regional cultural tourism from traditional resource-dependency to an innovation-driven paradigm. Grounded in Dynamic Capabilities Theory, we develop a quantitative AHP-FCE framework to evaluate this structural shift. Using Shandong Province as an empirical case, the assessment yields a “Good” integration score (0.764), predominantly driven by static heritage endowments and economic scale. However, a critical “resource-innovation gap” emerges: technological innovation, despite being the most heavily weighted dynamic driver, significantly lags behind traditional resource utilization. This imbalance suggests potential constraints in the efficiency of resource-to-innovation conversion. Offering a transferable diagnostic tool for globally heritage-rich destinations, this study urges policymakers to pivot from physical scenic expansion toward digital R&amp;D and talent cultivation to break the “resource curse” and build a sustainable cultural tourism ecosystem."
+    },
     {
       "title": "Mapping the Evolution of Digital Economy Business Models: A Decade of Insights through Bibliometric Analysis",
       "authors": [
@@ -27,56 +43,84 @@
       "abstract": "This study maps the evolution of research on digital economy business models over the past decade using bibliometric methods. Drawing on 226 articles retrieved from the Web of Science Core Collection (2013–2022), CiteSpace software was employed to visualize co-authorship, institutional networks, high-frequency and burst keywords, clusters, and co-citation patterns. The analysis reveals rapid growth of scholarship since 2018, yet highlights fragmented collaboration networks and limited integration across disciplines. Research hotspots such as digital transformation, platform innovation, and the sharing economy dominate the field, while emerging themes including artificial intelligence, circular economy, and digital entrepreneurship illustrate its expanding scope. Despite significant progress, the field remains in an exploratory stage, lacking a cohesive theoretical core. The study contributes by refining the intellectual map of digital economy business model research, identifying gaps, and outlining future directions for building integrated frameworks that link theory, innovation, and governance."
     },
     {
-      "title": "Theoretical Construction of Love Anxiety: A Multi-Stage Relational Threat Model",
+      "title": "Integrating Artificial Intelligence into Middle School Education: Pathways, Challenges, and an Ethical Reappraisal from a Practitioner-Scholar Perspective",
       "authors": [
-        "Song, Chengwen",
-        "Chen, Feifei",
-        "Wang, Qilong",
-        "Ren, Yangyi"
+        "Zhang, Xiaoling",
+        "Xu, Wenwen"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "AFS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "11-18",
+      "publishedAt": "2026-02-09",
+      "url": "https://journals.panorama-sg.com/index.php/AFS/article/view/198",
+      "doi": "10.63802/afs.v2.i1.198",
+      "abstract": "The rapid advancement of Artificial Intelligence (AI) has accelerated its transition in education from conceptual debate to practical classroom implementation. As a pivotal stage in the formation of students’ cognitive structures, learning habits, and value orientations, middle school education occupies a particularly sensitive position in this transformation. Introducing AI at this level offers significant potential to enhance instructional precision and learning efficiency. At the same time, it raises critical concerns related to educational equity, the redefinition of teachers’ professional roles, and the ethical dimensions of technology adoption. Drawing on the authors’ practical experience as middle school mathematics teachers and school administrators and informed by recent scholarship from both domestic and international contexts, this study provides a systematic overview of current AI applications in middle school settings. It examines feasible approaches to the use of AI in personalized instruction, classroom management, assessment practices, and educational resource allocation. Furthermore, from the perspectives of educational ethics and institutional governance, the paper critically analyzes emerging risks, including student data privacy, algorithmic bias, the expansion of the digital divide, and shifts in teacher–student relationships. The study argues that the sustainable and responsible integration of AI in middle school education cannot be achieved through technological advancement alone. Instead, it requires a holistic governance framework that is student-centered, teacher-led, and firmly grounded in ethical principles. Such a framework is essential to ensure that AI functions as an enabling tool for education rather than a source of fragmentation within the teaching and learning process."
+    },
+    {
+      "title": "数字文旅场景中的临场感、沉浸体验与游客满意度关系研究",
+      "authors": [
+        "Wang, Pengcheng",
+        "Qiao, Xiuqi",
+        "Kong, Fanyao"
       ],
       "journal": "Journal of Law, Psychology, and Communication Studies",
       "journalSlug": "JLPCS",
       "journalUrl": "https://journals.panorama-sg.com/index.php/JLPCS",
-      "issue": "Vol. 2, No. 2",
-      "pages": "1-8",
-      "publishedAt": "2026-06-21",
-      "url": "https://journals.panorama-sg.com/index.php/jlpcs/article/view/329",
-      "doi": "10.63802/jlpcs.v2.i2.329",
-      "abstract": "Contemporary romantic relationships are increasingly marked by ambiguous boundaries, delayed commitment, social media comparison, and sociocultural pressure, which may intensify anxiety across the romantic trajectory. This conceptual article proposes love anxiety as a cross-stage relational threat response characterized by persistent worry, tension, rumination, avoidance, jealousy, and reassurance seeking during love attainment, relationship initiation, confirmation, maintenance, loss, and future commitment. Integrating the triangular theory of love, adult attachment theory, relational uncertainty theory, rejection sensitivity, intolerance of uncertainty, self-worth contingency theory, social media relationship research, and the Love Confirmation Mechanism Model, the article develops a Multi-Stage Relational Threat Model. Six theoretical dimensions are proposed: love attainment anxiety, relationship initiation anxiety, relationship certainty anxiety, lovability anxiety, loss and separation anxiety, and commitment and future anxiety. The model clarifies conceptual boundaries and offers directions for qualitative inquiry, scale development, validation, and cross-cultural testing."
-    },
-    {
-      "title": "Algorithmic Resonance: AI-Driven Curation, Musical Taste, Identity, and Global Cultural Flows",
-      "authors": [
-        "He, Haoyang"
-      ],
-      "journal": "Resonance",
-      "journalSlug": "Resonance",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/Resonance",
       "issue": "Vol. 2, No. 1",
-      "pages": "24-34",
-      "publishedAt": "2026-05-10",
-      "url": "https://journals.panorama-sg.com/index.php/Resonance/article/view/254",
-      "doi": "10.63802/rjgms.v2.i1.254",
-      "abstract": "Algorithmic curation systems have become an important part of contemporary music platforms, mediating how listeners discover, classify, and engage with sound. This article examines how recommendation infrastructures on Spotify, TikTok, and Douyin participate in the organization of musical taste, identity negotiation, and transnational circulation. Bringing together platform studies, cultural sociology, and qualitative evidence from interviews, platform observations, and case-tracing materials, the study develops algorithmic resonance as a conceptual framework for explaining how engagement signals, platform optimization, and repeated exposure become linked in music culture. The analysis identifies three dynamics: path-dependent taste stabilization, optimization-oriented creative production, and affinity-based global circulation. Rather than claiming direct causal access to proprietary algorithms, the article offers an interpretive account of how platform-visible interfaces, creator practices, and user reflections reveal recurring feedback loops between behavior, visibility, and cultural value. It contributes to debates on algorithmic culture by showing that recommendation systems do not merely distribute music; they help organize the temporal, affective, and infrastructural conditions through which music becomes familiar, valuable, and socially meaningful."
+      "pages": "82-95",
+      "publishedAt": "2026-01-10",
+      "url": "https://journals.panorama-sg.com/index.php/jlpcs/article/view/196",
+      "doi": "10.63802/jlpcs.v2.i1.196",
+      "abstract": "数字文旅的时代背景下，“心临其境”的临场感对游客满意度具有重要的影响。基于曲阜三孔景区上线运营的MR虚拟混合现实文旅产品，通过引入临场感理论，探究临场感对游客满意度的作用，并将沉浸体验作为中介变量，研究临场感对游客满意度的影响路径。文章依据227份调查问卷进行实证研究，研究发现：临场感正向影响游客满意度，空间临场感和自我临场感二者对游客满意度均起到正向影响作用；沉浸体验在临场感对游客满意度的影响中起到部分中介作用。通过对曲阜三孔景区MR虚拟混合现实文旅产品带给游客的临场感进行分析，解释了临场感对游客满意度的影响路径，并为旅游目的地设计数字文旅产品提供理论依据与实践指导。 Digital cultural tourism increasingly relies on mixed reality (MR) experiences to enhance engagement at heritage destinations. Drawing on presence theory, this study examines how tourists’ sense of presence influences satisfaction in MR-based cultural tourism and whether immersive experience mediates this relationship. Using the MR program at Qufu’s Three Confucius Sites as the empirical context, we analyzed 227 valid questionnaires with regression and bootstrap mediation tests. The results show that presence positively predicts tourist satisfaction; both spatial presence and self-presence are significant drivers. Moreover, immersive experience partially mediates the effects of spatial presence and self-presence on satisfaction. By providing contextual empirical evidence for presence theory in a cultural-heritage MR setting, this study offers practical implications for designing and operating digital cultural tourism products that improve visitor experience and satisfaction."
     },
     {
-      "title": "[Retracted] Steroid-Eluting Implants for Chronic Rhinosinusitis with nasal polyps: A Comparative Review of Propel and Sinuva for Post-Endoscopic sinus surgery management",
+      "title": "When Scholarship Becomes a Status Competition: A Reverse Review of Rankings, Journal Tiers, and the Quiet Erosion of the University",
       "authors": [
-        "Siddiqui, Muhammad Khurshid",
-        "Anzar, Muhammad",
-        "Hasan, Ahmed",
-        "Shahid, Abdul Hadi",
-        "Hashmi, Syed Qasim"
+        "Lenz, Sebastian",
+        "Song, Chengwen",
+        "Shi, Qin"
       ],
-      "journal": "Health Nexus",
-      "journalSlug": "HealthNexus",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/HealthNexus",
-      "issue": "Vol. 2, No. ",
-      "pages": "40-50",
-      "publishedAt": "2026-05-14",
-      "url": "https://journals.panorama-sg.com/index.php/HealthNexus/article/view/154",
-      "doi": "10.63802/hn.v2.2026.154",
-      "abstract": "RETRACTED ARTICLE The Editorial Office of Health Nexus retracts the following article: Siddiqui MK, Anzar M, Hasan A, Shahid AH, Hashmi SQ. Steroid-Eluting Implants for Chronic Rhinosinusitis with Nasal Polyps: A Comparative Review of Propel and Sinuva for Post-Endoscopic Sinus Surgery Management. Health Nexus. 2026;2:40–50. doi:10.63802/hn.V2.2026.154 Following a post-publication editorial review, serious concerns were identified regarding the accuracy, traceability, and reliability of the article’s reference list and the evidentiary support for several statements in the manuscript. The concerns included inaccurate bibliographic metadata, DOI-to-title mismatches, incomplete or insufficient product-information citations, and inconsistencies between the reference list, the text, and the summary tables. Because this article is a narrative review, the cited literature forms the foundation of the article’s conclusions. The extent and pattern of the identified issues affect the transparency, verifiability, and reliability of the scholarly record. After further editorial assessment, the Editorial Office determined that a post-publication correction would not be sufficient to resolve these concerns, as the necessary changes would require substantial reconstruction of the article’s evidence base rather than correction of discrete errors. The authors acknowledged the concerns raised by the Editorial Office and requested an opportunity to correct the article. After careful consideration, the Editorial Office maintained the decision to retract the article. This retraction is issued in accordance with the journal’s publication ethics policy and is intended to correct the scholarly record. It does not, by itself, constitute a finding of research misconduct. The original article will remain available online to preserve the scholarly record and will be clearly marked as retracted. Author response: The authors acknowledged the concerns and requested an opportunity to correct the article. After further editorial assessment, the Editorial Office maintained the decision to retract the article. Editorial Office of Health NexusHealth NexusPanorama Scholarly Group Date of Retraction: 3 June 2026"
+      "journal": "Silence",
+      "journalSlug": "Silence",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/Silence",
+      "issue": "Vol. 1, No. 1",
+      "pages": "72-77",
+      "publishedAt": "2026-04-05",
+      "url": "https://journals.panorama-sg.com/index.php/Silence/article/view/299",
+      "doi": "10.63802/silence.v1.i1.299",
+      "abstract": "This article offers a critical reverse review of the contemporary order of academic evaluation. Rather than asking whether university rankings and journal classification systems accurately describe academic quality, it asks what happens to universities once these instruments begin to define quality in practice. The central argument is that rankings and journal tiers do not merely measure academic life; they reorganize it. Through the language of performance, visibility, and comparison, they reorder institutional priorities, privilege strategic behavior over educational substance, and transform scholarly judgment into a competition for recognizable status signals. Drawing on scholarship on rankings and reactivity, audit culture, academic capitalism, responsible metrics, and cultural capital, the article develops a five-part argument. First, the expansion of performance governance has displaced older understandings of the university centered on teaching, intellectual formation, and the public cultivation of judgment. Second, rankings operate less as mirrors than as machines: they reshape organizational behavior by rewarding commensurable and publicly legible outputs. Third, journal stratification encourages a substitution in which where research is published begins to matter more than what it says. Fourth, these evaluative systems intensify existing inequalities because actors with more time, networks, language resources, and institutional prestige are better positioned to convert indicators into recognition. Finally, the article argues that evaluation becomes most damaging when proxies cease to be auxiliary tools and become sovereign criteria. Methodologically, the essay proceeds as a metacritical review: it synthesizes existing literature not to stabilize an orthodox consensus, but to reassess the evaluative paradigm itself and to clarify the intellectual costs of allowing proxies to govern academic life. The essay does not reject evaluation as such. It argues instead for a recovery of the university as a public institution whose most important goods, including intellectual seriousness, pedagogical attention, and slow inquiry, cannot be exhausted by ranking positions or journal labels."
+    },
+    {
+      "title": "When Robots Become More Human: Emotional Disruption and the Boundaries of Social Acceptance",
+      "authors": [
+        "Hu, Yang"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "AFS",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
+      "issue": "Vol. 2, No. 1",
+      "pages": "7-10",
+      "publishedAt": "2026-02-03",
+      "url": "https://journals.panorama-sg.com/index.php/AFS/article/view/215",
+      "doi": "10.63802/afs.v2.i1.215",
+      "abstract": "This commentary uses the humanoid facial robot lip-motion generation study by Hu et al., published in Science Robotics, as a starting point to explore the broader cognitive, social, and ethical implications behind its technical achievements. By integrating a soft silicone facial structure, a ten-degree-of-freedom lip actuation system, and a self-supervised learning framework that combines a variational autoencoder with a facial action transformer, the study enables robots to learn natural lip trajectories directly from speech audio. This approach achieves notable improvements in visual naturalness, multilingual generalization, and the mitigation of the “uncanny valley” effect. Yet this seemingly subtle enhancement in lip–speech synchrony effectively pushes human–robot interaction across a critical threshold: robots begin to be perceived not merely as sound-producing tools but as socially present quasi-others. As artificial expressions grow increasingly lifelike, the boundaries by which humans judge emotional authenticity, trust, and intimacy are quietly being rewritten, bringing with them emerging risks of emotional manipulation, over-trust, and even the substitution of interpersonal relationships. At the same time, the study’s limited training data and cultural contexts remind us that technical realism does not automatically translate into universal applicability, and that its implications extend well beyond algorithmic performance. The article therefore argues that, within the widening temporal gap between rapid technological advancement and comparatively slower social norm formation, designers and policymakers share a dual responsibility: to establish transparent and comprehensible interaction boundaries, strengthen informed-consent mechanisms, and enhance public literacy in interpreting artificial social signals. In this sense, the work stands not only as an engineering milestone but also as a societal mirror—it demonstrates how machines are learning to “speak like us” while compelling us to reconsider how we define authenticity, agency, and trust in an increasingly synthetic social world."
+    },
+    {
+      "title": "Recognising Love Across Cultures: A Cross-Cultural Extension of the Love Confirmation Mechanism Model",
+      "authors": [
+        "Song, Chengwen"
+      ],
+      "journal": "Journal of Social Cognition and Communication",
+      "journalSlug": "JSCC",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/JSCC",
+      "issue": "Vol. 1, No. 1",
+      "pages": "10-21",
+      "publishedAt": "2026-03-24",
+      "url": "https://journals.panorama-sg.com/index.php/jscc/article/view/290",
+      "doi": "10.63802/jscc.v1.i1.290",
+      "abstract": "Love is a central concern in psychology, sociology, and cultural studies, yet existing scholarship has concentrated far more on what love consists of than on the epistemic problem of how actors know, judge, and validate that love is present. Structural theories have clarified the components of love, experiential theories have examined attachment and affect, and cultural approaches have analysed romantic discourse and symbolic expression. Much less attention has been given to the interpretive process through which individuals decide that a feeling, relationship, or social bond should count as love. Building on song2025's Love Confirmation Mechanism (LCM), this article advances the Love Confirmation Mechanism Model (LCMM) as a cross-cultural theoretical extension. The core argument is that love is not simply an internal emotional state but a socially interpretable phenomenon confirmed through multiple forms of evidence. The model identifies four domains of confirmatory signals: affective, relational, symbolic, and institutional. These signals do not possess fixed meaning. Rather, they are interpreted through culturally organised frameworks that shape how actors weigh emotional intensity, behavioural consistency, romantic symbolism, and social legitimacy. By shifting analytic attention from the ontology of love to the epistemology of love recognition, the LCMM makes three contributions. First, it theorises love recognition as a distinct process linking private feeling, interpersonal interpretation, and social validation. Second, it extends the LCM by specifying a multi-signal architecture of confirmation and by distinguishing intrapersonal, interpersonal, and social levels of recognition. Third, it provides a comparative framework for explaining why the same relational act may confirm love in one cultural setting but not in another, while also clarifying how love may be under-recognised, over-recognised, or contested when signals are incongruent or differently weighted. The article concludes by outlining implications for cross-cultural intimacy research, communication studies, and future empirical work on romantic legitimacy."
     },
     {
       "title": "Comprehensive Nursing Practice for a Patient with Uremia Complicated with Inflammatory Myopathy and Multisystem Complications",
@@ -112,26 +156,19 @@
       "abstract": "Based on vehicle classification standards, the construction of autonomous driving modes requires collecting relevant information, including parameters related to vehicle types. Subsequently, this mode can automatically classify vehicles (i.e., vehicle type identification), serving as the foundation for autonomous driving while providing data support for subsequent manual inspections and statistical analysis. The system achieves self-identification of vehicle categories through applications of image processing, image interpretation, and pattern recognition. The main research focuses are on three aspects: image preprocessing, feature extraction of vehicle characteristics, and vehicle type recognition based on BP neural networks. To enhance system accuracy and stability, we propose the following strategies: image enhancement, filtering, and edge detection. Features such as roof length ratio, roof height ratio, and front-rear ratio are extracted. A BP network model is constructed and BP algorithm is implemented. Through training and testing of eight samples from two categories, we have essentially completed preliminary classification of common vehicle types. Systematic testing confirms identification accuracy of 90% for both buses and sedans, demonstrating that our technical capabilities meet practical application requirements across all aspects."
     },
     {
-      "title": "When Algorithms Become Sacred: A Cognitive-Psychological Model of Trust, Authority, and Meaning in AI Interaction",
+      "title": "三教融合视域下李翱心性论探析",
       "authors": [
-        "Song, Chengwen",
-        "Hu, Yang",
-        "Chen, Feifei",
-        "Lenz, Sebastian",
-        "Li, Jiale",
-        "Feng, Yanlin",
-        "Zeng, Xinhuan",
-        "Wu, Mengzhou"
+        "Li, Yutong"
       ],
-      "journal": "Journal of Social Cognition and Communication",
-      "journalSlug": "JSCC",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/JSCC",
-      "issue": "Vol. 1, No. 1",
-      "pages": "22-31",
-      "publishedAt": "2026-03-24",
-      "url": "https://journals.panorama-sg.com/index.php/jscc/article/view/291",
-      "doi": "10.63802/jscc.v1.i1.291",
-      "abstract": "This study develops a theory-building framework explaining why artificial intelligence (AI) is increasingly perceived not merely as a tool, but as an epistemic and moral authority in contemporary digital societies. Integrating social cognition, communication theory, and the cognitive science of religion, the paper introduces the concept of cognitive sacredness to capture a threshold condition in which AI is treated as trustworthy beyond verification and normatively binding. The proposed model specifies a five-stage process linking uncertainty, anthropomorphism, epistemic elevation, and quasi-religious attribution to behavioral reliance and ritualized interaction. It further identifies boundary conditions at the individual, contextual, and technological levels. The framework therefore clarifies not only how sacralization emerges, but also when it is more or less likely to occur. By theorizing AI as a cognitively sacred object, the article reconceptualizes human-AI interaction as a process of authority construction rather than mere technology use, offering a novel theoretical explanation for how epistemic authority is constructed and stabilized in human-AI interaction."
+      "journal": "Three Teachings Studies",
+      "journalSlug": "tts",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/tts",
+      "issue": "Vol. 1, No. ",
+      "pages": "152-159",
+      "publishedAt": "2025-12-29",
+      "url": "https://journals.panorama-sg.com/index.php/tts/article/view/191",
+      "doi": "10.63802/tts.v1.2025.191",
+      "abstract": "中文 李翱是我国中唐时期著名的哲学家、文学家，核心思想是由其《复性书》而阐发的心性论。本文通梳理中唐三教互动的背景以及李翱与佛道思想的接触渊源，并对其《复性书》进行义理解读，进而比照佛道相关理论，揭示其心性论的内在理路与融合转化。李翱以儒学为本，吸收佛教如来藏与道教思想，构建了以“复性”为核心、贯通天人的儒学体系，呈现出“同归型”三教会通的典型特征。李翱心性论的研究为儒学发展提供了义理阐释的新路径，完善了中古三教思想互动与儒家心性之学。 English Li Ao was a prominent philosopher and litterateur of the Mid-Tang period in China, whose core ideas revolve around the theory of mind-nature as elaborated in his work On Recovering Human Nature (Fu Xing Shu). This article traces the context of the interaction among Confucianism, Buddhism, and Daoism during the Mid-Tang era, examines Li Ao’s intellectual engagement with Buddhist and Daoist thought, and offers a philosophical interpretation of On Recovering Human Nature. By comparing relevant Buddhist and Daoist theories, it elucidates the internal logic and synthetic adaptation underlying Li Ao’s theory of mind and nature.Grounded in Confucianism, Li Ao assimilated elements from Buddhist Tathāgatagarbha thought and Daoist philosophy to construct a Confucian system centered on “recovering human nature,” one that connects heaven and humanity and exemplifies the “syncretic paradigm” of harmonizing the three teachings. Li Ao’s theory of mind and human nature pioneered a novel philosophical trajectory for the development of Confucianism and contributed significantly to the intellectual interplay among the three teachings in medieval China, as well as to the advancement of Confucian learning of mind and nature."
     },
     {
       "title": "Western Interpretations of Eastern Spirituality: So-cial Cognition in the Reception of Siddhartha",
@@ -149,128 +186,85 @@
       "abstract": "This study examines Western interpretations of Eastern spirituality through the reception of Hermann Hesse's Siddhartha. Although the novel is widely read as a literary representation of Buddhist philosophy, scholars have suggested that its spiritual vision reflects a Western reinterpretation of Eastern traditions rather than an accurate representation of Buddhist doctrine. Drawing on Orientalism theory, social cognition theory, and cross-cultural communication perspectives, this study explores how Eastern spiritual ideas are represented in literary form and interpreted by Western readers. The research adopts a qualitative design combining interpretive textual analysis with reader reception analysis. The textual analysis focuses on key philosophical themes in Siddhartha, including enlightenment, self-discovery, individuality, and the relationship between humanity and nature. In addition, approximately 200 reader reviews from online literary platforms were analyzed using thematic analysis to identify recurring patterns in reader interpretation. The findings indicate that the spiritual philosophy presented in Siddhartha reflects a hybrid framework shaped by both Eastern traditions and Western individualistic thought. Reader responses further show that Western audiences frequently interpret the novel as a narrative of personal self-realization rather than as an expression of Buddhist doctrine. These results suggest that Eastern spiritual ideas are actively reconstructed through literary representation and culturally shaped interpretive frameworks."
     },
     {
-      "title": "Reconsidering Originality in Dance: Innovation as Repetition and Positioning",
+      "title": "Beyond the Keyboard: Pianists’ Project-Based Practice and Transferable Capacities",
       "authors": [
-        "Yan, Bing",
-        "Song, Chengwen"
-      ],
-      "journal": "Global Review of Humanities, Arts, & Society",
-      "journalSlug": "files",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/files",
-      "issue": "Vol. 1, No. 5",
-      "pages": "43-48",
-      "publishedAt": "2025-12-05",
-      "url": "https://journals.panorama-sg.com/index.php/files/article/view/188",
-      "doi": "10.63802/grhas.v1.i5.188",
-      "abstract": "This article critically reexamines the concept of \"originality\" in dance creation by applying the theoretical frameworks of Gilles Deleuze and Pierre Bourdieu. Challenging the conventional notion of originality as absolute novelty, the study argues that originality should be understood as a process of differentiation within repetition and as a positional strategy within the socio-institutional field of art. Through analysis of Anne Teresa De Keersmaeker’s choreographic work and the development of contemporary Chinese dance, the paper illustrates how innovation is context-dependent and institutionally mediated. The findings call for a reconceptualization of artistic creativity, emphasizing process, cultural continuity, and the politics of recognition over the myth of isolated genius."
-    },
-    {
-      "title": "Integrating Artificial Intelligence into Middle School Education: Pathways, Challenges, and an Ethical Reappraisal from a Practitioner-Scholar Perspective",
-      "authors": [
-        "Zhang, Xiaoling",
-        "Xu, Wenwen"
-      ],
-      "journal": "AI & Future Society",
-      "journalSlug": "AFS",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/AFS",
-      "issue": "Vol. 2, No. 1",
-      "pages": "11-18",
-      "publishedAt": "2026-02-09",
-      "url": "https://journals.panorama-sg.com/index.php/AFS/article/view/198",
-      "doi": "10.63802/afs.v2.i1.198",
-      "abstract": "The rapid advancement of Artificial Intelligence (AI) has accelerated its transition in education from conceptual debate to practical classroom implementation. As a pivotal stage in the formation of students’ cognitive structures, learning habits, and value orientations, middle school education occupies a particularly sensitive position in this transformation. Introducing AI at this level offers significant potential to enhance instructional precision and learning efficiency. At the same time, it raises critical concerns related to educational equity, the redefinition of teachers’ professional roles, and the ethical dimensions of technology adoption. Drawing on the authors’ practical experience as middle school mathematics teachers and school administrators and informed by recent scholarship from both domestic and international contexts, this study provides a systematic overview of current AI applications in middle school settings. It examines feasible approaches to the use of AI in personalized instruction, classroom management, assessment practices, and educational resource allocation. Furthermore, from the perspectives of educational ethics and institutional governance, the paper critically analyzes emerging risks, including student data privacy, algorithmic bias, the expansion of the digital divide, and shifts in teacher–student relationships. The study argues that the sustainable and responsible integration of AI in middle school education cannot be achieved through technological advancement alone. Instead, it requires a holistic governance framework that is student-centered, teacher-led, and firmly grounded in ethical principles. Such a framework is essential to ensure that AI functions as an enabling tool for education rather than a source of fragmentation within the teaching and learning process."
-    },
-    {
-      "title": "Exploring North Korea–China Relations in the Kim Jong-un Era: A Pluralistic Construction from Geopolitics to a Community of Shared Destiny",
-      "authors": [
-        "Liu, Leyuan"
-      ],
-      "journal": "PoliEcoM Administration Review",
-      "journalSlug": "PEMR",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/PEMR",
-      "issue": "Vol. 2, No. 1",
-      "pages": "4-11",
-      "publishedAt": "2026-03-05",
-      "url": "https://journals.panorama-sg.com/index.php/pemr/article/view/266",
-      "doi": "10.63802/pemr.v2.i1.266",
-      "abstract": "Since Kim Jong Un came to power, North Korea has undergone significant changes in areas such as nuclear weapons development, economic reform, and cultural openness. As a traditional ally and key geopolitical partner of North Korea, China’s perceptions and understanding of its development trajectory have exhibited diverse characteristics. This article examines the latest developments in China–North Korea relations during the Kim Jong Un era by analyzing recent political interactions, economic cooperation, cultural exchanges, and efforts to shape international discourse. The study employs a literature review method, drawing on official documents, academic works, and media reports from both China and North Korea. It argues that during the Kim Jong Un era, the two countries have moved beyond traditional security concerns toward a more rational assessment and cultural resonance regarding North Korea’s path to modernization."
-    },
-    {
-      "title": "Research on China’s Strategies for Addressing Non-Tariff Barriers and Anti-dumping under the New Trade Protectionism Background &lt;i&gt;&lt;/i&gt;",
-      "authors": [
-        "Jiang, Dongye"
-      ],
-      "journal": "PoliEcoM Administration Review",
-      "journalSlug": "PEMR",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/PEMR",
-      "issue": "Vol. 1, No. 1",
-      "pages": "90-98",
-      "publishedAt": "2025-09-14",
-      "url": "https://journals.panorama-sg.com/index.php/pemr/article/view/94",
-      "doi": "10.63802/pemr.v1.i1.94",
-      "abstract": "The rise of neo-trade protectionism has reshaped the global trade order, shifting emphasis from traditional tariffs to non-tariff barriers (NTBs) and trade remedies justified on regulatory grounds. This study investigates China’s increasing reliance on NTBs—such as technical barriers to trade (TBT), sanitary and phytosanitary (SPS) measures, and chemical regulatory frameworks—and its frequent use of anti-dumping actions to pursue industrial protection and structural adjustment. Based on WTO notifications, MOFCOM case announcements, and trade statistics, the paper analyzes three key cases: the 2015 Bisphenol-A (BPA) anti-dumping dispute, regulatory frictions between Korea’s K-REACH and China’s chemical control system, and China’s anti-dumping duties on Korean stainless steel plate. Findings reveal that China’s measures serve dual purposes: short-term protection of domestic industries facing overcapacity and long-term promotion of supply chain localization and technological upgrading. For Korea, these actions led to marked export declines—BPA market share fell from 21% in 2014 to under 10% in 2017, and stainless steel exports dropped over 60% between 2015 and 2018. Policy implications suggest Korea must strengthen institutional negotiation, advance firm-level patent and standards strategies, and build multilateral alliances to offset China’s regulatory power. This study contributes to the literature by situating China’s NTBs and anti-dumping practices within the broader neo-protectionist paradigm and offering strategic insights for Korea’s policy response."
-    },
-    {
-      "title": "Rethinking Tradition in the Digital Age: An Oral History with Professor Joo-Young Kim on the Transmission and Development of Traditional Dance in China and Korea",
-      "authors": [
-        "Shi, Qin",
-        "Kim, Joo-Young"
-      ],
-      "journal": "Global Review of Humanities, Arts, & Society",
-      "journalSlug": "files",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/files",
-      "issue": "Vol. 1, No. 5",
-      "pages": "31-36",
-      "publishedAt": "2025-12-05",
-      "url": "https://journals.panorama-sg.com/index.php/files/article/view/187",
-      "doi": "10.63802/grhas.v1.i5.187",
-      "abstract": "This article presents an in-depth interview with Professor Joo-Young Kim, a leading Korean dance scholar, to systematically explore the multifaceted challenges and adaptive transformations faced by traditional dance in China and Korea under the intertwined pressures of globalization and digitalization. The dialogue unfolds around five central themes, each subjected to critical theoretical analysis: 1. The philosophical conflict and potential synthesis between traditional embodied pedagogies—epitomized by oral transmission and sensory apprenticeship—and the Western anatomical training models embedded in modern education systems. 2. The tensions between the institutional protection of traditional dance through \"heritagization\" and the standardization it often entails, which can undermine the form’s inherent fluidity, diversity, and performative vitality. 3. The reconfiguration of traditional dance images through mass media (film, television, popular music) and new media (short video platforms), which risks transforming cultural practices into commodified spectacles and detaching them from their historical contexts. 4. The impact of contemporary performance mechanisms, wherein artistic theatricalization may lead to a separation of dance from its original social and ritual functions, thus threatening the integrity of its cultural ecology. 5. The challenges posed by emerging technologies—such as artificial intelligence (AI) and virtual reality (VR)—which, while offering unprecedented opportunities for the recording and dissemination of dance, also confront the embodied immediacy and experiential depth at the core of traditional practices. Throughout the interview, Professor Kim articulates a consistent and critical stance: traditional dance should not be understood merely as stage-bound art, but rather as a culturally embedded social practice expressed through the body and rooted in specific communities. As such, any attempt at modernization—whether through educational reform, heritage preservation, media integration, or technological innovation—must be grounded in an unwavering respect for the cultural integrity and embodied essence of these traditions. Beyond documenting Professor Kim’s critical reflections, this article outlines her multidimensional strategies for sustaining the “living” continuity of tradition amidst complex contemporary realities, offering forward-looking insights for the field."
-    },
-    {
-      "title": "MMCCT: A Multi-Medium Framework for Distributed Climate Intelligence and Bounded Local Climate Regulation",
-      "authors": [
-        "Song, Chengwen",
-        "Huang, Pengrong"
-      ],
-      "journal": "Climate Sustainability & Global Systems",
-      "journalSlug": "CSGS",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/CSGS",
-      "issue": "Vol. 1, No. 1",
-      "pages": "25-36",
-      "publishedAt": "2026-04-21",
-      "url": "https://journals.panorama-sg.com/index.php/csgs/article/view/274",
-      "doi": "10.63802/csgs.v1.i1.274",
-      "abstract": "Climate monitoring still relies primarily on satellite remote sensing and fixed ground-station networks. Although these infrastructures provide indispensable regional coverage and long time series, they often lack the spatial, temporal, and cross-medium resolution needed to detect micro-scale climate anomalies in dense urban districts, industrial interfaces, wetland margins, and other heterogeneous environments. Many such anomalies do not arise from atmospheric forcing alone, but from coupled interactions among atmosphere, water, land surface, and human infrastructure. This article proposes MMCCT as a Methods \\&amp; Frameworks contribution to distributed climate intelligence and bounded local climate regulation. MMCCT conceptualizes climate intelligence as a four-medium problem and organizes it through three linked layers: an environmental media system, a distributed sensing network integrating UAVs, nano sensors, and ground IoT nodes, and an intelligence and coordination system for data fusion, anomaly indexing, intervention mapping, and recursive learning. To strengthen methodological clarity, the article formalizes environmental state representation, multi-source fusion, anomaly assessment, and bounded intervention selection through a compact set of analytical expressions. It also develops three research questions, three testable propositions, and a validation strategy based on simulation modelling, UAV field experiments, and multi-source data integration. Rather than claiming deterministic control over climate, MMCCT focuses on locally actionable variables such as shading, ventilation, irrigation, water retention, surface treatment, and emissions management. At its core, MMCCT reframes local climate monitoring as a problem of representational resolution across space, time, and medium, thereby providing a transferable analytical architecture for higher-resolution climate intelligence and bounded local response."
-    },
-    {
-      "title": "A Componential Analysis of “Fuck”",
-      "authors": [
-        "Gou, Eloise"
-      ],
-      "journal": "Silence",
-      "journalSlug": "Silence",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/Silence",
-      "issue": "Vol. 1, No. 1",
-      "pages": "54-61",
-      "publishedAt": "2026-03-07",
-      "url": "https://journals.panorama-sg.com/index.php/Silence/article/view/247",
-      "doi": "10.63802/silence.v1.i1.247",
-      "abstract": "This study examines how effective Componential Analysis (CA), a classic semantic theory, can be used to analyze the many meanings of the English word “fuck”. Componential analysis breaks words into smaller parts called semantic components. The word “fuck” is a good test for this theory because it has a simple concrete meaning but is used in many different concrete and abstract ways. Using examples from the BFSU CQPweb corpus, the study first lists the main ways “fuck” is used. Then, it tries to break down each use into a set of components. The results show that CA works well for the simple, concrete meanings of “fuck,” such as its use for sex or damage. However, the components become too general and vague for uses where “fuck” is mainly used to express strong feelings. The study also notes some problems with the corpus and methods used, which affected the results. Beyond its theoretical evaluation, this analysis offers practical insights and suggests directions for further study. The findings imply that for language pedagogy, teaching a word like fuck effectively requires explicitly addressing its wide meanings and emotions, helping learners navigate its social impact. Methodologically, the challenges encountered, such as complex corpus queries and inconsistent data tagging, highlight the need for better technical training in corpus linguistics for students and researchers. Future research could build on this work by using larger spoken corpora or social media data to more fully capture informal and expressive uses, or by applying a similar analytical approach to other taboo words to test the generalizability of these findings."
-    },
-    {
-      "title": "Freedom in the Sound of Tides",
-      "authors": [
-        "Zhang, Linxi"
+        "Yan, Xiaoyue"
       ],
       "journal": "Resonance",
       "journalSlug": "Resonance",
       "journalUrl": "https://journals.panorama-sg.com/index.php/Resonance",
       "issue": "Vol. 2, No. 1",
-      "pages": "17-23",
-      "publishedAt": "2026-04-26",
-      "url": "https://journals.panorama-sg.com/index.php/Resonance/article/view/310",
-      "doi": "10.63802/rjgms.v2.i1.310",
-      "abstract": "This poem begins from an embodied experience of standing by the sea and explores freedom as something sensed through the body and heard through sound, rather than treated as an abstract ideal. Through wind, tides, sand, seabirds, and changing light, it connects the repetition of the sea with inner resonance and human longing for openness and release. In this way, the poem seeks to engage broader conversations in music and sound studies on rhythm, environmental listening, echo, and affective space."
+      "pages": "35-39",
+      "publishedAt": "2026-06-18",
+      "url": "https://journals.panorama-sg.com/index.php/Resonance/article/view/322",
+      "doi": "10.63802/rjgms.v2.i1.322",
+      "abstract": "本文由一场面向高校音乐专业学生的公开讲座整理而成。文章以“琴键之外”为线索，围绕钢琴学习者在演奏与教学之外可能面对的艺术现场和职业情境，讨论钢琴训练所形成的能力如何被重新认识、调整和运用。文章结合作者在国际古典音乐项目、艺术家个人事务、艺术传播、内容制作及钢琴教学等方面的实践经历，分析钢琴专业能力在机构项目系统、艺术家个人工作系统、媒介传播和个人职业发展中的转化方式。 文章认为，钢琴训练培养的并不只是演奏技术，还包括对细节的感知、对结构的判断、对审美分寸的把握、持续执行的能力以及反复修正的习惯。这些能力可以延伸至项目组织、内容传播、教育实践和职业选择等更复杂的艺术工作场景，但这种延伸并不会自然发生。原有能力只有进入新的任务目标、受众对象、平台规则、协作关系和组织结构之中，才可能被重新激活并转化为具体的工作方法。本文不试图提出固定的职业发展模式，而是通过实践经验，为钢琴学习者理解专业身份、能力迁移和音乐职业发展的多种可能提供一种观察路径。"
+    },
+    {
+      "title": "Spatial Governance and Regional Coordination in Chinese-Style Modernization: A Policy and Institutional Analysis of the Fifteenth Five-Year Plan",
+      "authors": [
+        "Song, Chengwen",
+        "Zhuang, Xiaoyuan",
+        "Wang, Qilong"
+      ],
+      "journal": "Contemporary Review of Political Thought",
+      "journalSlug": "CRoPT",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/CRoPT",
+      "issue": "Vol. 1, No. ",
+      "pages": "1-9",
+      "publishedAt": "2026-07-06",
+      "url": "https://journals.panorama-sg.com/index.php/cropt/article/view/317",
+      "doi": "10.63802/cropt.2026.317",
+      "abstract": "“十五五”时期是中国基本实现社会主义现代化的关键阶段。本文以《纲要》《建议》及区域战略文本为分析对象，构建“国家整体性—区域协同—空间正义”分析框架，考察区域协调发展的制度逻辑。研究表明，区域协同并非单纯经济政策，而是系统性空间治理制度安排，通过国家战略统筹、跨区合作与功能空间重构推动制度协同。长三角、成渝与长江经济带案例表明，区域协同正从临时协调转向规则化治理。本文贡献在于将区域协同从政策描述提升为制度分析，阐明国家如何通过政策工具实现发展效率、区域公平与整体性的动态平衡。"
+    },
+    {
+      "title": "National Integration and Institutional Coordination under \"One Country, Two Systems\": Research on the Institutional Innovation Mechanisms of Hong Kong and Macao’s Integration into China’s Overall National Development",
+      "authors": [
+        "Song, Chengwen",
+        "Chen, Feifei",
+        "Tang, Hongfeng",
+        "Wang, Qilong"
+      ],
+      "journal": "Contemporary Review of Political Thought",
+      "journalSlug": "CRoPT",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/CRoPT",
+      "issue": "Vol. 1, No. ",
+      "pages": "10-16",
+      "publishedAt": "2026-07-28",
+      "url": "https://journals.panorama-sg.com/index.php/cropt/article/view/319",
+      "doi": "10.63802/cropt.2026.319",
+      "abstract": "This article examines Hong Kong and Macao’s integration into China’s overall national development from the perspective of national integration and institutional coordination. It develops the concept of “institutional interfacing” to argue that integration is not policy insertion, administrative absorption, or institutional homogenization, but a process through which institutional differences are organized into governable coordination capacities under the coexistence of the “One Country” principle and “Two Systems” differences. Taking rule alignment in the Guangdong-Hong Kong-Macao Greater Bay Area as a key case, this article analyzes four types of institutional interfaces: legal services and professional qualifications, financial opening and regulatory coordination, public services and status-based rights, and technology innovation and platform governance. The study argues that institutional interfaces can transform the institutional advantages of Hong Kong and Macao into national governance capacity, while also generating institutional friction when responsibilities are unclear, rules are unstable, risk control is insufficient, or public participation remains limited."
+    },
+    {
+      "title": "How Modern Academia Shapes Philosophical Questioning: Institutional Conditions, Logics of Publishability, andInstitutional Silence",
+      "authors": [
+        "Song, Huayang"
+      ],
+      "journal": "Silence",
+      "journalSlug": "Silence",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/Silence",
+      "issue": "Vol. 1, No. 1",
+      "pages": "48-53",
+      "publishedAt": "2026-02-25",
+      "url": "https://journals.panorama-sg.com/index.php/Silence/article/view/251",
+      "doi": "10.63802/silence.v1.i1.251",
+      "abstract": "This article challenges the widely held assumption that philosophical questions arise spontaneously from thought itself. By situating contemporary philosophy within the institutional transformations of neoliberal higher education, it argues that inquiry is pre-structured by what is termed the logic of publishability. Through an analysis of evaluation metrics, grant-based project governance, and journal gatekeeping, the paper conceptualizes a “triple mechanism” that regulates not the answers philosophers produce, but the forms, tempos, and boundaries of the questions they are permitted to ask. The dominance of gap-spotting as a model of innovation, the demand for methodological controllability, and the requirement for definitive conclusions function as anticipatory filters at the inception of inquiry. Building on insights from agnotology and the sociology of absences, this article introduces the concept of Institutional Silence to describe the structural exclusion of foundational, slow, or non-instrumental philosophical problems. It further examines the paradox of metacritique, arguing that reflexivity itself has become institutionalized and ritualized within contemporary academic writing. Rather than advocating for administrative reforms, the article introduces the concepts of slow questions and Quiet Research as intellectual approaches that resist acceleration, metric fetishism, and epistemic domestication. The paper concludes by leaving open the question of whether philosophy, under current institutional conditions, is still genuinely asking questions or merely managing them within a standardized regime of conceptual production."
+    },
+    {
+      "title": "Nursing Care for Multisystem Complication Risk Prevention and Control After Hemiarthroplasty in an Elderly Patient with Femoral Neck Fracture: A Case Report",
+      "authors": [
+        "Gao, Shujun",
+        "Chen, Feifei"
+      ],
+      "journal": "Health Nexus",
+      "journalSlug": "HealthNexus",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/HealthNexus",
+      "issue": "Vol. 2, No. ",
+      "pages": "51-58",
+      "publishedAt": "2026-09-10",
+      "url": "https://journals.panorama-sg.com/index.php/HealthNexus/article/view/348",
+      "doi": "10.63802/hn.v2.2026.348",
+      "abstract": "This case report summarizes the nursing care used to prevent and control multisystem complication risks after hemiarthroplasty in a 75-year-old patient with a Garden type IV femoral neck fracture. Perioperative assessments included pain, fall, thrombosis, pressure injury, anxiety, and activities of daily living. Individualized interventions addressed pain control, infection prevention, thromboprophylaxis, pressure injury and fall prevention, nutritional support, psychological care, staged rehabilitation, and discharge follow-up. No pulmonary infection, urinary tract infection, deep vein thrombosis, pressure injury, fall, or prosthetic dislocation occurred during hospitalization. The postoperative pain score decreased from 3 to 0--1, the Self-Rating Anxiety Scale score decreased from 62 to 40, and the patient walked 50--100 meters with a walker under protected weight-bearing conditions on postoperative day 14. At 3 months, the Barthel Index was 85 and no long-term complication was observed. This case suggests that dynamic multisystem risk assessment combined with staged nursing interventions may support perioperative safety and functional recovery in older adults after hemiarthroplasty; its effectiveness requires validation in larger case series or controlled studies."
     },
     {
       "title": "AI-Mediated Public Decision-Making and Democratic Exclusion: Governance Risks and Accountability Frameworks",
@@ -288,21 +282,19 @@
       "abstract": "Artificial intelligence is increasingly embedded within public administration, shaping welfare allocation, migration control and regulatory enforcement. Existing debates on AI governance have primarily focused on bias mitigation, transparency and risk-based compliance. While these approaches have advanced oversight mechanisms, they remain largely oriented toward managing harm at the level of system performance. This article advances a distinct analytical claim: democratic exclusion in AI-mediated public decision-making is infrastructural rather than merely output-based. By conceptualising AI systems as governance infrastructures, the paper argues that exclusion may arise from the architectural embedding of optimisation logics within public authority. Algorithmic systems can pre-structure access pathways, recalibrate discretion and redistribute justificatory responsibility prior to individual decisions. These transformations may not be fully captured by bias detection or rights-impact assessments. Drawing on constitutional principles and governance theory, the article identifies structural risks associated with epistemic asymmetry, automated filtering and procedural compression. A comparative analysis of European Union and United Kingdom regulatory trajectories demonstrates that both risk-based and principle-based frameworks remain predominantly compliance-oriented. The paper concludes by proposing democratic inclusion safeguards that operate at the level of institutional embedding, emphasising domain-sensitive justification, substantive oversight and inclusion monitoring. Democratic resilience in algorithmically mediated governance depends not only on technical robustness, but on preserving the justificatory foundations of public authority."
     },
     {
-      "title": "数字文旅场景中的临场感、沉浸体验与游客满意度关系研究",
+      "title": "A Study on the Fair Competition Review System in China's Public Procurement Field",
       "authors": [
-        "Wang, Pengcheng",
-        "Qiao, Xiuqi",
-        "Kong, Fanyao"
+        "Ding, Kaiming"
       ],
-      "journal": "Journal of Law, Psychology, and Communication Studies",
-      "journalSlug": "JLPCS",
-      "journalUrl": "https://journals.panorama-sg.com/index.php/JLPCS",
-      "issue": "Vol. 2, No. 1",
-      "pages": "82-95",
-      "publishedAt": "2026-01-10",
-      "url": "https://journals.panorama-sg.com/index.php/jlpcs/article/view/196",
-      "doi": "10.63802/jlpcs.v2.i1.196",
-      "abstract": "数字文旅的时代背景下，“心临其境”的临场感对游客满意度具有重要的影响。基于曲阜三孔景区上线运营的MR虚拟混合现实文旅产品，通过引入临场感理论，探究临场感对游客满意度的作用，并将沉浸体验作为中介变量，研究临场感对游客满意度的影响路径。文章依据227份调查问卷进行实证研究，研究发现：临场感正向影响游客满意度，空间临场感和自我临场感二者对游客满意度均起到正向影响作用；沉浸体验在临场感对游客满意度的影响中起到部分中介作用。通过对曲阜三孔景区MR虚拟混合现实文旅产品带给游客的临场感进行分析，解释了临场感对游客满意度的影响路径，并为旅游目的地设计数字文旅产品提供理论依据与实践指导。 Digital cultural tourism increasingly relies on mixed reality (MR) experiences to enhance engagement at heritage destinations. Drawing on presence theory, this study examines how tourists’ sense of presence influences satisfaction in MR-based cultural tourism and whether immersive experience mediates this relationship. Using the MR program at Qufu’s Three Confucius Sites as the empirical context, we analyzed 227 valid questionnaires with regression and bootstrap mediation tests. The results show that presence positively predicts tourist satisfaction; both spatial presence and self-presence are significant drivers. Moreover, immersive experience partially mediates the effects of spatial presence and self-presence on satisfaction. By providing contextual empirical evidence for presence theory in a cultural-heritage MR setting, this study offers practical implications for designing and operating digital cultural tourism products that improve visitor experience and satisfaction."
+      "journal": "PoliEcoM Administration Review",
+      "journalSlug": "PEMR",
+      "journalUrl": "https://journals.panorama-sg.com/index.php/PEMR",
+      "issue": "Vol. 1, No. 1",
+      "pages": "1-20",
+      "publishedAt": "2025-09-14",
+      "url": "https://journals.panorama-sg.com/index.php/pemr/article/view/19",
+      "doi": "10.63802/pemr.v1.i1.19",
+      "abstract": "This paper delves into the fair competition review system within China's public procurement field. Against the backdrop of the significant role that fair competition plays in public procurement, the paper outlines the relevant background, including the establishment of the fair competition principle in China's legal framework and the growing scale of public procurement. It then identifies the research objects, which involve analyzing the current state of fair competition legal governance, building a legal coordination system, and exploring optimization paths. The study highlights the theoretical and practical significance of this research, aiming to refine legal theories and enhance China's public procurement legal system. Furthermore, it reviews the domestic and international research status on this topic. Based on the analysis, the paper proposes recommendations to improve China's public procurement fair competition review system, including the establishment of a legal coordination system and the exploration of optimization paths for achieving fair competition. These suggestions are intended to bolster the fairness, transparency, and efficiency of China's public procurement market and to ensure the optimal allocation of public procurement resources and the maximization of public interests."
     }
   ]
 }
