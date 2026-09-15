@@ -1,5 +1,5 @@
 {
-  "generatedBy": "scripts/build_assets_manifest.py",
+  "generatedBy": "asset migration audit (completed 2026-09-13)",
   "generatedFor": "Version 1 -- Greenfield Static Rebuild Foundation",
   "schemaNotes": "status: preserve = official/brand/factual asset, migrated as-is; review = migrated and usable but needs licensing/optimization/fit confirmation before production use; discard = duplicate or superseded, not migrated. 'replace' is reserved for assets a future round explicitly supersedes with new artwork -- none identified yet.",
   "counts": {
