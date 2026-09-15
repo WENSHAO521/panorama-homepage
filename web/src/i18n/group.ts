@@ -177,7 +177,79 @@ const relationshipNames = {
   taoist: 'Taoist Association of Korea',
   cashl: 'China Academic Social Sciences and Humanities Library',
   cjwk: 'Changjiang Wenku',
+  atri: 'Asia Technology Research Institute (ATRI)',
 } as const;
+
+const atriRelationshipCopy: Record<LocaleCode, GroupRelationshipCopy> = {
+  en: {
+    kind: 'Academic publishing partner',
+    name: relationshipNames.atri,
+    description: 'An academic publishing organisation focused on peer-reviewed open-access journals across the social sciences, arts, and digital governance.',
+    alt: relationshipNames.atri,
+  },
+  'zh-hans': {
+    kind: '学术出版合作伙伴',
+    name: relationshipNames.atri,
+    description: '一家专注于社会科学、艺术批评与数字治理领域同行评审开放获取期刊的学术出版机构。',
+    alt: relationshipNames.atri,
+  },
+  'zh-hant': {
+    kind: '學術出版合作夥伴',
+    name: relationshipNames.atri,
+    description: '一家專注於社會科學、藝術評論與數位治理領域同行評審開放取用期刊的學術出版機構。',
+    alt: relationshipNames.atri,
+  },
+  ja: {
+    kind: '学術出版パートナー',
+    name: relationshipNames.atri,
+    description: '社会科学、芸術批評、デジタル・ガバナンス分野の査読付きオープンアクセス誌を手がける学術出版組織です。',
+    alt: relationshipNames.atri,
+  },
+  ko: {
+    kind: '학술 출판 파트너',
+    name: relationshipNames.atri,
+    description: '사회과학, 예술 비평, 디지털 거버넌스 분야의 동료심사 오픈 액세스 저널을 발행하는 학술 출판기관입니다.',
+    alt: relationshipNames.atri,
+  },
+  de: {
+    kind: 'Wissenschaftlicher Verlagspartner',
+    name: relationshipNames.atri,
+    description: 'Eine wissenschaftliche Publikationsorganisation mit begutachteten Open-Access-Zeitschriften in den Sozialwissenschaften, der Kunstkritik und der digitalen Governance.',
+    alt: relationshipNames.atri,
+  },
+  fr: {
+    kind: 'Partenaire d’édition scientifique',
+    name: relationshipNames.atri,
+    description: 'Une organisation d’édition scientifique qui publie des revues en accès ouvert évaluées par les pairs dans les domaines des sciences sociales, de la critique d’art et de la gouvernance numérique.',
+    alt: relationshipNames.atri,
+  },
+  es: {
+    kind: 'Socio editorial académico',
+    name: relationshipNames.atri,
+    description: 'Una organización de publicación académica dedicada a revistas de acceso abierto y revisión por pares en ciencias sociales, crítica de arte y gobernanza digital.',
+    alt: relationshipNames.atri,
+  },
+  ru: {
+    kind: 'Научный издательский партнёр',
+    name: relationshipNames.atri,
+    description: 'Научная издательская организация, выпускающая рецензируемые журналы открытого доступа по социальным наукам, критике искусства и цифровому управлению.',
+    alt: relationshipNames.atri,
+  },
+  ar: {
+    kind: 'شريك في النشر الأكاديمي',
+    name: relationshipNames.atri,
+    description: 'مؤسسة للنشر الأكاديمي تُصدر دوريات محكّمة بنظام الوصول المفتوح في العلوم الاجتماعية ونقد الفن والحوكمة الرقمية.',
+    alt: relationshipNames.atri,
+  },
+};
+
+function appendAtriRelationship<T extends { relationships: GroupRelationshipCopy[] }>(copy: T, locale: string): T {
+  const key = locale as LocaleCode;
+  return {
+    ...copy,
+    relationships: [...copy.relationships, atriRelationshipCopy[key] ?? atriRelationshipCopy.en],
+  };
+}
 
 const about: Record<LocaleCode, AboutPageCopy> = {
   en: {
@@ -213,7 +285,8 @@ const about: Record<LocaleCode, AboutPageCopy> = {
 };
 
 export function getAboutCopy(locale = 'en'): AboutPageCopy {
-  return about[locale as LocaleCode] ?? about.en;
+  const key = locale as LocaleCode;
+  return appendAtriRelationship(about[key] ?? about.en, key);
 }
 
 const governance: Record<LocaleCode, GovernancePageCopy> = {
@@ -287,5 +360,6 @@ const partnerships: Record<LocaleCode, PartnershipsPageCopy> = {
 };
 
 export function getPartnershipsCopy(locale = 'en'): PartnershipsPageCopy {
-  return partnerships[locale as LocaleCode] ?? partnerships.en;
+  const key = locale as LocaleCode;
+  return appendAtriRelationship(partnerships[key] ?? partnerships.en, key);
 }

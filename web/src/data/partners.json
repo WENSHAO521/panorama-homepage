@@ -142,5 +142,13 @@
     "logo": "/partners/library-logo.png",
     "url": "https://www.cashl.edu.cn/",
     "notes": "Official CASHL website confirmed by the user. The platform provides humanities and social sciences literature services for academic users."
+  },
+  {
+    "id": "atri",
+    "name": "Asia Technology Research Institute (ATRI)",
+    "category": "institutional-partner",
+    "logo": "/partners/asia-technology-research-institute-logo.png",
+    "url": "https://atripress.org/",
+    "notes": "Partner logo provided by ATRI. The official website identifies ATRI as Asia Technology Research Institute, an academic publisher based in Hong Kong."
   }
 ]

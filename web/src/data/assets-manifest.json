@@ -3,14 +3,14 @@
   "generatedFor": "Version 1 -- Greenfield Static Rebuild Foundation",
   "schemaNotes": "status: preserve = official/brand/factual asset, migrated as-is; review = migrated and usable but needs licensing/optimization/fit confirmation before production use; discard = duplicate or superseded, not migrated. 'replace' is reserved for assets a future round explicitly supersedes with new artwork -- none identified yet.",
   "counts": {
-    "total": 83,
-    "preserve": 43,
-    "review": 39,
+    "total": 84,
+    "preserve": 42,
+    "review": 41,
     "replace": 0,
     "archive": 0,
     "discard": 1
   },
-  "totalSizeMb": 35.49,
+  "totalSizeMb": 35.55,
   "assets": [
     {
       "originalPath": "QKFM/panorama-scholarly-group-uppercase-wordmark-4k.svg",
@@ -539,6 +539,20 @@
       "fileSizeKb": 131.6,
       "status": "preserve",
       "notes": "Third-party partner mark; usage governed by that partner's own brand guidelines."
+    },
+    {
+      "originalPath": "https://pub-49d2ed61af9d42f0b99c9ebd93b5bf09.r2.dev/logo1.png",
+      "newPath": "web/public/partners/asia-technology-research-institute-logo.png",
+      "filename": "asia-technology-research-institute-logo.png",
+      "category": "partner-logo",
+      "format": "png",
+      "dimensions": [
+        500,
+        220
+      ],
+      "fileSizeKb": 60.7,
+      "status": "review",
+      "notes": "Partner-provided ATRI mark. The official website identifies Asia Technology Research Institute (ATRI) as an academic publisher. Confirm final brand-use permission and any attribution requirements before production publication."
     },
     {
       "originalPath": "Homepage Image/CPRT-Homepage Image.jpg",
