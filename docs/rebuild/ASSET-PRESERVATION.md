@@ -3,13 +3,17 @@
 This historical Round 1 document explains the preserve/review/archive/reject
 decisions recorded in
 [`web/src/data/assets-manifest.json`](../../web/src/data/assets-manifest.json).
-The original `assets/`, `Homepage Image/`, and `QKFM/` directories were read
-only during the audit. Their approved files were subsequently migrated into
-the `web/` asset tree, verified, and the retired source directories removed
-from the release tree.
+The original `assets/` and `QKFM/` directories were read only during the
+audit. Their approved files were subsequently migrated into the `web/` asset
+tree, verified, and the retired source directories removed from the release
+tree. `Homepage Image/` is intentionally retained at the repository root as a
+compatibility source because external journal pages may reference its original
+paths and filenames. The verified copies under `web/public/images/publishing/`
+are the canonical assets for the Astro site.
 
-The inventory is retained for provenance and licensing follow-up; it is not a
-runtime asset source.
+The inventory is retained for provenance and licensing follow-up. The root
+`Homepage Image/` copy is also retained for external-reference compatibility;
+the `web/` copy is the runtime asset source.
 
 ## Inventory summary
 

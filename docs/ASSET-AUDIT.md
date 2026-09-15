@@ -4,9 +4,11 @@ This is the completed migration audit recorded in
 [`web/src/data/assets-manifest.json`](../web/src/data/assets-manifest.json).
 The legacy asset directories (`assets/`, `Homepage Image/`, `QKFM/`, and
 the root favicons) were read during migration, then their approved copies
-were verified in `web/public/` and `web/src/assets/`. The legacy source
-directories are no longer part of the release tree; the `web/` asset paths
-are now canonical.
+were verified in `web/public/` and `web/src/assets/`. `Homepage Image/` is
+intentionally retained at the repository root because external journal pages
+may reference its original paths and filenames. The `web/` asset paths remain
+canonical for the Astro release; the root copy is a compatibility source, not
+the build output.
 
 The inventory below remains useful for provenance, licensing review, and
 future asset replacement decisions. It is a record of the migration rather
