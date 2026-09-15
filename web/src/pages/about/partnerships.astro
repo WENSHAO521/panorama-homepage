@@ -7,6 +7,7 @@ import { getPartnershipsCopy } from '@/i18n/group';
 import { localizePath } from '@/i18n/utils';
 import taoistAssociationLogo from '@/assets/partners/taoist-association-korea-logo.png';
 import atriLogo from '@/assets/partners/asia-technology-research-institute-logo.png';
+import shiharrLogo from '@/assets/partners/shiharr-publishing-logo.png';
 import cashlLogo from '@/assets/index-logos/library-logo.png';
 import cjwkLogo from '@/assets/index-logos/CJWK.png';
 import GroupHero from '@/components/group/GroupHero.astro';
@@ -26,6 +27,11 @@ const relationshipLogos = [
   {
     logo: atriLogo,
     href: 'https://atripress.org/',
+  },
+  {
+    logo: shiharrLogo,
+    href: 'https://www.shiharr.cn/',
+    inverse: true,
   },
 ];
 const locale = Astro.currentLocale ?? 'en';
@@ -74,7 +80,7 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
         <div class="partnerships-list">
           {copy.relationships.map((relationship, index) => (
             <article class="partnership-card">
-              <div class="partnership-card__mark">
+              <div class:list={['partnership-card__mark', relationshipLogos[index].inverse && 'partnership-card__mark--inverse']}>
                 <Image
                   src={relationshipLogos[index].logo}
                   alt={relationship.alt}
@@ -252,7 +258,7 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
 
   .partnerships-list {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     margin-top: 3.25rem;
     border-top: var(--p-border-hairline) solid var(--border-strong);
     border-inline-start: var(--p-border-hairline) solid var(--border-strong);
@@ -273,6 +279,11 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
     width: min(100%, 11rem);
     height: 6rem;
     align-items: center;
+  }
+
+  .partnership-card__mark--inverse {
+    padding: 0.7rem;
+    background: var(--surface-inverse);
   }
 
   .partnership-card__mark img {

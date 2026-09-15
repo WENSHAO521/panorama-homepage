@@ -178,6 +178,7 @@ const relationshipNames = {
   cashl: 'China Academic Social Sciences and Humanities Library',
   cjwk: 'Changjiang Wenku',
   atri: 'Asia Technology Research Institute (ATRI)',
+  shiharr: 'Shiharr Publishing',
 } as const;
 
 const atriRelationshipCopy: Record<LocaleCode, GroupRelationshipCopy> = {
@@ -243,11 +244,78 @@ const atriRelationshipCopy: Record<LocaleCode, GroupRelationshipCopy> = {
   },
 };
 
-function appendAtriRelationship<T extends { relationships: GroupRelationshipCopy[] }>(copy: T, locale: string): T {
+const shiharrRelationshipCopy: Record<LocaleCode, GroupRelationshipCopy> = {
+  en: {
+    kind: 'Academic publishing partner',
+    name: relationshipNames.shiharr,
+    description: 'An academic publishing organisation that publishes journals and research work across the humanities, social sciences, education, and related fields.',
+    alt: relationshipNames.shiharr,
+  },
+  'zh-hans': {
+    kind: '学术出版合作伙伴',
+    name: relationshipNames.shiharr,
+    description: '一家以学术期刊与研究成果出版为核心，覆盖人文社会科学、教育及相关领域的学术出版机构。',
+    alt: relationshipNames.shiharr,
+  },
+  'zh-hant': {
+    kind: '學術出版合作夥伴',
+    name: relationshipNames.shiharr,
+    description: '一家以學術期刊與研究成果出版為核心，涵蓋人文社會科學、教育及相關領域的學術出版機構。',
+    alt: relationshipNames.shiharr,
+  },
+  ja: {
+    kind: '学術出版パートナー',
+    name: relationshipNames.shiharr,
+    description: '人文・社会科学、教育などの分野で学術誌と研究成果を刊行する学術出版組織です。',
+    alt: relationshipNames.shiharr,
+  },
+  ko: {
+    kind: '학술 출판 파트너',
+    name: relationshipNames.shiharr,
+    description: '인문·사회과학, 교육 등 분야의 학술지와 연구 성과를 발행하는 학술 출판기관입니다.',
+    alt: relationshipNames.shiharr,
+  },
+  de: {
+    kind: 'Wissenschaftlicher Verlagspartner',
+    name: relationshipNames.shiharr,
+    description: 'Eine wissenschaftliche Publikationsorganisation, die Zeitschriften und Forschungsergebnisse in den Geistes- und Sozialwissenschaften, der Bildungsforschung und verwandten Bereichen veröffentlicht.',
+    alt: relationshipNames.shiharr,
+  },
+  fr: {
+    kind: 'Partenaire d’édition scientifique',
+    name: relationshipNames.shiharr,
+    description: 'Une organisation d’édition scientifique qui publie des revues et des travaux de recherche en sciences humaines et sociales, en sciences de l’éducation et dans des domaines connexes.',
+    alt: relationshipNames.shiharr,
+  },
+  es: {
+    kind: 'Socio editorial académico',
+    name: relationshipNames.shiharr,
+    description: 'Una organización de publicación académica que edita revistas y trabajos de investigación en humanidades, ciencias sociales, educación y ámbitos relacionados.',
+    alt: relationshipNames.shiharr,
+  },
+  ru: {
+    kind: 'Научный издательский партнёр',
+    name: relationshipNames.shiharr,
+    description: 'Научная издательская организация, выпускающая журналы и исследовательские работы в области гуманитарных и социальных наук, образования и смежных дисциплин.',
+    alt: relationshipNames.shiharr,
+  },
+  ar: {
+    kind: 'شريك في النشر الأكاديمي',
+    name: relationshipNames.shiharr,
+    description: 'مؤسسة للنشر الأكاديمي تُصدر دوريات وأعمالًا بحثية في العلوم الإنسانية والاجتماعية والتعليم ومجالات ذات صلة.',
+    alt: relationshipNames.shiharr,
+  },
+};
+
+function appendPartnerRelationships<T extends { relationships: GroupRelationshipCopy[] }>(copy: T, locale: string): T {
   const key = locale as LocaleCode;
   return {
     ...copy,
-    relationships: [...copy.relationships, atriRelationshipCopy[key] ?? atriRelationshipCopy.en],
+    relationships: [
+      ...copy.relationships,
+      atriRelationshipCopy[key] ?? atriRelationshipCopy.en,
+      shiharrRelationshipCopy[key] ?? shiharrRelationshipCopy.en,
+    ],
   };
 }
 
@@ -286,7 +354,7 @@ const about: Record<LocaleCode, AboutPageCopy> = {
 
 export function getAboutCopy(locale = 'en'): AboutPageCopy {
   const key = locale as LocaleCode;
-  return appendAtriRelationship(about[key] ?? about.en, key);
+  return appendPartnerRelationships(about[key] ?? about.en, key);
 }
 
 const governance: Record<LocaleCode, GovernancePageCopy> = {
@@ -361,5 +429,5 @@ const partnerships: Record<LocaleCode, PartnershipsPageCopy> = {
 
 export function getPartnershipsCopy(locale = 'en'): PartnershipsPageCopy {
   const key = locale as LocaleCode;
-  return appendAtriRelationship(partnerships[key] ?? partnerships.en, key);
+  return appendPartnerRelationships(partnerships[key] ?? partnerships.en, key);
 }

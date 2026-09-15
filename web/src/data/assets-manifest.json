@@ -3,14 +3,14 @@
   "generatedFor": "Version 1 -- Greenfield Static Rebuild Foundation",
   "schemaNotes": "status: preserve = official/brand/factual asset, migrated as-is; review = migrated and usable but needs licensing/optimization/fit confirmation before production use; discard = duplicate or superseded, not migrated. 'replace' is reserved for assets a future round explicitly supersedes with new artwork -- none identified yet.",
   "counts": {
-    "total": 84,
+    "total": 85,
     "preserve": 42,
-    "review": 41,
+    "review": 42,
     "replace": 0,
     "archive": 0,
     "discard": 1
   },
-  "totalSizeMb": 35.55,
+  "totalSizeMb": 35.56,
   "assets": [
     {
       "originalPath": "QKFM/panorama-scholarly-group-uppercase-wordmark-4k.svg",
@@ -553,6 +553,20 @@
       "fileSizeKb": 60.7,
       "status": "review",
       "notes": "Partner-provided ATRI mark. The official website identifies Asia Technology Research Institute (ATRI) as an academic publisher. Confirm final brand-use permission and any attribution requirements before production publication."
+    },
+    {
+      "originalPath": "https://ojs.shiharr.com/public/site/pageHeaderTitleImage_en.png",
+      "newPath": "web/public/partners/shiharr-publishing-logo.png",
+      "filename": "shiharr-publishing-logo.png",
+      "category": "partner-logo",
+      "format": "png",
+      "dimensions": [
+        720,
+        127
+      ],
+      "fileSizeKb": 9.6,
+      "status": "review",
+      "notes": "Partner-provided Shiharr Publishing mark. The official website identifies the organisation as 拾华出版 / SHIHARR PUBLISHING. The supplied mark is light-on-transparent, so it is presented on the group's inverse surface without recolouring the artwork. Confirm final brand-use permission and any attribution requirements before production publication."
     },
     {
       "originalPath": "Homepage Image/CPRT-Homepage Image.jpg",

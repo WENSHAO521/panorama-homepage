@@ -18,11 +18,11 @@ than a command to re-copy files from the retired legacy directories.
 | Status | Count | Meaning |
 |---|---|---|
 | preserve | 42 | Official/brand/factual asset, migrated as-is |
-| review | 41 | Migrated and usable, but needs licensing / optimization / art-direction-fit confirmation before production use |
+| review | 42 | Migrated and usable, but needs licensing / optimization / art-direction-fit confirmation before production use |
 | replace | 0 | Reserved for assets a future round explicitly supersedes — none identified yet |
 | archive | 0 | None found warranting historical-only retention |
 | discard | 1 | Exact duplicate, not migrated |
-| **Total** | **84 files, 35.55 MB** | |
+| **Total** | **85 files, 35.56 MB** | |
 
 ## Classification by category
 
@@ -30,7 +30,7 @@ than a command to re-copy files from the retired legacy directories.
 |---|---|---|
 | `corporate-logo` | PSG wordmark (4K SVG), `logo.svg`/`logo-dark.svg`, 5 PSG platform marks (Books/Journals/POSI/Research Institute/Editorial Directory) | `public/brand/psg/` |
 | `imprint-logo` | 5 imprints × light/dark SVG | `public/brand/imprints/<slug>/` |
-| `partner-logo` | Taoist Association of Korea, CASHL, and Asia Technology Research Institute (ATRI) | `public/partners/` |
+| `partner-logo` | Taoist Association of Korea, CASHL, Asia Technology Research Institute (ATRI), and Shiharr Publishing | `public/partners/` |
 | `indexing-logo` | Crossref, DOI Foundation, Dimensions, Google Scholar, ISNI, ISSN, LOCKSS/CLOCKSS, OpenAIRE, OpenAlex, PKP, Semantic Scholar, ZDB, Zenodo, BASE, CJWK | `public/indexes/` |
 | `publication-mark` | Open-access article mark designed by PLOS, retained as an unmodified source asset with a PNG fallback | `public/publishing/article-marks/open-access/` |
 | `journal-cover` | 24 journal covers (see docs/DATA-MODEL.md for the id↔cover mapping) | `public/journals/covers/` |

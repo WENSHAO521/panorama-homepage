@@ -150,5 +150,13 @@
     "logo": "/partners/asia-technology-research-institute-logo.png",
     "url": "https://atripress.org/",
     "notes": "Partner logo provided by ATRI. The official website identifies ATRI as Asia Technology Research Institute, an academic publisher based in Hong Kong."
+  },
+  {
+    "id": "shiharr",
+    "name": "Shiharr Publishing",
+    "category": "publishing-partner",
+    "logo": "/partners/shiharr-publishing-logo.png",
+    "url": "https://www.shiharr.cn/",
+    "notes": "Partner logo provided from Shiharr's OJS site. The official website identifies the organisation as 拾华出版 / SHIHARR PUBLISHING."
   }
 ]
