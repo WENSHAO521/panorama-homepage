@@ -1,0 +1,84 @@
+/*
+  PSG Base — Round 1 Foundation
+  Cross-cutting accessibility/interaction baseline. Not a component
+  library — buttons, nav, cards etc. arrive in Round 3.
+*/
+
+body {
+  background: var(--surface-primary);
+}
+
+/* Every native button shares the same control silhouette. Branded CTA links
+   opt into the same token in their local styles below. */
+button,
+[role='button'],
+input:is([type='button'], [type='submit'], [type='reset']) {
+  border-radius: var(--p-radius-button);
+}
+
+/* Skip link — first focusable element on every page. */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  inset-inline-start: var(--p-space-4);
+  z-index: var(--p-z-skip-link);
+  background: var(--surface-inverse);
+  color: var(--text-inverse);
+  padding: var(--p-space-3) var(--p-space-5);
+  border-radius: var(--p-radius-surface);
+  font-weight: var(--fw-semibold);
+  transition: top var(--p-duration-base) var(--p-ease-standard);
+}
+
+.skip-link:focus-visible {
+  top: var(--p-space-4);
+}
+
+/* Uniform focus treatment. No component should re-implement its own
+   focus style — this is the single source of truth. */
+:focus-visible {
+  outline: var(--p-border-strong) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--p-radius-button);
+}
+
+/* Never silently remove focus indication. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a {
+  color: var(--text-link);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--text-link-hover);
+}
+
+::selection {
+  background: var(--p-navy-900);
+  color: var(--text-inverse);
+}
+
+/* Visually-hidden but screen-reader-available utility, for labels that
+   support accessibility without adding visual noise (e.g. icon-only
+   controls named in the exceptions list: search, menu, close, etc). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* RTL readiness: logical properties are used throughout (margin-inline,
+   padding-inline, inset-inline) instead of left/right, so flipping
+   dir="rtl" on <html> for Arabic requires no separate RTL stylesheet. */
+[dir='rtl'] {
+  text-align: start;
+}

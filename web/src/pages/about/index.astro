@@ -1,0 +1,538 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AboutSubnav from '@/components/about/AboutSubnav.astro';
+import Button from '@/components/ui/Button.astro';
+import { corporateStructure } from '@/data/site';
+import { getAboutCopy } from '@/i18n/group';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+import taoistAssociationLogo from '@/assets/partners/taoist-association-korea-logo.png';
+import cashlLogo from '@/assets/index-logos/library-logo.png';
+import cjwkLogo from '@/assets/index-logos/CJWK.png';
+
+const relationshipLogos = [
+  {
+    logo: taoistAssociationLogo,
+  },
+  {
+    logo: cashlLogo,
+    href: 'https://www.cashl.edu.cn/',
+  },
+  {
+    logo: cjwkLogo,
+    href: 'https://www.cjwk.cn',
+  },
+];
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getAboutCopy(locale);
+const localizedBasePath = localizePath('/about/', locale);
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/about/"
+  locale={locale}
+>
+  <div class="about-page">
+    <AboutSubnav currentPath={localizedBasePath} locale={locale} />
+
+    <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="about-title">
+      <div slot="actions">
+        <Button href={localizePath('/publishing/', locale)} variant="primary">{copy.exploreGroup}</Button>
+        <Button href={localizePath('/about/contact/', locale)} variant="secondary">{copy.contactGroup}</Button>
+      </div>
+
+      <div slot="aside" class="about-hero__aside-content" aria-label="About the group at a glance">
+        <p class="text-overline">{copy.atGlance}</p>
+        <dl>
+          {copy.facts.map((fact) => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
+        </dl>
+      </div>
+    </GroupHero>
+
+    <section class="about-statement row" aria-labelledby="about-statement-title">
+      <div class="container-wide about-statement__grid">
+        <div>
+          <p class="text-overline">{copy.howWorks}</p>
+          <h2 id="about-statement-title">{copy.statementTitle}</h2>
+        </div>
+        <div class="about-statement__copy">
+          {copy.statementParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="about-divisions row" aria-labelledby="divisions-title">
+      <div class="container-wide">
+        <header class="about-section-head">
+          <div>
+            <p class="text-overline">{copy.organisation}</p>
+            <h2 id="divisions-title">{copy.divisionsTitle}</h2>
+          </div>
+          <p>{copy.divisionsIntro}</p>
+        </header>
+
+        <ol class="about-division-list">
+          {corporateStructure.divisions.map((division, index) => (
+            <li>
+              <span class="about-division-list__number">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{copy.divisions[index].name}</h3>
+                <p>{copy.divisions[index].description}</p>
+              </div>
+              <a href={localizePath(division.path, locale)}>{copy.visitDivision}</a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="about-commitments row row--inverse" aria-labelledby="commitments-title">
+      <div class="container-wide">
+        <header class="about-section-head about-section-head--inverse">
+          <div>
+            <p class="text-overline">{copy.common}</p>
+            <h2 id="commitments-title">{copy.commitmentsTitle}</h2>
+          </div>
+          <p>{copy.commitmentsIntro}</p>
+        </header>
+
+        <div class="about-commitment-list">
+          {copy.commitments.map((commitment, index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{commitment.title}</h3>
+              <p>{commitment.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="partnerships" class="about-connections row" aria-labelledby="connections-title">
+      <div class="container-wide">
+        <header class="about-section-head">
+          <div>
+            <p class="text-overline">{copy.connections}</p>
+            <h2 id="connections-title">{copy.connectionsTitle}</h2>
+          </div>
+          <p>{copy.connectionsIntro}</p>
+        </header>
+
+        <div class="about-connection-list">
+          {copy.relationships.map((relationship, index) => (
+            <article class="about-connection">
+              <div class="about-connection__mark">
+                <Image
+                  src={relationshipLogos[index].logo}
+                  alt={relationship.alt}
+                  widths={[120, 180, 240]}
+                  sizes="(max-width: 639px) 48vw, 10rem"
+                  loading="lazy"
+                />
+              </div>
+              <div class="about-connection__body">
+                <p class="text-overline">{relationship.kind}</p>
+                <h3>{relationship.name}</h3>
+                <p>{relationship.description}</p>
+              </div>
+              {relationshipLogos[index].href && (
+                <a href={relationshipLogos[index].href} target="_blank" rel="noopener noreferrer">{copy.visitPlatform}</a>
+              )}
+            </article>
+          ))}
+        </div>
+
+        <p class="about-connections__note">
+          {copy.connectionsNote}
+        </p>
+      </div>
+    </section>
+
+    <section class="about-closing row" aria-labelledby="about-closing-title">
+      <div class="container-wide about-closing__inner">
+        <div>
+          <p class="text-overline">{copy.continue}</p>
+          <h2 id="about-closing-title">{copy.closingTitle}</h2>
+        </div>
+        <div class="about-closing__copy">
+          <p>{copy.closingBody}</p>
+          <div class="about-closing__links">
+            <a href={localizePath('/journals/', locale)}>{copy.browseJournals}</a>
+            <a href={localizePath('/research/', locale)}>{copy.visitInstitute}</a>
+            <a href={localizePath('/standards/editorial/', locale)}>{copy.readStandards}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page { background: var(--surface-primary); }
+
+  .about-hero {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-primary);
+  }
+
+  .about-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(18rem, 0.72fr);
+    gap: clamp(3rem, 10vw, 10rem);
+    align-items: end;
+    min-height: 34rem;
+    padding-block: clamp(4rem, 8vw, 7.5rem) clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .about-hero__copy { max-width: 50rem; }
+
+  .about-hero__copy h1 {
+    max-width: 12ch;
+    margin-top: 0.75rem;
+    font-size: clamp(3rem, 6vw, 5.8rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .about-hero__lede {
+    max-width: 38rem;
+    margin-top: 2rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    line-height: 1.45;
+  }
+
+  .about-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 2rem;
+  }
+
+  .about-hero__index {
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+    padding-top: 1rem;
+  }
+
+  .about-hero__index .text-overline { color: var(--interactive-default); }
+
+  .about-hero__index dl { margin: 1rem 0 0; }
+
+  .about-hero__index dl > div {
+    display: grid;
+    grid-template-columns: minmax(5rem, 0.7fr) minmax(0, 1.3fr);
+    gap: 1rem;
+    padding-block: 0.9rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .about-hero__index dt,
+  .about-hero__index dd {
+    margin: 0;
+  }
+
+  .about-hero__index dt {
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .about-hero__index dd {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    line-height: 1.3;
+  }
+
+  .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
+
+  .about-statement,
+  .about-divisions,
+  .about-connections,
+  .about-closing { padding-block: clamp(4rem, 8vw, 7rem); }
+
+  .about-statement__grid,
+  .about-closing__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 9vw, 9rem);
+    align-items: start;
+  }
+
+  .about-statement h2,
+  .about-closing h2 {
+    max-width: 14ch;
+    margin-top: 0.7rem;
+    font-size: clamp(2.25rem, 4vw, 3.75rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .about-statement__copy { padding-top: 0.3rem; }
+
+  .about-statement__copy p,
+  .about-closing__copy > p {
+    max-width: 38rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.55vw, 1.22rem);
+    line-height: 1.5;
+  }
+
+  .about-statement__copy p + p {
+    margin-top: 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  .about-section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+  }
+
+  .about-section-head h2 {
+    max-width: 15ch;
+    margin-top: 0.7rem;
+    font-size: clamp(2.3rem, 4vw, 3.8rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .about-section-head > p {
+    max-width: 30rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .about-division-list {
+    margin: 3.25rem 0 0;
+    padding: 0;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    list-style: none;
+  }
+
+  .about-division-list li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1.25fr) minmax(11rem, 0.75fr) auto;
+    gap: clamp(1rem, 3vw, 3rem);
+    align-items: center;
+    padding-block: 1.4rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .about-division-list__number {
+    color: var(--text-accent);
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    line-height: 1;
+  }
+
+  .about-division-list h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: var(--fw-regular);
+  }
+
+  .about-division-list p {
+    margin-top: 0.25rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .about-division-list a,
+  .about-connection > a,
+  .about-closing__links a {
+    color: var(--text-primary);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .about-division-list a,
+  .about-connection > a {
+    justify-self: end;
+    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
+    line-height: 1.8;
+  }
+
+  .about-division-list a:hover,
+  .about-division-list a:focus-visible,
+  .about-connection > a:hover,
+  .about-connection > a:focus-visible,
+  .about-closing__links a:hover,
+  .about-closing__links a:focus-visible { color: var(--interactive-default); }
+
+  .about-commitments {
+    border-bottom: 0;
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .about-section-head--inverse > p { color: var(--text-inverse-muted); }
+  .about-section-head--inverse .text-overline { color: var(--text-accent-inverse); }
+  .about-section-head--inverse h2 { color: var(--text-inverse); }
+
+  .about-commitment-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .about-commitment-list article {
+    min-height: 13rem;
+    padding: 1.2rem 1.3rem 1.3rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .about-commitment-list article:first-child { padding-inline-start: 0; }
+  .about-commitment-list article:last-child { border-inline-end: 0; }
+
+  .about-commitment-list span {
+    color: var(--text-accent-inverse);
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+  }
+
+  .about-commitment-list h3 {
+    margin-top: 2.5rem;
+    color: var(--text-inverse);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: var(--fw-regular);
+  }
+
+  .about-commitment-list p {
+    max-width: 18rem;
+    margin-top: 0.55rem;
+    color: var(--text-inverse-muted);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .about-connection-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .about-connection {
+    display: grid;
+    grid-template-rows: 7rem minmax(0, 1fr) auto;
+    gap: 1.1rem;
+    min-height: 20rem;
+    padding: 1.25rem 1.35rem 1.4rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .about-connection__mark {
+    display: flex;
+    width: min(100%, 10rem);
+    height: 6rem;
+    align-items: center;
+  }
+
+  .about-connection__mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .about-connection__body .text-overline { color: var(--interactive-default); }
+
+  .about-connection h3 {
+    max-width: 18ch;
+    margin-top: 0.45rem;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.15;
+  }
+
+  .about-connection__body > p:last-child {
+    margin-top: 0.55rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .about-connection > a { justify-self: start; }
+
+  .about-connections__note {
+    max-width: 42rem;
+    margin-top: 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+  }
+
+  .about-closing__inner { align-items: end; }
+
+  .about-closing__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .about-closing__links a {
+    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+    .about-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+    .about-section-head { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .about-division-list li { grid-template-columns: 3rem minmax(0, 1fr) auto; }
+    .about-division-list li > p { grid-column: 2; }
+    .about-division-list li > a { grid-column: 3; grid-row: 1 / span 2; }
+    .about-connection-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 639px) {
+    .about-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
+    .about-hero__copy h1 { max-width: 10ch; font-size: clamp(2.8rem, 13vw, 4rem); }
+    .about-hero__index dl > div { grid-template-columns: 1fr; gap: 0.3rem; }
+    .about-statement__grid,
+    .about-closing__inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .about-statement h2,
+    .about-closing h2,
+    .about-section-head h2 { max-width: 12ch; font-size: clamp(2.25rem, 10vw, 3.3rem); }
+    .about-division-list li,
+    .about-division-list li > p,
+    .about-division-list li > a { grid-column: auto; grid-row: auto; }
+    .about-division-list li { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.8rem 1rem; }
+    .about-division-list li > a { grid-column: 2; justify-self: start; margin-top: 0.35rem; }
+    .about-commitment-list,
+    .about-connection-list { grid-template-columns: minmax(0, 1fr); }
+    .about-commitment-list article,
+    .about-commitment-list article:first-child { min-height: 0; padding: 1.2rem 0; border-inline-end: 0; border-bottom: var(--p-border-hairline) solid var(--border-inverse); }
+    .about-commitment-list article:last-child { border-bottom: 0; }
+    .about-commitment-list h3 { margin-top: 1.25rem; }
+    .about-connection { min-height: 0; }
+  }
+</style>

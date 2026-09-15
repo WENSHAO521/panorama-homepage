@@ -1,0 +1,378 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
+import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import type { Imprint, Journal } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+import { imprintText } from '@/i18n/imprints';
+
+type Section = 'journals' | 'research' | 'for-authors' | 'about';
+
+interface Props {
+  imprint: Imprint;
+  journals: Journal[];
+  section: Section;
+}
+
+const { imprint, journals, section } = Astro.props;
+const basePath = '/imprints/threnody/';
+const pagePath = `${basePath}${section}/`;
+const currentPath = Astro.url.pathname;
+const wallpaper = '/images/publishing/threnody-wallpaper-4k.jpg';
+const locale = Astro.currentLocale ?? 'en';
+const tx = (key: string, fallback: string) => imprintText('threnody', locale, key, fallback);
+const labels = getNavigationLabels(locale);
+const localizedBasePath = localizePath(basePath, locale);
+
+const navigation = [
+  { label: labels.home, href: localizedBasePath },
+  { label: labels.journals, href: localizePath(`${basePath}journals/`, locale), key: 'journals' },
+  { label: labels.research, href: localizePath(`${basePath}research/`, locale), key: 'research' },
+  { label: labels.forAuthors, href: localizePath(`${basePath}for-authors/`, locale), key: 'for-authors' },
+  { label: labels.about, href: localizePath(`${basePath}about/`, locale), key: 'about' },
+];
+const imprintNav = navigation.map(({ label, href, key }) => ({ label, href, current: key === section }));
+const footerNav = navigation.map(({ label, href }) => ({ label, href }));
+
+const programmeJournalOrder = ['silence', 'resonance', 'tts', 'cprt', 'grhas', 'jdes'];
+const programmeJournals = programmeJournalOrder
+  .map((slug) => journals.find((journal) => journal.slug === slug && journal.status === 'active'))
+  .filter((journal): journal is Journal => Boolean(journal));
+
+const journalLabels: Record<string, string> = {
+  silence: 'Sound / listening',
+  resonance: 'Music / sonic cultures',
+  tts: 'Comparative philosophy',
+  cprt: 'Philosophy / religious traditions',
+  grhas: 'Humanities / arts / society',
+  jdes: 'Arts / embodied practice',
+};
+
+const journalSummaries: Record<string, string> = {
+  silence: 'A peer-reviewed journal of sound, listening, and the cultural imagination.',
+  resonance: 'Research on music, sonic cultures, and the social life of listening.',
+  tts: 'Interdisciplinary scholarship on Confucianism, Daoism, and Buddhism.',
+  cprt: 'Cross-tradition research in philosophy, theology, and intellectual history.',
+  grhas: 'Interdisciplinary research across the humanities, arts, culture, and society.',
+  jdes: 'Research on dance, choreography, movement, and performance studies.',
+};
+
+const fields = [
+  { number: '01', key: 'history', title: 'Historical and cultural inquiry', body: 'Research grounded in texts, archives, language, and the social worlds in which cultural forms take shape.' },
+  { number: '02', key: 'arts', title: 'Arts and embodied practice', body: 'Critical and practice-informed work on music, dance, performance, visual culture, and material expression.' },
+  { number: '03', key: 'belief', title: 'Philosophy and religious traditions', body: 'Comparative and historically informed studies of concepts, values, traditions, and forms of belief.' },
+  { number: '04', key: 'sound', title: 'Sound, media, and public life', body: 'Scholarship on listening, sonic cultures, mediation, and the ways cultural experience is shared.' },
+];
+
+const researchPrinciples = [
+  { key: 'evidence', title: 'Evidence and interpretation', body: 'Claims should be proportionate to the evidence, and interpretations should make their assumptions and limits available to readers.' },
+  { key: 'context', title: 'Context and historical responsibility', body: 'Research should situate concepts, practices, and cultural forms in the histories and communities that give them meaning.' },
+  { key: 'interdisciplinarity', title: 'Interdisciplinarity with discipline', body: 'Work may cross fields, but it should retain the methods, vocabulary, and standards needed for meaningful scholarly scrutiny.' },
+  { key: 'record', title: 'A transparent scholarly record', body: 'Sources, methods, permissions, conflicts, corrections, and relevant limitations should be reported with care.' },
+];
+
+const authorSteps = [
+  { number: '01', key: 'journal', title: 'Choose the right journal', body: 'Read the journal’s aims, scope, article types, and recent publications before preparing a submission.' },
+  { number: '02', key: 'argument', title: 'Make the argument inspectable', body: 'State the question, materials, method, contribution, and limitations clearly enough for editors and reviewers to assess.' },
+  { number: '03', key: 'submit', title: 'Submit through the journal', body: 'Use the official submission system and follow the current author instructions, ethical declarations, and file requirements.' },
+  { number: '04', key: 'review', title: 'Engage with review', body: 'Respond to editorial and peer-review comments accurately, respectfully, and with a clear record of substantive changes.' },
+];
+
+const commitments = [
+  { number: '01', key: 'independence', title: 'Editorial independence', body: 'Editorial decisions are based on scholarly merit, relevance to scope, and the integrity of the publication record.' },
+  { number: '02', key: 'peerReview', title: 'Peer-review integrity', body: 'We support fair, confidential, and appropriately rigorous review, with conflicts of interest managed transparently.' },
+  { number: '03', key: 'correction', title: 'Responsible correction', body: 'Corrections, expressions of concern, and retractions are part of responsible stewardship when the record requires them.' },
+  { number: '04', key: 'access', title: 'Access to scholarship', body: 'We work to make research discoverable and usable while respecting author rights, permissions, and disciplinary context.' },
+];
+
+const pageCopy = {
+  journals: {
+    kicker: 'Threnody / Journals',
+    title: 'A growing programme for cultural inquiry.',
+    lede: 'Threnody brings together a growing group of peer-reviewed journals spanning sound, music, comparative philosophy, the arts, and cultural inquiry. Each title has a defined scope, an accountable editorial team, and a clear route for authors and readers.',
+  },
+  research: {
+    kicker: 'Threnody / Research',
+    title: 'Research for understanding human worlds.',
+    lede: 'We support scholarship that examines how people make meaning, create culture, remember the past, and live with inherited ideas and practices.',
+  },
+  'for-authors': {
+    kicker: 'Threnody / For authors',
+    title: 'A rigorous route from research to publication.',
+    lede: 'Threnody welcomes original research, critical reviews, and carefully argued perspectives that advance humanities, arts, and philosophical inquiry.',
+  },
+  about: {
+    kicker: 'Threnody / About',
+    title: 'An imprint for the humanities, arts, and philosophy.',
+    lede: 'Threnody is a Panorama Scholarly Group imprint for independent scholarship on culture, meaning, memory, belief, sound, and the practices through which people understand their worlds.',
+  },
+} as const;
+
+const current = pageCopy[section];
+const localizedCurrent = {
+  kicker: tx(`section.${section}.kicker`, current.kicker),
+  title: tx(`section.${section}.title`, current.title),
+  lede: tx(`section.${section}.lede`, current.lede),
+};
+const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
+---
+
+<BaseLayout title={`${localizedCurrent.kicker} | Threnody`} description={description} path={pagePath} locale={locale} showChrome={false}>
+  <div class="threnody-section-page">
+    <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} theme="dark" />
+
+    <main>
+      <section class="threnody-section-hero" aria-labelledby="threnody-section-title">
+        <Image class="threnody-section-hero__art" src={wallpaper} alt={tx('heroImageAlt', 'Abstract sound ripples and light in a dark field')} width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="100vw" loading="eager" fetchpriority="high" />
+        <div class="threnody-section-hero__shade" aria-hidden="true"></div>
+        <div class="threnody-section-shell threnody-section-hero__inner">
+          <div class="threnody-section-hero__copy">
+            <Image class="threnody-section-logo" src={imprint.logoLight ?? imprint.logo!} alt="Threnody" width={220} height={60} loading="eager" />
+            <span class="threnody-section-rule" aria-hidden="true"></span>
+            <p class="threnody-section-kicker">{localizedCurrent.kicker}</p>
+            <h1 id="threnody-section-title">{localizedCurrent.title}</h1>
+            <p class="threnody-section-hero__lede">{localizedCurrent.lede}</p>
+          </div>
+          <aside class="threnody-section-hero__note" aria-label={tx('heroNoteLabel', 'Threnody editorial focus')}>
+            <span>{tx('heroNoteCulture', 'Culture')}</span><span>{tx('heroNoteMemory', 'Memory')}</span><span>{tx('heroNoteInterpretation', 'Interpretation')}</span><span>{tx('heroNoteRecord', 'Scholarly record')}</span>
+            <p>{tx('heroNoteOne', 'Independent scholarship')}<br />{tx('heroNoteTwo', 'with editorial care.')}</p>
+          </aside>
+        </div>
+      </section>
+
+      {section === 'journals' && (
+        <>
+          <section class="threnody-section-light" aria-labelledby="threnody-journal-programme-title">
+            <div class="threnody-section-shell">
+              <div class="threnody-section-bar"><p class="threnody-section-kicker" id="threnody-journal-programme-title">{tx('section.journals.programmeKicker', 'The Threnody journal programme')}</p><p>{programmeJournals.length} {tx('section.journals.activeTitles', 'active titles')}</p></div>
+              <div class="threnody-section-heading"><h2>{tx('section.journals.programmeTitle', 'Distinct editorial communities, connected by careful scholarship.')}</h2><p>{tx('section.journals.programmeBody', 'Each journal defines its own scope and readership. Together, they support sustained inquiry into the forms, histories, and practices through which human worlds are made intelligible.')}</p></div>
+              <div class="threnody-section-journal-list">
+                {programmeJournals.map((journal, index) => {
+                  const coverAsset = getJournalCoverAsset(journal.cover);
+                  const summary = tx(`journal.${journal.slug}.summary`, journalSummaries[journal.slug] ?? journal.description ?? 'Peer-reviewed research across culture and the humanities.');
+                  const label = tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' / '));
+                  return (
+                    <article class="threnody-section-journal-row">
+                      <div class="threnody-section-journal-cover-wrap">
+                        <span class="threnody-section-journal-number">{String(index + 1).padStart(2, '0')}</span>
+                        <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`${tx('visitJournal', 'Visit journal website')}: ${journal.title}`}>
+                          {coverAsset ? <Image class="threnody-section-journal-cover" src={coverAsset} alt={`${journal.title} cover`} width={495} height={700} widths={[220, 320, 495]} sizes="(max-width: 760px) 12rem, 17rem" loading="lazy" /> : <div class="threnody-section-cover-placeholder">{tx('coverForthcoming', 'Cover forthcoming')}</div>}
+                        </a>
+                      </div>
+                      <div class="threnody-section-journal-copy">
+                        <p class="threnody-section-eyebrow">{label}</p>
+                        <h2><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h2>
+                        <p>{summary}</p>
+                        <dl class="threnody-section-journal-meta">
+                          {journal.issn && <><dt>ISSN</dt><dd>{journal.issn}</dd></>}
+                          <dt>{tx('access', 'Access')}</dt><dd>{journal.openAccess ? tx('openAccess', 'Open access') : tx('seeJournalWebsite', 'See journal website')}</dd>
+                        </dl>
+                        <a class="threnody-section-text-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('visitJournal', 'Visit journal website')}</a>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+          <section class="threnody-section-dark" aria-labelledby="threnody-journals-record-title"><div class="threnody-section-shell threnody-section-dark__grid"><div><p class="threnody-section-kicker">{tx('section.journals.recordKicker', 'A coherent programme')}</p><h2 id="threnody-journals-record-title">{tx('section.journals.recordTitleOne', 'Different fields.')}<br />{tx('section.journals.recordTitleTwo', 'Shared standards.')}</h2></div><div><p>{tx('section.journals.recordBody', 'Threnody’s journals retain distinct editorial identities while sharing expectations for rigorous peer review, responsible reporting, editorial independence, and careful stewardship of the scholarly record.')}</p><a class="threnody-section-inverse-link" data-action="secondary" href={localizePath(`${basePath}research/`, locale)}>{tx('section.journals.recordLink', 'Explore our research position')}</a></div></div></section>
+        </>
+      )}
+
+      {section === 'research' && (
+        <>
+          <section class="threnody-section-dark" aria-labelledby="threnody-research-statement-title"><div class="threnody-section-shell threnody-section-dark__grid"><div><p class="threnody-section-kicker">{tx('section.research.positionKicker', 'Our research position')}</p><h2 id="threnody-research-statement-title">{tx('section.research.positionTitle', 'Interpretation is evidence-based work.')}</h2></div><div><p>{tx('section.research.positionBodyOne', 'Humanities and arts research does not become less rigorous because its objects are historical, cultural, embodied, or contested. Its claims still require clear questions, appropriate methods, accountable evidence, and honest limits.')}</p><p>{tx('section.research.positionBodyTwo', 'Threnody supports scholarship that makes its reasoning visible while leaving room for complexity, ambiguity, and genuinely different ways of knowing.')}</p></div></div></section>
+          <section class="threnody-section-light" aria-labelledby="threnody-fields-title"><div class="threnody-section-shell"><div class="threnody-section-bar"><p class="threnody-section-kicker" id="threnody-fields-title">{tx('section.research.fieldsKicker', 'Fields of inquiry')}</p><p>{tx('section.research.fieldsMeta', 'Research across culture, meaning, and memory.')}</p></div><div class="threnody-section-field-grid">{fields.map((field) => <article><span>{field.number}</span><h2>{tx(`section.field.${field.key}.title`, field.title)}</h2><p>{tx(`section.field.${field.key}.body`, field.body)}</p></article>)}</div></div></section>
+          <section class="threnody-section-light threnody-section-light--deep" aria-labelledby="threnody-principles-title"><div class="threnody-section-shell"><div class="threnody-section-heading"><h2 id="threnody-principles-title">{tx('section.research.principlesTitle', 'Ambitious questions. Disciplined claims.')}</h2><p>{tx('section.research.principlesBody', 'We welcome theoretical, historical, empirical, practice-based, and interdisciplinary work when the relationship between question, material, method, and conclusion is made clear.')}</p></div><div class="threnody-section-principle-grid">{researchPrinciples.map((item) => <article><h3>{tx(`section.principle.${item.key}.title`, item.title)}</h3><p>{tx(`section.principle.${item.key}.body`, item.body)}</p></article>)}</div></div></section>
+          <section class="threnody-section-closing"><div class="threnody-section-shell threnody-section-closing__inner"><div><p class="threnody-section-kicker">{tx('section.research.closingKicker', 'Continue with the programme')}</p><h2>{tx('section.research.closingTitle', 'Read the journals shaping the conversation.')}</h2></div><a class="threnody-section-text-link" data-action="secondary" href={localizePath(`${basePath}journals/`, locale)}>{tx('section.research.closingLink', 'Browse Threnody journals')}</a></div></section>
+        </>
+      )}
+
+      {section === 'for-authors' && (
+        <>
+          <section class="threnody-section-light" aria-labelledby="threnody-author-process-title"><div class="threnody-section-shell"><div class="threnody-section-heading"><h2 id="threnody-author-process-title">{tx('section.authors.processTitle', 'A clear route from research to publication.')}</h2><p>{tx('section.authors.processBody', 'Every Threnody journal has its own aims, scope, and submission requirements. The following principles help authors choose carefully and prepare a complete, assessable submission.')}</p></div><div class="threnody-section-step-grid">{authorSteps.map((step) => <article><span>{step.number}</span><h3>{tx(`section.step.${step.key}.title`, step.title)}</h3><p>{tx(`section.step.${step.key}.body`, step.body)}</p></article>)}</div></div></section>
+          <section class="threnody-section-dark" aria-labelledby="threnody-author-standards-title"><div class="threnody-section-shell threnody-section-dark__grid"><div><p class="threnody-section-kicker">{tx('section.authors.expectationsKicker', 'Shared expectations')}</p><h2 id="threnody-author-standards-title">{tx('section.authors.expectationsTitle', 'Responsible scholarship is part of the submission.')}</h2></div><div><p>{tx('section.authors.expectationsBody', 'Authors should report methods and evidence accurately, acknowledge sources, disclose relevant interests, obtain necessary permissions, follow applicable ethical requirements, and make the limits of a study clear.')}</p><div class="threnody-section-link-row"><a class="threnody-section-button" data-action="primary" href={localizePath('/standards/editorial/', locale)}>{tx('editorialStandards', 'Editorial standards')}</a><a class="threnody-section-inverse-link" data-action="secondary" href={localizePath('/standards/ethics/', locale)}>{tx('publicationEthics', 'Publication ethics')}</a></div></div></div></section>
+          <section class="threnody-section-light" aria-labelledby="threnody-submission-title"><div class="threnody-section-shell"><div class="threnody-section-bar"><p class="threnody-section-kicker" id="threnody-submission-title">{tx('section.authors.submitKicker', 'Submit to a Threnody journal')}</p><p>{programmeJournals.length} {tx('section.authors.destinations', 'current destinations')}</p></div><div class="threnody-section-submission-grid">{programmeJournals.map((journal) => <article><p class="threnody-section-eyebrow">{tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' / '))}</p><h2>{journal.title}</h2><a class="threnody-section-text-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('openSubmission', 'Open submission system')}</a></article>)}</div></div></section>
+        </>
+      )}
+
+      {section === 'about' && (
+        <>
+          <section class="threnody-section-light" aria-labelledby="threnody-about-remit-title"><div class="threnody-section-shell threnody-section-about-grid"><div><p class="threnody-section-kicker">{tx('section.about.remitKicker', 'Our remit')}</p><h2 id="threnody-about-remit-title">{tx('section.about.remitTitle', 'A home for scholarship that takes culture seriously.')}</h2></div><div class="threnody-section-prose"><p>{tx('section.about.remitBodyOne', 'Threnody is the humanities, arts, and philosophy imprint of Panorama Scholarly Group. We publish research on the ideas, practices, traditions, and cultural forms through which people interpret experience and live with one another.')}</p><p>{tx('section.about.remitBodyTwo', 'The imprint is designed for work that is rigorous in method, explicit in reasoning, and attentive to the historical and social contexts in which knowledge is produced.')}</p><a class="threnody-section-text-link" data-action="secondary" href={localizePath(`${basePath}journals/`, locale)}>{tx('section.about.remitLink', 'Explore the Threnody journal programme')}</a></div></div></section>
+          <section class="threnody-section-light threnody-section-light--deep" aria-labelledby="threnody-commitments-title"><div class="threnody-section-shell"><div class="threnody-section-bar"><p class="threnody-section-kicker" id="threnody-commitments-title">{tx('section.about.guidesKicker', 'What guides us')}</p><p>{tx('section.about.guidesMeta', 'Commitments for a durable scholarly record.')}</p></div><div class="threnody-section-principle-grid threnody-section-principle-grid--four">{commitments.map((item) => <article><span>{item.number}</span><h3>{tx(`section.commitment.${item.key}.title`, item.title)}</h3><p>{tx(`section.commitment.${item.key}.body`, item.body)}</p></article>)}</div></div></section>
+          <section class="threnody-section-dark" aria-labelledby="threnody-about-group-title"><div class="threnody-section-shell threnody-section-dark__grid"><div><p class="threnody-section-kicker">{tx('section.about.groupKicker', 'Part of Panorama')}</p><h2 id="threnody-about-group-title">{tx('section.about.groupTitle', 'Independent publishing, shared responsibility.')}</h2></div><div><p>{tx('section.about.groupBody', 'Threnody operates within Panorama Scholarly Group’s publishing framework while preserving the editorial identity and accountability of each journal. Our shared standards cover peer review, research integrity, access, corrections, and the responsible maintenance of the scholarly record.')}</p><a class="threnody-section-inverse-link" data-action="secondary" href={localizePath('/standards/editorial/', locale)}>{tx('section.about.groupLink', 'Read our editorial standards')}</a></div></div></section>
+        </>
+      )}
+    </main>
+
+    <ImprintFooter
+      imprint={imprint}
+      links={footerNav}
+      locale={locale}
+      tagline={tx('footerTagline', 'Humanities for what endures.')}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .threnody-section-page { --th-s-paper: #f4f0e8; --th-s-paper-deep: #e9e4db; --th-s-night: #171515; --th-s-night-soft: #252122; --th-s-ink: #16161a; --th-s-muted: #5f5a5b; --th-s-ivory: #f6f1e8; --th-s-copper: #aa4f42; --th-s-copper-ink: #8f3e35; --th-s-copper-bright: #eeb7a5; --th-s-plum: #5b3a5e; --th-s-line: #d3ccc2; --imprint-accent: #d99882; --th-s-shell: min(100% - 7rem, 1390px); overflow: hidden; background: var(--th-s-paper); color: var(--th-s-ink); }
+  .threnody-section-shell { width: var(--th-s-shell); margin-inline: auto; }
+  .threnody-section-header { position: relative; z-index: 10; border-bottom: 1px solid color-mix(in srgb, var(--th-s-ivory) 22%, transparent); background: var(--th-s-night); color: var(--th-s-ivory); }
+  .threnody-section-header__inner { display: flex; align-items: center; min-height: 4.6rem; gap: 2rem; }
+  .threnody-section-company { display: flex; flex-shrink: 0; align-items: center; }
+  .threnody-section-nav, .threnody-section-tools, .threnody-section-footer__top nav { display: flex; align-items: center; }
+  .threnody-section-nav { gap: clamp(1rem, 2.3vw, 2.5rem); margin-inline-start: auto; }
+  .threnody-section-nav a, .threnody-section-tools > a, .threnody-section-language :global(.lang-switcher__trigger), .threnody-section-footer__top nav a { color: var(--th-s-ivory); font-size: 0.61rem; font-weight: 700; letter-spacing: 0.13em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+  .threnody-section-nav a:hover, .threnody-section-nav a:focus-visible, .threnody-section-nav a[aria-current='page'], .threnody-section-tools > a:hover, .threnody-section-tools > a:focus-visible, .threnody-section-footer__top nav a:hover, .threnody-section-footer__top nav a:focus-visible { color: #d99882; }
+  .threnody-section-tools { gap: 1rem; margin-inline-start: 0.5rem; }
+  .threnody-section-tools > a, .threnody-section-language { padding-inline-start: 1rem; border-inline-start: 1px solid color-mix(in srgb, var(--th-s-ivory) 30%, transparent); }
+  .threnody-section-menu { display: none; border-radius: var(--p-radius-button); }
+  .threnody-section-mobile-nav { display: none; }
+
+  .threnody-section-hero { position: relative; min-height: clamp(35rem, 52vw, 46rem); overflow: hidden; background: var(--th-s-night); color: var(--th-s-ivory); }
+  .threnody-section-hero__art, .threnody-section-hero__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .threnody-section-hero__art { object-fit: cover; object-position: 64% center; opacity: 0.68; }
+  .threnody-section-hero__shade { background: rgba(23, 21, 21, 0.62); }
+  .threnody-section-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.38fr); gap: clamp(3rem, 8vw, 9rem); align-items: end; min-height: inherit; padding-block: clamp(4rem, 8vw, 8rem); }
+  .threnody-section-hero__copy { max-width: 52rem; }
+  .threnody-section-logo { display: block; width: min(13rem, 70%); height: auto; }
+  .threnody-section-rule { display: block; width: 8rem; height: 1px; margin-block: 1.6rem 1.8rem; background: var(--th-s-copper); }
+  .threnody-section-kicker { margin: 0; color: var(--th-s-copper-ink); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.5; text-transform: uppercase; }
+  .threnody-section-hero .threnody-section-kicker { color: #d99a82; }
+  .threnody-section-dark .threnody-section-kicker { color: #d99882; }
+  .threnody-section-hero h1 { max-width: 15ch; margin: 1.2rem 0 1.5rem; color: var(--th-s-ivory); font-family: var(--font-display); font-size: clamp(3rem, 5.8vw, 6.25rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.91; }
+  .threnody-section-hero__lede { max-width: 42rem; margin: 0; color: rgba(246, 241, 232, 0.86); font-family: var(--font-display); font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 1.42; }
+  .threnody-section-hero__note { display: grid; gap: 0.8rem; align-self: end; padding-inline-start: 1.5rem; border-inline-start: 1px solid rgba(246, 241, 232, 0.35); color: rgba(246, 241, 232, 0.8); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.18em; line-height: 1.5; text-transform: uppercase; }
+  .threnody-section-hero__note p { margin: 1.2rem 0 0; color: var(--th-s-ivory); font-family: var(--font-display); font-size: 1.25rem; font-style: italic; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; text-transform: none; }
+
+  .threnody-section-light { padding-block: clamp(4rem, 7vw, 7rem); background: var(--th-s-paper); }
+  .threnody-section-light--deep { background: var(--th-s-paper-deep); }
+  .threnody-section-bar { display: flex; align-items: center; gap: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--th-s-line); }
+  .threnody-section-bar > p:last-child { margin: 0 0 0 auto; color: var(--th-s-muted); font-size: 0.59rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+  .threnody-section-heading { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr); gap: clamp(2rem, 7vw, 8rem); align-items: end; padding-block: 2rem 3rem; }
+  .threnody-section-heading h2, .threnody-section-about-grid h2 { max-width: 15ch; margin: 0; color: var(--th-s-ink); font-family: var(--font-display); font-size: clamp(2.5rem, 4.7vw, 5rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.92; }
+  .threnody-section-heading > p, .threnody-section-prose p, .threnody-section-dark__grid > div:last-child > p { max-width: 34rem; margin: 0; color: var(--th-s-muted); font-family: var(--font-display); font-size: 1.03rem; line-height: 1.5; }
+
+  .threnody-section-journal-list { border-bottom: 1px solid var(--th-s-line); }
+  .threnody-section-journal-row { display: grid; grid-template-columns: minmax(11rem, 17rem) minmax(0, 1fr); gap: clamp(2rem, 6vw, 7rem); align-items: center; padding-block: 2.5rem; border-top: 1px solid var(--th-s-line); }
+  .threnody-section-journal-cover-wrap { position: relative; width: 100%; max-width: 17rem; }
+  .threnody-section-journal-cover-wrap > a { display: block; border: 1px solid var(--th-s-line); box-shadow: 0 0.8rem 1.3rem rgba(22, 22, 26, 0.12); transition: transform 180ms ease; }
+  .threnody-section-journal-cover-wrap > a:hover, .threnody-section-journal-cover-wrap > a:focus-visible { transform: translateY(-0.35rem); }
+  .threnody-section-journal-cover { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: contain; }
+  .threnody-section-journal-number { position: absolute; top: -0.15rem; left: -0.35rem; z-index: 1; display: grid; place-items: center; width: 1.8rem; height: 1.8rem; background: var(--th-s-paper); color: var(--th-s-copper-ink); font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+  .threnody-section-journal-copy { display: flex; min-height: 100%; flex-direction: column; justify-content: center; }
+  .threnody-section-eyebrow { margin: 0 0 0.7rem; color: var(--th-s-copper-ink); font-size: 0.59rem; font-weight: 800; letter-spacing: 0.18em; line-height: 1.4; text-transform: uppercase; }
+  .threnody-section-journal-copy h2 { max-width: 18ch; margin: 0; color: var(--th-s-ink); font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 4rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.95; }
+  .threnody-section-journal-copy h2 a { color: inherit; text-decoration: none; }
+  .threnody-section-journal-copy h2 a:hover, .threnody-section-journal-copy h2 a:focus-visible { color: var(--th-s-copper); }
+  .threnody-section-journal-copy > p:not(.threnody-section-eyebrow) { max-width: 39rem; margin: 1.2rem 0 0; color: var(--th-s-muted); font-family: var(--font-display); font-size: 1.08rem; line-height: 1.48; }
+  .threnody-section-journal-meta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.4rem 0 0; color: var(--th-s-muted); font-size: 0.61rem; letter-spacing: 0.08em; }
+  .threnody-section-journal-meta dt { color: var(--th-s-copper); font-weight: 800; text-transform: uppercase; }
+  .threnody-section-journal-meta dd { margin: 0; }
+  .threnody-section-cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--th-s-paper-deep); color: var(--th-s-muted); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .threnody-section-text-link, .threnody-section-inverse-link { display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start; margin-top: 2rem; border-bottom: 1px solid var(--th-s-copper); color: var(--th-s-ink); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
+  .threnody-section-text-link:hover, .threnody-section-text-link:focus-visible { color: var(--th-s-copper); }
+
+  .threnody-section-dark { padding-block: clamp(4rem, 7vw, 7rem); background: var(--th-s-night); color: var(--th-s-ivory); }
+  .threnody-section-dark__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
+  .threnody-section-dark h2, .threnody-section-closing h2 { max-width: 14ch; margin: 1rem 0 0; color: var(--th-s-ivory); font-family: var(--font-display); font-size: clamp(2.5rem, 4.7vw, 5.25rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.92; }
+  .threnody-section-dark__grid > div:last-child { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid rgba(246, 241, 232, 0.3); }
+  .threnody-section-dark__grid > div:last-child > p { color: rgba(246, 241, 232, 0.84); }
+  .threnody-section-dark__grid > div:last-child > p + p { margin-top: 1rem; }
+  .threnody-section-inverse-link { border-color: #d99a82; color: var(--th-s-ivory); }
+  .threnody-section-inverse-link:hover, .threnody-section-inverse-link:focus-visible { color: #d99a82; }
+
+  .threnody-section-field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .threnody-section-field-grid article { min-height: 14rem; padding: 2rem 2rem 2rem 0; border-bottom: 1px solid var(--th-s-line); }
+  .threnody-section-field-grid article:nth-child(even) { padding-inline-start: 2rem; border-inline-start: 1px solid var(--th-s-line); }
+  .threnody-section-field-grid span, .threnody-section-step-grid span, .threnody-section-principle-grid span { color: var(--th-s-copper-ink); font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.14em; }
+  .threnody-section-field-grid h2 { max-width: 16ch; margin: 2rem 0 0; color: var(--th-s-ink); font-family: var(--font-display); font-size: clamp(1.55rem, 2.5vw, 2.6rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
+  .threnody-section-field-grid p, .threnody-section-principle-grid p, .threnody-section-step-grid p { max-width: 27rem; margin: 0.85rem 0 0; color: var(--th-s-muted); font-family: var(--font-display); font-size: 0.93rem; line-height: 1.45; }
+  .threnody-section-principle-grid, .threnody-section-step-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .threnody-section-principle-grid article, .threnody-section-step-grid article { min-height: 13rem; padding: 1.6rem 1.5rem 1.6rem 0; border-top: 1px solid var(--th-s-line); }
+  .threnody-section-principle-grid article + article, .threnody-section-step-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--th-s-line); }
+  .threnody-section-principle-grid h3, .threnody-section-step-grid h3 { max-width: 14ch; margin: 2rem 0 0; color: var(--th-s-ink); font-family: var(--font-display); font-size: 1.35rem; font-weight: 550; letter-spacing: -0.04em; line-height: 1.05; }
+  .threnody-section-step-grid h3 { color: var(--th-s-ink); }
+  .threnody-section-principle-grid--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .threnody-section-closing { padding-block: clamp(3.5rem, 6vw, 6rem); background: var(--th-s-plum); color: var(--th-s-ivory); }
+  .threnody-section-closing__inner { display: flex; justify-content: space-between; gap: 3rem; align-items: end; }
+  .threnody-section-closing .threnody-section-kicker { color: var(--th-s-copper-bright); }
+  .threnody-section-closing .threnody-section-text-link { margin: 0; border-color: #e2a08c; color: var(--th-s-ivory); }
+  .threnody-section-link-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 1.8rem; }
+  .threnody-section-button { display: inline-flex; align-items: center; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--th-s-copper); border-radius: var(--p-radius-button); background: var(--th-s-copper); color: var(--th-s-ivory); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: background-color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-decelerate); }
+  .threnody-section-button:hover, .threnody-section-button:focus-visible { background: var(--th-s-plum); border-color: var(--th-s-plum); transform: translateY(-1px); }
+  .threnody-section-link-row > .threnody-section-text-link,
+  .threnody-section-link-row > .threnody-section-inverse-link { align-self: center; min-height: var(--p-action-height); margin-top: 0; padding-block: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
+  .threnody-section-submission-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .threnody-section-submission-grid article { display: flex; min-height: 13rem; flex-direction: column; padding: 1.7rem 2rem 1.2rem 0; border-bottom: 1px solid var(--th-s-line); }
+  .threnody-section-submission-grid article:nth-child(even) { padding-inline-start: 2rem; border-inline-start: 1px solid var(--th-s-line); }
+  .threnody-section-submission-grid h2 { max-width: 17ch; margin: 1rem 0 0; color: var(--th-s-ink); font-family: var(--font-display); font-size: clamp(1.5rem, 2.3vw, 2.4rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; }
+  .threnody-section-submission-grid .threnody-section-text-link { margin-top: auto; }
+  .threnody-section-about-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; }
+  .threnody-section-prose { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid var(--th-s-line); }
+  .threnody-section-prose p + p { margin-top: 1.2rem; }
+
+  .threnody-section-footer { padding-block: 2.8rem 1.2rem; border-top: 1px solid var(--th-s-line); background: var(--th-s-paper); }
+  .threnody-section-footer__top { display: grid; grid-template-columns: minmax(13rem, 1fr) minmax(0, 1.5fr) auto; gap: 2rem; align-items: center; padding-bottom: 2.5rem; }
+  .threnody-section-footer__brand { display: flex; flex-direction: column; gap: 0.7rem; color: var(--th-s-ink); text-decoration: none; }
+  .threnody-section-footer__brand img { width: min(12rem, 100%); height: auto; }
+  .threnody-section-footer__brand span { color: var(--th-s-muted); font-size: 0.57rem; }
+  .threnody-section-footer__top nav { justify-content: center; gap: 1.5rem; }
+  .threnody-section-footer__top > p { margin: 0; padding-inline-start: 2rem; border-inline-start: 1px solid var(--th-s-line); color: var(--th-s-muted); font-size: 0.61rem; }
+  .threnody-section-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem 2rem; padding-top: 1rem; border-top: 1px solid var(--th-s-line); color: var(--th-s-muted); font-size: 0.59rem; }
+  .threnody-section-footer__bottom p { margin: 0; }
+  .threnody-section-footer__bottom nav { display: flex; gap: 1.2rem; }
+  .threnody-section-footer a { text-decoration: none; }
+  .threnody-section-footer a:hover, .threnody-section-footer a:focus-visible { color: var(--th-s-copper); }
+
+  @media (max-width: 900px) {
+    .threnody-section-page { --th-s-shell: min(100% - 3rem, 54rem); }
+    .threnody-section-nav { gap: 1.1rem; }
+    .threnody-section-nav a, .threnody-section-tools > a, .threnody-section-language :global(.lang-switcher__trigger) { font-size: 0.57rem; }
+    .threnody-section-hero__inner, .threnody-section-dark__grid, .threnody-section-about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .threnody-section-hero__note { justify-self: start; }
+    .threnody-section-heading { grid-template-columns: 1fr; gap: 1.5rem; }
+    .threnody-section-principle-grid, .threnody-section-step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .threnody-section-principle-grid article:nth-child(odd), .threnody-section-step-grid article:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .threnody-section-page { --th-s-shell: calc(100% - 2rem); }
+    .threnody-section-header__inner { min-height: 4.3rem; }
+    .threnody-section-company :global(.logo__name) { font-size: 0.92rem; }
+    .threnody-section-nav, .threnody-section-tools > a, .threnody-section-language { display: none; }
+    .threnody-section-tools { margin-inline-start: auto; }
+    .threnody-section-menu { display: grid; gap: 0.32rem; width: 2.6rem; height: 2.6rem; padding: 0.7rem 0.5rem; border: 1px solid rgba(246, 241, 232, 0.5); border-radius: var(--p-radius-button); background: transparent; }
+    .threnody-section-menu > span:not(.visually-hidden) { display: block; width: 100%; height: 1px; background: var(--th-s-ivory); }
+    .threnody-section-mobile-nav { position: absolute; inset: 100% 0 auto; z-index: 12; padding-bottom: 0.75rem; border-bottom: 1px solid var(--th-s-line); background: var(--th-s-night); box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.12); }
+    .threnody-section-mobile-nav:not([hidden]) { display: grid; }
+    .threnody-section-mobile-nav a { padding: 0.9rem 1rem; border-top: 1px solid rgba(246, 241, 232, 0.15); color: var(--th-s-ivory); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
+    .threnody-section-mobile-nav > div { padding: 0.75rem 1rem 0; }
+    .threnody-section-mobile-nav :global(.lang-switcher__trigger) { color: var(--th-s-ivory); }
+    .threnody-section-hero { min-height: 43rem; }
+    .threnody-section-hero__inner { align-content: end; padding-block: 3.5rem 4rem; }
+    .threnody-section-hero__art { object-position: 66% center; }
+    .threnody-section-hero__shade { background: rgba(23, 21, 21, 0.7); }
+    .threnody-section-hero h1 { max-width: 11ch; font-size: clamp(3.1rem, 13vw, 5.2rem); }
+    .threnody-section-hero__note { gap: 0.55rem; padding-inline-start: 1rem; }
+    .threnody-section-hero__note p { margin-top: 0.7rem; }
+    .threnody-section-bar { align-items: flex-start; flex-direction: column; gap: 0.6rem; }
+    .threnody-section-bar > p:last-child { margin: 0; }
+    .threnody-section-journal-row { grid-template-columns: 1fr; gap: 1.6rem; }
+    .threnody-section-journal-cover-wrap { width: 12rem; }
+    .threnody-section-journal-copy h2 { font-size: 2.6rem; }
+    .threnody-section-field-grid, .threnody-section-principle-grid, .threnody-section-step-grid, .threnody-section-submission-grid { grid-template-columns: 1fr; }
+    .threnody-section-field-grid article, .threnody-section-field-grid article:nth-child(even), .threnody-section-principle-grid article, .threnody-section-principle-grid article + article, .threnody-section-step-grid article, .threnody-section-step-grid article + article, .threnody-section-submission-grid article, .threnody-section-submission-grid article:nth-child(even) { min-height: auto; padding: 1.5rem 0; border-inline-start: 0; }
+    .threnody-section-field-grid article:first-child, .threnody-section-principle-grid article:first-child, .threnody-section-step-grid article:first-child, .threnody-section-submission-grid article:first-child { padding-top: 0; }
+    .threnody-section-field-grid h2 { margin-top: 1.2rem; }
+    .threnody-section-principle-grid h3, .threnody-section-step-grid h3 { margin-top: 1.1rem; }
+    .threnody-section-dark__grid > div:last-child, .threnody-section-prose { padding-inline-start: 1rem; }
+    .threnody-section-closing__inner { align-items: flex-start; flex-direction: column; gap: 2rem; }
+    .threnody-section-footer__top { grid-template-columns: 1fr; gap: 1.7rem; }
+    .threnody-section-footer__top nav { justify-content: flex-start; flex-wrap: wrap; gap: 0.8rem 1.3rem; }
+    .threnody-section-footer__top > p { margin: 0; padding: 1rem 0 0; border-inline-start: 0; border-top: 1px solid var(--th-s-line); }
+  }
+</style>

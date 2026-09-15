@@ -1,0 +1,198 @@
+---
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import articleData from '@/data/articles.json';
+import { isRetractedArticle } from '@/lib/articleFilter.mjs';
+import { getContent } from '@/i18n/content';
+import { localizePath } from '@/i18n/utils';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+
+const articles = [...articleData.articles]
+  .filter((article) => !isRetractedArticle(article))
+  .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+  .slice(0, 3);
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    timeZone: 'UTC',
+  }).format(new Date(value + 'T00:00:00Z'));
+}
+---
+
+<section class="row latest-articles">
+  <div class="container-wide">
+    <div class="latest-articles__header">
+      <SectionHeading
+        title={t('home.selectedArticles')}
+        lede={t('home.selectedArticlesLede')}
+      />
+      <a href={localizePath('/journals/', locale)} class="latest-articles__link">{t('common.browseJournals')}</a>
+    </div>
+
+    <ul class="latest-articles__list" role="list">
+      {articles.map((article, index) => (
+        <li class="latest-articles__item">
+          <a
+            href={article.url}
+            class="latest-articles__link-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={article.title + ' (opens in a new tab)'}
+          >
+            <div class="latest-articles__meta">
+              <span class="latest-articles__number" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span>{article.journal}</span>
+              <time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+            </div>
+            <h3>{article.title}</h3>
+            <p>{article.summary}</p>
+            <span class="latest-articles__authors">{article.authors.join(' · ')}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .latest-articles {
+    background: var(--surface-secondary);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    padding-block: 2rem 2.2rem;
+  }
+
+  .latest-articles :global(.section-heading__title) {
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.15;
+  }
+
+  .latest-articles :global(.section-heading__lede) {
+    margin-top: 0.3rem;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .latest-articles__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .latest-articles__link {
+    margin-top: 0.35rem;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .latest-articles__link:hover,
+  .latest-articles__link:focus-visible {
+    color: var(--interactive-default);
+  }
+
+  .latest-articles__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--p-border-hairline) solid var(--border-default);
+  }
+
+  .latest-articles__item {
+    min-width: 0;
+    border-bottom: var(--p-border-hairline) solid var(--border-default);
+  }
+
+  .latest-articles__link-card {
+    display: block;
+    height: 100%;
+    padding-block: 1.1rem 1.25rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .latest-articles__link-card:hover h3,
+  .latest-articles__link-card:focus-visible h3 {
+    color: var(--interactive-default);
+  }
+
+  .latest-articles__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.56rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .latest-articles__meta time {
+    margin-inline-start: auto;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  .latest-articles__number {
+    color: var(--text-accent);
+  }
+
+  .latest-articles h3 {
+    max-width: 34ch;
+    margin-top: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.12;
+    transition: color var(--p-duration-fast) var(--p-ease-standard);
+  }
+
+  .latest-articles__link-card > p {
+    max-width: 52ch;
+    margin-top: 0.55rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    line-height: 1.42;
+  }
+
+  .latest-articles__authors {
+    display: block;
+    margin-top: 0.7rem;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    line-height: 1.3;
+  }
+
+  @media (min-width: 768px) {
+    .latest-articles__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 1.5rem;
+    }
+
+    .latest-articles__item + .latest-articles__item {
+      padding-inline-start: 1.5rem;
+      border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
+    }
+
+    .latest-articles__link-card {
+      padding-block: 1.25rem 1.45rem;
+    }
+  }
+</style>

@@ -1,0 +1,547 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import announcementData from '@/data/announcements.json';
+import { getNewsCopy } from '@/i18n/utility';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getNewsCopy(locale);
+const posts = [...announcementData.announcements]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 5);
+
+const [featured, ...recent] = posts;
+const sourceCount = new Set(posts.map((post) => post.source)).size;
+const countNoSpace = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale);
+const countJoin = countNoSpace ? '' : ' ';
+const sourceSummary = `${sourceCount}${countJoin}${sourceCount === 1 ? copy.publishingSourceSingular : copy.publishingSources}`;
+
+function formatDate(value: string) {
+  const dateLocale = locale === 'zh-hans' ? 'zh-CN' : locale === 'zh-hant' ? 'zh-TW' : locale;
+  return new Intl.DateTimeFormat(dateLocale, {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    timeZone: 'UTC',
+  }).format(new Date(value + 'T00:00:00Z'));
+}
+
+function displaySource(value: string) {
+  return value.replace(/[—–]/g, ' / ');
+}
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/news/"
+  locale={locale}
+>
+  <div class="news-page">
+    <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="news-title" variant="compact">
+      <div slot="aside" class="news-hero__aside-content" aria-label={copy.overviewLabel}>
+        <p class="text-overline">{copy.acrossGroup}</p>
+        <div class="news-hero__stat">
+          <strong>{String(posts.length).padStart(2, '0')}</strong>
+          <span>{copy.latestAnnouncements}</span>
+        </div>
+        <p>{sourceSummary}</p>
+      </div>
+    </GroupHero>
+
+    {featured ? (
+      <>
+        <section class="news-feature row" aria-labelledby="latest-announcement-title">
+          <div class="container-wide">
+            <div class="news-section-label">
+              <p class="text-overline">{copy.latestAnnouncement}</p>
+              <span>01 / {String(posts.length).padStart(2, '0')}</span>
+            </div>
+
+            <article class="news-feature__item">
+              <div class="news-feature__source">
+                <span>{displaySource(featured.sourceLabel)}</span>
+                <span>{copy.typeLabels[featured.type.toLowerCase() as keyof typeof copy.typeLabels] ?? featured.type}</span>
+                <time datetime={featured.date}>{formatDate(featured.date)}</time>
+              </div>
+
+              <div class="news-feature__body">
+                <h2 id="latest-announcement-title">{featured.title}</h2>
+                <p>{featured.summary}</p>
+                <a
+                  href={featured.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={featured.title + ' (opens in a new tab)'}
+                >
+                  {copy.readFullAnnouncement}
+                </a>
+              </div>
+
+              <div class="news-feature__note">
+                <p class="text-overline">{copy.fromNetwork}</p>
+                <p>{displaySource(featured.sourceLabel)}</p>
+                <time datetime={featured.date}>{formatDate(featured.date)}</time>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="news-archive row" aria-labelledby="recent-updates-title">
+          <div class="container-wide">
+            <div class="news-archive__header">
+              <div>
+                <p class="text-overline">{copy.recentUpdates}</p>
+                <h2 id="recent-updates-title">{copy.archiveTitle}</h2>
+              </div>
+              <p>{copy.archiveText}</p>
+            </div>
+
+            <ol class="news-archive__list">
+              {recent.map((post, index) => (
+                <li>
+                  <a
+                    href={post.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={post.title + ' (opens in a new tab)'}
+                  >
+                    <span class="news-archive__number" aria-hidden="true">
+                      {String(index + 2).padStart(2, '0')}
+                    </span>
+                    <span class="news-archive__meta">
+                      <span>{displaySource(post.sourceLabel)}</span>
+                      <span>{copy.typeLabels[post.type.toLowerCase() as keyof typeof copy.typeLabels] ?? post.type}</span>
+                      <time datetime={post.date}>{formatDate(post.date)}</time>
+                    </span>
+                    <span class="news-archive__body">
+                      <span class="news-archive__title">{post.title}</span>
+                      <span class="news-archive__summary">{post.summary}</span>
+                    </span>
+                    <span class="news-archive__action">{copy.readAnnouncement}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      </>
+    ) : (
+      <section class="news-empty row" aria-labelledby="empty-news-title">
+        <div class="container-wide">
+          <p class="text-overline">{copy.title}</p>
+          <h2 id="empty-news-title">{copy.emptyTitle}</h2>
+          <p>{copy.emptyText}</p>
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .news-page {
+    background: var(--surface-primary);
+  }
+
+  .news-hero {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    padding-block: 0;
+  }
+
+  .news-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(15rem, 0.75fr);
+    gap: clamp(3rem, 10vw, 10rem);
+    align-items: end;
+    min-height: 27rem;
+    padding-block: clamp(4rem, 8vw, 7rem) clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .news-hero__copy h1 {
+    max-width: 12ch;
+    margin-top: 0.7rem;
+  }
+
+  .news-hero__lede {
+    max-width: 40rem;
+    margin-top: 1.3rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    line-height: 1.45;
+  }
+
+  .news-hero__index {
+    max-width: 22rem;
+    padding: 0.2rem 0 0.2rem 1.5rem;
+    border-inline-start: 2px solid var(--brand-accent);
+  }
+
+  .news-hero__stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin-top: 0.8rem;
+  }
+
+  .news-hero__stat strong {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+
+  .news-hero__stat span {
+    max-width: 8rem;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .news-hero__index > p:last-child {
+    max-width: 18rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .news-feature {
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .news-section-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 0.9rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .news-section-label > p,
+  .news-section-label > span {
+    margin: 0;
+  }
+
+  .news-section-label > span {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.12em;
+  }
+
+  .news-feature__item {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.8fr) minmax(0, 1.7fr) minmax(12rem, 0.65fr);
+    gap: clamp(2rem, 6vw, 7rem);
+    padding-block: 2rem 2.25rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .news-feature__source,
+  .news-feature__note {
+    color: var(--text-muted);
+    font-size: 0.66rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .news-feature__source {
+    display: grid;
+    align-content: start;
+    gap: 0.5rem;
+  }
+
+  .news-feature__source span:nth-child(2) {
+    color: var(--text-accent);
+  }
+
+  .news-feature__source time {
+    margin-top: 0.35rem;
+  }
+
+  .news-feature__body h2 {
+    max-width: 24ch;
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.05;
+  }
+
+  .news-feature__body > p {
+    max-width: 45rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .news-feature__body > a,
+  .news-archive__action {
+    display: inline-block;
+    margin-top: 1.35rem;
+    color: var(--text-link);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    text-underline-offset: 0.3em;
+  }
+
+  .news-feature__body > a:hover,
+  .news-feature__body > a:focus-visible,
+  .news-archive a:hover .news-archive__title,
+  .news-archive a:focus-visible .news-archive__title {
+    color: var(--interactive-default);
+  }
+
+  .news-feature__note {
+    padding-inline-start: 1.25rem;
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .news-feature__note p {
+    margin: 0;
+  }
+
+  .news-feature__note p:nth-child(2) {
+    margin-top: 0.6rem;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: var(--fw-regular);
+    letter-spacing: 0;
+    line-height: 1.35;
+    text-transform: none;
+  }
+
+  .news-feature__note time {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .news-archive {
+    background: var(--surface-secondary);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    padding-block: clamp(3.5rem, 7vw, 6rem) clamp(5rem, 10vw, 9rem);
+  }
+
+  .news-archive__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+  }
+
+  .news-archive__header h2 {
+    margin-top: 0.7rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .news-archive__header > p {
+    max-width: 22rem;
+    margin: 0 0 0.15rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .news-archive__list {
+    margin: clamp(2rem, 4vw, 3.5rem) 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .news-archive__list li {
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .news-archive__list a {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(10rem, 0.7fr) minmax(0, 1.65fr) auto;
+    gap: clamp(1rem, 3vw, 3rem);
+    align-items: start;
+    padding: 1.5rem 0.75rem 1.6rem;
+    margin-inline: -0.75rem;
+    border-radius: var(--p-radius-surface);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .news-archive__list a:hover,
+  .news-archive__list a:focus-visible {
+    background: var(--surface-primary);
+  }
+
+  .news-archive__number {
+    padding-top: 0.1rem;
+    color: var(--text-accent);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+  }
+
+  .news-archive__meta {
+    display: grid;
+    gap: 0.45rem;
+    color: var(--text-muted);
+    font-size: 0.64rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .news-archive__meta span:nth-child(2) {
+    color: var(--text-accent);
+  }
+
+  .news-archive__meta time {
+    margin-top: 0.2rem;
+  }
+
+  .news-archive__body {
+    display: block;
+    min-width: 0;
+  }
+
+  .news-archive__title,
+  .news-archive__summary {
+    display: block;
+  }
+
+  .news-archive__title {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    line-height: 1.2;
+    transition: color var(--p-duration-fast) var(--p-ease-standard);
+  }
+
+  .news-archive__summary {
+    max-width: 62ch;
+    margin-top: 0.45rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .news-archive__action {
+    margin-top: 0.1rem;
+    white-space: nowrap;
+  }
+
+  .news-empty {
+    min-height: 28rem;
+    padding-block: 5rem;
+  }
+
+  .news-empty h2 {
+    margin-top: 0.7rem;
+  }
+
+  .news-empty > p:last-child {
+    max-width: 34rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1023px) {
+    .news-hero__inner {
+      grid-template-columns: minmax(0, 1.1fr) minmax(14rem, 0.9fr);
+      gap: 3rem;
+    }
+
+    .news-feature__item {
+      grid-template-columns: minmax(8rem, 0.7fr) minmax(0, 1.8fr);
+      gap: 2.5rem;
+    }
+
+    .news-feature__note {
+      grid-column: 2;
+      margin-top: -0.5rem;
+    }
+
+    .news-archive__list a {
+      grid-template-columns: 2rem minmax(8rem, 0.7fr) minmax(0, 1.5fr);
+    }
+
+    .news-archive__action {
+      grid-column: 3;
+      margin-top: 0.2rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .news-hero__inner,
+    .news-archive__header,
+    .news-feature__item {
+      grid-template-columns: 1fr;
+    }
+
+    .news-hero__inner {
+      gap: 3rem;
+      min-height: 0;
+      padding-block: 4rem 3.5rem;
+    }
+
+    .news-hero__copy h1 {
+      max-width: 10ch;
+    }
+
+    .news-hero__index {
+      max-width: 24rem;
+    }
+
+    .news-feature__item {
+      gap: 1.75rem;
+    }
+
+    .news-feature__note {
+      grid-column: auto;
+      margin-top: 0;
+    }
+
+    .news-archive__header > p {
+      margin-top: 0.25rem;
+    }
+
+    .news-archive__list a {
+      display: block;
+      padding-block: 1.35rem 1.5rem;
+    }
+
+    .news-archive__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem 0.9rem;
+    }
+
+    .news-archive__meta time {
+      width: 100%;
+      margin-top: 0.1rem;
+    }
+
+    .news-archive__body {
+      margin-top: 0.7rem;
+    }
+
+    .news-archive__action {
+      display: block;
+      margin-top: 1rem;
+    }
+  }
+</style>

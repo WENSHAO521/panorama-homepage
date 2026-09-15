@@ -1,0 +1,32 @@
+---
+import { corporateStructure } from '@/data/site';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import InstitutionArea from './InstitutionArea.astro';
+---
+
+<section class="row">
+  <div class="container-wide">
+    <SectionHeading
+      title="One organisation, four areas of work"
+      lede="Panorama Scholarly Group is structured as a single accountable organisation, not a loose federation of brands."
+    />
+    <ul class="institution-list" role="list">
+      {corporateStructure.divisions.map((division, i) => (
+        <InstitutionArea
+          index={i + 1}
+          name={division.name}
+          path={division.path}
+          description={division.description}
+        />
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .institution-list {
+    list-style: none;
+    margin: var(--p-space-8) 0 0;
+    padding: 0;
+  }
+</style>

@@ -1,0 +1,630 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getAllImprints } from '@/lib/content/imprints';
+import { getJournalsForImprint } from '@/lib/content/imprints';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import { getContent } from '@/i18n/content';
+import { getLocalizedImprints } from '@/i18n/catalog';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const t = getContent(locale);
+
+const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprint, index) => {
+  const journals = getJournalsForImprint(imprint.slug);
+
+  return {
+    imprint,
+    journals,
+    previewJournals: journals.slice(0, 3),
+    index: String(index + 1).padStart(2, '0'),
+  };
+});
+
+const totalJournals = imprintGroups.reduce((total, group) => total + group.journals.length, 0);
+---
+
+<BaseLayout
+  title={t('imprints.editorialImprints')}
+  description={t('imprints.metaDescription')}
+  path="/imprints/"
+  locale={locale}
+>
+  <div class="imprints-directory">
+    <GroupHero
+      eyebrow={t('imprints.overline')}
+      title={`${t('imprints.titleOne')} ${t('imprints.titleTwo')}`}
+      lede={t('imprints.lede')}
+      titleId="imprints-title"
+      variant="catalogue"
+    >
+      <div slot="aside" class="imprints-directory__stats" aria-label="Imprint directory summary">
+        <div>
+          <strong>{imprintGroups.length}</strong>
+          <span>{t('imprints.editorialImprints')}</span>
+        </div>
+        <div>
+          <strong>{totalJournals}</strong>
+          <span>{t('journals.active')}</span>
+        </div>
+      </div>
+    </GroupHero>
+
+    <nav class="container-wide imprints-directory__index" aria-label={t('imprints.editorialImprints')}>
+      {imprintGroups.map(({ imprint, index }) => (
+        <a href={`#imprint-${imprint.slug}`}>
+          <span>{index}</span>
+          <strong>{imprint.name}</strong>
+        </a>
+      ))}
+    </nav>
+
+    <section class="container-wide imprints-directory__system" aria-labelledby="system-title">
+      <header class="imprints-directory__section-heading">
+        <div>
+        <p class="imprints-directory__overline">{t('imprints.systemOverline')}</p>
+          <h2 id="system-title">{t('imprints.systemTitle')}</h2>
+        </div>
+        <p>
+          {t('imprints.systemText')}
+        </p>
+      </header>
+
+      <div class="imprints-directory__list">
+        {imprintGroups.map(({ imprint, journals, previewJournals, index }) => (
+          <article
+            id={`imprint-${imprint.slug}`}
+            class="imprint-row"
+            style={`--imprint-accent: ${imprint.accent ?? 'var(--text-link)'}`}
+            aria-labelledby={`imprint-title-${imprint.slug}`}
+          >
+            <div class="imprint-row__meta">
+              <span class="imprint-row__number">{index}</span>
+              <span>{imprint.scope}</span>
+            </div>
+
+            <div class="imprint-row__identity">
+              <h3 id={`imprint-title-${imprint.slug}`}>
+                  <a class="imprint-row__logo" href={localizePath(`/imprints/${imprint.slug}/`, locale)} aria-label={`${imprint.name} home`}>
+                  {imprint.logo && <img src={imprint.logo} alt={imprint.name} width="260" height="64" loading="lazy" />}
+                </a>
+              </h3>
+              <p>{imprint.description}</p>
+              <ul class="imprint-row__disciplines" role="list">
+                {imprint.disciplines?.map((discipline) => <li>{discipline}</li>)}
+              </ul>
+            </div>
+
+            <div class="imprint-row__journals">
+              <div class="imprint-row__journals-header">
+                <span>{journals.length} {journals.length === 1 ? t('common.journal') : t('common.journals')}</span>
+                <a href={localizePath(`/imprints/${imprint.slug}/`, locale)}>{t('common.exploreImprint')}</a>
+              </div>
+
+              <ul class="imprint-row__preview" role="list">
+                {previewJournals.map((journal) => {
+                  const coverAsset = getJournalCoverAsset(journal.cover);
+                  return (
+                    <li>
+                      <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${journal.title} website`}>
+                        {coverAsset ? (
+                          <Image
+                            src={coverAsset}
+                            alt=""
+                            width={94}
+                            height={132}
+                            widths={[94, 188]}
+                            sizes="(max-width: 639px) 4.75rem, 5.875rem"
+                            loading="lazy"
+                          />
+                        ) : journal.cover ? (
+                          <Image src={journal.cover} alt="" width={94} height={132} loading="lazy" />
+                        ) : null}
+                        <span>{journal.shortTitle ?? journal.title}</span>
+                      </a>
+                    </li>
+                  );
+                })}
+                {journals.length > previewJournals.length && (
+                  <li class="imprint-row__more">
+                    <strong>+{journals.length - previewJournals.length}</strong>
+                    <span>{t('common.moreJournals')}</span>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="imprints-directory__closing" aria-labelledby="closing-title">
+      <div class="container-wide imprints-directory__closing-inner">
+        <div>
+          <p class="imprints-directory__overline">{t('common.onePublishingGroup')}</p>
+          <h2 id="closing-title">{t('common.manyPaths')}</h2>
+        </div>
+        <a class="imprints-directory__closing-link" href={localizePath('/journals/', locale)}>{t('common.viewAllJournals')}</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .imprints-directory {
+    background: var(--surface-primary);
+    color: var(--text-primary);
+  }
+
+  .imprints-directory__hero {
+    padding-block: clamp(3.8rem, 7vw, 6.5rem) 0;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .imprints-directory__hero-inner {
+    padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .imprints-directory__overline,
+  .imprint-row__meta,
+  .imprint-row__journals-header,
+  .imprint-row__disciplines,
+  .imprint-row__preview span,
+  .imprints-directory__index,
+  .imprints-directory__stats span {
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.18em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .imprints-directory__overline {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .imprints-directory__hero-grid {
+    display: grid;
+    align-items: end;
+    gap: clamp(2.5rem, 8vw, 9rem);
+    grid-template-columns: minmax(0, 1.5fr) minmax(15rem, 0.5fr);
+    margin-top: 1.35rem;
+  }
+
+  .imprints-directory h1,
+  .imprints-directory h2,
+  .imprints-directory h3 {
+    font-family: var(--font-display);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.045em;
+  }
+
+  .imprints-directory h1 {
+    max-width: 10ch;
+    margin: 0;
+    font-size: clamp(3.6rem, 7.5vw, 7.2rem);
+    line-height: 0.92;
+  }
+
+  .imprints-directory__hero-lede {
+    max-width: 36rem;
+    margin: 1.65rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+    line-height: 1.42;
+  }
+
+  .imprints-directory__stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 0 0 0.25rem 1.5rem;
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .imprints-directory__stats strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 4.6rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .imprints-directory__stats span {
+    display: block;
+    margin-top: 0.65rem;
+    color: var(--text-muted);
+    font-size: 0.5rem;
+  }
+
+  .imprints-directory__index {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin-top: 0;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .imprints-directory__index a {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1rem 1rem 1.2rem 0;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .imprints-directory__index a + a {
+    padding-inline-start: 1rem;
+    border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .imprints-directory__index span {
+    color: var(--text-muted);
+    font-size: 0.5rem;
+  }
+
+  .imprints-directory__index strong {
+    overflow: hidden;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .imprints-directory__index a:hover,
+  .imprints-directory__index a:focus-visible {
+    color: var(--text-link);
+  }
+
+  .imprints-directory__system {
+    padding-block: clamp(4.5rem, 8vw, 7rem) clamp(5rem, 9vw, 8rem);
+  }
+
+  .imprints-directory__section-heading {
+    display: grid;
+    align-items: end;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.65fr);
+    padding-bottom: 2.2rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .imprints-directory h2 {
+    max-width: 14ch;
+    margin: 0.9rem 0 0;
+    font-size: clamp(2.25rem, 4vw, 4.2rem);
+    line-height: 0.98;
+  }
+
+  .imprints-directory__section-heading > p {
+    max-width: 28rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .imprints-directory__list {
+    margin-top: 0;
+  }
+
+  .imprint-row {
+    display: grid;
+    align-items: start;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    grid-template-columns: minmax(6rem, 0.35fr) minmax(15rem, 0.95fr) minmax(22rem, 1.4fr);
+    padding-block: clamp(2.2rem, 4vw, 3.75rem);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .imprint-row__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .imprint-row__number {
+    color: var(--imprint-accent);
+    font-family: var(--font-display);
+    font-size: 2.1rem;
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .imprint-row__meta > span:last-child {
+    max-width: 8rem;
+    font-size: 0.48rem;
+    line-height: 1.45;
+  }
+
+  .imprint-row__identity {
+    min-width: 0;
+  }
+
+  .imprint-row__logo {
+    display: flex;
+    width: min(100%, 15rem);
+    height: 3.9rem;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .imprint-row__logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .imprint-row__identity h3 {
+    margin: 0;
+    line-height: 1;
+  }
+
+  .imprint-row__identity > p {
+    max-width: 25rem;
+    margin: 1rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .imprint-row__disciplines {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.65rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--imprint-accent);
+    font-size: 0.48rem;
+  }
+
+  .imprint-row__disciplines li + li::before {
+    margin-right: 0.65rem;
+    color: var(--border-strong);
+    content: '/';
+  }
+
+  .imprint-row__journals {
+    min-width: 0;
+  }
+
+  .imprint-row__journals-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 3.9rem;
+    padding-bottom: 0.8rem;
+    border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--imprint-accent) 50%, transparent);
+    color: var(--text-muted);
+    font-size: 0.5rem;
+  }
+
+  .imprint-row__journals-header a {
+    color: var(--text-link);
+    font-size: 0.6rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .imprint-row__journals-header a:hover,
+  .imprint-row__journals-header a:focus-visible {
+    color: var(--interactive-hover);
+  }
+
+  .imprint-row__preview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(4.25rem, 0.7fr);
+    gap: 1rem;
+    margin: 1.15rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .imprint-row__preview li {
+    min-width: 0;
+  }
+
+  .imprint-row__preview a {
+    display: block;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .imprint-row__preview img {
+    display: block;
+    width: 100%;
+    max-width: 5.875rem;
+    height: auto;
+    aspect-ratio: 94 / 132;
+    object-fit: cover;
+    box-shadow: var(--p-shadow-sm);
+    transition: transform var(--p-duration-base) var(--p-ease-standard), box-shadow var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .imprint-row__preview a:hover img,
+  .imprint-row__preview a:focus-visible img {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--p-shadow-md);
+  }
+
+  .imprint-row__preview span {
+    display: block;
+    max-width: 6.5rem;
+    margin-top: 0.6rem;
+    overflow: hidden;
+    color: var(--text-secondary);
+    font-size: 0.48rem;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .imprint-row__more {
+    display: flex;
+    min-height: 8.25rem;
+    flex-direction: column;
+    justify-content: center;
+    border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
+    padding-inline-start: 1rem;
+    color: var(--text-muted);
+  }
+
+  .imprint-row__more strong {
+    color: var(--imprint-accent);
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.05em;
+    line-height: 0.95;
+  }
+
+  .imprint-row__more span {
+    max-width: 4.5rem;
+    margin-top: 0.4rem;
+    white-space: normal;
+  }
+
+  .imprints-directory__closing {
+    background: var(--surface-inverse);
+    color: var(--text-inverse);
+  }
+
+  .imprints-directory__closing-inner {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  .imprints-directory__closing .imprints-directory__overline {
+    color: var(--text-accent-inverse);
+  }
+
+  .imprints-directory__closing h2 {
+    max-width: 13ch;
+    margin-top: 0.8rem;
+    color: var(--text-inverse);
+    font-size: clamp(2.3rem, 5vw, 5rem);
+  }
+
+  .imprints-directory__closing-link {
+    flex: 0 0 auto;
+    padding-bottom: 0.45rem;
+    border-bottom: var(--p-border-hairline) solid var(--text-accent);
+    color: var(--text-inverse);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+  }
+
+  .imprints-directory__closing-link:hover,
+  .imprints-directory__closing-link:focus-visible {
+    color: var(--text-accent);
+  }
+
+  @media (max-width: 1099px) {
+    .imprint-row {
+      grid-template-columns: minmax(5.5rem, 0.3fr) minmax(14rem, 0.9fr) minmax(18rem, 1.3fr);
+      gap: 1.5rem;
+    }
+
+    .imprint-row__preview {
+      gap: 0.65rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .imprints-directory__hero-grid,
+    .imprints-directory__section-heading,
+    .imprint-row {
+      grid-template-columns: 1fr;
+    }
+
+    .imprints-directory__hero-grid {
+      gap: 2.5rem;
+    }
+
+    .imprints-directory h1 {
+      max-width: 11ch;
+      font-size: clamp(3.35rem, 15vw, 5.2rem);
+    }
+
+    .imprints-directory__stats {
+      max-width: 24rem;
+      padding-block: 0.25rem;
+    }
+
+    .imprints-directory__index {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .imprints-directory__index a:nth-child(odd) {
+      padding-inline-start: 0;
+      border-inline-start: 0;
+    }
+
+    .imprints-directory__index a:nth-child(n + 3) {
+      border-top: var(--p-border-hairline) solid var(--border-subtle);
+    }
+
+    .imprint-row__meta {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 0.7rem;
+      border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--imprint-accent) 50%, transparent);
+    }
+
+    .imprint-row__meta > span:last-child {
+      max-width: 14rem;
+      text-align: right;
+    }
+
+    .imprint-row__journals-header {
+      margin-top: 1.75rem;
+    }
+
+    .imprint-row__preview {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(4.25rem, 0.8fr);
+    }
+
+    .imprints-directory__closing-inner {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 419px) {
+    .imprint-row__preview {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .imprint-row__more {
+      min-height: auto;
+      border-inline-start: 0;
+      border-top: var(--p-border-hairline) solid var(--border-subtle);
+      padding: 0.75rem 0 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .imprint-row__preview img { transition: none; }
+  }
+</style>

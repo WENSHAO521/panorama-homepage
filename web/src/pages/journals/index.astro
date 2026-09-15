@@ -1,0 +1,412 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getAllImprints, getJournalsForImprint } from '@/lib/content/imprints';
+import { getActiveJournals } from '@/lib/content/journals';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import { getContent } from '@/i18n/content';
+import { getLocalizedImprints } from '@/i18n/catalog';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const t = getContent(locale);
+
+const activeJournals = getActiveJournals();
+const imprintGroups = getLocalizedImprints(getAllImprints(), locale)
+  .map((imprint) => ({
+    imprint,
+    journals: getJournalsForImprint(imprint.slug),
+  }))
+  .filter(({ journals }) => journals.length > 0);
+
+function compactDescription(description?: string) {
+  const fallback = 'Independent research across disciplines, communities, and changing worlds.';
+  const text = description?.trim() || fallback;
+  const firstSentence = text.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || text;
+  return firstSentence.length > 132
+    ? firstSentence.slice(0, 129).replace(/\s+\S*$/, '') + '…'
+    : firstSentence;
+}
+---
+
+<BaseLayout
+  title={t('journals.overline')}
+  description={t('journals.metaDescription')}
+  path="/journals/"
+  locale={locale}
+>
+  <div class="journal-directory">
+    <GroupHero
+      eyebrow={t('journals.overline')}
+      title={t('journals.title')}
+      lede={`${activeJournals.length}${['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '}${t('journals.lede')}`}
+      titleId="journals-title"
+      variant="catalogue"
+    >
+      <div slot="aside" class="group-hero__metric" aria-label={`${activeJournals.length} ${t('journals.active')}`}>
+        <strong>{activeJournals.length}</strong>
+        <span>{t('journals.active')}</span>
+        <p>{t('journals.statText')}</p>
+      </div>
+    </GroupHero>
+
+    <div class="container-wide journal-directory__groups">
+      {imprintGroups.map(({ imprint, journals }) => (
+        <section
+          id={`imprint-${imprint.slug}`}
+          class="journal-directory__imprint"
+          style={`--directory-accent: ${imprint.accent};`}
+          aria-labelledby={`imprint-title-${imprint.slug}`}
+        >
+          <header class="journal-directory__imprint-header">
+            <div class="journal-directory__imprint-name">
+              <h2 id={`imprint-title-${imprint.slug}`}>{imprint.name}</h2>
+              <p>{imprint.scope}</p>
+            </div>
+            <div class="journal-directory__imprint-rule" aria-hidden="true"></div>
+            <a class="journal-directory__imprint-link" href={localizePath(`/imprints/${imprint.slug}/`, locale)}>
+              {t('common.viewImprint')}
+            </a>
+          </header>
+
+          <ul class="journal-directory__journal-grid" role="list">
+            {journals.map((journal) => {
+              const coverAsset = getJournalCoverAsset(journal.cover);
+              return (
+                <li class="journal-directory__journal">
+                  <a
+                    class="journal-directory__cover-link"
+                    href={journal.journalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${t('common.visitJournalWebsite')}: ${journal.title}`}
+                  >
+                    {coverAsset ? (
+                      <Image
+                        src={coverAsset}
+                        alt=""
+                        class="journal-directory__cover"
+                        width={160}
+                        height={220}
+                        widths={[160, 320]}
+                        sizes="(max-width: 639px) 8rem, (max-width: 1023px) 7rem, 6.5rem"
+                        loading="lazy"
+                      />
+                    ) : journal.cover ? (
+                      <Image
+                        src={journal.cover}
+                        alt=""
+                        class="journal-directory__cover"
+                        width={160}
+                        height={220}
+                        loading="lazy"
+                      />
+                    ) : null}
+                  </a>
+
+                  <div class="journal-directory__journal-body">
+                    <p class="journal-directory__discipline">{journal.disciplines.join(' · ')}</p>
+                    <h3>
+                      <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">
+                        {journal.title}
+                      </a>
+                    </h3>
+                    <p class="journal-directory__description">{compactDescription(journal.description)}</p>
+                    <a class="journal-directory__visit" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">
+                      {t('common.visitJournalWebsite')}
+                    </a>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .journal-directory {
+    background: var(--surface-primary);
+    color: var(--text-primary);
+  }
+
+  .journal-directory__hero {
+    padding-block: clamp(3.5rem, 6vw, 5.5rem) clamp(3.5rem, 6vw, 5rem);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .journal-directory__hero-grid {
+    display: grid;
+    align-items: end;
+    gap: clamp(3rem, 8vw, 9rem);
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .journal-directory__overline,
+  .journal-directory__imprint-name p,
+  .journal-directory__discipline {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.2em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .journal-directory__overline {
+    color: var(--text-secondary);
+  }
+
+  .journal-directory h1 {
+    max-width: 18ch;
+    margin: 1.2rem 0 1.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 6vw, 6rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.055em;
+    line-height: 0.94;
+  }
+
+  .journal-directory__lede {
+    max-width: 39rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.65vw, 1.35rem);
+    line-height: 1.4;
+  }
+
+  .journal-directory__stat {
+    display: grid;
+    align-content: end;
+    justify-items: start;
+    max-width: 18rem;
+    padding-block: 0.35rem 0.2rem;
+    padding-inline-start: 1.4rem;
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .journal-directory__stat strong {
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 5vw, 4.75rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .journal-directory__stat span {
+    margin-top: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.2em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .journal-directory__stat p {
+    max-width: 16rem;
+    margin: 1.2rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .journal-directory__groups {
+    padding-block: 1.25rem clamp(4rem, 8vw, 7rem);
+  }
+
+  .journal-directory__imprint + .journal-directory__imprint {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .journal-directory__imprint-header {
+    display: grid;
+    align-items: center;
+    gap: 0.8rem 1.25rem;
+    grid-template-columns: max-content minmax(2rem, 1fr) max-content;
+    padding-block: 0.75rem 1.1rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .journal-directory__imprint-name h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.4rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .journal-directory__imprint-name p {
+    margin-top: 0.45rem;
+    font-size: 0.5rem;
+  }
+
+  .journal-directory__imprint-rule {
+    align-self: center;
+    border-top: var(--p-border-strong) solid var(--directory-accent);
+    opacity: 0.85;
+  }
+
+  .journal-directory__imprint-link,
+  .journal-directory__visit {
+    color: var(--text-link);
+    font-size: 0.64rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .journal-directory__imprint-link:hover,
+  .journal-directory__imprint-link:focus-visible,
+  .journal-directory__visit:hover,
+  .journal-directory__visit:focus-visible,
+  .journal-directory__journal h3 a:hover,
+  .journal-directory__journal h3 a:focus-visible {
+    color: var(--interactive-hover);
+  }
+
+  .journal-directory__journal-grid {
+    display: grid;
+    gap: 2.5rem 1.75rem;
+    grid-template-columns: 1fr;
+    margin: 0;
+    padding: 2.25rem 0 0;
+  }
+
+  .journal-directory__journal {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    align-items: start;
+    gap: 1rem;
+    min-width: 0;
+  }
+
+  .journal-directory__cover-link {
+    display: block;
+    width: 6rem;
+    background: var(--surface-secondary);
+    box-shadow: var(--p-shadow-sm);
+    transition: transform var(--p-duration-base) var(--p-ease-standard), box-shadow var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .journal-directory__cover-link:hover,
+  .journal-directory__cover-link:focus-visible {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--p-shadow-md);
+  }
+
+  .journal-directory__cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 160 / 220;
+    object-fit: cover;
+  }
+
+  .journal-directory__journal-body {
+    display: flex;
+    min-width: 0;
+    min-height: 8.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .journal-directory__discipline {
+    max-width: 100%;
+    overflow: hidden;
+    color: var(--directory-accent);
+    font-size: 0.48rem;
+    letter-spacing: 0.14em;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .journal-directory__journal h3 {
+    margin: 0.45rem 0 0;
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.08;
+  }
+
+  .journal-directory__journal h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .journal-directory__description {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0.55rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .journal-directory__visit {
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--text-link) 60%, transparent);
+    line-height: 1.55;
+  }
+
+  @media (min-width: 768px) {
+    .journal-directory__hero-grid {
+      grid-template-columns: minmax(0, 1.55fr) minmax(15rem, 0.45fr);
+    }
+
+    .journal-directory__journal-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .journal-directory__journal-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 2.2rem;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .journal-directory__hero {
+      padding-block: 4rem 3.5rem;
+    }
+
+    .journal-directory h1 {
+      max-width: 13ch;
+      font-size: clamp(3rem, 15vw, 4.2rem);
+    }
+
+    .journal-directory__stat {
+      max-width: none;
+      margin-top: 0.5rem;
+    }
+
+    .journal-directory__imprint-header {
+      grid-template-columns: minmax(0, 1fr) max-content;
+    }
+
+    .journal-directory__imprint-rule {
+      display: none;
+    }
+
+    .journal-directory__imprint-link {
+      align-self: end;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .journal-directory__cover-link { transition: none; }
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+// Shared detail shell for group-level journal and imprint records.
+// Brand routes use their own layouts and do not pass through this shell.
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  locale?: string;
+  robots?: string;
+}
+
+const { title, description, path, locale = 'en', robots } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} path={path} locale={locale} robots={robots}>
+  <article class="group-detail">
+    <header class="group-detail__hero" aria-labelledby="group-detail-title">
+      <div class="container-wide group-detail__hero-inner">
+        <h1 id="group-detail-title">{title}</h1>
+      </div>
+    </header>
+    <div class="container-reading group-detail__body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

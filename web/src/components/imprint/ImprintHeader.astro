@@ -1,0 +1,232 @@
+---
+import HeaderTools from '@/components/navigation/HeaderTools.astro';
+import LanguageSwitcher from '@/components/navigation/LanguageSwitcher.astro';
+import Logo from '@/components/ui/Logo.astro';
+import type { Imprint } from '@/types';
+import { localizePath } from '@/i18n/utils';
+
+interface NavLink {
+  label: string;
+  href: string;
+  current?: boolean;
+}
+
+interface Props {
+  imprint: Imprint;
+  links: NavLink[];
+  locale?: string;
+  currentPath?: string;
+  theme?: 'light' | 'dark';
+}
+
+const {
+  imprint,
+  links,
+  locale = 'en',
+  currentPath = Astro.url.pathname,
+  theme = 'light',
+} = Astro.props;
+
+const mobileNavId = `imprint-mobile-nav-${imprint.slug}`;
+const brandHome = localizePath(`/imprints/${imprint.slug}/`, locale);
+const searchLabel = locale === 'zh-hans' ? '搜索' : locale === 'zh-hant' ? '搜尋' : 'Search';
+const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ? '開啟導航' : 'Open navigation';
+---
+
+<header class:list={['imprint-header', `imprint-header--${theme}`]} data-imprint-header={imprint.slug}>
+  <div class="imprint-shell imprint-header__inner">
+    <div class="imprint-header__brands">
+      <Logo href={localizePath('/', locale)} inverse={theme === 'dark'} />
+      <span class="imprint-header__divider" aria-hidden="true"></span>
+      <a class="imprint-header__brand" href={brandHome} aria-label={`${imprint.name} home`}>
+        <img
+          src={theme === 'dark' ? imprint.logoLight : imprint.logo}
+          alt={imprint.name}
+          width="260"
+          height="50"
+        />
+      </a>
+    </div>
+
+    <nav class="imprint-header__nav" aria-label={`${imprint.name} navigation`}>
+      {links.map((link) => (
+        <a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="imprint-header__tools">
+      <HeaderTools locale={locale} currentPath={currentPath} />
+      <button class="imprint-header__menu" type="button" aria-expanded="false" aria-controls={mobileNavId}>
+        <span class="imprint-header__menu-line"></span>
+        <span class="imprint-header__menu-line"></span>
+        <span class="visually-hidden">{menuLabel}</span>
+      </button>
+    </div>
+  </div>
+
+  <nav id={mobileNavId} class="imprint-header__mobile-nav" aria-label={`${imprint.name} mobile navigation`} hidden>
+    {links.map((link) => (
+      <a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
+    ))}
+    <a href={localizePath('/search/', locale)}>{searchLabel}</a>
+    <div class="imprint-header__mobile-language">
+      <LanguageSwitcher currentLocale={locale} currentPath={currentPath} />
+    </div>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-imprint-header]');
+  const menu = header?.querySelector<HTMLButtonElement>('.imprint-header__menu');
+  const mobileNav = header?.querySelector<HTMLElement>('.imprint-header__mobile-nav');
+
+  menu?.addEventListener('click', () => {
+    if (!mobileNav) return;
+    const open = menu.getAttribute('aria-expanded') === 'true';
+    menu.setAttribute('aria-expanded', String(!open));
+    mobileNav.hidden = open;
+  });
+
+  mobileNav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.hidden = true;
+      menu?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  .imprint-header {
+    --imprint-header-bg: var(--p-paper-50);
+    --imprint-header-ink: var(--p-ink-900);
+    --imprint-header-line: var(--p-stone-300);
+    --imprint-header-hover: var(--imprint-accent, var(--p-blue-600));
+    position: relative;
+    z-index: var(--p-z-sticky);
+    border-bottom: 1px solid color-mix(in srgb, var(--imprint-header-ink) 15%, transparent);
+    background: var(--imprint-header-bg);
+    color: var(--imprint-header-ink);
+  }
+
+  .imprint-header--dark {
+    --imprint-header-bg: var(--p-ink-900);
+    --imprint-header-ink: var(--p-paper-50);
+    --imprint-header-line: color-mix(in srgb, var(--p-paper-50) 24%, transparent);
+    --imprint-header-hover: var(--imprint-accent, var(--p-gold-500));
+  }
+
+  .imprint-shell {
+    width: min(calc(100% - (2 * var(--p-gutter-desktop))), var(--p-container-ultra));
+    margin-inline: auto;
+  }
+
+  .imprint-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: clamp(4rem, 6.5vw, 5.25rem);
+    gap: 2rem;
+  }
+
+  .imprint-header__brands,
+  .imprint-header__tools,
+  .imprint-header__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .imprint-header__brands { flex: 0 0 auto; gap: 1rem; }
+  .imprint-header__divider { width: 1px; height: 2.25rem; background: var(--imprint-header-line); }
+
+  .imprint-header__brand {
+    display: inline-flex;
+    align-items: center;
+    max-width: 10rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .imprint-header__brand img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 2.15rem;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .imprint-header__nav {
+    gap: clamp(0.9rem, 1.8vw, 2rem);
+    margin-inline-start: auto;
+  }
+
+  .imprint-header__nav a {
+    color: inherit;
+    font-size: 0.66rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .imprint-header__nav a:hover,
+  .imprint-header__nav a:focus-visible,
+  .imprint-header__nav a[aria-current='page'] { color: var(--imprint-header-hover); }
+
+  .imprint-header__tools { margin-inline-start: 0.25rem; }
+  .imprint-header__tools :global(.header-tools) {
+    --header-tools-hover: var(--imprint-header-hover);
+    --header-tools-line: var(--imprint-header-line);
+    --lang-switcher-accent: var(--imprint-header-hover);
+  }
+  .imprint-header__menu,
+  .imprint-header__mobile-nav { display: none; }
+
+  @media (max-width: 900px) {
+    .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-tablet))), 44rem); }
+    .imprint-header__inner { gap: 1rem; }
+    .imprint-header__nav { gap: 1rem; }
+    .imprint-header__nav a { font-size: 0.6rem; }
+  }
+
+  @media (max-width: 639px) {
+    .imprint-shell { width: calc(100% - (2 * var(--p-gutter-mobile))); }
+    .imprint-header__inner { min-height: 4.3rem; }
+    .imprint-header__brand { max-width: 8rem; }
+    .imprint-header__nav { display: none; }
+    .imprint-header__tools { margin-inline-start: auto; }
+    .imprint-header__menu {
+      display: grid;
+      gap: 0.32rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      padding: 0.7rem 0.5rem;
+      border: 1px solid currentColor;
+      border-radius: var(--p-radius-button);
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .imprint-header__menu-line { display: block; width: 100%; height: 1px; background: currentColor; }
+    .imprint-header__mobile-nav {
+      position: absolute;
+      inset: 100% 0 auto;
+      z-index: var(--p-z-overlay);
+      gap: 0;
+      background: var(--imprint-header-bg);
+      border-bottom: 1px solid var(--imprint-header-line);
+      box-shadow: var(--p-shadow-md);
+      color: var(--imprint-header-ink);
+    }
+
+    .imprint-header__mobile-nav:not([hidden]) { display: grid; }
+    .imprint-header__mobile-nav > a { padding: 1rem; border-top: 1px solid var(--imprint-header-line); color: inherit; font-size: 0.7rem; font-weight: var(--fw-semibold); letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
+    .imprint-header__mobile-language { --lang-switcher-accent: var(--imprint-header-hover); padding: 0.75rem 1rem 1rem; border-top: 1px solid var(--imprint-header-line); }
+    .imprint-header__mobile-language :global(.lang-switcher__trigger) { color: inherit; }
+    .imprint-header__mobile-language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
+    .imprint-header__mobile-language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; color: inherit; }
+  }
+</style>

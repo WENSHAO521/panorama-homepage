@@ -1,0 +1,497 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
+import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import type { Imprint, Journal } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+import { imprintText } from '@/i18n/imprints';
+
+interface Props {
+  imprint: Imprint;
+  journals: Journal[];
+}
+
+const { imprint, journals } = Astro.props;
+const basePath = '/imprints/charter/';
+const currentPath = Astro.url.pathname;
+const locale = Astro.currentLocale ?? 'en';
+const tx = (key: string, fallback: string) => imprintText('charter', locale, key, fallback);
+const labels = getNavigationLabels(locale);
+const localizedBasePath = localizePath(basePath, locale);
+const pageDescription = tx('pageDescription', 'Charter publishes rigorous research in law, public policy, governance, and the institutions that shape public life.');
+const wallpaper = '/images/publishing/charter-wallpaper-4k.jpg';
+
+const journalOrder = ['jlpcs', 'cropt', 'ggsr', 'jpoii'];
+const activeJournals = journals.filter((journal) => journal.status === 'active' && journal.cover);
+const featuredJournals = journalOrder
+  .map((slug) => activeJournals.find((journal) => journal.slug === slug))
+  .filter((journal): journal is Journal => Boolean(journal));
+
+const journalNotes = new Map<string, { label: string; summary: string }>([
+  ['jlpcs', {
+    label: 'Law, psychology & communication',
+    summary: 'Research at the intersection of law, psychology, communication, digital governance, and institutional practice.',
+  }],
+  ['cropt', {
+    label: 'Political thought',
+    summary: 'Critical inquiry into political ideas, institutions, intellectual history, and democratic life.',
+  }],
+  ['ggsr', {
+    label: 'Global governance',
+    summary: 'Research on international institutions, global cooperation, and the systems that connect public life.',
+  }],
+  ['jpoii', {
+    label: 'Public oversight',
+    summary: 'Research on accountability, transparency, and the integrity of public institutions.',
+  }],
+]);
+
+const fields = [
+  { number: '01', key: 'law', name: 'Law', note: 'Justice & legal systems' },
+  { number: '02', key: 'psychology', name: 'Psychology', note: 'Behaviour & society' },
+  { number: '03', key: 'communication', name: 'Communication', note: 'Media & public life' },
+  { number: '04', key: 'political', name: 'Political thought', note: 'Ideas & democracy' },
+  { number: '05', key: 'global', name: 'Global governance', note: 'Institutions & cooperation' },
+  { number: '06', key: 'policy', name: 'Public policy', note: 'Evidence & impact' },
+  { number: '07', key: 'oversight', name: 'Public oversight', note: 'Accountability & ethics' },
+  { number: '08', key: 'computational', name: 'Computational social science', note: 'Data & society' },
+  { number: '09', key: 'education', name: 'Education', note: 'Equity & opportunity' },
+  { number: '10', key: 'society', name: 'Society', note: 'People & institutions' },
+];
+
+const imprintNav = [
+  { label: labels.home, href: localizedBasePath, current: true },
+  { label: labels.journals, href: localizePath(`${basePath}journals/`, locale) },
+  { label: labels.research, href: localizePath(`${basePath}research/`, locale) },
+  { label: labels.forAuthors, href: localizePath(`${basePath}for-authors/`, locale) },
+  { label: labels.about, href: localizePath(`${basePath}about/`, locale) },
+];
+const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
+---
+
+<BaseLayout
+  title="Charter"
+  description={pageDescription}
+  path={basePath}
+  locale={locale}
+  showChrome={false}
+>
+  <div class="charter-page">
+    <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
+
+    <main>
+      <section class="charter-hero" aria-labelledby="charter-hero-title">
+        <div class="charter-hero__copy">
+          <div class="charter-hero__copy-inner">
+            <p class="charter-kicker">{tx('heroKicker', 'The public record')}</p>
+            <p class="charter-hero__imprint">Charter <span>/</span> {tx('imprintLine', 'A Panorama imprint')}</p>
+            <h1 id="charter-hero-title">{tx('heroTitleOne', 'Research for')}<br />{tx('heroTitleTwo', 'fairer systems.')}</h1>
+            <span class="charter-rule charter-rule--red" aria-hidden="true"></span>
+            <p class="charter-hero__lede">{tx('heroLede', 'Charter publishes research that strengthens law, governance, and public life, advancing a more just, open, and evidence-informed society.')}</p>
+            <div class="charter-actions">
+              <a class="charter-button charter-button--red" data-action="primary" href={localizePath(`${basePath}journals/`, locale)}>{tx('exploreJournals', 'Explore our journals')}</a>
+              <a class="charter-text-link charter-text-link--inverse" data-action="secondary" href={localizePath(`${basePath}about/`, locale)}>{tx('aboutCharter', 'About Charter')}</a>
+            </div>
+            <p class="charter-hero__keywords">{tx('keywordEvidence', 'Evidence')} <span>/</span> {tx('keywordAccountability', 'Accountability')} <span>/</span> {tx('keywordTomorrow', 'A more inclusive tomorrow')}</p>
+          </div>
+        </div>
+
+        <div class="charter-hero__visual" aria-hidden="true">
+          <Image
+            src={wallpaper}
+            alt=""
+            width={3840}
+            height={2160}
+            widths={[960, 1440, 1920, 2880, 3840]}
+            sizes="(max-width: 760px) 100vw, 54vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="charter-hero__signature">
+            <img src={imprint.logo} alt="" width="260" height="50" />
+            <p>{tx('heroSignatureOne', 'Research for')}<br />{tx('heroSignatureTwo', 'a fairer society')}</p>
+          </div>
+          <div class="charter-hero__topics">
+            <span>{tx('topicsLaw', 'Law')}</span>
+            <span>{tx('topicsPeople', 'People')}</span>
+            <span>{tx('topicsInstitutions', 'Institutions')}</span>
+            <span>{tx('topicsSociety', 'Society')}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="charter-purpose" aria-labelledby="charter-purpose-title">
+        <div class="charter-shell charter-purpose__inner">
+          <h2 id="charter-purpose-title">{tx('purposeTitleOne', 'Stronger institutions.')}<br />{tx('purposeTitleTwo', 'Brighter futures.')}</h2>
+          <div class="charter-purpose__body">
+            <p>{tx('purposeBodyOne', 'Charter is the law, policy, and society imprint of Panorama Scholarly Group. We publish rigorous, independent research that advances understanding of the institutions and relationships shaping public life.')}</p>
+            <p>{tx('purposeBodyTwo', 'We believe evidence, open inquiry, and accountable scholarship are essential to fairer and more resilient societies.')}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="journals" class="charter-journals" aria-labelledby="charter-journals-title">
+        <div class="charter-shell">
+          <div class="charter-section-bar">
+            <p class="charter-kicker">{tx('journalsKicker', 'Our journal programme')}</p>
+            <p>{activeJournals.length} {tx('journalsCount', 'active journals and growing')}</p>
+            <a href={localizePath(`${basePath}journals/`, locale)}>{tx('browseJournals', 'Browse all journals')}</a>
+          </div>
+
+          <div class="charter-journals__heading">
+            <h2 id="charter-journals-title">{tx('journalsTitle', 'Research for the systems we share.')}</h2>
+            <p>{tx('journalsBody', 'A growing programme of journals connecting legal reasoning, public policy, governance, and the social sciences.')}</p>
+          </div>
+
+          <div class="charter-journal-grid">
+            {featuredJournals.map((journal) => {
+              const coverAsset = getJournalCoverAsset(journal.cover);
+              const meta = journalNotes.get(journal.slug);
+              const journalLabel = tx(`journal.${journal.slug}.label`, meta?.label ?? journal.disciplines.join(' / '));
+              const journalSummary = tx(`journal.${journal.slug}.summary`, meta?.summary ?? journal.description ?? 'Rigorous research on institutions, public life, and the systems that connect them.');
+              return (
+                <article class="charter-journal-card">
+                  <a class="charter-journal-card__cover-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`${tx('viewJournal', 'View journal')}: ${journal.title}`}>
+                    {coverAsset ? (
+                      <Image
+                        class="charter-journal-card__cover"
+                        src={coverAsset}
+                        alt={`${journal.title} cover`}
+                        width={495}
+                        height={700}
+                        widths={[180, 240, 320, 495]}
+                        sizes="(max-width: 639px) 13rem, (max-width: 960px) 16rem, 19rem"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <img class="charter-journal-card__cover" src={journal.cover} alt={`${journal.title} cover`} loading="lazy" />
+                    )}
+                  </a>
+                  <p class="charter-journal-card__label">{journalLabel}</p>
+                  <h3><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h3>
+                  <p class="charter-journal-card__summary">{journalSummary}</p>
+                  <a class="charter-text-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('viewJournal', 'View journal')}</a>
+                </article>
+              );
+            })}
+          </div>
+
+          <div class="charter-journals__footer">
+            <p>{tx('journalClosing', 'More journals across policy, law, social research, education, and governance are being developed for the Charter programme.')}</p>
+            <a class="charter-text-link" href={localizePath(`${basePath}journals/`, locale)}>{tx('viewProgramme', 'View the full Charter programme')}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="charter-fields" aria-labelledby="charter-fields-title">
+        <div class="charter-shell">
+          <div class="charter-section-bar">
+            <p class="charter-kicker" id="charter-fields-title">{tx('fieldsKicker', 'Explore by field')}</p>
+            <p>{tx('fieldsMeta', 'Research across disciplines for a more just society.')}</p>
+            <a href={localizePath(`${basePath}journals/`, locale)}>{tx('viewFields', 'View all fields')}</a>
+          </div>
+          <div class="charter-field-grid">
+            {fields.map((field) => (
+              <a class="charter-field" href={localizePath(`${basePath}journals/`, locale)}>
+                <span class="charter-field__number">{field.number}</span>
+                <h3>{tx(`field.${field.key}.title`, field.name)}</h3>
+                <span>{tx(`field.${field.key}.note`, field.note)}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="authors" class="charter-authors" aria-labelledby="charter-authors-title">
+        <div class="charter-shell charter-authors__inner">
+          <div class="charter-authors__heading">
+            <p class="charter-kicker">{tx('authorsKicker', 'For authors and editors')}</p>
+            <h2 id="charter-authors-title">{tx('authorsTitle', 'A trusted home for research with real-world impact.')}</h2>
+          </div>
+          <div class="charter-authors__copy">
+            <p>{tx('authorsBody', 'We welcome original research, reviews, and perspectives that deepen understanding of law, policy, and society. Our journals are committed to rigorous peer review, editorial independence, and a clear route from strong ideas to meaningful public scholarship.')}</p>
+            <div class="charter-authors__actions">
+              <a class="charter-button charter-button--red" data-action="primary" href={localizePath('/publishing/', locale)}>{tx('submitManuscript', 'Submit a manuscript')}</a>
+              <a class="charter-text-link" data-action="secondary" href={localizePath('/standards/editorial/', locale)}>{tx('editorialStandards', 'Editorial standards')}</a>
+            </div>
+          </div>
+          <blockquote>{tx('authorQuoteOne', 'Independent research')}<br />{tx('authorQuoteTwo', 'for a fairer society.')}</blockquote>
+        </div>
+      </section>
+
+      <section class="charter-manifesto" aria-labelledby="charter-manifesto-title">
+        <Image
+          class="charter-manifesto__wallpaper"
+          src={wallpaper}
+          alt=""
+          width={3840}
+          height={2160}
+          widths={[960, 1440, 1920, 2880, 3840]}
+          sizes="100vw"
+          loading="lazy"
+        />
+        <div class="charter-manifesto__shade" aria-hidden="true"></div>
+        <div class="charter-shell charter-manifesto__inner">
+          <div>
+            <p class="charter-kicker">{tx('manifestoKicker', 'Charter by Panorama')}</p>
+            <h2 id="charter-manifesto-title">{tx('manifestoTitle', 'Knowledge in the public interest.')}</h2>
+          </div>
+          <div class="charter-manifesto__body">
+            <p>{tx('manifestoBody', 'Charter and Panorama Scholarly Group work together to champion independent research, informed debate, and evidence-based solutions for a more just and resilient world.')}</p>
+            <div class="charter-signals">
+              <span>{tx('signalRights', 'People and rights')}</span>
+              <span>{tx('signalAccountability', 'Institutions and accountability')}</span>
+              <span>{tx('signalOpportunity', 'Society and opportunity')}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ImprintFooter
+      imprint={imprint}
+      links={footerNav}
+      locale={locale}
+      theme="dark"
+      tagline={tx('footerTagline', 'Independent research for a fairer society.')}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .charter-page {
+    --charter-paper: var(--p-paper-50);
+    --charter-paper-deep: var(--p-paper-100);
+    --charter-ink: var(--p-navy-950);
+    --charter-ink-soft: var(--p-navy-700);
+    --charter-line: var(--p-stone-300);
+    --charter-red: #9d2f2f;
+    --charter-red-bright: #b73231;
+    --charter-gold: #a8701e;
+    --charter-gold-ink: #7b5616;
+    --charter-gold-light: #d7a063;
+    --imprint-accent: var(--charter-red-bright);
+    --charter-shell: min(100% - 7rem, 1480px);
+    overflow: hidden;
+    background: var(--charter-paper);
+    color: var(--charter-ink);
+  }
+
+  .charter-shell { width: var(--charter-shell); margin-inline: auto; }
+
+  .charter-header {
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid color-mix(in srgb, var(--charter-ink) 18%, transparent);
+    background: var(--charter-paper);
+  }
+
+  .charter-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-height: clamp(4rem, 5.5vw, 5.25rem);
+  }
+
+  .charter-header__brands { display: flex; align-items: center; gap: 1rem; flex: 0 0 auto; }
+  .charter-group-brand { display: inline-flex; align-items: flex-start; color: inherit; text-decoration: none; }
+  .charter-footer__brand { display: inline-flex; flex-direction: column; color: inherit; text-decoration: none; }
+  .charter-footer__brand span { font-family: var(--font-display); font-size: 1.05rem; font-weight: 650; letter-spacing: -0.03em; line-height: 0.95; }
+  .charter-footer__brand small { margin-top: 0.18rem; color: var(--charter-ink-soft); font-size: 0.4rem; font-weight: 750; letter-spacing: 0.14em; line-height: 1; text-transform: uppercase; }
+  .charter-header__divider { width: 1px; height: 2.4rem; background: var(--charter-line); }
+  .charter-imprint-brand { display: block; width: 13rem; }
+  .charter-imprint-brand img { display: block; width: 100%; height: auto; }
+
+  .charter-nav, .charter-header__tools, .charter-footer__nav { display: flex; align-items: center; }
+  .charter-nav { gap: clamp(0.85rem, 1.65vw, 1.7rem); margin-inline-start: auto; }
+  .charter-nav a, .charter-header__tools a, .charter-footer__nav a { color: var(--charter-ink); font-size: 0.63rem; font-weight: 700; letter-spacing: 0.04em; text-decoration: none; white-space: nowrap; }
+  .charter-nav a:hover, .charter-header__tools a:hover, .charter-footer__nav a:hover { color: var(--charter-red); }
+  .charter-nav a:first-child { border-bottom: 1px solid var(--charter-red); }
+  .charter-header__tools { gap: 1rem; margin-inline-start: 0.4rem; }
+  .charter-header__tools > a { padding-inline: 0.85rem; border-inline-start: 1px solid var(--charter-line); }
+  .charter-header__lang { padding-inline-start: 0.85rem; border-inline-start: 1px solid var(--charter-line); }
+  .charter-header__lang :global(.lang-switcher__trigger) { color: var(--charter-ink); }
+  .charter-menu-button { display: none; padding: 0.6rem 0.7rem; border: 1px solid var(--charter-ink); border-radius: var(--p-radius-button); background: transparent; color: var(--charter-ink); font: inherit; font-size: 0.63rem; font-weight: 700; cursor: pointer; }
+  .charter-mobile-nav { display: none; }
+
+  .charter-hero { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); min-height: clamp(34rem, 53vw, 49rem); }
+  .charter-hero__copy { display: grid; align-items: center; background: var(--charter-ink); color: var(--charter-paper); }
+  .charter-hero__copy-inner { width: min(100% - 7rem, 38rem); margin-inline: auto; padding-block: clamp(3rem, 5vw, 5.75rem); }
+  .charter-kicker { margin: 0; color: var(--charter-gold-ink); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.35; text-transform: uppercase; }
+  .charter-hero .charter-kicker,
+  .charter-manifesto .charter-kicker { color: var(--charter-gold-light); }
+  .charter-hero__imprint { margin: 1.35rem 0 0; color: color-mix(in srgb, var(--charter-paper) 70%, transparent); font-size: 0.58rem; font-weight: 750; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
+  .charter-hero__imprint span, .charter-hero__keywords span { margin-inline: 0.45rem; color: var(--charter-red-bright); }
+  .charter-hero h1 { max-width: 10ch; margin: 1rem 0 1.5rem; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(3.65rem, 6.5vw, 6.5rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.89; }
+  .charter-rule { display: block; width: 2.6rem; height: 2px; }
+  .charter-rule--red { background: var(--charter-red-bright); }
+  .charter-hero__lede { max-width: 28rem; margin: 1.45rem 0 0; color: color-mix(in srgb, var(--charter-paper) 86%, transparent); font-family: var(--font-display); font-size: clamp(1.02rem, 1.25vw, 1.23rem); line-height: 1.35; }
+  .charter-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 2rem; }
+  .charter-button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid transparent; border-radius: var(--p-radius-button); color: inherit; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; transition: background-color var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-decelerate); }
+  .charter-button:hover,
+  .charter-button:focus-visible { transform: translateY(-1px); }
+  .charter-button--red { background: var(--charter-red-bright); color: var(--charter-paper); }
+  .charter-button--red:hover,
+  .charter-button--red:focus-visible { background: var(--charter-paper); border-color: var(--charter-paper); color: var(--charter-ink); }
+  .charter-hero__keywords { margin: 2.8rem 0 0; color: color-mix(in srgb, var(--charter-paper) 60%, transparent); font-size: 0.53rem; font-weight: 750; letter-spacing: 0.19em; line-height: 1.5; text-transform: uppercase; }
+  .charter-hero__visual { position: relative; min-height: inherit; overflow: hidden; background: var(--charter-paper-deep); }
+  .charter-hero__visual > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .charter-hero__visual::after { position: absolute; inset: 0; background: color-mix(in srgb, var(--charter-paper) 8%, transparent); content: ''; pointer-events: none; }
+  .charter-hero__signature { position: absolute; z-index: 1; inset-block-start: clamp(2rem, 5vw, 5.5rem); inset-inline-end: clamp(2rem, 6vw, 6rem); width: 11rem; }
+  .charter-hero__signature img { display: block; width: 100%; height: auto; }
+  .charter-hero__signature p { margin: 1.25rem 0 0; padding-inline-start: 1rem; border-inline-start: 2px solid var(--charter-red); color: var(--charter-ink); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.16em; line-height: 1.65; text-transform: uppercase; }
+  .charter-hero__topics { position: absolute; z-index: 1; inset-block-start: 30%; inset-inline-end: 1.1rem; display: grid; gap: 0.4rem; color: var(--charter-ink); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.17em; line-height: 1.4; text-transform: uppercase; }
+
+  .charter-purpose { border-bottom: 1px solid var(--charter-line); background: var(--charter-paper); }
+  .charter-purpose__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 1.05fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: center; padding-block: clamp(2.8rem, 5.5vw, 5.75rem); }
+  .charter-purpose h2 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2.5rem, 4.45vw, 4.7rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
+  .charter-purpose__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 2px solid var(--charter-red); }
+  .charter-purpose__body p { max-width: 42rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: clamp(1rem, 1.25vw, 1.2rem); line-height: 1.38; }
+  .charter-purpose__body p + p { margin-top: 1rem; }
+
+  .charter-journals, .charter-fields { background: var(--charter-paper); }
+  .charter-journals { padding-block: clamp(3rem, 5vw, 5rem); }
+  .charter-section-bar { display: flex; align-items: center; gap: 1.25rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--charter-line); }
+  .charter-section-bar > p:not(.charter-kicker) { margin: 0 0 0 auto; color: var(--charter-ink-soft); font-size: 0.57rem; font-weight: 750; letter-spacing: 0.17em; line-height: 1.4; text-transform: uppercase; }
+  .charter-section-bar > a { color: var(--charter-red); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; }
+  .charter-section-bar > a:hover, .charter-text-link:hover { color: var(--charter-ink); }
+  .charter-journals__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.52fr); gap: 3rem; align-items: end; padding-block: clamp(2rem, 4vw, 3.5rem) 2rem; }
+  .charter-journals__heading h2 { max-width: 12ch; margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2.7rem, 5vw, 5.2rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
+  .charter-journals__heading p { max-width: 28rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
+  .charter-journal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--charter-line); border-bottom: 1px solid var(--charter-line); }
+  .charter-journal-card { display: flex; flex-direction: column; min-width: 0; padding: 1.2rem clamp(0.8rem, 1.5vw, 1.5rem) 1.65rem; border-inline-start: 1px solid var(--charter-line); }
+  .charter-journal-card:first-child { border-inline-start: 0; }
+  .charter-journal-card__cover-link { display: block; margin-bottom: 1.1rem; transition: transform var(--p-duration-base) var(--p-ease-decelerate); }
+  .charter-journal-card__cover-link:hover, .charter-journal-card__cover-link:focus-visible { transform: translateY(-0.3rem); }
+  .charter-journal-card__cover { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: contain; box-shadow: 0 0.7rem 1.3rem color-mix(in srgb, var(--charter-ink) 14%, transparent); }
+  .charter-journal-card__label { min-height: 2.2em; margin: 0 0 0.45rem; color: var(--charter-red); font-size: 0.54rem; font-weight: 800; letter-spacing: 0.15em; line-height: 1.45; text-transform: uppercase; }
+  .charter-journal-card h3 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(1.15rem, 1.65vw, 1.55rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
+  .charter-journal-card h3 a { color: inherit; text-decoration: none; }
+  .charter-journal-card h3 a:hover { color: var(--charter-red); }
+  .charter-journal-card__summary { margin: 0.8rem 0 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 0.82rem; line-height: 1.35; }
+  .charter-text-link { display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; margin-top: auto; padding-top: 1.25rem; border-bottom: 1px solid currentColor; color: var(--charter-ink-soft); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.13em; line-height: 1.75; text-decoration: none; text-transform: uppercase; }
+  .charter-actions .charter-text-link,
+  .charter-authors__actions .charter-text-link { min-height: var(--p-action-height); margin-top: 0; padding-top: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
+  .charter-actions .charter-text-link { border-color: var(--charter-red-bright); color: var(--charter-paper); }
+  .charter-actions .charter-text-link:hover,
+  .charter-actions .charter-text-link:focus-visible { border-color: var(--charter-paper); color: var(--charter-paper); }
+  .charter-text-link--inverse { color: var(--charter-paper); }
+  .charter-journals__footer { display: flex; justify-content: space-between; gap: 2rem; align-items: center; padding-top: 1.5rem; }
+  .charter-journals__footer p { max-width: 38rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 0.94rem; line-height: 1.4; }
+  .charter-journals__footer .charter-text-link { margin: 0; padding-top: 0; }
+
+  .charter-fields { padding-block: 0 clamp(3rem, 5vw, 5rem); }
+  .charter-field-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 1px solid var(--charter-line); }
+  .charter-field { min-height: 8.5rem; padding: 1.1rem 1.1rem 1.3rem; border-inline-start: 1px solid var(--charter-line); color: var(--charter-ink); text-decoration: none; transition: background var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard); }
+  .charter-field:nth-child(5n + 1) { border-inline-start: 0; }
+  .charter-field:nth-child(n + 6) { border-top: 1px solid var(--charter-line); }
+  .charter-field:hover { background: var(--charter-ink); color: var(--charter-paper); }
+  .charter-field__number { display: block; margin-bottom: 1.1rem; color: var(--charter-red); font-size: 0.55rem; font-weight: 800; letter-spacing: 0.12em; }
+  .charter-field h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.05rem, 1.4vw, 1.35rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; }
+  .charter-field > span:last-child { display: block; margin-top: 0.8rem; color: currentColor; font-size: 0.52rem; font-weight: 800; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
+  .charter-field b { color: var(--charter-red); font-weight: 800; }
+
+  .charter-authors { background: var(--charter-paper-deep); }
+  .charter-authors__inner { display: grid; grid-template-columns: minmax(16rem, 0.95fr) minmax(18rem, 1fr) minmax(12rem, 0.55fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(3rem, 5vw, 5rem); }
+  .charter-authors__heading { padding-inline-end: clamp(1.5rem, 3vw, 3rem); border-inline-end: 1px solid var(--charter-line); }
+  .charter-authors h2 { max-width: 14ch; margin: 1rem 0 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2.25rem, 3.75vw, 4rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
+  .charter-authors__copy > p { max-width: 34rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.42; }
+  .charter-authors__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+  .charter-authors blockquote { margin: 0; padding-inline-start: clamp(1.3rem, 2.4vw, 2.4rem); border-inline-start: 2px solid var(--charter-red); color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(1.4rem, 2.1vw, 2.15rem); font-style: italic; line-height: 1.05; }
+
+  .charter-manifesto { position: relative; isolation: isolate; overflow: hidden; background: var(--charter-ink); color: var(--charter-paper); }
+  .charter-manifesto__wallpaper { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: right center; opacity: 0.22; filter: grayscale(0.5) contrast(0.85); mix-blend-mode: screen; }
+  .charter-manifesto__shade { position: absolute; inset: 0; z-index: -1; background: color-mix(in srgb, var(--charter-ink) 82%, transparent); }
+  .charter-manifesto__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; min-height: clamp(18rem, 24vw, 24rem); padding-block: clamp(3rem, 5vw, 5rem); }
+  .charter-manifesto h2 { max-width: 10ch; margin: 1rem 0 0; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(3rem, 5.2vw, 5.4rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
+  .charter-manifesto__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--charter-paper) 42%, transparent); }
+  .charter-manifesto__body > p { max-width: 31rem; margin: 0; color: color-mix(in srgb, var(--charter-paper) 88%, transparent); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
+  .charter-signals { display: grid; gap: 0.65rem; margin-top: 1.6rem; color: #d7a063; font-size: 0.56rem; font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }
+  .charter-signals span { padding-top: 0.55rem; border-top: 1px solid color-mix(in srgb, var(--charter-paper) 28%, transparent); }
+
+  .charter-footer { background: var(--p-teal-800); color: var(--charter-paper); }
+  .charter-footer__top { display: grid; grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 1.5fr) minmax(8rem, 0.55fr); gap: 2rem; align-items: center; padding-block: 2.8rem 2.4rem; }
+  .charter-footer__brand { color: var(--charter-paper); }
+  .charter-footer__brand small { color: color-mix(in srgb, var(--charter-paper) 65%, transparent); }
+  .charter-footer__brand p { max-width: 12rem; margin: 1rem 0 0; color: color-mix(in srgb, var(--charter-paper) 68%, transparent); font-family: var(--font-display); font-size: 0.8rem; line-height: 1.4; }
+  .charter-footer__nav { justify-content: center; flex-wrap: wrap; gap: 0.85rem 1.45rem; }
+  .charter-footer__nav a { color: color-mix(in srgb, var(--charter-paper) 86%, transparent); }
+  .charter-footer__imprint { justify-self: end; display: block; width: min(10rem, 100%); }
+  .charter-footer__imprint img { display: block; width: 100%; height: auto; }
+  .charter-footer__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem 2rem; padding-block: 1rem; border-top: 1px solid color-mix(in srgb, var(--charter-paper) 22%, transparent); color: color-mix(in srgb, var(--charter-paper) 58%, transparent); font-size: 0.58rem; }
+  .charter-footer__bottom p { margin: 0; }
+  .charter-footer__bottom nav { display: flex; gap: 1.2rem; }
+  .charter-footer__bottom a { color: inherit; text-decoration: none; }
+  .charter-footer__bottom a:hover { color: var(--charter-paper); }
+
+  @media (max-width: 1180px) {
+    .charter-page { --charter-shell: min(100% - 4rem, 1480px); }
+    .charter-nav { gap: 0.8rem; }
+    .charter-nav a { font-size: 0.56rem; }
+    .charter-hero__copy-inner { width: min(100% - 4rem, 38rem); }
+  }
+
+  @media (max-width: 900px) {
+    .charter-header__inner { gap: 1rem; }
+    .charter-nav { display: none; }
+    .charter-header__tools { margin-inline-start: auto; }
+    .charter-menu-button { display: block; }
+    .charter-mobile-nav { gap: 0; padding: 0 2rem 1.1rem; border-top: 1px solid var(--charter-line); background: var(--charter-paper); }
+    .charter-mobile-nav:not([hidden]) { display: grid; }
+    .charter-mobile-nav a { padding: 0.7rem 0; border-bottom: 1px solid var(--charter-line); color: var(--charter-ink); font-size: 0.72rem; font-weight: 750; text-decoration: none; }
+    .charter-mobile-nav__language { padding-top: 0.75rem; }
+    .charter-mobile-nav__language :global(.lang-switcher__trigger) { color: var(--charter-ink); }
+    .charter-hero { grid-template-columns: 1fr; }
+    .charter-hero__copy { min-height: 34rem; }
+    .charter-hero__visual { min-height: 31rem; }
+    .charter-purpose__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .charter-journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .charter-journal-card:nth-child(odd) { border-inline-start: 0; }
+    .charter-journal-card:nth-child(n + 3) { border-top: 1px solid var(--charter-line); }
+    .charter-field-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .charter-field:nth-child(5n + 1) { border-inline-start: 1px solid var(--charter-line); }
+    .charter-field:nth-child(3n + 1) { border-inline-start: 0; }
+    .charter-field:nth-child(n + 4) { border-top: 1px solid var(--charter-line); }
+    .charter-authors__inner { grid-template-columns: 1fr 1fr; }
+    .charter-authors blockquote { grid-column: 2; grid-row: 1; }
+    .charter-footer__top { grid-template-columns: 1fr 1fr; }
+    .charter-footer__nav { justify-content: flex-start; }
+    .charter-footer__imprint { justify-self: start; }
+  }
+
+  @media (max-width: 620px) {
+    .charter-page { --charter-shell: min(100% - 2.25rem, 42rem); }
+    .charter-header__inner { min-height: 4.3rem; }
+    .charter-header__divider, .charter-header__tools > a, .charter-header__lang { display: none; }
+    .charter-imprint-brand { width: 10.5rem; }
+    .charter-hero__copy-inner { width: var(--charter-shell); padding-block: 3.5rem 3rem; }
+    .charter-hero h1 { font-size: clamp(3.4rem, 16vw, 5.5rem); }
+    .charter-hero__visual { min-height: 25rem; }
+    .charter-hero__signature { inset-block-start: 2rem; inset-inline-end: 1.5rem; width: 8.5rem; }
+    .charter-hero__topics { inset-block-start: auto; inset-block-end: 1.5rem; inset-inline-end: 1.5rem; }
+    .charter-section-bar { align-items: flex-start; flex-direction: column; gap: 0.65rem; }
+    .charter-section-bar > p:not(.charter-kicker), .charter-section-bar > a { margin: 0; }
+    .charter-journals__heading { grid-template-columns: 1fr; gap: 1.25rem; }
+    .charter-journals__heading h2 { max-width: 10ch; }
+    .charter-journal-grid { grid-template-columns: 1fr; }
+    .charter-journal-card, .charter-journal-card:nth-child(odd) { border-inline-start: 0; }
+    .charter-journal-card:nth-child(n + 2) { border-top: 1px solid var(--charter-line); }
+    .charter-journals__footer { align-items: flex-start; flex-direction: column; }
+    .charter-field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .charter-field:nth-child(3n + 1), .charter-field:nth-child(5n + 1) { border-inline-start: 1px solid var(--charter-line); }
+    .charter-field:nth-child(2n + 1) { border-inline-start: 0; }
+    .charter-field:nth-child(n + 3) { border-top: 1px solid var(--charter-line); }
+    .charter-field { min-height: 7.8rem; padding-inline: 0.75rem; }
+    .charter-authors__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .charter-authors__heading { padding: 0 0 1.5rem; border-inline-end: 0; border-bottom: 1px solid var(--charter-line); }
+    .charter-authors blockquote { grid-column: auto; grid-row: auto; }
+    .charter-manifesto__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .charter-manifesto__body { padding-inline-start: 1.1rem; }
+    .charter-footer__top { grid-template-columns: 1fr; gap: 2rem; }
+    .charter-footer__imprint { justify-self: start; width: 8rem; }
+    .charter-footer__bottom { align-items: flex-start; flex-direction: column; }
+  }
+</style>

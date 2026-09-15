@@ -1,0 +1,105 @@
+---
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+
+interface Props {
+  currentPath: string;
+  locale?: string;
+}
+
+const { currentPath, locale = 'en' } = Astro.props;
+const labels = getNavigationLabels(locale);
+
+const items = [
+  { label: labels.aboutGroup, path: localizePath('/about/', locale) },
+  { label: labels.governance, path: localizePath('/about/governance/', locale) },
+  { label: labels.partnerships, path: localizePath('/about/partnerships/', locale) },
+  { label: labels.contact, path: localizePath('/about/contact/', locale) },
+];
+---
+
+<nav class="about-subnav" aria-label={labels.aboutGroup}>
+  <div class="container-wide about-subnav__inner">
+    <p class="about-subnav__label text-overline">{labels.about}</p>
+    <ul class="about-subnav__list" role="list">
+      {items.map((item) => (
+        <li>
+          <a
+            class:list={['about-subnav__link', currentPath === item.path && 'about-subnav__link--current']}
+            href={item.path}
+            aria-current={currentPath === item.path ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .about-subnav {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-primary);
+  }
+
+  .about-subnav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 3.75rem;
+  }
+
+  .about-subnav__label {
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--interactive-default);
+  }
+
+  .about-subnav__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .about-subnav__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.4rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--p-radius-button);
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard),
+      color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .about-subnav__link:hover,
+  .about-subnav__link:focus-visible,
+  .about-subnav__link--current {
+    background: var(--surface-secondary);
+    color: var(--interactive-default);
+  }
+
+  @media (max-width: 639px) {
+    .about-subnav__inner {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding-block: 0.9rem;
+    }
+
+    .about-subnav__list {
+      justify-content: flex-start;
+      margin-inline: -0.75rem;
+    }
+  }
+</style>

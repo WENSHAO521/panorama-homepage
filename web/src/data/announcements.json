@@ -1,0 +1,61 @@
+{
+  "generatedAt": "2026-09-13T00:00:00Z",
+  "maxItems": 5,
+  "announcements": [
+    {
+      "id": "research-institute-officially-open-2026",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Notice",
+      "title": "Panorama Research Institute Is Now Officially Open",
+      "summary": "Panorama Research Institute has completed its foundational phase and is now officially open, accepting membership, fellowship, research assistant, research proposal, and collaboration inquiries.",
+      "date": "2026-08-23",
+      "href": "https://research.panorama-sg.com/announcements/institute-officially-open-2026",
+      "fallback": true
+    },
+    {
+      "id": "research-recruitment-2027",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Recruitment",
+      "title": "Now Recruiting: Research Fellows, Associate Research Fellows, and Research Assistants",
+      "summary": "Panorama Research Institute is accepting applications for Research Fellow, Associate Research Fellow, and Research Assistant positions. The application deadline is February 15, 2027.",
+      "date": "2026-08-23",
+      "href": "https://research.panorama-sg.com/announcements/research-recruitment-2027",
+      "fallback": true
+    },
+    {
+      "id": "research-attachment-upload-fix-2026-08",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Update",
+      "title": "Improved multi-file attachment uploads on collaboration forms",
+      "summary": "The Membership and Research Fellow application forms now reliably receive every uploaded attachment, with a 10MB total size limit.",
+      "date": "2026-08-23",
+      "href": "https://research.panorama-sg.com/announcements/attachment-upload-fix-2026-08",
+      "fallback": true
+    },
+    {
+      "id": "posi-pre-operational-launch-2026",
+      "source": "posi",
+      "sourceLabel": "POSI — Panorama Open Scholarly Index",
+      "type": "Notice",
+      "title": "POSI Begins Pre-Operational Launch on August 12, 2026",
+      "summary": "POSI moves into pre-operational launch, making journal indexing, lifecycle ratings, subject rankings, and citation analytics available for public use.",
+      "date": "2026-08-12",
+      "href": "https://posi.panorama-sg.com/announcements/posi-pre-operational-launch/",
+      "fallback": true
+    },
+    {
+      "id": "books-fees-2026",
+      "source": "books",
+      "sourceLabel": "Panorama Scholarly Books",
+      "type": "Notice",
+      "title": "Updated Book Publishing Fees Effective 1 August 2026",
+      "summary": "Panorama Scholarly Books has updated its publishing fees to reflect expanded editorial screening, rights verification, metadata management, production control, archiving, and post-publication compliance coordination.",
+      "date": "2026-08-01",
+      "href": "https://books.panorama-sg.com/",
+      "fallback": true
+    }
+  ]
+}

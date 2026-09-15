@@ -1,0 +1,197 @@
+---
+// <dialog> gives this modal panel focus-trapping, Escape-to-close, and
+// focus-return to the invoker natively (via .showModal(), wired in
+// web/src/scripts/nav-behavior.ts) -- see that file's header comment
+// for why so little custom JS is needed. Nested <details> provide the
+// accordion behaviour for Publishing/Research/Infrastructure/About
+// without any extra script.
+//
+// Visibility discipline: `dialog` is hidden by the browser's own UA
+// stylesheet until `.showModal()` is called; every rule below that sets
+// `display` is scoped to `dialog[open]` so it can never fight that
+// default the way `[hidden]` + an unscoped `display` rule would (see
+// docs/NAVIGATION.md).
+import { getPrimaryNav } from '@/data/navigation';
+import type { NavItem } from '@/types';
+import Logo from '@/components/ui/Logo.astro';
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { getUiStrings } from '@/i18n/locales';
+import { localizePath } from '@/i18n/utils';
+
+interface Props {
+  currentLocale?: string;
+  currentPath?: string;
+}
+const { currentLocale = 'en', currentPath = '/' } = Astro.props;
+const t = getUiStrings(currentLocale);
+const primaryNav = getPrimaryNav(currentLocale);
+
+function flattenChildren(item: NavItem): NavItem[] {
+  const isMultiColumn = (item.children ?? []).every((c) => c.children && c.children.length > 0);
+  return isMultiColumn ? item.children!.flatMap((col) => col.children ?? []) : item.children ?? [];
+}
+---
+
+<dialog id="mobile-nav" class="mobile-nav" aria-label={t.menu}>
+  <div class="mobile-nav__header">
+    <Logo href={localizePath('/', currentLocale)} />
+    <button type="button" class="mobile-nav__close" data-close-mobile-nav aria-label={t.close}>
+      <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+        <path d="M4 4l12 12M16 4 4 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <nav class="mobile-nav__nav" aria-label="Primary">
+    <ul class="mobile-nav__list">
+      {primaryNav.map((item) => (
+        <li>
+          {item.children ? (
+            <details class="mobile-nav__accordion">
+              <summary class="mobile-nav__accordion-trigger">{item.label}</summary>
+              <ul class="mobile-nav__sublist">
+                {flattenChildren(item).map((link) => (
+                  <li>
+                    {link.external ? (
+                      <ExternalLink href={link.path!} class="mobile-nav__sublink">{link.label}</ExternalLink>
+                    ) : (
+                      <a href={link.path} class="mobile-nav__sublink">{link.label}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ) : (
+            <a href={item.path} class="mobile-nav__link">{item.label}</a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <div class="mobile-nav__footer">
+    <LanguageSwitcher currentLocale={currentLocale} currentPath={currentPath} />
+  </div>
+</dialog>
+
+<style>
+  dialog.mobile-nav {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: var(--surface-primary);
+    color: var(--text-primary);
+  }
+  /* Scoped to [open] only -- see header comment. */
+  dialog.mobile-nav[open] {
+    display: flex;
+    flex-direction: column;
+  }
+  dialog.mobile-nav::backdrop {
+    background: color-mix(in srgb, var(--brand-primary) 40%, transparent);
+  }
+
+  .mobile-nav__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--p-space-4) var(--p-gutter-mobile);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+  .mobile-nav__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: var(--p-radius-button);
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  .mobile-nav__close:hover { background: var(--surface-secondary); }
+
+  .mobile-nav__nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--p-space-4) var(--p-gutter-mobile) var(--p-space-8);
+  }
+  .mobile-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--p-space-1);
+  }
+  .mobile-nav__link,
+  .mobile-nav__accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--p-space-4) var(--p-space-2);
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+    list-style: none;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+  .mobile-nav__accordion-trigger::-webkit-details-marker { display: none; }
+  .mobile-nav__accordion-trigger::after {
+    content: '+';
+    font-size: 1.2em;
+    color: var(--text-muted);
+  }
+  details[open] > .mobile-nav__accordion-trigger::after {
+    content: '−';
+  }
+  .mobile-nav__sublist {
+    list-style: none;
+    margin: 0;
+    padding: var(--p-space-1) 0 var(--p-space-3) var(--p-space-4);
+    display: grid;
+    gap: var(--p-space-1);
+  }
+  .mobile-nav__sublink {
+    display: block;
+    padding: var(--p-space-3) var(--p-space-2);
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .mobile-nav__footer {
+    padding: var(--p-space-4) var(--p-gutter-mobile);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  /* This panel is a full-viewport sheet; the language switcher's own
+     absolute-positioned dropdown still works, just anchored inside it. */
+  .mobile-nav__footer :global(.lang-switcher__panel) {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding: var(--p-space-3) 0 0;
+  }
+
+  /* Deliberate exception to the "[open]-scoped display only" rule
+     above: this forces the panel hidden on desktop regardless of state,
+     since the desktop header never renders the trigger button that
+     opens it. Known limitation: resizing an open panel from mobile to
+     >=1024px hides it visually without calling .close(), so the JS
+     scroll-lock isn't released until an explicit close -- an edge case
+     judged not worth a resize listener for in Version 2. */
+  @media (min-width: 1024px) {
+    dialog.mobile-nav {
+      display: none !important;
+    }
+  }
+</style>

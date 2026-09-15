@@ -1,0 +1,12 @@
+<svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Panorama Research Institute</title>
+  <rect width="400" height="120" fill="none" />
+  <g transform="translate(40, 70)">
+    <text font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="32" letter-spacing="2" fill="#333333">PAN<tspan fill="none">O</tspan>RAMA</text>
+    <g transform="translate(73, -22)">
+      <circle cx="12" cy="12" r="10" stroke="#333333" stroke-width="2" fill="none" />
+      <circle cx="12" cy="12" r="5" fill="#999999" />
+    </g>
+    <text x="2" y="25" font-family="Helvetica, Arial, sans-serif" font-weight="300" font-size="14" letter-spacing="6" fill="#666666">RESEARCH INSTITUTE</text>
+  </g>
+</svg>

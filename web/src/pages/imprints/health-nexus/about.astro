@@ -1,0 +1,10 @@
+---
+import HealthNexusSectionPage from '@/components/imprint/HealthNexusSectionPage.astro';
+import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
+
+const imprint = getImprintBySlug('health-nexus');
+if (!imprint) throw new Error('Health Nexus imprint data is missing.');
+const journals = getJournalsForImprint('health-nexus');
+---
+
+<HealthNexusSectionPage imprint={imprint} journals={journals} section="about" />

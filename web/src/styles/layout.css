@@ -1,0 +1,99 @@
+/*
+  PSG Layout & Grid — Round 1 Foundation
+  ───────────────────────────────────────
+  Reference breakpoints (see docs/rebuild/DESIGN-FOUNDATION.md §Grid
+  System for the full responsive behaviour table):
+
+    390     mobile reference
+    768     tablet
+    1024    small laptop
+    1440    desktop reference
+    1728    large desktop / ceiling before full-bleed dominates
+
+  Two container systems, kept deliberately separate:
+    .container-wide     page/section layout width (up to --p-container-max)
+    .container-reading  prose measure (--p-measure-reading, ~68ch)
+  A section is never forced to pick one — a hero can be wide while its
+  supporting paragraph inside it is reading-measure.
+
+  No CSS framework grid (Bootstrap-style 12-col with fixed gutters) is
+  imported. Where multi-column composition is needed, use native CSS
+  Grid per-component with content-driven track sizing — see
+  docs/rebuild/DESIGN-FOUNDATION.md §Grid System for why a mechanical
+  12-column import was rejected for an editorial layout.
+*/
+
+.container-wide {
+  width: 100%;
+  max-width: var(--p-container-max);
+  margin-inline: auto;
+  padding-inline: var(--p-gutter-mobile);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--p-container-narrow);
+  margin-inline: auto;
+  padding-inline: var(--p-gutter-mobile);
+}
+
+.container-reading {
+  width: 100%;
+  max-width: var(--p-measure-reading);
+  margin-inline: auto;
+  padding-inline: var(--p-gutter-mobile);
+}
+
+.container-full-bleed {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container-wide, .container-narrow, .container-reading {
+    padding-inline: var(--p-gutter-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-wide, .container-narrow, .container-reading {
+    padding-inline: var(--p-gutter-desktop);
+  }
+}
+
+/* Editorial row: a full-width horizontal section with an inner wide
+   container. This — not a card grid — is the default content unit. */
+.row {
+  padding-block: var(--p-space-8);
+}
+
+.row--tight   { padding-block: var(--p-space-6); }
+.row--roomy   { padding-block: var(--p-space-9); }
+.row--inverse { background: var(--surface-inverse); color: var(--text-inverse); }
+
+/* Thin divider between editorial rows, used instead of card shadows to
+   separate content. */
+.divider {
+  border: none;
+  border-top: var(--p-border-hairline) solid var(--border-subtle);
+  margin: 0;
+}
+
+/* Asymmetric two-column composition (e.g. label + content, or
+   heading + supporting text) — collapses to one column below tablet. */
+.split {
+  display: grid;
+  gap: var(--p-space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .split {
+    grid-template-columns: minmax(200px, 1fr) minmax(0, 2.4fr);
+    gap: var(--p-space-8);
+  }
+}
+
+/* Vertical rhythm utility for stacked editorial children. */
+.stack > * + * {
+  margin-top: var(--flow-space, var(--p-space-5));
+}

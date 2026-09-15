@@ -1,0 +1,223 @@
+---
+import { externalSystems } from '@/data/site';
+import { geoGraticule, geoOrthographic, geoPath } from 'd3-geo';
+import { feature } from 'topojson-client';
+import worldAtlas from 'world-atlas/land-110m.json' with { type: 'json' };
+import { getContent } from '@/i18n/content';
+import { localizePath } from '@/i18n/utils';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+
+const globeProjection = geoOrthographic()
+  .rotate([-18, -8, 0])
+  .translate([335, 178])
+  .scale(126)
+  .clipAngle(90)
+  .precision(0.45);
+const globePath = geoPath(globeProjection);
+const landFeature = feature(worldAtlas as any, (worldAtlas as any).objects.land);
+const landPath = globePath(landFeature) ?? '';
+const graticulePath = globePath(geoGraticule().step([20, 20])()) ?? '';
+const spherePath = globePath({ type: 'Sphere' }) ?? '';
+---
+
+<section class="row row--inverse research-infra">
+  <div class="container-wide research-infra__grid">
+    <div class="research-infra__copy">
+      <p class="text-overline">{t('home.researchOverline')}</p>
+      <h2 class="research-infra__title">{t('home.researchTitle')}</h2>
+      <p class="research-infra__lede">
+        {t('home.researchLede')}
+      </p>
+      <div class="research-infra__actions">
+        <a class="research-infra__link" href={externalSystems.research} target="_blank" rel="noopener noreferrer">
+          {t('common.visitResearch')}
+          <span class="visually-hidden"> (opens in a new tab)</span>
+        </a>
+        <a class="research-infra__link research-infra__link--local" href={localizePath('/infrastructure/', locale)}>
+          {t('common.viewInfrastructure')}
+        </a>
+      </div>
+    </div>
+
+    <figure class="research-infra__figure">
+      <svg class="research-globe" viewBox="0 0 620 360" role="img" aria-labelledby="research-globe-title research-globe-description">
+        <title id="research-globe-title">{t('home.connectedNetwork')}</title>
+        <desc id="research-globe-description">{t('home.globeDescription')}</desc>
+
+        <g class="research-globe__orbits" aria-hidden="true">
+          <ellipse cx="335" cy="178" rx="158" ry="68" transform="rotate(18 335 178)" />
+          <ellipse cx="335" cy="178" rx="163" ry="73" transform="rotate(-24 335 178)" />
+          <path d="M178 221C225 305 412 322 493 163" />
+        </g>
+
+          <g class="research-globe__sphere" aria-hidden="true">
+            <path class="research-globe__outline" d={spherePath} />
+            <path class="research-globe__graticule" d={graticulePath} />
+          </g>
+
+          <g class="research-globe__land" aria-hidden="true">
+            <path d={landPath} />
+          </g>
+
+        <g class="research-globe__connections">
+          <path d="M120 93h65" />
+          <circle cx="186" cy="93" r="3.5" />
+          <text x="28" y="97">{t('common.people')}</text>
+
+          <path d="M475 93h42" />
+          <circle cx="475" cy="93" r="3.5" />
+          <text x="526" y="97">{t('common.places')}</text>
+
+          <path d="M478 178h43" />
+          <circle cx="478" cy="178" r="3.5" />
+          <text x="530" y="182">{t('common.ideas')}</text>
+
+          <path d="M119 255h70" />
+          <circle cx="189" cy="255" r="3.5" />
+          <text x="28" y="259">{t('common.research')}</text>
+
+          <path d="M463 273h50" />
+          <circle cx="463" cy="273" r="3.5" />
+          <text x="523" y="277">{t('common.impact')}</text>
+        </g>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .research-infra {
+    background: var(--surface-inverse);
+    color: var(--text-inverse);
+    padding-block: 2.4rem 2.1rem;
+  }
+
+  .research-infra__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .research-infra__title {
+    max-width: 16ch;
+    margin-top: 0.75rem;
+    color: var(--text-inverse);
+    font-size: clamp(1.75rem, 3.6vw, 2.25rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.05;
+  }
+
+  .research-infra__lede {
+    max-width: 27rem;
+    margin-top: 0.85rem;
+    color: var(--text-inverse-muted);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .research-infra__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-inverse);
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .research-infra__actions {
+    display: grid;
+    justify-items: start;
+    gap: 0.75rem;
+    margin-top: 1.35rem;
+  }
+
+  .research-infra__link--local {
+    padding-block-start: 0.75rem;
+    border-block-start: var(--p-border-hairline) solid var(--border-inverse);
+    color: var(--brand-accent);
+  }
+
+  .research-infra__link span { font-family: var(--font-body); font-size: 1rem; }
+  .research-infra__link:hover { color: var(--brand-accent); }
+
+  .research-infra__figure {
+    position: relative;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .research-globe {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .research-globe__orbits ellipse,
+  .research-globe__orbits path {
+    fill: none;
+    stroke: var(--brand-accent);
+    stroke-width: 1.1;
+    opacity: 0.8;
+  }
+
+  .research-globe__sphere circle,
+  .research-globe__sphere ellipse,
+  .research-globe__sphere path {
+    fill: none;
+    stroke: var(--border-inverse);
+    stroke-width: 0.9;
+    opacity: 0.88;
+  }
+
+  .research-globe__land path {
+    fill: color-mix(in srgb, var(--brand-accent) 7%, transparent);
+    stroke: var(--border-inverse);
+    stroke-width: 0.85;
+    opacity: 0.9;
+  }
+
+  .research-globe__connections path {
+    fill: none;
+    stroke: var(--brand-accent);
+    stroke-width: 0.9;
+    opacity: 0.9;
+  }
+
+  .research-globe__connections circle {
+    fill: var(--brand-accent);
+  }
+
+  .research-globe__connections text {
+    fill: var(--text-inverse-muted);
+    font-family: var(--font-body);
+    font-size: 9px;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .research-infra__grid {
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 1.35rem;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .research-infra__actions {
+      gap: 0.7rem;
+    }
+
+    .research-infra__link--local {
+      padding-block-start: 0.7rem;
+    }
+  }
+</style>

@@ -1,0 +1,999 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
+import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import ridgelineWallpaper from '@/assets/ridgeline-wallpaper-4k.jpg';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import type { Imprint, Journal } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+import { imprintText } from '@/i18n/imprints';
+
+interface Props {
+  imprint: Imprint;
+  journals: Journal[];
+}
+
+const { imprint, journals } = Astro.props;
+const currentPath = Astro.url.pathname;
+const locale = Astro.currentLocale ?? 'en';
+const tx = (key: string, fallback: string) => imprintText('ridgeline', locale, key, fallback);
+const activeJournals = journals.filter((journal) => journal.status === 'active' && journal.cover);
+const heroJournal = activeJournals.find((journal) => journal.slug === 'afs') ?? activeJournals[0];
+const heroCoverAsset = getJournalCoverAsset(heroJournal?.cover);
+const journalSummary = new Map([
+  ['afs', tx('journal.afs.summary', 'Exploring the societal, ethical and governance dimensions of artificial intelligence.')],
+  ['jesa', tx('journal.jesa.summary', 'Advancing research and practice across complex engineered systems and their real-world applications.')],
+  ['pfr', tx('journal.pfr.summary', 'Interdisciplinary perspectives on technology, humanity and a changing planet.')],
+]);
+const ridgelineJournalsPath = localizePath('/imprints/ridgeline/journals/', locale);
+const researchAreas = [
+  { key: 'ai', title: 'Artificial Intelligence', body: 'Methods, applications and societal implications.' },
+  { key: 'engineering', title: 'Engineering Systems', body: 'Design, operation and real-world impact.' },
+  { key: 'sustainability', title: 'Sustainability', body: 'Technology for people and planet.' },
+  { key: 'society', title: 'Society & Governance', body: 'Policy, ethics and equitable innovation.' },
+  { key: 'frontiers', title: 'Interdisciplinary Frontiers', body: 'New ideas at the boundaries of what is possible.' },
+];
+
+const pageDescription = tx('pageDescription', 'Ridgeline publishes independent journals in technology, engineering, and applied AI for a more human, sustainable, and equitable future.');
+const labels = getNavigationLabels(locale);
+const localizedBasePath = localizePath('/imprints/ridgeline/', locale);
+const imprintNav = [
+  { label: labels.home, href: localizedBasePath, current: true },
+  { label: labels.journals, href: ridgelineJournalsPath },
+  { label: labels.research, href: '#purpose' },
+  { label: labels.forAuthors, href: '#authors' },
+  { label: labels.about, href: localizePath('/imprints/ridgeline/about/', locale) },
+];
+const footerNav = [
+  { label: labels.home, href: localizedBasePath },
+  { label: labels.journals, href: localizePath('/imprints/ridgeline/journals/', locale) },
+  { label: labels.research, href: '#purpose' },
+  { label: labels.forAuthors, href: '#authors' },
+  { label: labels.about, href: localizePath('/imprints/ridgeline/about/', locale) },
+];
+---
+
+<BaseLayout
+  title="Ridgeline"
+  description={pageDescription}
+  path="/imprints/ridgeline/"
+  locale={locale}
+  showChrome={false}
+>
+  <div class="ridgeline-page" style={`--ridgeline-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}; --imprint-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}`}>
+    <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
+
+    <div>
+      <section class="ridgeline-hero" aria-labelledby="ridgeline-hero-title">
+        <div class="ridgeline-hero__ridge" aria-hidden="true">
+          <Image
+            src={ridgelineWallpaper}
+            alt=""
+            width={3840}
+            height={2160}
+            widths={[960, 1440, 1920, 2880, 3840]}
+            sizes="100vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="ridgeline-hero__contours" aria-hidden="true"></div>
+
+        <div class="ridgeline-shell ridgeline-hero__inner">
+          <div class="ridgeline-hero__copy">
+            <p class="ridgeline-kicker">{tx('heroKicker', 'Ridgeline / Panorama Scholarly Group')}</p>
+            <h1 id="ridgeline-hero-title">{tx('heroTitleOne', 'Research for')}<br />{tx('heroTitleTwo', 'the systems')}<br />{tx('heroTitleThree', 'we are building.')}</h1>
+            <p class="ridgeline-hero__lede">{tx('heroLede', 'Technology, engineering and applied AI research for a more human, sustainable and equitable future.')}</p>
+            <div class="ridgeline-actions">
+              <a class="ridgeline-button ridgeline-button--primary" data-action="primary" href="#journals">{tx('exploreJournals', 'Explore Ridgeline journals')}</a>
+              <a class="ridgeline-text-link ridgeline-text-link--hero" data-action="secondary" href="#authors">{tx('submitResearch', 'Submit your research')}</a>
+            </div>
+          </div>
+
+          {heroJournal && (
+            <a class="ridgeline-hero__cover-link" href={heroJournal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${heroJournal.title} website`}>
+              {heroCoverAsset ? (
+                <Image
+                  class="ridgeline-hero__cover"
+                  src={heroCoverAsset}
+                  alt=""
+                  width={495}
+                  height={700}
+                  widths={[240, 320, 495]}
+                  sizes="(max-width: 639px) 9.8rem, (max-width: 1199px) 14.5rem, 20rem"
+                  loading="eager"
+                />
+              ) : (
+                <Image class="ridgeline-hero__cover" src={heroJournal.cover!} alt="" width={495} height={700} loading="eager" />
+              )}
+            </a>
+          )}
+
+          <div class="ridgeline-hero__side-note" aria-label="Ridgeline themes">
+            <span>{tx('themeIdeas', 'Ideas')}</span>
+            <span>{tx('themeMethods', 'Methods')}</span>
+            <span>{tx('themePeople', 'People')}</span>
+            <span>{tx('themeTomorrow', 'A more livable tomorrow')}</span>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="journals" class="ridgeline-journals" aria-labelledby="ridgeline-journals-title">
+        <div class="ridgeline-shell">
+          <div class="ridgeline-section-bar">
+            <p class="ridgeline-kicker">{tx('journalsKicker', 'Our journals')}</p>
+            <p>{tx('journalsMeta', 'A growing family of journals.')}</p>
+          </div>
+
+          <div class="ridgeline-journal-grid">
+            <div class="ridgeline-journal-intro">
+              <h2 id="ridgeline-journals-title">{tx('journalsTitleOne', 'Advancing technology.')}<br />{tx('journalsTitleTwo', 'Shaping what comes next.')}</h2>
+              <span class="ridgeline-rule ridgeline-rule--copper" aria-hidden="true"></span>
+              <p>{tx('journalsLede', 'Rigorous research. Real-world impact. A more livable tomorrow.')}</p>
+              <a class="ridgeline-text-link" href={ridgelineJournalsPath}>{tx('viewAllJournals', 'View all Ridgeline journals')}</a>
+            </div>
+
+            {activeJournals.map((journal) => (
+              <article class="ridgeline-journal-entry">
+                <a class="ridgeline-journal-entry__cover-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${journal.title} website`}>
+                  {getJournalCoverAsset(journal.cover) ? (
+                    <Image
+                      class="ridgeline-journal-entry__cover"
+                      src={getJournalCoverAsset(journal.cover)!}
+                      alt=""
+                      width={495}
+                      height={700}
+                      widths={[160, 240, 320, 495]}
+                      sizes="(max-width: 639px) 11.5rem, (max-width: 900px) 14.5rem, 18rem"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Image class="ridgeline-journal-entry__cover" src={journal.cover!} alt="" width={495} height={700} loading="lazy" />
+                  )}
+                </a>
+                <h3><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h3>
+                <p>{journalSummary.get(journal.slug) ?? journal.description}</p>
+                <a class="ridgeline-text-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('viewJournal', 'View journal')}</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="purpose" class="ridgeline-purpose" aria-labelledby="ridgeline-purpose-title">
+        <div class="ridgeline-purpose__texture" aria-hidden="true">
+          <Image
+            src={ridgelineWallpaper}
+            alt=""
+            width={3840}
+            height={2160}
+            widths={[960, 1440, 1920, 2880, 3840]}
+            sizes="100vw"
+            loading="lazy"
+          />
+        </div>
+        <div class="ridgeline-shell ridgeline-purpose__inner">
+          <div>
+            <p class="ridgeline-kicker">{tx('purposeKicker', 'Our purpose')}</p>
+            <h2 id="ridgeline-purpose-title">{tx('purposeTitleOne', 'Knowledge')}<br />{tx('purposeTitleTwo', 'across disciplines')}<br /><span class="ridgeline-nowrap">{tx('purposeTitleThree', 'for real-world progress.')}</span></h2>
+            <span class="ridgeline-rule ridgeline-rule--copper" aria-hidden="true"></span>
+          </div>
+          <div class="ridgeline-purpose__body">
+            <p>{tx('purposeBody', 'Ridgeline publishes rigorous, independent research at the intersection of technology, engineering and society. The challenges we face require more than single-discipline answers.')}</p>
+            <a class="ridgeline-text-link ridgeline-text-link--inverse" href={localizePath('/imprints/ridgeline/about/', locale)}>{tx('learnMore', 'Learn more about Ridgeline')}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ridgeline-areas" aria-labelledby="ridgeline-areas-title">
+        <div class="ridgeline-shell">
+          <div class="ridgeline-section-bar">
+            <p class="ridgeline-kicker" id="ridgeline-areas-title">{tx('areasKicker', 'What we publish')}</p>
+            <p>{tx('areasMeta', 'Disciplines for a brighter tomorrow.')}</p>
+          </div>
+          <div class="ridgeline-area-grid">
+            {researchAreas.map((area) => (
+              <article class="ridgeline-area">
+                <h3>{tx(`area.${area.key}.title`, area.title)}</h3>
+                <p>{tx(`area.${area.key}.body`, area.body)}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="authors" class="ridgeline-authors" aria-labelledby="ridgeline-authors-title">
+        <div class="ridgeline-shell ridgeline-authors__inner">
+          <div class="ridgeline-authors__copy">
+            <p class="ridgeline-kicker">{tx('authorsKicker', 'For authors & editors')}</p>
+            <h2 id="ridgeline-authors-title">{tx('authorsTitleOne', 'Help shape a more')}<br />{tx('authorsTitleTwo', 'livable tomorrow.')}</h2>
+            <p>{tx('authorsBody', 'We welcome original research, reviews and perspectives from around the world.')}</p>
+            <div class="ridgeline-authors__actions">
+              <a class="ridgeline-button ridgeline-button--primary" data-action="primary" href={localizePath('/publishing/', locale)}>{tx('submitResearch', 'Submit your research')}</a>
+              <a class="ridgeline-text-link" data-action="secondary" href={localizePath('/publishing/', locale)}>{tx('authorGuidelines', 'Author guidelines')}</a>
+            </div>
+          </div>
+          <div class="ridgeline-authors__quote">
+            <blockquote>{tx('quote', '“Better systems begin with better questions.”')}</blockquote>
+            <span class="ridgeline-rule ridgeline-rule--copper" aria-hidden="true"></span>
+            <p>{tx('quoteLabelOne', 'Research today')}<br />{tx('quoteLabelTwo', 'A more livable tomorrow')}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <ImprintFooter
+      imprint={imprint}
+      links={footerNav}
+      locale={locale}
+      tagline={tx('footerTagline', 'Ideas for a more livable tomorrow.')}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .ridgeline-page {
+    --ridge-paper: var(--p-paper-50);
+    --ridge-paper-deep: var(--p-paper-100);
+    --ridge-ink: var(--p-navy-950);
+    --ridge-ink-soft: var(--p-navy-700);
+    --ridge-line: var(--p-stone-300);
+    --ridge-copper: #8f3e35;
+    --ridge-blue: var(--p-imprint-ridgeline);
+    --ridge-shell: min(100% - 7rem, 1480px);
+    background: var(--ridge-paper);
+    color: var(--ridge-ink);
+    overflow: hidden;
+  }
+
+  .ridgeline-shell {
+    width: var(--ridge-shell);
+    margin-inline: auto;
+  }
+
+  .ridgeline-header {
+    position: relative;
+    z-index: 10;
+    min-height: clamp(4rem, 6.5vw, 5.25rem);
+    border-bottom: 1px solid color-mix(in srgb, var(--ridge-ink) 15%, transparent);
+    background: color-mix(in srgb, var(--ridge-paper) 94%, transparent);
+  }
+
+  .ridgeline-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: clamp(4rem, 6.5vw, 5.25rem);
+    gap: 2rem;
+  }
+
+  .ridgeline-header__brands { display: flex; align-items: center; flex: 0 0 auto; gap: 1rem; }
+  .ridgeline-header__divider { width: 1px; height: 2.25rem; background: var(--ridge-line); }
+
+  .ridgeline-brand,
+  .ridgeline-footer__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .ridgeline-brand__mark,
+  .ridgeline-footer__mark {
+    display: block;
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+
+  .ridgeline-brand__mark {
+    width: 7.5rem;
+  }
+
+  .ridgeline-footer__mark {
+    width: 6.2rem;
+  }
+
+  .ridgeline-brand__mark img {
+    width: 11.7rem;
+  }
+
+  .ridgeline-footer__mark img {
+    width: 9.6rem;
+  }
+
+  .ridgeline-brand img,
+  .ridgeline-footer__brand img {
+    height: auto;
+    max-width: none;
+  }
+
+  .ridgeline-footer__brand > span:not(.ridgeline-footer__mark) {
+    padding-inline-start: 1.2rem;
+    border-inline-start: 1px solid var(--ridge-line);
+    color: var(--ridge-ink-soft);
+    font-size: 0.52rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-nav,
+  .ridgeline-footer__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 2.4rem);
+    margin-inline-start: auto;
+  }
+
+  .ridgeline-nav a,
+  .ridgeline-footer__nav a {
+    color: var(--ridge-ink);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .ridgeline-nav a:hover,
+  .ridgeline-nav a:focus-visible,
+  .ridgeline-footer__nav a:hover,
+  .ridgeline-footer__nav a:focus-visible { color: var(--ridge-copper); }
+
+  .ridgeline-nav__search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    min-height: 1.5rem;
+    margin-inline-start: 0.2rem;
+    border-inline-start: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-nav__search svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 1.4;
+  }
+
+  .ridgeline-header__tools { display: flex; align-items: center; gap: 0.75rem; margin-inline-start: 0.2rem; }
+  .ridgeline-header__lang { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--ridge-line); }
+  .ridgeline-header__lang :global(.lang-switcher__trigger) { color: var(--ridge-ink); }
+  .ridgeline-header__lang :global(.lang-switcher__trigger:hover) { color: var(--ridge-copper); }
+
+  .ridgeline-menu-button,
+  .ridgeline-mobile-nav { display: none; }
+
+  .ridgeline-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: clamp(33.75rem, 57vw, 48rem);
+    overflow: hidden;
+    border-bottom: 1px solid color-mix(in srgb, var(--ridge-ink) 40%, transparent);
+    background: var(--ridge-paper);
+  }
+
+  .ridgeline-hero__ridge {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-end: -4%;
+    z-index: -2;
+    width: 73%;
+    height: 86%;
+    overflow: hidden;
+    opacity: 0.82;
+    mix-blend-mode: multiply;
+  }
+
+  .ridgeline-hero__ridge::after {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--ridge-paper) 25%, transparent);
+    content: '';
+  }
+
+  .ridgeline-hero__ridge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right bottom;
+    filter: grayscale(0.55) sepia(0.08) saturate(0.7) contrast(0.88);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 18%, black 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 18%, black 100%);
+  }
+
+  .ridgeline-hero__contours {
+    position: absolute;
+    inset-block-end: -16%;
+    inset-inline-start: 21%;
+    z-index: -1;
+    width: 63%;
+    height: 54%;
+    opacity: 0.4;
+    background-image: url('/images/publishing/ridgeline-wallpaper-1920.webp');
+    background-position: left bottom;
+    background-size: cover;
+    filter: grayscale(1) contrast(0.65);
+    mix-blend-mode: multiply;
+    transform: rotate(-7deg);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 22%, black 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, black 22%, black 100%);
+  }
+
+  .ridgeline-hero__inner {
+    position: relative;
+    min-height: clamp(33.75rem, 57vw, 48rem);
+  }
+
+  .ridgeline-hero__copy {
+    position: relative;
+    z-index: 2;
+    width: min(52%, 42rem);
+    padding-block: clamp(2rem, 4vw, 5.75rem) 3.5rem;
+  }
+
+  .ridgeline-kicker {
+    margin: 0;
+    color: var(--ridge-copper);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.19em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-hero h1 {
+    max-width: 18ch;
+    margin: 1rem 0 1.5rem;
+    color: var(--ridge-ink);
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6.1vw, 5.8rem);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: 0.92;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .ridgeline-hero__lede {
+    max-width: 32rem;
+    margin: 0;
+    color: var(--ridge-ink-soft);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.45vw, 1.35rem);
+    line-height: 1.4;
+  }
+
+  .ridgeline-actions,
+  .ridgeline-authors__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--p-action-row-gap);
+    margin-top: 2.2rem;
+  }
+
+  .ridgeline-hero .ridgeline-actions { margin-top: 1.55rem; }
+  .ridgeline-authors__actions { margin-top: 1.4rem; }
+
+  .ridgeline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--p-action-height);
+    padding: var(--p-action-pad-y) var(--p-action-pad-x);
+    border: 1px solid var(--ridge-ink);
+    border-radius: var(--p-radius-button);
+    color: var(--ridge-ink);
+    font-family: var(--font-display);
+    font-size: var(--p-action-font-size);
+    font-weight: var(--p-action-font-weight);
+    letter-spacing: var(--p-action-letter-spacing);
+    line-height: 1.2;
+    text-decoration: none;
+    text-transform: none;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .ridgeline-button:hover,
+  .ridgeline-button:focus-visible { transform: translateY(-1px); }
+
+  .ridgeline-button:active { transform: translateY(0); }
+
+  .ridgeline-button--primary {
+    background: var(--ridge-ink);
+    color: var(--ridge-paper);
+  }
+
+  .ridgeline-button--primary:hover,
+  .ridgeline-button--primary:focus-visible { background: var(--ridge-blue); }
+
+  .ridgeline-button--secondary { background: transparent; }
+
+  .ridgeline-button--secondary:hover,
+  .ridgeline-button--secondary:focus-visible {
+    background: var(--ridge-ink);
+    color: var(--ridge-paper);
+  }
+
+  .ridgeline-hero .ridgeline-actions { flex-wrap: nowrap; }
+
+  .ridgeline-hero__cover-link {
+    position: absolute;
+    inset-block-start: 5%;
+    inset-inline-end: 18%;
+    z-index: 1;
+    width: clamp(13rem, 24vw, 19.8rem);
+    transform: rotate(-1.4deg);
+    transition: transform var(--p-duration-slow) var(--p-ease-decelerate);
+  }
+
+  .ridgeline-hero__cover-link:hover,
+  .ridgeline-hero__cover-link:focus-visible { transform: rotate(0deg) translateY(-0.4rem); }
+
+  .ridgeline-hero__cover {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 495 / 700;
+    object-fit: cover;
+    box-shadow: 0.9rem 1.4rem 1.7rem color-mix(in srgb, var(--ridge-ink) 20%, transparent), 0.15rem 0.2rem 0 color-mix(in srgb, var(--ridge-ink) 35%, transparent);
+  }
+
+  .ridgeline-hero__side-note {
+    position: absolute;
+    inset-block-end: 3.3rem;
+    inset-inline-start: 0;
+    display: grid;
+    gap: 0.28rem;
+    padding-inline-start: 1.05rem;
+    border-inline-start: 1px solid var(--ridge-copper);
+    color: var(--ridge-ink-soft);
+    font-size: 0.57rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-journals,
+  .ridgeline-areas,
+  .ridgeline-authors {
+    background: var(--ridge-paper);
+  }
+
+  .ridgeline-journals { padding-block: 0.75rem 1rem; }
+
+  .ridgeline-section-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 0.8rem 0.75rem;
+    border-bottom: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-section-bar p:last-child {
+    margin: 0;
+    color: var(--ridge-ink-soft);
+    font-size: 0.61rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-journal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    padding-top: 0.8rem;
+  }
+
+  .ridgeline-journal-intro,
+  .ridgeline-journal-entry {
+    min-width: 0;
+    padding: 0 1.45rem 0 1.45rem;
+  }
+
+  .ridgeline-journal-intro {
+    padding-inline-start: 0;
+    padding-inline-end: 1rem;
+  }
+
+  .ridgeline-journal-entry {
+    display: flex;
+    flex-direction: column;
+    border-inline-start: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-journal-intro h2 {
+    max-width: 100%;
+    margin: 0;
+    color: var(--ridge-ink);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 2.8vw, 3rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+  }
+
+  .ridgeline-rule {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    margin-block: 2rem 1.25rem;
+    background: var(--ridge-line);
+  }
+
+  .ridgeline-rule--copper { background: var(--ridge-copper); }
+
+  .ridgeline-journal-intro > p {
+    max-width: 16rem;
+    margin: 0;
+    color: var(--ridge-ink-soft);
+    font-family: var(--font-display);
+    font-size: 0.94rem;
+    line-height: 1.4;
+  }
+
+  .ridgeline-text-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1.35rem;
+    border-bottom: 1px solid var(--ridge-copper);
+    color: var(--ridge-ink);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.8;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .ridgeline-actions .ridgeline-text-link,
+  .ridgeline-authors__actions .ridgeline-text-link {
+    min-height: var(--p-action-height);
+    margin-top: 0;
+    padding-top: 0;
+    font-size: var(--p-action-font-size);
+    font-weight: var(--p-action-font-weight);
+    letter-spacing: var(--p-action-letter-spacing);
+    line-height: 1.2;
+  }
+
+  .ridgeline-text-link:hover,
+  .ridgeline-text-link:focus-visible { border-color: var(--ridge-ink); color: var(--ridge-copper); }
+
+  .ridgeline-journal-entry__cover-link {
+    display: block;
+    width: min(100%, 9.2rem);
+    margin-bottom: 1.1rem;
+    overflow: hidden;
+    box-shadow: 0 0.55rem 1rem color-mix(in srgb, var(--ridge-ink) 14%, transparent);
+    transition: transform var(--p-duration-base) var(--p-ease-decelerate);
+  }
+
+  .ridgeline-journal-entry__cover-link:hover,
+  .ridgeline-journal-entry__cover-link:focus-visible { transform: translateY(-0.3rem); }
+
+  .ridgeline-journal-entry__cover { width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: cover; }
+
+  .ridgeline-journal-entry h3 {
+    max-width: 15rem;
+    margin: 0;
+    color: var(--ridge-ink);
+    font-family: var(--font-display);
+    font-size: clamp(0.82rem, 1.05vw, 1.05rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .ridgeline-journal-entry h3 a { color: inherit; text-decoration: none; }
+  .ridgeline-journal-entry h3 a:hover { color: var(--ridge-copper); }
+
+  .ridgeline-journal-entry > p {
+    max-width: 15rem;
+    margin: 0.65rem 0 0;
+    color: var(--ridge-ink-soft);
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    line-height: 1.28;
+  }
+
+  .ridgeline-journal-entry > .ridgeline-text-link:last-child {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  .ridgeline-purpose {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--ridge-ink);
+    color: var(--ridge-paper);
+  }
+
+  .ridgeline-purpose__texture {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.12;
+    mix-blend-mode: screen;
+  }
+
+  .ridgeline-purpose__texture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    filter: grayscale(1) contrast(1.25);
+  }
+
+  .ridgeline-purpose__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr);
+    gap: 0;
+    align-items: center;
+    min-height: clamp(13.5rem, 17.5vw, 20rem);
+    padding-block: clamp(1.4rem, 2.5vw, 3.75rem) 0;
+  }
+
+  .ridgeline-purpose .ridgeline-kicker { color: #d49a78; }
+
+  .ridgeline-purpose h2 {
+    max-width: 100%;
+    margin: 1.45rem 0 0;
+    color: var(--ridge-paper);
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 3.2vw, 3.8rem);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+  }
+
+  .ridgeline-nowrap { white-space: normal; }
+
+  .ridgeline-purpose .ridgeline-rule { margin-bottom: 0; }
+
+  .ridgeline-purpose__body {
+    padding-inline-start: clamp(1.5rem, 4vw, 4rem);
+    border-inline-start: 1px solid color-mix(in srgb, var(--ridge-paper) 35%, transparent);
+  }
+
+  .ridgeline-purpose__body p {
+    max-width: 29rem;
+    margin: 0;
+    color: color-mix(in srgb, var(--ridge-paper) 82%, transparent);
+    font-family: var(--font-display);
+    font-size: clamp(0.94rem, 1.15vw, 1.1rem);
+    line-height: 1.4;
+  }
+
+  .ridgeline-text-link--inverse {
+    border-color: #d49a78;
+    color: var(--ridge-paper);
+  }
+
+  .ridgeline-text-link--inverse:hover,
+  .ridgeline-text-link--inverse:focus-visible { color: #d49a78; }
+
+  .ridgeline-areas { padding-block: 0.25rem 0; }
+
+  .ridgeline-area-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .ridgeline-area {
+    min-height: 5.4rem;
+    padding: 1rem 1.1rem 1rem;
+    border-inline-start: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-area:first-child { padding-inline-start: 0; border-inline-start: 0; }
+
+  .ridgeline-area h3 {
+    max-width: 11rem;
+    margin: 0;
+    color: var(--ridge-ink);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .ridgeline-area p {
+    max-width: 11rem;
+    margin: 0.8rem 0 0;
+    color: var(--ridge-ink-soft);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    line-height: 1.28;
+  }
+
+  .ridgeline-authors {
+    border-top: 1px solid var(--ridge-line);
+    background-image: url('/images/publishing/ridgeline-wallpaper-1920.webp');
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 44% auto;
+  }
+
+  .ridgeline-authors__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);
+    gap: 0;
+    padding-block: clamp(1.3rem, 2.5vw, 3.75rem) 1.75rem;
+  }
+
+  .ridgeline-authors h2 {
+    max-width: 24ch;
+    margin: 1.4rem 0 1.25rem;
+    color: var(--ridge-ink);
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 3.6vw, 4.2rem);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: 0.96;
+  }
+
+  .ridgeline-authors__copy > p:not(.ridgeline-kicker) {
+    max-width: 28rem;
+    margin: 0;
+    color: var(--ridge-ink-soft);
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .ridgeline-authors__quote {
+    align-self: center;
+    padding-inline-start: clamp(1.5rem, 4vw, 4rem);
+    border-inline-start: 1px solid var(--ridge-copper);
+  }
+
+  .ridgeline-authors__quote blockquote {
+    max-width: 16rem;
+    margin: 0;
+    color: var(--ridge-ink);
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.4vw, 2.5rem);
+    font-style: italic;
+    line-height: 1.04;
+  }
+
+  .ridgeline-authors__quote .ridgeline-rule { margin-block: 1.7rem 1rem; }
+
+  .ridgeline-authors__quote p {
+    margin: 0;
+    color: var(--ridge-ink-soft);
+    font-size: 0.57rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+    line-height: 1.55;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-footer {
+    border-top: 1px solid var(--ridge-line);
+    background: var(--ridge-paper);
+  }
+
+  .ridgeline-footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 1.35rem;
+  }
+
+  .ridgeline-footer__brand { gap: 0.8rem; }
+  .ridgeline-footer__brand span { font-size: 0.48rem; }
+
+  @media (min-width: 1200px) {
+    .ridgeline-hero__copy { padding-block-start: 5.75rem; }
+    .ridgeline-hero__cover-link { inset-inline-end: 18%; width: 19.8rem; }
+    .ridgeline-purpose__inner { grid-template-columns: minmax(0, 0.98fr) minmax(18rem, 1.02fr); }
+    .ridgeline-purpose h2 { font-size: clamp(2.6rem, 3.4vw, 4rem); }
+  }
+
+  @media (max-width: 900px) {
+    .ridgeline-shell { --ridge-shell: min(100% - 3rem, 44rem); }
+    .ridgeline-nav { gap: 1.1rem; }
+    .ridgeline-nav a { font-size: 0.6rem; }
+    .ridgeline-hero__copy { width: 58%; }
+    .ridgeline-hero__cover-link { inset-inline-end: 7%; width: 14.5rem; }
+    .ridgeline-journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.25rem 0; }
+    .ridgeline-journal-intro { grid-column: 1 / -1; padding-inline-end: 0; }
+    .ridgeline-journal-intro h2 { max-width: min(100%, 18ch); }
+    .ridgeline-journal-entry:nth-child(3) { border-inline-start: 0; }
+    .ridgeline-area-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem 0; }
+    .ridgeline-area:nth-child(4) { padding-inline-start: 0; border-inline-start: 0; }
+    .ridgeline-area:nth-child(1), .ridgeline-area:nth-child(4) { border-inline-start: 0; }
+  }
+
+  @media (max-width: 639px) {
+    .ridgeline-page { --ridge-shell: calc(100% - 2rem); }
+    .ridgeline-header, .ridgeline-header__inner { min-height: 4.3rem; }
+    .ridgeline-header__inner { gap: 1rem; }
+    .ridgeline-brand img { width: 7.6rem; }
+    .ridgeline-nav { display: none; }
+    .ridgeline-header__tools { margin-inline-start: auto; }
+    .ridgeline-header__lang { display: none; }
+    .ridgeline-hero .ridgeline-actions { flex-wrap: wrap; }
+    .ridgeline-menu-button {
+      display: grid;
+      gap: 0.32rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      padding: 0.7rem 0.5rem;
+      border: 1px solid var(--ridge-ink);
+      border-radius: var(--p-radius-button);
+    }
+    .ridgeline-menu-button__line { display: block; width: 100%; height: 1px; background: var(--ridge-ink); }
+    .ridgeline-mobile-nav {
+      position: absolute;
+      inset: 100% 0 auto;
+      z-index: 12;
+      gap: 0;
+      background: var(--ridge-paper);
+      border-bottom: 1px solid var(--ridge-line);
+      box-shadow: 0 0.9rem 1.7rem color-mix(in srgb, var(--ridge-ink) 9%, transparent);
+    }
+    .ridgeline-mobile-nav:not([hidden]) { display: grid; }
+    .ridgeline-mobile-nav a { padding: 1rem; border-top: 1px solid var(--ridge-line); color: var(--ridge-ink); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
+    .ridgeline-mobile-nav__language { padding: 0.75rem 1rem 1rem; border-top: 1px solid var(--ridge-line); }
+    .ridgeline-mobile-nav__language :global(.lang-switcher__trigger) { padding-inline: 0.5rem; color: var(--ridge-ink); }
+    .ridgeline-mobile-nav__language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
+    .ridgeline-mobile-nav__language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; border: 0; color: var(--ridge-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .ridgeline-hero { min-height: 52rem; }
+    .ridgeline-hero__inner { min-height: 52rem; }
+    .ridgeline-hero__ridge { inset-inline-end: -33%; width: 118%; height: 55%; opacity: 0.52; }
+    .ridgeline-hero__contours { inset-inline-start: -16%; width: 140%; height: 48%; opacity: 0.25; }
+    .ridgeline-hero__copy { width: 100%; padding-block: 3.25rem 0; }
+    .ridgeline-hero h1 { max-width: 14ch; margin: 1rem 0 1.35rem; font-size: clamp(2.85rem, 12vw, 4.4rem); }
+    .ridgeline-hero__lede { max-width: 19rem; font-size: 1.05rem; }
+    .ridgeline-actions { margin-top: 1.55rem; }
+    .ridgeline-hero .ridgeline-actions { align-items: flex-start; flex-direction: column; flex-wrap: nowrap; gap: 0.6rem; }
+    .ridgeline-button { min-height: var(--p-action-height); padding-inline: var(--p-action-pad-x); font-size: var(--p-action-font-size); }
+    .ridgeline-hero__cover-link { inset-block-start: auto; inset-block-end: 4.8rem; inset-inline-end: 0; width: 9.8rem; }
+    .ridgeline-hero__side-note { inset-block-end: 1.8rem; font-size: 0.48rem; }
+    .ridgeline-section-bar { align-items: flex-start; flex-direction: column; gap: 0.55rem; }
+    .ridgeline-section-bar p:last-child { font-size: 0.55rem; }
+    .ridgeline-journal-grid { grid-template-columns: 1fr; gap: 2.8rem; }
+    .ridgeline-journal-intro, .ridgeline-journal-entry { padding-inline: 0; border-inline-start: 0; }
+    .ridgeline-journal-intro h2 { max-width: 100%; font-size: clamp(2.45rem, 12vw, 2.9rem); }
+    .ridgeline-journal-entry__cover-link { width: 11.5rem; }
+    .ridgeline-purpose__inner, .ridgeline-authors__inner { grid-template-columns: 1fr; gap: 2.7rem; }
+    .ridgeline-purpose__inner { padding-block: 4rem 4.5rem; }
+    .ridgeline-purpose h2, .ridgeline-authors h2 { max-width: 9ch; font-size: 3.1rem; }
+    .ridgeline-nowrap { white-space: normal; }
+    .ridgeline-purpose__body, .ridgeline-authors__quote { padding-inline-start: 1.2rem; }
+    .ridgeline-area-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
+    .ridgeline-area { min-height: 9.5rem; padding: 1.4rem 0.85rem 1.25rem; border-block-start: 1px solid var(--ridge-line); }
+    .ridgeline-area:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
+    .ridgeline-area:nth-child(-n + 2) { border-block-start: 0; }
+    .ridgeline-authors { background-size: 90% auto; }
+    .ridgeline-authors__inner { padding-block: 4rem 4.5rem; }
+    .ridgeline-footer__inner { align-items: flex-start; flex-direction: column; gap: 1.4rem; }
+    .ridgeline-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; margin-inline-start: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ridgeline-button:hover,
+    .ridgeline-button:focus-visible,
+    .ridgeline-hero__cover-link:hover,
+    .ridgeline-hero__cover-link:focus-visible,
+    .ridgeline-journal-entry__cover-link:hover,
+    .ridgeline-journal-entry__cover-link:focus-visible { transform: none; }
+  }
+</style>

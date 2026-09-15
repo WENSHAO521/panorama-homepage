@@ -1,0 +1,721 @@
+{
+  "generatedBy": "scripts/build_redirects.py",
+  "generatedFor": "Version 1 -- Greenfield Static Rebuild Foundation",
+  "schemaNotes": "type 301 = confirmed permanent redirect to a route in the new IA; 410 = confirmed gone, no successor; review = destination not yet decided, needs a product/IA call before Round 14 (Migration/Redirects) wires these into the actual Cloudflare redirect rules. This file is an AUDIT, not yet live redirect configuration -- see docs/MIGRATION.md.",
+  "counts": {
+    "total": 118,
+    "301": 69,
+    "410": 0,
+    "review": 49
+  },
+  "rules": [
+    {
+      "from": "/about.html",
+      "to": "/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ar/about.html",
+      "to": "/ar/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ar/contact.html",
+      "to": "/ar/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ar/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/ar/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/ar/index.html",
+      "to": "/ar/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ar/indexing.html",
+      "to": "/ar/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/ar/open-access-policy.html",
+      "to": "/ar/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ar/privacy-policy.html",
+      "to": "/ar/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ar/publication-ethics.html",
+      "to": "/ar/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/charter-editorial.html",
+      "to": "/imprints/charter/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/charter-for-authors.html",
+      "to": "/imprints/charter/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/charter-policies.html",
+      "to": "/imprints/charter/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/charter.html",
+      "to": "/imprints/charter/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/contact.html",
+      "to": "/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/de/about.html",
+      "to": "/de/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/de/contact.html",
+      "to": "/de/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/de/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/de/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/de/index.html",
+      "to": "/de/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/de/indexing.html",
+      "to": "/de/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/de/open-access-policy.html",
+      "to": "/de/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/de/privacy-policy.html",
+      "to": "/de/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/de/publication-ethics.html",
+      "to": "/de/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/es/about.html",
+      "to": "/es/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/es/contact.html",
+      "to": "/es/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/es/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/es/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/es/index.html",
+      "to": "/es/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/es/indexing.html",
+      "to": "/es/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/es/open-access-policy.html",
+      "to": "/es/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/es/privacy-policy.html",
+      "to": "/es/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/es/publication-ethics.html",
+      "to": "/es/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/fr/about.html",
+      "to": "/fr/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/fr/contact.html",
+      "to": "/fr/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/fr/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/fr/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/fr/index.html",
+      "to": "/fr/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/fr/indexing.html",
+      "to": "/fr/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/fr/open-access-policy.html",
+      "to": "/fr/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/fr/privacy-policy.html",
+      "to": "/fr/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/fr/publication-ethics.html",
+      "to": "/fr/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/health-nexus-editorial.html",
+      "to": "/imprints/health-nexus/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/health-nexus-for-authors.html",
+      "to": "/imprints/health-nexus/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/health-nexus-policies.html",
+      "to": "/imprints/health-nexus/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/health-nexus.html",
+      "to": "/imprints/health-nexus/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/index.html",
+      "to": "/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/indexing.html",
+      "to": "/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/ja/about.html",
+      "to": "/ja/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ja/contact.html",
+      "to": "/ja/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ja/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/ja/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/ja/index.html",
+      "to": "/ja/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ja/indexing.html",
+      "to": "/ja/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/ja/open-access-policy.html",
+      "to": "/ja/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ja/privacy-policy.html",
+      "to": "/ja/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ja/publication-ethics.html",
+      "to": "/ja/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ko/about.html",
+      "to": "/ko/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ko/contact.html",
+      "to": "/ko/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ko/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/ko/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/ko/index.html",
+      "to": "/ko/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ko/indexing.html",
+      "to": "/ko/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/ko/open-access-policy.html",
+      "to": "/ko/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ko/privacy-policy.html",
+      "to": "/ko/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ko/publication-ethics.html",
+      "to": "/ko/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/open-access-policy.html",
+      "to": "/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/privacy-policy.html",
+      "to": "/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/publication-ethics.html",
+      "to": "/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-about.html",
+      "to": "/imprints/ridgeline/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-afs.html",
+      "to": "/imprints/ridgeline/journals/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-contact.html",
+      "to": "/imprints/ridgeline/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-editorial.html",
+      "to": "/imprints/ridgeline/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-for-authors.html",
+      "to": "/imprints/ridgeline/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-jesa.html",
+      "to": "/imprints/ridgeline/journals/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-journals.html",
+      "to": "/imprints/ridgeline/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-pfr.html",
+      "to": "/imprints/ridgeline/journals/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-policies.html",
+      "to": "/imprints/ridgeline/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-submit.html",
+      "to": "/imprints/ridgeline/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/ridgeline-updates.html",
+      "to": "/news/",
+      "type": "review",
+      "notes": "Imprint-specific updates feed; decide whether it folds into /news/ or becomes an imprint-scoped news filter."
+    },
+    {
+      "from": "/ridgeline.html",
+      "to": "/imprints/ridgeline/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ru/about.html",
+      "to": "/ru/about/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ru/contact.html",
+      "to": "/ru/about/contact/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ru/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
+    },
+    {
+      "from": "/ru/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
+    },
+    {
+      "from": "/ru/index.html",
+      "to": "/ru/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ru/indexing.html",
+      "to": "/ru/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards)."
+    },
+    {
+      "from": "/ru/open-access-policy.html",
+      "to": "/ru/standards/open-access/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ru/privacy-policy.html",
+      "to": "/ru/privacy/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/ru/publication-ethics.html",
+      "to": "/ru/standards/ethics/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/threnody-editorial.html",
+      "to": "/imprints/threnody/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/threnody-for-authors.html",
+      "to": "/imprints/threnody/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/threnody-policies.html",
+      "to": "/imprints/threnody/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/threnody.html",
+      "to": "/imprints/threnody/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/verdant-science-editorial.html",
+      "to": "/imprints/verdant-science/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/verdant-science-for-authors.html",
+      "to": "/imprints/verdant-science/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/verdant-science-policies.html",
+      "to": "/imprints/verdant-science/",
+      "type": "review",
+      "notes": null
+    },
+    {
+      "from": "/verdant-science.html",
+      "to": "/imprints/verdant-science/",
+      "type": 301,
+      "notes": null
+    },
+    {
+      "from": "/zh-cn/about.html",
+      "to": "/zh-hans/about/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/contact.html",
+      "to": "/zh-hans/about/contact/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired. Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision. Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/index.html",
+      "to": "/zh-hans/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/indexing.html",
+      "to": "/zh-hans/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards). Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/open-access-policy.html",
+      "to": "/zh-hans/standards/open-access/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/privacy-policy.html",
+      "to": "/zh-hans/privacy/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh-cn/publication-ethics.html",
+      "to": "/zh-hans/standards/ethics/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/about.html",
+      "to": "/zh-hant/about/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/contact.html",
+      "to": "/zh-hant/about/contact/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/editorial-board-application.html",
+      "to": null,
+      "type": "review",
+      "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired. Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/for-authors.html",
+      "to": null,
+      "type": "review",
+      "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision. Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/index.html",
+      "to": "/zh-hant/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/indexing.html",
+      "to": "/zh-hant/infrastructure/",
+      "type": "review",
+      "notes": "Legacy page listed indexing/database partners. Tentatively mapped to /infrastructure/; confirm during Round 9 (Infrastructure/POSI/Standards). Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/open-access-policy.html",
+      "to": "/zh-hant/standards/open-access/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/privacy-policy.html",
+      "to": "/zh-hant/privacy/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    },
+    {
+      "from": "/zh/publication-ethics.html",
+      "to": "/zh-hant/standards/ethics/",
+      "type": 301,
+      "notes": "Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
+    }
+  ]
+}

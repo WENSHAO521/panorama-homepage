@@ -1,0 +1,39 @@
+---
+// Restrained related-journal rail (project brief §25). Ranking is
+// deterministic (see getRelatedJournals) -- labelled plainly, not
+// presented as an algorithmic recommendation.
+import type { Journal } from '@/types';
+import { getImprintBySlug } from '@/lib/content/imprints';
+import JournalCard from './JournalCard.astro';
+
+interface Props { journals: Journal[] }
+const { journals } = Astro.props;
+---
+
+{journals.length > 0 && (
+  <section class="related-journals">
+    <h2 class="text-overline related-journals__heading">Related journals</h2>
+    <ul class="related-journals__grid" role="list">
+      {journals.map((journal) => (
+        <JournalCard journal={journal} imprint={getImprintBySlug(journal.imprint)} />
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .related-journals__heading {
+    margin-bottom: var(--p-space-5);
+  }
+  .related-journals__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--p-space-5);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 768px) {
+    .related-journals__grid { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>

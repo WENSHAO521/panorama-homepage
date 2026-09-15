@@ -1,0 +1,22 @@
+---
+// Layout-width container. Two independent max-widths on purpose --
+// see docs/DESIGN-SYSTEM.md §Grid System -- never conflate reading
+// measure with layout width.
+interface Props {
+  width?: 'wide' | 'reading' | 'narrow' | 'full-bleed';
+  as?: keyof HTMLElementTagNameMap;
+}
+
+const { width = 'wide', as: Tag = 'div' } = Astro.props;
+const widthClassMap: Record<NonNullable<Props['width']>, string> = {
+  wide: 'container-wide',
+  reading: 'container-reading',
+  narrow: 'container-narrow',
+  'full-bleed': 'container-full-bleed',
+};
+const widthClass = widthClassMap[width];
+---
+
+<Tag class={widthClass}>
+  <slot />
+</Tag>

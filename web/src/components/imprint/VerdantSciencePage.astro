@@ -1,0 +1,554 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
+import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import type { Imprint, Journal } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+import { imprintText } from '@/i18n/imprints';
+
+interface Props {
+  imprint: Imprint;
+  journals: Journal[];
+}
+
+const { imprint, journals } = Astro.props;
+const journalOrder = ['csgs', 'fsss', 'rggd', 'ses'];
+const activeJournals = journalOrder
+  .map((slug) => journals.find((journal) => journal.slug === slug && journal.status === 'active' && journal.cover))
+  .filter((journal): journal is Journal => Boolean(journal));
+
+const journalMeta = new Map([
+  ['csgs', {
+    label: 'Climate and global systems',
+    summary: 'Interdisciplinary research on climate dynamics, sustainability transitions, and planetary systems.',
+  }],
+  ['fsss', {
+    label: 'Food systems and sustainability',
+    summary: 'Research connecting food safety, resilient supply chains, nutrition, and sustainable development.',
+  }],
+  ['rggd', {
+    label: 'Rural systems and governance',
+    summary: 'Evidence and practice for inclusive rural governance, sustainable agriculture, and green development.',
+  }],
+  ['ses', {
+    label: 'Health, movement, and society',
+    summary: 'Research on sport, exercise, physical activity, health, and the social value of movement.',
+  }],
+]);
+
+const disciplines = [
+  { key: 'climate', name: 'Climate', note: 'Systems & change' },
+  { key: 'food', name: 'Food', note: 'Security & health' },
+  { key: 'land', name: 'Land', note: 'Ecosystems & biodiversity' },
+  { key: 'rural', name: 'Rural systems', note: 'People & place' },
+  { key: 'health', name: 'Health & activity', note: 'Wellbeing & society' },
+];
+
+const wallpaper = '/images/publishing/verdant-science-wallpaper-4k.jpg';
+const basePath = '/imprints/verdant-science/';
+const currentPath = Astro.url.pathname;
+const locale = Astro.currentLocale ?? 'en';
+const tx = (key: string, fallback: string) => imprintText('verdant-science', locale, key, fallback);
+const pageDescription = tx('pageDescription', 'Verdant Science is Panorama Scholarly Group’s imprint for rigorous research across sustainability, environmental systems, food, rural development, and human wellbeing.');
+const labels = getNavigationLabels(locale);
+const localizedBasePath = localizePath(basePath, locale);
+const researchPath = `${localizedBasePath}#research`;
+const authorsPath = `${localizedBasePath}#about`;
+const aboutPath = localizePath(`${basePath}about/`, locale);
+const imprintNav = [
+  { label: labels.home, href: localizedBasePath, current: true },
+  { label: labels.journals, href: localizePath(`${basePath}journals/`, locale) },
+  { label: labels.research, href: researchPath },
+  { label: labels.forAuthors, href: authorsPath },
+  { label: labels.about, href: aboutPath },
+];
+const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
+---
+
+<BaseLayout
+  title="Verdant Science"
+  description={pageDescription}
+  path={basePath}
+  locale={locale}
+  showChrome={false}
+>
+  <div class="verdant-page">
+    <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
+
+    <main>
+      <section class="verdant-hero" aria-labelledby="verdant-hero-title">
+        <div class="verdant-hero__texture" aria-hidden="true">
+          <Image
+            src={wallpaper}
+            alt=""
+            width={3840}
+            height={2160}
+            widths={[960, 1440, 1920, 2880, 3840]}
+            sizes="(max-width: 639px) 100vw, 62vw"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+
+        <div class="verdant-shell verdant-hero__inner">
+          <aside class="verdant-hero__index" aria-label="Page sections">
+            <span class="is-active">01</span>
+            <span>02</span>
+            <span>03</span>
+            <span>04</span>
+          </aside>
+
+          <div class="verdant-hero__copy">
+            <p class="verdant-kicker">{tx('heroKicker', 'Verdant Science / Panorama Scholarly Group')}</p>
+            <h1 id="verdant-hero-title">{tx('heroTitleOne', 'Evidence for')}<br />{tx('heroTitleTwo', 'a living planet.')}</h1>
+            <span class="verdant-rule verdant-rule--rust" aria-hidden="true"></span>
+            <p class="verdant-hero__lede">{tx('heroLede', 'Publishing research that connects environmental systems, communities, and long-term resilience.')}</p>
+            <a class="verdant-button verdant-button--primary" data-action="primary" href={localizePath(`${basePath}journals/`, locale)}>{tx('exploreJournals', 'Explore our journals')}</a>
+          </div>
+
+          <div class="verdant-hero__signature">
+            <img src={imprint.logo} alt="Verdant Science" width="220" height="56" />
+            <p>{tx('signatureScience', 'Science')}<br />{tx('signaturePeople', 'People')}<br />{tx('signaturePlaces', 'Places')}<br />{tx('signaturePossibilities', 'Possibilities')}</p>
+          </div>
+
+          <div class="verdant-hero__note" aria-label="Verdant Science themes">
+            <span>{tx('noteContext', 'Knowledge in context')}</span>
+            <span>{tx('notePractice', 'Systems in practice')}</span>
+            <span>{tx('noteTomorrow', 'A more resilient tomorrow')}</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="journals" class="verdant-journals" aria-labelledby="verdant-journals-title">
+        <div class="verdant-shell">
+          <div class="verdant-section-bar">
+            <p class="verdant-kicker">{tx('journalsKicker', 'Our journal programme')}</p>
+            <p>{activeJournals.length} {tx('journalsMeta', 'active journals and growing')}</p>
+            <a href={localizePath(`${basePath}journals/`, locale)}>{tx('viewAllJournals', 'View all journals')}</a>
+          </div>
+
+          <div class="verdant-journals__heading">
+            <h2 id="verdant-journals-title">{tx('journalsTitle', 'Research for a more resilient world.')}</h2>
+            <p>{tx('journalsBody', 'Rigorous, interdisciplinary journals advancing knowledge across the systems that shape life on Earth.')}</p>
+          </div>
+
+          <div class="verdant-journal-grid">
+            {activeJournals.map((journal) => {
+              const meta = journalMeta.get(journal.slug);
+              const coverAsset = getJournalCoverAsset(journal.cover);
+              return (
+                <article class="verdant-journal-card">
+                  <a class="verdant-journal-card__cover" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${journal.title} website`}>
+                    {coverAsset ? (
+                      <Image
+                        src={coverAsset}
+                        alt={`${journal.title} cover`}
+                        width={495}
+                        height={700}
+                        widths={[180, 240, 320, 495]}
+                        sizes="(max-width: 639px) 14rem, (max-width: 900px) 16rem, (max-width: 1199px) 18rem, 20rem"
+                        loading="eager"
+                      />
+                    ) : (
+                      <Image src={journal.cover!} alt={`${journal.title} cover`} width={495} height={700} loading="eager" />
+                    )}
+                  </a>
+                  <div class="verdant-journal-card__body">
+                    <p class="verdant-journal-card__label">{tx(`journal.${journal.slug}.label`, meta?.label ?? journal.disciplines.join(' · '))}</p>
+                    <h3><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h3>
+                    <p class="verdant-journal-card__summary">{tx(`journal.${journal.slug}.summary`, meta?.summary ?? journal.description ?? 'Peer-reviewed work for a more resilient future.')}</p>
+                    <a class="verdant-text-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('viewJournal', 'View journal')}</a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section class="verdant-disciplines" aria-labelledby="verdant-disciplines-title">
+        <div class="verdant-shell">
+          <div class="verdant-section-bar">
+            <p class="verdant-kicker" id="verdant-disciplines-title">{tx('disciplinesKicker', 'Explore by discipline')}</p>
+            <p>{tx('disciplinesMeta', 'Interconnected research for complex global challenges.')}</p>
+            <a href={`${localizePath(`${basePath}about/`, locale)}#disciplines`}>{tx('viewDisciplines', 'View all disciplines')}</a>
+          </div>
+          <div class="verdant-discipline-grid">
+            {disciplines.map((discipline, index) => (
+              <article class="verdant-discipline">
+                <span class="verdant-discipline__number">0{index + 1}</span>
+                <h3>{tx(`discipline.${discipline.key}.name`, discipline.name)}</h3>
+                <p>{tx(`discipline.${discipline.key}.note`, discipline.note)}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="verdant-research" aria-labelledby="verdant-research-title">
+        <div class="verdant-research__texture" aria-hidden="true">
+          <Image src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="100vw" loading="lazy" />
+        </div>
+        <div class="verdant-shell verdant-research__inner">
+          <div class="verdant-research__heading">
+            <p class="verdant-kicker">{tx('researchKicker', 'A more connected tomorrow')}</p>
+            <h2 id="verdant-research-title">{tx('researchTitle', 'Research today for a more resilient tomorrow.')}</h2>
+          </div>
+          <div class="verdant-research__body">
+            <p>{tx('researchBody', 'Verdant Science publishes rigorous, solution-oriented research that bridges environmental systems, human communities, and long-term planetary wellbeing.')}</p>
+            <div class="verdant-research__signals" aria-label="Verdant Science research priorities">
+              <span>{tx('signalEnvironmental', 'Environmental systems')}</span>
+              <span>{tx('signalPeople', 'People and communities')}</span>
+              <span>{tx('signalAction', 'Knowledge in action')}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="verdant-about" aria-labelledby="verdant-about-title">
+        <div class="verdant-shell verdant-about__inner">
+          <div class="verdant-about__heading">
+            <p class="verdant-kicker">{tx('authorsKicker', 'For authors and editors')}</p>
+            <h2 id="verdant-about-title">{tx('authorsTitle', 'A trusted home for impactful research.')}</h2>
+          </div>
+          <div class="verdant-about__copy">
+            <p>{tx('authorsBody', 'We welcome original research, reviews, and perspectives that make complex environmental and life-science questions clearer, more useful, and more open to the communities they affect.')}</p>
+            <div class="verdant-about__actions">
+              <a class="verdant-button verdant-button--solid" data-action="primary" href={localizePath('/publishing/', locale)}>{tx('submitManuscript', 'Submit a manuscript')}</a>
+              <a class="verdant-text-link" data-action="secondary" href={localizePath('/standards/editorial/', locale)}>{tx('editorialStandards', 'Editorial standards')}</a>
+            </div>
+          </div>
+          <blockquote>{tx('quoteOne', 'Greater understanding today.')}<br />{tx('quoteTwo', 'A more livable tomorrow.')}</blockquote>
+        </div>
+      </section>
+    </main>
+
+    <ImprintFooter
+      imprint={imprint}
+      links={footerNav}
+      locale={locale}
+      theme="dark"
+      tagline={tx('footerTagline', 'Research for a more resilient world.')}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .verdant-page {
+    --verdant-paper: #f6f5ed;
+    --verdant-paper-deep: #ecebe0;
+    --verdant-ink: #102e2a;
+    --verdant-ink-soft: #4b625b;
+    --verdant-green: #3f6b2e;
+    --verdant-green-dark: #113d32;
+    --verdant-sage: #a8bc9e;
+    --verdant-line: #c9d0c2;
+    --verdant-rust: #b34c2e;
+    --imprint-accent: var(--verdant-rust);
+    --verdant-shell: min(100% - 7rem, 1480px);
+    background: var(--verdant-paper);
+    color: var(--verdant-ink);
+    overflow: hidden;
+  }
+
+  .verdant-shell { width: var(--verdant-shell); margin-inline: auto; }
+
+  .verdant-header {
+    position: relative;
+    z-index: 10;
+    background: var(--verdant-paper);
+    border-bottom: 1px solid var(--verdant-line);
+  }
+
+  .verdant-header__inner {
+    display: flex;
+    align-items: center;
+    min-height: 5rem;
+    gap: 1.4rem;
+  }
+
+  .verdant-header__brands {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 1rem;
+  }
+
+  .verdant-group-brand,
+  .verdant-imprint-brand,
+  .verdant-footer__brand {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .verdant-group-brand { display: inline-flex; align-items: flex-start; }
+  .verdant-header__divider { width: 1px; height: 2.25rem; background: var(--verdant-line); }
+  .verdant-imprint-brand { display: block; width: 8.5rem; }
+  .verdant-imprint-brand img { display: block; width: 100%; height: auto; }
+
+  .verdant-nav,
+  .verdant-footer__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.85rem, 1.8vw, 2rem);
+    margin-inline-start: auto;
+  }
+
+  .verdant-nav a,
+  .verdant-footer__nav a,
+  .verdant-header__search,
+  .verdant-header__lang {
+    color: var(--verdant-ink);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .verdant-nav a { position: relative; padding-block: 0.4rem; }
+  .verdant-nav a::after { position: absolute; inset-inline: 0; inset-block-end: -1.1rem; height: 2px; background: var(--verdant-rust); content: ''; opacity: 0; transform: scaleX(0.5); transition: opacity var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-base) var(--p-ease-standard); }
+  .verdant-nav a:hover::after,
+  .verdant-nav a:focus-visible::after,
+  .verdant-nav a[aria-current='page']::after { opacity: 1; transform: scaleX(1); }
+  .verdant-nav a:hover,
+  .verdant-nav a:focus-visible,
+  .verdant-header__search:hover,
+  .verdant-header__search:focus-visible,
+  .verdant-footer__nav a:hover,
+  .verdant-footer__nav a:focus-visible { color: var(--verdant-green); }
+
+  .verdant-header__tools { display: flex; align-items: center; gap: 0.9rem; margin-inline-start: 0.4rem; }
+  .verdant-header__search { padding-inline-start: 1rem; border-inline-start: 1px solid var(--verdant-line); }
+  .verdant-header__lang { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--verdant-line); }
+  .verdant-header__lang :global(.lang-switcher__trigger) { color: var(--verdant-ink); }
+  .verdant-header__lang :global(.lang-switcher__trigger:hover) { color: var(--verdant-green); }
+  .verdant-header__lang :global(.lang-switcher__panel) { font-size: var(--fs-body-sm); font-weight: 400; letter-spacing: normal; white-space: normal; }
+  .verdant-menu-button,
+  .verdant-mobile-nav { display: none; }
+
+  .verdant-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: clamp(32rem, 49vw, 44rem);
+    overflow: hidden;
+    border-bottom: 1px solid var(--verdant-line);
+    background: var(--verdant-paper);
+  }
+
+  .verdant-hero__texture { position: absolute; inset: 0 0 0 42%; z-index: -1; opacity: 0.58; mix-blend-mode: multiply; }
+  .verdant-hero__texture img { width: 100%; height: 100%; object-fit: cover; object-position: left center; filter: saturate(0.8) contrast(0.9); }
+  .verdant-hero__inner { position: relative; display: grid; grid-template-columns: 3rem minmax(0, 0.95fr) minmax(20rem, 1.05fr); grid-template-rows: 1fr auto; column-gap: clamp(1.2rem, 3vw, 3.5rem); min-height: inherit; padding-block: clamp(3rem, 6vw, 6rem) clamp(2rem, 4vw, 4rem); }
+
+  .verdant-hero__index { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding-top: 0.35rem; border-inline-start: 1px solid var(--verdant-line); color: var(--verdant-ink-soft); font-family: var(--font-mono); font-size: 0.62rem; }
+  .verdant-hero__index span { position: relative; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; background: var(--verdant-paper); }
+  .verdant-hero__index span::after { position: absolute; inset-inline-start: -0.58rem; width: 0.45rem; height: 0.45rem; border: 1px solid var(--verdant-green); border-radius: 50%; background: var(--verdant-paper); content: ''; }
+  .verdant-hero__index .is-active { color: var(--verdant-rust); font-weight: 700; }
+  .verdant-hero__index .is-active::after { border-color: var(--verdant-rust); background: var(--verdant-rust); }
+
+  .verdant-hero__copy { align-self: center; max-width: 43rem; padding-block: 1rem 2rem; }
+  .verdant-kicker { margin: 0; color: var(--verdant-green); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.4; text-transform: uppercase; }
+  .verdant-hero h1 { max-width: 16ch; margin: 1.35rem 0 1.6rem; color: var(--verdant-ink); font-family: var(--font-display); font-size: clamp(3.6rem, 5.6vw, 6rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
+  .verdant-rule { display: block; width: 4rem; height: 2px; margin-block: 1.5rem 1.25rem; background: var(--verdant-line); }
+  .verdant-rule--rust { background: var(--verdant-rust); }
+  .verdant-hero__lede { max-width: 31rem; margin: 0; color: var(--verdant-ink-soft); font-family: var(--font-display); font-size: clamp(1.05rem, 1.4vw, 1.35rem); line-height: 1.38; }
+  .verdant-button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--verdant-green-dark); border-radius: var(--p-radius-button); color: var(--verdant-green-dark); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; transition: transform var(--p-duration-fast) var(--p-ease-decelerate), background-color var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard); }
+  .verdant-button:hover,
+  .verdant-button:focus-visible { transform: translateY(-1px); }
+  .verdant-button--primary { margin-top: 2rem; background: var(--verdant-green-dark); color: var(--verdant-paper); }
+  .verdant-button--primary:hover,
+  .verdant-button--primary:focus-visible { background: var(--verdant-rust); border-color: var(--verdant-rust); }
+  .verdant-hero__signature { align-self: start; justify-self: end; width: min(14rem, 80%); padding-top: 0.35rem; }
+  .verdant-hero__signature img { display: block; width: 100%; height: auto; }
+  .verdant-hero__signature p { margin: 1.6rem 0 0; padding-inline-start: 1rem; border-inline-start: 1px solid var(--verdant-green); color: var(--verdant-ink-soft); font-size: 0.58rem; font-weight: 750; letter-spacing: 0.18em; line-height: 1.8; text-transform: uppercase; }
+  .verdant-hero__note { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 0.7rem 1.25rem; margin-top: 2rem; color: var(--verdant-ink-soft); font-size: 0.57rem; font-weight: 750; letter-spacing: 0.16em; text-transform: uppercase; }
+  .verdant-hero__note span + span::before { margin-right: 1.25rem; color: var(--verdant-rust); content: '/'; }
+
+  .verdant-journals,
+  .verdant-disciplines,
+  .verdant-about { background: var(--verdant-paper); }
+  .verdant-journals { padding-block: 0.75rem clamp(4rem, 7vw, 7rem); }
+  .verdant-section-bar { display: flex; align-items: center; gap: 1.5rem; padding-block: 0.85rem; border-bottom: 1px solid var(--verdant-line); }
+  .verdant-section-bar p { margin: 0; }
+  .verdant-section-bar > p:nth-child(2) { margin-inline-start: auto; color: var(--verdant-ink-soft); font-size: 0.6rem; font-weight: 650; letter-spacing: 0.11em; text-transform: uppercase; }
+  .verdant-section-bar > a { color: var(--verdant-rust); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+  .verdant-section-bar > a:hover,
+  .verdant-section-bar > a:focus-visible { color: var(--verdant-green); }
+  .verdant-journals__heading { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr); gap: 3rem; align-items: end; padding-block: clamp(2.25rem, 4vw, 4rem) 2rem; }
+  .verdant-journals__heading h2 { max-width: 15ch; margin: 0; color: var(--verdant-ink); font-family: var(--font-display); font-size: clamp(2.7rem, 4.8vw, 5rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
+  .verdant-journals__heading p { max-width: 28rem; margin: 0; padding-inline-start: 1.4rem; border-inline-start: 1px solid var(--verdant-rust); color: var(--verdant-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
+  .verdant-journal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+  .verdant-journal-card { display: flex; min-width: 0; flex-direction: column; padding-inline: 0.9rem; border-inline-start: 1px solid var(--verdant-line); }
+  .verdant-journal-card:first-child { padding-inline-start: 0.9rem; border-inline-start: 1px solid transparent; }
+  .verdant-journal-card__cover { display: block; overflow: hidden; background: var(--verdant-paper-deep); }
+  .verdant-journal-card__cover img { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: cover; transition: transform var(--p-duration-slow) var(--p-ease-decelerate); }
+  .verdant-journal-card__cover:hover img,
+  .verdant-journal-card__cover:focus-visible img { transform: scale(1.025); }
+  .verdant-journal-card__body { display: flex; min-height: 15rem; flex-direction: column; padding-top: 1rem; }
+  .verdant-journal-card__label { margin: 0 0 0.6rem; color: var(--verdant-green); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
+  .verdant-journal-card h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.65vw, 1.62rem); font-weight: 600; line-height: 1.04; }
+  .verdant-journal-card h3 a { color: var(--verdant-ink); text-decoration: none; }
+  .verdant-journal-card h3 a:hover,
+  .verdant-journal-card h3 a:focus-visible { color: var(--verdant-rust); }
+  .verdant-journal-card__summary { margin: 0.75rem 0 0; color: var(--verdant-ink-soft); font-family: var(--font-display); font-size: 0.83rem; line-height: 1.4; }
+  .verdant-text-link { align-self: flex-start; margin-top: auto; padding-top: 1.3rem; border-bottom: 1px solid currentColor; color: var(--verdant-green-dark); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
+  .verdant-text-link:hover,
+  .verdant-text-link:focus-visible { color: var(--verdant-rust); }
+
+  .verdant-disciplines { padding-block: 0.75rem clamp(3.5rem, 6vw, 5.5rem); border-top: 1px solid var(--verdant-line); }
+  .verdant-discipline-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .verdant-discipline { min-height: 8.5rem; padding: 1.25rem 1.15rem 1.35rem; border-inline-start: 1px solid var(--verdant-line); }
+  .verdant-discipline:first-child { padding-inline-start: 0; border-inline-start: 0; }
+  .verdant-discipline__number { display: block; color: var(--verdant-rust); font-family: var(--font-mono); font-size: 0.62rem; }
+  .verdant-discipline h3 { margin: 1.1rem 0 0; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; line-height: 1.05; }
+  .verdant-discipline p { margin: 0.65rem 0 0; color: var(--verdant-ink-soft); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .verdant-research { position: relative; isolation: isolate; overflow: hidden; background: var(--verdant-green-dark); color: var(--verdant-paper); }
+  .verdant-research__texture { position: absolute; inset: 0; z-index: -1; opacity: 0.18; mix-blend-mode: screen; }
+  .verdant-research__texture img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: grayscale(1) contrast(1.15); }
+  .verdant-research__inner { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(18rem, 0.98fr); gap: 0; align-items: center; min-height: clamp(21rem, 30vw, 29rem); padding-block: clamp(3rem, 5vw, 5rem); }
+  .verdant-research .verdant-kicker { color: var(--verdant-sage); }
+  .verdant-research__heading { padding-inline-end: clamp(1.5rem, 4vw, 4rem); }
+  .verdant-research h2 { max-width: 14ch; margin: 1.4rem 0 0; color: var(--verdant-paper); font-family: var(--font-display); font-size: clamp(2.7rem, 4.7vw, 5rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
+  .verdant-research__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--verdant-paper) 38%, transparent); }
+  .verdant-research__body > p { max-width: 31rem; margin: 0; color: color-mix(in srgb, var(--verdant-paper) 84%, transparent); font-family: var(--font-display); font-size: clamp(1rem, 1.25vw, 1.2rem); line-height: 1.45; }
+  .verdant-research__signals { display: grid; gap: 0.6rem; margin-top: 2rem; color: var(--verdant-paper); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.17em; text-transform: uppercase; }
+  .verdant-research__signals span { padding-block: 0.6rem; border-bottom: 1px solid color-mix(in srgb, var(--verdant-paper) 28%, transparent); }
+
+  .verdant-about { padding-block: clamp(3.5rem, 6vw, 6rem); }
+  .verdant-about__inner { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.9fr) minmax(13rem, 0.55fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  .verdant-about h2 { max-width: 11ch; margin: 1.25rem 0 0; font-family: var(--font-display); font-size: clamp(2.7rem, 4.4vw, 4.7rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
+  .verdant-about__copy { padding-inline-start: clamp(1.25rem, 3vw, 3rem); border-inline-start: 1px solid var(--verdant-rust); }
+  .verdant-about__copy > p { max-width: 28rem; margin: 0; color: var(--verdant-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.45; }
+  .verdant-about__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 1.8rem; }
+  .verdant-about__actions .verdant-text-link { min-height: var(--p-action-height); margin-top: 0; padding-top: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
+  .verdant-button--solid { background: var(--verdant-green-dark); color: var(--verdant-paper); }
+  .verdant-button--solid:hover,
+  .verdant-button--solid:focus-visible { background: var(--verdant-rust); border-color: var(--verdant-rust); }
+  .verdant-about blockquote { margin: 0; color: var(--verdant-green-dark); font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.85rem); font-style: italic; line-height: 1.15; }
+
+  .verdant-footer { background: var(--verdant-green-dark); color: var(--verdant-paper); }
+  .verdant-footer__top { display: grid; grid-template-columns: minmax(13rem, 0.85fr) minmax(0, 1.5fr) minmax(8rem, 0.45fr); gap: 2.5rem; align-items: center; padding-block: 2.5rem; }
+  .verdant-footer__brand { display: flex; align-items: center; gap: 1rem; }
+  .verdant-footer__brand img { display: block; width: 8.5rem; height: auto; }
+  .verdant-footer__brand span { max-width: 8rem; padding-inline-start: 0.9rem; border-inline-start: 1px solid color-mix(in srgb, var(--verdant-paper) 35%, transparent); color: color-mix(in srgb, var(--verdant-paper) 72%, transparent); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.12em; line-height: 1.5; text-transform: uppercase; }
+  .verdant-footer__nav { flex-wrap: wrap; justify-content: flex-start; margin: 0; }
+  .verdant-footer__nav a { color: var(--verdant-paper); }
+  .verdant-footer__nav a:hover,
+  .verdant-footer__nav a:focus-visible { color: var(--verdant-sage); }
+  .verdant-footer__group { display: flex; align-items: center; gap: 0.65rem; justify-self: end; padding-inline-start: 1.5rem; border-inline-start: 1px solid color-mix(in srgb, var(--verdant-paper) 35%, transparent); color: color-mix(in srgb, var(--verdant-paper) 72%, transparent); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.4; text-transform: uppercase; }
+  .verdant-footer__group img { display: block; width: 2.5rem; height: 2.5rem; object-fit: contain; }
+  .verdant-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; border-top: 1px solid color-mix(in srgb, var(--verdant-paper) 24%, transparent); color: color-mix(in srgb, var(--verdant-paper) 65%, transparent); font-size: 0.6rem; }
+  .verdant-footer__bottom p { margin: 0; }
+  .verdant-footer__bottom nav { display: flex; gap: 1.25rem; }
+  .verdant-footer__bottom a { color: inherit; text-decoration: none; }
+  .verdant-footer__bottom a:hover,
+  .verdant-footer__bottom a:focus-visible { color: var(--verdant-paper); }
+
+  @media (max-width: 1200px) {
+    .verdant-page { --verdant-shell: min(100% - 4rem, 1120px); }
+    .verdant-nav { gap: 0.85rem; }
+    .verdant-nav a { font-size: 0.57rem; }
+    .verdant-header__search { display: none; }
+    .verdant-hero__inner { grid-template-columns: 2.5rem minmax(0, 1fr) minmax(16rem, 0.8fr); }
+    .verdant-journal-card { padding-inline: 0.65rem; }
+  }
+
+  @media (max-width: 900px) {
+    .verdant-page { --verdant-shell: min(100% - 3rem, 44rem); }
+    .verdant-header__inner { min-height: 4.5rem; }
+    .verdant-nav { display: none; }
+    .verdant-header__tools { margin-inline-start: auto; }
+    .verdant-header__search { display: inline; }
+    .verdant-menu-button { display: inline-flex; align-items: center; min-height: 2rem; padding: 0.45rem 0.7rem; border: 1px solid var(--verdant-ink); border-radius: var(--p-radius-button); background: transparent; color: var(--verdant-ink); font: inherit; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .verdant-menu-button:hover,
+    .verdant-menu-button:focus-visible { background: var(--verdant-ink); color: var(--verdant-paper); }
+    .verdant-mobile-nav { position: absolute; inset: 100% 0 auto; z-index: 12; background: var(--verdant-paper); border-bottom: 1px solid var(--verdant-line); box-shadow: 0 0.75rem 1.5rem color-mix(in srgb, var(--verdant-ink) 10%, transparent); }
+    .verdant-mobile-nav:not([hidden]) { display: grid; }
+    .verdant-mobile-nav a { padding: 0.95rem var(--p-gutter-mobile); border-top: 1px solid var(--verdant-line); color: var(--verdant-ink); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
+    .verdant-mobile-nav__language { padding: 0.75rem var(--p-gutter-mobile) 1rem; border-top: 1px solid var(--verdant-line); }
+    .verdant-mobile-nav__language :global(.lang-switcher__trigger) { padding-inline: 0.5rem; color: var(--verdant-ink); }
+    .verdant-mobile-nav__language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
+    .verdant-mobile-nav__language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; border: 0; color: var(--verdant-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .verdant-hero { min-height: 46rem; }
+    .verdant-hero__texture { inset: 40% 0 0 22%; opacity: 0.45; }
+    .verdant-hero__inner { grid-template-columns: 2rem minmax(0, 1fr); grid-template-rows: auto 1fr auto; gap: 1.5rem; padding-block: 3.5rem 2.5rem; }
+    .verdant-hero__index { grid-row: 1 / span 2; }
+    .verdant-hero__copy { grid-column: 2; padding-block: 1rem 0; }
+    .verdant-hero__signature { grid-column: 2; justify-self: start; width: 10rem; padding-top: 0; }
+    .verdant-hero__signature p { margin-top: 0.9rem; }
+    .verdant-hero__note { grid-column: 2; margin-top: 0; }
+    .verdant-journals__heading { grid-template-columns: 1fr; gap: 1.5rem; }
+    .verdant-journal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 0; }
+    .verdant-journal-card:nth-child(odd) { padding-inline-start: 0.65rem; border-inline-start: 1px solid transparent; }
+    .verdant-journal-card__body { min-height: 14rem; }
+    .verdant-discipline-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .verdant-discipline:nth-child(4) { padding-inline-start: 0; border-inline-start: 0; }
+    .verdant-about__inner { grid-template-columns: 1fr 1fr; }
+    .verdant-about blockquote { grid-column: 1 / -1; padding-top: 1.5rem; border-top: 1px solid var(--verdant-line); }
+    .verdant-footer__top { grid-template-columns: 1fr 1fr; }
+    .verdant-footer__group { justify-self: start; }
+  }
+
+  @media (max-width: 639px) {
+    .verdant-page { --verdant-shell: calc(100% - 2rem); }
+    .verdant-header__brands { gap: 0.65rem; }
+    .verdant-group-brand span { font-size: 1rem; }
+    .verdant-header__divider { height: 1.8rem; }
+    .verdant-imprint-brand { width: 6.7rem; }
+    .verdant-header__lang { display: none; }
+    .verdant-header__search { padding-inline-start: 0; border-inline-start: 0; }
+    .verdant-hero { min-height: 48rem; }
+    .verdant-hero__texture { inset: 50% -24% 0 0; opacity: 0.42; }
+    .verdant-hero__inner { grid-template-columns: 1.5rem minmax(0, 1fr); gap: 1rem; padding-block: 3rem 2rem; }
+    .verdant-hero__index { gap: 0.8rem; font-size: 0.56rem; }
+    .verdant-hero__index span { width: 1.25rem; height: 1.25rem; }
+    .verdant-hero__index span::after { inset-inline-start: -0.43rem; width: 0.34rem; height: 0.34rem; }
+    .verdant-hero h1 { max-width: 9ch; font-size: clamp(3.5rem, 15vw, 5rem); }
+    .verdant-hero__lede { max-width: 22rem; font-size: 1.05rem; }
+    .verdant-hero__signature { width: 8.5rem; }
+    .verdant-hero__note { display: grid; gap: 0.5rem; font-size: 0.54rem; }
+    .verdant-hero__note span + span::before { margin-right: 0.5rem; }
+    .verdant-section-bar { align-items: flex-start; flex-wrap: wrap; gap: 0.6rem 1rem; }
+    .verdant-section-bar > p:nth-child(2) { margin-inline-start: 0; }
+    .verdant-section-bar > a { margin-inline-start: auto; }
+    .verdant-journals__heading h2 { font-size: 3rem; }
+    .verdant-journal-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .verdant-journal-card,
+    .verdant-journal-card:nth-child(odd),
+    .verdant-journal-card:first-child { padding-inline: 0; border-inline-start: 0; border-bottom: 1px solid var(--verdant-line); padding-bottom: 2.5rem; }
+    .verdant-journal-card:last-child { border-bottom: 0; padding-bottom: 0; }
+    .verdant-journal-card__cover { max-width: 15rem; }
+    .verdant-journal-card__body { min-height: 0; }
+    .verdant-text-link { margin-top: 1.35rem; }
+    .verdant-discipline-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .verdant-discipline,
+    .verdant-discipline:nth-child(4),
+    .verdant-discipline:first-child { min-height: 8rem; padding: 1.2rem 0.8rem 1.2rem; border-inline-start: 1px solid var(--verdant-line); border-top: 1px solid var(--verdant-line); }
+    .verdant-discipline:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
+    .verdant-discipline:nth-child(-n + 2) { border-top: 0; }
+    .verdant-discipline h3 { font-size: 1.05rem; }
+    .verdant-discipline p { font-size: 0.54rem; }
+    .verdant-research__inner { grid-template-columns: 1fr; gap: 2rem; padding-block: 3.5rem 4rem; }
+    .verdant-research__heading { padding-inline-end: 0; }
+    .verdant-research h2 { font-size: 3rem; }
+    .verdant-research__body { padding-inline-start: 1.2rem; }
+    .verdant-about__inner { grid-template-columns: 1fr; gap: 2rem; }
+    .verdant-about__copy { padding-inline-start: 1.2rem; }
+    .verdant-about blockquote { grid-column: auto; padding-top: 0; border-top: 0; }
+    .verdant-footer__top { grid-template-columns: 1fr; gap: 2rem; padding-block: 2.25rem; }
+    .verdant-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1rem; }
+    .verdant-footer__group { justify-self: start; padding-inline-start: 0; padding-top: 1rem; border-inline-start: 0; border-top: 1px solid color-mix(in srgb, var(--verdant-paper) 35%, transparent); }
+    .verdant-footer__bottom { align-items: flex-start; flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .verdant-button:hover,
+    .verdant-button:focus-visible,
+    .verdant-journal-card__cover:hover img,
+    .verdant-journal-card__cover:focus-visible img { transform: none; }
+  }
+</style>

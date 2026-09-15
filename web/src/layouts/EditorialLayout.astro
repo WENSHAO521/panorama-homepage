@@ -1,0 +1,32 @@
+---
+// Shared detail shell for long-form group editorial content.
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  locale?: string;
+  publishDate?: Date;
+}
+
+const { title, description, path, locale = 'en', publishDate } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} path={path} locale={locale}>
+  <article class="group-detail group-detail--editorial">
+    <header class="group-detail__hero" aria-labelledby="group-detail-title">
+      <div class="container-wide group-detail__hero-inner">
+        <h1 id="group-detail-title">{title}</h1>
+      {publishDate && (
+        <time class="group-detail__date" datetime={publishDate.toISOString()}>
+          {publishDate.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      )}
+      </div>
+    </header>
+    <div class="container-reading group-detail__body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

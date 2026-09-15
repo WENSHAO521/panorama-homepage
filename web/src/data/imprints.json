@@ -1,0 +1,57 @@
+[
+  {
+    "id": "ridgeline",
+    "slug": "ridgeline",
+    "name": "Ridgeline",
+    "description": "Ridgeline is the Panorama Scholarly Group imprint for technology, engineering, and applied AI research.",
+    "scope": "Technology, Engineering & AI",
+    "logo": "/brand/imprints/ridgeline/ridgeline-logo.svg",
+    "logoLight": "/brand/imprints/ridgeline/ridgeline-logo-light.svg",
+    "accent": "var(--imprint-ridgeline)",
+    "disciplines": ["Technology", "Engineering", "Artificial Intelligence"]
+  },
+  {
+    "id": "health-nexus",
+    "slug": "health-nexus",
+    "name": "Health Nexus",
+    "description": "Health Nexus is the Panorama Scholarly Group imprint for medicine, public health, and health sciences research.",
+    "scope": "Medicine & Health Sciences",
+    "logo": "/brand/imprints/health-nexus/health-nexus-logo.svg",
+    "logoLight": "/brand/imprints/health-nexus/health-nexus-logo-light.svg",
+    "accent": "var(--imprint-health-nexus)",
+    "disciplines": ["Medicine", "Public Health", "Digital Health & Medical AI"]
+  },
+  {
+    "id": "verdant-science",
+    "slug": "verdant-science",
+    "name": "Verdant Science",
+    "description": "Verdant Science is the Panorama Scholarly Group imprint for sustainability, environmental, and life-sciences research.",
+    "scope": "Sustainability, Environment & Life Sciences",
+    "logo": "/brand/imprints/verdant-science/verdant-science-logo.svg",
+    "logoLight": "/brand/imprints/verdant-science/verdant-science-logo-light.svg",
+    "accent": "var(--imprint-verdant-science)",
+    "disciplines": ["Sustainability", "Environmental Science", "Life Sciences"]
+  },
+  {
+    "id": "charter",
+    "slug": "charter",
+    "name": "Charter",
+    "description": "Charter is the Panorama Scholarly Group imprint for policy, law, and governance research.",
+    "scope": "Policy, Law & Governance",
+    "logo": "/brand/imprints/charter/charter-logo.svg",
+    "logoLight": "/brand/imprints/charter/charter-logo-light.svg",
+    "accent": "var(--imprint-charter)",
+    "disciplines": ["Public Policy", "Law", "Governance"]
+  },
+  {
+    "id": "threnody",
+    "slug": "threnody",
+    "name": "Threnody",
+    "description": "Threnody is the Panorama Scholarly Group imprint for humanities, arts, and philosophy research.",
+    "scope": "Humanities, Arts & Philosophy",
+    "logo": "/brand/imprints/threnody/threnody-logo.svg",
+    "logoLight": "/brand/imprints/threnody/threnody-logo-light.svg",
+    "accent": "var(--imprint-threnody)",
+    "disciplines": ["Humanities", "Arts", "Philosophy"]
+  }
+]

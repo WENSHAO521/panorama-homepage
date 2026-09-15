@@ -1,0 +1,124 @@
+---
+import Logo from '@/components/ui/Logo.astro';
+import DesktopNav from '@/components/navigation/DesktopNav.astro';
+import ReferenceNav from '@/components/navigation/ReferenceNav.astro';
+import HeaderTools from '@/components/navigation/HeaderTools.astro';
+import MobileMenu from '@/components/navigation/MobileMenu.astro';
+import { localizePath } from '@/i18n/utils';
+
+interface Props {
+  locale?: string;
+}
+const { locale = 'en' } = Astro.props;
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<div data-header-sentinel aria-hidden="true"></div>
+<header class="site-header" data-site-header>
+  <div class="container-wide site-header__row">
+    <Logo href={localizePath('/', locale)} />
+
+    <DesktopNav locale={locale} />
+    <ReferenceNav locale={locale} />
+
+    <div class="site-header__utility">
+      <HeaderTools locale={locale} currentPath={currentPath} />
+
+      <button type="button" class="mobile-nav-trigger" data-open-mobile-nav aria-haspopup="dialog" aria-controls="mobile-nav">
+        <svg viewBox="0 0 20 20" width="22" height="22" aria-hidden="true" focusable="false">
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<MobileMenu currentLocale={locale} currentPath={currentPath} />
+
+<script>
+  import '@/scripts/nav-behavior';
+</script>
+
+<style>
+  [data-header-sentinel] {
+    position: absolute;
+    block-size: 1px;
+    inline-size: 1px;
+    inset-block-start: 0;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--p-z-sticky);
+    background: var(--surface-primary);
+    border-bottom: var(--p-border-hairline) solid transparent;
+    transition: box-shadow var(--p-duration-base) var(--p-ease-standard),
+      border-color var(--p-duration-base) var(--p-ease-standard);
+  }
+  .site-header.is-scrolled {
+    border-bottom-color: var(--border-subtle);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .site-header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--p-space-2);
+    padding-block: 0.65rem;
+  }
+
+  .site-header__utility {
+    display: flex;
+    align-items: center;
+    gap: var(--p-space-1);
+  }
+
+  /* Same 1024px breakpoint as DesktopNav.astro -- desktop utility
+     controls and the mobile trigger must switch at the same width the
+     nav itself does, or the 768-1023px range loses all navigation. */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    :global(.desktop-nav) { display: none; }
+  }
+
+  .mobile-nav-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: var(--p-radius-button);
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+  .mobile-nav-trigger:hover { background: var(--surface-secondary); }
+  @media (min-width: 1024px) {
+    .mobile-nav-trigger { display: none; }
+  }
+
+  @media (min-width: 768px) {
+    .mobile-nav-trigger { display: none; }
+  }
+
+  @media (min-width: 768px) {
+    .site-header__row {
+      padding-inline: clamp(2rem, 7.8vw, 5rem);
+    }
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

@@ -1,0 +1,113 @@
+---
+import imprintsData from '@/data/imprints.json';
+import type { Imprint } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = 'en' } = Astro.props;
+const labels = getNavigationLabels(locale);
+
+const imprints = imprintsData as Imprint[];
+---
+
+<nav class="reference-nav" aria-label="Primary">
+  <ul class="reference-nav__list">
+    <li><a href={localizePath('/journals/', locale)}>{labels.journals}</a></li>
+    <li><a href={localizePath('/books/', locale)}>{labels.books}</a></li>
+    <li>
+      <details class="js-dismissible">
+        <summary>{labels.imprints}</summary>
+        <div class="reference-nav__panel">
+          {imprints.map((imprint) => <a href={localizePath(`/imprints/${imprint.slug}/`, locale)}>{imprint.name}</a>)}
+        </div>
+      </details>
+    </li>
+    <li>
+      <details class="js-dismissible">
+        <summary>{labels.about}</summary>
+        <div class="reference-nav__panel reference-nav__panel--right">
+          <a href={localizePath('/about/governance/', locale)}>{labels.governance}</a>
+          <a href={localizePath('/about/contact/', locale)}>{labels.contact}</a>
+        </div>
+      </details>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .reference-nav {
+    display: none;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .reference-nav {
+      display: block;
+      margin-inline: auto;
+    }
+  }
+
+  .reference-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .reference-nav a,
+  .reference-nav summary {
+    color: var(--text-primary);
+    font-size: 0.68rem;
+    font-weight: var(--fw-medium);
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .reference-nav a:hover,
+  .reference-nav summary:hover {
+    color: var(--interactive-default);
+  }
+
+  .reference-nav details {
+    position: relative;
+  }
+
+  .reference-nav summary {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .reference-nav summary::-webkit-details-marker { display: none; }
+
+  .reference-nav__panel {
+    position: absolute;
+    top: calc(100% + 0.85rem);
+    left: -0.75rem;
+    z-index: var(--p-z-dropdown);
+    display: none;
+    min-width: 10rem;
+    padding: 0.65rem;
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    border-radius: var(--p-radius-surface);
+    background: var(--surface-raised);
+    box-shadow: var(--shadow-raised);
+  }
+
+  .reference-nav details[open] .reference-nav__panel {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .reference-nav__panel--right {
+    right: -0.75rem;
+    left: auto;
+  }
+</style>

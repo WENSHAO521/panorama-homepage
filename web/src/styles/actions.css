@@ -1,0 +1,70 @@
+/*
+  Shared action system
+  --------------------
+  CTA geometry is deliberately global. Group pages and imprint pages keep
+  their own colour tokens, but they cannot drift in height, radius, type,
+  alignment, or secondary-link treatment.
+*/
+
+body.group-site [data-action="primary"],
+body.standalone-site [data-action="primary"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box;
+  min-height: var(--p-action-height) !important;
+  padding: var(--p-action-pad-y) var(--p-action-pad-x) !important;
+  border-radius: var(--p-radius-button) !important;
+  font-size: var(--p-action-font-size) !important;
+  font-weight: var(--p-action-font-weight) !important;
+  letter-spacing: var(--p-action-letter-spacing) !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+}
+
+body.group-site [data-action="secondary"],
+body.standalone-site [data-action="secondary"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  box-sizing: border-box;
+  min-height: var(--p-action-height) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  font-size: var(--p-action-font-size) !important;
+  font-weight: var(--p-action-font-weight) !important;
+  letter-spacing: var(--p-action-letter-spacing) !important;
+  line-height: 1.2 !important;
+  text-decoration: none !important;
+}
+
+body.group-site [data-action="primary"],
+body.group-site [data-action="secondary"],
+body.standalone-site [data-action="primary"],
+body.standalone-site [data-action="secondary"] {
+  transition: background-color var(--p-duration-base) var(--p-ease-standard),
+    color var(--p-duration-base) var(--p-ease-standard),
+    border-color var(--p-duration-base) var(--p-ease-standard),
+    transform var(--p-duration-fast) var(--p-ease-decelerate);
+}
+
+body.group-site [data-action="primary"]:hover,
+body.group-site [data-action="primary"]:focus-visible,
+body.group-site [data-action="secondary"]:hover,
+body.group-site [data-action="secondary"]:focus-visible,
+body.standalone-site [data-action="primary"]:hover,
+body.standalone-site [data-action="primary"]:focus-visible,
+body.standalone-site [data-action="secondary"]:hover,
+body.standalone-site [data-action="secondary"]:focus-visible {
+  transform: none !important;
+}
+
+body.group-site [data-action="primary"]:focus-visible,
+body.group-site [data-action="secondary"]:focus-visible,
+body.standalone-site [data-action="primary"]:focus-visible,
+body.standalone-site [data-action="secondary"]:focus-visible {
+  outline: var(--p-border-strong) solid var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}

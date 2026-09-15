@@ -1,0 +1,10 @@
+---
+import ThrenodySectionPage from '@/components/imprint/ThrenodySectionPage.astro';
+import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
+
+const imprint = getImprintBySlug('threnody');
+if (!imprint) throw new Error('Threnody imprint data is missing.');
+const journals = getJournalsForImprint('threnody');
+---
+
+<ThrenodySectionPage imprint={imprint} journals={journals} section="journals" />

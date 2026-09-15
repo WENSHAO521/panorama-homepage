@@ -1,0 +1,123 @@
+---
+// Visible >=1024px (see Header.astro / navigation.css breakpoint).
+// Items with `children` become a <details> dropdown; plain items stay
+// a link. The <details>/<summary> pair gives keyboard + pointer
+// activation and a real expanded/collapsed state for free -- see
+// web/src/scripts/nav-behavior.ts for the small amount of JS added on
+// top (exclusive open, Escape, click-outside).
+import { getPrimaryNav } from '@/data/navigation';
+import MegaMenu from './MegaMenu.astro';
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = 'en' } = Astro.props;
+const primaryNav = getPrimaryNav(locale);
+---
+
+<nav class="desktop-nav" aria-label="Primary">
+  <ul class="desktop-nav__list">
+    {primaryNav.map((item) => (
+      <li class="desktop-nav__item">
+        {item.children ? (
+          <details class="js-dismissible desktop-nav__dropdown">
+            <summary class="desktop-nav__trigger">{item.label}</summary>
+            <div class="desktop-nav__panel">
+              <MegaMenu item={item} />
+            </div>
+          </details>
+        ) : (
+          <a class="desktop-nav__link" href={item.path}>{item.label}</a>
+        )}
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .desktop-nav {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .desktop-nav { display: block; }
+  }
+
+  .desktop-nav__list {
+    display: flex;
+    align-items: stretch;
+    gap: var(--p-space-1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .desktop-nav__item {
+    position: relative;
+    display: flex;
+  }
+
+  .desktop-nav__link,
+  .desktop-nav__trigger {
+    display: flex;
+    align-items: center;
+    /* Tight horizontal padding is deliberate: 8 primary items must fit
+       at the 1024px reference width (project brief §8/§30) -- a wider
+       padding here was measured (tests/browser-check.mjs) to overflow
+       at exactly 1024px. */
+    padding: var(--p-space-3) var(--p-space-2);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-medium);
+    border-radius: var(--p-radius-button);
+    cursor: pointer;
+    list-style: none;
+    white-space: nowrap;
+  }
+  .desktop-nav__trigger::-webkit-details-marker { display: none; }
+  .desktop-nav__link:hover,
+  .desktop-nav__trigger:hover {
+    color: var(--interactive-default);
+    background: var(--surface-secondary);
+  }
+  .desktop-nav__trigger:focus-visible,
+  .desktop-nav__link:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  @media (min-width: 1024px) and (max-width: 1100px) {
+    .desktop-nav__list { gap: 0; }
+  }
+
+  /* Visibility comes ONLY from the [open] attribute -- never a class --
+     to avoid the [hidden]/display conflict class of bug (see
+     web/src/scripts/nav-behavior.ts header comment / docs/NAVIGATION.md). */
+  details[open] > .desktop-nav__panel {
+    display: block;
+  }
+  .desktop-nav__panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    inset-inline-start: 0;
+    z-index: var(--p-z-dropdown);
+    margin-top: var(--p-space-2);
+    background: var(--surface-raised);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    border-radius: var(--p-radius-surface);
+    box-shadow: var(--shadow-raised);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .desktop-nav__panel {
+      animation: mega-in 120ms var(--p-ease-decelerate);
+    }
+  }
+  @keyframes mega-in {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,0 +1,969 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import partnersData from '@/data/partners.json';
+import type { Partner } from '@/types';
+import { getIndexLogoAsset } from '@/lib/assets/indexLogos';
+import { getInfrastructureCopy } from '@/i18n/infrastructure';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getInfrastructureCopy(locale);
+const partners = partnersData as Partner[];
+const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
+
+function getPartners(ids: string[]) {
+  return ids
+    .map((id) => partnerById.get(id))
+    .filter((partner): partner is Partner => Boolean(partner && getIndexLogoAsset(partner.logo)));
+}
+
+const discoveryPartners = getPartners([
+  'google-scholar',
+  'base',
+  'dimensions',
+  'openalex',
+  'semantic-scholar',
+  'openaire',
+]);
+const cashlPartner = getPartners(['cashl'])[0];
+const cjwkPartner = getPartners(['cjwk'])[0];
+
+const preservationPartners = getPartners(['clockss', 'lockss', 'pkp', 'zenodo']);
+const identifierPartners = getPartners(['crossref', 'doi-foundation', 'issn', 'isni', 'dnb', 'zdb']);
+const libraryPartner = getPartners(['hong-kong-library'])[0];
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/infrastructure/"
+  locale={locale}
+>
+  <GroupHero eyebrow={copy.heroOverline} title={copy.heroTitle} lede={copy.heroLede} titleId="infrastructure-title">
+    <div slot="aside" class="infra-hero__aside-content">
+      <p class="text-overline">{copy.summaryOverline}</p>
+      <dl>
+        {copy.summary.map(([label, value]) => (
+          <div><dt>{label}</dt><dd>{value}</dd></div>
+        ))}
+      </dl>
+      <nav class="infra-hero__nav" aria-label={copy.onThisPage}>
+        <a href="#doi">{copy.doi}</a>
+        <a href="#discovery">{copy.discovery}</a>
+        <a href="#preservation">{copy.preservation}</a>
+      </nav>
+    </div>
+  </GroupHero>
+
+  <section class="infra-intro row">
+    <div class="container-wide infra-intro__grid">
+      <div>
+          <p class="text-overline">{copy.introOverline}</p>
+          <h2>{copy.introTitle}</h2>
+      </div>
+      <div class="infra-intro__copy">
+          <p>{copy.introParagraphs[0]}</p>
+          <p>{copy.introParagraphs[1]}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="doi" class="infra-doi row" aria-labelledby="doi-title">
+    <div class="container-wide">
+      <div class="infra-section-head infra-doi__head">
+        <div class="section-heading">
+          <p class="text-overline">{copy.doiOverline}</p>
+          <h2 id="doi-title">{copy.doiTitle}</h2>
+        </div>
+        <p class="infra-section-head__lede">
+          {copy.doiLede}
+        </p>
+      </div>
+
+      <ol class="infra-steps" role="list">
+        {copy.doiSteps.map((step, index) => (
+          <li>
+            <span class="infra-step__number">{String(index + 1).padStart(2, '0')}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="infra-inline-links">
+        <a href="https://www.crossref.org" target="_blank" rel="noopener noreferrer">Crossref</a>
+        <a href="https://www.doi.org" target="_blank" rel="noopener noreferrer">DOI Foundation</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="discovery" class="infra-discovery row" aria-labelledby="discovery-title">
+    <div class="container-wide">
+      <div class="infra-section-head">
+        <div class="section-heading">
+          <p class="text-overline">{copy.discoveryOverline}</p>
+          <h2 id="discovery-title">{copy.discoveryTitle}</h2>
+        </div>
+        <p class="infra-section-head__lede">
+          {copy.discoveryLede}
+        </p>
+      </div>
+
+      <div class="infra-logo-grid" aria-label={copy.discoveryAria}>
+        {discoveryPartners.map((partner) => (
+          <a class="infra-logo-item" href={partner.url} target="_blank" rel="noopener noreferrer">
+            <span class="infra-logo-item__mark">
+              <Image
+                src={getIndexLogoAsset(partner.logo)!}
+                alt={partner.name}
+                widths={[120, 180, 240]}
+                sizes="(max-width: 767px) 36vw, 10rem"
+                loading="lazy"
+              />
+            </span>
+            <span class="infra-logo-item__name">{partner.name}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="infra-regional-services">
+        <div class="infra-regional-services__head">
+          <p class="text-overline">{copy.regionalOverline}</p>
+          <p>{copy.regionalBody}</p>
+        </div>
+        <div class="infra-regional-services__grid">
+          {cashlPartner && (
+            <a class="infra-regional-service infra-regional-service--linked" href={cashlPartner.url} target="_blank" rel="noopener noreferrer">
+              <div class="infra-regional-service__mark infra-regional-service__mark--cashl">
+                <Image
+                  src={getIndexLogoAsset(cashlPartner.logo)!}
+                  alt={cashlPartner.name}
+                  widths={[240, 360, 480]}
+                  sizes="(max-width: 767px) 55vw, 15rem"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3>China Academic Social Sciences and Humanities Library <span>(CASHL)</span></h3>
+                <p>{copy.cashlBody}</p>
+              </div>
+            </a>
+          )}
+
+          {cjwkPartner && (
+            <a class="infra-regional-service infra-regional-service--linked" href={cjwkPartner.url} target="_blank" rel="noopener noreferrer">
+              <div class="infra-regional-service__mark infra-regional-service__mark--cjwk">
+                <Image
+                  src={getIndexLogoAsset(cjwkPartner.logo)!}
+                  alt={cjwkPartner.name}
+                  widths={[180, 260, 340]}
+                  sizes="(max-width: 767px) 55vw, 15rem"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3>Changjiang Wenku <span>(CJWK)</span></h3>
+                <p>{copy.cjwkBody}</p>
+              </div>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preservation" class="infra-preservation row row--inverse" aria-labelledby="preservation-title">
+    <div class="container-wide">
+      <div class="infra-preservation__head">
+        <div class="section-heading">
+          <p class="text-overline">{copy.preservationOverline}</p>
+          <h2 id="preservation-title">{copy.preservationTitle}</h2>
+        </div>
+        <p>
+          {copy.preservationBody}
+        </p>
+      </div>
+
+      <div class="infra-preservation__grid">
+        {preservationPartners.map((partner) => (
+          <a
+            class:list={['infra-preservation__item', partner.id === 'pkp' && 'infra-preservation__item--pkp']}
+            href={partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="infra-preservation__mark">
+              <Image
+                src={getIndexLogoAsset(partner.logo)!}
+                alt={partner.name}
+                widths={[120, 180, 240]}
+                sizes="(max-width: 767px) 38vw, 11rem"
+                loading="lazy"
+              />
+            </span>
+            <span class="infra-preservation__name">{partner.name}</span>
+            <span class="infra-preservation__description">
+              {partner.id === 'clockss' && copy.preservationDescriptions.clockss}
+              {partner.id === 'lockss' && copy.preservationDescriptions.lockss}
+              {partner.id === 'pkp' && copy.preservationDescriptions.pkp}
+              {partner.id === 'zenodo' && copy.preservationDescriptions.zenodo}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="infra-identifiers row" aria-labelledby="identifiers-title">
+    <div class="container-wide">
+      <div class="infra-section-head">
+        <div class="section-heading">
+          <p class="text-overline">{copy.identifiersOverline}</p>
+          <h2 id="identifiers-title">{copy.identifiersTitle}</h2>
+        </div>
+        <p class="infra-section-head__lede">
+          {copy.identifiersLede}
+        </p>
+      </div>
+
+      <div class="infra-identifier-list">
+        {identifierPartners.map((partner) => (
+          <a class="infra-identifier" href={partner.url} target="_blank" rel="noopener noreferrer">
+            <span class="infra-identifier__logo">
+              <Image
+                src={getIndexLogoAsset(partner.logo)!}
+                alt={partner.name}
+                widths={[120, 180, 240]}
+                sizes="(max-width: 767px) 30vw, 9rem"
+                loading="lazy"
+              />
+            </span>
+            <span>
+              <strong>{partner.name}</strong>
+              <span class="infra-identifier__detail">
+                {partner.id === 'crossref' && copy.identifierDetails.crossref}
+                {partner.id === 'doi-foundation' && copy.identifierDetails['doi-foundation']}
+                {partner.id === 'issn' && copy.identifierDetails.issn}
+                {partner.id === 'isni' && copy.identifierDetails.isni}
+                {partner.id === 'dnb' && copy.identifierDetails.dnb}
+                {partner.id === 'zdb' && copy.identifierDetails.zdb}
+              </span>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      {libraryPartner && (
+        <div class="infra-library-partner">
+          <div class="infra-library-partner__mark">
+            <Image
+              src={getIndexLogoAsset(libraryPartner.logo)!}
+              alt={libraryPartner.name}
+              widths={[180, 260, 340]}
+              sizes="(max-width: 767px) 55vw, 15rem"
+              loading="lazy"
+            />
+          </div>
+          <div class="infra-library-partner__copy">
+            <p class="text-overline">{copy.libraryOverline}</p>
+            <h3>{libraryPartner.name}</h3>
+            <p>{copy.libraryBody}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="infra-note row">
+    <div class="container-wide infra-note__inner">
+      <div>
+        <p class="text-overline">{copy.noteOverline}</p>
+        <h2>{copy.noteTitle}</h2>
+      </div>
+      <div class="infra-note__copy">
+        <p>
+          {copy.noteBody}
+        </p>
+        <div class="infra-note__actions">
+          <Button href={localizePath('/journals/', locale)} variant="primary">{copy.browseJournals}</Button>
+          <Button href={localizePath('/standards/open-access/', locale)} variant="secondary">{copy.openAccess}</Button>
+          <Button href={localizePath('/about/contact/', locale)} variant="secondary">{copy.contactGroup}</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .infra-hero {
+    background: var(--surface-inverse);
+    color: var(--text-inverse);
+    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
+  }
+
+  .infra-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+    min-height: 20rem;
+    padding-block: clamp(3rem, 4.5vw, 3.75rem) clamp(2.5rem, 4vw, 3.5rem);
+  }
+
+  .infra-hero .text-overline,
+  .infra-hero h1 {
+    color: var(--text-inverse);
+  }
+
+  .infra-hero .text-overline {
+    color: var(--brand-accent);
+  }
+
+  .infra-hero h1 {
+    max-width: 23ch;
+    margin-top: 1rem;
+    font-size: clamp(2.65rem, 3.4vw, 3.5rem);
+    font-weight: var(--fw-regular);
+    line-height: 0.98;
+  }
+
+  .infra-hero__lede {
+    max-width: 34rem;
+    margin-top: 1.65rem;
+    color: var(--text-inverse-muted);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+    line-height: 1.45;
+  }
+
+  .infra-hero__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1.4rem;
+    margin-top: 2.25rem;
+  }
+
+  .infra-hero__nav a {
+    color: var(--text-link);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .infra-hero__nav a::after,
+  .infra-inline-links a::after {
+    display: block;
+    width: 100%;
+    height: var(--p-border-hairline);
+    margin-top: 0.3rem;
+    background: var(--brand-accent);
+    content: '';
+  }
+
+  .infra-hero__nav a:hover,
+  .infra-hero__nav a:focus-visible {
+    color: var(--text-link-hover);
+  }
+
+  .infra-hero__summary {
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+    padding-top: 1rem;
+  }
+
+  .infra-hero__summary .text-overline {
+    color: var(--text-inverse-muted);
+  }
+
+  .infra-hero__summary dl {
+    margin: 0.8rem 0 0;
+  }
+
+  .infra-hero__summary dl > div {
+    display: grid;
+    grid-template-columns: minmax(5rem, 0.7fr) minmax(0, 1.3fr);
+    gap: 1rem;
+    padding-block: 0.9rem;
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .infra-hero__summary dt {
+    color: var(--text-inverse-muted);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .infra-hero__summary dd {
+    margin: 0;
+    color: var(--text-inverse);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    line-height: 1.3;
+  }
+
+  .infra-hero__summary dd span {
+    color: var(--brand-accent);
+  }
+
+  .row {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .infra-intro {
+    padding-block: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .infra-intro__grid,
+  .infra-note__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 8vw, 9rem);
+    align-items: start;
+  }
+
+  .infra-intro h2,
+  .infra-note h2 {
+    max-width: 16ch;
+    margin-top: 0.65rem;
+    font-size: clamp(2.15rem, 3.25vw, 3.15rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.02;
+  }
+
+  .infra-intro__copy {
+    padding-top: 0.3rem;
+  }
+
+  .infra-intro__copy p {
+    max-width: 38rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+    line-height: 1.5;
+  }
+
+  .infra-intro__copy p + p {
+    margin-top: 1.2rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+  }
+
+  .infra-doi {
+    background: var(--surface-secondary);
+    padding-block: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .infra-doi h2,
+  .infra-discovery h2,
+  .infra-preservation h2,
+  .infra-identifiers h2 {
+    max-width: 15ch;
+    margin-top: 0.65rem;
+    font-size: clamp(2.2rem, 3.4vw, 3.25rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.03;
+  }
+
+  .infra-steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 3rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .infra-steps li {
+    min-height: 15rem;
+    padding: 1.25rem 1.3rem 1.5rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .infra-steps li:first-child { padding-inline-start: 0; }
+  .infra-steps li:last-child { border-inline-end: 0; }
+
+  .infra-step__number {
+    color: var(--text-accent);
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+
+  .infra-steps h3 {
+    margin-top: 1.2rem;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .infra-steps p {
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .infra-steps strong {
+    color: var(--text-primary);
+    font-weight: var(--fw-semibold);
+  }
+
+  .infra-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .infra-inline-links a {
+    color: var(--text-primary);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .infra-inline-links a:hover,
+  .infra-inline-links a:focus-visible {
+    color: var(--interactive-default);
+  }
+
+  .infra-discovery,
+  .infra-identifiers,
+  .infra-note {
+    padding-block: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .infra-section-head,
+  .infra-preservation__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+  }
+
+  .infra-section-head__lede,
+  .infra-preservation__head > p {
+    max-width: 30rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .infra-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .infra-logo-item {
+    display: flex;
+    min-height: 9.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.2rem 1.25rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .infra-logo-item:hover,
+  .infra-logo-item:focus-visible,
+  .infra-identifier:hover,
+  .infra-identifier:focus-visible {
+    background: var(--surface-secondary);
+  }
+
+  .infra-logo-item__mark {
+    display: flex;
+    width: min(100%, 10rem);
+    height: 4.4rem;
+    align-items: center;
+  }
+
+  .infra-logo-item__mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .infra-logo-item__name {
+    color: var(--text-secondary);
+    font-size: 0.66rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .infra-regional-services {
+    margin-top: 2rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    padding-top: 1.1rem;
+  }
+
+  .infra-regional-services__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: start;
+  }
+
+  .infra-regional-services__head > p:last-child {
+    max-width: 30rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .infra-regional-services__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .infra-regional-service {
+    display: grid;
+    grid-template-columns: minmax(9.5rem, 0.85fr) minmax(0, 1.15fr);
+    gap: 1.3rem;
+    align-items: center;
+    min-height: 9.8rem;
+    padding: 1.1rem 1.2rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .infra-regional-service--linked {
+    color: inherit;
+    text-decoration: none;
+    transition: background-color 180ms ease;
+  }
+
+  .infra-regional-service--linked h3,
+  .infra-regional-service--linked p {
+    text-decoration: none;
+  }
+
+  .infra-regional-service--linked:hover {
+    background: color-mix(in srgb, var(--surface-primary) 84%, var(--interactive-default));
+  }
+
+  .infra-regional-service--linked:focus-visible {
+    position: relative;
+    z-index: 1;
+    outline: 2px solid var(--interactive-default);
+    outline-offset: -2px;
+  }
+
+  .infra-regional-service__mark {
+    display: flex;
+    width: 100%;
+    height: 4.5rem;
+    align-items: center;
+  }
+
+  .infra-regional-service__mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .infra-regional-service__mark--cashl {
+    align-items: center;
+    padding: 0.45rem 0.6rem;
+    background: var(--surface-primary);
+  }
+
+  .infra-regional-service__mark--cjwk {
+    padding: 0.45rem 0.6rem;
+    background: var(--surface-inverse);
+  }
+
+  .infra-regional-service h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.2;
+  }
+
+  .infra-regional-service h3 span {
+    color: var(--text-secondary);
+    font-size: 0.82em;
+  }
+
+  .infra-regional-service p {
+    margin-top: 0.45rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .infra-preservation {
+    border-bottom: 0;
+    padding-block: clamp(3.5rem, 8vw, 7rem);
+  }
+
+  .infra-preservation .text-overline { color: var(--text-accent-inverse); }
+  .infra-preservation h2 { color: var(--text-inverse); }
+  .infra-preservation__head > p { color: var(--text-inverse-muted); }
+
+  .infra-preservation__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .infra-preservation__item {
+    display: flex;
+    min-height: 14.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.25rem 1.3rem 1.4rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-inverse);
+    border-bottom: var(--p-border-hairline) solid var(--border-inverse);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .infra-preservation__item:first-child { border-inline-start: var(--p-border-hairline) solid var(--border-inverse); }
+  .infra-preservation__item:hover,
+  .infra-preservation__item:focus-visible { background: color-mix(in srgb, var(--surface-primary) 5%, transparent); }
+
+  .infra-preservation__mark {
+    display: flex;
+    width: min(100%, 10rem);
+    height: 4.3rem;
+    align-items: center;
+  }
+
+  .infra-preservation__mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+    filter: grayscale(1) brightness(0) invert(1);
+    opacity: 0.84;
+  }
+
+  .infra-preservation__item--pkp .infra-preservation__mark img {
+    filter: none;
+    opacity: 1;
+  }
+
+  .infra-preservation__name {
+    color: var(--text-inverse);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .infra-preservation__description {
+    color: var(--text-inverse-muted);
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .infra-identifiers { background: var(--surface-secondary); }
+
+  .infra-identifier-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .infra-identifier {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 1.2rem;
+    align-items: center;
+    min-height: 7.7rem;
+    padding: 1rem 1.2rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .infra-identifier__logo {
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    align-items: center;
+  }
+
+  .infra-identifier__logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .infra-identifier strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.2;
+  }
+
+  .infra-identifier__detail {
+    display: block;
+    margin-top: 0.35rem;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .infra-library-partner {
+    display: grid;
+    grid-template-columns: minmax(11rem, 0.4fr) minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1.5rem 1.4rem;
+    border: var(--p-border-hairline) solid var(--border-strong);
+    border-radius: var(--p-radius-card);
+    background: var(--surface-primary);
+  }
+
+  .infra-library-partner__mark {
+    display: flex;
+    width: min(100%, 15rem);
+    height: 4.2rem;
+    align-items: center;
+  }
+
+  .infra-library-partner__mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .infra-library-partner__copy {
+    max-width: 34rem;
+  }
+
+  .infra-library-partner__copy .text-overline {
+    color: var(--interactive-default);
+  }
+
+  .infra-library-partner h3 {
+    margin-top: 0.45rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: var(--fw-regular);
+  }
+
+  .infra-library-partner__copy > p:last-child {
+    margin-top: 0.4rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .infra-note__inner {
+    align-items: end;
+  }
+
+  .infra-note h2 { max-width: 10ch; }
+
+  .infra-note__copy > p {
+    max-width: 33rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .infra-note__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
+  }
+
+  @media (max-width: 900px) {
+    .infra-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+    .infra-hero h1 { max-width: 13ch; }
+    .infra-intro__grid,
+    .infra-note__inner,
+    .infra-section-head,
+    .infra-preservation__head { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .infra-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .infra-steps li:nth-child(2) { border-inline-end: 0; }
+    .infra-steps li:nth-child(-n + 2) { border-bottom: var(--p-border-hairline) solid var(--border-strong); }
+    .infra-logo-grid,
+    .infra-identifier-list,
+    .infra-regional-services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .infra-preservation__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .infra-regional-services__head { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .infra-preservation__item:nth-child(2) { border-inline-end: 0; }
+    .infra-preservation__item:nth-child(-n + 2) { border-bottom: var(--p-border-hairline) solid var(--border-inverse); }
+  }
+
+  @media (max-width: 639px) {
+    .infra-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
+    .infra-hero h1 { max-width: 10ch; font-size: clamp(2.7rem, 13vw, 4rem); }
+    .infra-hero__summary dl > div { grid-template-columns: 1fr; gap: 0.3rem; }
+    .infra-intro h2,
+    .infra-note h2,
+    .infra-doi h2,
+    .infra-discovery h2,
+    .infra-preservation h2,
+    .infra-identifiers h2 { max-width: 12ch; font-size: clamp(2.2rem, 10vw, 3.3rem); }
+    .infra-steps,
+    .infra-logo-grid,
+    .infra-preservation__grid,
+    .infra-identifier-list,
+    .infra-regional-services__grid { grid-template-columns: minmax(0, 1fr); }
+    .infra-steps li,
+    .infra-steps li:nth-child(2),
+    .infra-steps li:nth-child(-n + 2),
+    .infra-preservation__item,
+    .infra-preservation__item:nth-child(2),
+    .infra-preservation__item:nth-child(-n + 2) {
+      border-inline-end: 0;
+      border-bottom: var(--p-border-hairline) solid var(--border-strong);
+    }
+    .infra-steps li:first-child { padding-inline-start: 1.2rem; }
+    .infra-steps li:last-child,
+    .infra-preservation__item:last-child { border-bottom: 0; }
+    .infra-preservation__item:first-child { border-inline-start: 0; }
+    .infra-identifier { grid-template-columns: 6.5rem minmax(0, 1fr); }
+    .infra-library-partner { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .infra-regional-service { grid-template-columns: minmax(8rem, 0.8fr) minmax(0, 1.2fr); }
+  }
+</style>

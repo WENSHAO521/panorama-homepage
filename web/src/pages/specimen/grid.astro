@@ -1,0 +1,75 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Container & grid specimen" description="Container width and grid specimen" path="/specimen/grid/" showChrome={false}>
+  <section class="row container-wide">
+    <p class="text-overline">Specimen</p>
+    <h1>Containers</h1>
+    <p class="text-body-lg measure-reading">Three independent width systems. Resize the viewport across 390 / 768 / 1024 / 1440 / 1728 to check none overflows horizontally.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <div class="container-full-bleed demo demo--bleed">
+    <p class="text-caption">.container-full-bleed — 100vw, no max-width</p>
+  </div>
+
+  <div class="container-wide demo demo--wide">
+    <p class="text-caption">.container-wide — max {`{var(--p-container-max)}`} = 1440px</p>
+  </div>
+
+  <div class="container-narrow demo demo--narrow">
+    <p class="text-caption">.container-narrow — max {`{var(--p-container-narrow)}`} = 720px</p>
+  </div>
+
+  <div class="container-reading demo demo--reading">
+    <p class="text-caption">.container-reading — max {`{var(--p-measure-reading)}`} = 68ch</p>
+  </div>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Split composition</h2>
+    <p class="text-body-sm u-text-muted">Collapses to one column below 768px.</p>
+    <div class="split u-mt-4">
+      <div class="demo-block">label column</div>
+      <div class="demo-block">content column — content-driven track sizing, not a mechanical 12-col grid</div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Breakpoint reference</h2>
+    <table>
+      <thead><tr><th>Width</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td>390px</td><td>Mobile reference</td></tr>
+        <tr><td>768px</td><td>Tablet</td></tr>
+        <tr><td>1024px</td><td>Small laptop</td></tr>
+        <tr><td>1440px</td><td>Desktop reference (.container-wide max)</td></tr>
+        <tr><td>1728px+</td><td>Large desktop — full-bleed sections dominate, wide container stays capped</td></tr>
+      </tbody>
+    </table>
+  </section>
+</BaseLayout>
+
+<style>
+  .demo { padding-block: var(--p-space-4); margin-bottom: var(--p-space-2); }
+  .demo--bleed   { background: var(--surface-inverse); color: var(--text-inverse); padding-inline: var(--p-space-4); }
+  .demo--wide    { background: var(--surface-secondary); }
+  .demo--narrow  { background: var(--p-stone-100); }
+  .demo--reading { background: var(--surface-secondary); border: 1px dashed var(--border-strong); }
+  .demo-block {
+    background: var(--surface-secondary);
+    padding: var(--p-space-4);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+  }
+  table { margin-top: var(--p-space-5); }
+  th, td {
+    text-align: start;
+    padding: var(--p-space-2) var(--p-space-4) var(--p-space-2) 0;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    font-size: var(--fs-body-sm);
+  }
+</style>

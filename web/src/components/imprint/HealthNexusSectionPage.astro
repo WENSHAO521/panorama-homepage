@@ -1,0 +1,524 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
+import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import type { Imprint, Journal } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+import { imprintText } from '@/i18n/imprints';
+
+type Section = 'journals' | 'research' | 'for-authors' | 'about';
+
+interface Props {
+  imprint: Imprint;
+  journals: Journal[];
+  section: Section;
+}
+
+const { imprint, journals, section } = Astro.props;
+const wallpaper = '/images/publishing/health-nexus-wallpaper-4k.jpg';
+const basePath = '/imprints/health-nexus/';
+const pagePath = `${basePath}${section}/`;
+const currentPath = Astro.url.pathname;
+const locale = Astro.currentLocale ?? 'en';
+const tx = (key: string, fallback: string) => imprintText('health-nexus', locale, key, fallback);
+const labels = getNavigationLabels(locale);
+const localizedBasePath = localizePath(basePath, locale);
+
+const navigation = [
+  { label: labels.home, href: localizedBasePath },
+  { label: labels.journals, href: localizePath(`${basePath}journals/`, locale), key: 'journals' },
+  { label: labels.research, href: localizePath(`${basePath}research/`, locale), key: 'research' },
+  { label: labels.forAuthors, href: localizePath(`${basePath}for-authors/`, locale), key: 'for-authors' },
+  { label: labels.about, href: localizePath(`${basePath}about/`, locale), key: 'about' },
+];
+const imprintNav = navigation.map(({ label, href, key }) => ({ label, href, current: key === section }));
+const footerNav = navigation.map(({ label, href }) => ({ label, href }));
+
+const journalDescriptions: Record<string, string> = {
+  healthnexus: 'An interdisciplinary medical research journal connecting clinical knowledge, population health and translational inquiry.',
+  hndh: 'A journal for rigorous research in digital health, medical AI, clinical informatics and technology-enabled care.',
+  hncbt: 'A specialist forum for research connecting cancer biology, therapeutic development and translational practice.',
+};
+
+const journalLabels: Record<string, string> = {
+  healthnexus: 'Interdisciplinary medical research',
+  hndh: 'Digital health and medical AI',
+  hncbt: 'Cancer biology and therapeutics',
+};
+
+const fields = [
+  { key: 'clinical', title: 'Clinical medicine', body: 'Research grounded in diagnosis, treatment, care and the lived realities of health.' },
+  { key: 'public', title: 'Public health', body: 'Population-level evidence for healthier communities, stronger systems and fairer outcomes.' },
+  { key: 'digital', title: 'Digital health', body: 'Platforms, informatics, data practices and technologies that change how care is delivered.' },
+  { key: 'ai', title: 'Medical AI', body: 'Methods and applications that use artificial intelligence responsibly in health contexts.' },
+  { key: 'cancer', title: 'Cancer biology', body: 'Mechanistic and translational research that advances understanding of cancer and its treatment.' },
+  { key: 'translational', title: 'Translational research', body: 'Work that moves carefully from discovery to practice, implementation and public value.' },
+];
+
+const commitments = [
+  { key: 'evidence', title: 'Evidence', body: 'We value clear questions, appropriate methods and conclusions that remain proportionate to the evidence.' },
+  { key: 'context', title: 'Context', body: 'We publish research that understands health within institutions, communities, technologies and environments.' },
+  { key: 'responsibility', title: 'Responsibility', body: 'We expect transparent scholarship, ethical conduct and careful stewardship of the scholarly record.' },
+];
+
+const authorSteps = [
+  { number: '01', key: 'choose', title: 'Choose the right journal', body: 'Review each journal’s aims, scope and published work before preparing a submission.' },
+  { number: '02', key: 'prepare', title: 'Prepare a transparent manuscript', body: 'Present the research question, methods, evidence, limitations and relevant declarations clearly.' },
+  { number: '03', key: 'submit', title: 'Submit through the journal', body: 'Use the journal’s official submission system and follow its current author instructions.' },
+];
+
+const aboutPrinciples = [
+  { key: 'connected', title: 'Connected disciplines', body: 'Health questions rarely belong to one field. We make room for work that crosses boundaries without losing methodological precision.' },
+  { key: 'open', title: 'Open scholarship', body: 'We support accessible research and clear communication so evidence can travel beyond specialist communities.' },
+  { key: 'durable', title: 'Durable records', body: 'We treat editorial decisions, peer review and post-publication stewardship as parts of one scholarly responsibility.' },
+  { key: 'human', title: 'Human consequences', body: 'We welcome research that keeps people, populations and the practical consequences of knowledge in view.' },
+];
+
+const pageContent = {
+  journals: {
+    title: 'A connected family of health journals.',
+    lede: 'Health Nexus brings together peer-reviewed journals that examine health from complementary perspectives — from interdisciplinary medicine and population health to digital health, medical AI, cancer biology and therapeutics.',
+    kicker: 'Health Nexus / Journals',
+  },
+  research: {
+    title: 'Research for the systems that shape health.',
+    lede: 'We publish research that connects clinical knowledge with the conditions, systems and technologies through which health is experienced.',
+    kicker: 'Health Nexus / Research',
+  },
+  'for-authors': {
+    title: 'Research that reaches further.',
+    lede: 'Health Nexus welcomes original scholarship that strengthens understanding across medicine, public health, health sciences and the systems that connect them.',
+    kicker: 'Health Nexus / For authors',
+  },
+  about: {
+    title: 'Connected questions. Responsible scholarship.',
+    lede: 'Health Nexus is an imprint for research that brings the sciences of health into conversation with the people, institutions and technologies that shape it.',
+    kicker: 'Health Nexus / About',
+  },
+} as const;
+
+const current = pageContent[section];
+const localizedCurrent = {
+  kicker: tx(`section.${section}.kicker`, current.kicker),
+  title: tx(`section.${section}.title`, current.title),
+  lede: tx(`section.${section}.lede`, current.lede),
+};
+const activeJournals = journals.filter((journal) => journal.status === 'active');
+---
+
+<BaseLayout
+  title={`${localizedCurrent.kicker} | Health Nexus`}
+  description={localizedCurrent.lede}
+  path={pagePath}
+  locale={locale}
+  showChrome={false}
+>
+  <div class="health-nexus-secondary">
+    <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
+
+    <main>
+      <section class="health-nexus-secondary__hero" aria-labelledby="health-nexus-secondary-title">
+        <Image class="health-nexus-secondary__hero-wallpaper" src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="58vw" loading="eager" fetchpriority="high" />
+        <div class="health-nexus-secondary__hero-shade" aria-hidden="true"></div>
+        <div class="health-nexus-secondary__shell health-nexus-secondary__hero-inner">
+          <div>
+            <p class="health-nexus-secondary__kicker">{localizedCurrent.kicker}</p>
+            <h1 id="health-nexus-secondary-title">{localizedCurrent.title}</h1>
+            <p class="health-nexus-secondary__hero-lede">{localizedCurrent.lede}</p>
+          </div>
+          <aside class="health-nexus-secondary__hero-note" aria-label={tx('section.heroNoteLabel', 'Health Nexus focus')}>
+            <span>{tx('principleDiscovery', 'Discovery')}</span>
+            <span>{tx('principleConnection', 'Connection')}</span>
+            <span>{tx('principleImpact', 'Real-world impact')}</span>
+            <span class="health-nexus-secondary__hero-note-quote">{tx('quoteOne', 'A more connected')}<br />{tx('quoteTwo', 'healthier tomorrow.')}</span>
+          </aside>
+        </div>
+      </section>
+
+      {section === 'journals' && (
+        <>
+          <section class="health-nexus-secondary__section" aria-labelledby="health-nexus-journals-list-title">
+            <div class="health-nexus-secondary__shell">
+              <div class="health-nexus-secondary__section-bar">
+                <p class="health-nexus-secondary__kicker" id="health-nexus-journals-list-title">{tx('section.journals.programmeKicker', 'Health Nexus journals')}</p>
+                <p>{activeJournals.length} {tx('section.journals.activeJournals', activeJournals.length === 1 ? 'active journal' : 'active journals')}</p>
+              </div>
+              <div class="health-nexus-secondary__journal-list">
+                {activeJournals.map((journal, index) => {
+                  const coverAsset = getJournalCoverAsset(journal.cover);
+                  const description = tx(`journal.${journal.slug}.summary`, journal.description ?? journalDescriptions[journal.slug] ?? 'A Health Nexus journal for rigorous research across health, systems and society.');
+                  const label = tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' · '));
+                  return (
+                    <article class="health-nexus-secondary__journal-row">
+                      <div class="health-nexus-secondary__journal-cover-wrap">
+                        <span class="health-nexus-secondary__journal-number">{String(index + 1).padStart(2, '0')}</span>
+                        <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`${tx('visitJournal', 'Visit journal website')}: ${journal.title}`}>
+                          {coverAsset ? (
+                            <Image src={coverAsset} alt={`${journal.title} cover`} width={495} height={700} widths={[180, 260, 360, 495]} sizes="(max-width: 639px) 11rem, (max-width: 900px) 13rem, 16rem" loading="lazy" />
+                          ) : <div class="health-nexus-secondary__cover-placeholder">{tx('coverForthcoming', 'Cover forthcoming')}</div>}
+                        </a>
+                      </div>
+                      <div class="health-nexus-secondary__journal-copy">
+                        <p class="health-nexus-secondary__eyebrow">{label}</p>
+                        <h2><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h2>
+                        <p>{description}</p>
+                        <dl class="health-nexus-secondary__journal-meta">
+                          {journal.issn && <><dt>ISSN</dt><dd>{journal.issn}</dd></>}
+                          <dt>{tx('access', 'Access')}</dt><dd>{journal.openAccess ? tx('openAccess', 'Open access') : tx('seeJournalWebsite', 'See journal website')}</dd>
+                        </dl>
+                        <a class="health-nexus-secondary__text-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('visitJournal', 'Visit journal website')}</a>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+          <section class="health-nexus-secondary__closing-band" aria-labelledby="health-nexus-journals-closing-title">
+            <div class="health-nexus-secondary__shell health-nexus-secondary__closing-inner">
+              <div>
+                <p class="health-nexus-secondary__kicker">{tx('section.journals.closingKicker', 'The Health Nexus programme')}</p>
+                <h2 id="health-nexus-journals-closing-title">{tx('section.journals.closingTitle', 'A broader view of health.')}</h2>
+              </div>
+              <p>{tx('section.journals.closingBody', 'New journals can join this family as their editorial programmes develop, while the same shared expectations for rigour, transparency and responsible scholarship remain in place.')}</p>
+            </div>
+          </section>
+        </>
+      )}
+
+      {section === 'research' && (
+        <>
+          <section class="health-nexus-secondary__dark-statement" aria-labelledby="health-nexus-research-statement-title">
+            <div class="health-nexus-secondary__shell health-nexus-secondary__dark-grid">
+              <div>
+                <p class="health-nexus-secondary__kicker">{tx('section.research.positionKicker', 'Our research position')}</p>
+                <h2 id="health-nexus-research-statement-title">{tx('section.research.positionTitle', 'Health is a system, not a silo.')}</h2>
+              </div>
+              <div>
+                <p>{tx('section.research.positionBodyOne', 'Health is shaped by more than clinical encounters. It is also shaped by policy, infrastructure, data, environments, communities and the technologies that mediate everyday life.')}</p>
+                <p>{tx('section.research.positionBodyTwo', 'Health Nexus brings these perspectives together so research can be read in context and used with care.')}</p>
+              </div>
+            </div>
+          </section>
+          <section class="health-nexus-secondary__section" aria-labelledby="health-nexus-fields-title">
+            <div class="health-nexus-secondary__shell">
+              <div class="health-nexus-secondary__section-bar">
+                <p class="health-nexus-secondary__kicker" id="health-nexus-fields-title">{tx('fieldsKicker', 'Fields of inquiry')}</p>
+                <p>{tx('fieldsMeta', 'Interdisciplinary today. Healthier tomorrow.')}</p>
+              </div>
+              <div class="health-nexus-secondary__field-grid">
+                {fields.map((field, index) => (
+                  <article>
+                    <span class="health-nexus-secondary__field-marker">{String(index + 1).padStart(2, '0')}</span>
+                    <h2>{tx(`field.${field.key}.title`, field.title)}</h2>
+                    <p>{tx(`field.${field.key}.body`, field.body)}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section class="health-nexus-secondary__section health-nexus-secondary__section--tinted" aria-labelledby="health-nexus-approach-title">
+            <div class="health-nexus-secondary__shell">
+              <div class="health-nexus-secondary__split-heading">
+                <p class="health-nexus-secondary__kicker">{tx('section.research.approachKicker', 'How we work')}</p>
+                <h2 id="health-nexus-approach-title">{tx('section.research.approachTitle', 'Interdisciplinary by design. Precise in practice.')}</h2>
+              </div>
+              <div class="health-nexus-secondary__commitment-grid">
+                {commitments.map((commitment) => (
+                  <article><h3>{tx(`section.commitment.${commitment.key}.title`, commitment.title)}</h3><p>{tx(`section.commitment.${commitment.key}.body`, commitment.body)}</p></article>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {section === 'for-authors' && (
+        <>
+          <section class="health-nexus-secondary__section" aria-labelledby="health-nexus-author-process-title">
+            <div class="health-nexus-secondary__shell">
+              <div class="health-nexus-secondary__split-heading">
+                <p class="health-nexus-secondary__kicker">{tx('section.authors.beforeKicker', 'Before you submit')}</p>
+                <h2 id="health-nexus-author-process-title">{tx('section.authors.processTitle', 'A clear route from research to publication.')}</h2>
+                <p>{tx('section.authors.processBody', 'Every Health Nexus journal has its own scope and submission requirements. These shared steps help authors begin in the right place.')}</p>
+              </div>
+              <div class="health-nexus-secondary__steps">
+                {authorSteps.map((step) => (
+                  <article><span>{step.number}</span><h3>{tx(`section.step.${step.key}.title`, step.title)}</h3><p>{tx(`section.step.${step.key}.body`, step.body)}</p></article>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section class="health-nexus-secondary__dark-statement" aria-labelledby="health-nexus-author-standards-title">
+            <div class="health-nexus-secondary__shell health-nexus-secondary__dark-grid">
+              <div>
+                <p class="health-nexus-secondary__kicker">{tx('section.authors.standardsKicker', 'Shared standards')}</p>
+                <h2 id="health-nexus-author-standards-title">{tx('section.authors.standardsTitle', 'Strong submissions begin with responsible scholarship.')}</h2>
+              </div>
+              <div>
+                <p>{tx('section.authors.standardsBody', 'Authors should report methods and evidence accurately, disclose relevant interests, follow applicable ethical requirements and make the limits of a study clear.')}</p>
+                <div class="health-nexus-secondary__link-row">
+                  <a class="health-nexus-secondary__button" data-action="primary" href={localizePath('/standards/editorial/', locale)}>{tx('editorialStandards', 'Editorial standards')}</a>
+                  <a class="health-nexus-secondary__inverse-link" data-action="secondary" href={localizePath('/standards/ethics/', locale)}>{tx('publicationEthics', 'Publication ethics')}</a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="health-nexus-secondary__section" aria-labelledby="health-nexus-submit-title">
+            <div class="health-nexus-secondary__shell">
+              <div class="health-nexus-secondary__section-bar">
+                <p class="health-nexus-secondary__kicker" id="health-nexus-submit-title">{tx('section.authors.submitKicker', 'Submit to a journal')}</p>
+                <p>{activeJournals.length} {tx('section.authors.destinations', 'current destinations')}</p>
+              </div>
+              <div class="health-nexus-secondary__submission-grid">
+                {activeJournals.map((journal) => (
+                  <article><p class="health-nexus-secondary__eyebrow">{tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' · '))}</p><h2>{journal.title}</h2><a class="health-nexus-secondary__text-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('openSubmission', 'Open submission system')}</a></article>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
+      {section === 'about' && (
+        <>
+          <section class="health-nexus-secondary__section" aria-labelledby="health-nexus-about-remit-title">
+            <div class="health-nexus-secondary__shell health-nexus-secondary__about-grid">
+              <div>
+                <p class="health-nexus-secondary__kicker">{tx('section.about.remitKicker', 'Our remit')}</p>
+                <h2 id="health-nexus-about-remit-title">{tx('section.about.remitTitle', 'A home for connected health scholarship.')}</h2>
+              </div>
+              <div class="health-nexus-secondary__prose">
+                <p>{tx('section.about.remitBodyOne', 'Health Nexus is an imprint of Panorama Scholarly Group dedicated to research at the intersections of medicine, public health, health sciences and the systems that connect them.')}</p>
+                <p>{tx('section.about.remitBodyTwo', 'Our programme is designed for scholarship that is rigorous in method, attentive to context and useful to the communities that research ultimately serves.')}</p>
+                <a class="health-nexus-secondary__text-link" data-action="secondary" href={localizePath('/imprints/health-nexus/journals/', locale)}>{tx('section.about.remitLink', 'Explore the journal family')}</a>
+              </div>
+            </div>
+          </section>
+          <section class="health-nexus-secondary__section health-nexus-secondary__section--tinted" aria-labelledby="health-nexus-about-principles-title">
+            <div class="health-nexus-secondary__shell">
+              <div class="health-nexus-secondary__section-bar">
+                <p class="health-nexus-secondary__kicker" id="health-nexus-about-principles-title">{tx('section.about.guidesKicker', 'What guides us')}</p>
+                <p>{tx('section.about.guidesMeta', 'Editorial commitments for a changing field.')}</p>
+              </div>
+              <div class="health-nexus-secondary__principle-grid">
+                {aboutPrinciples.map((principle, index) => (
+                  <article><span>{String(index + 1).padStart(2, '0')}</span><h3>{tx(`section.principle.${principle.key}.title`, principle.title)}</h3><p>{tx(`section.principle.${principle.key}.body`, principle.body)}</p></article>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section class="health-nexus-secondary__dark-statement" aria-labelledby="health-nexus-about-group-title">
+            <div class="health-nexus-secondary__shell health-nexus-secondary__dark-grid">
+              <div><p class="health-nexus-secondary__kicker">{tx('section.about.groupKicker', 'Part of Panorama')}</p><h2 id="health-nexus-about-group-title">{tx('section.about.groupTitle', 'Independent journals. A shared commitment to scholarship.')}</h2></div>
+              <div><p>{tx('section.about.groupBody', 'Health Nexus is one of Panorama Scholarly Group’s publishing imprints. Our group-wide standards support editorial independence, responsible research and open access across a growing family of journals.')}</p><div class="health-nexus-secondary__link-row"><a class="health-nexus-secondary__button" data-action="primary" href={localizePath('/standards/editorial/', locale)}>{tx('section.about.groupLink', 'Read editorial standards')}</a><a class="health-nexus-secondary__inverse-link" data-action="secondary" href={localizePath('/', locale)}>{tx('visitPanorama', 'Visit Panorama')}</a></div></div>
+            </div>
+          </section>
+        </>
+      )}
+    </main>
+
+    <ImprintFooter
+      imprint={imprint}
+      links={footerNav}
+      locale={locale}
+      theme="dark"
+      tagline={tx('footerTagline', 'Interdisciplinary research for healthier lives.')}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .health-nexus-secondary {
+    --hn-secondary-deep: #06485b;
+    --hn-secondary-deeper: #062f40;
+    --hn-secondary-ink: #0b2d42;
+    --hn-secondary-ink-soft: #325365;
+    --hn-secondary-paper: #f5f8f6;
+    --hn-secondary-paper-deep: #e8f0ee;
+    --hn-secondary-line: #bdd0d0;
+    --hn-secondary-cyan: #13b7c4;
+    --hn-secondary-cyan-light: #7adce2;
+    --hn-secondary-coral: #ec7b6d;
+    --imprint-accent: var(--hn-secondary-deep);
+    --hn-secondary-shell: min(100% - 7rem, 1480px);
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--hn-secondary-paper);
+    color: var(--hn-secondary-ink);
+  }
+
+  .health-nexus-secondary__shell { width: var(--hn-secondary-shell); margin-inline: auto; }
+  .health-nexus-secondary__header { position: relative; z-index: 10; border-bottom: 1px solid color-mix(in srgb, var(--hn-secondary-ink) 14%, transparent); background: var(--hn-secondary-paper); }
+  .health-nexus-secondary__header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 5rem; gap: 2rem; }
+  .health-nexus-secondary__brands { display: flex; align-items: center; flex: 0 0 auto; gap: 1rem; }
+  .health-nexus-secondary__divider { width: 1px; height: 2.25rem; background: var(--hn-secondary-line); }
+  .health-nexus-secondary__brand { display: inline-flex; align-items: center; gap: 1.2rem; color: inherit; text-decoration: none; }
+  .health-nexus-secondary__brand img { display: block; width: 11.7rem; height: auto; max-width: none; }
+  .health-nexus-secondary__nav { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.3rem); margin-inline-start: auto; }
+  .health-nexus-secondary__nav a, .health-nexus-secondary__footer a { color: var(--hn-secondary-ink); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; }
+  .health-nexus-secondary__nav a:hover, .health-nexus-secondary__nav a:focus-visible, .health-nexus-secondary__nav a[aria-current='page'] { color: var(--hn-secondary-deep); }
+  .health-nexus-secondary__footer a:hover, .health-nexus-secondary__footer a:focus-visible { color: var(--hn-secondary-cyan-light); }
+  .health-nexus-secondary__search { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__header-tools { display: flex; align-items: center; gap: 0.75rem; margin-inline-start: 0.2rem; }
+  .health-nexus-secondary__lang { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__lang :global(.lang-switcher__trigger) { color: var(--hn-secondary-ink); }
+  .health-nexus-secondary__lang :global(.lang-switcher__trigger:hover) { color: var(--hn-secondary-deep); }
+  .health-nexus-secondary__menu-button { display: none; border-radius: var(--p-radius-button); }
+  .health-nexus-secondary__mobile-nav { display: none; }
+  .health-nexus-secondary__kicker { margin: 0; color: var(--hn-secondary-deep); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.4; text-transform: uppercase; }
+  .health-nexus-secondary__hero .health-nexus-secondary__kicker,
+  .health-nexus-secondary__closing-band .health-nexus-secondary__kicker,
+  .health-nexus-secondary__dark-statement .health-nexus-secondary__kicker { color: var(--hn-secondary-cyan-light); }
+
+  .health-nexus-secondary__hero { position: relative; isolation: isolate; min-height: clamp(27rem, 43vw, 39rem); overflow: hidden; background: var(--hn-secondary-deeper); color: var(--hn-secondary-paper); }
+  .health-nexus-secondary__hero-wallpaper { position: absolute; inset: 0 0 0 48%; z-index: -2; width: 52%; height: 100%; object-fit: cover; object-position: center; opacity: 0.78; }
+  .health-nexus-secondary__hero-shade { position: absolute; inset: 0 52% 0 0; z-index: -1; background: color-mix(in srgb, var(--hn-secondary-deeper) 94%, transparent); }
+  .health-nexus-secondary__hero-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr); align-items: end; min-height: inherit; padding-block: clamp(4rem, 8vw, 7rem); }
+  .health-nexus-secondary__hero h1 { max-width: 11ch; margin: 1.4rem 0 1.6rem; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: clamp(3.2rem, 6.2vw, 6.4rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.92; }
+  .health-nexus-secondary__hero-lede { max-width: 35rem; margin: 0; color: color-mix(in srgb, var(--hn-secondary-paper) 86%, transparent); font-family: var(--font-display); font-size: clamp(1.05rem, 1.55vw, 1.4rem); line-height: 1.4; }
+  .health-nexus-secondary__hero-note { align-self: end; justify-self: end; display: flex; max-width: 15rem; flex-direction: column; gap: 0.75rem; padding-inline-start: 2rem; border-inline-start: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 42%, transparent); color: color-mix(in srgb, var(--hn-secondary-paper) 82%, transparent); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.3; text-transform: uppercase; }
+  .health-nexus-secondary__hero-note-quote { margin-top: 2rem; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: 1.35rem; font-style: italic; font-weight: 500; letter-spacing: -0.02em; line-height: 1.18; text-transform: none; }
+
+  .health-nexus-secondary__section { padding-block: clamp(3.5rem, 7vw, 7rem); background: var(--hn-secondary-paper); }
+  .health-nexus-secondary__section--tinted { background: var(--hn-secondary-paper-deep); }
+  .health-nexus-secondary__section-bar { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block-end: 1rem; border-bottom: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__section-bar > p:last-child { margin: 0; color: var(--hn-secondary-ink-soft); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+  .health-nexus-secondary__journal-list { display: grid; }
+  .health-nexus-secondary__journal-row { display: grid; grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr); align-items: stretch; column-gap: clamp(2rem, 6vw, 7rem); padding-block: clamp(2.5rem, 5vw, 5rem); border-bottom: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__journal-cover-wrap { position: relative; padding-inline-start: 1.4rem; }
+  .health-nexus-secondary__journal-cover-wrap::before { position: absolute; inset: 0 auto 0 0; width: 1px; background: var(--hn-secondary-line); content: ''; }
+  .health-nexus-secondary__journal-cover-wrap img { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: cover; box-shadow: 0 0.8rem 1.3rem color-mix(in srgb, var(--hn-secondary-ink) 14%, transparent); }
+  .health-nexus-secondary__journal-number { position: absolute; top: -0.1rem; left: -0.35rem; z-index: 1; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; background: var(--hn-secondary-paper); color: var(--hn-secondary-deep); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.08em; }
+  .health-nexus-secondary__journal-copy { display: flex; min-height: 100%; flex-direction: column; justify-content: center; padding-block: 0.5rem; }
+  .health-nexus-secondary__eyebrow { margin: 0 0 0.65rem; color: var(--hn-secondary-deep); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.18em; line-height: 1.4; text-transform: uppercase; }
+  .health-nexus-secondary__journal-copy h2, .health-nexus-secondary__split-heading h2, .health-nexus-secondary__about-grid h2 { max-width: 19ch; margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 3.7vw, 4rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.96; }
+  .health-nexus-secondary__journal-copy h2 a { color: inherit; text-decoration: none; }
+  .health-nexus-secondary__journal-copy h2 a:hover, .health-nexus-secondary__journal-copy h2 a:focus-visible { color: var(--hn-secondary-deep); }
+  .health-nexus-secondary__journal-copy > p:not(.health-nexus-secondary__eyebrow) { max-width: 35rem; margin: 1.15rem 0 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
+  .health-nexus-secondary__journal-meta { display: flex; gap: 0.8rem; margin: 1.5rem 0 0; color: var(--hn-secondary-ink-soft); font-size: 0.62rem; letter-spacing: 0.08em; }
+  .health-nexus-secondary__journal-meta dt { color: var(--hn-secondary-deep); font-weight: 800; text-transform: uppercase; }
+  .health-nexus-secondary__journal-meta dd { margin: 0; }
+  .health-nexus-secondary__text-link, .health-nexus-secondary__inverse-link { display: inline-flex; align-items: center; gap: 0.45rem; align-self: flex-start; margin-top: 2rem; border-bottom: 1px solid var(--hn-secondary-cyan); color: var(--hn-secondary-deep); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
+  .health-nexus-secondary__text-link:hover, .health-nexus-secondary__text-link:focus-visible { color: var(--hn-secondary-deep); }
+  .health-nexus-secondary__cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--hn-secondary-paper-deep); color: var(--hn-secondary-ink-soft); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .health-nexus-secondary__closing-band, .health-nexus-secondary__dark-statement { background: var(--hn-secondary-deeper); color: var(--hn-secondary-paper); }
+  .health-nexus-secondary__closing-inner { display: grid; grid-template-columns: 1fr 0.8fr; gap: 4rem; align-items: end; padding-block: clamp(3rem, 5vw, 5rem); }
+  .health-nexus-secondary__closing-inner h2, .health-nexus-secondary__dark-grid h2 { max-width: 15ch; margin: 1.2rem 0 0; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 4.7vw, 5rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
+  .health-nexus-secondary__closing-inner > p, .health-nexus-secondary__dark-grid > div:last-child > p { margin: 0; color: color-mix(in srgb, var(--hn-secondary-paper) 84%, transparent); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
+  .health-nexus-secondary__dark-statement { padding-block: clamp(3.5rem, 7vw, 7rem); }
+  .health-nexus-secondary__dark-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
+  .health-nexus-secondary__dark-grid > div:last-child { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 35%, transparent); }
+  .health-nexus-secondary__dark-grid > div:last-child > p + p { margin-top: 1rem; }
+  .health-nexus-secondary__inverse-link { align-self: flex-end; margin-top: 0; border-color: var(--hn-secondary-cyan); color: var(--hn-secondary-paper); }
+  .health-nexus-secondary__link-row > .health-nexus-secondary__text-link,
+  .health-nexus-secondary__link-row > .health-nexus-secondary__inverse-link { align-self: center; min-height: var(--p-action-height); margin-top: 0; padding-block: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
+  .health-nexus-secondary__field-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .health-nexus-secondary__field-grid article { min-height: 12rem; padding: 1.8rem 1.5rem 1.8rem 0; border-bottom: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__field-grid article:nth-child(3n + 2), .health-nexus-secondary__field-grid article:nth-child(3n + 3) { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__field-marker { color: var(--hn-secondary-deep); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.15em; }
+  .health-nexus-secondary__field-grid h2 { margin: 2rem 0 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.05; }
+  .health-nexus-secondary__field-grid p { max-width: 16rem; margin: 0.75rem 0 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 0.9rem; line-height: 1.4; }
+  .health-nexus-secondary__split-heading { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 3rem; align-items: end; margin-bottom: 3rem; }
+  .health-nexus-secondary__split-heading h2 { max-width: 15ch; }
+  .health-nexus-secondary__split-heading > p:last-child { max-width: 28rem; margin: 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.45; }
+  .health-nexus-secondary__commitment-grid, .health-nexus-secondary__principle-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .health-nexus-secondary__commitment-grid article, .health-nexus-secondary__principle-grid article { min-height: 10rem; padding: 1.5rem 1.5rem 1.5rem 0; border-top: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__commitment-grid article + article, .health-nexus-secondary__principle-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__commitment-grid h3, .health-nexus-secondary__principle-grid h3, .health-nexus-secondary__steps h3 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 550; letter-spacing: -0.035em; }
+  .health-nexus-secondary__commitment-grid p, .health-nexus-secondary__principle-grid p, .health-nexus-secondary__steps p { max-width: 17rem; margin: 0.75rem 0 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 0.87rem; line-height: 1.4; }
+  .health-nexus-secondary__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .health-nexus-secondary__steps article { min-height: 12rem; padding: 0 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__steps article:first-child { padding-inline-start: 0; border-inline-start: 0; }
+  .health-nexus-secondary__steps span, .health-nexus-secondary__principle-grid span { color: var(--hn-secondary-deep); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em; }
+  .health-nexus-secondary__steps h3 { margin-top: 2rem; max-width: 14rem; }
+  .health-nexus-secondary__link-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 1.8rem; }
+  .health-nexus-secondary__button { display: inline-flex; align-items: center; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--hn-secondary-cyan); border-radius: var(--p-radius-button); background: var(--hn-secondary-cyan); color: var(--hn-secondary-deeper); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: background-color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-decelerate); }
+  .health-nexus-secondary__button:hover,
+  .health-nexus-secondary__button:focus-visible { background: var(--hn-secondary-deeper); border-color: var(--hn-secondary-deeper); color: var(--hn-secondary-paper); transform: translateY(-1px); }
+  .health-nexus-secondary__submission-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .health-nexus-secondary__submission-grid article { display: flex; min-height: 12rem; flex-direction: column; padding: 1.6rem 1.5rem 1rem 0; border-bottom: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__submission-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__submission-grid h2 { max-width: 15rem; margin: 1rem 0 0; font-family: var(--font-display); font-size: 1.4rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.05; }
+  .health-nexus-secondary__submission-grid .health-nexus-secondary__text-link { margin-top: auto; }
+  .health-nexus-secondary__about-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; }
+  .health-nexus-secondary__about-grid h2 { max-width: 12ch; }
+  .health-nexus-secondary__prose { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid var(--hn-secondary-line); }
+  .health-nexus-secondary__prose p { max-width: 35rem; margin: 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 1.08rem; line-height: 1.5; }
+  .health-nexus-secondary__prose p + p { margin-top: 1.2rem; }
+  .health-nexus-secondary__principle-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .health-nexus-secondary__principle-grid article { min-height: 14rem; }
+  .health-nexus-secondary__principle-grid article + article { padding-inline-start: 1.25rem; }
+  .health-nexus-secondary__principle-grid h3 { margin-top: 2rem; }
+
+  .health-nexus-secondary__footer { border-top: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 20%, transparent); background: var(--hn-secondary-deeper); color: var(--hn-secondary-paper); }
+  .health-nexus-secondary__footer-top { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 3rem; padding-block: 2rem; }
+  .health-nexus-secondary__brand--footer > span { color: color-mix(in srgb, var(--hn-secondary-paper) 72%, transparent); border-color: color-mix(in srgb, var(--hn-secondary-paper) 25%, transparent); }
+  .health-nexus-secondary__footer-nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .health-nexus-secondary__footer a { color: var(--hn-secondary-paper); font-size: 0.6rem; }
+  .health-nexus-secondary__footer-group { display: flex; align-items: center; gap: 0.75rem; padding-inline-start: 2rem; border-inline-start: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 25%, transparent); color: color-mix(in srgb, var(--hn-secondary-paper) 82%, transparent); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; text-transform: uppercase; }
+  .health-nexus-secondary__footer-group img { width: 2.5rem; height: 2.5rem; object-fit: contain; }
+  .health-nexus-secondary__footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 1rem; border-top: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 20%, transparent); color: color-mix(in srgb, var(--hn-secondary-paper) 62%, transparent); font-size: 0.58rem; }
+  .health-nexus-secondary__footer-bottom p { margin: 0; }
+  .health-nexus-secondary__footer-bottom nav { display: flex; gap: 1.2rem; }
+
+  @media (max-width: 900px) {
+    .health-nexus-secondary { --hn-secondary-shell: min(100% - 3rem, 44rem); }
+    .health-nexus-secondary__nav { gap: 1.1rem; }
+    .health-nexus-secondary__nav a { font-size: 0.6rem; }
+    .health-nexus-secondary__hero-inner, .health-nexus-secondary__dark-grid, .health-nexus-secondary__closing-inner, .health-nexus-secondary__about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .health-nexus-secondary__hero { min-height: 35rem; }
+    .health-nexus-secondary__hero-wallpaper { inset: 42% 0 0 0; width: 100%; opacity: 0.46; }
+    .health-nexus-secondary__hero-shade { inset: 0; }
+    .health-nexus-secondary__hero-inner { align-content: start; padding-block: 4rem 5rem; }
+    .health-nexus-secondary__hero-note { justify-self: start; max-width: 20rem; padding-inline-start: 1rem; }
+    .health-nexus-secondary__journal-row { grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: 2rem; }
+    .health-nexus-secondary__field-grid, .health-nexus-secondary__submission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .health-nexus-secondary__field-grid article:nth-child(3n + 2), .health-nexus-secondary__field-grid article:nth-child(3n + 3) { padding-inline-start: 0; border-inline-start: 0; }
+    .health-nexus-secondary__field-grid article:nth-child(even) { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
+    .health-nexus-secondary__split-heading { grid-template-columns: 1fr; gap: 1.5rem; }
+    .health-nexus-secondary__principle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .health-nexus-secondary__principle-grid article:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
+  }
+
+  @media (max-width: 639px) {
+    .health-nexus-secondary { --hn-secondary-shell: calc(100% - 2rem); }
+    .health-nexus-secondary__header-inner { min-height: 4.3rem; }
+    .health-nexus-secondary__brand img { width: 8rem; }
+    .health-nexus-secondary__nav { display: none; }
+    .health-nexus-secondary__header-tools { margin-inline-start: auto; }
+    .health-nexus-secondary__lang { display: none; }
+    .health-nexus-secondary__menu-button { display: grid; gap: 0.32rem; width: 2.6rem; height: 2.6rem; padding: 0.7rem 0.5rem; border: 1px solid var(--hn-secondary-ink); border-radius: var(--p-radius-button); background: transparent; }
+    .health-nexus-secondary__menu-button span:not(.visually-hidden) { display: block; width: 100%; height: 1px; background: var(--hn-secondary-ink); }
+    .health-nexus-secondary__mobile-nav { position: absolute; inset: 100% 0 auto; z-index: 12; background: var(--hn-secondary-paper); border-bottom: 1px solid var(--hn-secondary-line); box-shadow: 0 0.9rem 1.7rem color-mix(in srgb, var(--hn-secondary-ink) 9%, transparent); }
+    .health-nexus-secondary__mobile-nav:not([hidden]) { display: grid; }
+    .health-nexus-secondary__mobile-nav a { padding: 1rem; border-top: 1px solid var(--hn-secondary-line); color: var(--hn-secondary-ink); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
+    .health-nexus-secondary__mobile-language { padding: 0.75rem 1rem 1rem; border-top: 1px solid var(--hn-secondary-line); }
+    .health-nexus-secondary__mobile-language :global(.lang-switcher__trigger) { padding-inline: 0.5rem; color: var(--hn-secondary-ink); }
+    .health-nexus-secondary__mobile-language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
+    .health-nexus-secondary__mobile-language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; border: 0; color: var(--hn-secondary-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
+    .health-nexus-secondary__hero { min-height: 39rem; }
+    .health-nexus-secondary__hero h1 { max-width: 10ch; font-size: clamp(3.1rem, 14vw, 4.7rem); }
+    .health-nexus-secondary__hero-lede { font-size: 1.05rem; }
+    .health-nexus-secondary__hero-inner { padding-block: 3.5rem 4rem; }
+    .health-nexus-secondary__section-bar { align-items: flex-start; flex-direction: column; gap: 0.6rem; }
+    .health-nexus-secondary__journal-row { grid-template-columns: 1fr; row-gap: 1.5rem; }
+    .health-nexus-secondary__journal-cover-wrap { width: 11rem; }
+    .health-nexus-secondary__journal-copy { padding-block: 0; }
+    .health-nexus-secondary__journal-copy h2 { font-size: 2.5rem; }
+    .health-nexus-secondary__journal-meta { flex-wrap: wrap; }
+    .health-nexus-secondary__closing-inner h2, .health-nexus-secondary__dark-grid h2 { font-size: 3rem; }
+    .health-nexus-secondary__dark-grid > div:last-child, .health-nexus-secondary__prose { padding-inline-start: 1rem; }
+    .health-nexus-secondary__field-grid, .health-nexus-secondary__steps, .health-nexus-secondary__submission-grid, .health-nexus-secondary__principle-grid, .health-nexus-secondary__commitment-grid { grid-template-columns: 1fr; }
+    .health-nexus-secondary__field-grid article, .health-nexus-secondary__field-grid article:nth-child(even), .health-nexus-secondary__steps article, .health-nexus-secondary__commitment-grid article, .health-nexus-secondary__commitment-grid article + article, .health-nexus-secondary__principle-grid article, .health-nexus-secondary__principle-grid article + article, .health-nexus-secondary__submission-grid article, .health-nexus-secondary__submission-grid article + article { min-height: auto; padding: 1.5rem 0; border-inline-start: 0; border-bottom: 1px solid var(--hn-secondary-line); }
+    .health-nexus-secondary__steps article:first-child { padding-top: 0; }
+    .health-nexus-secondary__steps h3, .health-nexus-secondary__principle-grid h3 { margin-top: 1.25rem; }
+    .health-nexus-secondary__footer-top, .health-nexus-secondary__footer-bottom { align-items: flex-start; grid-template-columns: 1fr; flex-direction: column; gap: 1.4rem; }
+    .health-nexus-secondary__footer-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; }
+    .health-nexus-secondary__footer-group { padding-inline-start: 0; border-inline-start: 0; }
+  }
+</style>

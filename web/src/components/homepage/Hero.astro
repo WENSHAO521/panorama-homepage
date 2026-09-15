@@ -1,0 +1,288 @@
+---
+import { Image } from 'astro:assets';
+import Button from '@/components/ui/Button.astro';
+import { getContent } from '@/i18n/content';
+import { localizePath } from '@/i18n/utils';
+import AFS from '@/assets/journal-covers/AFS.png';
+import JLPCS from '@/assets/journal-covers/JLPCS.png';
+import PFR from '@/assets/journal-covers/PFR.png';
+import Silence from '@/assets/journal-covers/Silence.png';
+import TTS from '@/assets/journal-covers/TTS.png';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+---
+
+<section class="hero">
+  <div class="container-wide hero__row">
+    <div class="hero__copy">
+      <h1 class="hero__title">
+        {t('home.heroTitleOne')}<br class="hero__break" />
+        {t('home.heroTitleTwo')}
+      </h1>
+      <p class="hero__lede">
+        {t('home.heroLede')}
+      </p>
+      <div class="hero__actions">
+        <Button href={localizePath('/publishing/', locale)} variant="primary">
+          {t('home.explorePublishing')}
+        </Button>
+        <Button href={localizePath('/journals/', locale)} variant="secondary">{t('common.browseJournals')}</Button>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-label={t('home.heroVisual')}>
+      <div class="hero__art">
+        <svg class="hero__orbit" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <circle class="hero__orbit-arc hero__orbit-arc--blue" cx="50" cy="50" r="47" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="2" />
+          <circle class="hero__orbit-arc hero__orbit-arc--sage" cx="50" cy="50" r="47.4" pathLength="100" stroke-dasharray="14 86" stroke-dashoffset="-20" transform="rotate(-5 50 50)" />
+          <circle class="hero__orbit-arc hero__orbit-arc--gold" cx="50" cy="50" r="46.6" pathLength="100" stroke-dasharray="17 83" stroke-dashoffset="-40" transform="rotate(4 50 50)" />
+          <circle class="hero__orbit-arc hero__orbit-arc--terra" cx="50" cy="50" r="47.2" pathLength="100" stroke-dasharray="13 87" stroke-dashoffset="-62" transform="rotate(-7 50 50)" />
+          <circle class="hero__orbit-arc hero__orbit-arc--plum" cx="50" cy="50" r="46.8" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="-82" transform="rotate(6 50 50)" />
+        </svg>
+        <div class="hero__books">
+          <Image class="hero__book hero__book--front-left" src={AFS} alt="AI &amp; Future Society" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+          <Image class="hero__book hero__book--front-left-mid" src={JLPCS} alt="Journal of Law, Psychology, and Communication Studies" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+          <Image class="hero__book hero__book--front-center" src={PFR} alt="Panorama Frontier Review" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+          <Image class="hero__book hero__book--front-right-mid" src={Silence} alt="Silence" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+          <Image class="hero__book hero__book--front-right" src={TTS} alt="Three Teachings Studies" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+        </div>
+        <span class="hero__shelf-line" aria-hidden="true"></span>
+        <span class="hero__meta hero__meta--left text-caption">Panorama Scholarly Group</span>
+        <span class="hero__meta hero__meta--right text-caption">{t('home.globalNetwork')}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--surface-primary);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    padding-block: 2.35rem 1.45rem;
+  }
+
+  .hero__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.35rem;
+    align-items: center;
+  }
+
+  .hero__copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero__title {
+    max-width: none;
+    margin-top: 1.1rem;
+    font-size: clamp(3rem, 5.4vw, 4.2rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+  }
+
+  .hero__lede {
+    max-width: 32rem;
+    margin-top: 1.15rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    line-height: 1.5;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.35rem;
+  }
+
+  .hero__visual {
+    min-width: 0;
+  }
+
+  .hero__art {
+    position: relative;
+    width: 100%;
+    max-width: 29rem;
+    margin-inline: auto;
+    aspect-ratio: 1.1 / 1;
+  }
+
+  .hero__orbit {
+    position: absolute;
+    top: 22%;
+    left: 14.5%;
+    width: 46%;
+    aspect-ratio: 1;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero__orbit-arc {
+    fill: none;
+    stroke-width: 0.86;
+    stroke-linecap: round;
+    opacity: 0.65;
+    vector-effect: non-scaling-stroke;
+  }
+
+  /* The group-level motif uses one restrained system palette. Imprint
+     colours remain reserved for imprint and journal taxonomy pages. */
+  .hero__orbit-arc--blue,
+  .hero__orbit-arc--sage,
+  .hero__orbit-arc--terra,
+  .hero__orbit-arc--plum { stroke: var(--p-navy-700); }
+  .hero__orbit-arc--gold { stroke: var(--brand-accent); }
+
+  .hero__orbit-arc:nth-child(odd) {
+    opacity: 0.57;
+  }
+
+  .hero__book {
+    position: absolute;
+    display: block;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 0.15rem 0.25rem rgba(11, 27, 43, 0.08);
+  }
+
+  .hero__books {
+    position: absolute;
+    inset: 0;
+    transform: translateX(4.5%);
+    z-index: 3;
+  }
+
+  /* Five volumes share one shelf line, with gentle overlap for a book-like rhythm. */
+  .hero__book--front-left {
+    bottom: 19%;
+    left: 0;
+    width: 18%;
+    z-index: 4;
+  }
+
+  .hero__book--front-left-mid {
+    bottom: 19%;
+    left: 14.5%;
+    width: 19%;
+    z-index: 5;
+  }
+
+  .hero__book--front-center {
+    bottom: 19%;
+    left: 30%;
+    width: 21%;
+    z-index: 6;
+  }
+
+  .hero__book--front-right-mid {
+    bottom: 19%;
+    left: 48%;
+    width: 18.5%;
+    z-index: 7;
+  }
+
+  .hero__book--front-right {
+    bottom: 19%;
+    left: 64.5%;
+    width: 20%;
+    z-index: 8;
+  }
+
+  .hero__shelf-line {
+    position: absolute;
+    right: 0;
+    bottom: 18%;
+    left: 0;
+    height: 0.45rem;
+    background: linear-gradient(var(--border-strong), var(--border-strong)) top / 100% 0.12rem no-repeat,
+      linear-gradient(color-mix(in srgb, var(--border-strong) 22%, transparent), transparent) bottom / 100% 0.35rem no-repeat;
+    z-index: 9;
+  }
+
+  .hero__meta {
+    position: absolute;
+    bottom: 4.5%;
+    color: var(--text-accent);
+    font-size: 0.48rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .hero__meta--left { left: 4.5%; }
+  .hero__meta--right { right: 4.5%; }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .hero__row {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .hero__copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: 2.15rem;
+      padding-bottom: 18%;
+    }
+
+    .hero__actions { margin-top: 3.5rem; }
+
+    .hero__art {
+      max-width: none;
+      aspect-ratio: 1.1 / 1;
+      width: calc(100% + 5rem);
+      margin-inline-start: -1.5rem;
+      margin-inline-end: 0;
+    }
+
+    .hero__title {
+      white-space: nowrap;
+      font-size: clamp(3.8rem, 5.2vw, 5.1rem);
+    }
+
+    .hero__lede {
+      max-width: 34rem;
+      font-size: 1.15rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero__break { display: none; }
+    .hero__title { max-width: 18ch; }
+    .hero__art { min-height: 18rem; }
+    .hero__keywords { right: 1%; }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero__books { transform: translateX(0); }
+  }
+
+  @media (min-width: 1200px) {
+    .hero__title {
+      font-size: clamp(4rem, 5.4vw, 5.4rem);
+    }
+
+    .hero__lede {
+      max-width: 35rem;
+      font-size: 1.18rem;
+    }
+
+    .hero__actions { margin-top: 5rem; }
+  }
+</style>

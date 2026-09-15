@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const space = ['1','2','3','4','5','6','7','8','9','10','11'];
+const radius = [
+  { token: '--p-radius-button', label: 'Button — 10px' },
+  { token: '--p-radius-surface', label: 'Small surface — 12px' },
+  { token: '--p-radius-card', label: 'Card — 16px' },
+  { token: '--p-radius-feature', label: 'Large image / feature — 24px' },
+  { token: '--p-radius-pill', label: 'Pill — tags/status only' },
+];
+---
+<BaseLayout title="Spacing specimen" description="Spacing and radius scale specimen" path="/specimen/spacing/" showChrome={false}>
+  <section class="row container-wide">
+    <p class="text-overline">Specimen</p>
+    <h1>Spacing &amp; radius</h1>
+    <p class="text-body-lg measure-reading">4px-based spacing scale and the restrained radius scale — a detail, not a design language.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide stack">
+    {space.map((s) => (
+      <div class="space-row">
+        <span class="text-caption space-label">--p-space-{s}</span>
+        <div class="space-bar" style={`width:var(--p-space-${s});`}></div>
+      </div>
+    ))}
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Radius</h2>
+    <div class="radius-grid">
+      {radius.map((r) => (
+        <div class="radius-box" style={`border-radius:var(${r.token});`}>
+          <span class="text-caption">{r.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .space-row { display: flex; align-items: center; gap: var(--p-space-4); }
+  .space-label { width: 8rem; flex-shrink: 0; }
+  .space-bar { height: var(--p-space-4); background: var(--brand-secondary); }
+  .radius-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--p-space-4);
+    margin-top: var(--p-space-5);
+  }
+  .radius-box {
+    height: 96px;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--p-space-3);
+    background: var(--surface-secondary);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+  }
+</style>

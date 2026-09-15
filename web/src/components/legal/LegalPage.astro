@@ -1,0 +1,446 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/data/site';
+import { localizePath } from '@/i18n/utils';
+import { getLegalChromeCopy } from '@/i18n/legal';
+
+interface SectionLink {
+  id: string;
+  label: string;
+}
+
+interface RelatedLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  locale?: string;
+  lede: string;
+  updated: string;
+  sections: SectionLink[];
+  relatedLinks?: RelatedLink[];
+  eyebrow?: string;
+  railTitle?: string;
+  railText?: string;
+}
+
+const {
+  title,
+  description,
+  path,
+  locale: requestedLocale,
+  lede,
+  updated,
+  sections,
+  relatedLinks = [
+    { href: '/standards/editorial/', label: 'Editorial Standards' },
+    { href: '/standards/ethics/', label: 'Publication Ethics' },
+    { href: '/about/contact/', label: 'Contact' },
+  ],
+  eyebrow = 'Panorama Scholarly Group / Legal',
+  railTitle = 'A clear record',
+  railText = 'These pages explain the standards and responsibilities that accompany the group’s public website.',
+} = Astro.props;
+const locale = requestedLocale ?? Astro.currentLocale ?? 'en';
+const ui = getLegalChromeCopy(locale);
+const localizedUpdated = updated === '14 September 2026' ? ui.updatedDate : updated;
+const localizedRailTitle = railTitle === 'A clear record' ? ui.defaultRailTitle : railTitle;
+const localizedRailText = railText === 'These pages explain the standards and responsibilities that accompany the group’s public website.' ? ui.defaultRailText : railText;
+const localizedRelatedLinks = relatedLinks.length === 3 && relatedLinks[0]?.label === 'Editorial Standards' && relatedLinks[1]?.label === 'Publication Ethics' && relatedLinks[2]?.label === 'Contact'
+  ? [
+      { ...relatedLinks[0], label: ui.defaultRelatedEditorial },
+      { ...relatedLinks[1], label: ui.defaultRelatedEthics },
+      { ...relatedLinks[2], label: ui.defaultRelatedContact },
+    ]
+  : relatedLinks;
+const localizedHref = (href: string) => href.startsWith('/') ? localizePath(href, locale) : href;
+---
+
+<BaseLayout title={title} description={description} path={path} locale={locale}>
+  <div class="legal-page">
+    <header class="legal-hero">
+      <div class="container-wide legal-hero__inner">
+        <div class="legal-hero__copy">
+          <p class="text-overline">{eyebrow === 'Panorama Scholarly Group / Legal' ? ui.eyebrow : eyebrow}</p>
+          <h1>{title}</h1>
+          <p class="legal-hero__lede">{lede}</p>
+        </div>
+
+        <aside class="legal-hero__meta" aria-label={ui.documentInformation}>
+          <p class="text-overline">{ui.documentInformation}</p>
+          <dl>
+            <div>
+              <dt>{ui.publishedBy}</dt>
+              <dd>{site.legalName}</dd>
+            </div>
+            <div>
+              <dt>{ui.lastUpdated}</dt>
+              <dd>{localizedUpdated}</dd>
+            </div>
+            <div>
+              <dt>{ui.questions}</dt>
+              <dd><a href={localizePath('/about/contact/', locale)}>{ui.contactGroup}</a></dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </header>
+
+    <nav class="legal-index" aria-label={`${ui.onThisPage}: ${title}`}>
+      <div class="container-wide legal-index__inner">
+        <p class="text-overline">{ui.onThisPage}</p>
+        <ol>
+          {sections.map((section, index) => (
+            <li>
+              <a href={`#${section.id}`}>
+                <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                {section.label}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </nav>
+
+    <div class="container-wide legal-body">
+      <aside class="legal-rail">
+        <p class="text-overline">{localizedRailTitle}</p>
+        <p>{localizedRailText}</p>
+        <a class="legal-rail__link" href={localizePath('/about/contact/', locale)}>{ui.questionsAboutPage}</a>
+      </aside>
+
+      <article class="legal-content">
+        <slot />
+
+        <div class="legal-related">
+          <p class="text-overline">{ui.relatedPages}</p>
+          <div class="legal-related__links">
+            {localizedRelatedLinks.map((link) => <a href={localizedHref(link.href)}>{link.label}</a>)}
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    background: var(--surface-primary);
+  }
+
+  .legal-hero {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .legal-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    gap: clamp(3rem, 10vw, 10rem);
+    align-items: end;
+    padding-block: clamp(4rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .legal-hero__copy h1 {
+    max-width: 12ch;
+    margin-top: 0.75rem;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 7.2vw, 7rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.06em;
+    line-height: 0.94;
+  }
+
+  .legal-hero__lede {
+    max-width: 39rem;
+    margin-top: 1.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+    line-height: 1.45;
+  }
+
+  .legal-hero__meta {
+    align-self: stretch;
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+    padding-top: 1rem;
+  }
+
+  .legal-hero__meta .text-overline {
+    color: var(--interactive-default);
+  }
+
+  .legal-hero__meta dl {
+    margin-top: 1.5rem;
+  }
+
+  .legal-hero__meta dl > div {
+    display: grid;
+    grid-template-columns: minmax(6rem, 0.65fr) minmax(0, 1.35fr);
+    gap: var(--p-space-4);
+    padding-block: 0.8rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .legal-hero__meta dt {
+    color: var(--text-muted);
+    font-size: var(--fs-body-sm);
+  }
+
+  .legal-hero__meta dd {
+    color: var(--text-secondary);
+    font-size: var(--fs-body-sm);
+  }
+
+  .legal-hero__meta a,
+  .legal-rail__link,
+  .legal-content a {
+    color: var(--text-link);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+  }
+
+  .legal-hero__meta a:hover,
+  .legal-hero__meta a:focus-visible,
+  .legal-rail__link:hover,
+  .legal-rail__link:focus-visible,
+  .legal-content a:hover,
+  .legal-content a:focus-visible {
+    color: var(--text-link-hover);
+  }
+
+  .legal-index {
+    background: var(--surface-secondary);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .legal-index__inner {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.65fr) minmax(0, 2.35fr);
+    gap: clamp(1.5rem, 5vw, 5rem);
+    align-items: center;
+    padding-block: 1.25rem;
+  }
+
+  .legal-index__inner > .text-overline {
+    color: var(--text-accent);
+  }
+
+  .legal-index ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .legal-index a {
+    display: flex;
+    gap: 0.7rem;
+    align-items: baseline;
+    color: var(--text-secondary);
+    font-size: var(--fs-body-sm);
+    text-decoration: none;
+  }
+
+  .legal-index a:hover,
+  .legal-index a:focus-visible {
+    color: var(--interactive-default);
+  }
+
+  .legal-index a span {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+  }
+
+  .legal-body {
+    display: grid;
+    grid-template-columns: minmax(12rem, 0.7fr) minmax(0, 2fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: start;
+    padding-block: clamp(4rem, 8vw, 7rem) clamp(5rem, 10vw, 9rem);
+  }
+
+  .legal-rail {
+    position: sticky;
+    top: 6.5rem;
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+    padding-top: 1rem;
+  }
+
+  .legal-rail .text-overline {
+    color: var(--interactive-default);
+  }
+
+  .legal-rail > p:not(.text-overline) {
+    max-width: 20rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .legal-rail__link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: var(--fs-body-sm);
+  }
+
+  .legal-content {
+    min-width: 0;
+    max-width: 72ch;
+  }
+
+  .legal-content :global(.legal-section) {
+    scroll-margin-top: 7rem;
+  }
+
+  .legal-content :global(.legal-section + .legal-section) {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .legal-content :global(.legal-section h2) {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+  }
+
+  .legal-content :global(.legal-section h2 span) {
+    display: block;
+    margin-bottom: 0.85rem;
+    color: var(--text-accent);
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.2;
+  }
+
+  .legal-content :global(.legal-section > p),
+  .legal-content :global(.legal-section > ul),
+  .legal-content :global(.legal-section > ol),
+  .legal-content :global(.legal-section > .legal-note) {
+    margin-top: 1.25rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .legal-content :global(.legal-section > p + p) {
+    margin-top: 1rem;
+  }
+
+  .legal-content :global(.legal-section ul),
+  .legal-content :global(.legal-section ol) {
+    display: grid;
+    gap: 0.65rem;
+    padding-inline-start: 1.35rem;
+  }
+
+  .legal-content :global(.legal-section li) {
+    padding-inline-start: 0.35rem;
+  }
+
+  .legal-content :global(.legal-section li::marker) {
+    color: var(--brand-accent);
+  }
+
+  .legal-content :global(.legal-note) {
+    border-inline-start: var(--p-border-strong) solid var(--brand-accent);
+    padding: 1rem 1.25rem;
+    background: var(--surface-secondary);
+  }
+
+  .legal-content :global(.legal-note strong) {
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    font-size: var(--fs-body-sm);
+  }
+
+  .legal-related {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+    padding-top: 1.25rem;
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+  }
+
+  .legal-related > .text-overline {
+    color: var(--text-accent);
+  }
+
+  .legal-related__links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .legal-related__links a {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .legal-related__links a:hover,
+  .legal-related__links a:focus-visible {
+    color: var(--interactive-default);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  @media (max-width: 767px) {
+    .legal-hero__inner,
+    .legal-body {
+      grid-template-columns: 1fr;
+    }
+
+    .legal-hero__inner {
+      gap: 3rem;
+    }
+
+    .legal-hero__copy h1 {
+      max-width: 13ch;
+      font-size: clamp(3.2rem, 15vw, 5rem);
+    }
+
+    .legal-hero__meta {
+      align-self: auto;
+    }
+
+    .legal-index__inner {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .legal-index ol,
+    .legal-related__links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .legal-rail {
+      position: static;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .legal-index a,
+    .legal-content a,
+    .legal-rail__link {
+      transition: none;
+    }
+  }
+</style>

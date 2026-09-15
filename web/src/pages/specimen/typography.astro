@@ -1,0 +1,80 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const scale = [
+  { cls: 'text-display', label: 'Display', token: '--fs-display' },
+  { tag: 'h1', label: 'H1', token: '--fs-h1' },
+  { tag: 'h2', label: 'H2', token: '--fs-h2' },
+  { tag: 'h3', label: 'H3', token: '--fs-h3' },
+  { tag: 'h4', label: 'H4', token: '--fs-h4' },
+  { tag: 'h5', label: 'H5', token: '--fs-h5' },
+  { tag: 'h6', label: 'H6', token: '--fs-h6' },
+];
+
+const sample = 'Scholarly Infrastructure for International Research';
+const longTitle = 'Journal of Comparative Regional Policy, Trauma Recovery, and Long-Term Institutional Governance in Post-Conflict Societies';
+---
+<BaseLayout title="Typography specimen" description="Type scale specimen" path="/specimen/typography/" showChrome={false}>
+  <section class="row container-wide">
+    <p class="text-overline">Specimen</p>
+    <h1>Typography</h1>
+    <p class="text-body-lg measure-reading">Fluid type scale from --fs-caption to --fs-display. Resize the viewport — every step should reflow smoothly with no jump.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide stack">
+    {scale.map((s) => (
+      <div>
+        <p class="text-caption u-text-muted">{s.label} — var({s.token})</p>
+        {s.cls ? <p class={s.cls}>{sample}</p> : <Fragment set:html={`<${s.tag}>${sample}</${s.tag}>`} />}
+      </div>
+    ))}
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Long academic titles</h2>
+    <p class="text-body-sm u-text-muted">Worst-case title length must not overflow or force horizontal scroll at any width.</p>
+    <h3 class="u-mt-4">{longTitle}</h3>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Body copy at reading measure</h2>
+    <p class="measure-reading">
+      Panorama Scholarly Group is an international scholarly publishing
+      and research organisation. This paragraph is constrained to the
+      editorial reading measure (--p-measure-reading, ~68ch) regardless
+      of how wide its container is — line length for continuous prose
+      stays inside the range known to be comfortable to read, independent
+      of the page's overall layout width.
+    </p>
+    <p class="measure-reading">A second paragraph, to check vertical rhythm between paragraphs via the adjacent-sibling margin rule in typography.css.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide" lang="ar" dir="rtl">
+    <h2>Arabic (RTL) baseline</h2>
+    <p class="measure-reading">
+      بانوراما للنشر العلمي هي منظمة دولية للنشر العلمي والبحث العلمي، وتخدم الباحثين والمؤسسات الأكاديمية حول العالم.
+    </p>
+  </section>
+
+  <section class="row container-wide" lang="zh-Hans">
+    <h2>简体中文基线</h2>
+    <p class="measure-reading">
+      松景学术集团（Panorama Scholarly Group）是一家国际学术出版与研究机构，致力于同行评审期刊、学术图书、开放学术基础设施与研究伙伴关系。
+    </p>
+  </section>
+
+  <section class="row container-wide" lang="de">
+    <h2>Deutsche Basislinie</h2>
+    <p class="measure-reading">
+      Wissenschaftskommunikationsqualitätssicherungsverfahren — German compound nouns can run very long; the reading measure is character-based (ch), so it adapts without a hard-coded pixel width.
+    </p>
+  </section>
+</BaseLayout>

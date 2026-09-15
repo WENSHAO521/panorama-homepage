@@ -1,0 +1,67 @@
+---
+// No third-party compliance logos (COPE/DOAJ/Crossref/etc.) -- no
+// membership or compliance status for any of them was confirmed during
+// the Version 1 audit, and project brief §27 explicitly prohibits
+// displaying such marks without verification. Links go to the four real
+// standards routes that exist today; "Peer Review" and "Research
+// Integrity" are covered as concepts within Editorial Standards /
+// Publication Ethics rather than given invented routes of their own.
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import { getContent } from '@/i18n/content';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+
+const commitments = [
+  { name: 'Editorial Standards', path: '/standards/editorial/', description: 'Governs editorial decision-making and peer review across every imprint.' },
+  { name: 'Publication Ethics', path: '/standards/ethics/', description: 'Research integrity, ethical oversight, fair editorial practice, and care for the published record.' },
+  { name: 'Open Access', path: '/standards/open-access/', description: 'Access, copyright, licensing, fees, and responsible reuse across open scholarly works.' },
+  { name: 'Accessibility', path: '/accessibility/', description: 'Our approach to an accessible site and publication record.' },
+];
+---
+
+<section class="row">
+  <div class="container-wide">
+    <SectionHeading
+      title={t('home.standardsTitle')}
+      lede={t('home.standardsLede')}
+    />
+    <ul class="standards-list" role="list">
+      {commitments.map((c) => (
+        <li class="standards-list__item">
+          <a href={c.path} class="standards-list__link">{c.name}</a>
+          <p class="text-body-sm u-text-muted">{c.description}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .standards-list {
+    list-style: none;
+    margin: var(--p-space-8) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--p-space-6);
+  }
+  .standards-list__link {
+    font-family: var(--font-display);
+    font-size: var(--fs-h5);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .standards-list__link:hover { color: var(--interactive-default); }
+  .standards-list__item p {
+    margin-top: var(--p-space-2);
+    max-width: 52ch;
+  }
+
+  @media (min-width: 768px) {
+    .standards-list {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: var(--p-space-8);
+    }
+  }
+</style>

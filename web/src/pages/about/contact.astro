@@ -1,0 +1,346 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AboutSubnav from '@/components/about/AboutSubnav.astro';
+import Button from '@/components/ui/Button.astro';
+import { externalSystems, getOfficeDirectory, site } from '@/data/site';
+import { getContactCopy } from '@/i18n/group';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getContactCopy(locale);
+const offices = getOfficeDirectory(locale);
+
+const routes = copy.routes.map((route, index) => ({
+  ...route,
+  href: index === 0 ? localizePath('/publishing/', locale) : index === 1 ? externalSystems.research : index === 2 ? localizePath('/infrastructure/', locale) : localizePath('/about/partnerships/', locale),
+  external: index === 1,
+}));
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/about/contact/"
+  locale={locale}
+>
+  <div class="contact-page">
+    <AboutSubnav currentPath={localizePath('/about/contact/', locale)} locale={locale} />
+
+    <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="contact-title" variant="compact">
+      <div slot="actions">
+        <a class="contact-hero__email" href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+
+      <div slot="aside" class="contact-hero__aside-content" aria-label={copy.generalOverline}>
+        <p class="text-overline">{copy.generalOverline}</p>
+        <p>{copy.generalBody}</p>
+        <div class="contact-office-list">
+          {offices.map((office) => (
+            <div class="contact-office">
+              <p class="contact-office__label">{office.label}</p>
+              <address>{office.streetAddress}</address>
+            </div>
+          ))}
+        </div>
+      </div>
+    </GroupHero>
+
+    <section class="contact-routes row" aria-labelledby="routes-title">
+      <div class="container-wide">
+        <header class="contact-section-head">
+          <div>
+            <p class="text-overline">{copy.chooseOverline}</p>
+            <h2 id="routes-title">{copy.routesTitle}</h2>
+          </div>
+          <p>{copy.routesIntro}</p>
+        </header>
+
+        <div class="contact-route-list">
+          {routes.map((route, index) => (
+            <a class="contact-route" href={route.href} target={route.external ? '_blank' : undefined} rel={route.external ? 'noopener noreferrer' : undefined}>
+              <span class="contact-route__number">{String(index + 1).padStart(2, '0')}</span>
+              <span class="contact-route__body">
+                <strong>{route.title}</strong>
+                <span>{route.body}</span>
+              </span>
+              <span class="contact-route__action">{route.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-details row row--inverse" aria-labelledby="details-title">
+      <div class="container-wide contact-details__grid">
+        <div>
+          <p class="text-overline">{copy.writeOverline}</p>
+          <h2 id="details-title">{copy.detailsTitle}</h2>
+        </div>
+        <div class="contact-details__copy">
+          <p>
+            {copy.detailsBody}
+          </p>
+          <a class="contact-details__email" href={`mailto:${site.email}`}>{site.email}</a>
+          <div class="contact-office-list">
+            {offices.map((office) => (
+              <div class="contact-office">
+                <p class="contact-office__label">{office.label}</p>
+                <address>{office.streetAddress}</address>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-closing row" aria-labelledby="contact-closing-title">
+      <div class="container-wide contact-closing__inner">
+        <div>
+          <p class="text-overline">{copy.beforeOverline}</p>
+          <h2 id="contact-closing-title">{copy.closingTitle}</h2>
+        </div>
+        <div class="contact-closing__copy">
+          <p>{copy.closingBody}</p>
+          <div class="contact-closing__actions">
+            <Button href={localizePath('/journals/', locale)} variant="primary">{copy.browseJournals}</Button>
+            <Button href={localizePath('/standards/', locale)} variant="secondary">{copy.viewStandards}</Button>
+            <Button href={localizePath('/infrastructure/', locale)} variant="secondary">{copy.viewInfrastructure}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .contact-page { background: var(--surface-primary); }
+
+  .contact-hero { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
+
+  .contact-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    gap: clamp(3rem, 10vw, 10rem);
+    align-items: end;
+    min-height: 30rem;
+    padding-block: clamp(4rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .contact-hero__copy h1 {
+    max-width: 11ch;
+    margin-top: 0.75rem;
+    font-size: clamp(3rem, 5.8vw, 5.5rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .contact-hero__lede {
+    max-width: 38rem;
+    margin-top: 1.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+    line-height: 1.45;
+  }
+
+  .contact-hero__email,
+  .contact-details__email {
+    display: inline-block;
+    margin-top: 1.7rem;
+    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+
+  .contact-hero__email:hover,
+  .contact-hero__email:focus-visible,
+  .contact-details__email:hover,
+  .contact-details__email:focus-visible { color: var(--interactive-default); }
+
+  .contact-hero__index {
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+    padding-top: 1rem;
+  }
+
+  .contact-hero__index .text-overline { color: var(--interactive-default); }
+
+  .contact-hero__index > p:not(.text-overline) {
+    max-width: 24rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
+  address {
+    margin: 1.3rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    font-style: normal;
+    line-height: 1.55;
+  }
+
+  .contact-office-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.3rem;
+  }
+
+  .contact-office {
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    padding-top: 0.8rem;
+  }
+
+  .contact-office__label {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-office address {
+    margin-top: 0.45rem;
+  }
+
+  .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
+
+  .contact-routes,
+  .contact-closing { padding-block: clamp(4rem, 8vw, 7rem); }
+
+  .contact-section-head,
+  .contact-details__grid,
+  .contact-closing__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+  }
+
+  .contact-section-head h2,
+  .contact-details h2,
+  .contact-closing h2 {
+    max-width: 14ch;
+    margin-top: 0.7rem;
+    font-size: clamp(2.3rem, 4vw, 3.8rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .contact-section-head > p,
+  .contact-details__copy > p,
+  .contact-closing__copy > p {
+    max-width: 30rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .contact-route-list {
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .contact-route {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    gap: clamp(1rem, 3vw, 3rem);
+    align-items: center;
+    padding-block: 1.4rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard), padding-inline var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .contact-route:hover,
+  .contact-route:focus-visible {
+    background: var(--surface-secondary);
+    color: inherit;
+    padding-inline: 0.6rem;
+  }
+
+  .contact-route__number {
+    color: var(--text-accent);
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    line-height: 1;
+  }
+
+  .contact-route__body { display: grid; gap: 0.3rem; }
+
+  .contact-route__body strong {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: var(--fw-regular);
+  }
+
+  .contact-route__body span {
+    max-width: 38rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .contact-route__action {
+    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
+    color: var(--text-primary);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    text-transform: uppercase;
+  }
+
+  .contact-route:hover .contact-route__action,
+  .contact-route:focus-visible .contact-route__action { color: var(--interactive-default); }
+
+  .contact-details {
+    border-bottom: 0;
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .contact-details h2 { color: var(--text-inverse); }
+  .contact-details .text-overline { color: var(--text-accent-inverse); }
+  .contact-details__copy > p { color: var(--text-inverse-muted); }
+  .contact-details__email { color: var(--text-inverse); }
+  .contact-details__copy address { color: var(--text-inverse-muted); }
+  .contact-details .contact-office { border-top-color: color-mix(in srgb, var(--text-inverse) 22%, transparent); }
+  .contact-details .contact-office__label { color: var(--text-inverse); }
+
+  .contact-closing__inner { align-items: end; }
+
+  .contact-closing__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
+  }
+
+  @media (max-width: 900px) {
+    .contact-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+    .contact-section-head,
+    .contact-details__grid,
+    .contact-closing__inner { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  }
+
+  @media (max-width: 639px) {
+    .contact-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
+    .contact-hero__copy h1 { max-width: 10ch; font-size: clamp(2.8rem, 13vw, 4rem); }
+    .contact-section-head h2,
+    .contact-details h2,
+    .contact-closing h2 { max-width: 12ch; font-size: clamp(2.25rem, 10vw, 3.3rem); }
+    .contact-route { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.8rem 1rem; }
+    .contact-route__action { grid-column: 2; justify-self: start; }
+  }
+</style>

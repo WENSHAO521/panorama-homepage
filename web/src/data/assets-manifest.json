@@ -1,0 +1,1097 @@
+{
+  "generatedBy": "scripts/build_assets_manifest.py",
+  "generatedFor": "Version 1 -- Greenfield Static Rebuild Foundation",
+  "schemaNotes": "status: preserve = official/brand/factual asset, migrated as-is; review = migrated and usable but needs licensing/optimization/fit confirmation before production use; discard = duplicate or superseded, not migrated. 'replace' is reserved for assets a future round explicitly supersedes with new artwork -- none identified yet.",
+  "counts": {
+    "total": 83,
+    "preserve": 43,
+    "review": 39,
+    "replace": 0,
+    "archive": 0,
+    "discard": 1
+  },
+  "totalSizeMb": 35.49,
+  "assets": [
+    {
+      "originalPath": "QKFM/panorama-scholarly-group-uppercase-wordmark-4k.svg",
+      "newPath": "web/public/brand/psg/panorama-scholarly-group-uppercase-wordmark-4k.svg",
+      "filename": "panorama-scholarly-group-uppercase-wordmark-4k.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 1.4,
+      "status": "preserve",
+      "notes": "Primary PSG uppercase wordmark, 4K vector. Only copy of this file (QKFM/ and formerly-duplicated locations both resolve here)."
+    },
+    {
+      "originalPath": "assets/logos/books-logo-light.svg",
+      "newPath": "web/public/brand/psg/platforms/books-logo-light.svg",
+      "filename": "books-logo-light.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.9,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (books)."
+    },
+    {
+      "originalPath": "assets/logos/books-logo.svg",
+      "newPath": "web/public/brand/psg/platforms/books-logo.svg",
+      "filename": "books-logo.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.9,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (books)."
+    },
+    {
+      "originalPath": "assets/logos/editorial-directory-logo-transparent.png",
+      "newPath": "web/public/brand/psg/platforms/editorial-directory-logo-transparent.png",
+      "filename": "editorial-directory-logo-transparent.png",
+      "category": "corporate-logo",
+      "format": "png",
+      "dimensions": [
+        864,
+        642
+      ],
+      "fileSizeKb": 170.5,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (editorial-directory)."
+    },
+    {
+      "originalPath": "assets/logos/editorial-directory-logo.png",
+      "newPath": "web/public/brand/psg/platforms/editorial-directory-logo.png",
+      "filename": "editorial-directory-logo.png",
+      "category": "corporate-logo",
+      "format": "png",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "fileSizeKb": 197.1,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (editorial-directory)."
+    },
+    {
+      "originalPath": "assets/logos/journals-logo-light.svg",
+      "newPath": "web/public/brand/psg/platforms/journals-logo-light.svg",
+      "filename": "journals-logo-light.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 171.4,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (journals)."
+    },
+    {
+      "originalPath": "assets/logos/logo-dark.svg",
+      "newPath": "web/public/brand/psg/logo-dark.svg",
+      "filename": "logo-dark.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.8,
+      "status": "preserve",
+      "notes": "Official PSG corporate mark."
+    },
+    {
+      "originalPath": "assets/logos/logo.svg",
+      "newPath": "web/public/brand/psg/logo.svg",
+      "filename": "logo.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 1.1,
+      "status": "preserve",
+      "notes": "Official PSG corporate mark."
+    },
+    {
+      "originalPath": "assets/logos/posi-logo-light.svg",
+      "newPath": "web/public/brand/psg/platforms/posi-logo-light.svg",
+      "filename": "posi-logo-light.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.6,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (posi)."
+    },
+    {
+      "originalPath": "assets/logos/posi-logo.svg",
+      "newPath": "web/public/brand/psg/platforms/posi-logo.svg",
+      "filename": "posi-logo.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.7,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (posi)."
+    },
+    {
+      "originalPath": "assets/logos/research-institute-logo.svg",
+      "newPath": "web/public/brand/psg/platforms/research-institute-logo.svg",
+      "filename": "research-institute-logo.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.8,
+      "status": "preserve",
+      "notes": "PSG platform/division mark (research-institute)."
+    },
+    {
+      "originalPath": "favicon.png",
+      "newPath": "web/public/favicon/favicon.png",
+      "filename": "favicon.png",
+      "category": "favicon",
+      "format": "png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "fileSizeKb": 3.8,
+      "status": "preserve",
+      "notes": "Official favicon, raster fallback."
+    },
+    {
+      "originalPath": "favicon.svg",
+      "newPath": "web/public/favicon/favicon.svg",
+      "filename": "favicon.svg",
+      "category": "favicon",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.6,
+      "status": "preserve",
+      "notes": "Official favicon, vector. Site-wide."
+    },
+    {
+      "originalPath": "assets/nexus/charter-logo-light.svg",
+      "newPath": "web/public/brand/imprints/charter/charter-logo-light.svg",
+      "filename": "charter-logo-light.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.3,
+      "status": "preserve",
+      "notes": "Official imprint mark for charter."
+    },
+    {
+      "originalPath": "assets/nexus/charter-logo.svg",
+      "newPath": "web/public/brand/imprints/charter/charter-logo.svg",
+      "filename": "charter-logo.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.3,
+      "status": "preserve",
+      "notes": "Official imprint mark for charter."
+    },
+    {
+      "originalPath": "assets/nexus/health-nexus-logo-light.svg",
+      "newPath": "web/public/brand/imprints/health-nexus/health-nexus-logo-light.svg",
+      "filename": "health-nexus-logo-light.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.3,
+      "status": "preserve",
+      "notes": "Official imprint mark for health-nexus."
+    },
+    {
+      "originalPath": "assets/nexus/health-nexus-logo.svg",
+      "newPath": "web/public/brand/imprints/health-nexus/health-nexus-logo.svg",
+      "filename": "health-nexus-logo.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.3,
+      "status": "preserve",
+      "notes": "Official imprint mark for health-nexus."
+    },
+    {
+      "originalPath": "assets/nexus/ridgeline-logo-light.svg",
+      "newPath": "web/public/brand/imprints/ridgeline/ridgeline-logo-light.svg",
+      "filename": "ridgeline-logo-light.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.3,
+      "status": "preserve",
+      "notes": "Official imprint mark for ridgeline."
+    },
+    {
+      "originalPath": "assets/nexus/ridgeline-logo.svg",
+      "newPath": "web/public/brand/imprints/ridgeline/ridgeline-logo.svg",
+      "filename": "ridgeline-logo.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.3,
+      "status": "preserve",
+      "notes": "Official imprint mark for ridgeline."
+    },
+    {
+      "originalPath": "assets/nexus/threnody-logo-light.svg",
+      "newPath": "web/public/brand/imprints/threnody/threnody-logo-light.svg",
+      "filename": "threnody-logo-light.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.4,
+      "status": "preserve",
+      "notes": "Official imprint mark for threnody."
+    },
+    {
+      "originalPath": "assets/nexus/threnody-logo.svg",
+      "newPath": "web/public/brand/imprints/threnody/threnody-logo.svg",
+      "filename": "threnody-logo.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.4,
+      "status": "preserve",
+      "notes": "Official imprint mark for threnody."
+    },
+    {
+      "originalPath": "assets/nexus/verdant-science-logo-light.svg",
+      "newPath": "web/public/brand/imprints/verdant-science/verdant-science-logo-light.svg",
+      "filename": "verdant-science-logo-light.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.4,
+      "status": "preserve",
+      "notes": "Official imprint mark for verdant-science."
+    },
+    {
+      "originalPath": "assets/nexus/verdant-science-logo.svg",
+      "newPath": "web/public/brand/imprints/verdant-science/verdant-science-logo.svg",
+      "filename": "verdant-science-logo.svg",
+      "category": "imprint-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 0.4,
+      "status": "preserve",
+      "notes": "Official imprint mark for verdant-science."
+    },
+    {
+      "originalPath": "QKFM/BASE.png",
+      "newPath": "web/public/indexes/BASE.png",
+      "filename": "BASE.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        330,
+        186
+      ],
+      "fileSizeKb": 7.2,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/CJWK.png",
+      "newPath": "web/public/indexes/CJWK.png",
+      "filename": "CJWK.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        955,
+        258
+      ],
+      "fileSizeKb": 20.1,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/CLOCKSS.png",
+      "newPath": "web/public/indexes/CLOCKSS.png",
+      "filename": "CLOCKSS.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        280,
+        88
+      ],
+      "fileSizeKb": 6.3,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/Crossref.svg",
+      "newPath": "web/public/indexes/Crossref.svg",
+      "filename": "Crossref.svg",
+      "category": "indexing-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 3.0,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/DNB.svg",
+      "newPath": "web/public/indexes/DNB.svg",
+      "filename": "DNB.svg",
+      "category": "indexing-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 10.6,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/DOI_Foundation.png",
+      "newPath": "web/public/indexes/DOI_Foundation.png",
+      "filename": "DOI_Foundation.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        330,
+        77
+      ],
+      "fileSizeKb": 6.3,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/Dimensions.png",
+      "newPath": "web/public/indexes/Dimensions.png",
+      "filename": "Dimensions.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        839,
+        225
+      ],
+      "fileSizeKb": 43.2,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/Google_Scholar.png",
+      "newPath": "web/public/indexes/Google_Scholar.png",
+      "filename": "Google_Scholar.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        762,
+        128
+      ],
+      "fileSizeKb": 13.9,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/ISNI.png",
+      "newPath": "web/public/indexes/ISNI.png",
+      "filename": "ISNI.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        1280,
+        775
+      ],
+      "fileSizeKb": 31.1,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/ISSN.png",
+      "newPath": "web/public/indexes/ISSN.png",
+      "filename": "ISSN.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        358,
+        105
+      ],
+      "fileSizeKb": 27.6,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/LOCKSS.png",
+      "newPath": "web/public/indexes/LOCKSS.png",
+      "filename": "LOCKSS.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        800,
+        235
+      ],
+      "fileSizeKb": 23.6,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/OpenAIRE.svg",
+      "newPath": "web/public/indexes/OpenAIRE.svg",
+      "filename": "OpenAIRE.svg",
+      "category": "indexing-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 4.3,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/OpenAlex.png",
+      "newPath": "web/public/indexes/OpenAlex.png",
+      "filename": "OpenAlex.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        1000,
+        455
+      ],
+      "fileSizeKb": 26.4,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/PKP.svg",
+      "newPath": "web/public/indexes/PKP.svg",
+      "filename": "PKP.svg",
+      "category": "indexing-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 8.9,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/Semantic_Scholar.png",
+      "newPath": "web/public/indexes/Semantic_Scholar.png",
+      "filename": "Semantic_Scholar.png",
+      "category": "indexing-logo",
+      "format": "png",
+      "dimensions": [
+        330,
+        60
+      ],
+      "fileSizeKb": 8.2,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/ZDB.gif",
+      "newPath": "web/public/indexes/ZDB.gif",
+      "filename": "ZDB.gif",
+      "category": "indexing-logo",
+      "format": "gif",
+      "dimensions": [
+        74,
+        72
+      ],
+      "fileSizeKb": 2.5,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/Zenodo.svg",
+      "newPath": "web/public/indexes/Zenodo.svg",
+      "filename": "Zenodo.svg",
+      "category": "indexing-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 6.6,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/oa-plos-transparent.svg",
+      "newPath": "web/public/indexes/oa-plos-transparent.svg",
+      "filename": "oa-plos-transparent.svg",
+      "category": "indexing-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 1.4,
+      "status": "preserve",
+      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+    },
+    {
+      "originalPath": "QKFM/library-logo.png",
+      "newPath": "web/public/partners/library-logo.png",
+      "filename": "library-logo.png",
+      "category": "partner-logo",
+      "format": "png",
+      "dimensions": [
+        570,
+        85
+      ],
+      "fileSizeKb": 13.6,
+      "status": "preserve",
+      "notes": "Third-party partner/institutional mark. Usage governed by partner's own brand guidelines."
+    },
+    {
+      "originalPath": "assets/logos/taoist-association-korea-logo.png",
+      "newPath": "web/public/partners/taoist-association-korea-logo.png",
+      "filename": "taoist-association-korea-logo.png",
+      "category": "partner-logo",
+      "format": "png",
+      "dimensions": [
+        500,
+        500
+      ],
+      "fileSizeKb": 131.6,
+      "status": "preserve",
+      "notes": "Third-party partner mark; usage governed by that partner's own brand guidelines."
+    },
+    {
+      "originalPath": "Homepage Image/CPRT-Homepage Image.jpg",
+      "newPath": "web/public/images/publishing/CPRT-Homepage Image.jpg",
+      "filename": "CPRT-Homepage Image.jpg",
+      "category": "corporate-image",
+      "format": "jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "fileSizeKb": 1458.4,
+      "status": "review",
+      "notes": "Per-journal homepage/hero photography (1458.4 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+    },
+    {
+      "originalPath": "Homepage Image/CSGS-Homepage Image.png",
+      "newPath": "web/public/images/publishing/CSGS-Homepage Image.png",
+      "filename": "CSGS-Homepage Image.png",
+      "category": "corporate-image",
+      "format": "png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "fileSizeKb": 984.5,
+      "status": "review",
+      "notes": "Per-journal homepage/hero photography (984.5 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+    },
+    {
+      "originalPath": "Homepage Image/CSSR-Homepage Image.png",
+      "newPath": "web/public/images/publishing/CSSR-Homepage Image.png",
+      "filename": "CSSR-Homepage Image.png",
+      "category": "corporate-image",
+      "format": "png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "fileSizeKb": 1366.1,
+      "status": "review",
+      "notes": "Per-journal homepage/hero photography (1366.1 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+    },
+    {
+      "originalPath": "Homepage Image/FSSS-Homepage Image.png",
+      "newPath": "web/public/images/publishing/FSSS-Homepage Image.png",
+      "filename": "FSSS-Homepage Image.png",
+      "category": "corporate-image",
+      "format": "png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "fileSizeKb": 2314.9,
+      "status": "review",
+      "notes": "Per-journal homepage/hero photography (2314.9 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+    },
+    {
+      "originalPath": "Homepage Image/GRAHS-Homepage Image.png",
+      "newPath": "web/public/images/publishing/GRAHS-Homepage Image.png",
+      "filename": "GRAHS-Homepage Image.png",
+      "category": "corporate-image",
+      "format": "png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "fileSizeKb": 864.1,
+      "status": "review",
+      "notes": "Per-journal homepage/hero photography (864.1 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+    },
+    {
+      "originalPath": "Homepage Image/HNDH-Homepage Image.png",
+      "newPath": "web/public/images/publishing/HNDH-Homepage Image.png",
+      "filename": "HNDH-Homepage Image.png",
+      "category": "corporate-image",
+      "format": "png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "fileSizeKb": 2088.7,
+      "status": "review",
+      "notes": "Per-journal homepage/hero photography (2088.7 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+    },
+    {
+      "originalPath": "Homepage Image/Silence-Homepage Image.png",
+      "newPath": "web/public/images/publishing/Silence-Homepage Image.png",
+      "filename": "Silence-Homepage Image.png",
+      "category": "corporate-image",
+      "format": "png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "fileSizeKb": 2205.0,
+      "status": "review",
+      "notes": "Per-journal homepage/hero photography (2205.0 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+    },
+    {
+      "originalPath": "QKFM/Scholarly_Integrity.jpg",
+      "newPath": "web/public/images/corporate/Scholarly_Integrity.jpg",
+      "filename": "Scholarly_Integrity.jpg",
+      "category": "corporate-image",
+      "format": "jpg",
+      "dimensions": [
+        1000,
+        667
+      ],
+      "fileSizeKb": 58.9,
+      "status": "review",
+      "notes": "Editorial stock photograph. License terms not confirmed before reuse."
+    },
+    {
+      "originalPath": "assets/wallpapers/charter-wallpaper-4k.jpg",
+      "newPath": "web/public/images/publishing/charter-wallpaper-4k.jpg",
+      "filename": "charter-wallpaper-4k.jpg",
+      "category": "corporate-image",
+      "format": "jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "fileSizeKb": 2206.3,
+      "status": "review",
+      "notes": "4K full-bleed imprint wallpaper (2.2 MB). Licensing chain-of-custody not confirmed; migrated for layout/placeholder use only -- re-encode to WebP/AVIF and confirm rights before shipping to production."
+    },
+    {
+      "originalPath": "assets/wallpapers/health-nexus-wallpaper-4k.jpg",
+      "newPath": "web/public/images/publishing/health-nexus-wallpaper-4k.jpg",
+      "filename": "health-nexus-wallpaper-4k.jpg",
+      "category": "corporate-image",
+      "format": "jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "fileSizeKb": 2502.6,
+      "status": "review",
+      "notes": "4K full-bleed imprint wallpaper (2.4 MB). Licensing chain-of-custody not confirmed; migrated for layout/placeholder use only -- re-encode to WebP/AVIF and confirm rights before shipping to production."
+    },
+    {
+      "originalPath": "assets/wallpapers/ridgeline-wallpaper-4k.jpg",
+      "newPath": "web/public/images/publishing/ridgeline-wallpaper-4k.jpg",
+      "filename": "ridgeline-wallpaper-4k.jpg",
+      "category": "corporate-image",
+      "format": "jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "fileSizeKb": 2434.9,
+      "status": "review",
+      "notes": "4K full-bleed imprint wallpaper (2.4 MB). Licensing chain-of-custody not confirmed; migrated for layout/placeholder use only -- re-encode to WebP/AVIF and confirm rights before shipping to production."
+    },
+    {
+      "originalPath": "assets/wallpapers/threnody-wallpaper-4k.jpg",
+      "newPath": "web/public/images/publishing/threnody-wallpaper-4k.jpg",
+      "filename": "threnody-wallpaper-4k.jpg",
+      "category": "corporate-image",
+      "format": "jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "fileSizeKb": 2166.9,
+      "status": "review",
+      "notes": "4K full-bleed imprint wallpaper (2.1 MB). Licensing chain-of-custody not confirmed; migrated for layout/placeholder use only -- re-encode to WebP/AVIF and confirm rights before shipping to production."
+    },
+    {
+      "originalPath": "assets/wallpapers/verdant-science-wallpaper-4k.jpg",
+      "newPath": "web/public/images/publishing/verdant-science-wallpaper-4k.jpg",
+      "filename": "verdant-science-wallpaper-4k.jpg",
+      "category": "corporate-image",
+      "format": "jpg",
+      "dimensions": [
+        3840,
+        2160
+      ],
+      "fileSizeKb": 2721.5,
+      "status": "review",
+      "notes": "4K full-bleed imprint wallpaper (2.7 MB). Licensing chain-of-custody not confirmed; migrated for layout/placeholder use only -- re-encode to WebP/AVIF and confirm rights before shipping to production."
+    },
+    {
+      "originalPath": "assets/logos/journals-logo.svg",
+      "newPath": "web/public/brand/psg/platforms/journals-logo.svg",
+      "filename": "journals-logo.svg",
+      "category": "corporate-logo",
+      "format": "svg",
+      "dimensions": null,
+      "fileSizeKb": 223.1,
+      "status": "review",
+      "notes": "SVG is 223 KB -- unusually large for a vector mark, indicates embedded raster data. Migrated as-is; re-export as optimized vector before production use."
+    },
+    {
+      "originalPath": "QKFM/AFS.png",
+      "newPath": "web/public/journals/covers/AFS.png",
+      "filename": "AFS.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 520.7,
+      "status": "review",
+      "notes": "Journal cover artwork (521 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/CPRT.png",
+      "newPath": "web/public/journals/covers/CPRT.png",
+      "filename": "CPRT.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 541.5,
+      "status": "review",
+      "notes": "Journal cover artwork (542 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/CRoPT.png",
+      "newPath": "web/public/journals/covers/CRoPT.png",
+      "filename": "CRoPT.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 549.8,
+      "status": "review",
+      "notes": "Journal cover artwork (550 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/CSGS.png",
+      "newPath": "web/public/journals/covers/CSGS.png",
+      "filename": "CSGS.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 594.4,
+      "status": "review",
+      "notes": "Journal cover artwork (594 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/CSSR.png",
+      "newPath": "web/public/journals/covers/CSSR.png",
+      "filename": "CSSR.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 379.1,
+      "status": "review",
+      "notes": "Journal cover artwork (379 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/FSSS.png",
+      "newPath": "web/public/journals/covers/FSSS.png",
+      "filename": "FSSS.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 575.0,
+      "status": "review",
+      "notes": "Journal cover artwork (575 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/GGSR.png",
+      "newPath": "web/public/journals/covers/GGSR.png",
+      "filename": "GGSR.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 230.2,
+      "status": "review",
+      "notes": "Journal cover artwork (230 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/GRAHS.png",
+      "newPath": "web/public/journals/covers/GRAHS.png",
+      "filename": "GRAHS.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 586.5,
+      "status": "review",
+      "notes": "Journal cover artwork (586 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/HNCBT.png",
+      "newPath": "web/public/journals/covers/HNCBT.png",
+      "filename": "HNCBT.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 207.4,
+      "status": "review",
+      "notes": "Journal cover artwork (207 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/HNDH.png",
+      "newPath": "web/public/journals/covers/HNDH.png",
+      "filename": "HNDH.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 501.0,
+      "status": "review",
+      "notes": "Journal cover artwork (501 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/HealthNexus.png",
+      "newPath": "web/public/journals/covers/HealthNexus.png",
+      "filename": "HealthNexus.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 571.5,
+      "status": "review",
+      "notes": "Journal cover artwork (572 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/IRELS.png",
+      "newPath": "web/public/journals/covers/IRELS.png",
+      "filename": "IRELS.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 464.5,
+      "status": "review",
+      "notes": "Journal cover artwork (464 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/JDES.png",
+      "newPath": "web/public/journals/covers/JDES.png",
+      "filename": "JDES.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 584.5,
+      "status": "review",
+      "notes": "Journal cover artwork (584 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/JESA.png",
+      "newPath": "web/public/journals/covers/JESA.png",
+      "filename": "JESA.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 540.0,
+      "status": "review",
+      "notes": "Journal cover artwork (540 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/JLPCS.png",
+      "newPath": "web/public/journals/covers/JLPCS.png",
+      "filename": "JLPCS.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 473.2,
+      "status": "review",
+      "notes": "Journal cover artwork (473 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/JPOII.png",
+      "newPath": "web/public/journals/covers/JPOII.png",
+      "filename": "JPOII.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 205.3,
+      "status": "review",
+      "notes": "Journal cover artwork (205 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/JSCC.png",
+      "newPath": "web/public/journals/covers/JSCC.png",
+      "filename": "JSCC.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 529.7,
+      "status": "review",
+      "notes": "Journal cover artwork (530 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/PFR.png",
+      "newPath": "web/public/journals/covers/PFR.png",
+      "filename": "PFR.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 477.1,
+      "status": "review",
+      "notes": "Journal cover artwork (477 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/REMR.png",
+      "newPath": "web/public/journals/covers/REMR.png",
+      "filename": "REMR.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 618.2,
+      "status": "review",
+      "notes": "Journal cover artwork (618 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/RESONANCE.png",
+      "newPath": "web/public/journals/covers/RESONANCE.png",
+      "filename": "RESONANCE.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 318.5,
+      "status": "review",
+      "notes": "Journal cover artwork (318 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/RGGD.png",
+      "newPath": "web/public/journals/covers/RGGD.png",
+      "filename": "RGGD.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 616.8,
+      "status": "review",
+      "notes": "Journal cover artwork (617 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/SES.png",
+      "newPath": "web/public/journals/covers/SES.png",
+      "filename": "SES.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 469.8,
+      "status": "review",
+      "notes": "Journal cover artwork (470 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/Silence.png",
+      "newPath": "web/public/journals/covers/Silence.png",
+      "filename": "Silence.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 466.8,
+      "status": "review",
+      "notes": "Journal cover artwork (467 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/TTS.png",
+      "newPath": "web/public/journals/covers/TTS.png",
+      "filename": "TTS.png",
+      "category": "journal-cover",
+      "format": "png",
+      "dimensions": [
+        495,
+        700
+      ],
+      "fileSizeKb": 606.1,
+      "status": "review",
+      "notes": "Journal cover artwork (606 KB). Copyright ownership/continued-use confirmation pending; migrated so Round 6 (journals) has real cover art to lay out against -- convert to WebP/AVIF with responsive sizes before production."
+    },
+    {
+      "originalPath": "QKFM/Taoist Association of Korea.png",
+      "newPath": null,
+      "filename": "Taoist Association of Korea.png",
+      "category": "other",
+      "format": "png",
+      "dimensions": [
+        500,
+        500
+      ],
+      "fileSizeKb": 131.6,
+      "status": "discard",
+      "notes": "Exact duplicate of assets/logos/taoist-association-korea-logo.png. Canonical copy lives under assets/logos/; this copy is not migrated."
+    },
+    {
+      "originalPath": "assets/logos/screen.png",
+      "newPath": null,
+      "filename": "screen.png",
+      "category": "other",
+      "format": "png",
+      "dimensions": [
+        1600,
+        1600
+      ],
+      "fileSizeKb": 39.8,
+      "status": "review",
+      "notes": "Purpose unclear from filename alone; not referenced by any legacy page discovered during the audit. Not migrated pending confirmation -- archive if no owner claims it before Round 2."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="white"/>
+  <!-- Geometric Symbol -->
+  <rect x="100" y="80" width="120" height="160" fill="#1A1A1A"/>
+  <rect x="130" y="110" width="120" height="160" fill="#4A4A4A" opacity="0.8"/>
+  <rect x="160" y="140" width="120" height="160" fill="#8E8E8E" opacity="0.6"/>
+  <!-- Typography -->
+  <text x="200" y="340" font-family="Helvetica, Arial, sans-serif" font-weight="900" font-size="28" fill="#1A1A1A" text-anchor="middle" letter-spacing="2">PANORAMA</text>
+  <text x="200" y="370" font-family="Helvetica, Arial, sans-serif" font-weight="300" font-size="16" fill="#4A4A4A" text-anchor="middle" letter-spacing="4">SCHOLARLY BOOKS</text>
+  <!-- Structural Line -->
+  <line x1="100" y1="310" x2="300" y2="310" stroke="#1A1A1A" stroke-width="2"/>
+</svg>

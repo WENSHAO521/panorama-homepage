@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets';
+import taoistAssociationLogo from '@/assets/partners/taoist-association-korea-logo.png';
+import { getContent } from '@/i18n/content';
+import { localizePath } from '@/i18n/utils';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+---
+
+<section class="institutional-partner" aria-labelledby="institutional-partner-title">
+  <div class="container-wide institutional-partner__inner">
+    <div class="institutional-partner__intro">
+      <p class="text-overline">{t('common.institutionalPartnership')}</p>
+      <h2 id="institutional-partner-title">{t('common.inPartnershipWith')}</h2>
+    </div>
+
+    <div class="institutional-partner__identity">
+      <Image
+        src={taoistAssociationLogo}
+        alt=""
+        width={500}
+        height={500}
+        widths={[80, 120, 160]}
+        sizes="(max-width: 639px) 4.5rem, 5rem"
+        loading="lazy"
+      />
+      <span>Taoist Association of Korea</span>
+    </div>
+
+    <a class="institutional-partner__link" href={localizePath('/about/partnerships/', locale)}>{t('common.aboutPartnerships')}</a>
+  </div>
+</section>
+
+<style>
+  .institutional-partner {
+    background: var(--surface-secondary);
+    border-block: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .institutional-partner__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    min-height: 8.25rem;
+  }
+
+  .institutional-partner__intro h2 {
+    margin: 0.4rem 0 0;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .institutional-partner__identity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .institutional-partner__identity img {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+  }
+
+  .institutional-partner__identity span {
+    max-width: 12rem;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    line-height: 1.35;
+  }
+
+  .institutional-partner__link {
+    justify-self: end;
+    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
+    color: var(--text-primary);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .institutional-partner__link:hover,
+  .institutional-partner__link:focus-visible {
+    color: var(--interactive-default);
+  }
+
+  @media (max-width: 767px) {
+    .institutional-partner__inner {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1.25rem;
+      min-height: 7rem;
+    }
+
+    .institutional-partner__link {
+      grid-column: 1 / -1;
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .institutional-partner__inner {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 1rem;
+      padding-block: 1.35rem;
+    }
+
+    .institutional-partner__identity img { width: 4.5rem; height: 4.5rem; }
+  }
+</style>

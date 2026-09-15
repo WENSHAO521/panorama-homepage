@@ -1,0 +1,128 @@
+---
+// The switcher preserves the current canonical path while changing locale.
+// Proper names and registered publication titles remain unchanged by design;
+// navigation and page-level copy are supplied by the locale dictionaries.
+import { locales, defaultLocale } from '@/i18n/config';
+import { getUiStrings } from '@/i18n/locales';
+import { localizePath } from '@/i18n/utils';
+
+interface Props {
+  currentLocale?: string;
+  currentPath?: string;
+}
+const { currentLocale = 'en', currentPath = '/' } = Astro.props;
+const current = locales.find((l) => l.code === currentLocale) ?? defaultLocale;
+const t = getUiStrings(current.code);
+---
+
+<details class="js-dismissible lang-switcher" aria-label={t.language}>
+  <summary class="lang-switcher__trigger">
+    {current.code.toUpperCase()}
+  </summary>
+  <div class="lang-switcher__panel">
+    <p class="lang-switcher__note text-caption">{t.language}</p>
+    <ul class="lang-switcher__list">
+      {locales.map((locale) => (
+        <li>
+          <a
+            href={localizePath(currentPath, locale.code)}
+            lang={locale.bcp47}
+            hreflang={locale.bcp47}
+            aria-current={locale.code === current.code ? 'true' : undefined}
+            class="lang-switcher__link"
+          >
+            {locale.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</details>
+
+<style>
+  .lang-switcher {
+    position: relative;
+  }
+  .lang-switcher__trigger {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--p-space-2);
+    border-radius: var(--p-radius-button);
+    font: inherit;
+    font-size: var(--fs-body-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    list-style: none;
+  }
+  .lang-switcher__trigger::-webkit-details-marker { display: none; }
+  .lang-switcher__trigger:hover { color: var(--interactive-default); }
+  .lang-switcher summary:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: var(--p-radius-button);
+  }
+
+  .lang-switcher[open] > .lang-switcher__panel {
+    display: block;
+  }
+  .lang-switcher__panel {
+    display: none;
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + var(--p-space-2));
+    z-index: var(--p-z-dropdown);
+    width: min(18rem, calc(100vw - 2rem));
+    max-height: min(28rem, calc(100svh - 2rem));
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: var(--surface-raised);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    border-radius: var(--p-radius-surface);
+    box-shadow: var(--shadow-raised);
+    padding: clamp(0.75rem, 2vw, 1rem);
+  }
+  .lang-switcher__note {
+    color: var(--text-muted);
+    margin: 0 0 var(--p-space-3);
+  }
+  .lang-switcher__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(7rem, 100%), 1fr));
+    gap: 0.15rem clamp(0.25rem, 1vw, 0.6rem);
+  }
+  .lang-switcher__link {
+    display: flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0.45rem 0.5rem;
+    border-radius: 0;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--fs-body-sm);
+    line-height: 1.25;
+    transition: color var(--p-duration-fast) var(--p-ease-standard), text-decoration-color var(--p-duration-fast) var(--p-ease-standard);
+  }
+  .lang-switcher__link:hover,
+  .lang-switcher__link:focus-visible {
+    background: transparent;
+    color: var(--lang-switcher-accent, var(--interactive-hover));
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+  .lang-switcher__link[aria-current='true'] {
+    background: transparent;
+    font-weight: var(--fw-semibold);
+    color: var(--lang-switcher-accent, var(--interactive-default));
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+
+  @media (max-width: 22rem) {
+    .lang-switcher__panel { width: min(18rem, calc(100vw - 1rem)); }
+  }
+</style>

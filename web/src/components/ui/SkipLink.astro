@@ -1,0 +1,12 @@
+---
+// Styling lives globally in styles/base.css (.skip-link) so it's
+// guaranteed present even before this component renders. This wrapper
+// just gives every layout one place to pass the localized label.
+interface Props {
+  label?: string;
+  targetId?: string;
+}
+const { label = 'Skip to content', targetId = 'main' } = Astro.props;
+---
+
+<a class="skip-link" href={`#${targetId}`}>{label}</a>

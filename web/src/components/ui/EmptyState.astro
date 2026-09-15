@@ -1,0 +1,46 @@
+---
+// Shared "nothing to show" state (project brief §15/§34/§40) -- a message
+// plus one restrained action, never a blank surface.
+interface Props {
+  message: string;
+  actionLabel?: string;
+  actionId?: string;
+  actionHref?: string;
+}
+const { message, actionLabel, actionId, actionHref } = Astro.props;
+---
+
+<div class="empty-state" role="status">
+  <p class="text-body u-text-muted">{message}</p>
+  {actionLabel && actionHref && (
+    <a href={actionHref} class="empty-state__action">{actionLabel}</a>
+  )}
+  {actionLabel && actionId && !actionHref && (
+    <button type="button" id={actionId} class="empty-state__action">{actionLabel}</button>
+  )}
+</div>
+
+<style>
+  .empty-state {
+    padding: var(--p-space-8) var(--p-space-5);
+    text-align: center;
+    border: var(--p-border-hairline) dashed var(--border-subtle);
+    border-radius: var(--p-radius-surface);
+  }
+  .empty-state__action {
+    display: inline-flex;
+    margin-top: var(--p-space-4);
+    background: none;
+    border: none;
+    border-radius: var(--p-radius-button);
+    padding: 0;
+    color: var(--interactive-default);
+    font: inherit;
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .empty-state__action:hover {
+    color: var(--interactive-hover);
+  }
+</style>

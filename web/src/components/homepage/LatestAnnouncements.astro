@@ -1,0 +1,203 @@
+---
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import announcementData from '@/data/announcements.json';
+import { getContent } from '@/i18n/content';
+import { localizePath } from '@/i18n/utils';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+
+const announcements = [...announcementData.announcements]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .slice(0, 5);
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit',
+    timeZone: 'UTC',
+  }).format(new Date(value + 'T00:00:00Z'));
+}
+---
+
+<section class="row latest-announcements">
+  <div class="container-wide">
+    <div class="latest-announcements__header">
+      <SectionHeading
+        title={t('home.latestAnnouncements')}
+        lede={t('home.latestAnnouncementsLede')}
+      />
+      <a href={localizePath('/news/', locale)} class="latest-announcements__link">{t('common.viewAllAnnouncements')}</a>
+    </div>
+
+    <ol class="latest-announcements__list">
+      {announcements.map((announcement, index) => (
+        <li>
+          <a
+            href={announcement.href}
+            class="latest-announcements__item"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={announcement.title + ' (opens in a new tab)'}
+          >
+            <span class="latest-announcements__number" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span class="latest-announcements__content">
+              <span class="latest-announcements__meta">
+                <span>{announcement.sourceLabel}</span>
+                <span>{announcement.type}</span>
+              </span>
+              <span class="latest-announcements__title">{announcement.title}</span>
+              <span class="latest-announcements__summary">{announcement.summary}</span>
+            </span>
+            <time datetime={announcement.date}>{formatDate(announcement.date)}</time>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .latest-announcements {
+    background: var(--surface-primary);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    padding-block: 2rem 2.35rem;
+  }
+
+  .latest-announcements :global(.section-heading__title) {
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.15;
+  }
+
+  .latest-announcements :global(.section-heading__lede) {
+    margin-top: 0.3rem;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .latest-announcements__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .latest-announcements__link {
+    margin-top: 0.35rem;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .latest-announcements__link:hover,
+  .latest-announcements__link:focus-visible {
+    color: var(--interactive-default);
+  }
+
+  .latest-announcements__list {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: var(--p-border-hairline) solid var(--border-default);
+  }
+
+  .latest-announcements__list li {
+    border-bottom: var(--p-border-hairline) solid var(--border-default);
+  }
+
+  .latest-announcements__item {
+    display: grid;
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: start;
+    padding-block: 0.9rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .latest-announcements__item:hover .latest-announcements__title,
+  .latest-announcements__item:focus-visible .latest-announcements__title {
+    color: var(--interactive-default);
+  }
+
+  .latest-announcements__number {
+    padding-top: 0.15rem;
+    color: var(--text-accent);
+    font-size: 0.6rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+  }
+
+  .latest-announcements__content {
+    display: block;
+    min-width: 0;
+  }
+
+  .latest-announcements__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.8rem;
+    color: var(--text-muted);
+    font-size: 0.54rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .latest-announcements__meta span + span {
+    color: var(--text-accent);
+  }
+
+  .latest-announcements__title {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    line-height: 1.18;
+    transition: color var(--p-duration-fast) var(--p-ease-standard);
+  }
+
+  .latest-announcements__summary {
+    display: block;
+    max-width: 72ch;
+    margin-top: 0.35rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
+
+  .latest-announcements__item time {
+    grid-column: 2;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    .latest-announcements__item {
+      grid-template-columns: 2rem minmax(0, 1fr) 5.4rem;
+      gap: 1rem;
+      align-items: center;
+      padding-block: 1rem;
+    }
+
+    .latest-announcements__item time {
+      grid-column: auto;
+      justify-self: end;
+      align-self: start;
+      padding-top: 0.15rem;
+    }
+  }
+</style>

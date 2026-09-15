@@ -1,0 +1,239 @@
+/*
+  Panorama Scholarly Group shell
+  ------------------------------
+  The five imprint experiences intentionally opt out of this layer. Group
+  pages share one editorial frame, one light-surface theme, and one rhythm;
+  their content blocks can still have their own appropriate density.
+*/
+
+body.group-site {
+  --group-section-space: clamp(4rem, 7vw, 7rem);
+  --group-section-space-tight: clamp(2.75rem, 5vw, 4.5rem);
+  --group-hero-space: clamp(3.5rem, 6vw, 5.5rem);
+  background: var(--surface-primary);
+  color: var(--text-primary);
+}
+
+body.group-site main {
+  min-width: 0;
+  overflow: clip;
+}
+
+body.group-site .site-header {
+  background: color-mix(in srgb, var(--surface-primary) 96%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body.group-site .site-header__row {
+  min-height: 4.25rem;
+}
+
+body.group-site .site-footer {
+  padding-block-start: clamp(3.75rem, 6vw, 5.5rem);
+}
+
+body.group-site .site-footer__groups {
+  gap: clamp(2rem, 3vw, 3.25rem);
+}
+
+body.group-site .site-footer__group-list {
+  gap: 0.75rem;
+}
+
+body.group-site .site-footer__platforms {
+  padding-block: 1.5rem;
+}
+
+body.group-site .site-footer__platform-list {
+  gap: 1rem clamp(1.75rem, 3vw, 3rem);
+}
+
+/* Shared section rhythm for group pages. Existing page-specific sections
+   keep their semantic class names, while this sets a predictable baseline. */
+body.group-site .row {
+  padding-block: var(--group-section-space);
+}
+
+body.group-site .row--tight {
+  padding-block: var(--group-section-space-tight);
+}
+
+body.group-site .row--roomy {
+  padding-block: clamp(5rem, 9vw, 9rem);
+}
+
+body.group-site .text-overline {
+  color: var(--text-accent);
+}
+
+/* Overlines sit on both paper and inverse rows. The light-surface gold is
+   intentionally darker than the decorative accent used on navy sections,
+   otherwise small labels lose contrast against the inverse background. */
+body.group-site .row--inverse .text-overline {
+  color: var(--text-accent-inverse);
+}
+
+body.group-site .btn {
+  min-height: var(--p-action-height);
+  padding-inline: var(--p-action-pad-x);
+}
+
+body.group-site .btn--secondary {
+  padding-inline: 0;
+}
+
+/* A quiet, shared reading shell keeps journal records, imprint records and
+   news articles in the same typographic system as the catalogue pages. */
+body.group-site .group-detail {
+  background: var(--surface-primary);
+}
+
+body.group-site .group-detail__hero {
+  border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+}
+
+body.group-site .group-detail__hero-inner {
+  padding-block: clamp(4.5rem, 8vw, 8rem) clamp(3.5rem, 6vw, 5.5rem);
+}
+
+body.group-site .group-detail__hero-inner::before {
+  display: block;
+  width: 3rem;
+  margin-bottom: 1.5rem;
+  border-top: var(--p-border-strong) solid var(--brand-accent);
+  content: '';
+}
+
+body.group-site .group-detail__hero h1 {
+  max-width: 18ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5.3vw, 5.25rem);
+  font-weight: var(--fw-regular);
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+body.group-site .group-detail__date {
+  display: block;
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+  font-size: var(--fs-body-sm);
+}
+
+body.group-site .group-detail__body {
+  padding-block: clamp(3.5rem, 6vw, 6rem) clamp(5rem, 8vw, 8rem);
+}
+
+body.group-site .group-detail__body > :first-child {
+  margin-top: 0;
+}
+
+body.group-site .group-detail__body p,
+body.group-site .group-detail__body li {
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  line-height: 1.55;
+}
+
+body.group-site .group-detail__body p {
+  max-width: 68ch;
+  margin-block: 1.25rem;
+}
+
+body.group-site .group-detail__body h2,
+body.group-site .group-detail__body h3 {
+  max-width: 24ch;
+  margin-block: 3rem 1rem;
+}
+
+body.group-site .group-detail__body ul,
+body.group-site .group-detail__body ol {
+  max-width: 68ch;
+  margin-block: 1.25rem;
+  padding-inline-start: 1.35rem;
+}
+
+body.group-site .group-detail__body a {
+  color: var(--text-link);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+@media (max-width: 767px) {
+  body.group-site .group-detail__hero-inner {
+    padding-block: 3.5rem 3rem;
+  }
+
+  body.group-site .group-detail__hero h1 {
+    max-width: 14ch;
+    font-size: clamp(2.65rem, 12vw, 4rem);
+  }
+}
+
+/* Shared visual language for text links that act as actions. */
+body.group-site a:not(.logo):not(.desktop-nav__link):not(.desktop-nav__trigger):not(.site-footer__link):not(.site-footer__legal a):not(.site-footer__platform) {
+  text-underline-offset: 0.25em;
+}
+
+@media (min-width: 768px) {
+  body.group-site .site-footer__top {
+    grid-template-columns: minmax(15rem, 0.82fr) minmax(0, 2.18fr);
+    gap: clamp(2rem, 4vw, 5rem);
+  }
+
+  body.group-site .site-footer__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(1.25rem, 2.4vw, 3rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  body.group-site .site-footer__groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.group-site .site-footer__platforms {
+    grid-template-columns: minmax(14rem, 0.78fr) minmax(0, 2.22fr);
+    column-gap: clamp(2rem, 4vw, 5rem);
+  }
+
+  body.group-site .site-footer__platform-list {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1200px) {
+  body.group-site .site-footer__top {
+    grid-template-columns: minmax(16rem, 1.05fr) repeat(4, minmax(0, 1fr));
+    gap: clamp(1.5rem, 2.8vw, 3.25rem);
+  }
+
+  body.group-site .site-footer__groups {
+    display: contents;
+  }
+
+  body.group-site .site-footer__group {
+    min-width: 0;
+  }
+
+  body.group-site .site-footer__platform-list {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    column-gap: clamp(1.25rem, 3vw, 3.25rem);
+    row-gap: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  body.group-site .row {
+    padding-block: 3.5rem;
+  }
+
+  body.group-site .site-header__row {
+    min-height: 3.75rem;
+  }
+}

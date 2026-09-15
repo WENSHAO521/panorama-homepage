@@ -1,0 +1,32 @@
+---
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+
+interface Props {
+  name: string;
+  description: string;
+  href: string;
+}
+const { name, description, href } = Astro.props;
+---
+
+<li class="infra-row">
+  <div>
+    <ExternalLink href={href} class="infra-row__name">{name}</ExternalLink>
+    <p class="text-body-sm u-text-muted infra-row__desc">{description}</p>
+  </div>
+</li>
+
+<style>
+  .infra-row {
+    padding-block: var(--p-space-4);
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
+  }
+  .infra-row__name {
+    font-weight: var(--fw-semibold);
+    color: var(--text-inverse);
+  }
+  .infra-row__desc {
+    margin-top: var(--p-space-1);
+    color: var(--text-inverse-muted);
+  }
+</style>

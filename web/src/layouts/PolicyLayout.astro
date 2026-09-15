@@ -1,0 +1,36 @@
+---
+// For legal/governance documents (privacy, terms, ethics, open-access
+// policy). Distinct from EditorialLayout because policy pages get
+// `noindex`-free but change-controlled treatment (effective date) and
+// never carry a byline.
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  locale?: string;
+  effectiveDate?: Date;
+}
+
+const { title, description, path, locale = 'en', effectiveDate } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} path={path} locale={locale}>
+  <article class="container-reading">
+    <header>
+      <h1>{title}</h1>
+      {effectiveDate && (
+        <p class="effective-date">
+          Effective {effectiveDate.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+      )}
+    </header>
+    <slot />
+  </article>
+</BaseLayout>
+
+<style>
+  article { padding-block: var(--p-space-8); }
+  .effective-date { color: var(--text-muted); font-size: 0.9em; }
+</style>

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "crossref",
+    "name": "Crossref",
+    "category": "indexing-database",
+    "logo": "/indexes/Crossref.svg",
+    "url": "https://www.crossref.org"
+  },
+  {
+    "id": "doi-foundation",
+    "name": "DOI Foundation",
+    "category": "indexing-database",
+    "logo": "/indexes/DOI_Foundation.png",
+    "url": "https://www.doi.org"
+  },
+  {
+    "id": "dimensions",
+    "name": "Dimensions",
+    "category": "indexing-database",
+    "logo": "/indexes/Dimensions.png",
+    "url": "https://www.dimensions.ai"
+  },
+  {
+    "id": "google-scholar",
+    "name": "Google Scholar",
+    "category": "indexing-database",
+    "logo": "/indexes/Google_Scholar.png",
+    "url": "https://scholar.google.com"
+  },
+  {
+    "id": "isni",
+    "name": "ISNI",
+    "category": "indexing-database",
+    "logo": "/indexes/ISNI.png",
+    "url": "https://isni.org"
+  },
+  {
+    "id": "issn",
+    "name": "ISSN International Centre",
+    "category": "indexing-database",
+    "logo": "/indexes/ISSN.png",
+    "url": "https://www.issn.org"
+  },
+  {
+    "id": "hong-kong-library",
+    "name": "Leisure and Cultural Services Department",
+    "category": "institutional-partner",
+    "logo": "/indexes/ft_logo.png",
+    "url": null,
+    "notes": "User-provided Hong Kong library-system logo. Confirm the official institution name and URL before production display."
+  },
+  {
+    "id": "lockss",
+    "name": "LOCKSS",
+    "category": "archiving-service",
+    "logo": "/indexes/LOCKSS.png",
+    "url": "https://www.lockss.org"
+  },
+  {
+    "id": "clockss",
+    "name": "CLOCKSS",
+    "category": "archiving-service",
+    "logo": "/indexes/CLOCKSS.png",
+    "url": "https://clockss.org"
+  },
+  {
+    "id": "openaire",
+    "name": "OpenAIRE",
+    "category": "indexing-database",
+    "logo": "/indexes/OpenAIRE.svg",
+    "url": "https://www.openaire.eu"
+  },
+  {
+    "id": "openalex",
+    "name": "OpenAlex",
+    "category": "indexing-database",
+    "logo": "/indexes/OpenAlex.png",
+    "url": "https://openalex.org"
+  },
+  {
+    "id": "pkp",
+    "name": "Public Knowledge Project (PKP)",
+    "category": "indexing-database",
+    "logo": "/indexes/PKP.svg",
+    "url": "https://pkp.sfu.ca"
+  },
+  {
+    "id": "semantic-scholar",
+    "name": "Semantic Scholar",
+    "category": "indexing-database",
+    "logo": "/indexes/Semantic_Scholar.png",
+    "url": "https://www.semanticscholar.org"
+  },
+  {
+    "id": "zenodo",
+    "name": "Zenodo",
+    "category": "archiving-service",
+    "logo": "/indexes/Zenodo.svg",
+    "url": "https://zenodo.org"
+  },
+  {
+    "id": "base",
+    "name": "BASE (Bielefeld Academic Search Engine)",
+    "category": "indexing-database",
+    "logo": "/indexes/BASE.png",
+    "url": "https://www.base-search.net"
+  },
+  {
+    "id": "zdb",
+    "name": "ZDB (Zeitschriftendatenbank)",
+    "category": "indexing-database",
+    "logo": "/indexes/ZDB.gif",
+    "url": "https://zdb-katalog.de"
+  },
+  {
+    "id": "dnb",
+    "name": "Deutsche Nationalbibliothek (DNB)",
+    "category": "indexing-database",
+    "logo": "/indexes/DNB.svg",
+    "url": "https://www.dnb.de"
+  },
+  {
+    "id": "oa-plos",
+    "name": "PLOS Open Access",
+    "category": "indexing-database",
+    "logo": "/indexes/oa-plos-transparent.svg",
+    "url": "https://plos.org",
+    "notes": "Mark usage indicates open-access alignment/badge, not a PLOS journal affiliation. Confirm exact usage rights before production display."
+  },
+  {
+    "id": "cjwk",
+    "name": "Changjiang Wenku (CJWK)",
+    "category": "indexing-database",
+    "logo": "/indexes/CJWK.png",
+    "url": "https://www.cjwk.cn",
+    "notes": "Official site describes CJWK as a comprehensive academic knowledge service platform."
+  },
+  {
+    "id": "taoist-association-korea",
+    "name": "Taoist Association of Korea",
+    "category": "institutional-partner",
+    "logo": "/partners/taoist-association-korea-logo.png",
+    "url": null,
+    "notes": "No official URL found in legacy repository. Confirm before production display."
+  },
+  {
+    "id": "cashl",
+    "name": "China Academic Social Sciences and Humanities Library (CASHL)",
+    "category": "scholarly-service",
+    "logo": "/partners/library-logo.png",
+    "url": "https://www.cashl.edu.cn/",
+    "notes": "Official CASHL website confirmed by the user. The platform provides humanities and social sciences literature services for academic users."
+  }
+]

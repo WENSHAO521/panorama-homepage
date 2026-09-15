@@ -1,0 +1,24 @@
+---
+// Visually hides content while keeping it in the accessibility tree.
+// Use for labels an icon-only control needs but sighted users don't.
+interface Props {
+  as?: keyof HTMLElementTagNameMap;
+}
+const { as: Tag = 'span' } = Astro.props;
+---
+
+<Tag class="visually-hidden"><slot /></Tag>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

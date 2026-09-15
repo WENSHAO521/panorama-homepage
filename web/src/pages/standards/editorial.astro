@@ -1,0 +1,488 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getLegalChromeCopy } from '@/i18n/legal';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { getPolicyCopy } from '@/i18n/policies';
+import { getPolicyBody, renderPolicyHtml } from '@/i18n/policy-body';
+import { localizePath } from '@/i18n/utils';
+
+const locale = Astro.currentLocale ?? 'en';
+const policy = getPolicyCopy('editorial', locale);
+const legalUi = getLegalChromeCopy(locale);
+const labels = getNavigationLabels(locale);
+const body = getPolicyBody('editorial', locale);
+const render = (html: string) => renderPolicyHtml(html, locale);
+
+const sections = [
+  { id: 'scope', label: policy.sections.scope },
+  { id: 'principles', label: policy.sections.principles },
+  { id: 'roles', label: policy.sections.roles },
+  { id: 'peer-review', label: policy.sections['peer-review'] },
+  { id: 'integrity', label: policy.sections.integrity },
+  { id: 'transparency', label: policy.sections.transparency },
+  { id: 'record', label: policy.sections.record },
+  { id: 'appeals', label: policy.sections.appeals },
+];
+
+const principles = body.principles ?? [];
+const responsibilities = body.responsibilities ?? [];
+const disclosures = body.disclosures ?? [];
+---
+
+<BaseLayout
+  title={policy.title}
+  description={policy.description}
+  path="/standards/editorial/"
+  locale={locale}
+>
+  <article class="editorial-policy">
+    <header class="policy-hero">
+      <div class="container-wide policy-hero__grid">
+        <div class="policy-hero__copy">
+          <p class="text-overline">{locale === 'en' ? 'Panorama Scholarly Group / Standards' : `Panorama Scholarly Group / ${policy.title}`}</p>
+          <h1>{policy.title}</h1>
+          <p class="policy-hero__lede">{policy.lede}</p>
+        </div>
+
+        <aside class="policy-hero__scope" aria-label={policy.scopeLabel}>
+          <p class="policy-hero__scope-label">{policy.scopeLabel}</p>
+          <p>{policy.scopeText}</p>
+          <a href="#scope">{policy.scopeLink}</a>
+        </aside>
+      </div>
+    </header>
+
+    <nav class="policy-index" aria-label={legalUi.onThisPage}>
+      <div class="container-wide policy-index__inner">
+        <p class="policy-index__label">{legalUi.onThisPage}</p>
+        <ol class="policy-index__list">
+          {sections.map((section) => (
+            <li><a href={`#${section.id}`}>{section.label}</a></li>
+          ))}
+        </ol>
+      </div>
+    </nav>
+
+    <div class="container-wide policy-layout">
+      <aside class="policy-rail" aria-label={policy.railLabel}>
+        <p class="policy-rail__label">{policy.railLabel}</p>
+        <p class="policy-rail__statement">{policy.railStatement}</p>
+        <div class="policy-rail__rule" aria-hidden="true"></div>
+        <p class="policy-rail__meta">{policy.railMeta}</p>
+        <p class="policy-rail__note">{policy.railNote}</p>
+      </aside>
+
+      <div class="policy-content">
+        <section id="scope" class="policy-section">
+          <h2>{policy.sections.scope}</h2>
+          <Fragment set:html={render(body.sections.scope)} />
+        </section>
+
+        <section id="principles" class="policy-section">
+          <h2>{policy.sections.principles}</h2>
+          <Fragment set:html={render(body.sections.principles)} />
+          <div class="principle-list">
+            {principles.map((principle) => (
+              <article class="principle-item">
+                <h3>{principle.title}</h3>
+                <p>{principle.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="roles" class="policy-section">
+          <h2>{policy.sections.roles}</h2>
+          <Fragment set:html={render(body.sections.roles)} />
+          <div class="responsibility-list">
+            {responsibilities.map((responsibility) => (
+              <article class="responsibility-item">
+                <h3>{responsibility.title}</h3>
+                <p>{responsibility.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="peer-review" class="policy-section">
+          <h2>{policy.sections['peer-review']}</h2>
+          <Fragment set:html={render(body.sections['peer-review'])} />
+        </section>
+
+        <section id="integrity" class="policy-section">
+          <h2>{policy.sections.integrity}</h2>
+          <Fragment set:html={render(body.sections.integrity)} />
+        </section>
+
+        <section id="transparency" class="policy-section">
+          <h2>{policy.sections.transparency}</h2>
+          <Fragment set:html={render(body.sections.transparency)} />
+          <div class="disclosure-list">
+            {disclosures.map((disclosure) => (
+              <div class="disclosure-item">
+                <h3>{disclosure.title}</h3>
+                <p>{disclosure.body}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="record" class="policy-section">
+          <h2>{policy.sections.record}</h2>
+          <Fragment set:html={render(body.sections.record)} />
+        </section>
+
+        <section id="appeals" class="policy-section">
+          <h2>{policy.sections.appeals}</h2>
+          <Fragment set:html={render(body.sections.appeals)} />
+        </section>
+
+        <aside class="policy-note">
+          <h2>{legalUi.relatedPages}</h2>
+          <p>{body.relatedIntro}</p>
+          <nav class="policy-note__links" aria-label="Related standards">
+            <a href={localizePath('/standards/ethics/', locale)}>{labels.publicationEthics}</a>
+            <a href={localizePath('/standards/open-access/', locale)}>{labels.openAccess}</a>
+            <a href={localizePath('/accessibility/', locale)}>{labels.accessibility}</a>
+          </nav>
+        </aside>
+
+        <footer class="policy-footer">
+          <p set:html={render(body.footer ?? '')}></p>
+        </footer>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .editorial-policy {
+    background: var(--surface-primary);
+  }
+
+  .policy-hero {
+    padding-block: clamp(4.5rem, 8vw, 7.5rem) clamp(3.5rem, 6vw, 5.5rem);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .policy-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+    gap: clamp(3rem, 8vw, 9rem);
+    align-items: end;
+  }
+
+  .policy-hero__copy h1 {
+    max-width: 10ch;
+    margin-top: 1.2rem;
+    font-size: clamp(3.45rem, 7vw, 6.2rem);
+    line-height: 0.98;
+  }
+
+  .policy-hero__lede {
+    max-width: 34rem;
+    margin-top: 1.6rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1rem + 0.35vw, 1.35rem);
+    line-height: 1.45;
+  }
+
+  .policy-hero__scope {
+    max-width: 23rem;
+    padding-inline-start: 1.5rem;
+    border-inline-start: 2px solid var(--brand-accent);
+  }
+
+  .policy-hero__scope-label,
+  .policy-rail__label,
+  .policy-rail__meta {
+    margin: 0;
+    color: var(--text-accent);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .policy-hero__scope > p:not(.policy-hero__scope-label) {
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  .policy-hero__scope a {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+  }
+
+  .policy-index {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-secondary);
+  }
+
+  .policy-index__inner {
+    display: grid;
+    gap: 0.8rem 2rem;
+    padding-block: 1.15rem;
+  }
+
+  .policy-index__label {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .policy-index__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .policy-index__list a {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-decoration: none;
+    text-underline-offset: 0.3em;
+  }
+
+  .policy-index__list a:hover {
+    color: var(--interactive-default);
+    text-decoration: underline;
+  }
+
+  .policy-layout {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.65fr) minmax(0, 2.15fr);
+    gap: clamp(3rem, 8vw, 9rem);
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  }
+
+  .policy-rail {
+    align-self: start;
+    position: sticky;
+    top: 5.5rem;
+    max-width: 17rem;
+  }
+
+  .policy-rail__statement {
+    margin-top: 1.15rem;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    line-height: 1.18;
+  }
+
+  .policy-rail__rule {
+    width: 3rem;
+    margin-block: 2rem 1.4rem;
+    border-top: 2px solid var(--brand-accent);
+  }
+
+  .policy-rail__note {
+    margin-top: 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .policy-content {
+    min-width: 0;
+    max-width: 73ch;
+  }
+
+  .policy-section {
+    padding-block: 0 clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .policy-section + .policy-section {
+    padding-top: clamp(3.5rem, 6vw, 5.5rem);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .policy-section h2,
+  .policy-note h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1.08;
+  }
+
+  .policy-section > p,
+  .policy-note > p,
+  .policy-footer > p {
+    color: var(--text-secondary);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  .policy-section > h2 + p,
+  .policy-note > h2 + p {
+    margin-top: 1.25rem;
+  }
+
+  .policy-section > p + p {
+    margin-top: 1rem;
+  }
+
+  .policy-section a,
+  .policy-footer a {
+    color: var(--text-link);
+    font-weight: var(--fw-medium);
+  }
+
+  .principle-list,
+  .responsibility-list,
+  .disclosure-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.2rem 2.5rem;
+    margin-top: 2.75rem;
+  }
+
+  .principle-item,
+  .responsibility-item,
+  .disclosure-item {
+    padding-top: 1rem;
+    border-top: 2px solid var(--border-strong);
+  }
+
+  .principle-item h3,
+  .responsibility-item h3,
+  .disclosure-item h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  .principle-item p,
+  .responsibility-item p,
+  .disclosure-item p {
+    margin-top: 0.7rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .policy-list {
+    display: grid;
+    gap: 0.9rem;
+    margin: 1.75rem 0;
+    padding-inline-start: 1.2rem;
+    color: var(--text-secondary);
+  }
+
+  .policy-list li {
+    padding-inline-start: 0.35rem;
+    line-height: 1.65;
+  }
+
+  .policy-note {
+    margin-top: 0.5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    border-inline-start: 3px solid var(--brand-accent);
+    border-radius: var(--p-radius-surface);
+    background: var(--surface-secondary);
+  }
+
+  .policy-note__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin-top: 1.4rem;
+  }
+
+  .policy-note__links a {
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.04em;
+    text-underline-offset: 0.3em;
+  }
+
+  .policy-footer {
+    padding-top: 2rem;
+  }
+
+  .policy-footer > p {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  @media (min-width: 768px) {
+    .policy-index__inner {
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .policy-hero__grid,
+    .policy-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .policy-hero__grid {
+      gap: 2.75rem;
+    }
+
+    .policy-hero__copy h1 {
+      max-width: 8ch;
+    }
+
+    .policy-hero__scope {
+      max-width: none;
+      padding-block: 1.25rem 0;
+      padding-inline-start: 0;
+      border-block-start: 2px solid var(--brand-accent);
+      border-inline-start: 0;
+    }
+
+    .policy-index__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem 1rem;
+    }
+
+    .policy-layout {
+      gap: 3.5rem;
+    }
+
+    .policy-rail {
+      position: static;
+      max-width: 28rem;
+    }
+
+    .principle-list,
+    .responsibility-list,
+    .disclosure-list {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin-top: 2.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .policy-index__list a {
+      transition: none;
+    }
+  }
+</style>

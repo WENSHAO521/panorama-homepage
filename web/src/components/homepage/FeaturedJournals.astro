@@ -1,0 +1,67 @@
+---
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import JournalMarquee from './JournalMarquee.astro';
+import { getContent } from '@/i18n/content';
+import { localizePath } from '@/i18n/utils';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+---
+
+<section class="row featured-journals">
+  <div class="container-wide">
+    <div class="featured-journals__header">
+      <SectionHeading
+        title={t('home.featuredJournals')}
+        lede={t('home.featuredLede')}
+      />
+      <a href={localizePath('/journals/', locale)} class="featured-journals__link">{t('common.browseJournals')}</a>
+    </div>
+  </div>
+  <JournalMarquee locale={locale} />
+</section>
+
+<style>
+  .featured-journals {
+    background: var(--surface-primary);
+    padding-block: 2rem 1rem;
+  }
+
+  .featured-journals :global(.section-heading__title) {
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.15;
+  }
+
+  .featured-journals :global(.section-heading__lede) {
+    margin-top: 0.3rem;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .featured-journals__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .featured-journals__link {
+    margin-top: 0.35rem;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .featured-journals__link span {
+    margin-inline-start: 0.35rem;
+    font-size: 1rem;
+  }
+
+  .featured-journals__link:hover { color: var(--interactive-default); }
+</style>

@@ -1,0 +1,40 @@
+---
+// Editorial section heading: small uppercase eyebrow + heading + one
+// optional supporting line. Used across the homepage so section intros
+// share one typographic rhythm instead of each section inventing its
+// own heading markup.
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  level?: 'h2' | 'h3';
+  align?: 'start' | 'center';
+}
+const { eyebrow, title, lede, level: Tag = 'h2', align = 'start' } = Astro.props;
+---
+
+<div class={`section-heading section-heading--${align}`}>
+  {eyebrow && <p class="text-overline">{eyebrow}</p>}
+  <Tag class="section-heading__title">{title}</Tag>
+  {lede && <p class="section-heading__lede text-body-lg u-text-muted measure-reading">{lede}</p>}
+</div>
+
+<style>
+  .section-heading {
+    max-width: 46rem;
+  }
+  .section-heading--center {
+    max-width: 38rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .section-heading__title {
+    margin-top: var(--p-space-2);
+  }
+  .section-heading__lede {
+    margin-top: var(--p-space-3);
+  }
+  .section-heading--center .section-heading__lede {
+    margin-inline: auto;
+  }
+</style>

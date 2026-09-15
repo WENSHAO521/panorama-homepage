@@ -1,0 +1,195 @@
+/*
+  PSG Design Tokens — Round 1 Foundation
+  ─────────────────────────────────────
+  Two layers, on purpose:
+    1. Primitive tokens  — raw values, never referenced by components directly.
+    2. Semantic tokens    — meaning-based aliases; components reference ONLY these.
+
+  This keeps a future re-theme (imprint accent swap, dark surface, brand
+  refresh) to an edit of this one file. No component or page CSS should
+  contain a hard-coded hex, px font-size, or arbitrary spacing value —
+  see docs/rebuild/DESIGN-FOUNDATION.md §Token Discipline.
+
+  Values are placeholders validated for WCAG 2.2 AA (see
+  docs/rebuild/DESIGN-FOUNDATION.md §Colour Strategy for the contrast
+  table). Round 3 (Design System) is where these are finalised against
+  real page compositions — do not treat these as locked brand colour.
+*/
+
+:root {
+  /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
+
+  /* Warm Paper (light surfaces) */
+  --p-paper-0:      #FFFFFF;
+  --p-paper-50:     #FAF9F6;
+  --p-paper-100:    #F3F1EA;
+  --p-paper-200:    #EDEAE1;
+
+  /* Ink (text on light surfaces) */
+  --p-ink-900:      #16191C;
+  --p-ink-700:      #3A3F44;
+  --p-ink-500:      #5B6268;
+
+  /* Midnight Navy (dark / inverse surfaces) */
+  --p-navy-950:     #0B1B2B;
+  --p-navy-900:     #10263B;
+  --p-navy-700:     #1D3A57;
+
+  /* Academic Blue (interactive / links) */
+  --p-blue-600:     #1F4E79;
+  --p-blue-700:     #163A5A;
+
+  /* Deep Teal (secondary brand) */
+  --p-teal-800:     #0F3D3E;
+  --p-teal-600:     #1B5C5D;
+
+  /* Muted Stone (borders, dividers, quiet surfaces) */
+  --p-stone-100:    #EDEAE1;
+  --p-stone-200:    #DCD8CD;
+  --p-stone-300:    #C9C4B8;
+  --p-stone-500:    #8C8778;
+
+  /* Restrained gold — decorative/large-text accent ONLY, never body text */
+  --p-gold-500:     #A9843C;
+  --p-gold-700:     #7A5A22;
+
+  /* Semantic status (used sparingly — form validation, not decoration) */
+  --p-red-600:      #B3261E;
+  --p-green-700:    #2E6B4F;
+
+  /* Imprint accents — one hue per scholarly brand. Provisional; ratified
+     in Round 3 against real logos/covers. All pass AA at normal text
+     size on --p-paper-50 and for white-on-accent solid fills. */
+  --p-imprint-ridgeline:      #2B4C7E; /* Technology, Engineering & AI */
+  --p-imprint-health-nexus:   #7A2E3A; /* Medicine & Health Sciences */
+  --p-imprint-verdant-science:#2F5D3A; /* Sustainability, Environment & Life Sciences */
+  --p-imprint-charter:        #8A5A20; /* Policy, Law & Civic Studies */
+  --p-imprint-threnody:       #5B3A5E; /* Humanities & Cultural Studies */
+
+  /* ───────────────────────── PRIMITIVE: SPACING ──────────────────────── */
+  /* 4px base unit. Use these for padding/margin/gap — never a raw px. */
+  --p-space-0:   0;
+  --p-space-1:   0.25rem;  /* 4px */
+  --p-space-2:   0.5rem;   /* 8px */
+  --p-space-3:   0.75rem;  /* 12px */
+  --p-space-4:   1rem;     /* 16px */
+  --p-space-5:   1.5rem;   /* 24px */
+  --p-space-6:   2rem;     /* 32px */
+  --p-space-7:   3rem;     /* 48px */
+  --p-space-8:   4rem;     /* 64px */
+  --p-space-9:   6rem;     /* 96px */
+  --p-space-10:  8rem;     /* 128px */
+  --p-space-11:  10rem;    /* 160px */
+
+  /* ───────────────────────── PRIMITIVE: RADIUS ───────────────────────── */
+  --p-radius-button:  10px;
+  --p-radius-surface: 12px;
+  --p-radius-card:    16px;
+  --p-radius-feature: 24px;
+  --p-radius-pill:    999px; /* tags / status / category labels ONLY */
+
+  /* ───────────────────────── PRIMITIVE: BORDER WIDTH ─────────────────── */
+  --p-border-hairline: 1px;
+  --p-border-strong:   2px;
+
+  /* ───────────────────────── PRIMITIVE: MOTION ───────────────────────── */
+  --p-duration-fast:   120ms;
+  --p-duration-base:   200ms;
+  --p-duration-slow:   320ms;
+  --p-ease-standard:   cubic-bezier(0.2, 0, 0, 1);
+  --p-ease-decelerate: cubic-bezier(0, 0, 0, 1);
+
+  /* Shared action geometry — the same action language is used by the
+     Panorama shell and every imprint, while each imprint keeps its own hue. */
+  --p-action-height:           2.75rem;
+  --p-action-pad-y:            0.75rem;
+  --p-action-pad-x:            1.05rem;
+  --p-action-font-size:        0.68rem;
+  --p-action-font-weight:      750;
+  --p-action-letter-spacing:   0.04em;
+  --p-action-row-gap:          1rem;
+  --p-action-underline-offset: 0.28em;
+
+  /* ───────────────────────── PRIMITIVE: SHADOW ───────────────────────── */
+  /* Deliberately restrained -- see docs/DESIGN-SYSTEM.md §Shadows.
+     Academic credibility leans on borders/tonal surface difference, not
+     Material-style elevation. Only two shadows exist site-wide. */
+  --p-shadow-sm: 0 1px 2px rgba(11, 27, 43, 0.06);
+  --p-shadow-md: 0 4px 16px rgba(11, 27, 43, 0.10);
+
+  /* ───────────────────────── PRIMITIVE: Z-INDEX ──────────────────────── */
+  --p-z-base:        0;
+  --p-z-sticky:      100;
+  --p-z-overlay:     200;
+  --p-z-dropdown:    300;
+  --p-z-modal:       400;
+  --p-z-toast:       500;
+  --p-z-skip-link:   1000;
+
+  /* ───────────────────────── PRIMITIVE: CONTAINERS ───────────────────── */
+  /* Two independent systems on purpose — see DESIGN-FOUNDATION.md.
+     Reading measure governs body text; wide container governs layout. */
+  --p-measure-reading:   68ch;   /* ~65-75ch optimal editorial line length */
+  --p-container-narrow:  720px;
+  --p-container-wide:    1280px;
+  --p-container-max:     1440px; /* desktop design reference */
+  --p-container-ultra:   1728px; /* large-desktop ceiling before full-bleed */
+  --p-gutter-mobile:     20px;
+  --p-gutter-tablet:     clamp(2rem, 7.8vw, 5rem);
+  --p-gutter-desktop:    clamp(3rem, 7.8vw, 7rem);
+
+  /* ───────────────────────── SEMANTIC: SURFACE ───────────────────────── */
+  --surface-primary:    var(--p-paper-50);
+  --surface-secondary:  var(--p-paper-100);
+  --surface-raised:     var(--p-paper-0);
+  --surface-inverse:    var(--p-navy-950);
+  --surface-inverse-2:  var(--p-navy-900);
+
+  /* ───────────────────────── SEMANTIC: TEXT ──────────────────────────── */
+  --text-primary:    var(--p-ink-900);
+  --text-secondary:  var(--p-ink-700);
+  --text-muted:      var(--p-ink-500);
+  --text-inverse:    var(--p-paper-50);
+  --text-inverse-muted: color-mix(in srgb, var(--p-paper-50) 70%, transparent);
+  --text-link:       var(--p-blue-600);
+  --text-link-hover: var(--p-blue-700);
+  --text-accent:     var(--p-gold-700); /* AA-safe gold for small labels */
+  --text-accent-inverse: var(--p-gold-500); /* AA-safe accent on inverse surfaces */
+
+  /* ───────────────────────── SEMANTIC: BORDER ────────────────────────── */
+  --border-subtle:   var(--p-stone-200);
+  --border-strong:   var(--p-stone-300);
+  --border-inverse:  color-mix(in srgb, var(--p-paper-50) 18%, transparent);
+
+  /* ───────────────────────── SEMANTIC: BRAND ─────────────────────────── */
+  --brand-primary:    var(--p-navy-950);
+  --brand-secondary:  var(--p-teal-800);
+  --brand-accent:     var(--p-gold-500); /* decorative use only */
+
+  /* ───────────────────────── SEMANTIC: INTERACTIVE ───────────────────── */
+  --interactive-default:  var(--p-blue-600);
+  --interactive-hover:    var(--p-blue-700);
+  --interactive-on-dark:  var(--p-paper-50);
+  --focus-ring:            var(--p-blue-600);
+  --focus-ring-offset:     2px;
+
+  /* ───────────────────────── SEMANTIC: SHADOW ────────────────────────── */
+  --shadow-raised:  var(--p-shadow-sm); /* sticky header after scroll, open dropdown panels */
+  --shadow-overlay: var(--p-shadow-md); /* mobile nav dialog only */
+
+  /* ───────────────────────── SEMANTIC: IMPRINT ───────────────────────── */
+  --imprint-ridgeline:       var(--p-imprint-ridgeline);
+  --imprint-health-nexus:    var(--p-imprint-health-nexus);
+  --imprint-verdant-science: var(--p-imprint-verdant-science);
+  --imprint-charter:         var(--p-imprint-charter);
+  --imprint-threnody:        var(--p-imprint-threnody);
+}
+
+/* Respect explicit user motion preference across the whole token layer. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --p-duration-fast: 0ms;
+    --p-duration-base: 0ms;
+    --p-duration-slow: 0ms;
+  }
+}

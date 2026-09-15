@@ -1,0 +1,382 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import { externalSystems } from '@/data/site';
+import { getResearchCopy } from '@/i18n/pages';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getResearchCopy(locale);
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/research/"
+  locale={locale}
+>
+  <div class="research-page">
+    <GroupHero
+      eyebrow="Panorama Research Institute"
+      title={copy.heroTitle}
+      lede={copy.lede}
+      titleId="research-title"
+    >
+      <div slot="actions">
+        <Button href={externalSystems.research} external>{copy.visit}</Button>
+        <Button href={localizePath('/infrastructure/', locale)} variant="secondary">{copy.infrastructure}</Button>
+      </div>
+
+      <div slot="aside" class="research-hero__aside-content" aria-label={copy.independentOverline}>
+        <p class="text-overline">{copy.independentOverline}</p>
+        <p class="research-hero__statement">{copy.statement}</p>
+        <dl class="research-hero__facts">
+          {[0, 2, 4].map((index) => (
+            <div>
+              <dt>{copy.facts[index]}</dt>
+              <dd>{copy.facts[index + 1]}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </GroupHero>
+
+    <section class="research-areas row" aria-labelledby="research-areas-title">
+      <div class="container-wide">
+        <header class="research-section-head">
+          <div>
+            <p class="text-overline">{copy.areasOverline}</p>
+            <h2 id="research-areas-title">{copy.areasTitle}</h2>
+          </div>
+          <p>{copy.areasIntro}</p>
+        </header>
+
+        <ul class="research-area-list" role="list">
+          {copy.areas.map((area, index) => (
+            <li>
+              <span class="research-area-list__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{area.title}</h3>
+                <p>{area.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="research-principles row row--inverse" aria-labelledby="research-principles-title">
+      <div class="container-wide">
+        <header class="research-section-head research-section-head--inverse">
+          <div>
+            <p class="text-overline">{copy.principlesOverline}</p>
+            <h2 id="research-principles-title">{copy.principlesTitle}</h2>
+          </div>
+          <p>{copy.principlesIntro}</p>
+        </header>
+
+        <ol class="research-principle-list" role="list">
+          {copy.principles.map(([number, title, description]) => (
+            <li>
+              <span aria-hidden="true">{number}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="research-closing row" aria-labelledby="research-closing-title">
+      <div class="container-wide research-closing__grid">
+        <div>
+          <p class="text-overline">{copy.closingOverline}</p>
+          <h2 id="research-closing-title">{copy.closingTitle}</h2>
+        </div>
+        <div class="research-closing__body">
+          <p>{copy.closingBody}</p>
+          <div class="research-closing__links">
+            <a href={externalSystems.research} target="_blank" rel="noopener noreferrer">
+              {copy.visit}
+              <span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+            <a href={localizePath('/infrastructure/', locale)}>{copy.exploreInfrastructure}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .research-page {
+    overflow: hidden;
+    background: var(--surface-primary);
+    color: var(--text-primary);
+  }
+
+  .research-hero {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    padding-block: clamp(4.5rem, 8vw, 8rem) clamp(3.5rem, 6vw, 6rem);
+  }
+
+  .research-hero__grid,
+  .research-section-head,
+  .research-closing__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr);
+    gap: clamp(3rem, 9vw, 10rem);
+    align-items: end;
+  }
+
+  .research-hero__copy {
+    max-width: 45rem;
+  }
+
+  .research-hero h1,
+  .research-section-head h2,
+  .research-closing h2 {
+    max-width: 14ch;
+    margin-top: 1rem;
+    font-size: clamp(3rem, 6.1vw, 6rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.055em;
+    line-height: 0.96;
+  }
+
+  .research-hero__lede,
+  .research-section-head > p,
+  .research-closing__body > p {
+    max-width: 35rem;
+    margin-top: 1.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    line-height: 1.48;
+  }
+
+  .research-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.25rem;
+  }
+
+  .research-hero__aside {
+    align-self: end;
+    padding-top: 1.25rem;
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+  }
+
+  .research-hero__statement {
+    max-width: 20rem;
+    margin-top: 1.2rem;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 2.4vw, 2.35rem);
+    line-height: 1.08;
+  }
+
+  .research-hero__facts {
+    margin: 2rem 0 0;
+  }
+
+  .research-hero__facts > div {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.75fr) minmax(0, 1.25fr);
+    gap: 1rem;
+    padding-block: 0.8rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .research-hero__facts dt {
+    color: var(--text-muted);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .research-hero__facts dd {
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .research-section-head {
+    align-items: end;
+    margin-bottom: clamp(2.75rem, 5vw, 4.5rem);
+  }
+
+  .research-section-head h2,
+  .research-closing h2 {
+    font-size: clamp(2.55rem, 4.6vw, 4.8rem);
+  }
+
+  .research-section-head > p {
+    margin-top: 0;
+  }
+
+  .research-area-list,
+  .research-principle-list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .research-area-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .research-area-list li {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.35rem;
+    min-height: 12rem;
+    padding: 1.35rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .research-area-list__number,
+  .research-principle-list > li > span {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+  }
+
+  .research-area-list__number { color: var(--text-accent); }
+  .research-principle-list > li > span { color: var(--text-accent-inverse); }
+
+  .research-area-list h3,
+  .research-principle-list h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.7vw, 1.7rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.1;
+  }
+
+  .research-area-list p,
+  .research-principle-list p {
+    max-width: 26rem;
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .research-principles {
+    background: var(--surface-inverse);
+    color: var(--text-inverse);
+  }
+
+  .research-section-head--inverse > p,
+  .research-principle-list p {
+    color: var(--text-inverse-muted);
+  }
+
+  .research-section-head--inverse .text-overline {
+    color: var(--text-accent-inverse);
+  }
+
+  .research-section-head--inverse h2 {
+    color: var(--text-inverse);
+  }
+
+  .research-principle-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: var(--p-border-hairline) solid rgba(250, 249, 246, 0.26);
+  }
+
+  .research-principle-list > li {
+    min-height: 14rem;
+    padding: 1.35rem 1.5rem 0 0;
+    border-inline-end: var(--p-border-hairline) solid rgba(250, 249, 246, 0.26);
+  }
+
+  .research-principle-list > li + li {
+    padding-inline-start: 1.5rem;
+  }
+
+  .research-principle-list > li:last-child {
+    border-inline-end: 0;
+  }
+
+  .research-principle-list h3 {
+    margin-top: 2.5rem;
+    color: var(--text-inverse);
+  }
+
+  .research-closing {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .research-closing__grid {
+    align-items: start;
+  }
+
+  .research-closing h2 {
+    margin-top: 0.85rem;
+  }
+
+  .research-closing__body > p {
+    margin-top: 0;
+  }
+
+  .research-closing__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    margin-top: 2rem;
+  }
+
+  .research-closing__links a {
+    border-bottom: var(--p-border-hairline) solid currentColor;
+    color: var(--text-link);
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-semibold);
+    line-height: 1.8;
+    text-decoration: none;
+  }
+
+  .research-closing__links a:hover {
+    color: var(--text-link-hover);
+  }
+
+  @media (max-width: 767px) {
+    .research-hero__grid,
+    .research-section-head,
+    .research-closing__grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .research-hero h1 {
+      max-width: 12ch;
+    }
+
+    .research-area-list,
+    .research-principle-list {
+      grid-template-columns: 1fr;
+    }
+
+    .research-principle-list > li,
+    .research-principle-list > li + li {
+      min-height: 0;
+      padding: 1.25rem 0;
+      border-inline-end: 0;
+      border-bottom: var(--p-border-hairline) solid rgba(250, 249, 246, 0.26);
+    }
+
+    .research-principle-list > li:last-child {
+      border-bottom: 0;
+    }
+  }
+</style>

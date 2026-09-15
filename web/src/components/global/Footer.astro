@@ -1,0 +1,346 @@
+---
+import Logo from '@/components/ui/Logo.astro';
+import { footerPlatformLogos, getFooterGroups, getLegalNav } from '@/data/navigation';
+import { getOfficeDirectory, site } from '@/data/site';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = 'en' } = Astro.props;
+const offices = getOfficeDirectory(locale);
+const footerGroups = getFooterGroups(locale);
+const legalNav = getLegalNav(locale);
+const labels = getNavigationLabels(locale);
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container-wide">
+    <div class="site-footer__top">
+      <div class="site-footer__identity">
+        <Logo href={localizePath('/', locale)} />
+        <p class="site-footer__tagline">{labels.tagline}</p>
+      <div class="site-footer__offices">
+        <div class="site-footer__office-grid">
+          {offices.map((office) => (
+            <div class="site-footer__office">
+              <p class="site-footer__office-label">{office.label}</p>
+              <address class="site-footer__office-address">{office.streetAddress}</address>
+            </div>
+          ))}
+        </div>
+      </div>
+      </div>
+
+      <div class="site-footer__groups">
+        {footerGroups.map((group) => (
+          <nav class="site-footer__group" aria-label={group.title}>
+            <h2 class="site-footer__group-title">{group.title}</h2>
+            <ul class="site-footer__group-list" role="list">
+              {group.items.map((item) => (
+                <li>
+                  <a
+                    class="site-footer__link"
+                    href={item.path}
+                    target={item.external ? '_blank' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                    aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
+                  >{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+      </div>
+    </div>
+
+    <section class="site-footer__platforms" aria-labelledby="footer-platforms-title">
+      <div class="site-footer__platform-intro">
+        <h2 id="footer-platforms-title" class="site-footer__group-title">{labels.platforms}</h2>
+        <p>{labels.platformDescription}</p>
+      </div>
+      <nav class="site-footer__platform-list" aria-label={labels.platforms}>
+        {footerPlatformLogos.map((platform) => (
+          <a
+            class="site-footer__platform"
+            href={platform.path}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={platform.label}
+          >
+            <img src={platform.logo} alt={platform.label} loading="lazy" />
+          </a>
+        ))}
+      </nav>
+    </section>
+
+    <div class="site-footer__rule" aria-hidden="true"></div>
+
+    <div class="site-footer__legal">
+      <p class="text-caption">© {year} {site.legalName}. {labels.allRightsReserved}</p>
+      <nav aria-label={labels.legal}>
+        <ul class="site-footer__legal-list" role="list">
+          {legalNav.map((item) => (
+            <li><a href={item.path} class="text-caption">{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--surface-secondary);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    padding-block: clamp(2.5rem, 5vw, 4.5rem) 1.15rem;
+  }
+
+  .site-footer__top {
+    display: grid;
+    gap: var(--p-space-8);
+  }
+
+  .site-footer__identity {
+    display: grid;
+    align-content: start;
+    gap: 1.15rem;
+    max-width: 24rem;
+  }
+
+  .site-footer__identity :global(.logo__name) {
+    font-size: 1.45rem;
+  }
+
+  .site-footer__identity :global(.logo__sub) {
+    font-size: 0.48rem;
+  }
+
+  .site-footer__tagline {
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .site-footer__offices {
+    display: grid;
+    gap: 1rem;
+    margin-top: 0.1rem;
+    padding-top: 1.1rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .site-footer__office-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));
+    gap: 1rem 1.4rem;
+  }
+
+  .site-footer__office {
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .site-footer__office-label {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.55rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .site-footer__office-address {
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-style: normal;
+    line-height: 1.45;
+  }
+
+  .site-footer__groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem 1.5rem;
+  }
+
+  .site-footer__group-title {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .site-footer__group-list {
+    display: grid;
+    gap: 0.65rem;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+
+  .site-footer__link {
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    text-decoration: none;
+    transition: color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .site-footer__link:hover,
+  .site-footer__legal a:hover {
+    color: var(--interactive-default);
+  }
+
+  .site-footer__platforms {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: clamp(2rem, 3vw, 3rem);
+    padding-block: 1.25rem;
+    border-block: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .site-footer__platform-intro p {
+    margin: 0.45rem 0 0;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    line-height: 1.4;
+  }
+
+  .site-footer__platform-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.15rem 2.25rem;
+  }
+
+  .site-footer__platform {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 7rem;
+    min-height: 2.65rem;
+    text-decoration: none;
+    opacity: 0.72;
+    transition: opacity var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .site-footer__platform:hover { opacity: 1; }
+
+  .site-footer__platform img {
+    display: block;
+    width: 8.5rem;
+    height: 2.7rem;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .site-footer__rule {
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .site-footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    padding-top: 1rem;
+    color: var(--text-muted);
+  }
+
+  .site-footer__legal p { line-height: 1.2; }
+
+  .site-footer__legal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem 1.15rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer__legal a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  @media (min-width: 768px) {
+    .site-footer__top {
+      grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 2fr);
+      gap: var(--p-space-8);
+    }
+
+    .site-footer__groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.25rem 2rem;
+    }
+
+    .site-footer__platforms {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-footer__top {
+      grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 2fr);
+      gap: clamp(1.75rem, 3vw, 3.75rem);
+      align-items: start;
+    }
+
+    .site-footer__groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(2rem, 2.5vw, 3rem);
+    }
+
+    .site-footer__platforms {
+      grid-template-columns: max-content minmax(0, 1fr);
+      align-items: center;
+      column-gap: clamp(1.25rem, 2vw, 2rem);
+    }
+  }
+
+  /* At a wide desktop width the identity and four navigation groups form
+     one measured five-column row. This keeps the footer from creating a
+     large empty gutter between the identity and the first link group. */
+  @media (min-width: 1200px) {
+    .site-footer__top {
+      grid-template-columns: minmax(16rem, 1.05fr) repeat(4, minmax(0, 1fr));
+      gap: clamp(1.5rem, 2.8vw, 3.25rem);
+    }
+
+    .site-footer__groups {
+      display: contents;
+    }
+
+    .site-footer__group {
+      min-width: 0;
+    }
+
+    .site-footer__platform-list {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      column-gap: clamp(1.25rem, 3vw, 3.25rem);
+      row-gap: 1rem;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .site-footer__legal {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

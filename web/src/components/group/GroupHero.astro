@@ -1,0 +1,231 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  titleId: string;
+  variant?: 'default' | 'compact' | 'catalogue' | 'document' | 'image';
+}
+
+const {
+  eyebrow,
+  title,
+  lede,
+  titleId,
+  variant = 'default',
+} = Astro.props;
+---
+
+<section class:list={['group-hero', `group-hero--${variant}`]} aria-labelledby={titleId}>
+  <div class="container-wide group-hero__inner">
+    <div class="group-hero__copy">
+      <p class="group-hero__eyebrow text-overline">{eyebrow}</p>
+      <h1 id={titleId} class="group-hero__title">{title}</h1>
+      {lede && <p class="group-hero__lede">{lede}</p>}
+      {Astro.slots.has('actions') && <div class="group-hero__actions"><slot name="actions" /></div>}
+    </div>
+
+    {Astro.slots.has('aside') && (
+      <aside class="group-hero__aside">
+        <slot name="aside" />
+      </aside>
+    )}
+  </div>
+</section>
+
+<style>
+  .group-hero {
+    background: var(--surface-primary);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .group-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(17rem, 0.88fr);
+    gap: clamp(2.5rem, 7vw, 7rem);
+    align-items: end;
+    min-height: clamp(28rem, 48vw, 40rem);
+    padding-block: var(--group-hero-space);
+  }
+
+  .group-hero__copy {
+    max-width: 48rem;
+  }
+
+  .group-hero__eyebrow {
+    margin: 0;
+  }
+
+  .group-hero__title {
+    max-width: 15ch;
+    margin: 1rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5.3vw, 5.25rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .group-hero__lede {
+    max-width: 40rem;
+    margin: 1.7rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+    line-height: 1.45;
+  }
+
+  .group-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: 2rem;
+  }
+
+  /* Slotted action groups need their own flex context so every GroupHero
+     page uses the same spacing between adjacent actions. */
+  .group-hero__actions > :global(*) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .group-hero__actions > a:not(.btn) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--text-link);
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-semibold);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+
+  .group-hero__aside {
+    align-self: end;
+    min-width: 0;
+    padding-top: 0;
+  }
+
+  :global(.group-hero__metric),
+  :global(.group-hero__aside-content) {
+    min-width: 0;
+  }
+
+  :global(.group-hero__metric) {
+    display: grid;
+    align-content: end;
+    gap: 0.55rem;
+  }
+
+  :global(.group-hero__metric) strong {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 5.8vw, 5.5rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.06em;
+    line-height: 0.86;
+  }
+
+  :global(.group-hero__metric) span,
+  :global(.group-hero__aside-content) dt {
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  :global(.group-hero__metric) p,
+  :global(.group-hero__aside-content) > p:not(.text-overline) {
+    max-width: 22rem;
+    margin: 0.9rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  :global(.group-hero__aside-content) dl {
+    margin: 1.25rem 0 0;
+  }
+
+  :global(.group-hero__aside-content) dl > div {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.75fr) minmax(0, 1.25fr);
+    gap: 1rem;
+    padding-block: 0.8rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  :global(.group-hero__aside-content) dd {
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  :global(.group-hero__aside-content) .text-overline {
+    color: var(--text-accent);
+  }
+
+  .group-hero__aside > :global(.text-overline),
+  .group-hero__aside :global(.group-hero__aside-label) {
+    margin: 0;
+  }
+
+  .group-hero--compact .group-hero__inner {
+    min-height: 25rem;
+  }
+
+  .group-hero--compact .group-hero__title {
+    max-width: 13ch;
+    font-size: clamp(2.6rem, 4.8vw, 4.75rem);
+  }
+
+  .group-hero--catalogue .group-hero__title {
+    max-width: 13ch;
+  }
+
+  .group-hero--document .group-hero__inner {
+    min-height: 26rem;
+  }
+
+  .group-hero--image .group-hero__aside {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  @media (max-width: 767px) {
+    .group-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      min-height: auto;
+      padding-block: 3.5rem 3rem;
+    }
+
+    .group-hero__title,
+    .group-hero--compact .group-hero__title {
+      max-width: 14ch;
+      font-size: clamp(2.65rem, 12vw, 4rem);
+      line-height: 1;
+    }
+
+    .group-hero__lede {
+      margin-top: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .group-hero__aside {
+      padding-top: 1rem;
+    }
+
+    :global(.group-hero__aside-content) dl > div {
+      grid-template-columns: minmax(6rem, 0.8fr) minmax(0, 1.2fr);
+    }
+  }
+</style>

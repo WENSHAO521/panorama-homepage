@@ -1,0 +1,49 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import RidgelinePage from '@/components/imprint/RidgelinePage.astro';
+import HealthNexusPage from '@/components/imprint/HealthNexusPage.astro';
+import VerdantSciencePage from '@/components/imprint/VerdantSciencePage.astro';
+import CharterPage from '@/components/imprint/CharterPage.astro';
+import ThrenodyPage from '@/components/imprint/ThrenodyQuietArchivePage.astro';
+import { getAllImprints } from '@/lib/content/imprints';
+import { getJournalsForImprint } from '@/lib/content/imprints';
+
+export function getStaticPaths() {
+  return getAllImprints().map((imprint) => ({
+    params: { slug: imprint.slug },
+    props: { imprint },
+  }));
+}
+
+const { imprint } = Astro.props;
+const journals = getJournalsForImprint(imprint.slug);
+const locale = Astro.currentLocale ?? 'en';
+---
+
+{imprint.slug === 'ridgeline' ? (
+  <RidgelinePage imprint={imprint} journals={journals} />
+) : imprint.slug === 'health-nexus' ? (
+  <HealthNexusPage imprint={imprint} journals={journals} />
+) : imprint.slug === 'verdant-science' ? (
+  <VerdantSciencePage imprint={imprint} journals={journals} />
+) : imprint.slug === 'charter' ? (
+  <CharterPage imprint={imprint} journals={journals} />
+) : imprint.slug === 'threnody' ? (
+  <ThrenodyPage imprint={imprint} journals={journals} />
+) : (
+  <PageLayout
+    title={imprint.name}
+    description={imprint.description}
+    path={`/imprints/${imprint.slug}/`}
+    locale={locale}
+  >
+    <p>{imprint.description}</p>
+    <p>Scope: {imprint.scope}</p>
+      <h2>Journals</h2>
+    <ul role="list">
+      {journals.map((journal) => (
+        <li><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></li>
+      ))}
+    </ul>
+  </PageLayout>
+)}

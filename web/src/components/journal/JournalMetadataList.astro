@@ -1,0 +1,52 @@
+---
+// Detail-page metadata panel (project brief §23). Every row is
+// conditionally rendered -- an unavailable field is omitted entirely,
+// never shown as "ISSN: —". ISSN/eISSN/ISSN-L are never conflated: only
+// what the record actually carries is labelled.
+import type { Journal, Imprint } from '@/types';
+
+interface Props { journal: Journal; imprint?: Imprint }
+const { journal, imprint } = Astro.props;
+
+const rows: { label: string; value: string }[] = [];
+if (journal.issn) rows.push({ label: 'ISSN', value: journal.issn });
+if (journal.eissn) rows.push({ label: 'eISSN', value: journal.eissn });
+if (journal.frequency) rows.push({ label: 'Frequency', value: journal.frequency });
+rows.push({ label: 'Open access', value: journal.openAccess ? 'Yes' : 'No' });
+if (imprint) rows.push({ label: 'Imprint', value: imprint.name });
+rows.push({ label: 'Disciplines', value: journal.disciplines.join(', ') });
+---
+
+<dl class="journal-meta">
+  {rows.map((row) => (
+    <div class="journal-meta__row">
+      <dt class="text-caption journal-meta__label">{row.label}</dt>
+      <dd class="journal-meta__value">{row.value}</dd>
+    </div>
+  ))}
+</dl>
+
+<style>
+  .journal-meta {
+    margin: 0;
+    display: grid;
+    gap: var(--p-space-4);
+  }
+  .journal-meta__row {
+    display: grid;
+    grid-template-columns: minmax(7rem, auto) 1fr;
+    gap: var(--p-space-4);
+    padding-block: var(--p-space-2);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+  .journal-meta__label {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-overline);
+    font-weight: var(--fw-semibold);
+  }
+  .journal-meta__value {
+    margin: 0;
+    color: var(--text-primary);
+  }
+</style>

@@ -1,0 +1,533 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import { localizePath } from '@/i18n/utils';
+import { getStandardsCopy } from '@/i18n/standards';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getStandardsCopy(locale);
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/standards/"
+>
+  <article class="standards-page">
+    <GroupHero
+      eyebrow={copy.heroEyebrow}
+      title={copy.heroTitle}
+      lede={copy.heroLede}
+      titleId="standards-title"
+      variant="document"
+    >
+      <div slot="actions" class="standards-hero__actions">
+        <Button href={localizePath('/standards/editorial/', locale)}>{copy.readEditorial}</Button>
+        <a class="standards-text-link" href="#standards-framework">{copy.exploreFramework}</a>
+      </div>
+
+      <div slot="aside" class="standards-hero__aside-content" aria-label={copy.asideAria}>
+        <p class="standards-hero__note-label">{copy.asideLabel}</p>
+        <p class="standards-hero__note-statement">
+          {copy.asideStatement}
+        </p>
+        <span class="standards-hero__note-rule" aria-hidden="true"></span>
+        <p class="standards-hero__note-meta">
+          {copy.asideMeta}
+        </p>
+      </div>
+    </GroupHero>
+
+    <nav class="standards-nav" aria-label="Standards navigation">
+      <div class="container-wide standards-nav__inner">
+        <p class="standards-nav__label">{copy.navLabel}</p>
+        <ul class="standards-nav__list" role="list">
+            <li><a href={localizePath('/standards/', locale)} aria-current="page">{copy.navOverview}</a></li>
+            {copy.standards.map((standard) => (
+            <li><a href={localizePath(standard.href, locale)}>{standard.title}</a></li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+
+    <section id="standards-framework" class="standards-framework" aria-labelledby="framework-title">
+      <div class="container-wide">
+        <div class="standards-section-intro">
+          <h2 id="framework-title">{copy.frameworkTitle}</h2>
+          <p>{copy.frameworkBody}</p>
+        </div>
+
+        <div class="standards-commitments" role="list">
+          {copy.commitments.map((commitment) => (
+            <article class="standards-commitment" role="listitem">
+              <h3>{commitment.title}</h3>
+              <p>{commitment.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="standards-directory" aria-labelledby="directory-title">
+      <div class="container-wide">
+        <div class="standards-section-intro standards-section-intro--directory">
+          <h2 id="directory-title">{copy.directoryTitle}</h2>
+          <p>{copy.directoryBody}</p>
+        </div>
+
+        <div class="standards-list" role="list">
+          {copy.standards.map((standard) => (
+            <article class="standards-list__item" role="listitem">
+              <span class="standards-list__index" aria-hidden="true">{standard.index}</span>
+              <div class="standards-list__body">
+                <h3><a href={localizePath(standard.href, locale)}>{standard.title}</a></h3>
+                <p>{standard.description}</p>
+              </div>
+              <a class="standards-list__action" href={localizePath(standard.href, locale)}>{standard.action}</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="standards-workflow" aria-labelledby="workflow-title">
+      <div class="container-wide">
+        <div class="standards-section-intro">
+          <h2 id="workflow-title">{copy.workflowTitle}</h2>
+          <p>{copy.workflowBody}</p>
+        </div>
+
+        <ol class="standards-workflow__list">
+          {copy.workflow.map((stage) => (
+            <li class="standards-workflow__item">
+              <h3>{stage.title}</h3>
+              <p>{stage.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="standards-contact" aria-labelledby="contact-title">
+      <div class="container-wide standards-contact__grid">
+        <div>
+          <h2 id="contact-title">{copy.contactTitle}</h2>
+          <p>{copy.contactBody}</p>
+        </div>
+        <div class="standards-contact__action">
+          <Button href={localizePath('/about/contact/', locale)}>{copy.contactAction}</Button>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .standards-page {
+    background: var(--surface-primary);
+  }
+
+  .standards-hero {
+    padding-block: clamp(4rem, 6vw, 5.5rem) clamp(3.5rem, 5vw, 4.75rem);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .standards-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+    align-items: end;
+    gap: clamp(3rem, 8vw, 9rem);
+  }
+
+  .standards-hero__copy h1 {
+    max-width: 17ch;
+    margin-top: 1.2rem;
+    font-size: clamp(3.2rem, 6.2vw, 5.8rem);
+    line-height: 0.99;
+  }
+
+  .standards-hero__lede {
+    max-width: 38rem;
+    margin-top: 1.6rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.08rem, 1rem + 0.32vw, 1.3rem);
+    line-height: 1.48;
+  }
+
+  .standards-hero__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .standards-text-link {
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-underline-offset: 0.35em;
+  }
+
+  .standards-hero__note {
+    max-width: 24rem;
+    padding-inline-start: 1.5rem;
+    border-inline-start: 2px solid var(--brand-accent);
+  }
+
+  .standards-hero__note-label,
+  .standards-nav__label {
+    margin: 0;
+    color: var(--text-accent);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .standards-hero__note-statement {
+    margin-top: 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 2.2vw, 2rem);
+    line-height: 1.18;
+  }
+
+  .standards-hero__note-rule {
+    display: block;
+    width: 3rem;
+    margin-block: 1.8rem 1.1rem;
+    border-top: 2px solid var(--brand-accent);
+  }
+
+  .standards-hero__note-meta {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .standards-nav {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-secondary);
+  }
+
+  .standards-nav__inner {
+    display: grid;
+    gap: 0.85rem 2rem;
+    padding-block: 1.15rem;
+  }
+
+  .standards-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .standards-nav__list a {
+    color: var(--text-secondary);
+    font-size: 0.76rem;
+    text-decoration: none;
+    text-underline-offset: 0.3em;
+  }
+
+  .standards-nav__list a:hover,
+  .standards-nav__list a[aria-current='page'] {
+    color: var(--text-primary);
+    text-decoration: underline;
+  }
+
+  .standards-framework,
+  .standards-directory,
+  .standards-workflow {
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .standards-directory {
+    border-block: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-secondary);
+  }
+
+  .standards-section-intro {
+    max-width: 48rem;
+  }
+
+  .standards-section-intro h2,
+  .standards-contact h2 {
+    max-width: 18ch;
+    font-size: clamp(2.35rem, 4.4vw, 4.2rem);
+    line-height: 1;
+  }
+
+  .standards-section-intro p,
+  .standards-contact p {
+    max-width: 40rem;
+    margin-top: 1.15rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+    line-height: 1.5;
+  }
+
+  .standards-commitments {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.75rem clamp(2rem, 5vw, 5.5rem);
+    margin-top: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .standards-commitment {
+    padding-top: 1.1rem;
+    border-top: 2px solid var(--border-strong);
+  }
+
+  .standards-commitment h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.25;
+  }
+
+  .standards-commitment p {
+    max-width: 31rem;
+    margin-top: 0.7rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .standards-section-intro--directory {
+    max-width: 55rem;
+  }
+
+  .standards-list {
+    margin-top: clamp(2.75rem, 5vw, 4.5rem);
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .standards-list__item {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr) minmax(12rem, 0.42fr);
+    align-items: start;
+    gap: clamp(1rem, 3vw, 3rem);
+    padding-block: 1.7rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .standards-list__index {
+    padding-top: 0.2rem;
+    color: var(--text-accent);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.12em;
+  }
+
+  .standards-list__body h3 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+    line-height: 1.1;
+  }
+
+  .standards-list__body h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .standards-list__body h3 a:hover,
+  .standards-list__body h3 a:focus-visible {
+    color: var(--interactive-default);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .standards-list__body p {
+    max-width: 38rem;
+    margin-top: 0.55rem;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .standards-list__action {
+    align-self: center;
+    justify-self: end;
+    color: var(--text-link);
+    font-size: 0.64rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    line-height: 1.45;
+    text-align: right;
+    text-transform: uppercase;
+    text-underline-offset: 0.35em;
+  }
+
+  .standards-list__action:hover,
+  .standards-list__action:focus-visible {
+    color: var(--text-link-hover);
+  }
+
+  .standards-workflow {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .standards-workflow__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: clamp(3rem, 5vw, 4.5rem) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .standards-workflow__item {
+    min-width: 0;
+    padding-inline: clamp(1rem, 2.5vw, 2.5rem);
+  }
+
+  .standards-workflow__item:first-child {
+    padding-inline-start: 0;
+  }
+
+  .standards-workflow__item:last-child {
+    padding-inline-end: 0;
+  }
+
+  .standards-workflow__item + .standards-workflow__item {
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .standards-workflow__item h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 2.4vw, 2.2rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.05;
+  }
+
+  .standards-workflow__item p {
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .standards-contact {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    background: var(--surface-secondary);
+  }
+
+  .standards-contact__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(14rem, 0.65fr);
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .standards-contact__action {
+    justify-self: end;
+  }
+
+  @media (min-width: 768px) {
+    .standards-nav__inner {
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .standards-list__item {
+      grid-template-columns: 2.25rem minmax(0, 1fr) minmax(10rem, 0.45fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .standards-hero__grid,
+    .standards-contact__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .standards-hero__grid {
+      gap: 2.75rem;
+    }
+
+    .standards-hero__copy h1 {
+      max-width: 10ch;
+    }
+
+    .standards-hero__note {
+      max-width: none;
+      padding-block: 1.25rem 0;
+      padding-inline-start: 0;
+      border-block-start: 2px solid var(--brand-accent);
+      border-inline-start: 0;
+    }
+
+    .standards-nav__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem 1rem;
+    }
+
+    .standards-commitments {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .standards-list__item {
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.9rem;
+    }
+
+    .standards-list__action {
+      grid-column: 2;
+      justify-self: start;
+      margin-top: 0.35rem;
+      text-align: left;
+    }
+
+    .standards-workflow__list {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .standards-workflow__item,
+    .standards-workflow__item:first-child,
+    .standards-workflow__item:last-child {
+      padding-block: 1.35rem;
+      padding-inline: 0;
+    }
+
+    .standards-workflow__item:first-child {
+      padding-block-start: 0;
+    }
+
+    .standards-workflow__item:last-child {
+      padding-block-end: 0;
+    }
+
+    .standards-workflow__item + .standards-workflow__item {
+      border-block-start: var(--p-border-hairline) solid var(--border-strong);
+      border-inline-start: 0;
+    }
+
+    .standards-contact__action {
+      justify-self: start;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .standards-hero__copy h1 {
+      max-width: 9ch;
+      font-size: clamp(2.8rem, 13vw, 4rem);
+    }
+
+    .standards-hero__actions {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

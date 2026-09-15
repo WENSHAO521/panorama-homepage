@@ -1,0 +1,419 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getSearchCopy } from '@/i18n/utility';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getSearchCopy(locale);
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/search/"
+  robots="noindex, follow"
+  locale={locale}
+>
+  <div class="search-page" data-search-locale={locale} data-search-copy={JSON.stringify(copy.client)}>
+    <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="search-title" variant="compact">
+      <div slot="aside" class="search-hero__aside-content" aria-label={copy.guidanceLabel}>
+        <p class="text-overline">{copy.catalogueLabel}</p>
+        <p>{copy.guidanceText}</p>
+      </div>
+    </GroupHero>
+
+    <section class="search-tool row" aria-labelledby="search-results-title">
+      <div class="container-wide">
+        <form class="search-form" data-search-form role="search">
+          <label for="site-search-input">{copy.inputLabel}</label>
+          <div class="search-form__controls">
+            <input
+              id="site-search-input"
+              name="q"
+              type="search"
+              placeholder={copy.placeholder}
+              autocomplete="off"
+              spellcheck="false"
+              data-search-input
+            />
+            <button class="search-submit" type="submit">{copy.title}</button>
+          </div>
+          <p class="search-form__hint">{copy.hint}</p>
+        </form>
+
+        <div class="search-results-shell">
+          <div class="search-results-head">
+            <div>
+              <p class="text-overline">{copy.resultsLabel}</p>
+              <h2 id="search-results-title">{copy.resultsTitle}</h2>
+            </div>
+            <p class="search-results-status" data-search-status aria-live="polite">
+              {copy.client.initialStatus}
+            </p>
+          </div>
+
+          <div class="search-empty" data-search-empty>
+            <p class="text-overline">{copy.emptyLabel}</p>
+            <div>
+              <p>{copy.emptyText}</p>
+              <nav class="search-empty__links" aria-label={copy.browseCategoriesLabel}>
+                <a href={localizePath('/journals/', locale)}>{copy.browseJournals}</a>
+                <a href={localizePath('/imprints/', locale)}>{copy.exploreImprints}</a>
+                <a href={localizePath('/news/', locale)}>{copy.readAnnouncements}</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="search-results" data-search-results></div>
+
+          <noscript>
+            <p class="search-noscript">
+              {copy.noscriptPrefix} <a href={localizePath('/journals/', locale)}>{copy.noscriptJournals}</a> {copy.noscriptOr} <a href={localizePath('/news/', locale)}>{copy.noscriptAnnouncements}</a>.
+            </p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  import '@/scripts/site-search';
+</script>
+
+<style is:global>
+  .search-page {
+    background: var(--surface-primary);
+  }
+
+  .search-hero {
+    padding-block: 0;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .search-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 0.65fr);
+    gap: clamp(3rem, 10vw, 10rem);
+    align-items: end;
+    min-height: 0;
+    padding-block: clamp(4rem, 6vw, 5.5rem) clamp(3.25rem, 5vw, 4.5rem);
+  }
+
+  .search-hero__copy h1 {
+    max-width: 12ch;
+    margin-top: 0.7rem;
+  }
+
+  .search-hero__lede {
+    max-width: 40rem;
+    margin-top: 1.2rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    line-height: 1.45;
+  }
+
+  .search-hero__note {
+    max-width: 21rem;
+    padding: 0.2rem 0 0.2rem 1.5rem;
+    border-inline-start: 2px solid var(--brand-accent);
+  }
+
+  .search-hero__note p:last-child {
+    margin-top: 0.65rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .search-tool {
+    padding-block: clamp(3rem, 5vw, 4.5rem) clamp(5rem, 10vw, 9rem);
+  }
+
+  .search-form {
+    max-width: 64rem;
+  }
+
+  .search-form > label {
+    display: block;
+    margin-bottom: 0.7rem;
+    color: var(--text-primary);
+    font-size: 0.78rem;
+    font-weight: var(--fw-semibold);
+  }
+
+  .search-form__controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem;
+  }
+
+  .search-form input {
+    min-width: 0;
+    min-height: 3.35rem;
+    padding: 0.8rem 1rem;
+    border: var(--p-border-hairline) solid var(--border-strong);
+    border-radius: var(--p-radius-surface);
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    font: inherit;
+    font-size: var(--fs-body);
+  }
+
+  .search-form input::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+
+  .search-form input:focus-visible {
+    border-color: var(--interactive-default);
+  }
+
+  .search-submit {
+    min-height: 3.35rem;
+    padding: 0.8rem 1.35rem;
+    border: var(--p-border-hairline) solid var(--brand-primary);
+    border-radius: var(--p-radius-button);
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard),
+      border-color var(--p-duration-base) var(--p-ease-standard),
+      transform var(--p-duration-fast) var(--p-ease-standard);
+  }
+
+  .search-submit:hover,
+  .search-submit:focus-visible {
+    border-color: var(--interactive-hover);
+    background: var(--interactive-hover);
+  }
+
+  .search-submit:active {
+    transform: translateY(1px);
+  }
+
+  .search-form__hint {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+  }
+
+  .search-results-shell {
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .search-results-head {
+    display: flex;
+    gap: 2rem;
+    align-items: end;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .search-results-head h2 {
+    margin-top: 0.65rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  }
+
+  .search-results-status {
+    max-width: 20rem;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+    text-align: end;
+  }
+
+  .search-empty {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    padding-block: 2.5rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .search-empty[hidden] {
+    display: none;
+  }
+
+  .search-empty > div > p {
+    max-width: 38rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .search-empty__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .search-empty__links a {
+    color: var(--text-link);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    text-underline-offset: 0.3em;
+  }
+
+  .search-results__group {
+    padding-top: 2.7rem;
+  }
+
+  .search-results__group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .search-results__group-head h2 {
+    margin: 0;
+    font-size: 1.45rem;
+  }
+
+  .search-results__count {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .search-results__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .search-result {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .search-result__link {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.35fr) minmax(0, 1fr);
+    column-gap: clamp(2rem, 7vw, 7rem);
+    padding: 1.25rem 0.75rem 1.35rem;
+    margin-inline: -0.75rem;
+    border-radius: var(--p-radius-surface);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .search-result__link:hover,
+  .search-result__link:focus-visible {
+    background: var(--surface-secondary);
+  }
+
+  .search-result__type {
+    color: var(--text-accent);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .search-result__meta {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    line-height: 1.45;
+  }
+
+  .search-result__title {
+    display: block;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.4vw, 1.45rem);
+    line-height: 1.18;
+  }
+
+  .search-result__desc {
+    display: block;
+    max-width: 58rem;
+    margin-top: 0.45rem;
+    line-height: 1.5;
+  }
+
+  .search-result__link:hover .search-result__title,
+  .search-result__link:focus-visible .search-result__title {
+    color: var(--interactive-default);
+  }
+
+  .search-no-results,
+  .search-noscript {
+    margin: 0;
+    padding-block: 2rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .search-no-results a,
+  .search-noscript a {
+    color: var(--text-link);
+  }
+
+  @media (max-width: 767px) {
+    .search-hero__inner,
+    .search-empty {
+      grid-template-columns: 1fr;
+    }
+
+    .search-hero__inner {
+      gap: 2.5rem;
+      min-height: 0;
+    }
+
+    .search-hero__copy h1 {
+      max-width: 10ch;
+    }
+
+    .search-hero__note {
+      max-width: 22rem;
+    }
+
+    .search-form__controls {
+      grid-template-columns: 1fr;
+    }
+
+    .search-submit {
+      justify-self: start;
+    }
+
+    .search-results-head {
+      align-items: start;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .search-results-status {
+      max-width: none;
+      text-align: start;
+    }
+
+    .search-result__link {
+      display: block;
+    }
+
+    .search-result__body {
+      margin-top: 0.65rem;
+    }
+  }
+</style>

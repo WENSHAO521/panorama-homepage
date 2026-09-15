@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/homepage/Hero.astro';
+import ImprintGrid from '@/components/homepage/ImprintGrid.astro';
+import FeaturedJournals from '@/components/homepage/FeaturedJournals.astro';
+import ResearchInfrastructure from '@/components/homepage/ResearchInfrastructure.astro';
+import LatestArticles from '@/components/homepage/LatestArticles.astro';
+import LatestAnnouncements from '@/components/homepage/LatestAnnouncements.astro';
+import InstitutionalPartner from '@/components/homepage/InstitutionalPartner.astro';
+import { getContent } from '@/i18n/content';
+
+const locale = Astro.currentLocale ?? 'en';
+const t = getContent(locale);
+---
+
+<BaseLayout
+  title={t('home.title')}
+  description={t('home.metaDescription')}
+  path="/"
+  locale={locale}
+>
+  <Hero locale={locale} />
+
+  <ImprintGrid locale={locale} />
+
+  <ResearchInfrastructure locale={locale} />
+
+  <FeaturedJournals locale={locale} />
+
+  <LatestArticles locale={locale} />
+
+  <LatestAnnouncements locale={locale} />
+
+  <InstitutionalPartner locale={locale} />
+</BaseLayout>

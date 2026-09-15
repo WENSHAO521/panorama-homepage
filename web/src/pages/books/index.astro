@@ -1,0 +1,509 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import bookHeroStillLife from '@/assets/books/books-hero-still-life.png';
+import { getBooksCopy } from '@/i18n/sections';
+import { getContent } from '@/i18n/content';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const bookPlatform = 'https://books.panorama-sg.com/';
+const locale = Astro.currentLocale ?? 'en';
+const copy = getBooksCopy(locale);
+const t = getContent(locale);
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/books/"
+  locale={locale}
+>
+  <div class="books-page">
+    <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="books-title" variant="image">
+      <div slot="actions" class="books-actions" aria-label={copy.actionsAria}>
+        <a class="books-button" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+          {copy.browseBooks}
+          <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+        </a>
+        <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+          {copy.submitProposal}
+          <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+        </a>
+      </div>
+
+      <figure slot="aside" class="books-hero__visual">
+        <div class="books-hero__image">
+          <Image
+            src={bookHeroStillLife}
+            alt={copy.heroAlt}
+            widths={[720, 1080, 1440, 1920]}
+            sizes="(max-width: 899px) 80vw, 42vw"
+            loading="eager"
+          />
+        </div>
+        <figcaption class="visually-hidden">The first publication from Panorama Scholarly Books.</figcaption>
+      </figure>
+    </GroupHero>
+
+    <section class="books-paths row" aria-labelledby="paths-title">
+      <h2 id="paths-title" class="visually-hidden">{copy.pathsTitle}</h2>
+      <div class="container-wide books-paths__grid">
+        <article class="books-path">
+          <span class="books-path__rule" aria-hidden="true"></span>
+          <h2>{copy.readersTitle}</h2>
+          <p>{copy.readersBody}</p>
+          <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+            {copy.visitPlatform}
+            <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+          </a>
+        </article>
+
+        <article class="books-path">
+          <span class="books-path__rule" aria-hidden="true"></span>
+          <h2>{copy.authorsTitle}</h2>
+          <p>{copy.authorsBody}</p>
+          <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+            {copy.submitProposal}
+            <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="books-programme row" aria-labelledby="programme-title">
+      <div class="container-wide">
+        <div class="books-programme__head">
+          <div>
+            <p class="text-overline">{copy.programmeOverline}</p>
+            <h2 id="programme-title">{copy.programmeTitle}</h2>
+          </div>
+          <p>{copy.programmeIntro}</p>
+        </div>
+
+        <ul class="books-format-list" role="list">
+          {copy.formats.map((format) => (
+            <li>
+              <span class="books-format__rule" aria-hidden="true"></span>
+              <h3>{format.name}</h3>
+              <p>{format.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="books-cta row row--inverse" aria-labelledby="books-cta-title">
+      <div class="container-wide books-cta__inner">
+        <div>
+          <p class="text-overline">{copy.overline}</p>
+          <h2 id="books-cta-title">{copy.ctaTitle}</h2>
+        </div>
+        <a class="books-link books-link--inverse" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+          {copy.exploreBooks}
+          <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .books-page {
+    overflow: hidden;
+  }
+
+  .books-hero {
+    background: var(--surface-primary);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .books-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(25rem, 1.05fr);
+    gap: clamp(3rem, 6vw, 7rem);
+    align-items: stretch;
+    min-height: min(39rem, 73vh);
+    padding-block: 0;
+  }
+
+  .books-hero__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 40rem;
+    padding-block: clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .books-hero__copy .text-overline {
+    color: var(--text-accent);
+  }
+
+  .books-hero h1 {
+    max-width: 9ch;
+    margin-top: 1.2rem;
+    font-size: clamp(3.55rem, 5.9vw, 6rem);
+    line-height: 0.99;
+  }
+
+  .books-hero__lede {
+    max-width: 35rem;
+    margin-top: 2rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.12rem, 1rem + 0.35vw, 1.35rem);
+    line-height: 1.42;
+  }
+
+  .books-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2.25rem;
+  }
+
+  .books-button,
+  .books-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    font-size: var(--fs-body-sm);
+    font-weight: var(--fw-semibold);
+    line-height: 1.25;
+    text-decoration: none;
+    transition: color var(--p-duration-base) var(--p-ease-standard),
+      background-color var(--p-duration-base) var(--p-ease-standard),
+      border-color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .books-button {
+    padding: 0.75rem 1.2rem;
+    border-radius: var(--p-radius-button);
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+  }
+
+  .books-button:hover {
+    background: var(--p-navy-700);
+    color: var(--text-inverse);
+  }
+
+  .books-link {
+    border-bottom: var(--p-border-hairline) solid currentColor;
+    color: var(--text-link);
+  }
+
+  .books-link:hover {
+    border-bottom-color: var(--text-link-hover);
+    color: var(--text-link-hover);
+  }
+
+  .books-hero__visual {
+    display: flex;
+    min-height: min(35rem, calc(100vh - 5.25rem));
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  @media (min-width: 900px) {
+    .books-hero__inner {
+      height: auto;
+      min-height: 0;
+    }
+
+    .books-hero__visual {
+      align-self: start;
+      height: auto;
+      min-height: 0;
+      min-width: 0;
+      /*
+       * Extend the visual to the viewport edge, but calculate the bleed
+       * from the page container rather than from the grid track itself.
+       * Using `100vw - 100%` here made the track grow by roughly half of
+       * the viewport, which hid the rear book beyond the clipped viewport.
+       */
+      width: calc(
+        100% + var(--p-gutter-desktop) +
+          max(0px, (100vw - var(--p-container-max)) / 2)
+      );
+      margin-inline-end: calc(
+        -1 * (var(--p-gutter-desktop) +
+          max(0px, (100vw - var(--p-container-max)) / 2))
+      );
+    }
+
+  .books-hero__copy {
+    margin-inline-start: clamp(-4rem, -4vw, -1.5rem);
+    padding-block: 0.75rem;
+  }
+
+  .books-hero h1 {
+    font-size: clamp(3.55rem, 5.2vw, 5rem);
+  }
+
+    .books-hero__lede {
+      margin-top: 1.75rem;
+    }
+
+    .books-actions {
+      margin-top: 2rem;
+    }
+  }
+
+  .books-hero__image {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .books-hero__image :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .books-paths,
+  .books-programme {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .books-paths__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .books-path {
+    display: flex;
+    flex-direction: column;
+    min-height: 21rem;
+    padding-block: 0.5rem 0.75rem;
+  }
+
+  .books-path + .books-path {
+    padding-inline-start: clamp(2rem, 5vw, 5rem);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .books-path__rule,
+  .books-format__rule {
+    display: block;
+    width: 2.5rem;
+    height: 0.18rem;
+  }
+
+  .books-path__rule,
+  .books-format__rule {
+    background: var(--p-gold-500);
+  }
+
+  .books-path h2 {
+    margin-top: 1.3rem;
+    font-size: clamp(2.15rem, 3vw, 3rem);
+  }
+
+  .books-path p {
+    max-width: 34rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    line-height: 1.45;
+  }
+
+  .books-path .books-link {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  .books-programme {
+    background: var(--surface-primary);
+  }
+
+  .books-programme__head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 9rem);
+    align-items: end;
+  }
+
+  .books-programme__head .text-overline {
+    color: var(--text-accent);
+  }
+
+  .books-programme__head h2 {
+    max-width: 16ch;
+    margin-top: 0.7rem;
+  }
+
+  .books-programme__head > p {
+    max-width: 29rem;
+    margin: 0 0 0.15rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: var(--fs-body-lg);
+    line-height: 1.45;
+  }
+
+  .books-format-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin: 3rem 0 0;
+    padding: 0;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+    list-style: none;
+  }
+
+  .books-format-list li {
+    min-height: 9.25rem;
+    padding: 1rem 1rem 1.15rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+
+  .books-format-list h3 {
+    margin-top: 1.15rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.22;
+  }
+
+  .books-format-list p {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    line-height: 1.42;
+  }
+
+  .books-cta {
+    border-bottom: 0;
+  }
+
+  .books-cta__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: end;
+  }
+
+  .books-cta .text-overline {
+    color: var(--text-accent-inverse);
+  }
+
+  .books-cta h2 {
+    max-width: 13ch;
+    margin-top: 0.7rem;
+    color: var(--text-inverse);
+  }
+
+  .books-link--inverse {
+    border-bottom-color: var(--brand-accent);
+    color: var(--text-inverse);
+  }
+
+  .books-link--inverse:hover {
+    border-bottom-color: var(--text-inverse);
+    color: var(--text-inverse);
+  }
+
+  .books-button:focus-visible,
+  .books-link:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: 0.35rem;
+  }
+
+  @media (max-width: 1100px) {
+    .books-format-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 899px) {
+    .books-hero__inner {
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+      height: auto;
+    }
+
+    .books-hero__visual {
+      min-height: 27rem;
+      height: 27rem;
+      justify-content: flex-start;
+    }
+
+    .books-hero__image :global(img) {
+      width: 100%;
+    }
+
+    .books-programme__head {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .books-cta__inner {
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+
+  @media (max-width: 639px) {
+    .books-hero h1 {
+      max-width: 8ch;
+      font-size: clamp(3.15rem, 15vw, 4.7rem);
+    }
+
+    .books-paths__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .books-path {
+      min-height: 0;
+      padding-block: 0.5rem 3.5rem;
+    }
+
+    .books-path + .books-path {
+      padding-inline-start: 0;
+      padding-block: 3.5rem 0.5rem;
+      border-inline-start: 0;
+      border-top: var(--p-border-hairline) solid var(--border-strong);
+    }
+
+    .books-path h2,
+    .books-programme__head h2,
+    .books-cta h2 {
+      max-width: 12ch;
+      font-size: clamp(2.35rem, 11vw, 3.35rem);
+    }
+
+    .books-format-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .books-format-list li {
+      min-height: 10rem;
+      padding-inline: 0.8rem;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .books-format-list {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .books-format-list li {
+      min-height: 0;
+    }
+  }
+</style>

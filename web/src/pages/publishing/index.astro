@@ -1,0 +1,754 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import { externalSystems } from '@/data/site';
+import { getAllImprints, getJournalsForImprint } from '@/lib/content/imprints';
+import { getActiveJournals } from '@/lib/content/journals';
+import { getPublishingCopy } from '@/i18n/sections';
+import { getLocalizedImprints } from '@/i18n/catalog';
+import { localizePath } from '@/i18n/utils';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getPublishingCopy(locale);
+const activeJournals = getActiveJournals();
+const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprint, index) => ({
+  imprint,
+  index: String(index + 1).padStart(2, '0'),
+  journals: getJournalsForImprint(imprint.slug),
+}));
+
+const programmeRoutes = copy.routes.map((route, index) => ({
+  number: String(index + 1).padStart(2, '0'),
+  ...route,
+  href: index === 0 ? localizePath('/journals/', locale) : index === 1 ? externalSystems.books : localizePath('/standards/', locale),
+  external: index === 1,
+}));
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/publishing/"
+  locale={locale}
+>
+  <div class="publishing-page">
+    <GroupHero
+      eyebrow={copy.overline}
+      title={copy.heroTitle}
+      lede={copy.heroLede}
+      titleId="publishing-title"
+      variant="catalogue"
+    >
+      <div slot="actions">
+        <Button href={localizePath('/journals/', locale)}>{copy.exploreJournals}</Button>
+        <Button href="#imprints" variant="secondary">{copy.meetImprints}</Button>
+      </div>
+
+      <div slot="aside" class="group-hero__visual publishing-hero__visual" aria-label={copy.visualAria}>
+        <svg class="publishing-hero__orbits" viewBox="0 0 620 620" aria-hidden="true" focusable="false" overflow="visible">
+          <circle class="publishing-hero__orbit publishing-hero__orbit--blue" cx="310" cy="310" r="264" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="3" />
+          <circle class="publishing-hero__orbit publishing-hero__orbit--sage" cx="310" cy="310" r="232" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="-18" transform="rotate(-8 310 310)" />
+          <circle class="publishing-hero__orbit publishing-hero__orbit--terra" cx="310" cy="310" r="198" pathLength="100" stroke-dasharray="17 83" stroke-dashoffset="-38" transform="rotate(6 310 310)" />
+          <circle class="publishing-hero__orbit publishing-hero__orbit--gold" cx="310" cy="310" r="164" pathLength="100" stroke-dasharray="16 84" stroke-dashoffset="-57" transform="rotate(-5 310 310)" />
+          <circle class="publishing-hero__orbit publishing-hero__orbit--plum" cx="310" cy="310" r="285" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="-78" transform="rotate(8 310 310)" />
+        </svg>
+        <div class="publishing-hero__note">
+          <span class="publishing-hero__note-rule" aria-hidden="true"></span>
+          <p>{copy.visualLineOne}<br />{copy.visualLineTwo}</p>
+        </div>
+      </div>
+    </GroupHero>
+
+    <section class="publishing-pathways row--inverse" aria-labelledby="pathways-title">
+      <div class="container-wide">
+        <header class="publishing-pathways__header">
+          <p class="text-overline">{copy.pathwaysOverline}</p>
+          <h2 id="pathways-title">{copy.pathwaysTitle}</h2>
+        </header>
+
+        <ol class="publishing-pathways__list" role="list">
+          {programmeRoutes.map((route) => (
+            <li class="publishing-pathway">
+              <span class="publishing-pathway__number" aria-hidden="true">{route.number}</span>
+              <div class="publishing-pathway__body">
+                <h3>{route.title}</h3>
+                <p>{route.description}</p>
+                <a href={route.href} class="publishing-pathway__link" target={route.external ? '_blank' : undefined} rel={route.external ? 'noopener noreferrer' : undefined}>
+                  {route.label}
+                  {route.external && <span class="visually-hidden"> (opens in a new tab)</span>}
+                </a>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section id="imprints" class="publishing-imprints" aria-labelledby="imprints-title">
+      <div class="container-wide">
+        <header class="publishing-imprints__header">
+          <div>
+            <p class="publishing-imprints__overline text-overline">{copy.imprintsOverline}</p>
+            <h2 id="imprints-title">{copy.imprintsTitle}</h2>
+            <p class="publishing-imprints__lede">{copy.imprintsLede}</p>
+          </div>
+          <p class="publishing-imprints__count"><strong>{activeJournals.length}</strong> {copy.activeJournals}</p>
+        </header>
+
+        <div class="publishing-imprints__table" role="table" aria-label={copy.tableAria}>
+          <div class="publishing-imprints__table-head" role="row">
+            <span role="columnheader">{copy.imprintHeader}</span>
+            <span role="columnheader">{copy.scopeHeader}</span>
+            <span role="columnheader">{copy.programmeHeader}</span>
+          </div>
+
+          {imprintGroups.map(({ imprint, index, journals }) => (
+            <a
+              class="publishing-imprint"
+              href={`/imprints/${imprint.slug}/`}
+              style={`--imprint-accent: ${imprint.accent};`}
+              role="row"
+            >
+              <div class="publishing-imprint__brand" role="cell">
+                <span class="publishing-imprint__index" aria-hidden="true">{index}</span>
+                <div>
+                  <Image
+                    class="publishing-imprint__logo"
+                    src={imprint.logo ?? ''}
+                    alt={imprint.name}
+                    width={240}
+                    height={80}
+                    loading="lazy"
+                  />
+                  <p>{imprint.scope}</p>
+                </div>
+              </div>
+              <div class="publishing-imprint__description" role="cell">
+                <p>{imprint.description}</p>
+                <ul role="list">
+                  {imprint.disciplines?.map((discipline) => <li>{discipline}</li>)}
+                </ul>
+              </div>
+              <div class="publishing-imprint__programme" role="cell">
+                <strong>{journals.length}</strong>
+                <span>{copy.activeJournalsLabel}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div class="publishing-imprints__footer">
+          <p>{copy.imprintsClosing}</p>
+          <a class="publishing-inline-link" href={localizePath('/imprints/', locale)}>{copy.exploreAllImprints}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="publishing-next" aria-labelledby="publishing-next-title">
+      <div class="container-wide publishing-next__grid">
+        <div>
+          <p class="text-overline">{copy.nextOverline}</p>
+          <h2 id="publishing-next-title">{copy.nextTitle}</h2>
+          <p>{copy.nextBody}</p>
+        </div>
+        <div class="publishing-next__actions">
+          <Button href={localizePath('/standards/editorial/', locale)}>{copy.editorialStandards}</Button>
+          <Button href={localizePath('/about/contact/', locale)} variant="secondary">{copy.contactGroup}</Button>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .publishing-page {
+    background: var(--surface-primary);
+    color: var(--text-primary);
+  }
+
+  .publishing-hero {
+    overflow: hidden;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .publishing-hero__grid {
+    display: grid;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    min-height: min(38rem, 64vh);
+    padding-block: clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .publishing-hero__copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .publishing-hero__overline,
+  .publishing-imprints__overline {
+    color: var(--text-accent);
+  }
+
+  .publishing-hero h1 {
+    max-width: none;
+    margin: 1.1rem 0 1.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 4.2vw, 4.8rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.055em;
+    line-height: 0.94;
+  }
+
+  .publishing-hero__lede {
+    max-width: 34rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+    line-height: 1.42;
+  }
+
+  .publishing-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 2.35rem;
+  }
+
+  .publishing-hero__visual {
+    position: relative;
+    min-height: clamp(20rem, 34vw, 31rem);
+  }
+
+  .publishing-hero__orbits {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: min(100%, 32rem);
+    height: auto;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    overflow: visible;
+  }
+
+  .publishing-hero__orbit {
+    fill: none;
+    stroke-width: 1.05;
+    stroke-linecap: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .publishing-hero__orbit--blue,
+  .publishing-hero__orbit--sage,
+  .publishing-hero__orbit--terra,
+  .publishing-hero__orbit--plum {
+    stroke: color-mix(in srgb, var(--p-navy-700) 55%, var(--surface-primary));
+    opacity: 0.8;
+  }
+
+  .publishing-hero__orbit--gold {
+    stroke: color-mix(in srgb, var(--brand-accent) 68%, var(--surface-primary));
+    opacity: 0.72;
+  }
+
+  .publishing-hero__note {
+    position: absolute;
+    right: 0;
+    bottom: 4%;
+    display: grid;
+    justify-items: start;
+    gap: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .publishing-hero__note-rule {
+    display: block;
+    width: 2.5rem;
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+  }
+
+  .publishing-hero__note p {
+    margin: 0;
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.18em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .publishing-pathways {
+    background: var(--surface-inverse);
+    color: var(--text-inverse);
+    padding-block: clamp(4rem, 7vw, 6.5rem);
+  }
+
+  .publishing-pathways__header {
+    max-width: 50rem;
+  }
+
+  .publishing-pathways__header .text-overline {
+    color: var(--brand-accent);
+  }
+
+  .publishing-pathways h2 {
+    margin-top: 1.15rem;
+    color: var(--text-inverse);
+    font-family: var(--font-display);
+    max-width: 28ch;
+    font-size: clamp(2.3rem, 4vw, 4.3rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .publishing-pathways__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: clamp(2.75rem, 5vw, 4.5rem) 0 0;
+    padding: 0;
+  }
+
+  .publishing-pathway {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1.1rem;
+    min-width: 0;
+    padding-inline: clamp(1rem, 2.2vw, 2.5rem);
+  }
+
+  .publishing-pathway:first-child { padding-inline-start: 0; }
+  .publishing-pathway:last-child { padding-inline-end: 0; }
+
+  .publishing-pathway + .publishing-pathway {
+    border-inline-start: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .publishing-pathway__number {
+    color: var(--text-inverse-muted);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+  }
+
+  .publishing-pathway h3 {
+    margin: 0;
+    color: var(--text-inverse);
+    font-family: var(--font-display);
+    font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .publishing-pathway p {
+    max-width: 18rem;
+    margin: 1rem 0 0;
+    color: var(--text-inverse-muted);
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .publishing-pathway__link,
+  .publishing-inline-link {
+    display: inline-block;
+    margin-top: 1.45rem;
+    border-bottom: var(--p-border-hairline) solid currentColor;
+    color: var(--text-inverse);
+    font-size: 0.6rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.6;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .publishing-pathway__link:hover,
+  .publishing-pathway__link:focus-visible {
+    color: var(--brand-accent);
+  }
+
+  .publishing-imprints {
+    padding-block: clamp(4rem, 8vw, 7.25rem);
+  }
+
+  .publishing-imprints__header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .publishing-imprints h2 {
+    max-width: 17ch;
+    margin-top: 1.1rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.7rem, 5.3vw, 5rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.055em;
+    line-height: 0.95;
+  }
+
+  .publishing-imprints__lede {
+    max-width: 36rem;
+    margin: 1rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.45;
+  }
+
+  .publishing-imprints__count {
+    display: grid;
+    flex: 0 0 auto;
+    justify-items: end;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .publishing-imprints__count strong {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .publishing-imprints__table {
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .publishing-imprints__table-head,
+  .publishing-imprint {
+    display: grid;
+    grid-template-columns: minmax(14rem, 0.85fr) minmax(20rem, 1.55fr) minmax(8rem, 0.45fr);
+    column-gap: clamp(1rem, 3vw, 3.25rem);
+  }
+
+  .publishing-imprints__table-head {
+    padding-block: 0.8rem;
+    color: var(--text-muted);
+    font-size: 0.55rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.18em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .publishing-imprint {
+    position: relative;
+    align-items: center;
+    min-width: 0;
+    padding-block: clamp(1.4rem, 2.6vw, 2.3rem);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    color: inherit;
+    text-decoration: none;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard), padding-inline var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .publishing-imprint:hover,
+  .publishing-imprint:focus-visible {
+    background: var(--surface-secondary);
+  }
+
+  .publishing-imprint__brand {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    align-items: start;
+    gap: 0.85rem;
+    min-width: 0;
+  }
+
+  .publishing-imprint__index {
+    padding-top: 0.2rem;
+    color: var(--imprint-accent);
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.12em;
+  }
+
+  .publishing-imprint__logo {
+    display: block;
+    width: min(100%, 12.5rem);
+    height: 3.35rem;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .publishing-imprint__brand p {
+    max-width: 15rem;
+    margin: 0.75rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.58rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    line-height: 1.45;
+    text-transform: uppercase;
+  }
+
+  .publishing-imprint__description p {
+    max-width: 31rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .publishing-imprint__description ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1rem;
+    margin: 0.9rem 0 0;
+    padding: 0;
+    color: var(--text-muted);
+    font-size: 0.57rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.13em;
+    line-height: 1.35;
+    list-style: none;
+    text-transform: uppercase;
+  }
+
+  .publishing-imprint__description li + li::before {
+    margin-inline-end: 1rem;
+    color: var(--imprint-accent);
+    content: '/';
+  }
+
+  .publishing-imprint__programme {
+    display: grid;
+    justify-items: start;
+    gap: 0.35rem;
+    padding-inline-start: clamp(0.75rem, 2vw, 1.5rem);
+    border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .publishing-imprint__programme strong {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .publishing-imprint__programme span {
+    color: var(--text-muted);
+    font-size: 0.54rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .publishing-imprints__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-top: 1.35rem;
+  }
+
+  .publishing-imprints__footer p {
+    max-width: 31rem;
+    margin: 0;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
+
+  .publishing-inline-link {
+    flex: 0 0 auto;
+    color: var(--text-link);
+  }
+
+  .publishing-inline-link:hover,
+  .publishing-inline-link:focus-visible {
+    color: var(--text-link-hover);
+  }
+
+  .publishing-next {
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-secondary);
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  }
+
+  .publishing-next__grid {
+    display: grid;
+    align-items: end;
+    gap: 2.5rem;
+  }
+
+  .publishing-next h2 {
+    max-width: 16ch;
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5.2vw, 5rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.055em;
+    line-height: 0.95;
+  }
+
+  .publishing-next p:not(.text-overline) {
+    max-width: 36rem;
+    margin: 1.15rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+  .publishing-next__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    justify-content: flex-start;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (min-width: 768px) {
+    .publishing-hero__grid {
+      grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+
+    .publishing-next__grid {
+      grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
+    }
+
+    .publishing-next__actions {
+      justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .publishing-imprints__table-head,
+    .publishing-imprint {
+      grid-template-columns: minmax(12rem, 0.8fr) minmax(14rem, 1.35fr) minmax(7rem, 0.4fr);
+    }
+
+    .publishing-imprint__description p { font-size: 0.9rem; }
+  }
+
+  @media (max-width: 767px) {
+    .publishing-hero__grid {
+      min-height: 0;
+    }
+
+    .publishing-hero__visual {
+      min-height: 19rem;
+      margin-top: 0.5rem;
+    }
+
+    .publishing-hero__orbits {
+      width: min(100%, 22rem);
+    }
+
+    .publishing-hero__keywords { top: 9%; }
+    .publishing-hero__note { bottom: 0; }
+
+    .publishing-pathways__list {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .publishing-pathway,
+    .publishing-pathway:first-child,
+    .publishing-pathway:last-child {
+      padding-inline: 0;
+    }
+
+    .publishing-pathway + .publishing-pathway {
+      padding-top: 2rem;
+      border-block-start: var(--p-border-hairline) solid var(--border-inverse);
+      border-inline-start: 0;
+    }
+
+    .publishing-imprints__header {
+      align-items: start;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .publishing-imprints__count {
+      justify-items: start;
+    }
+
+    .publishing-imprints__table-head { display: none; }
+
+    .publishing-imprint {
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.9rem;
+      padding-block: 1.7rem;
+    }
+
+    .publishing-imprint__brand {
+      display: contents;
+    }
+
+    .publishing-imprint__index {
+      grid-column: 1;
+      grid-row: 1 / span 3;
+    }
+
+    .publishing-imprint__brand > div {
+      grid-column: 2;
+    }
+
+    .publishing-imprint__description {
+      grid-column: 2;
+      margin-top: 0.2rem;
+    }
+
+    .publishing-imprint__programme {
+      grid-column: 2;
+      justify-items: start;
+      margin-top: 0.7rem;
+      padding-block-start: 0.8rem;
+      padding-inline-start: 0;
+      border-block-start: var(--p-border-hairline) solid var(--border-subtle);
+      border-inline-start: 0;
+    }
+
+    .publishing-imprints__footer {
+      align-items: start;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .publishing-next__actions {
+      display: grid;
+      justify-items: start;
+    }
+  }
+
+  @media (max-width: 479px) {
+    .publishing-hero h1 {
+      max-width: 18ch;
+      font-size: clamp(2.8rem, 13vw, 4rem);
+    }
+    .publishing-hero__visual { min-height: 16rem; }
+    .publishing-hero__keywords { right: 0; }
+    .publishing-hero__note p { font-size: 0.5rem; }
+  }
+</style>

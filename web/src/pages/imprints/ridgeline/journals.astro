@@ -1,0 +1,380 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
+import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { imprintText } from '@/i18n/imprints';
+import { localizePath } from '@/i18n/utils';
+
+const imprint = getImprintBySlug('ridgeline');
+const journals = getJournalsForImprint('ridgeline').filter((journal) => journal.status === 'active');
+const currentPath = Astro.url.pathname;
+const locale = Astro.currentLocale ?? 'en';
+const tx = (key: string, fallback: string) => imprintText('ridgeline', locale, key, fallback);
+const pageDescription = tx('section.journals.pageDescription', 'Explore the Ridgeline journal family across technology, engineering, applied AI, and interdisciplinary systems research.');
+const labels = getNavigationLabels(locale);
+const localizedBasePath = localizePath('/imprints/ridgeline/', locale);
+const localizedAboutPath = localizePath('/imprints/ridgeline/about/', locale);
+const imprintNav = [
+  { label: labels.home, href: localizedBasePath },
+  { label: labels.journals, href: '#journals', current: true },
+  { label: labels.research, href: `${localizedBasePath}#purpose` },
+  { label: labels.forAuthors, href: `${localizedBasePath}#authors` },
+  { label: labels.about, href: localizedAboutPath },
+];
+const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
+const disciplineKeys: Record<string, string> = {
+  Multidisciplinary: 'multidisciplinary',
+  Technology: 'technology',
+  Engineering: 'engineering',
+};
+---
+
+<BaseLayout
+  title={tx('section.journals.pageTitle', 'Ridgeline journals')}
+  description={pageDescription}
+  path="/imprints/ridgeline/journals/"
+  locale={locale}
+  showChrome={false}
+>
+  <div class="ridgeline-directory" style={`--imprint-accent: ${imprint?.accent ?? 'var(--imprint-ridgeline)'}`}>
+    <ImprintHeader imprint={imprint!} links={imprintNav} locale={locale} currentPath={currentPath} />
+
+    <main>
+      <section class="ridgeline-directory__intro" aria-labelledby="ridgeline-directory-title">
+        <div class="ridgeline-directory__shell">
+          <p class="ridgeline-directory__kicker">{tx('section.journals.kicker', 'Ridgeline / Panorama Scholarly Group')}</p>
+          <h1 id="ridgeline-directory-title">{tx('section.journals.title', 'Advancing technology. Shaping what comes next.')}</h1>
+          <p class="ridgeline-directory__lede">{tx('section.journals.lede', 'Explore independent journals advancing research across technology, engineering, applied AI, and the systems shaping our shared future.')}</p>
+        </div>
+      </section>
+
+      <section id="journals" class="ridgeline-directory__list" aria-labelledby="ridgeline-directory-list-title">
+        <div class="ridgeline-directory__shell">
+          <div class="ridgeline-directory__section-bar">
+            <p class="ridgeline-directory__kicker" id="ridgeline-directory-list-title">{tx('section.journals.directoryKicker', 'Ridgeline journals')}</p>
+            <p>{journals.length} {tx('section.journals.activeJournals', 'active journals')}</p>
+          </div>
+
+          <div class="ridgeline-directory__grid">
+            {journals.map((journal) => (
+              <article class="ridgeline-directory__card">
+                <a class="ridgeline-directory__cover-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`${tx('visitJournal', 'Visit journal website')}: ${journal.title}`}>
+                  {journal.cover && (
+                    getJournalCoverAsset(journal.cover) ? (
+                      <Image
+                        src={getJournalCoverAsset(journal.cover)!}
+                        alt=""
+                        width={495}
+                        height={700}
+                        widths={[160, 240, 320, 495]}
+                        sizes="(max-width: 639px) 10rem, (max-width: 800px) 10.5rem, 12rem"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <Image src={journal.cover} alt="" width={495} height={700} loading="lazy" />
+                    )
+                  )}
+                </a>
+                <div class="ridgeline-directory__card-body">
+                  <p class="ridgeline-directory__discipline">{journal.disciplines.map((discipline) => tx(`discipline.${disciplineKeys[discipline] ?? discipline.toLowerCase()}`, discipline)).join(' · ')}</p>
+                  <h2><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h2>
+                  <p class="ridgeline-directory__description">{tx(`journal.${journal.slug}.summary`, journal.description ?? 'Independent research for a more informed and livable future.')}</p>
+                  <a class="ridgeline-directory__link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('visitJournal', 'Visit journal website')}</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <ImprintFooter
+      imprint={imprint!}
+      links={footerNav}
+      locale={locale}
+      tagline={tx('footerTagline', 'Ideas for a more livable tomorrow.')}
+    />
+  </div>
+</BaseLayout>
+
+<style>
+  .ridgeline-directory {
+    --ridge-paper: var(--p-paper-50);
+    --ridge-ink: var(--p-navy-950);
+    --ridge-ink-soft: var(--p-navy-700);
+    --ridge-line: var(--p-stone-300);
+    --ridge-copper: #8f3e35;
+    min-height: 100vh;
+    background: var(--ridge-paper);
+    color: var(--ridge-ink);
+  }
+
+  .ridgeline-directory__shell {
+    width: min(100% - 7rem, 1320px);
+    margin-inline: auto;
+  }
+
+  .ridgeline-directory__header {
+    border-bottom: 1px solid color-mix(in srgb, var(--ridge-ink) 15%, transparent);
+  }
+
+  .ridgeline-directory__header-inner,
+  .ridgeline-directory__footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 5rem;
+  }
+
+  .ridgeline-directory__brands { display: flex; align-items: center; flex: 0 0 auto; gap: 1rem; }
+  .ridgeline-directory__divider { width: 1px; height: 2.25rem; background: var(--ridge-line); }
+
+  .ridgeline-directory__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .ridgeline-directory__brand-mark {
+    display: block;
+    width: 7.5rem;
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+
+  .ridgeline-directory__brand-mark img {
+    display: block;
+    width: 11.7rem;
+    max-width: none;
+    height: auto;
+  }
+
+  .ridgeline-directory__header nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .ridgeline-directory__header nav a,
+  .ridgeline-directory__footer a {
+    color: var(--ridge-ink);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-directory__header nav a:hover,
+  .ridgeline-directory__header nav a:focus-visible,
+  .ridgeline-directory__footer a:hover,
+  .ridgeline-directory__footer a:focus-visible {
+    color: var(--ridge-copper);
+  }
+
+  .ridgeline-directory__header-tools { margin-inline-start: auto; }
+  .ridgeline-directory__lang { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--ridge-line); }
+  .ridgeline-directory__lang :global(.lang-switcher__trigger) { color: var(--ridge-ink); }
+  .ridgeline-directory__lang :global(.lang-switcher__trigger:hover) { color: var(--ridge-copper); }
+
+  .ridgeline-directory__intro {
+    padding-block: clamp(5rem, 10vw, 9rem) clamp(4rem, 8vw, 7rem);
+    border-bottom: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-directory__kicker {
+    margin: 0;
+    color: var(--ridge-copper);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.19em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-directory h1 {
+    max-width: 13ch;
+    margin: 1.4rem 0 1.6rem;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: 0.94;
+  }
+
+  .ridgeline-directory__lede {
+    max-width: 38rem;
+    margin: 0;
+    color: var(--ridge-ink-soft);
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    line-height: 1.45;
+  }
+
+  .ridgeline-directory__list {
+    padding-block: 1.4rem clamp(5rem, 8vw, 8rem);
+  }
+
+  .ridgeline-directory__section-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 1.2rem 1rem;
+    border-bottom: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-directory__section-bar > p:last-child {
+    margin: 0;
+    color: var(--ridge-ink-soft);
+    font-size: 0.61rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-directory__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 0;
+  }
+
+  .ridgeline-directory__card {
+    display: grid;
+    grid-template-columns: minmax(10rem, 12rem) minmax(0, 1fr);
+    align-items: start;
+    column-gap: clamp(1.75rem, 4vw, 4rem);
+    min-width: 0;
+    padding-block: 2.75rem;
+    border-block-end: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-directory__card:first-child {
+    padding-block-start: 2.5rem;
+  }
+
+  .ridgeline-directory__cover-link {
+    display: block;
+    width: 100%;
+    box-shadow: 0 0.55rem 1rem color-mix(in srgb, var(--ridge-ink) 14%, transparent);
+  }
+
+  .ridgeline-directory__cover-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 495 / 700;
+    object-fit: cover;
+  }
+
+  .ridgeline-directory__card-body {
+    display: flex;
+    min-width: 0;
+    min-height: 100%;
+    flex-direction: column;
+    padding-block: 0.2rem 0.25rem;
+  }
+
+  .ridgeline-directory__discipline {
+    margin: 0 0 0.5rem;
+    color: var(--ridge-copper);
+    font-size: 0.59rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-directory h2 {
+    max-width: 30rem;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.08;
+  }
+
+  .ridgeline-directory h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .ridgeline-directory h2 a:hover,
+  .ridgeline-directory h2 a:focus-visible {
+    color: var(--ridge-copper);
+  }
+
+  .ridgeline-directory__description {
+    max-width: 36rem;
+    margin: 0.85rem 0 0;
+    color: var(--ridge-ink-soft);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .ridgeline-directory__link {
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-bottom: 1px solid var(--ridge-copper);
+    color: var(--ridge-ink);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.8;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .ridgeline-directory__link:hover,
+  .ridgeline-directory__link:focus-visible {
+    color: var(--ridge-copper);
+  }
+
+  .ridgeline-directory__footer {
+    border-top: 1px solid var(--ridge-line);
+  }
+
+  .ridgeline-directory__footer-inner {
+    min-height: 4.5rem;
+  }
+
+  .ridgeline-directory__footer-inner > span {
+    margin-inline: auto;
+    color: var(--ridge-ink-soft);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 800px) {
+    .ridgeline-directory__shell { width: min(100% - 3rem, 44rem); }
+    .ridgeline-directory__card { grid-template-columns: minmax(9rem, 10.5rem) minmax(0, 1fr); column-gap: 1.75rem; }
+  }
+
+  @media (max-width: 639px) {
+    .ridgeline-directory__shell { width: calc(100% - 2rem); }
+    .ridgeline-directory__header-inner { align-items: flex-start; flex-direction: column; gap: 1rem; padding-block: 1.2rem; }
+    .ridgeline-directory__brand > span:last-child { display: none; }
+    .ridgeline-directory__header nav { gap: 1rem; }
+    .ridgeline-directory__header-tools { margin-inline-start: 0; }
+    .ridgeline-directory__intro { padding-block: 4.5rem 3.5rem; }
+    .ridgeline-directory h1 { font-size: 3.5rem; }
+    .ridgeline-directory__section-bar { align-items: flex-start; flex-direction: column; gap: 0.6rem; }
+    .ridgeline-directory__grid { gap: 0; }
+    .ridgeline-directory__card { grid-template-columns: 1fr; padding-inline: 0; border-inline-start: 0; }
+    .ridgeline-directory__card:first-child { padding-block-start: 2rem; }
+    .ridgeline-directory__cover-link { width: 10rem; }
+    .ridgeline-directory__card-body { min-height: 0; padding-block: 1.25rem 0.25rem; }
+    .ridgeline-directory__link { margin-top: 1.5rem; }
+    .ridgeline-directory__footer-inner { align-items: flex-start; flex-direction: column; gap: 0.8rem; padding-block: 1.4rem; }
+    .ridgeline-directory__footer-inner > span { margin-inline: 0; }
+  }
+</style>

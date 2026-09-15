@@ -1,0 +1,51 @@
+---
+interface Props {
+  href?: string;
+  inverse?: boolean;
+}
+const { href = '/', inverse = false } = Astro.props;
+---
+
+<a href={href} class:list={['logo', { 'logo--inverse': inverse }]} aria-label="Panorama Scholarly Group, home">
+  <span class="logo__name">PANORAMA</span>
+  <span class="logo__sub">SCHOLARLY GROUP</span>
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--text-primary);
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .logo__name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: -0.02em;
+  }
+
+  .logo__sub {
+    margin-top: 0.2rem;
+    color: var(--text-muted);
+    font-size: 0.42rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.15em;
+  }
+
+  .logo--inverse {
+    color: #f6f1e8 !important;
+  }
+
+  .logo--inverse .logo__name {
+    color: #f6f1e8 !important;
+  }
+
+  .logo--inverse .logo__sub {
+    color: rgba(246, 241, 232, 0.7) !important;
+  }
+</style>

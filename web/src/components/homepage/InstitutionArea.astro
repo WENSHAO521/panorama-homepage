@@ -1,0 +1,59 @@
+---
+// One row of the four-part group structure -- an editorial list row
+// (index numeral + title + description + link), not a boxed card, so
+// this section doesn't read as "four SaaS feature tiles". See
+// InstitutionAreas.astro for the wrapping list.
+interface Props {
+  index: number;
+  name: string;
+  path: string;
+  description: string;
+}
+const { index, name, path, description } = Astro.props;
+---
+
+<li class="institution-area">
+  <span class="institution-area__index text-overline" aria-hidden="true">{String(index).padStart(2, '0')}</span>
+  <div class="institution-area__body">
+    <h3 class="institution-area__title"><a href={path}>{name}</a></h3>
+    <p class="institution-area__desc text-body u-text-muted">{description}</p>
+  </div>
+</li>
+
+<style>
+  .institution-area {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: var(--p-space-5);
+    padding-block: var(--p-space-6);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+  .institution-area:last-child {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+  .institution-area__index {
+    color: var(--text-muted);
+    padding-top: var(--p-space-1);
+  }
+  .institution-area__title {
+    margin: 0;
+  }
+  .institution-area__title a {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .institution-area__title a:hover {
+    color: var(--interactive-default);
+  }
+  .institution-area__desc {
+    margin-top: var(--p-space-2);
+    max-width: 52ch;
+  }
+
+  @media (min-width: 768px) {
+    .institution-area {
+      grid-template-columns: 4rem 1fr;
+      align-items: baseline;
+    }
+  }
+</style>

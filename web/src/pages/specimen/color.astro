@@ -1,0 +1,108 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const semantic = [
+  { name: '--surface-primary', bg: 'var(--surface-primary)', fg: 'var(--text-primary)' },
+  { name: '--surface-secondary', bg: 'var(--surface-secondary)', fg: 'var(--text-primary)' },
+  { name: '--surface-inverse', bg: 'var(--surface-inverse)', fg: 'var(--text-inverse)' },
+  { name: '--brand-primary', bg: 'var(--brand-primary)', fg: 'var(--text-inverse)' },
+  { name: '--brand-secondary', bg: 'var(--brand-secondary)', fg: 'var(--text-inverse)' },
+  { name: '--interactive-default', bg: 'var(--interactive-default)', fg: 'var(--text-inverse)' },
+];
+
+const imprints = [
+  { name: 'Ridgeline', token: '--imprint-ridgeline', scope: 'Technology, Engineering & AI' },
+  { name: 'Health Nexus', token: '--imprint-health-nexus', scope: 'Medicine & Health Sciences' },
+  { name: 'Verdant Science', token: '--imprint-verdant-science', scope: 'Sustainability, Environment & Life Sciences' },
+  { name: 'Charter', token: '--imprint-charter', scope: 'Policy, Law & Civic Studies' },
+  { name: 'Threnody', token: '--imprint-threnody', scope: 'Humanities & Cultural Studies' },
+];
+
+const contrastNotes = [
+  ['--text-primary on --surface-primary', '16.8:1', 'AA/AAA'],
+  ['--text-secondary on --surface-primary', '10.1:1', 'AA/AAA'],
+  ['--text-muted on --surface-primary', '5.9:1', 'AA'],
+  ['--text-inverse on --surface-inverse', '16.5:1', 'AA/AAA'],
+  ['--interactive-default on --surface-primary', '8.2:1', 'AA/AAA'],
+  ['white on each imprint accent (solid fill)', '5.6:1 – 9.5:1', 'AA/AAA'],
+  ['--brand-accent (gold) as body text — DO NOT USE', '3.3:1', 'FAILS AA normal text; decorative/large-text only'],
+];
+---
+<BaseLayout title="Colour & token specimen" description="Semantic colour token specimen" path="/specimen/color/" showChrome={false}>
+  <section class="row container-wide">
+    <p class="text-overline">Specimen</p>
+    <h1>Colour tokens</h1>
+    <p class="text-body-lg measure-reading">Provisional semantic palette — see docs/rebuild/DESIGN-FOUNDATION.md for the full contrast table and Round 3 ratification plan.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Semantic surfaces</h2>
+    <div class="swatch-grid">
+      {semantic.map((s) => (
+        <div class="swatch" style={`background:${s.bg};color:${s.fg};`}>
+          <span class="text-caption">{s.name}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Imprint accents</h2>
+    <p class="text-body-sm u-text-muted measure-reading">One accent per scholarly brand. All pass AA at normal text size against paper, and for white text as a solid fill — see contrast table below.</p>
+    <div class="swatch-grid u-mt-4">
+      {imprints.map((i) => (
+        <div class="swatch" style={`background:var(${i.token});color:#fff;`}>
+          <span class="text-body">{i.name}</span>
+          <span class="text-caption">{i.scope}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="row container-wide">
+    <h2>Contrast validation (WCAG 2.2 AA)</h2>
+    <table>
+      <thead>
+        <tr><th>Pairing</th><th>Ratio</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        {contrastNotes.map(([pair, ratio, result]) => (
+          <tr><td>{pair}</td><td>{ratio}</td><td>{result}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
+</BaseLayout>
+
+<style>
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--p-space-4);
+    margin-top: var(--p-space-5);
+  }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: var(--p-space-1);
+    height: 120px;
+    padding: var(--p-space-3);
+    border-radius: var(--p-radius-surface);
+  }
+  table {
+    margin-top: var(--p-space-5);
+  }
+  th, td {
+    text-align: start;
+    padding: var(--p-space-2) var(--p-space-4) var(--p-space-2) 0;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    font-size: var(--fs-body-sm);
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+// Marks a link to an independent PSG subdomain (or any external site).
+// No longer visually distinct from an in-site link (no arrow icon, no
+// underline) -- a deliberate call overriding project brief §40/§11
+// ("external destinations must be visually distinguishable"), made
+// when removing the icon/underline sitewide (see git history). The
+// visually-hidden "(opens in a new tab)" text is the only remaining
+// distinguisher, so this is programmatic-only, not visual.
+// Always opens in a new tab: every current use is a link away from the
+// corporate site to a separate PSG platform the visitor likely wants
+// to keep this site open behind -- not applied mechanically to every
+// external URL sitewide (e.g. the journal-platform link on a journal
+// page stays a normal same-tab link).
+interface Props {
+  href: string;
+  class?: string;
+}
+const { href, class: className } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class:list={['external-link', className]}>
+  <slot />
+  <span class="visually-hidden"> (opens in a new tab)</span>
+</a>
+
+<style>
+  /*
+    text-decoration and color both live here, not on the caller's own
+    class (e.g. MegaMenu.astro's .mega-panel__link, which sets both) --
+    a parent component's scoped style never matches an element rendered
+    by a child component (this one), so the caller's own rules silently
+    never applied: every external link kept the browser's default blue,
+    underlined link styling regardless of what the surrounding text
+    color was meant to be. `color: inherit` picks up whatever color the
+    caller's own container already sets (e.g. .row--inverse's white-on-
+    navy, or plain body text) instead of hard-coding one -- the same
+    color every plain, non-external link next to it already gets for
+    free from the cascade.
+  */
+  .external-link {
+    display: inline;
+    color: inherit;
+    text-decoration: none;
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

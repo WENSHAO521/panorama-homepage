@@ -1,0 +1,113 @@
+---
+import Logo from '@/components/ui/Logo.astro';
+import { getLegalNav } from '@/data/navigation';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { localizePath } from '@/i18n/utils';
+import type { Imprint } from '@/types';
+
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  imprint: Imprint;
+  links: NavLink[];
+  locale?: string;
+  tagline?: string;
+  theme?: 'light' | 'dark';
+}
+
+const {
+  imprint,
+  links,
+  locale = 'en',
+  tagline,
+  theme = 'light',
+} = Astro.props;
+
+const labels = getNavigationLabels(locale);
+const legalNav = getLegalNav(locale);
+const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independent scholarship.`;
+---
+
+<footer class:list={['imprint-footer', `imprint-footer--${theme}`]}>
+  <div class="imprint-shell imprint-footer__top">
+    <div class="imprint-footer__identity">
+      <Logo href={localizePath('/', locale)} inverse={theme === 'dark'} />
+      <a class="imprint-footer__brand" href={localizePath(`/imprints/${imprint.slug}/`, locale)} aria-label={`${imprint.name} home`}>
+        <img src={theme === 'dark' ? imprint.logoLight : imprint.logo} alt={imprint.name} width="260" height="50" loading="lazy" />
+      </a>
+      <p>{resolvedTagline}</p>
+    </div>
+
+    <nav class="imprint-footer__nav" aria-label={`${imprint.name} footer navigation`}>
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+      <a href={localizePath('/search/', locale)}>{labels.search}</a>
+    </nav>
+  </div>
+
+  <div class="imprint-shell imprint-footer__bottom">
+    <p>© {new Date().getFullYear()} Panorama Scholarly Group Ltd. {labels.allRightsReserved}</p>
+    <nav aria-label={labels.legal}>
+      {legalNav.map((item) => <a href={item.path}>{item.label}</a>)}
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .imprint-footer {
+    --imprint-footer-bg: var(--p-paper-50);
+    --imprint-footer-ink: var(--p-ink-900);
+    --imprint-footer-muted: var(--p-ink-700);
+    --imprint-footer-line: var(--p-stone-300);
+    background: var(--imprint-footer-bg);
+    border-top: 1px solid var(--imprint-footer-line);
+    color: var(--imprint-footer-ink);
+  }
+
+  .imprint-footer--dark {
+    --imprint-footer-bg: var(--p-ink-900);
+    --imprint-footer-ink: var(--p-paper-50);
+    --imprint-footer-muted: color-mix(in srgb, var(--p-paper-50) 72%, transparent);
+    --imprint-footer-line: color-mix(in srgb, var(--p-paper-50) 22%, transparent);
+  }
+
+  .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-desktop))), var(--p-container-ultra)); margin-inline: auto; }
+
+  .imprint-footer__top {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+    gap: 3rem;
+    padding-block: clamp(3rem, 6vw, 5.5rem);
+  }
+
+  .imprint-footer__identity { display: grid; align-content: start; justify-items: start; gap: 1.2rem; max-width: 23rem; }
+  .imprint-footer__brand { display: inline-flex; max-width: 10rem; color: inherit; text-decoration: none; }
+  .imprint-footer__brand img { display: block; width: 100%; height: auto; max-height: 2.3rem; object-fit: contain; object-position: left center; }
+  .imprint-footer__identity p { max-width: 20rem; margin: 0; color: var(--imprint-footer-muted); font-family: var(--font-display); font-size: 0.88rem; line-height: 1.45; }
+
+  .imprint-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 0.8rem 2rem; }
+  .imprint-footer__nav a,
+  .imprint-footer__bottom a { color: var(--imprint-footer-muted); font-size: 0.72rem; text-decoration: none; transition: color var(--p-duration-base) var(--p-ease-standard); }
+  .imprint-footer__nav a:hover,
+  .imprint-footer__nav a:focus-visible,
+  .imprint-footer__bottom a:hover,
+  .imprint-footer__bottom a:focus-visible { color: var(--imprint-footer-ink); }
+
+  .imprint-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1rem 1.2rem; border-top: 1px solid var(--imprint-footer-line); color: var(--imprint-footer-muted); }
+  .imprint-footer__bottom p { margin: 0; font-size: 0.62rem; line-height: 1.3; }
+  .imprint-footer__bottom nav { display: flex; flex-wrap: wrap; gap: 0.75rem 1.2rem; }
+
+  @media (max-width: 900px) {
+    .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-tablet))), 44rem); }
+    .imprint-footer__top { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 639px) {
+    .imprint-shell { width: calc(100% - (2 * var(--p-gutter-mobile))); }
+    .imprint-footer__top { gap: 2.5rem; padding-block: 3rem; }
+    .imprint-footer__nav { grid-template-columns: 1fr 1fr; }
+    .imprint-footer__bottom { align-items: flex-start; flex-direction: column; }
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+import LegalPage from '@/components/legal/LegalPage.astro';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { getPolicyCopy } from '@/i18n/policies';
+import { getPolicyBody, renderPolicyHtml } from '@/i18n/policy-body';
+
+const locale = Astro.currentLocale ?? 'en';
+const policy = getPolicyCopy('openAccess', locale);
+const body = getPolicyBody('openAccess', locale);
+const labels = getNavigationLabels(locale);
+const render = (html: string) => renderPolicyHtml(html, locale);
+const sections = [
+  { id: 'purpose', label: policy.sections.purpose },
+  { id: 'routes', label: policy.sections.routes },
+  { id: 'copyright', label: policy.sections.copyright },
+  { id: 'licenses', label: policy.sections.licenses },
+  { id: 'reuse', label: policy.sections.reuse },
+  { id: 'third-party', label: policy.sections['third-party'] },
+  { id: 'data', label: policy.sections.data },
+  { id: 'fees', label: policy.sections.fees },
+  { id: 'record', label: policy.sections.record },
+  { id: 'responsibilities', label: policy.sections.responsibilities },
+];
+---
+
+<LegalPage
+  title={policy.title}
+  description={policy.description}
+  path="/standards/open-access/"
+  locale={locale}
+  lede={policy.lede}
+  updated="14 September 2026"
+  sections={sections}
+  relatedLinks={[
+    { href: '/standards/editorial/', label: labels.editorialStandards },
+    { href: '/standards/ethics/', label: labels.publicationEthics },
+    { href: '/about/contact/', label: labels.contact },
+  ]}
+  railTitle={policy.railTitle}
+  railText={policy.railText}
+>
+  {sections.map((section, index) => (
+    <section class="legal-section" id={section.id}>
+      <h2><span>{String(index + 1).padStart(2, '0')}</span>{section.label}</h2>
+      <Fragment set:html={render(body.sections[section.id])} />
+    </section>
+  ))}
+
+  <aside class="legal-note">
+    <Fragment set:html={render(body.finalNote ?? '')} />
+  </aside>
+</LegalPage>

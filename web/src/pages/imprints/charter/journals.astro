@@ -1,0 +1,10 @@
+---
+import CharterSectionPage from '@/components/imprint/CharterSectionPage.astro';
+import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
+
+const imprint = getImprintBySlug('charter');
+if (!imprint) throw new Error('Charter imprint data is missing.');
+const journals = getJournalsForImprint('charter');
+---
+
+<CharterSectionPage imprint={imprint} journals={journals} section="journals" />

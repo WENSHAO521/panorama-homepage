@@ -1,0 +1,92 @@
+---
+// Version 2: this is now the real global shell -- Header + Footer render
+// on every page by default. `showChrome={false}` opts a page out (used by
+// the token/typography specimen pages, which predate the shell and are
+// meant to show raw tokens, not the production header/footer).
+import { locales, getLocale } from '@/i18n/config';
+import { localizePath } from '@/i18n/utils';
+import { site } from '@/data/site';
+import { organizationJsonLd } from '@/lib/seo/structuredData';
+import { getUiStrings } from '@/i18n/locales';
+import SkipLink from '@/components/ui/SkipLink.astro';
+import Header from '@/components/global/Header.astro';
+import Footer from '@/components/global/Footer.astro';
+import '@fontsource-variable/inter/wght.css';
+import '@fontsource-variable/source-serif-4/wght.css';
+import '@/styles/reset.css';
+import '@/styles/tokens.css';
+import '@/styles/base.css';
+import '@/styles/typography.css';
+import '@/styles/layout.css';
+import '@/styles/utilities.css';
+import '@/styles/group-system.css';
+import '@/styles/actions.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path relative to site root, no leading locale, e.g. "/about/" */
+  path?: string;
+  locale?: string;
+  /** Defaults to "index, follow"; pass "noindex, nofollow" for utility/legal pages under review. */
+  robots?: string;
+  /** Set false to render a bare shell with no Header/Footer (specimen pages only). */
+  showChrome?: boolean;
+}
+
+const {
+  title,
+  description,
+  path = '/',
+  locale = Astro.currentLocale ?? 'en',
+  robots = 'index, follow',
+  showChrome = true,
+} = Astro.props;
+const current = getLocale(locale);
+const t = getUiStrings(locale);
+const siteUrl = site.url;
+const titleTemplate = `${title} | ${site.name}`;
+const canonicalPath = localizePath(path, locale);
+const englishPath = localizePath(path, 'en');
+---
+
+<!doctype html>
+<html lang={current.bcp47} dir={current.dir}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{titleTemplate}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content={robots} />
+  <link rel="canonical" href={`${siteUrl}${canonicalPath}`} />
+
+  {locales.map((l) => (
+    <link
+      rel="alternate"
+      hreflang={l.bcp47}
+      href={`${siteUrl}${localizePath(englishPath, l.code)}`}
+    />
+  ))}
+  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${englishPath}`} />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={site.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={`${siteUrl}${canonicalPath}`} />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon/favicon.png" />
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationJsonLd())} />
+</head>
+<body class={showChrome ? 'group-site' : 'standalone-site'}>
+  <SkipLink label={t.skipToContent} />
+  {showChrome && <Header locale={locale} />}
+  <main id="main">
+    <slot />
+  </main>
+  {showChrome && <Footer locale={locale} />}
+</body>
+</html>

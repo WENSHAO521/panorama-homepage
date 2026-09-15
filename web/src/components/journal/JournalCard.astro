@@ -1,0 +1,81 @@
+---
+// Discovery card, not a metadata dashboard -- project brief §24
+// explicitly caps what belongs here: cover, title, imprint, discipline,
+// open-access indicator. No ISSN/frequency/impact-metric badges.
+import { Image } from 'astro:assets';
+import type { Journal, Imprint } from '@/types';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+
+interface Props { journal: Journal; imprint?: Imprint }
+const { journal, imprint } = Astro.props;
+const coverAsset = getJournalCoverAsset(journal.cover);
+---
+
+<li class="journal-card">
+  <a
+    href={journal.journalUrl}
+    class="journal-card__link"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`Visit journal website: ${journal.title}`}
+  >
+    {journal.cover && (
+      coverAsset ? (
+        <Image src={coverAsset} alt="" class="journal-card__cover" width={160} height={220} widths={[160, 320]} sizes="(max-width: 639px) 100vw, 20rem" loading="lazy" />
+      ) : (
+        <Image src={journal.cover} alt="" class="journal-card__cover" width={160} height={220} loading="lazy" />
+      )
+    )}
+    <div class="journal-card__body">
+      {imprint && <p class="text-caption journal-card__imprint">{imprint.name}</p>}
+      <h3 class="journal-card__title">{journal.title}</h3>
+      <p class="text-caption u-text-muted journal-card__meta">
+        {journal.disciplines[0]}
+        {journal.openAccess && <span class="journal-card__oa"> · Open access</span>}
+      </p>
+    </div>
+  </a>
+</li>
+
+<style>
+  .journal-card {
+    background: var(--surface-raised);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    border-radius: var(--p-radius-card);
+    overflow: hidden;
+    height: 100%;
+  }
+  .journal-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+  .journal-card__cover {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: var(--surface-secondary);
+    display: block;
+  }
+  .journal-card__body {
+    padding: var(--p-space-5);
+  }
+  .journal-card__imprint {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-overline);
+    font-weight: var(--fw-semibold);
+  }
+  .journal-card__title {
+    margin-top: var(--p-space-2);
+    font-size: var(--fs-h6);
+  }
+  .journal-card__meta {
+    margin-top: var(--p-space-2);
+  }
+  .journal-card__link:hover .journal-card__title {
+    color: var(--interactive-default);
+  }
+</style>

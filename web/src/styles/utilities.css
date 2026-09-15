@@ -1,0 +1,30 @@
+/*
+  PSG Utilities — Round 1 Foundation
+  A deliberately small set. This is not a utility-first framework: most
+  composition should happen in component/page CSS using the tokens
+  directly. These exist only for the handful of one-off adjustments
+  that recur across otherwise unrelated components.
+*/
+
+.u-hidden { display: none !important; }
+
+@media (max-width: 767px) {
+  .u-hide-mobile { display: none !important; }
+}
+
+@media (min-width: 768px) {
+  .u-hide-desktop { display: none !important; }
+}
+
+.u-flow > * + * { margin-top: var(--flow-space, var(--p-space-5)); }
+
+.u-mt-0 { margin-top: 0 !important; }
+.u-mt-1 { margin-top: var(--p-space-1) !important; }
+.u-mt-2 { margin-top: var(--p-space-2) !important; }
+.u-mt-3 { margin-top: var(--p-space-3) !important; }
+.u-mt-4 { margin-top: var(--p-space-4) !important; }
+.u-mt-5 { margin-top: var(--p-space-5) !important; }
+.u-mt-6 { margin-top: var(--p-space-6) !important; }
+
+.u-text-center { text-align: center; }
+.u-text-muted  { color: var(--text-muted); }

@@ -1,0 +1,72 @@
+---
+// Renders the dropdown panel for one primary-nav item that has
+// `children`. Two shapes are supported (see NavItem in
+// web/src/types/navigation.ts):
+//   - children are themselves grouping nodes with their own `children`
+//     -> each renders as its own labelled column (Publishing: "Explore" + "Imprints")
+//   - children are plain leaf links -> single unlabelled column (Research, Infrastructure, About)
+import type { NavItem } from '@/types';
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+
+interface Props { item: NavItem }
+const { item } = Astro.props;
+
+const isMultiColumn = (item.children ?? []).every((c) => c.children && c.children.length > 0);
+const columns: NavItem[] = isMultiColumn ? item.children! : [{ label: item.label, children: item.children }];
+---
+
+<div class="mega-panel" style={`--mega-cols: ${columns.length}`}>
+  {columns.map((col) => (
+    <div class="mega-panel__column">
+      {isMultiColumn && <p class="mega-panel__column-title text-overline">{col.label}</p>}
+      <ul class="mega-panel__list">
+        {col.children?.map((link) => (
+          <li class="mega-panel__item">
+            {link.external ? (
+              <ExternalLink href={link.path!} class="mega-panel__link">{link.label}</ExternalLink>
+            ) : (
+              <a href={link.path} class="mega-panel__link">{link.label}</a>
+            )}
+            {link.description && <p class="mega-panel__desc text-caption">{link.description}</p>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
+
+<style>
+  .mega-panel {
+    display: grid;
+    grid-template-columns: repeat(var(--mega-cols, 1), minmax(11rem, 16rem));
+    gap: var(--p-space-8);
+    padding: var(--p-space-6);
+  }
+  .mega-panel__column-title {
+    margin: 0 0 var(--p-space-3);
+  }
+  .mega-panel__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--p-space-3);
+  }
+  .mega-panel__link {
+    display: inline-block;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: var(--fw-medium);
+  }
+  .mega-panel__link:hover { color: var(--interactive-default); }
+  .mega-panel__desc {
+    margin: var(--p-space-1) 0 0;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 1023px) {
+    .mega-panel {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

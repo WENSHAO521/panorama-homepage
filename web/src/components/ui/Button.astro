@@ -1,0 +1,129 @@
+---
+// Base button/link. Renders an <a> when `href` is given, a <button>
+// otherwise — never a <div> with a click handler bolted on.
+// `external` marks a link to an independent PSG subdomain the same way
+// ExternalLink.astro does (new tab, "opens in a new tab" label) -- used
+// when a primary/secondary CTA itself is the external link, rather than a
+// plain inline link.
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  type?: 'button' | 'submit' | 'reset';
+  external?: boolean;
+}
+
+const { href, variant = 'primary', type = 'button', external = false } = Astro.props;
+const Tag = href ? 'a' : 'button';
+const extra = href
+  ? external
+    ? { href, target: '_blank', rel: 'noopener noreferrer' }
+    : { href }
+  : { type };
+---
+
+<Tag class={`btn btn--${variant}`} data-action={variant === 'ghost' ? undefined : variant} {...extra}>
+  <slot />
+  {external && (
+    <span class="visually-hidden"> (opens in a new tab)</span>
+  )}
+</Tag>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--p-space-2);
+    min-height: var(--p-action-height);
+    padding: var(--p-action-pad-y) var(--p-action-pad-x);
+    border-radius: var(--p-radius-button);
+    border: var(--p-border-hairline) solid transparent;
+    font: inherit;
+    font-size: var(--p-action-font-size);
+    font-weight: var(--p-action-font-weight);
+    letter-spacing: var(--p-action-letter-spacing);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard),
+      color var(--p-duration-base) var(--p-ease-standard),
+      border-color var(--p-duration-base) var(--p-ease-standard),
+      transform var(--p-duration-fast) var(--p-ease-decelerate);
+  }
+
+  .btn--primary {
+    background: var(--brand-primary);
+    color: var(--text-inverse);
+  }
+  .btn--primary:hover,
+  .btn--primary:focus-visible { background: var(--interactive-hover); transform: translateY(-1px); }
+
+  .btn--secondary {
+    justify-content: flex-start;
+    background: transparent;
+    border-color: transparent;
+    border-bottom-color: currentColor;
+    border-radius: 0;
+    color: var(--text-link);
+    padding-inline: 0;
+    text-underline-offset: var(--p-action-underline-offset);
+  }
+  .btn--secondary:hover,
+  .btn--secondary:focus-visible {
+    border-bottom-color: var(--interactive-hover);
+    color: var(--interactive-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--interactive-default);
+    min-height: auto;
+    padding-inline: var(--p-space-2);
+  }
+  .btn--ghost:hover,
+  .btn--ghost:focus-visible { color: var(--interactive-hover); transform: translateY(-1px); }
+
+  .btn:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* On the inverse/navy row surface (see layout.css .row--inverse),
+     the light-surface button colours above are invisible -- flip them
+     using the tokens already defined for on-dark interactive content. */
+  :global(.row--inverse) .btn--primary {
+    background: var(--surface-primary);
+    color: var(--brand-primary);
+  }
+  :global(.row--inverse) .btn--primary:hover {
+    background: var(--surface-secondary);
+  }
+  :global(.row--inverse) .btn--secondary,
+  :global(.row--inverse) .btn--ghost {
+    color: var(--interactive-on-dark);
+  }
+  :global(.row--inverse) .btn--secondary {
+    border-color: transparent;
+    border-bottom-color: currentColor;
+  }
+  :global(.row--inverse) .btn--secondary:hover,
+  :global(.row--inverse) .btn--ghost:hover {
+    color: var(--surface-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn:hover,
+    .btn:focus-visible { transform: none; }
+  }
+</style>

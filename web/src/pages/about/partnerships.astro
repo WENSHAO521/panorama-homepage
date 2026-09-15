@@ -1,0 +1,394 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AboutSubnav from '@/components/about/AboutSubnav.astro';
+import Button from '@/components/ui/Button.astro';
+import { getPartnershipsCopy } from '@/i18n/group';
+import { localizePath } from '@/i18n/utils';
+import taoistAssociationLogo from '@/assets/partners/taoist-association-korea-logo.png';
+import cashlLogo from '@/assets/index-logos/library-logo.png';
+import cjwkLogo from '@/assets/index-logos/CJWK.png';
+import GroupHero from '@/components/group/GroupHero.astro';
+
+const relationshipLogos = [
+  {
+    logo: taoistAssociationLogo,
+  },
+  {
+    logo: cashlLogo,
+    href: 'https://www.cashl.edu.cn/',
+  },
+  {
+    logo: cjwkLogo,
+    href: 'https://www.cjwk.cn',
+  },
+];
+const locale = Astro.currentLocale ?? 'en';
+const copy = getPartnershipsCopy(locale);
+const localizedBasePath = localizePath('/about/partnerships/', locale);
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/about/partnerships/"
+  locale={locale}
+>
+  <div class="partnerships-page">
+    <AboutSubnav currentPath={localizedBasePath} locale={locale} />
+
+    <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="partnerships-title">
+      <div slot="aside" class="partnerships-hero__aside-content" aria-label={copy.principlesLabel}>
+        <p class="text-overline">{copy.principlesLabel}</p>
+        <p>{copy.principlesSummary}</p>
+      </div>
+    </GroupHero>
+
+    <section class="partnerships-intro row" aria-labelledby="partnerships-intro-title">
+      <div class="container-wide partnerships-intro__grid">
+        <div>
+            <p class="text-overline">{copy.network}</p>
+            <h2 id="partnerships-intro-title">{copy.introTitle}</h2>
+          </div>
+        <div class="partnerships-intro__copy">
+          {copy.introParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="partnerships-network row" aria-labelledby="network-title">
+      <div class="container-wide">
+        <header class="partnerships-section-head">
+          <div>
+            <p class="text-overline">{copy.connections}</p>
+            <h2 id="network-title">{copy.networkTitle}</h2>
+          </div>
+          <p>{copy.networkIntro}</p>
+        </header>
+
+        <div class="partnerships-list">
+          {copy.relationships.map((relationship, index) => (
+            <article class="partnership-card">
+              <div class="partnership-card__mark">
+                <Image
+                  src={relationshipLogos[index].logo}
+                  alt={relationship.alt}
+                  widths={[140, 200, 280]}
+                  sizes="(max-width: 639px) 52vw, 12rem"
+                  loading="lazy"
+                />
+              </div>
+              <div class="partnership-card__body">
+                <p class="text-overline">{relationship.kind}</p>
+                <h3>{relationship.name}</h3>
+                <p>{relationship.description}</p>
+              </div>
+              {relationshipLogos[index].href && (
+                <a href={relationshipLogos[index].href} target="_blank" rel="noopener noreferrer">{copy.visitPlatform}</a>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="partnerships-principles row row--inverse" aria-labelledby="principles-title">
+      <div class="container-wide">
+        <header class="partnerships-section-head partnerships-section-head--inverse">
+          <div>
+            <p class="text-overline">{copy.howTogether}</p>
+            <h2 id="principles-title">{copy.principlesTitle}</h2>
+          </div>
+          <p>{copy.principlesIntro}</p>
+        </header>
+
+        <div class="partnerships-principle-list">
+          {copy.principles.map((principle, index) => (
+            <article>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="partnerships-closing row" aria-labelledby="partnerships-closing-title">
+      <div class="container-wide partnerships-closing__inner">
+        <div>
+          <p class="text-overline">{copy.conversation}</p>
+          <h2 id="partnerships-closing-title">{copy.closingTitle}</h2>
+        </div>
+        <div class="partnerships-closing__copy">
+          <p>{copy.closingBody}</p>
+          <div class="partnerships-closing__actions">
+            <Button href={localizePath('/about/contact/', locale)} variant="primary">{copy.contactGroup}</Button>
+            <Button href={localizePath('/about/', locale)} variant="secondary">{copy.aboutGroup}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .partnerships-page { background: var(--surface-primary); }
+
+  .partnerships-hero { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
+
+  .partnerships-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    gap: clamp(3rem, 10vw, 10rem);
+    align-items: end;
+    min-height: 30rem;
+    padding-block: clamp(4rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .partnerships-hero__copy h1 {
+    max-width: 12ch;
+    margin-top: 0.75rem;
+    font-size: clamp(3rem, 5.8vw, 5.5rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.05em;
+    line-height: 0.98;
+  }
+
+  .partnerships-hero__lede {
+    max-width: 40rem;
+    margin-top: 1.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+    line-height: 1.45;
+  }
+
+  .partnerships-hero__index {
+    border-top: var(--p-border-strong) solid var(--brand-accent);
+    padding-top: 1rem;
+  }
+
+  .partnerships-hero__index .text-overline { color: var(--interactive-default); }
+
+  .partnerships-hero__index > p:last-child {
+    max-width: 24rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    line-height: 1.45;
+  }
+
+  .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
+
+  .partnerships-intro,
+  .partnerships-network,
+  .partnerships-closing { padding-block: clamp(4rem, 8vw, 7rem); }
+
+  .partnerships-intro__grid,
+  .partnerships-closing__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 9vw, 9rem);
+    align-items: start;
+  }
+
+  .partnerships-intro h2,
+  .partnerships-closing h2 {
+    max-width: 14ch;
+    margin-top: 0.7rem;
+    font-size: clamp(2.25rem, 4vw, 3.75rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .partnerships-intro__copy { padding-top: 0.3rem; }
+
+  .partnerships-intro__copy p,
+  .partnerships-closing__copy > p {
+    max-width: 38rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 1.55vw, 1.2rem);
+    line-height: 1.5;
+  }
+
+  .partnerships-intro__copy p + p {
+    margin-top: 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  .partnerships-section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+  }
+
+  .partnerships-section-head h2 {
+    max-width: 15ch;
+    margin-top: 0.7rem;
+    font-size: clamp(2.3rem, 4vw, 3.8rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .partnerships-section-head > p {
+    max-width: 30rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .partnerships-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .partnership-card {
+    display: grid;
+    grid-template-rows: 7rem minmax(0, 1fr) auto;
+    gap: 1.1rem;
+    min-height: 20rem;
+    padding: 1.25rem 1.35rem 1.4rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
+    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .partnership-card__mark {
+    display: flex;
+    width: min(100%, 11rem);
+    height: 6rem;
+    align-items: center;
+  }
+
+  .partnership-card__mark img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .partnership-card__body .text-overline { color: var(--interactive-default); }
+
+  .partnership-card h3 {
+    max-width: 18ch;
+    margin-top: 0.45rem;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.15;
+  }
+
+  .partnership-card__body > p:last-child {
+    margin-top: 0.55rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .partnership-card > a {
+    justify-self: start;
+    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
+    color: var(--text-primary);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .partnership-card > a:hover,
+  .partnership-card > a:focus-visible { color: var(--interactive-default); }
+
+  .partnerships-principles {
+    border-bottom: 0;
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .partnerships-section-head--inverse .text-overline { color: var(--text-accent-inverse); }
+  .partnerships-section-head--inverse h2 { color: var(--text-inverse); }
+  .partnerships-section-head--inverse > p { color: var(--text-inverse-muted); }
+
+  .partnerships-principle-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 3.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .partnerships-principle-list article {
+    min-height: 12rem;
+    padding: 1.2rem 1.3rem 1.3rem;
+    border-inline-end: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .partnerships-principle-list article:first-child { padding-inline-start: 0; }
+  .partnerships-principle-list article:last-child { border-inline-end: 0; }
+
+  .partnerships-principle-list span {
+    color: var(--text-accent-inverse);
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+  }
+
+  .partnerships-principle-list h3 {
+    margin-top: 2.25rem;
+    color: var(--text-inverse);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: var(--fw-regular);
+  }
+
+  .partnerships-principle-list p {
+    max-width: 18rem;
+    margin-top: 0.55rem;
+    color: var(--text-inverse-muted);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .partnerships-closing__inner { align-items: end; }
+
+  .partnerships-closing__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
+  }
+
+  @media (max-width: 900px) {
+    .partnerships-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
+    .partnerships-section-head { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .partnerships-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 639px) {
+    .partnerships-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
+    .partnerships-hero__copy h1 { max-width: 10ch; font-size: clamp(2.8rem, 13vw, 4rem); }
+    .partnerships-intro__grid,
+    .partnerships-closing__inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .partnerships-intro h2,
+    .partnerships-closing h2,
+    .partnerships-section-head h2 { max-width: 12ch; font-size: clamp(2.25rem, 10vw, 3.3rem); }
+    .partnerships-list,
+    .partnerships-principle-list { grid-template-columns: minmax(0, 1fr); }
+    .partnership-card { min-height: 0; }
+    .partnerships-principle-list article,
+    .partnerships-principle-list article:first-child { min-height: 0; padding: 1.2rem 0; border-inline-end: 0; border-bottom: var(--p-border-hairline) solid var(--border-inverse); }
+    .partnerships-principle-list article:last-child { border-bottom: 0; }
+    .partnerships-principle-list h3 { margin-top: 1.25rem; }
+  }
+</style>

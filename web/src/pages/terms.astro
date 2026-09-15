@@ -1,0 +1,39 @@
+---
+import LegalPage from '@/components/legal/LegalPage.astro';
+import { getPolicyCopy } from '@/i18n/policies';
+import { getPolicyBody, renderPolicyHtml } from '@/i18n/policy-body';
+
+const locale = Astro.currentLocale ?? 'en';
+const policy = getPolicyCopy('terms', locale);
+const body = getPolicyBody('terms', locale);
+const render = (html: string) => renderPolicyHtml(html, locale);
+const sections = [
+  { id: 'acceptance', label: policy.sections.acceptance },
+  { id: 'content', label: policy.sections.content },
+  { id: 'permitted-use', label: policy.sections['permitted-use'] },
+  { id: 'rights', label: policy.sections.rights },
+  { id: 'external', label: policy.sections.external },
+  { id: 'communications', label: policy.sections.communications },
+  { id: 'disclaimer', label: policy.sections.disclaimer },
+  { id: 'changes-contact', label: policy.sections['changes-contact'] },
+];
+---
+
+<LegalPage
+  title={policy.title}
+  description={policy.description}
+  path="/terms/"
+  locale={locale}
+  lede={policy.lede}
+  updated="14 September 2026"
+  sections={sections}
+  railTitle={policy.railTitle}
+  railText={policy.railText}
+>
+  {sections.map((section, index) => (
+    <section class="legal-section" id={section.id}>
+      <h2><span>{String(index + 1).padStart(2, '0')}</span>{section.label}</h2>
+      <Fragment set:html={render(body.sections[section.id])} />
+    </section>
+  ))}
+</LegalPage>

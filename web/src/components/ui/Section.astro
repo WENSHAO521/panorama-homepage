@@ -1,0 +1,26 @@
+---
+// Vertical rhythm primitive. Spacing values come from the primitive
+// spacing scale (--p-space-*) — see docs/DESIGN-SYSTEM.md — never a
+// hard-coded px value.
+interface Props {
+  spacing?: 'sm' | 'md' | 'lg' | 'xl';
+  surface?: 'primary' | 'secondary' | 'inverse';
+}
+
+const { spacing = 'lg', surface = 'primary' } = Astro.props;
+---
+
+<section class={`section section--${spacing} section--surface-${surface}`}>
+  <slot />
+</section>
+
+<style>
+  .section--sm { padding-block: var(--p-space-7); }
+  .section--md { padding-block: var(--p-space-8); }
+  .section--lg { padding-block: var(--p-space-9); }
+  .section--xl { padding-block: var(--p-space-10); }
+
+  .section--surface-primary { background: var(--surface-primary); color: var(--text-primary); }
+  .section--surface-secondary { background: var(--surface-secondary); color: var(--text-primary); }
+  .section--surface-inverse { background: var(--surface-inverse); color: var(--text-inverse); }
+</style>

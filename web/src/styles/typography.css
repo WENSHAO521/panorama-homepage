@@ -1,0 +1,162 @@
+/*
+  PSG Typography System — Version 2
+  ───────────────────────────────────────────
+  Direction (see docs/DESIGN-SYSTEM.md §Typography for the full
+  multilingual evaluation and font-loading strategy — this is the
+  encoding of that decision, not the decision itself):
+
+    Display / Editorial   Source Serif 4 Variable   (self-hosted, @fontsource-variable)
+    Interface / Body      Inter Variable            (self-hosted, @fontsource-variable)
+
+  Self-hosted (not Google Fonts CDN) via @fontsource-variable, imported
+  in BaseLayout.astro — one variable "wght"-axis file per family
+  (non-italic; the design never sets italic), each split by Fontsource
+  into per-script @font-face blocks with `unicode-range`, so a Latin-only
+  page pays only for the Latin file even though Cyrillic/Vietnamese/Greek
+  subsets are also declared (the browser fetches only the range it
+  needs) — real Inter Variable now covers Cyrillic natively, so Russian
+  no longer needs a fallback override below. `font-display: swap` is
+  set by Fontsource on every @font-face, so text is never invisible
+  while the font loads (no FOIT-driven CLS). CJK and Arabic are NOT
+  covered by either family's subset files — those keep the Noto
+  fallback overrides below, matched per script rather than left to
+  fall through to a generic "serif"/"sans-serif".
+*/
+
+:root {
+  /* ── Font families ── */
+  --font-display: 'Source Serif 4 Variable', 'Source Serif 4', 'Iowan Old Style', 'Palatino Linotype', Georgia, 'Noto Serif', serif;
+  --font-body: 'Inter Variable', 'Inter', -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+
+  /* ── Fluid type scale (clamp: min, preferred-with-vw, max) ── */
+  --fs-caption:  clamp(0.75rem,  0.72rem + 0.15vw, 0.8125rem);
+  --fs-body-sm:  clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
+  --fs-body:     clamp(1rem,     0.96rem + 0.2vw,  1.0625rem);
+  --fs-body-lg:  clamp(1.125rem, 1.08rem + 0.25vw, 1.25rem);
+  --fs-h6:       clamp(1.125rem, 1.05rem + 0.4vw,  1.25rem);
+  --fs-h5:       clamp(1.25rem,  1.15rem + 0.5vw,  1.5rem);
+  --fs-h4:       clamp(1.5rem,   1.3rem  + 0.8vw,  1.875rem);
+  --fs-h3:       clamp(1.875rem, 1.6rem  + 1.2vw,  2.375rem);
+  --fs-h2:       clamp(2.25rem,  1.8rem  + 1.8vw,  3rem);
+  --fs-h1:       clamp(2.75rem,  2.1rem  + 2.8vw,  4rem);
+  --fs-display:  clamp(3.25rem,  2.2rem  + 4.5vw,  5.5rem);
+
+  /* ── Line height ── */
+  --lh-tight:      1.15;  /* display */
+  --lh-heading:    1.25;  /* h1-h4 */
+  --lh-heading-sm: 1.35;  /* h5-h6 */
+  --lh-body:       1.65;  /* editorial paragraph */
+  --lh-body-dense: 1.5;   /* captions, UI labels */
+
+  /* ── Letter spacing ── */
+  --ls-tight:    -0.01em; /* large Latin display serif only */
+  --ls-normal:    0;
+  --ls-wide:      0.02em;
+  --ls-overline:  0.08em;
+
+  /* ── Weight ── */
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+  --fw-bold:    700;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-primary);
+}
+
+h5, h6 {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading-sm);
+  letter-spacing: var(--ls-normal);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+.text-display { font-size: var(--fs-display); line-height: var(--lh-tight); }
+.text-body-lg  { font-size: var(--fs-body-lg); }
+.text-body-sm  { font-size: var(--fs-body-sm); }
+.text-caption  { font-size: var(--fs-caption); line-height: var(--lh-body-dense); }
+
+.text-overline {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+p {
+  max-width: var(--p-measure-reading);
+}
+
+p + p {
+  margin-top: var(--p-space-4);
+}
+
+/* Editorial paragraphs inside a full-width layout still want to be
+   read at measure — opt in explicitly rather than fighting overrides. */
+.measure-reading { max-width: var(--p-measure-reading); }
+.measure-none     { max-width: none; }
+
+/*
+  Multilingual overrides
+  ───────────────────────
+  Negative/wide Latin letter-spacing breaks CJK glyph rhythm and is
+  meaningless for Arabic (which is never tracked and never justified
+  by inter-letter spacing). Script-specific families are matched Noto
+  faces rather than letting the browser fall through to a default
+  serif/sans that won't match x-height or weight.
+*/
+:root[lang^='zh'] body,
+:root[lang^='ja'] body,
+:root[lang^='ko'] body,
+[lang^='zh'] body,
+[lang^='ja'] body,
+[lang^='ko'] body {
+  --font-body: 'Inter', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-display: 'Noto Serif SC', 'Noto Serif TC', 'Noto Serif JP', 'Noto Serif KR', 'Source Serif 4', serif;
+}
+
+:root[lang^='zh'] h1, :root[lang^='zh'] h2, :root[lang^='zh'] h3, :root[lang^='zh'] h4,
+:root[lang^='ja'] h1, :root[lang^='ja'] h2, :root[lang^='ja'] h3, :root[lang^='ja'] h4,
+:root[lang^='ko'] h1, :root[lang^='ko'] h2, :root[lang^='ko'] h3, :root[lang^='ko'] h4 {
+  letter-spacing: var(--ls-normal); /* never tighten CJK tracking */
+}
+
+:root[lang='ar'] body,
+:root[dir='rtl'] body {
+  --font-body: 'Noto Sans Arabic', 'Cairo', 'Inter', Tahoma, sans-serif;
+  --font-display: 'Noto Serif Arabic', 'Noto Sans Arabic', serif;
+  line-height: 1.85; /* Arabic script needs extra leading for diacritics/ascenders */
+}
+
+:root[dir='rtl'] h1, :root[dir='rtl'] h2, :root[dir='rtl'] h3, :root[dir='rtl'] h4 {
+  letter-spacing: var(--ls-normal);
+}
+
+:root[lang='de'] body {
+  /* German compound nouns run long — reading measure stays character-based
+     (ch unit) rather than a fixed px width so it adapts automatically. */
+}

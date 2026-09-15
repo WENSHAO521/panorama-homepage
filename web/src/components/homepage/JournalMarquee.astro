@@ -1,0 +1,148 @@
+---
+import { Image } from 'astro:assets';
+import AFS from '@/assets/journal-covers/AFS.png';
+import CSGS from '@/assets/journal-covers/CSGS.png';
+import HealthNexus from '@/assets/journal-covers/HealthNexus.png';
+import JLPCS from '@/assets/journal-covers/JLPCS.png';
+import TTS from '@/assets/journal-covers/TTS.png';
+import { getContent } from '@/i18n/content';
+
+interface Props { locale?: string }
+const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const t = getContent(locale);
+
+const journals = [
+  {
+    slug: 'afs', imprint: 'Ridgeline', title: 'AI & Future Society',
+    description: 'Technology, society and human flourishing.', cover: AFS,
+    journalUrl: 'https://journals.panorama-sg.com/index.php/AFS',
+  },
+  {
+    slug: 'csgs', imprint: 'Verdant Science', title: 'Climate Sustainability & Global Systems',
+    description: 'Research for a resilient and just transition.', cover: CSGS,
+    journalUrl: 'https://journals.panorama-sg.com/index.php/CSGS',
+  },
+  {
+    slug: 'healthnexus', imprint: 'Health Nexus', title: 'Health Nexus',
+    description: 'Medicine, policy and population health.', cover: HealthNexus,
+    journalUrl: 'https://journals.panorama-sg.com/index.php/HealthNexus',
+  },
+  {
+    slug: 'jlpcs', imprint: 'Charter', title: 'Journal of Law, Psychology, and Communication Studies',
+    description: 'People, institutions and societal change.', cover: JLPCS,
+    journalUrl: 'https://journals.panorama-sg.com/index.php/JLPCS',
+  },
+  {
+    slug: 'tts', imprint: 'Threnody', title: 'Three Teachings Studies',
+    description: 'Philosophy, culture and global dialogue.', cover: TTS,
+    journalUrl: 'https://journals.panorama-sg.com/index.php/tts',
+  },
+];
+---
+
+<ul class="journal-marquee__track" role="list">
+  {journals.map((journal) => (
+    <li class="journal-marquee__item">
+      <a
+        href={journal.journalUrl}
+        class="journal-marquee__link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${journal.title} — ${journal.imprint} (${t('common.visitJournalWebsite')}, ${t('common.opensNewTab')})`}
+      >
+        <Image
+          src={journal.cover}
+          alt={journal.title}
+          class="journal-marquee__cover"
+          width={125}
+          height={170}
+          widths={[125, 250]}
+          sizes="(max-width: 639px) 45vw, (max-width: 767px) 30vw, 18vw"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="text-caption journal-marquee__imprint">{journal.imprint}</p>
+        <h3 class="journal-marquee__title">{journal.title}</h3>
+        <p class="journal-marquee__description">{journal.description}</p>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .journal-marquee__track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem 1.1rem;
+    width: min(100%, var(--p-container-max));
+    margin: 1rem auto 0;
+    padding-inline: var(--p-gutter-mobile);
+    list-style: none;
+  }
+
+  .journal-marquee__item { min-width: 0; }
+
+  .journal-marquee__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .journal-marquee__cover {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 125 / 170;
+    object-fit: cover;
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    transition: transform var(--p-duration-base) var(--p-ease-standard), box-shadow var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .journal-marquee__link:hover .journal-marquee__cover,
+  .journal-marquee__link:focus-visible .journal-marquee__cover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--p-shadow-md);
+  }
+
+  .journal-marquee__imprint {
+    margin-top: 0.65rem;
+    color: var(--text-muted);
+    font-size: 0.5rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .journal-marquee__title {
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.15;
+  }
+
+  .journal-marquee__description {
+    margin-top: 0.4rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .journal-marquee__track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  @media (min-width: 768px) {
+    .journal-marquee__track {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1.9rem;
+      padding-inline: var(--p-gutter-tablet);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .journal-marquee__cover { transition: none; }
+  }
+</style>
