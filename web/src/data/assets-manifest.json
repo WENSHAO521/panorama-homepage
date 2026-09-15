@@ -499,14 +499,18 @@
     },
     {
       "originalPath": "QKFM/oa-plos-transparent.svg",
-      "newPath": "web/public/indexes/oa-plos-transparent.svg",
-      "filename": "oa-plos-transparent.svg",
-      "category": "indexing-logo",
+      "newPath": "web/public/publishing/article-marks/open-access/open-access-mark.svg",
+      "filename": "open-access-mark.svg",
+      "category": "publication-mark",
       "format": "svg",
-      "dimensions": null,
+      "dimensions": [640, 1000],
       "fileSizeKb": 1.4,
-      "status": "preserve",
-      "notes": "Third-party indexing/archiving partner mark. Not PSG IP -- display for factual indexing purposes only, do not restyle."
+      "status": "review",
+      "fallbackPath": "web/public/publishing/article-marks/open-access/open-access-mark.png",
+      "fallbackFormat": "png",
+      "fallbackDimensions": [640, 1000],
+      "fallbackFileSizeKb": 30.1,
+      "notes": "Third-party open-access publication mark designed by PLOS and sourced from Wikimedia Commons. Kept unmodified for future article/PDF templates; verify the applicable reuse terms and attribution before publication. Do not present it as a PLOS affiliation or partner mark."
     },
     {
       "originalPath": "QKFM/library-logo.png",

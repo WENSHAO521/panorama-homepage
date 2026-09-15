@@ -65,11 +65,21 @@ Two items in this set are flagged `review`, not `preserve`:
 
 Crossref, DOI Foundation, Dimensions, Google Scholar, ISNI, ISSN,
 LOCKSS, CLOCKSS, OpenAIRE, OpenAlex, PKP, Semantic Scholar, ZDB,
-Zenodo, BASE, CJWK, and the PLOS OA mark. **These are third-party
+Zenodo, BASE, and CJWK. **These are third-party
 trademarks**, not PSG intellectual property. They are preserved for
 factual/indexing display (the "we are indexed here" strip), but must
 follow each partner's own logo-usage policy — they are never restyled,
 recolored, or redrawn to fit PSG's design system.
+
+### `publishing/article-marks/open-access` — review
+
+The PLOS-designed open-access mark is kept separately from indexing and
+partner logos because it is intended for future article/PDF publication
+templates, not to identify an indexing service or institutional affiliation.
+The source SVG is retained unchanged, with a transparent PNG derivative for
+office-document and PDF workflows. Confirm the applicable reuse terms and
+attribution at the point of publication, and do not modify the mark or imply
+that a journal is affiliated with PLOS.
 
 ### `brand/partners` — preserve, one duplicate rejected
 

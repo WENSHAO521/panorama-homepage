@@ -120,14 +120,6 @@
     "url": "https://www.dnb.de"
   },
   {
-    "id": "oa-plos",
-    "name": "PLOS Open Access",
-    "category": "indexing-database",
-    "logo": "/indexes/oa-plos-transparent.svg",
-    "url": "https://plos.org",
-    "notes": "Mark usage indicates open-access alignment/badge, not a PLOS journal affiliation. Confirm exact usage rights before production display."
-  },
-  {
     "id": "cjwk",
     "name": "Changjiang Wenku (CJWK)",
     "category": "indexing-database",
