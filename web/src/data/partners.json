@@ -128,6 +128,30 @@
     "notes": "Official site describes CJWK as a comprehensive academic knowledge service platform."
   },
   {
+    "id": "index-copernicus",
+    "name": "Index Copernicus International (ICI Journals Master List)",
+    "category": "indexing-database",
+    "logo": "/indexes/ICI_JML.png",
+    "url": "https://indexcopernicus.com/",
+    "notes": "User-reported journal indexing in the ICI Journals Master List. Verify current title-level status in the official journal database. Official logo source: https://indexcopernicus.com/images/ICI_JML.png. Use the logo only where the applicable license or permission is in place."
+  },
+  {
+    "id": "ouci",
+    "name": "Open Ukrainian Citation Index (OUCI)",
+    "category": "indexing-database",
+    "logo": "/indexes/OUCI.webp",
+    "url": "https://ouci.dntb.gov.ua/en/",
+    "notes": "User-reported inclusion for selected journals. Official logo source: https://ouci.dntb.gov.ua/static/images/logo.f4069d17650b.webp. OUCI describes itself as a search system and citation database; verify current journal records and coverage as metadata is updated."
+  },
+  {
+    "id": "philpapers",
+    "name": "PhilPapers",
+    "category": "indexing-database",
+    "logo": "/indexes/PhilPapers.svg",
+    "url": "https://philpapers.org/",
+    "notes": "User-reported discovery for selected articles. Official logo source: https://philpapers.org/assets/raw/pp_logo.svg. PhilPapers describes itself as a comprehensive index and bibliography of philosophy; retain the distinction between article-level discovery and journal-level indexing."
+  },
+  {
     "id": "taoist-association-korea",
     "name": "Taoist Association of Korea",
     "category": "institutional-partner",
