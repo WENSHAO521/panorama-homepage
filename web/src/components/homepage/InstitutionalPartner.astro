@@ -1,12 +1,44 @@
 ---
 import { Image } from 'astro:assets';
 import taoistAssociationLogo from '@/assets/partners/taoist-association-korea-logo.png';
+import cashlLogo from '@/assets/index-logos/library-logo.png';
+import cjwkLogo from '@/assets/index-logos/CJWK.png';
+import atriLogo from '@/assets/partners/asia-technology-research-institute-logo.png';
+import shiharrLogo from '@/assets/partners/shiharr-publishing-logo.png';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
 
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
+
+const partnerLogos = [
+  {
+    name: 'Taoist Association of Korea',
+    logo: taoistAssociationLogo,
+  },
+  {
+    name: 'China Academic Social Sciences and Humanities Library',
+    logo: cashlLogo,
+    href: 'https://www.cashl.edu.cn/',
+  },
+  {
+    name: 'Changjiang Wenku',
+    logo: cjwkLogo,
+    href: 'https://www.cjwk.cn',
+  },
+  {
+    name: 'Asia Technology Research Institute (ATRI)',
+    logo: atriLogo,
+    href: 'https://atripress.org/',
+  },
+  {
+    name: 'Shiharr Publishing',
+    logo: shiharrLogo,
+    href: 'https://www.shiharr.cn/',
+    inverse: true,
+  },
+];
 ---
 
 <section class="institutional-partner" aria-labelledby="institutional-partner-title">
@@ -16,17 +48,52 @@ const t = getContent(locale);
       <h2 id="institutional-partner-title">{t('common.inPartnershipWith')}</h2>
     </div>
 
-    <div class="institutional-partner__identity">
-      <Image
-        src={taoistAssociationLogo}
-        alt=""
-        width={500}
-        height={500}
-        widths={[80, 120, 160]}
-        sizes="(max-width: 639px) 4.5rem, 5rem"
-        loading="lazy"
-      />
-      <span>Taoist Association of Korea</span>
+    <div class="institutional-partner__marquee" aria-label="Partner logos">
+      <div class="institutional-partner__viewport">
+        <div class="institutional-partner__track">
+          {partnerLogos.map((partner) => partner.href ? (
+            <a
+              class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}
+              href={partner.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={partner.name}
+            >
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                widths={[96, 160, 240]}
+                sizes="(max-width: 639px) 8rem, 9rem"
+                loading="lazy"
+              />
+            </a>
+          ) : (
+            <div class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}>
+              <Image
+                src={partner.logo}
+                alt={partner.name}
+                widths={[96, 160, 240]}
+                sizes="(max-width: 639px) 8rem, 9rem"
+                loading="lazy"
+              />
+            </div>
+          ))}
+
+          <div class="institutional-partner__track-copy" aria-hidden="true">
+            {partnerLogos.map((partner) => (
+              <div class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}>
+                <Image
+                  src={partner.logo}
+                  alt=""
+                  widths={[96, 160, 240]}
+                  sizes="(max-width: 639px) 8rem, 9rem"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
 
     <a class="institutional-partner__link" href={localizePath('/about/partnerships/', locale)}>{t('common.aboutPartnerships')}</a>
@@ -41,7 +108,7 @@ const t = getContent(locale);
 
   .institutional-partner__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: minmax(10rem, 0.72fr) minmax(0, 2.6fr) auto;
     align-items: center;
     gap: clamp(1.5rem, 4vw, 4rem);
     min-height: 8.25rem;
@@ -57,25 +124,66 @@ const t = getContent(locale);
     line-height: 1.1;
   }
 
-  .institutional-partner__identity {
+  .institutional-partner__marquee {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .institutional-partner__viewport {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+  }
+
+  .institutional-partner__track {
     display: flex;
+    width: max-content;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
+    animation: institutional-partner-marquee 32s linear infinite;
+    will-change: transform;
   }
 
-  .institutional-partner__identity img {
+  .institutional-partner__track-copy {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .institutional-partner__logo {
+    display: flex;
+    flex: 0 0 9rem;
+    width: 9rem;
+    height: 5.25rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem;
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  a.institutional-partner__logo:hover,
+  a.institutional-partner__logo:focus-visible {
+    opacity: 0.72;
+    transform: translateY(-1px);
+  }
+
+  .institutional-partner__marquee:hover .institutional-partner__track,
+  .institutional-partner__marquee:focus-within .institutional-partner__track {
+    animation-play-state: paused;
+  }
+
+  .institutional-partner__logo--inverse {
+    background: var(--surface-inverse);
+  }
+
+  .institutional-partner__logo img {
     display: block;
-    width: 5rem;
-    height: 5rem;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-  }
-
-  .institutional-partner__identity span {
-    max-width: 12rem;
-    color: var(--text-primary);
-    font-size: 0.72rem;
-    font-weight: var(--fw-semibold);
-    line-height: 1.35;
   }
 
   .institutional-partner__link {
@@ -95,12 +203,30 @@ const t = getContent(locale);
     color: var(--interactive-default);
   }
 
+  @keyframes institutional-partner-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 0.6rem)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .institutional-partner__track {
+      width: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: none;
+    }
+
+    .institutional-partner__track-copy { display: none; }
+  }
+
   @media (max-width: 767px) {
     .institutional-partner__inner {
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 1.25rem;
+      gap: 1rem 1.25rem;
       min-height: 7rem;
     }
+
+    .institutional-partner__marquee { grid-column: 1 / -1; }
 
     .institutional-partner__link {
       grid-column: 1 / -1;
@@ -116,6 +242,7 @@ const t = getContent(locale);
       padding-block: 1.35rem;
     }
 
-    .institutional-partner__identity img { width: 4.5rem; height: 4.5rem; }
+    .institutional-partner__marquee { width: 100%; }
+    .institutional-partner__logo { flex-basis: 8rem; width: 8rem; height: 4.75rem; }
   }
 </style>
