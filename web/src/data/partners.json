@@ -133,7 +133,7 @@
     "category": "indexing-database",
     "logo": "/indexes/ICI_JML.png",
     "url": "https://indexcopernicus.com/",
-    "notes": "User-reported journal indexing in the ICI Journals Master List. Verify current title-level status in the official journal database. Official logo source: https://indexcopernicus.com/images/ICI_JML.png. Use the logo only where the applicable license or permission is in place."
+    "notes": "User-reported journal indexing in the ICI Journals Master List. Verify current title-level status in the official journal database. Official logo source: https://indexcopernicus.com/images/logo_glowne_1000.png. Use the logo only where the applicable license or permission is in place."
   },
   {
     "id": "ouci",
@@ -149,7 +149,7 @@
     "category": "indexing-database",
     "logo": "/indexes/PhilPapers.svg",
     "url": "https://philpapers.org/",
-    "notes": "User-reported discovery for selected articles. Official logo source: https://philpapers.org/assets/raw/pp_logo.svg. PhilPapers describes itself as a comprehensive index and bibliography of philosophy; retain the distinction between article-level discovery and journal-level indexing."
+    "notes": "User-reported discovery for selected articles. Official logo source: https://cdp.uwo.ca/img/pp-logo.svg. PhilPapers describes itself as a comprehensive index and bibliography of philosophy; retain the distinction between article-level discovery and journal-level indexing."
   },
   {
     "id": "taoist-association-korea",
