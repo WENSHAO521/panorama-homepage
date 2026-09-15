@@ -538,101 +538,101 @@
     },
     {
       "originalPath": "Homepage Image/CPRT-Homepage Image.jpg",
-      "newPath": "web/public/images/publishing/CPRT-Homepage Image.jpg",
-      "filename": "CPRT-Homepage Image.jpg",
+      "newPath": "web/public/images/publishing/journal-heroes/cprt-hero.jpg",
+      "filename": "cprt-hero.jpg",
       "category": "corporate-image",
       "format": "jpg",
       "dimensions": [
-        3840,
-        2160
+        2000,
+        1125
       ],
-      "fileSizeKb": 1458.4,
+      "fileSizeKb": 228.7,
       "status": "review",
-      "notes": "Per-journal homepage/hero photography (1458.4 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+      "notes": "Optimized per-journal hero image (2000×1125, 228.7 KB JPEG). Licensing should be confirmed before production use. External references should use the new stable path."
     },
     {
       "originalPath": "Homepage Image/CSGS-Homepage Image.png",
-      "newPath": "web/public/images/publishing/CSGS-Homepage Image.png",
-      "filename": "CSGS-Homepage Image.png",
+      "newPath": "web/public/images/publishing/journal-heroes/csgs-hero.jpg",
+      "filename": "csgs-hero.jpg",
       "category": "corporate-image",
-      "format": "png",
+      "format": "jpg",
       "dimensions": [
         1672,
         941
       ],
-      "fileSizeKb": 984.5,
+      "fileSizeKb": 257.4,
       "status": "review",
-      "notes": "Per-journal homepage/hero photography (984.5 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+      "notes": "Optimized per-journal hero image (1672×941, 257.4 KB JPEG). Licensing should be confirmed before production use. External references should use the new stable path."
     },
     {
       "originalPath": "Homepage Image/CSSR-Homepage Image.png",
-      "newPath": "web/public/images/publishing/CSSR-Homepage Image.png",
-      "filename": "CSSR-Homepage Image.png",
+      "newPath": "web/public/images/publishing/journal-heroes/cssr-hero.jpg",
+      "filename": "cssr-hero.jpg",
       "category": "corporate-image",
-      "format": "png",
+      "format": "jpg",
       "dimensions": [
         1672,
         941
       ],
-      "fileSizeKb": 1366.1,
+      "fileSizeKb": 66.9,
       "status": "review",
-      "notes": "Per-journal homepage/hero photography (1366.1 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+      "notes": "Optimized per-journal hero image (1672×941, 66.9 KB JPEG). Licensing should be confirmed before production use. External references should use the new stable path."
     },
     {
       "originalPath": "Homepage Image/FSSS-Homepage Image.png",
-      "newPath": "web/public/images/publishing/FSSS-Homepage Image.png",
-      "filename": "FSSS-Homepage Image.png",
+      "newPath": "web/public/images/publishing/journal-heroes/fsss-hero.jpg",
+      "filename": "fsss-hero.jpg",
       "category": "corporate-image",
-      "format": "png",
+      "format": "jpg",
       "dimensions": [
         1672,
         941
       ],
-      "fileSizeKb": 2314.9,
+      "fileSizeKb": 193.5,
       "status": "review",
-      "notes": "Per-journal homepage/hero photography (2314.9 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+      "notes": "Optimized per-journal hero image (1672×941, 193.5 KB JPEG). Licensing should be confirmed before production use. External references should use the new stable path."
     },
     {
       "originalPath": "Homepage Image/GRAHS-Homepage Image.png",
-      "newPath": "web/public/images/publishing/GRAHS-Homepage Image.png",
-      "filename": "GRAHS-Homepage Image.png",
+      "newPath": "web/public/images/publishing/journal-heroes/grahs-hero.jpg",
+      "filename": "grahs-hero.jpg",
       "category": "corporate-image",
-      "format": "png",
+      "format": "jpg",
       "dimensions": [
         1672,
         941
       ],
-      "fileSizeKb": 864.1,
+      "fileSizeKb": 195.3,
       "status": "review",
-      "notes": "Per-journal homepage/hero photography (864.1 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+      "notes": "Optimized per-journal hero image (1672×941, 195.3 KB JPEG). Licensing should be confirmed before production use. External references should use the new stable path."
     },
     {
       "originalPath": "Homepage Image/HNDH-Homepage Image.png",
-      "newPath": "web/public/images/publishing/HNDH-Homepage Image.png",
-      "filename": "HNDH-Homepage Image.png",
+      "newPath": "web/public/images/publishing/journal-heroes/hndh-hero.jpg",
+      "filename": "hndh-hero.jpg",
       "category": "corporate-image",
-      "format": "png",
+      "format": "jpg",
       "dimensions": [
         1672,
         941
       ],
-      "fileSizeKb": 2088.7,
+      "fileSizeKb": 141.9,
       "status": "review",
-      "notes": "Per-journal homepage/hero photography (2088.7 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+      "notes": "Optimized per-journal hero image (1672×941, 141.9 KB JPEG). Licensing should be confirmed before production use. External references should use the new stable path."
     },
     {
       "originalPath": "Homepage Image/Silence-Homepage Image.png",
-      "newPath": "web/public/images/publishing/Silence-Homepage Image.png",
-      "filename": "Silence-Homepage Image.png",
+      "newPath": "web/public/images/publishing/journal-heroes/silence-hero.jpg",
+      "filename": "silence-hero.jpg",
       "category": "corporate-image",
-      "format": "png",
+      "format": "jpg",
       "dimensions": [
         1672,
         941
       ],
-      "fileSizeKb": 2205.0,
+      "fileSizeKb": 124.9,
       "status": "review",
-      "notes": "Per-journal homepage/hero photography (2205.0 KB). Licensing not confirmed; migrated for placeholder use, needs WebP/AVIF re-encode and art-direction fit check before production use."
+      "notes": "Optimized per-journal hero image (1672×941, 124.9 KB JPEG). Licensing should be confirmed before production use. External references should use the new stable path."
     },
     {
       "originalPath": "QKFM/Scholarly_Integrity.jpg",

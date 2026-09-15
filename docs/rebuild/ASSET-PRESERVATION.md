@@ -3,17 +3,13 @@
 This historical Round 1 document explains the preserve/review/archive/reject
 decisions recorded in
 [`web/src/data/assets-manifest.json`](../../web/src/data/assets-manifest.json).
-The original `assets/` and `QKFM/` directories were read only during the
-audit. Their approved files were subsequently migrated into the `web/` asset
-tree, verified, and the retired source directories removed from the release
-tree. `Homepage Image/` is intentionally retained at the repository root as a
-compatibility source because external journal pages may reference its original
-paths and filenames. The verified copies under `web/public/images/publishing/`
-are the canonical assets for the Astro site.
-
-The inventory is retained for provenance and licensing follow-up. The root
-`Homepage Image/` copy is also retained for external-reference compatibility;
-the `web/` copy is the runtime asset source.
+The original `assets/`, `Homepage Image/`, and `QKFM/` directories were read
+during the audit. The seven per-journal homepage images were re-encoded as
+optimized JPEG derivatives with stable names under
+`web/public/images/publishing/journal-heroes/`; the retired source directory
+and superseded public copies were then removed. The inventory remains for
+provenance and licensing follow-up, while the new `web/` paths are the runtime
+and external-reference asset source.
 
 ## Inventory summary
 
@@ -102,10 +98,11 @@ Five 4K (3840×2160) full-bleed imprint wallpapers, 2.1–2.7 MB each
 
 ### `photography/homepage` — review
 
-Six per-journal hero images (`Homepage Image/`, 1672×941 except one
-4K JPEG), 0.86–2.3 MB each. Same two questions as the wallpapers:
-licensing confirmation and a fit check against the new visual
-language, plus mandatory re-encoding.
+Seven per-journal hero images were migrated to
+`web/public/images/publishing/journal-heroes/` as stable JPEG derivatives
+(1672×941, except CPRT at 2000×1125). The source directory and superseded
+large PNG/JPEG copies were removed after conversion. Licensing confirmation
+remains required before production use.
 
 ### `imprints/covers` — review
 

@@ -4,11 +4,10 @@ This is the completed migration audit recorded in
 [`web/src/data/assets-manifest.json`](../web/src/data/assets-manifest.json).
 The legacy asset directories (`assets/`, `Homepage Image/`, `QKFM/`, and
 the root favicons) were read during migration, then their approved copies
-were verified in `web/public/` and `web/src/assets/`. `Homepage Image/` is
-intentionally retained at the repository root because external journal pages
-may reference its original paths and filenames. The `web/` asset paths remain
-canonical for the Astro release; the root copy is a compatibility source, not
-the build output.
+were verified in `web/public/` and `web/src/assets/`. The former
+`Homepage Image/` files were replaced with optimized, stable JPEG assets under
+`web/public/images/publishing/journal-heroes/`; external references should use
+those new paths.
 
 The inventory below remains useful for provenance, licensing review, and
 future asset replacement decisions. It is a record of the migration rather
@@ -34,7 +33,7 @@ than a command to re-copy files from the retired legacy directories.
 | `partner-logo` | Taoist Association of Korea, one unidentified library mark | `public/partners/` |
 | `indexing-logo` | Crossref, DOI Foundation, Dimensions, Google Scholar, ISNI, ISSN, LOCKSS/CLOCKSS, OpenAIRE, OpenAlex, PKP, Semantic Scholar, ZDB, Zenodo, BASE, PLOS OA, CJWK | `public/indexes/` |
 | `journal-cover` | 24 journal covers (see docs/DATA-MODEL.md for the id↔cover mapping) | `public/journals/covers/` |
-| `corporate-image` | 5 imprint 4K wallpapers, 7 per-journal homepage photos, 1 editorial stock photo | `public/images/publishing/`, `public/images/corporate/` |
+| `corporate-image` | 5 imprint 4K wallpapers, 7 optimized per-journal hero photos, 1 editorial stock photo | `public/images/publishing/`, `public/images/corporate/` |
 | `favicon` | `favicon.svg`, `favicon.png` | `public/favicon/` |
 | `other` | `screen.png` (unclear purpose — not migrated) | not migrated |
 
@@ -49,7 +48,8 @@ than a command to re-copy files from the retired legacy directories.
   `public/brand/psg/platforms/` but flagged `review`; re-export as an
   optimized vector before shipping.
 - **5 imprint wallpapers + 7 journal homepage photos + 1 editorial
-  stock photo** — all `review`, not `preserve`. Licensing
+  stock photo** — all `review`; the journal homepage photos are now
+  optimized JPEG derivatives. Licensing
   chain-of-custody was not confirmed during this audit (no license
   file or attribution record was found in the legacy repository).
   Migrated so later rounds have real imagery to lay out against, but
