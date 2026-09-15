@@ -51,35 +51,37 @@ const partnerLogos = [
     <div class="institutional-partner__marquee" aria-label="Partner logos">
       <div class="institutional-partner__viewport">
         <div class="institutional-partner__track">
-          {partnerLogos.map((partner) => partner.href ? (
-            <a
-              class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}
-              href={partner.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={partner.name}
-            >
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                widths={[96, 160, 240]}
-                sizes="(max-width: 639px) 8rem, 9rem"
-                loading="lazy"
-              />
-            </a>
-          ) : (
-            <div class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}>
-              <Image
-                src={partner.logo}
-                alt={partner.name}
-                widths={[96, 160, 240]}
-                sizes="(max-width: 639px) 8rem, 9rem"
-                loading="lazy"
-              />
-            </div>
-          ))}
+          <div class="institutional-partner__group">
+            {partnerLogos.map((partner) => partner.href ? (
+              <a
+                class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}
+                href={partner.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={partner.name}
+              >
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  widths={[96, 160, 240]}
+                  sizes="(max-width: 639px) 8rem, 9rem"
+                  loading="lazy"
+                />
+              </a>
+            ) : (
+              <div class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}>
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  widths={[96, 160, 240]}
+                  sizes="(max-width: 639px) 8rem, 9rem"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
 
-          <div class="institutional-partner__track-copy" aria-hidden="true">
+          <div class="institutional-partner__group institutional-partner__group--duplicate" aria-hidden="true">
             {partnerLogos.map((partner) => (
               <div class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}>
                 <Image
@@ -139,16 +141,18 @@ const partnerLogos = [
     display: flex;
     width: max-content;
     align-items: center;
-    gap: 1.2rem;
+    flex-wrap: nowrap;
+    gap: 0;
     animation: institutional-partner-marquee 18s linear infinite;
     animation-delay: -3s;
     will-change: transform;
   }
 
-  .institutional-partner__track-copy {
+  .institutional-partner__group {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
+    flex-wrap: nowrap;
     gap: 1.2rem;
   }
 
@@ -206,18 +210,31 @@ const partnerLogos = [
 
   @keyframes institutional-partner-marquee {
     from { transform: translateX(0); }
-    to { transform: translateX(calc(-50% - 0.6rem)); }
+    to { transform: translateX(-50%); }
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .institutional-partner__viewport {
+      overflow-x: auto;
+      mask-image: none;
+      -webkit-mask-image: none;
+      scrollbar-width: none;
+    }
+
+    .institutional-partner__viewport::-webkit-scrollbar { display: none; }
+
     .institutional-partner__track {
-      width: auto;
-      flex-wrap: wrap;
-      justify-content: center;
+      width: max-content;
+      flex-wrap: nowrap;
       animation: none;
     }
 
-    .institutional-partner__track-copy { display: none; }
+    .institutional-partner__group {
+      width: auto;
+      flex-wrap: nowrap;
+    }
+
+    .institutional-partner__group--duplicate { display: none; }
   }
 
   @media (max-width: 767px) {
