@@ -3,7 +3,7 @@
 // the public site remains deployable as a static site.
 import type { APIRoute } from 'astro';
 import articleData from '@/data/articles.json';
-import announcementData from '@/data/announcements.json';
+import { getAnnouncements } from '@/data/announcements';
 import partnerData from '@/data/partners.json';
 import { corporateStructure, externalSystems, getOfficeDirectory, site } from '@/data/site';
 import { getContent, getContentStrings } from '@/i18n/content';
@@ -319,7 +319,7 @@ function buildSharedRecords(): SearchRecord[] {
       };
     });
 
-  const announcementRecords: SearchRecord[] = announcementData.announcements.map((announcement) => ({
+  const announcementRecords: SearchRecord[] = getAnnouncements('en').map((announcement) => ({
     type: 'announcement',
     title: announcement.title,
     description: announcement.summary,
@@ -329,7 +329,7 @@ function buildSharedRecords(): SearchRecord[] {
     meta: [announcement.sourceLabel.replace(/\s+[—–]\s+/g, ' / '), announcement.type, announcement.date]
       .filter(Boolean)
       .join(' / '),
-    external: true,
+    external: /^https?:\/\//i.test(announcement.href),
   }));
 
   const sharedPageRecords = corePages

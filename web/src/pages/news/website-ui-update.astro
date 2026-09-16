@@ -1,0 +1,26 @@
+---
+import EditorialLayout from '@/layouts/EditorialLayout.astro';
+import { getWebsiteUiUpdateCopy } from '@/i18n/announcements';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getWebsiteUiUpdateCopy(locale);
+const publishDate = new Date('2026-09-15T00:00:00Z');
+---
+
+<EditorialLayout
+  title={copy.title}
+  description={copy.description}
+  path="/news/website-ui-update/"
+  locale={locale}
+  publishDate={publishDate}
+>
+  <p>{copy.intro}</p>
+  {copy.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.changesTitle}</h2>
+  <ul>
+    {copy.changes.map((change) => <li>{change}</li>)}
+  </ul>
+
+  <p>{copy.closing}</p>
+</EditorialLayout>

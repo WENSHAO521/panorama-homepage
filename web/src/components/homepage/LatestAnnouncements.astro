@@ -1,6 +1,6 @@
 ---
 import SectionHeading from '@/components/ui/SectionHeading.astro';
-import announcementData from '@/data/announcements.json';
+import { getAnnouncements } from '@/data/announcements';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
 
@@ -8,7 +8,7 @@ interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
 
-const announcements = [...announcementData.announcements]
+const announcements = getAnnouncements(locale)
   .sort((a, b) => b.date.localeCompare(a.date))
   .slice(0, 5);
 
@@ -19,6 +19,14 @@ function formatDate(value: string) {
     day: '2-digit',
     timeZone: 'UTC',
   }).format(new Date(value + 'T00:00:00Z'));
+}
+
+function announcementHref(value: string) {
+  return value.startsWith('/') ? localizePath(value, locale) : value;
+}
+
+function isExternal(value: string) {
+  return /^https?:\/\//i.test(value);
 }
 ---
 
@@ -36,11 +44,11 @@ function formatDate(value: string) {
       {announcements.map((announcement, index) => (
         <li>
           <a
-            href={announcement.href}
+            href={announcementHref(announcement.href)}
             class="latest-announcements__item"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={announcement.title + ' (opens in a new tab)'}
+            target={isExternal(announcement.href) ? '_blank' : undefined}
+            rel={isExternal(announcement.href) ? 'noopener noreferrer' : undefined}
+            aria-label={announcement.title}
           >
             <span class="latest-announcements__number" aria-hidden="true">
               {String(index + 1).padStart(2, '0')}

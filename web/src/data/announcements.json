@@ -1,7 +1,70 @@
 {
-  "generatedAt": "2026-09-13T00:00:00Z",
+  "generatedAt": "2026-09-16T00:00:00Z",
   "maxItems": 5,
   "announcements": [
+    {
+      "id": "website-ui-update-2026",
+      "source": "group",
+      "sourceLabel": "Panorama Scholarly Group",
+      "type": "Update",
+      "title": "A renewed digital experience for Panorama Scholarly Group",
+      "summary": "Panorama Scholarly Group completed a comprehensive update to the user interface of its website on 15 September 2026, bringing a more consistent and clearer experience across the Group site and its editorial imprints.",
+      "date": "2026-09-15",
+      "href": "/news/website-ui-update/",
+      "fallback": true,
+      "translations": {
+        "en": {
+          "title": "A renewed digital experience for Panorama Scholarly Group",
+          "summary": "Panorama Scholarly Group completed a comprehensive update to the user interface of its website on 15 September 2026, bringing a more consistent and clearer experience across the Group site and its editorial imprints.",
+          "type": "Update"
+        },
+        "zh-hans": {
+          "title": "Panorama Scholarly Group 完成官网界面的全面更新",
+          "summary": "Panorama Scholarly Group 于 2026 年 9 月 15 日完成官网用户界面的全面更新，为集团主站及旗下编辑品牌带来更加统一、清晰的浏览体验。",
+          "type": "更新"
+        },
+        "zh-hant": {
+          "title": "Panorama Scholarly Group 完成網站介面的全面更新",
+          "summary": "Panorama Scholarly Group 於 2026 年 9 月 15 日完成網站使用者介面的全面更新，為集團主站及旗下編輯品牌帶來更一致、更清晰的瀏覽體驗。",
+          "type": "更新"
+        },
+        "ja": {
+          "title": "Panorama Scholarly Group、ウェブサイトのユーザーインターフェースを刷新",
+          "summary": "Panorama Scholarly Groupは2026年9月15日、ウェブサイトのユーザーインターフェースを全面的に更新し、グループサイトと各編集インプリントをより一貫して明確に閲覧できる環境を整えました。",
+          "type": "更新"
+        },
+        "ko": {
+          "title": "Panorama Scholarly Group 웹사이트 사용자 인터페이스 개편",
+          "summary": "Panorama Scholarly Group은 2026년 9월 15일 웹사이트 사용자 인터페이스를 전면 개편하여 그룹 사이트와 편집 임프린트 전반에 더 일관되고 명확한 이용 경험을 마련했습니다.",
+          "type": "업데이트"
+        },
+        "de": {
+          "title": "Panorama Scholarly Group erneuert seine digitale Benutzeroberfläche",
+          "summary": "Panorama Scholarly Group hat die Benutzeroberfläche seiner Website am 15. September 2026 umfassend aktualisiert und damit eine einheitlichere und klarere Nutzung der Gruppenseite und ihrer redaktionellen Imprints geschaffen.",
+          "type": "Aktualisierung"
+        },
+        "fr": {
+          "title": "Panorama Scholarly Group renouvelle son expérience numérique",
+          "summary": "Le 15 septembre 2026, Panorama Scholarly Group a achevé une mise à jour complète de l’interface de son site web afin d’offrir une expérience plus cohérente et plus claire sur le site du groupe et ses marques éditoriales.",
+          "type": "Mise à jour"
+        },
+        "es": {
+          "title": "Panorama Scholarly Group renueva su experiencia digital",
+          "summary": "El 15 de septiembre de 2026, Panorama Scholarly Group completó una actualización integral de la interfaz de su sitio web para ofrecer una experiencia más coherente y clara en el sitio del grupo y sus sellos editoriales.",
+          "type": "Actualización"
+        },
+        "ru": {
+          "title": "Panorama Scholarly Group обновила цифровой интерфейс",
+          "summary": "15 сентября 2026 года Panorama Scholarly Group завершила комплексное обновление интерфейса своего веб-сайта, сделав работу с сайтом группы и её редакционными импринтами более последовательной и понятной.",
+          "type": "Обновление"
+        },
+        "ar": {
+          "title": "تجربة رقمية متجددة لـ Panorama Scholarly Group",
+          "summary": "في 15 سبتمبر 2026، أكملت Panorama Scholarly Group تحديثًا شاملًا لواجهة موقعها الإلكتروني، لتوفير تجربة أكثر اتساقًا ووضوحًا عبر موقع المجموعة وعلاماتها التحريرية.",
+          "type": "تحديث"
+        }
+      }
+    },
     {
       "id": "research-institute-officially-open-2026",
       "source": "research",

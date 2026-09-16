@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import announcementData from '@/data/announcements.json';
+import { getAnnouncements } from '@/data/announcements';
 import { getNewsCopy } from '@/i18n/utility';
+import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getNewsCopy(locale);
-const posts = [...announcementData.announcements]
+const posts = getAnnouncements(locale)
   .sort((a, b) => b.date.localeCompare(a.date))
   .slice(0, 5);
 
@@ -28,6 +29,14 @@ function formatDate(value: string) {
 
 function displaySource(value: string) {
   return value.replace(/[—–]/g, ' / ');
+}
+
+function announcementHref(value: string) {
+  return value.startsWith('/') ? localizePath(value, locale) : value;
+}
+
+function isExternal(value: string) {
+  return /^https?:\/\//i.test(value);
 }
 ---
 
@@ -69,10 +78,10 @@ function displaySource(value: string) {
                 <h2 id="latest-announcement-title">{featured.title}</h2>
                 <p>{featured.summary}</p>
                 <a
-                  href={featured.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={featured.title + ' (opens in a new tab)'}
+                  href={announcementHref(featured.href)}
+                  target={isExternal(featured.href) ? '_blank' : undefined}
+                  rel={isExternal(featured.href) ? 'noopener noreferrer' : undefined}
+                  aria-label={featured.title}
                 >
                   {copy.readFullAnnouncement}
                 </a>
@@ -101,10 +110,10 @@ function displaySource(value: string) {
               {recent.map((post, index) => (
                 <li>
                   <a
-                    href={post.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={post.title + ' (opens in a new tab)'}
+                    href={announcementHref(post.href)}
+                    target={isExternal(post.href) ? '_blank' : undefined}
+                    rel={isExternal(post.href) ? 'noopener noreferrer' : undefined}
+                    aria-label={post.title}
                   >
                     <span class="news-archive__number" aria-hidden="true">
                       {String(index + 2).padStart(2, '0')}
