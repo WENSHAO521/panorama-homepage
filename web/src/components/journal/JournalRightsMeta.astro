@@ -1,0 +1,118 @@
+---
+import type { Journal } from '@/types';
+
+interface Props {
+  journal: Journal;
+  accessLabel: string;
+  openAccessLabel: string;
+  closedAccessLabel: string;
+  licenseLabel: string;
+  licensePendingLabel: string;
+  licenseArticleLevelLabel?: string;
+  accentColor?: string;
+  mutedColor?: string;
+}
+
+const {
+  journal,
+  accessLabel,
+  openAccessLabel,
+  closedAccessLabel,
+  licenseLabel,
+  licensePendingLabel,
+  licenseArticleLevelLabel,
+  accentColor = 'currentColor',
+  mutedColor = 'currentColor',
+} = Astro.props;
+
+const licenseHref = journal.licenseUrl ?? journal.journalUrl;
+---
+
+<dl
+  class="journal-rights-meta"
+  style={`--journal-rights-accent:${accentColor};--journal-rights-muted:${mutedColor};`}
+>
+  {journal.issn && (
+    <div>
+      <dt>ISSN</dt>
+      <dd>{journal.issn}</dd>
+    </div>
+  )}
+  {journal.eissn && (
+    <div>
+      <dt>eISSN</dt>
+      <dd>{journal.eissn}</dd>
+    </div>
+  )}
+  <div>
+    <dt>{accessLabel}</dt>
+    <dd>{journal.openAccess ? openAccessLabel : closedAccessLabel}</dd>
+  </div>
+  <div>
+    <dt>{licenseLabel}</dt>
+    <dd>
+      {journal.license ? (
+        <a href={licenseHref} target="_blank" rel="noopener noreferrer">{journal.license}</a>
+      ) : licensePendingLabel}
+      {journal.licenseScope === 'article' && licenseArticleLevelLabel && (
+        <span class="journal-rights-meta__note">{licenseArticleLevelLabel}</span>
+      )}
+    </dd>
+  </div>
+</dl>
+
+<style>
+  .journal-rights-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.15rem;
+    margin: 1.25rem 0 0;
+    color: var(--journal-rights-muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+    line-height: 1.35;
+  }
+
+  .journal-rights-meta > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.45rem;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .journal-rights-meta dt {
+    color: var(--journal-rights-accent);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .journal-rights-meta dd {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .journal-rights-meta dd a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--journal-rights-accent) 45%, transparent);
+    text-underline-offset: 0.18em;
+  }
+
+  .journal-rights-meta dd a:hover,
+  .journal-rights-meta dd a:focus-visible { color: var(--journal-rights-accent); }
+
+  .journal-rights-meta__note {
+    flex-basis: 100%;
+    font-size: 0.54rem;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+    text-transform: none;
+  }
+
+  @media (max-width: 639px) {
+    .journal-rights-meta { gap: 0.6rem 0.9rem; }
+  }
+</style>

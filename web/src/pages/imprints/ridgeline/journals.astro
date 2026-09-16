@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import JournalRightsMeta from '@/components/journal/JournalRightsMeta.astro';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
 import { getNavigationLabels } from '@/i18n/navigation';
@@ -83,6 +84,17 @@ const disciplineKeys: Record<string, string> = {
                   <p class="ridgeline-directory__discipline">{journal.disciplines.map((discipline) => tx(`discipline.${disciplineKeys[discipline] ?? discipline.toLowerCase()}`, discipline)).join(' · ')}</p>
                   <h2><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h2>
                   <p class="ridgeline-directory__description">{tx(`journal.${journal.slug}.summary`, journal.description ?? 'Independent research for a more informed and livable future.')}</p>
+                  <JournalRightsMeta
+                    journal={journal}
+                    accessLabel={tx('access', 'Access')}
+                    openAccessLabel={tx('openAccess', 'Open access')}
+                    closedAccessLabel={tx('seeJournalWebsite', 'See journal website')}
+                    licenseLabel={tx('license', 'License')}
+                    licensePendingLabel={tx('licensePending', 'To be confirmed')}
+                    licenseArticleLevelLabel={tx('licenseArticleLevel', 'Article-level notice applies')}
+                    accentColor="var(--ridge-copper)"
+                    mutedColor="var(--ridge-ink-soft)"
+                  />
                   <a class="ridgeline-directory__link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('visitJournal', 'Visit journal website')}</a>
                 </div>
               </article>

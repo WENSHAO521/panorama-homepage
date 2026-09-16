@@ -5,10 +5,15 @@ export interface Journal {
   shortTitle?: string;
   imprint: string;
   disciplines: string[];
-  issn?: string;
-  eissn?: string;
+  issn?: string | null;
+  eissn?: string | null;
   status: 'active' | 'forthcoming' | 'archived' | 'retired';
   openAccess: boolean;
+  /** The reuse licence currently documented for the journal or item. */
+  license?: string | null;
+  licenseUrl?: string;
+  /** Article-level notices take precedence over the journal-level summary. */
+  licenseScope?: 'journal' | 'article';
   frequency?: string;
   description?: string;
   cover?: string;

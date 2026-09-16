@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import JournalRightsMeta from '@/components/journal/JournalRightsMeta.astro';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import type { Imprint, Journal } from '@/types';
 import { getNavigationLabels } from '@/i18n/navigation';
@@ -175,10 +176,17 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
                         <p class="charter-secondary__eyebrow">{label}</p>
                         <h2><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h2>
                         <p>{description}</p>
-                        <dl class="charter-secondary__journal-meta">
-                          {journal.issn && <><dt>ISSN</dt><dd>{journal.issn}</dd></>}
-                          <dt>{tx('access', 'Access')}</dt><dd>{journal.openAccess ? tx('openAccess', 'Open access') : tx('seeJournalWebsite', 'See journal website')}</dd>
-                        </dl>
+                        <JournalRightsMeta
+                          journal={journal}
+                          accessLabel={tx('access', 'Access')}
+                          openAccessLabel={tx('openAccess', 'Open access')}
+                          closedAccessLabel={tx('seeJournalWebsite', 'See journal website')}
+                          licenseLabel={tx('license', 'License')}
+                          licensePendingLabel={tx('licensePending', 'To be confirmed')}
+                          licenseArticleLevelLabel={tx('licenseArticleLevel', 'Article-level notice applies')}
+                          accentColor="var(--cs-red)"
+                          mutedColor="var(--cs-ink-soft)"
+                        />
                         <div class="charter-secondary__link-row">
                           <a class="charter-secondary__text-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('visitJournal', 'Visit journal website')}</a>
                           <a class="charter-secondary__quiet-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('submissionInformation', 'Submission information')}</a>

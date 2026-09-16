@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import JournalRightsMeta from '@/components/journal/JournalRightsMeta.astro';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import type { Imprint, Journal } from '@/types';
 import { getNavigationLabels } from '@/i18n/navigation';
@@ -145,11 +146,17 @@ const localizedPageDescription = isJournals
                         <p class="verdant-section-kicker">{label}</p>
                         <h2><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></h2>
                         <p class="verdant-journal-row__summary">{description}</p>
-                        <dl class="verdant-journal-row__meta">
-                          {journal.issn && <div><dt>ISSN</dt><dd>{journal.issn}</dd></div>}
-                          {journal.eissn && <div><dt>eISSN</dt><dd>{journal.eissn}</dd></div>}
-                          <div><dt>{tx('access', 'Access')}</dt><dd>{journal.openAccess ? tx('openAccess', 'Open access') : tx('seeJournalWebsite', 'See journal website')}</dd></div>
-                        </dl>
+                        <JournalRightsMeta
+                          journal={journal}
+                          accessLabel={tx('access', 'Access')}
+                          openAccessLabel={tx('openAccess', 'Open access')}
+                          closedAccessLabel={tx('seeJournalWebsite', 'See journal website')}
+                          licenseLabel={tx('license', 'License')}
+                          licensePendingLabel={tx('licensePending', 'To be confirmed')}
+                          licenseArticleLevelLabel={tx('licenseArticleLevel', 'Article-level notice applies')}
+                          accentColor="var(--vs-rust)"
+                          mutedColor="var(--vs-ink-soft)"
+                        />
                         <a class="verdant-section-text-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('visitJournal', 'Visit journal website')}</a>
                       </div>
                     </article>
