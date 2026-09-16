@@ -1,9 +1,9 @@
 // Refreshes article metadata from each journal's own OAI-PMH endpoint.
 //
 // Every journal is queried independently at:
-//   https://journals.panorama-sg.com/index.php/{journal}/oai
+//   https://journals.panorama-sg.com/{journal}/oai
 //
-// The shared /index.php/index/oai endpoint is deliberately not used. A
+// The shared /index/oai endpoint is deliberately not used. A
 // journal can fail or return malformed metadata without blocking the rest of
 // the portfolio, and the homepage still has the last known good JSON payload.
 
@@ -15,6 +15,7 @@ import { containsRetractionMarker, isRetractedArticle } from '../src/lib/article
 const WEB_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const JOURNALS_PATH = path.join(WEB_ROOT, 'src', 'data', 'journals.json');
 const OUTPUT_PATH = path.join(WEB_ROOT, 'src', 'data', 'articles.json');
+const JOURNAL_PLATFORM_ORIGIN = 'https://journals.panorama-sg.com';
 // The corporate search catalogue needs the complete article metadata that the
 // journal platforms expose, not only the three records shown on the homepage.
 // OAI-PMH is still bounded defensively so a malformed endpoint cannot create
@@ -26,6 +27,13 @@ const REQUEST_TIMEOUT_MS = 30000;
 
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, 'utf-8'));
+}
+
+function normalizeJournalPlatformUrl(value) {
+  return String(value || '').replace(
+    `${JOURNAL_PLATFORM_ORIGIN}/index.php/`,
+    `${JOURNAL_PLATFORM_ORIGIN}/`,
+  );
 }
 
 function escapeRegExp(value) {
@@ -93,7 +101,7 @@ function loadJournals() {
   return journals
     .filter((journal) => journal.status !== 'retired' && journal.journalUrl)
     .map((journal) => {
-      const journalUrl = journal.journalUrl.replace(/\/$/, '');
+      const journalUrl = normalizeJournalPlatformUrl(journal.journalUrl).replace(/\/$/, '');
       const slug = journal.slug || journal.id || journalUrl.split('/').pop();
       return {
         title: journal.title,
@@ -108,8 +116,8 @@ function articleUrlFromIdentifiers(identifiers) {
   const articleUrl = identifiers.find((value) => (
     /^https?:\/\//i.test(value) && /\/article\/view\//i.test(value)
   ));
-  if (articleUrl) return articleUrl;
-  return identifiers.find((value) => /^https?:\/\//i.test(value)) || '';
+  if (articleUrl) return normalizeJournalPlatformUrl(articleUrl);
+  return normalizeJournalPlatformUrl(identifiers.find((value) => /^https?:\/\//i.test(value)) || '');
 }
 
 function doiFromIdentifiers(identifiers) {
