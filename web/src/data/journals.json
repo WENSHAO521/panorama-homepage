@@ -13,8 +13,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Panorama Frontier Review (PFR) publishes original research and analytical scholarship on emerging issues, interdisciplinary debates, and frontier developments across the humanities and social sciences.",
     "cover": "/journals/covers/PFR.png",
-    "journalUrl": "https://journals.panorama-sg.com/PFR",
-    "submissionUrl": "https://journals.panorama-sg.com/PFR/submission"
+    "journalUrl": "https://journals.panorama-sg.com/pfr",
+    "submissionUrl": "https://journals.panorama-sg.com/pfr/submission"
   },
   {
     "id": "AFS",
@@ -31,8 +31,8 @@
     "featured": true,
     "description": "AI & Future Society (AFS) advances scholarship on AI ethics, governance, regulation, human-AI interaction, and the societal transformations driven by intelligent technologies.",
     "cover": "/journals/covers/AFS.png",
-    "journalUrl": "https://journals.panorama-sg.com/AFS",
-    "submissionUrl": "https://journals.panorama-sg.com/AFS/submission"
+    "journalUrl": "https://journals.panorama-sg.com/afs",
+    "submissionUrl": "https://journals.panorama-sg.com/afs/submission"
   },
   {
     "id": "JESA",
@@ -48,8 +48,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
     "description": "Journal of Engineering Systems and Applications (JESA) publishes peer-reviewed interdisciplinary research in engineering systems, applied sciences, and technology-driven solutions for industry and society.",
     "cover": "/journals/covers/JESA.png",
-    "journalUrl": "https://journals.panorama-sg.com/JESA",
-    "submissionUrl": "https://journals.panorama-sg.com/JESA/submission"
+    "journalUrl": "https://journals.panorama-sg.com/jesa",
+    "submissionUrl": "https://journals.panorama-sg.com/jesa/submission"
   },
   {
     "id": "HNDH",
@@ -65,8 +65,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Health Nexus: Digital Health and Medical AI (HNDH) is an international peer-reviewed, open-access journal for rigorous research in digital health, medical artificial intelligence, clinical informatics, health data science and technology-enabled healthcare innovation.",
     "cover": "/journals/covers/HNDH.png",
-    "journalUrl": "https://journals.panorama-sg.com/HNDH",
-    "submissionUrl": "https://journals.panorama-sg.com/HNDH/submission"
+    "journalUrl": "https://journals.panorama-sg.com/hndh",
+    "submissionUrl": "https://journals.panorama-sg.com/hndh/submission"
   },
   {
     "id": "HNCBT",
@@ -81,8 +81,8 @@
     "license": null,
     "description": null,
     "cover": "/journals/covers/HNCBT.png",
-    "journalUrl": "https://journals.panorama-sg.com/HNCBT",
-    "submissionUrl": "https://journals.panorama-sg.com/HNCBT/submission",
+    "journalUrl": "https://journals.panorama-sg.com/hncbt",
+    "submissionUrl": "https://journals.panorama-sg.com/hncbt/submission",
     "note": "Cover added 2026-08-27; journal page went live 2026-08-28. ISSN and description still pending from publisher as of last legacy-data harvest (2026-09-12)."
   },
   {
@@ -100,8 +100,8 @@
     "featured": true,
     "description": "Publishes interdisciplinary research on climate science, sustainability transitions, environmental data innovation, systemic risk, and global systems governance.",
     "cover": "/journals/covers/CSGS.png",
-    "journalUrl": "https://journals.panorama-sg.com/CSGS",
-    "submissionUrl": "https://journals.panorama-sg.com/CSGS/submission"
+    "journalUrl": "https://journals.panorama-sg.com/csgs",
+    "submissionUrl": "https://journals.panorama-sg.com/csgs/submission"
   },
   {
     "id": "RGGD",
@@ -117,8 +117,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Publishes interdisciplinary research across rural governance, green development, sustainable agriculture, ecological governance, and rural transformation.",
     "cover": "/journals/covers/RGGD.png",
-    "journalUrl": "https://journals.panorama-sg.com/RGGD",
-    "submissionUrl": "https://journals.panorama-sg.com/RGGD/submission"
+    "journalUrl": "https://journals.panorama-sg.com/rggd",
+    "submissionUrl": "https://journals.panorama-sg.com/rggd/submission"
   },
   {
     "id": "HN",
@@ -135,8 +135,8 @@
     "featured": true,
     "description": "Health Nexus: Interdisciplinary Medical Research Journal advances scholarship in interdisciplinary medicine, public health, and translational health sciences through rigorous double-blind peer review and open-access dissemination.",
     "cover": "/journals/covers/HealthNexus.png",
-    "journalUrl": "https://journals.panorama-sg.com/HealthNexus",
-    "submissionUrl": "https://journals.panorama-sg.com/HealthNexus/submission",
+    "journalUrl": "https://journals.panorama-sg.com/healthnexus",
+    "submissionUrl": "https://journals.panorama-sg.com/healthnexus/submission",
     "note": "Journal title is identical to the imprint name (Health Nexus) in the source data; kept as-is pending confirmation this is intentional."
   },
   {
@@ -153,8 +153,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Food Systems, Safety & Sustainability (FSSS) is an international peer-reviewed journal for research connecting food safety, resilient supply chains, nutrition, sustainability, policy, innovation and the social conditions of food systems.",
     "cover": "/journals/covers/FSSS.png",
-    "journalUrl": "https://journals.panorama-sg.com/FSSS",
-    "submissionUrl": "https://journals.panorama-sg.com/FSSS/submission"
+    "journalUrl": "https://journals.panorama-sg.com/fsss",
+    "submissionUrl": "https://journals.panorama-sg.com/fsss/submission"
   },
   {
     "id": "SES",
@@ -170,8 +170,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Journal of Sport and Exercise Studies (SES) is an international peer-reviewed journal dedicated to sport science, exercise studies, physical activity, health, coaching, performance, and related interdisciplinary inquiry.",
     "cover": "/journals/covers/SES.png",
-    "journalUrl": "https://journals.panorama-sg.com/SES",
-    "submissionUrl": "https://journals.panorama-sg.com/SES/submission"
+    "journalUrl": "https://journals.panorama-sg.com/ses",
+    "submissionUrl": "https://journals.panorama-sg.com/ses/submission"
   },
   {
     "id": "GPPGR",
@@ -185,8 +185,8 @@
     "openAccess": true,
     "description": "Global Public Policy & Governance Review (GPPGR) is an international peer-reviewed journal dedicated to public policy analysis, governance, public administration, and comparative institutional research.",
     "cover": null,
-    "journalUrl": "https://journals.panorama-sg.com/GPPGR",
-    "submissionUrl": "https://journals.panorama-sg.com/GPPGR/submission",
+    "journalUrl": "https://journals.panorama-sg.com/gppgr",
+    "submissionUrl": "https://journals.panorama-sg.com/gppgr/submission",
     "note": "Retired 2026-08. Governance scope succeeded by GGSR. Record kept (not hard-deleted) for a 'merged into GGSR' redirect notice on /journals/gppgr/."
   },
   {
@@ -203,8 +203,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Publishes original research and critical reviews on political economy, governance, public administration, policy implementation, and management in global and regional contexts.",
     "cover": "/journals/covers/REMR.png",
-    "journalUrl": "https://journals.panorama-sg.com/PEMR",
-    "submissionUrl": "https://journals.panorama-sg.com/PEMR/submission",
+    "journalUrl": "https://journals.panorama-sg.com/pemr",
+    "submissionUrl": "https://journals.panorama-sg.com/pemr/submission",
     "note": "Cover filename (REMR.png) does not match the journal id (PEMR) in the source data. Carried forward as-is; flagged for publisher confirmation before Round 6."
   },
   {
@@ -239,8 +239,8 @@
     "featured": true,
     "description": "Publishes original, methodologically rigorous, and socially relevant research at the intersections of law, psychology, communication, digital governance, and institutional practice.",
     "cover": "/journals/covers/JLPCS.png",
-    "journalUrl": "https://journals.panorama-sg.com/JLPCS",
-    "submissionUrl": "https://journals.panorama-sg.com/JLPCS/submission"
+    "journalUrl": "https://journals.panorama-sg.com/jlpcs",
+    "submissionUrl": "https://journals.panorama-sg.com/jlpcs/submission"
   },
   {
     "id": "IRELS",
@@ -256,8 +256,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Publishes interdisciplinary research that advances educational theory, learning sciences, teaching practice, digital education, educational psychology, and education policy across diverse global contexts.",
     "cover": "/journals/covers/IRELS.png",
-    "journalUrl": "https://journals.panorama-sg.com/IRELS",
-    "submissionUrl": "https://journals.panorama-sg.com/IRELS/submission"
+    "journalUrl": "https://journals.panorama-sg.com/irels",
+    "submissionUrl": "https://journals.panorama-sg.com/irels/submission"
   },
   {
     "id": "JSCC",
@@ -273,8 +273,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "An international, peer-reviewed, open-access journal dedicated to advancing research at the intersection of social cognition, communication, media, and contemporary society.",
     "cover": "/journals/covers/JSCC.png",
-    "journalUrl": "https://journals.panorama-sg.com/JSCC",
-    "submissionUrl": "https://journals.panorama-sg.com/JSCC/submission"
+    "journalUrl": "https://journals.panorama-sg.com/jscc",
+    "submissionUrl": "https://journals.panorama-sg.com/jscc/submission"
   },
   {
     "id": "CRoPT",
@@ -290,8 +290,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Publishes original research and critical reviews on contemporary political thought, political philosophy, intellectual history, Marxist theory, higher education governance, and public reason.",
     "cover": "/journals/covers/CRoPT.png",
-    "journalUrl": "https://journals.panorama-sg.com/CRoPT",
-    "submissionUrl": "https://journals.panorama-sg.com/CRoPT/submission"
+    "journalUrl": "https://journals.panorama-sg.com/cropt",
+    "submissionUrl": "https://journals.panorama-sg.com/cropt/submission"
   },
   {
     "id": "JPOII",
@@ -306,8 +306,8 @@
     "license": null,
     "description": null,
     "cover": "/journals/covers/JPOII.png",
-    "journalUrl": "https://journals.panorama-sg.com/JPOII",
-    "submissionUrl": "https://journals.panorama-sg.com/JPOII/submission",
+    "journalUrl": "https://journals.panorama-sg.com/jpoii",
+    "submissionUrl": "https://journals.panorama-sg.com/jpoii/submission",
     "note": "Cover added 2026-08-27; journal page went live 2026-08-28. ISSN and description still pending from publisher as of last legacy-data harvest (2026-09-12)."
   },
   {
@@ -323,8 +323,8 @@
     "license": null,
     "description": null,
     "cover": "/journals/covers/GGSR.png",
-    "journalUrl": "https://journals.panorama-sg.com/GGSR",
-    "submissionUrl": "https://journals.panorama-sg.com/GGSR/submission",
+    "journalUrl": "https://journals.panorama-sg.com/ggsr",
+    "submissionUrl": "https://journals.panorama-sg.com/ggsr/submission",
     "note": "Cover added 2026-08-27. Succeeds GPPGR's governance scope. ISSN and description still pending from publisher as of last legacy-data harvest (2026-09-12)."
   },
   {
@@ -341,8 +341,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Silence is an international peer-reviewed journal dedicated to mature, reflective, and analytically rigorous scholarship across interdisciplinary silence studies and social inquiry.",
     "cover": "/journals/covers/Silence.png",
-    "journalUrl": "https://journals.panorama-sg.com/Silence",
-    "submissionUrl": "https://journals.panorama-sg.com/Silence/submission"
+    "journalUrl": "https://journals.panorama-sg.com/silence",
+    "submissionUrl": "https://journals.panorama-sg.com/silence/submission"
   },
   {
     "id": "GRHAS",
@@ -395,8 +395,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Resonance: Journal of Global Music Studies is an international peer-reviewed journal exploring musicology, ethnomusicology, sound cultures, and cross-cultural sonic inquiry.",
     "cover": "/journals/covers/RESONANCE.png",
-    "journalUrl": "https://journals.panorama-sg.com/Resonance",
-    "submissionUrl": "https://journals.panorama-sg.com/Resonance/submission"
+    "journalUrl": "https://journals.panorama-sg.com/resonance",
+    "submissionUrl": "https://journals.panorama-sg.com/resonance/submission"
   },
   {
     "id": "CPRT",
@@ -412,8 +412,8 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Comparative Philosophy and Religious Traditions (CPRT) is an international peer-reviewed open access journal for rigorous scholarship at the intersection of comparative philosophy, theology, religious traditions, and intellectual history.",
     "cover": "/journals/covers/CPRT.png",
-    "journalUrl": "https://journals.panorama-sg.com/CPRT",
-    "submissionUrl": "https://journals.panorama-sg.com/CPRT/submission"
+    "journalUrl": "https://journals.panorama-sg.com/cprt",
+    "submissionUrl": "https://journals.panorama-sg.com/cprt/submission"
   },
   {
     "id": "JDES",
@@ -429,7 +429,7 @@
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
     "description": "Journal of Dance and Embodied Structure (JDES) is an international peer-reviewed journal dedicated to dance studies, embodied research, choreography, movement analysis, performance studies, and related interdisciplinary inquiry.",
     "cover": "/journals/covers/JDES.png",
-    "journalUrl": "https://journals.panorama-sg.com/JDES",
-    "submissionUrl": "https://journals.panorama-sg.com/JDES/submission"
+    "journalUrl": "https://journals.panorama-sg.com/jdes",
+    "submissionUrl": "https://journals.panorama-sg.com/jdes/submission"
   }
 ]
