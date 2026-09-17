@@ -355,13 +355,13 @@
     "status": "active",
     "openAccess": true,
     "license": "CC BY 4.0",
-    "licenseUrl": "https://journals.panorama-sg.com/files/Open-Access-Policy",
+    "licenseUrl": "https://journals.panorama-sg.com/grhas/Open-Access-Policy",
     "licenseScope": "article",
     "description": "Publishes interdisciplinary research across the humanities, arts, culture, and society, with attention to cross-cultural interpretation and public life.",
     "cover": "/journals/covers/GRAHS.png",
-    "journalUrl": "https://journals.panorama-sg.com/files",
-    "submissionUrl": "https://journals.panorama-sg.com/files/submission",
-    "note": "OJS URL path segment is 'files', not a recognizable abbreviation of the journal title, and the cover filename (GRAHS.png) does not match the journal id (GRHAS). Both carried forward as-is from the source data; flagged for publisher confirmation before Round 6."
+    "journalUrl": "https://journals.panorama-sg.com/grhas",
+    "submissionUrl": "https://journals.panorama-sg.com/grhas/submission",
+    "note": "OJS URL path segment is 'grhas'. The cover filename (GRAHS.png) does not match the journal id (GRHAS); this has been carried forward from the source data and remains flagged for publisher confirmation."
   },
   {
     "id": "TTS",
