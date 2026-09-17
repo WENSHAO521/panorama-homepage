@@ -32,7 +32,6 @@ const relationshipLogos = [
   {
     logo: shiharrLogo,
     href: 'https://www.shiharr.cn/',
-    inverse: true,
   },
 ];
 
@@ -136,7 +135,7 @@ const localizedBasePath = localizePath('/about/', locale);
         <div class="about-connection-list">
           {copy.relationships.map((relationship, index) => (
             <article class="about-connection">
-              <div class:list={['about-connection__mark', relationshipLogos[index].inverse && 'about-connection__mark--inverse']}>
+              <div class="about-connection__mark">
                 <Image
                   src={relationshipLogos[index].logo}
                   alt={relationship.alt}
@@ -462,11 +461,6 @@ const localizedBasePath = localizePath('/about/', locale);
     width: min(100%, 10rem);
     height: 6rem;
     align-items: center;
-  }
-
-  .about-connection__mark--inverse {
-    padding: 0.7rem;
-    background: var(--surface-inverse);
   }
 
   .about-connection__mark img {

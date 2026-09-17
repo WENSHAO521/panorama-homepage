@@ -31,7 +31,6 @@ const relationshipLogos = [
   {
     logo: shiharrLogo,
     href: 'https://www.shiharr.cn/',
-    inverse: true,
   },
 ];
 const locale = Astro.currentLocale ?? 'en';
@@ -80,7 +79,7 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
         <div class="partnerships-list">
           {copy.relationships.map((relationship, index) => (
             <article class="partnership-card">
-              <div class:list={['partnership-card__mark', relationshipLogos[index].inverse && 'partnership-card__mark--inverse']}>
+              <div class="partnership-card__mark">
                 <Image
                   src={relationshipLogos[index].logo}
                   alt={relationship.alt}
@@ -279,11 +278,6 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
     width: min(100%, 11rem);
     height: 6rem;
     align-items: center;
-  }
-
-  .partnership-card__mark--inverse {
-    padding: 0.7rem;
-    background: var(--surface-inverse);
   }
 
   .partnership-card__mark img {

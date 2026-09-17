@@ -36,7 +36,6 @@ const partnerLogos = [
     name: 'Shiharr Publishing',
     logo: shiharrLogo,
     href: 'https://www.shiharr.cn/',
-    inverse: true,
   },
 ];
 ---
@@ -54,7 +53,7 @@ const partnerLogos = [
           <div class="institutional-partner__group">
             {partnerLogos.map((partner) => partner.href ? (
               <a
-                class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}
+                class="institutional-partner__logo"
                 href={partner.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -69,7 +68,7 @@ const partnerLogos = [
                 />
               </a>
             ) : (
-              <div class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}>
+              <div class="institutional-partner__logo">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
@@ -83,7 +82,7 @@ const partnerLogos = [
 
           <div class="institutional-partner__group institutional-partner__group--duplicate" aria-hidden="true">
             {partnerLogos.map((partner) => (
-              <div class:list={['institutional-partner__logo', partner.inverse && 'institutional-partner__logo--inverse']}>
+              <div class="institutional-partner__logo">
                 <Image
                   src={partner.logo}
                   alt=""
@@ -178,10 +177,6 @@ const partnerLogos = [
   .institutional-partner__marquee:hover .institutional-partner__track,
   .institutional-partner__marquee:focus-within .institutional-partner__track {
     animation-play-state: paused;
-  }
-
-  .institutional-partner__logo--inverse {
-    background: var(--surface-inverse);
   }
 
   .institutional-partner__logo img {
