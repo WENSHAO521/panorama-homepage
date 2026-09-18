@@ -1,0 +1,499 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getResearchAssessmentCopy, declarationUrl, signUrl, badgesUrl } from '@/i18n/research-assessment';
+import { localizePath } from '@/i18n/utils';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getResearchAssessmentCopy(locale);
+
+const sections = [
+  { id: 'purpose', ...copy.sections.purpose },
+  { id: 'principles', ...copy.sections.principles },
+  { id: 'indicators', ...copy.sections.indicators },
+  { id: 'publishing', ...copy.sections.publishing },
+  { id: 'implementation', ...copy.sections.implementation },
+];
+
+const relatedHrefs = [
+  '/standards/editorial/',
+  '/standards/ethics/',
+  '/infrastructure/',
+];
+
+const relatedLinks = copy.relatedLinks.map((link, index) => ({
+  ...link,
+  href: localizePath(relatedHrefs[index] ?? '/standards/', locale),
+}));
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/standards/research-assessment/"
+  locale={locale}
+>
+  <article class="research-assessment">
+    <header class="dora-hero">
+      <div class="container-wide dora-hero__grid">
+        <div class="dora-hero__copy">
+          <p class="text-overline">{copy.heroEyebrow}</p>
+          <h1>{copy.heroTitle}</h1>
+          <p class="dora-hero__lede">{copy.heroLede}</p>
+        </div>
+
+        <aside class="dora-hero__scope" aria-label={copy.scopeLabel}>
+          <p class="dora-hero__scope-label">{copy.scopeLabel}</p>
+          <p>{copy.scopeText}</p>
+          <a href="#purpose">{copy.scopeLink}</a>
+        </aside>
+      </div>
+    </header>
+
+    <nav class="dora-index" aria-label={copy.navLabel}>
+      <div class="container-wide dora-index__inner">
+        <p class="dora-index__label">{copy.navLabel}</p>
+        <ul class="dora-index__list" role="list">
+          {sections.map((section) => (
+            <li><a href={`#${section.id}`}>{copy.nav[section.id as keyof typeof copy.nav]}</a></li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-wide dora-layout">
+      <aside class="dora-rail" aria-label={copy.railLabel}>
+        <p class="dora-rail__label">{copy.railLabel}</p>
+        <p class="dora-rail__statement">{copy.railStatement}</p>
+        <div class="dora-rail__rule" aria-hidden="true"></div>
+        <p class="dora-rail__meta">{copy.railMeta}</p>
+        <p class="dora-rail__note">{copy.railNote}</p>
+
+        <figure class="dora-mark">
+          <a href={declarationUrl} target="_blank" rel="noopener noreferrer">
+            <img
+              src="/standards/dora-logo.png"
+              alt={copy.doraLogoAlt}
+              width="232"
+              height="80"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+          <figcaption>{copy.doraCaption}</figcaption>
+        </figure>
+
+        <nav class="dora-links" aria-label={copy.relatedTitle}>
+          <a href={declarationUrl} target="_blank" rel="noopener noreferrer">{copy.declarationLinkLabel}</a>
+          <a href={signUrl} target="_blank" rel="noopener noreferrer">{copy.signLinkLabel}</a>
+          <a href={badgesUrl} target="_blank" rel="noopener noreferrer">{copy.badgesLinkLabel}</a>
+        </nav>
+      </aside>
+
+      <main class="dora-content">
+        {sections.map((section) => (
+          <section id={section.id} class="dora-section">
+            <h2>{section.title}</h2>
+            {section.intro && <p class="dora-section__intro">{section.intro}</p>}
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.cards && (
+              <div class="dora-principles">
+                {section.cards.map((card) => (
+                  <article class="dora-principle">
+                    <h3>{card.title}</h3>
+                    <p>{card.body}</p>
+                  </article>
+                ))}
+              </div>
+            )}
+          </section>
+        ))}
+
+        <aside class="dora-related">
+          <h2>{copy.relatedTitle}</h2>
+          <p>{copy.relatedIntro}</p>
+          <nav class="dora-related__links" aria-label={copy.relatedTitle}>
+            {relatedLinks.map((link) => (
+              <a href={link.href}>
+                <span>{link.title}</span>
+                <small>{link.body}</small>
+              </a>
+            ))}
+          </nav>
+        </aside>
+
+        <footer class="dora-footer">
+          <p>{copy.footer}</p>
+        </footer>
+      </main>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .research-assessment {
+    background: var(--surface-primary);
+  }
+
+  .dora-hero {
+    padding-block: clamp(4.5rem, 8vw, 7.5rem) clamp(3.5rem, 6vw, 5.5rem);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .dora-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+    gap: clamp(3rem, 8vw, 9rem);
+    align-items: end;
+  }
+
+  .dora-hero__copy h1 {
+    max-width: 11ch;
+    margin-top: 1.2rem;
+    font-size: clamp(3.35rem, 6.8vw, 6rem);
+    line-height: 0.98;
+  }
+
+  .dora-hero__lede {
+    max-width: 39rem;
+    margin-top: 1.6rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 1rem + 0.35vw, 1.35rem);
+    line-height: 1.45;
+  }
+
+  .dora-hero__scope {
+    max-width: 24rem;
+    padding-inline-start: 1.5rem;
+    border-inline-start: 2px solid var(--brand-accent);
+  }
+
+  .dora-hero__scope-label,
+  .dora-rail__label,
+  .dora-rail__meta,
+  .dora-index__label {
+    margin: 0;
+    color: var(--text-accent);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .dora-hero__scope > p:not(.dora-hero__scope-label) {
+    margin-top: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  .dora-hero__scope a {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: var(--text-primary);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+  }
+
+  .dora-index {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-secondary);
+  }
+
+  .dora-index__inner {
+    display: grid;
+    gap: 0.8rem 2rem;
+    padding-block: 1.15rem;
+  }
+
+  .dora-index__label {
+    color: var(--text-muted);
+  }
+
+  .dora-index__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .dora-index__list a {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    text-decoration: none;
+    text-underline-offset: 0.3em;
+  }
+
+  .dora-index__list a:hover,
+  .dora-index__list a:focus-visible {
+    color: var(--interactive-default);
+    text-decoration: underline;
+  }
+
+  .dora-layout {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.65fr) minmax(0, 2.15fr);
+    gap: clamp(3rem, 8vw, 9rem);
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
+  }
+
+  .dora-rail {
+    align-self: start;
+    position: sticky;
+    top: 5.5rem;
+    max-width: 18rem;
+  }
+
+  .dora-rail__statement {
+    margin-top: 1.15rem;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    line-height: 1.18;
+  }
+
+  .dora-rail__rule {
+    width: 3rem;
+    margin-block: 2rem 1.4rem;
+    border-top: 2px solid var(--brand-accent);
+  }
+
+  .dora-rail__note {
+    margin-top: 0.55rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .dora-mark {
+    margin: 2.75rem 0 0;
+    padding-top: 1.4rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .dora-mark a {
+    display: inline-block;
+  }
+
+  .dora-mark img {
+    display: block;
+    width: min(14.5rem, 100%);
+    height: auto;
+  }
+
+  .dora-mark figcaption {
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+
+  .dora-links {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .dora-links a {
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    font-weight: var(--fw-semibold);
+    line-height: 1.4;
+    text-underline-offset: 0.3em;
+  }
+
+  .dora-content {
+    min-width: 0;
+    max-width: 73ch;
+  }
+
+  .dora-section {
+    padding-block: 0 clamp(3.5rem, 6vw, 5.5rem);
+  }
+
+  .dora-section + .dora-section {
+    padding-top: clamp(3.5rem, 6vw, 5.5rem);
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .dora-section h2,
+  .dora-related h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1.08;
+  }
+
+  .dora-section > p,
+  .dora-related > p,
+  .dora-footer > p {
+    color: var(--text-secondary);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+  }
+
+  .dora-section > h2 + p,
+  .dora-related > h2 + p {
+    margin-top: 1.25rem;
+  }
+
+  .dora-section > p + p {
+    margin-top: 1rem;
+  }
+
+  .dora-principles {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 2.2rem 2.5rem;
+    margin-top: 2.75rem;
+  }
+
+  .dora-principle {
+    padding-top: 1rem;
+    border-top: 2px solid var(--border-strong);
+  }
+
+  .dora-principle:last-child {
+    grid-column: 1 / -1;
+    max-width: 34rem;
+  }
+
+  .dora-principle h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.25;
+  }
+
+  .dora-principle p {
+    margin-top: 0.7rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .dora-related {
+    margin-top: 0.5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    border-inline-start: 3px solid var(--brand-accent);
+    border-radius: var(--p-radius-surface);
+    background: var(--surface-secondary);
+  }
+
+  .dora-related__links {
+    display: grid;
+    gap: 1.1rem 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .dora-related__links a {
+    display: grid;
+    gap: 0.35rem;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .dora-related__links a:hover span,
+  .dora-related__links a:focus-visible span {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+
+  .dora-related__links span {
+    font-size: 0.78rem;
+    font-weight: var(--fw-semibold);
+  }
+
+  .dora-related__links small {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .dora-footer {
+    padding-top: 2rem;
+  }
+
+  .dora-footer > p {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  @media (min-width: 768px) {
+    .dora-index__inner {
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: center;
+    }
+
+    .dora-related__links {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 767px) {
+    .dora-hero__grid,
+    .dora-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .dora-hero__grid {
+      gap: 2.75rem;
+    }
+
+    .dora-hero__copy h1 {
+      max-width: 9ch;
+    }
+
+    .dora-hero__scope {
+      max-width: none;
+      padding-block: 1.25rem 0;
+      padding-inline-start: 0;
+      border-block-start: 2px solid var(--brand-accent);
+      border-inline-start: 0;
+    }
+
+    .dora-index__list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem 1rem;
+    }
+
+    .dora-layout {
+      gap: 3.5rem;
+    }
+
+    .dora-rail {
+      position: static;
+      max-width: 28rem;
+    }
+
+    .dora-principles {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin-top: 2.25rem;
+    }
+
+    .dora-principle:last-child {
+      grid-column: auto;
+      max-width: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dora-index__list a,
+    .dora-links a,
+    .dora-related__links a {
+      transition: none;
+    }
+  }
+</style>
