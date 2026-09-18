@@ -68,6 +68,7 @@ export const primaryNav: NavItem[] = [
       { label: 'Editorial Standards', path: '/standards/editorial/', description: 'Editorial judgment, peer review, and the scholarly record' },
       { label: 'Publication Ethics', path: '/standards/ethics/', description: 'Research integrity, concerns, and ethical practice' },
       { label: 'Open Access Policy', path: '/standards/open-access/', description: 'Access, licensing, and reuse of scholarly work' },
+      { label: 'Research Assessment', path: '/standards/research-assessment/', description: 'DORA, responsible metrics, and scholarly contribution' },
       { label: 'Accessibility', path: '/accessibility/', description: 'Accessible public information and digital publishing' },
     ],
   },
@@ -118,6 +119,7 @@ export const footerGroups: FooterGroup[] = [
       { label: 'Editorial Standards', path: '/standards/editorial/' },
       { label: 'Publication Ethics', path: '/standards/ethics/' },
       { label: 'Open Access', path: '/standards/open-access/' },
+      { label: 'Research Assessment', path: '/standards/research-assessment/' },
     ],
   },
   {
@@ -173,6 +175,7 @@ function localizeItem(item: NavItem, locale: string): NavItem {
     'Publication Ethics': labels.publicationEthics,
     'Open Access': labels.openAccess,
     'Open Access Policy': labels.openAccess,
+    'Research Assessment': labels.researchAssessment,
     Accessibility: labels.accessibility,
     'Research Institute': labels.researchInstitute,
     Profiles: labels.profiles,
