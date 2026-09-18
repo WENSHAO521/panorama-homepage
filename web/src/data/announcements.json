@@ -1,7 +1,70 @@
 {
-  "generatedAt": "2026-09-16T00:00:00Z",
+  "generatedAt": "2026-09-19T00:00:00Z",
   "maxItems": 5,
   "announcements": [
+    {
+      "id": "dora-signatory-2026",
+      "source": "group",
+      "sourceLabel": "Panorama Scholarly Group",
+      "type": "Announcement",
+      "title": "Panorama Scholarly Group signs DORA",
+      "summary": "Panorama Scholarly Group Ltd has signed the San Francisco Declaration on Research Assessment (DORA), reaffirming its commitment to responsible research assessment and the recognition of diverse scholarly contributions.",
+      "date": "2026-09-19",
+      "href": "/news/dora-signatory-2026/",
+      "fallback": true,
+      "translations": {
+        "en": {
+          "title": "Panorama Scholarly Group signs DORA",
+          "summary": "Panorama Scholarly Group Ltd has signed the San Francisco Declaration on Research Assessment (DORA), reaffirming its commitment to responsible research assessment and the recognition of diverse scholarly contributions.",
+          "type": "Announcement"
+        },
+        "zh-hans": {
+          "title": "Panorama Scholarly Group 签署《旧金山科研评估宣言》（DORA）",
+          "summary": "Panorama Scholarly Group Ltd 已签署《旧金山科研评估宣言》（DORA），重申其对负责任科研评估以及认可多元学术贡献的承诺。",
+          "type": "公告"
+        },
+        "zh-hant": {
+          "title": "Panorama Scholarly Group 簽署《舊金山科研評估宣言》（DORA）",
+          "summary": "Panorama Scholarly Group Ltd 已簽署《舊金山科研評估宣言》（DORA），重申其對負責任科研評估及認可多元學術貢獻的承諾。",
+          "type": "公告"
+        },
+        "ja": {
+          "title": "Panorama Scholarly Group、研究評価に関するサンフランシスコ宣言（DORA）に署名",
+          "summary": "Panorama Scholarly Group Ltd は、研究評価に関するサンフランシスコ宣言（DORA）に署名し、責任ある研究評価と多様な学術的貢献の認識に取り組む姿勢を改めて示しました。",
+          "type": "お知らせ"
+        },
+        "ko": {
+          "title": "Panorama Scholarly Group, 연구평가에 관한 샌프란시스코 선언(DORA)에 서명",
+          "summary": "Panorama Scholarly Group Ltd는 연구평가에 관한 샌프란시스코 선언(DORA)에 서명하고, 책임 있는 연구평가와 다양한 학술적 기여의 인정을 위한 의지를 다시 확인했습니다.",
+          "type": "공지"
+        },
+        "de": {
+          "title": "Panorama Scholarly Group unterzeichnet die San Francisco Declaration on Research Assessment (DORA)",
+          "summary": "Panorama Scholarly Group Ltd hat die San Francisco Declaration on Research Assessment (DORA) unterzeichnet und bekräftigt damit sein Engagement für verantwortungsvolle Forschungsbewertung und die Anerkennung vielfältiger wissenschaftlicher Beiträge.",
+          "type": "Mitteilung"
+        },
+        "fr": {
+          "title": "Panorama Scholarly Group signe la San Francisco Declaration on Research Assessment (DORA)",
+          "summary": "Panorama Scholarly Group Ltd a signé la San Francisco Declaration on Research Assessment (DORA), réaffirmant son engagement en faveur d’une évaluation responsable de la recherche et de la reconnaissance de la diversité des contributions scientifiques.",
+          "type": "Annonce"
+        },
+        "es": {
+          "title": "Panorama Scholarly Group firma la San Francisco Declaration on Research Assessment (DORA)",
+          "summary": "Panorama Scholarly Group Ltd ha firmado la San Francisco Declaration on Research Assessment (DORA), reafirmando su compromiso con una evaluación responsable de la investigación y con el reconocimiento de la diversidad de las contribuciones académicas.",
+          "type": "Anuncio"
+        },
+        "ru": {
+          "title": "Panorama Scholarly Group подписала Сан-Францисскую декларацию об оценке научных исследований (DORA)",
+          "summary": "Panorama Scholarly Group Ltd подписала Сан-Францисскую декларацию об оценке научных исследований (DORA), подтвердив приверженность ответственному оцениванию исследований и признанию разнообразного вклада в науку.",
+          "type": "Объявление"
+        },
+        "ar": {
+          "title": "توقيع Panorama Scholarly Group على إعلان سان فرانسيسكو لتقييم البحوث (DORA)",
+          "summary": "وقّعت Panorama Scholarly Group Ltd إعلان سان فرانسيسكو لتقييم البحوث (DORA)، مؤكدةً من جديد التزامها بالتقييم المسؤول للبحوث والاعتراف بتنوع الإسهامات العلمية.",
+          "type": "إعلان"
+        }
+      }
+    },
     {
       "id": "website-ui-update-2026",
       "source": "group",

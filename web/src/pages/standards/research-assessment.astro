@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getResearchAssessmentCopy, declarationUrl, signUrl, badgesUrl } from '@/i18n/research-assessment';
+import { getResearchAssessmentCopy, declarationUrl, signersUrl, badgesUrl } from '@/i18n/research-assessment';
 import { localizePath } from '@/i18n/utils';
 
 const locale = Astro.currentLocale ?? 'en';
@@ -71,10 +71,10 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
         <figure class="dora-mark">
           <a href={declarationUrl} target="_blank" rel="noopener noreferrer">
             <img
-              src="/standards/dora-logo.png"
+              src="/standards/dora-signatory-badge.png"
               alt={copy.doraLogoAlt}
-              width="232"
-              height="80"
+              width="400"
+              height="173"
               loading="lazy"
               decoding="async"
             />
@@ -84,7 +84,7 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
 
         <nav class="dora-links" aria-label={copy.relatedTitle}>
           <a href={declarationUrl} target="_blank" rel="noopener noreferrer">{copy.declarationLinkLabel}</a>
-          <a href={signUrl} target="_blank" rel="noopener noreferrer">{copy.signLinkLabel}</a>
+          <a href={signersUrl} target="_blank" rel="noopener noreferrer">{copy.signLinkLabel}</a>
           <a href={badgesUrl} target="_blank" rel="noopener noreferrer">{copy.badgesLinkLabel}</a>
         </nav>
       </aside>

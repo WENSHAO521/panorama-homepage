@@ -1,0 +1,33 @@
+---
+import EditorialLayout from '@/layouts/EditorialLayout.astro';
+import { getDoraSignatoryCopy } from '@/i18n/announcements';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getDoraSignatoryCopy(locale);
+const publishDate = new Date('2026-09-19T00:00:00Z');
+---
+
+<EditorialLayout
+  title={copy.title}
+  description={copy.description}
+  path="/news/dora-signatory-2026/"
+  locale={locale}
+  publishDate={publishDate}
+>
+  <p>{copy.intro}</p>
+  {copy.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+
+  <h2>{copy.changesTitle}</h2>
+  <ul>
+    {copy.changes.map((change) => <li>{change}</li>)}
+  </ul>
+
+  <h2>{copy.resourcesTitle}</h2>
+  <ul>
+    {copy.resources.map((resource) => (
+      <li><a href={resource.href} target="_blank" rel="noopener noreferrer">{resource.label}</a></li>
+    ))}
+  </ul>
+
+  <p>{copy.closing}</p>
+</EditorialLayout>

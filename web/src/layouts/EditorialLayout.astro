@@ -14,7 +14,7 @@ const { title, description, path, locale = 'en', publishDate } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} path={path} locale={locale}>
-  <article class="group-detail group-detail--editorial">
+  <article class="group-detail group-detail--editorial group-detail--announcement">
     <header class="group-detail__hero" aria-labelledby="group-detail-title">
       <div class="container-wide group-detail__hero-inner">
         <h1 id="group-detail-title">{title}</h1>

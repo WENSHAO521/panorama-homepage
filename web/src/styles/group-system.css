@@ -127,6 +127,12 @@ body.group-site .group-detail__body {
   padding-block: clamp(3.5rem, 6vw, 6rem) clamp(5rem, 8vw, 8rem);
 }
 
+/* Announcements use the same editorial rhythm as long-form pages, but their
+   wider frame keeps the page from feeling stranded in excessive side space. */
+body.group-site .group-detail--announcement .group-detail__body {
+  max-width: var(--p-container-max);
+}
+
 body.group-site .group-detail__body > :first-child {
   margin-top: 0;
 }
@@ -144,6 +150,11 @@ body.group-site .group-detail__body p {
   margin-block: 1.25rem;
 }
 
+body.group-site .group-detail--announcement .group-detail__body p,
+body.group-site .group-detail--announcement .group-detail__body li {
+  max-width: 84ch;
+}
+
 body.group-site .group-detail__body h2,
 body.group-site .group-detail__body h3 {
   max-width: 24ch;
@@ -155,6 +166,11 @@ body.group-site .group-detail__body ol {
   max-width: 68ch;
   margin-block: 1.25rem;
   padding-inline-start: 1.35rem;
+}
+
+body.group-site .group-detail--announcement .group-detail__body ul,
+body.group-site .group-detail--announcement .group-detail__body ol {
+  max-width: 84ch;
 }
 
 body.group-site .group-detail__body a {

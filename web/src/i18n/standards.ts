@@ -69,7 +69,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: 'Publication Ethics', description: 'A group-wide framework for research integrity, ethical review, fair editorial practice, and correction of the scholarly record.', href: links.ethics, action: 'Read publication ethics' },
       { index: '03', title: 'Open Access Policy', description: 'The access, copyright, licensing, fees, and responsible-reuse terms that govern open scholarly works.', href: links.openAccess, action: 'Read the open access policy' },
       { index: '04', title: 'Accessibility', description: 'How we design public information and digital publishing experiences for people with different needs.', href: links.accessibility, action: 'Read the accessibility statement' },
-      { index: '05', title: 'Responsible Research Assessment', description: 'How we use research metrics and recognise diverse scholarly contributions in responsible publishing.', href: links.researchAssessment, action: 'Read our commitment' },
+      { index: '05', title: 'Responsible Research Assessment', description: 'Panorama Scholarly Group Ltd’s DORA commitment to responsible metrics and recognition of diverse scholarly contributions.', href: links.researchAssessment, action: 'Read the DORA statement' },
     ],
     frameworkTitle: 'Four commitments guide every publication.',
     frameworkBody: 'These commitments apply across our journals, books, and scholarly works. They shape decisions before publication and the care taken after work enters the public record.',
@@ -112,7 +112,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: '出版伦理', description: '关于研究诚信、伦理审查、公平编辑实践与学术记录更正的集团级框架。', href: links.ethics, action: '阅读出版伦理' },
       { index: '03', title: '开放获取政策', description: '规范开放学术成果的获取、版权、许可、费用与负责任再利用。', href: links.openAccess, action: '阅读开放获取政策' },
       { index: '04', title: '无障碍声明', description: '说明我们如何为具有不同需求的人设计公共信息与数字出版体验。', href: links.accessibility, action: '阅读无障碍声明' },
-      { index: '05', title: '负责任的研究评价', description: '说明我们如何负责任地使用研究指标，并承认多元学术贡献。', href: links.researchAssessment, action: '阅读我们的承诺' },
+      { index: '05', title: '负责任的研究评价', description: 'Panorama Scholarly Group Ltd 对 DORA 的公开承诺，强调负责任地使用指标并承认多元学术贡献。', href: links.researchAssessment, action: '阅读 DORA 声明' },
     ],
     frameworkTitle: '四项承诺，贯穿每一项出版工作。',
     frameworkBody: '这些承诺适用于我们的期刊、图书及其他学术成果，既影响出版前的决策，也指导成果进入公共记录后的维护。',
@@ -148,7 +148,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: '出版倫理', description: '關於研究誠信、倫理審查、公平編輯實踐與學術記錄更正的集團級框架。', href: links.ethics, action: '閱讀出版倫理' },
       { index: '03', title: '開放取用政策', description: '規範開放學術成果的取用、版權、授權、費用與負責任再利用。', href: links.openAccess, action: '閱讀開放取用政策' },
       { index: '04', title: '無障礙聲明', description: '說明我們如何為具有不同需要的人設計公共資訊與數碼出版體驗。', href: links.accessibility, action: '閱讀無障礙聲明' },
-      { index: '05', title: '負責任的研究評估', description: '說明我們如何負責任地使用研究指標，並承認多元學術貢獻。', href: links.researchAssessment, action: '閱讀我們的承諾' },
+      { index: '05', title: '負責任的研究評估', description: 'Panorama Scholarly Group Ltd 對 DORA 的公開承諾，強調負責任地使用指標並承認多元學術貢獻。', href: links.researchAssessment, action: '閱讀 DORA 聲明' },
     ],
     frameworkTitle: '四項承諾，貫穿每一項出版工作。', frameworkBody: '這些承諾適用於我們的期刊、圖書及其他學術成果，既影響出版前的決策，也指導成果進入公共記錄後的維護。',
     commitments: [
@@ -176,7 +176,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: '出版倫理', description: '研究公正、倫理審査、公平な編集実践、学術記録の訂正に関するグループ共通の枠組みです。', href: links.ethics, action: '出版倫理を読む' },
       { index: '03', title: 'オープンアクセス方針', description: '公開された学術成果に適用されるアクセス、著作権、ライセンス、料金、責任ある再利用の条件です。', href: links.openAccess, action: 'オープンアクセス方針を読む' },
       { index: '04', title: 'アクセシビリティ', description: '異なるニーズを持つ人が利用できる公共情報とデジタル出版体験の設計方針です。', href: links.accessibility, action: '声明を読む' },
-      { index: '05', title: '責任ある研究評価', description: '研究指標を責任ある形で用い、多様な学術的貢献を認めるための方針です。', href: links.researchAssessment, action: '取り組みを読む' },
+      { index: '05', title: '責任ある研究評価', description: 'Panorama Scholarly Group LtdによるDORAへの公開の取り組み。指標を責任ある形で用い、多様な学術的貢献を認めます。', href: links.researchAssessment, action: 'DORA声明を読む' },
     ],
     frameworkTitle: '四つの約束が、すべての出版物を導きます。', frameworkBody: 'これらの約束は学術誌、書籍、その他の学術成果に共通します。出版前の判断と、成果が公開記録に加わった後の管理を形づくります。',
     commitments: [
@@ -204,7 +204,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: '출판 윤리', description: '연구 진실성, 윤리 검토, 공정한 편집 관행과 학술 기록 정정을 위한 그룹 공통 프레임워크입니다.', href: links.ethics, action: '출판 윤리 읽기' },
       { index: '03', title: '오픈 액세스 정책', description: '공개 학술 저작물에 적용되는 접근, 저작권, 라이선스, 비용 및 책임 있는 재사용 조건입니다.', href: links.openAccess, action: '오픈 액세스 정책 읽기' },
       { index: '04', title: '접근성', description: '서로 다른 필요를 가진 사람이 이용할 수 있는 공공 정보와 디지털 출판 경험의 설계 원칙입니다.', href: links.accessibility, action: '접근성 성명 읽기' },
-      { index: '05', title: '책임 있는 연구 평가', description: '연구 지표를 책임 있게 사용하고 다양한 학술적 기여를 인정하는 방식입니다.', href: links.researchAssessment, action: '약속의 내용 읽기' },
+      { index: '05', title: '책임 있는 연구 평가', description: '책임 있는 지표 사용과 다양한 학술적 기여의 인정을 위한 Panorama Scholarly Group Ltd의 DORA 공개 약속입니다.', href: links.researchAssessment, action: 'DORA 성명 읽기' },
     ],
     frameworkTitle: '네 가지 약속이 모든 출판물을 이끕니다.', frameworkBody: '이 약속은 학술지, 도서 및 기타 학술 저작물 전반에 적용됩니다. 출판 전의 판단과 공개 기록에 들어온 뒤의 관리 모두를 형성합니다.',
     commitments: [
@@ -232,7 +232,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: 'Publikationsethik', description: 'Ein gruppenweiter Rahmen für Forschungsintegrität, ethische Prüfung, faire Redaktion und die Korrektur des wissenschaftlichen Protokolls.', href: links.ethics, action: 'Publikationsethik lesen' },
       { index: '03', title: 'Open-Access-Richtlinie', description: 'Zugangs-, Urheberrechts-, Lizenz-, Gebühren- und Wiederverwendungsbedingungen für offene wissenschaftliche Werke.', href: links.openAccess, action: 'Open-Access-Richtlinie lesen' },
       { index: '04', title: 'Barrierefreiheit', description: 'Wie wir öffentliche Informationen und digitale Publikationserlebnisse für unterschiedliche Bedürfnisse gestalten.', href: links.accessibility, action: 'Barrierefreiheit lesen' },
-      { index: '05', title: 'Verantwortungsvolle Forschungsbewertung', description: 'Wie wir Forschungskennzahlen verantwortungsvoll verwenden und vielfältige wissenschaftliche Beiträge anerkennen.', href: links.researchAssessment, action: 'Unsere Verpflichtung lesen' },
+      { index: '05', title: 'Verantwortungsvolle Forschungsbewertung', description: 'Das öffentliche DORA-Bekenntnis der Panorama Scholarly Group Ltd zu verantwortungsvollen Kennzahlen und vielfältigen wissenschaftlichen Beiträgen.', href: links.researchAssessment, action: 'DORA-Erklärung lesen' },
     ],
     frameworkTitle: 'Vier Verpflichtungen leiten jede Veröffentlichung.', frameworkBody: 'Diese Verpflichtungen gelten für unsere Zeitschriften, Bücher und wissenschaftlichen Werke. Sie prägen Entscheidungen vor der Veröffentlichung und die Sorgfalt danach.',
     commitments: [
@@ -260,7 +260,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: 'Éthique de la publication', description: 'Un cadre commun pour l’intégrité de la recherche, l’examen éthique, une pratique éditoriale équitable et la correction du dossier scientifique.', href: links.ethics, action: 'Lire l’éthique de la publication' },
       { index: '03', title: 'Politique d’accès ouvert', description: 'Les conditions d’accès, de droit d’auteur, de licence, de frais et de réutilisation responsable des travaux ouverts.', href: links.openAccess, action: 'Lire la politique d’accès ouvert' },
       { index: '04', title: 'Accessibilité', description: 'La manière dont nous concevons l’information publique et les expériences éditoriales numériques pour des besoins différents.', href: links.accessibility, action: 'Lire la déclaration d’accessibilité' },
-      { index: '05', title: 'Évaluation responsable de la recherche', description: 'Notre approche des indicateurs de recherche et de la reconnaissance des contributions savantes diverses.', href: links.researchAssessment, action: 'Lire notre engagement' },
+      { index: '05', title: 'Évaluation responsable de la recherche', description: 'L’engagement public de Panorama Scholarly Group Ltd envers DORA, les indicateurs responsables et la diversité des contributions savantes.', href: links.researchAssessment, action: 'Lire la déclaration DORA' },
     ],
     frameworkTitle: 'Quatre engagements guident chaque publication.', frameworkBody: 'Ces engagements s’appliquent à nos revues, livres et travaux scientifiques. Ils orientent les décisions avant la publication et le soin apporté au dossier ensuite.',
     commitments: [
@@ -288,7 +288,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: 'Ética de la publicación', description: 'Un marco común para la integridad de la investigación, la revisión ética, la práctica editorial justa y la corrección del registro académico.', href: links.ethics, action: 'Leer la ética de publicación' },
       { index: '03', title: 'Política de acceso abierto', description: 'Condiciones de acceso, derechos de autor, licencias, cargos y reutilización responsable de los trabajos abiertos.', href: links.openAccess, action: 'Leer la política de acceso abierto' },
       { index: '04', title: 'Accesibilidad', description: 'Cómo diseñamos la información pública y las experiencias de publicación digital para personas con necesidades diversas.', href: links.accessibility, action: 'Leer la declaración de accesibilidad' },
-      { index: '05', title: 'Evaluación responsable de la investigación', description: 'Cómo usamos los indicadores de investigación de forma responsable y reconocemos contribuciones académicas diversas.', href: links.researchAssessment, action: 'Leer nuestro compromiso' },
+      { index: '05', title: 'Evaluación responsable de la investigación', description: 'El compromiso público de Panorama Scholarly Group Ltd con DORA, los indicadores responsables y la diversidad de las contribuciones académicas.', href: links.researchAssessment, action: 'Leer la declaración DORA' },
     ],
     frameworkTitle: 'Cuatro compromisos guían cada publicación.', frameworkBody: 'Estos compromisos se aplican a nuestras revistas, libros y trabajos académicos. Orientan las decisiones previas a la publicación y el cuidado posterior del registro público.',
     commitments: [
@@ -316,7 +316,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: 'Публикационная этика', description: 'Общая система требований к добросовестности исследований, этической проверке, справедливой редакционной практике и исправлению научного архива.', href: links.ethics, action: 'Читать о публикационной этике' },
       { index: '03', title: 'Политика открытого доступа', description: 'Условия доступа, авторского права, лицензирования, сборов и ответственного повторного использования открытых работ.', href: links.openAccess, action: 'Читать политику открытого доступа' },
       { index: '04', title: 'Доступность', description: 'Как мы создаём общественную информацию и цифровые издательские сервисы с учётом разных потребностей.', href: links.accessibility, action: 'Читать заявление о доступности' },
-      { index: '05', title: 'Ответственная оценка исследований', description: 'Как мы ответственно используем показатели и признаём разнообразие научных вкладов.', href: links.researchAssessment, action: 'Прочитать наше обязательство' },
+      { index: '05', title: 'Ответственная оценка исследований', description: 'Публичное обязательство Panorama Scholarly Group Ltd перед DORA, ответственное использование показателей и признание разнообразия научных вкладов.', href: links.researchAssessment, action: 'Прочитать заявление DORA' },
     ],
     frameworkTitle: 'Четыре обязательства определяют каждую публикацию.', frameworkBody: 'Эти обязательства действуют для наших журналов, книг и научных работ. Они направляют решения до публикации и последующее ведение открытого научного архива.',
     commitments: [
@@ -344,7 +344,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { index: '02', title: 'أخلاقيات النشر', description: 'إطار على مستوى المجموعة لنزاهة البحث والمراجعة الأخلاقية والممارسة التحريرية العادلة وتصحيح السجل العلمي.', href: links.ethics, action: 'اقرأ أخلاقيات النشر' },
       { index: '03', title: 'سياسة الوصول المفتوح', description: 'شروط الوصول وحقوق النشر والترخيص والرسوم وإعادة الاستخدام المسؤولة للأعمال العلمية المفتوحة.', href: links.openAccess, action: 'اقرأ سياسة الوصول المفتوح' },
       { index: '04', title: 'إمكانية الوصول', description: 'كيف نصمم المعلومات العامة وتجارب النشر الرقمي للأشخاص ذوي الاحتياجات المختلفة.', href: links.accessibility, action: 'اقرأ بيان إمكانية الوصول' },
-      { index: '05', title: 'التقييم المسؤول للبحوث', description: 'كيف نستخدم مؤشرات البحث بمسؤولية ونعترف بتنوع الإسهامات العلمية.', href: links.researchAssessment, action: 'اقرأ التزامنا' },
+      { index: '05', title: 'التقييم المسؤول للبحوث', description: 'التزام Panorama Scholarly Group Ltd العلني بـ DORA وبالاستخدام المسؤول للمؤشرات والاعتراف بتنوع الإسهامات العلمية.', href: links.researchAssessment, action: 'اقرأ بيان DORA' },
     ],
     frameworkTitle: 'توجّه أربعة التزامات كل منشور.', frameworkBody: 'تنطبق هذه الالتزامات على دورياتنا وكتبنا وأعمالنا العلمية. وهي تشكّل القرارات قبل النشر والعناية بالسجل بعد دخوله إلى المجال العام.',
     commitments: [
