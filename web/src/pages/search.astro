@@ -67,6 +67,16 @@ const copy = getSearchCopy(locale);
 
           <div class="search-results" data-search-results></div>
 
+          <nav class="search-pagination" data-search-pagination aria-label={copy.client.paginationLabel} hidden>
+            <button class="search-pagination__button" type="button" data-search-previous disabled>
+              {copy.client.previousPage}
+            </button>
+            <span class="search-pagination__status" data-search-page-status aria-live="polite"></span>
+            <button class="search-pagination__button" type="button" data-search-next disabled>
+              {copy.client.nextPage}
+            </button>
+          </nav>
+
           <noscript>
             <p class="search-noscript">
               {copy.noscriptPrefix} <a href={localizePath('/journals/', locale)}>{copy.noscriptJournals}</a> {copy.noscriptOr} <a href={localizePath('/news/', locale)}>{copy.noscriptAnnouncements}</a>.
@@ -365,6 +375,68 @@ const copy = getSearchCopy(locale);
     line-height: 1.5;
   }
 
+  .search-pagination {
+    display: grid;
+    grid-template-columns: minmax(7rem, 1fr) auto minmax(7rem, 1fr);
+    align-items: center;
+    gap: 1rem;
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    padding-top: 1.25rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .search-pagination[hidden] {
+    display: none;
+  }
+
+  .search-pagination__button {
+    min-height: 2.75rem;
+    padding: 0.65rem 0.9rem;
+    border: var(--p-border-hairline) solid var(--border-strong);
+    border-radius: var(--p-radius-button);
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    cursor: pointer;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard),
+      border-color var(--p-duration-base) var(--p-ease-standard),
+      color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .search-pagination__button:first-child {
+    justify-self: start;
+  }
+
+  .search-pagination__button:last-child {
+    justify-self: end;
+  }
+
+  .search-pagination__button:hover,
+  .search-pagination__button:focus-visible {
+    border-color: var(--interactive-default);
+    background: var(--surface-secondary);
+    color: var(--interactive-default);
+  }
+
+  .search-pagination__button:disabled {
+    border-color: var(--border-subtle);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  .search-pagination__status {
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   .search-no-results a,
   .search-noscript a {
     color: var(--text-link);
@@ -406,6 +478,11 @@ const copy = getSearchCopy(locale);
     .search-results-status {
       max-width: none;
       text-align: start;
+    }
+
+    .search-pagination {
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 0.65rem;
     }
 
     .search-result__link {

@@ -8,7 +8,7 @@ import type { SearchRecord } from '@/pages/search-index.json';
 import type { SearchClientCopy } from '@/i18n/utility';
 
 const TYPE_ORDER: SearchRecord['type'][] = ['article', 'journal', 'announcement', 'imprint', 'page'];
-const MAX_RESULTS = 40;
+const RESULTS_PER_PAGE = 40;
 
 const FALLBACK_COPY: SearchClientCopy = {
   typeLabels: { article: 'Article', announcement: 'Announcement', journal: 'Journal', imprint: 'Imprint', page: 'Page' },
@@ -22,7 +22,11 @@ const FALLBACK_COPY: SearchClientCopy = {
   browseJournals: 'browsing journals',
   exploreImprints: 'exploring imprints',
   resultsSummary: '{count} results for “{query}”',
-  resultsSummaryLimited: '{base}. Showing the first {max}.',
+  resultsPageSummary: '{base}. Page {page} of {pages}.',
+  paginationLabel: 'Search results pages',
+  previousPage: 'Previous',
+  nextPage: 'Next',
+  pageStatus: 'Page {page} of {pages}',
   resultCountSingular: '{count} result',
   resultCountPlural: '{count} results',
   opensNewTab: 'opens in a new tab',
@@ -84,6 +88,10 @@ async function main() {
   const resultsElement = document.querySelector<HTMLElement>('[data-search-results]');
   const statusElement = document.querySelector<HTMLElement>('[data-search-status]');
   const emptyElement = document.querySelector<HTMLElement>('[data-search-empty]');
+  const paginationElement = document.querySelector<HTMLElement>('[data-search-pagination]');
+  const previousPageButton = document.querySelector<HTMLButtonElement>('[data-search-previous]');
+  const nextPageButton = document.querySelector<HTMLButtonElement>('[data-search-next]');
+  const pageStatusElement = document.querySelector<HTMLElement>('[data-search-page-status]');
   if (!form || !input || !resultsElement || !statusElement || !emptyElement) return;
 
   const searchPage = document.querySelector<HTMLElement>('[data-search-locale]');
@@ -106,6 +114,25 @@ async function main() {
 
   let index: SearchRecord[] | null = null;
   let searchSequence = 0;
+  let rankedResults: Array<{ record: SearchRecord; s: number }> = [];
+  let activeQuery = '';
+  let activePage = 1;
+  let totalPages = 0;
+
+  function hidePagination() {
+    if (paginationElement) paginationElement.hidden = true;
+    if (previousPageButton) previousPageButton.disabled = true;
+    if (nextPageButton) nextPageButton.disabled = true;
+    if (pageStatusElement) pageStatusElement.textContent = '';
+  }
+
+  function updatePageUrl(page: number) {
+    const url = new URL(window.location.href);
+    if (page > 1) url.searchParams.set('page', String(page));
+    else url.searchParams.delete('page');
+    window.history.replaceState({}, '', url);
+  }
+
   async function loadIndex(): Promise<SearchRecord[]> {
     if (index) return index;
     const res = await fetch('/search-index.json');
@@ -116,12 +143,22 @@ async function main() {
   }
 
   function renderEmptyNoQuery() {
+    rankedResults = [];
+    activeQuery = '';
+    activePage = 1;
+    totalPages = 0;
+    hidePagination();
     results.innerHTML = '';
     empty.hidden = false;
     status.textContent = copy.initialStatus;
   }
 
   function renderNoResults(query: string) {
+    rankedResults = [];
+    activeQuery = '';
+    activePage = 1;
+    totalPages = 0;
+    hidePagination();
     results.innerHTML = '';
     empty.hidden = true;
     status.textContent = copy.noResults.replace('{query}', query);
@@ -131,13 +168,24 @@ async function main() {
       </p>`;
   }
 
-  function renderResults(records: { record: SearchRecord }[], query: string, total: number) {
-    const visibleRecords = records.slice(0, MAX_RESULTS);
+  function renderResults(records: Array<{ record: SearchRecord; s: number }>, query: string, requestedPage: number) {
+    const total = records.length;
+    const pages = Math.max(1, Math.ceil(total / RESULTS_PER_PAGE));
+    const page = Math.min(Math.max(requestedPage, 1), pages);
+    const visibleRecords = records.slice((page - 1) * RESULTS_PER_PAGE, page * RESULTS_PER_PAGE);
     const resultLabel = interpolate(copy.resultsSummary, { count: total, query });
-    status.textContent = total > MAX_RESULTS
-      ? interpolate(copy.resultsSummaryLimited, { base: resultLabel, max: MAX_RESULTS })
+    status.textContent = pages > 1
+      ? interpolate(copy.resultsPageSummary, { base: resultLabel, page, pages })
       : resultLabel;
     empty.hidden = true;
+    rankedResults = records;
+    activeQuery = query;
+    activePage = page;
+    totalPages = pages;
+    if (paginationElement) paginationElement.hidden = pages <= 1;
+    if (previousPageButton) previousPageButton.disabled = page <= 1;
+    if (nextPageButton) nextPageButton.disabled = page >= pages;
+    if (pageStatusElement) pageStatusElement.textContent = interpolate(copy.pageStatus, { page, pages });
 
     const groups = TYPE_ORDER
       .map((type) => ({ type, records: visibleRecords.filter(({ record }) => record.type === type) }))
@@ -168,13 +216,14 @@ async function main() {
       </section>`).join('');
   }
 
-  async function runSearch(query: string, updateUrl: boolean) {
+  async function runSearch(query: string, updateUrl: boolean, requestedPage = 1) {
     const sequence = ++searchSequence;
     const trimmed = query.trim();
     if (updateUrl) {
       const url = new URL(window.location.href);
       if (trimmed) url.searchParams.set('q', trimmed);
       else url.searchParams.delete('q');
+      url.searchParams.delete('page');
       window.history.replaceState({}, '', url);
     }
 
@@ -185,6 +234,11 @@ async function main() {
 
     empty.hidden = true;
     status.textContent = copy.searchingStatus;
+    rankedResults = [];
+    activeQuery = '';
+    activePage = 1;
+    totalPages = 0;
+    hidePagination();
     let records: SearchRecord[];
     try {
       records = await loadIndex();
@@ -201,8 +255,22 @@ async function main() {
       .sort((a, b) => b.s - a.s || a.record.title.localeCompare(b.record.title));
 
     if (ranked.length === 0) renderNoResults(trimmed);
-    else renderResults(ranked, trimmed, ranked.length);
+    else renderResults(ranked, trimmed, requestedPage);
   }
+
+  previousPageButton?.addEventListener('click', () => {
+    if (activePage <= 1 || rankedResults.length === 0) return;
+    renderResults(rankedResults, activeQuery, activePage - 1);
+    updatePageUrl(activePage);
+    previousPageButton.focus();
+  });
+
+  nextPageButton?.addEventListener('click', () => {
+    if (activePage >= totalPages || rankedResults.length === 0) return;
+    renderResults(rankedResults, activeQuery, activePage + 1);
+    updatePageUrl(activePage);
+    nextPageButton.focus();
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -213,9 +281,11 @@ async function main() {
     runSearch(input.value, true);
   });
 
-  const initialQuery = new URL(window.location.href).searchParams.get('q') ?? '';
+  const initialUrl = new URL(window.location.href);
+  const initialQuery = initialUrl.searchParams.get('q') ?? '';
+  const initialPage = Math.max(1, Number.parseInt(initialUrl.searchParams.get('page') ?? '1', 10) || 1);
   input.value = initialQuery;
-  runSearch(initialQuery, false);
+  runSearch(initialQuery, false, initialPage);
 }
 
 main();
