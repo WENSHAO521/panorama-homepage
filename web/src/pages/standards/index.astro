@@ -3,10 +3,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { localizePath } from '@/i18n/utils';
 import { getStandardsCopy } from '@/i18n/standards';
+import { getSdgReferenceCopy, sdgAgendaUrl, sdgGuidelinesUrl, sdgSiteUrl } from '@/i18n/sdg';
 import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getStandardsCopy(locale);
+const sdgCopy = getSdgReferenceCopy(locale);
 ---
 
 <BaseLayout
@@ -88,6 +90,33 @@ const copy = getStandardsCopy(locale);
             </article>
           ))}
         </div>
+      </div>
+    </section>
+
+    <section class="standards-sdg" aria-labelledby="sdg-title">
+      <div class="container-wide standards-sdg__grid">
+        <div class="standards-sdg__copy">
+          <p class="standards-sdg__label">{sdgCopy.sectionLabel}</p>
+          <h2 id="sdg-title">{sdgCopy.title}</h2>
+          <p class="standards-sdg__body">{sdgCopy.body}</p>
+          <div class="standards-sdg__links">
+            <a href={sdgAgendaUrl} target="_blank" rel="noopener noreferrer">{sdgCopy.agendaLabel}</a>
+            <a href={sdgSiteUrl} target="_blank" rel="noopener noreferrer">{sdgCopy.siteLabel}</a>
+            <a href={sdgGuidelinesUrl} target="_blank" rel="noopener noreferrer">{sdgCopy.guidelinesLabel}</a>
+          </div>
+        </div>
+
+        <figure class="standards-sdg__mark">
+          <img
+            src="/standards/sdg/sdg-logo-without-un-emblem-horizontal.png"
+            alt={sdgCopy.imageAlt}
+            width="2459"
+            height="450"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>{sdgCopy.disclaimer}</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -252,6 +281,91 @@ const copy = getStandardsCopy(locale);
   .standards-directory {
     border-block: var(--p-border-hairline) solid var(--border-subtle);
     background: var(--surface-secondary);
+  }
+
+  .standards-sdg {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .standards-sdg__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+    align-items: center;
+    gap: clamp(2.75rem, 8vw, 8rem);
+  }
+
+  .standards-sdg__copy {
+    max-width: 39rem;
+  }
+
+  .standards-sdg__label {
+    margin: 0;
+    color: var(--text-accent);
+    font-size: 0.62rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .standards-sdg__copy h2 {
+    max-width: 17ch;
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.65rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.05;
+  }
+
+  .standards-sdg__body {
+    max-width: 38rem;
+    margin-top: 1.15rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+    line-height: 1.5;
+  }
+
+  .standards-sdg__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.4rem;
+    margin-top: 1.7rem;
+  }
+
+  .standards-sdg__links a {
+    color: var(--text-link);
+    font-size: 0.72rem;
+    font-weight: var(--fw-semibold);
+    line-height: 1.45;
+    text-underline-offset: 0.3em;
+  }
+
+  .standards-sdg__links a:hover,
+  .standards-sdg__links a:focus-visible {
+    color: var(--text-link-hover);
+  }
+
+  .standards-sdg__mark {
+    margin: 0;
+    padding-block: clamp(1.5rem, 3vw, 2.5rem);
+    border-block: 2px solid var(--border-strong);
+  }
+
+  .standards-sdg__mark img {
+    display: block;
+    width: min(100%, 38rem);
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .standards-sdg__mark figcaption {
+    max-width: 38rem;
+    margin: 1.25rem auto 0;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.55;
   }
 
   .standards-section-intro {
@@ -446,7 +560,8 @@ const copy = getStandardsCopy(locale);
 
   @media (max-width: 767px) {
     .standards-hero__grid,
-    .standards-contact__grid {
+    .standards-contact__grid,
+    .standards-sdg__grid {
       grid-template-columns: 1fr;
     }
 
