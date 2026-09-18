@@ -1,0 +1,7 @@
+# Panorama Scholarly Group — Robots Exclusion Protocol
+
+User-agent: *
+Allow: /
+Disallow: /specimen/
+
+Sitemap: https://panorama-sg.com/sitemap.xml
