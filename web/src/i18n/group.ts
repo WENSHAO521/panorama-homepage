@@ -179,6 +179,7 @@ const relationshipNames = {
   cjwk: 'Changjiang Wenku',
   atri: 'Asia Technology Research Institute (ATRI)',
   shiharr: 'Shiharr Publishing',
+  jandl: 'J&L Academic Group',
 } as const;
 
 const atriRelationshipCopy: Record<LocaleCode, GroupRelationshipCopy> = {
@@ -307,6 +308,69 @@ const shiharrRelationshipCopy: Record<LocaleCode, GroupRelationshipCopy> = {
   },
 };
 
+const jandlRelationshipCopy: Record<LocaleCode, GroupRelationshipCopy> = {
+  en: {
+    kind: 'Academic publishing partner',
+    name: relationshipNames.jandl,
+    description: 'An academic publishing organisation focused on scholarly journals and related research communication.',
+    alt: relationshipNames.jandl,
+  },
+  'zh-hans': {
+    kind: '学术出版合作伙伴',
+    name: relationshipNames.jandl,
+    description: '一家专注于学术期刊及相关研究传播的学术出版机构。',
+    alt: relationshipNames.jandl,
+  },
+  'zh-hant': {
+    kind: '學術出版合作夥伴',
+    name: relationshipNames.jandl,
+    description: '一家專注於學術期刊及相關研究傳播的學術出版機構。',
+    alt: relationshipNames.jandl,
+  },
+  ja: {
+    kind: '学術出版パートナー',
+    name: relationshipNames.jandl,
+    description: '学術誌および関連する研究コミュニケーションに取り組む学術出版組織です。',
+    alt: relationshipNames.jandl,
+  },
+  ko: {
+    kind: '학술 출판 파트너',
+    name: relationshipNames.jandl,
+    description: '학술 저널과 관련 연구 커뮤니케이션을 중심으로 활동하는 학술 출판기관입니다.',
+    alt: relationshipNames.jandl,
+  },
+  de: {
+    kind: 'Wissenschaftlicher Verlagspartner',
+    name: relationshipNames.jandl,
+    description: 'Eine wissenschaftliche Publikationsorganisation mit Schwerpunkt auf Fachzeitschriften und der Vermittlung von Forschungsergebnissen.',
+    alt: relationshipNames.jandl,
+  },
+  fr: {
+    kind: 'Partenaire d’édition scientifique',
+    name: relationshipNames.jandl,
+    description: 'Une organisation d’édition scientifique axée sur les revues savantes et la diffusion de travaux de recherche connexes.',
+    alt: relationshipNames.jandl,
+  },
+  es: {
+    kind: 'Socio editorial académico',
+    name: relationshipNames.jandl,
+    description: 'Una organización de publicación académica centrada en revistas científicas y en la comunicación de investigaciones relacionadas.',
+    alt: relationshipNames.jandl,
+  },
+  ru: {
+    kind: 'Научный издательский партнёр',
+    name: relationshipNames.jandl,
+    description: 'Научная издательская организация, специализирующаяся на научных журналах и распространении связанных с ними исследовательских материалов.',
+    alt: relationshipNames.jandl,
+  },
+  ar: {
+    kind: 'شريك في النشر الأكاديمي',
+    name: relationshipNames.jandl,
+    description: 'مؤسسة للنشر الأكاديمي تركز على الدوريات العلمية والتواصل المرتبط بالبحوث.',
+    alt: relationshipNames.jandl,
+  },
+};
+
 function appendPartnerRelationships<T extends { relationships: GroupRelationshipCopy[] }>(copy: T, locale: string): T {
   const key = locale as LocaleCode;
   return {
@@ -315,6 +379,7 @@ function appendPartnerRelationships<T extends { relationships: GroupRelationship
       ...copy.relationships,
       atriRelationshipCopy[key] ?? atriRelationshipCopy.en,
       shiharrRelationshipCopy[key] ?? shiharrRelationshipCopy.en,
+      jandlRelationshipCopy[key] ?? jandlRelationshipCopy.en,
     ],
   };
 }

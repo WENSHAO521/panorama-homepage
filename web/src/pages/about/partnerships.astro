@@ -8,6 +8,7 @@ import { localizePath } from '@/i18n/utils';
 import taoistAssociationLogo from '@/assets/partners/taoist-association-korea-logo.png';
 import atriLogo from '@/assets/partners/asia-technology-research-institute-logo.png';
 import shiharrLogo from '@/assets/partners/shiharr-publishing-logo.png';
+import jandlLogo from '@/assets/partners/jandl-academic-group-logo.png';
 import cashlLogo from '@/assets/index-logos/library-logo.png';
 import cjwkLogo from '@/assets/index-logos/CJWK.png';
 import GroupHero from '@/components/group/GroupHero.astro';
@@ -31,6 +32,10 @@ const relationshipLogos = [
   {
     logo: shiharrLogo,
     href: 'https://www.shiharr.cn/',
+  },
+  {
+    logo: jandlLogo,
+    href: 'https://www.jandlpress.com/',
   },
 ];
 const locale = Astro.currentLocale ?? 'en';
@@ -257,7 +262,7 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
 
   .partnerships-list {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     margin-top: 3.25rem;
     border-top: var(--p-border-hairline) solid var(--border-strong);
     border-inline-start: var(--p-border-hairline) solid var(--border-strong);

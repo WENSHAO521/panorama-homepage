@@ -13,6 +13,7 @@ import ICIIJournalsMasterList from '@/assets/index-logos/ICI_JML.png';
 import ISNI from '@/assets/index-logos/ISNI.png';
 import ISSN from '@/assets/index-logos/ISSN.png';
 import CASHLLogo from '@/assets/index-logos/library-logo.png';
+import JandLAcademicGroup from '@/assets/partners/jandl-academic-group-logo.png';
 import LOCKSS from '@/assets/index-logos/LOCKSS.png';
 import OpenAIRE from '@/assets/index-logos/OpenAIRE.svg';
 import OpenAlex from '@/assets/index-logos/OpenAlex.png';
@@ -37,6 +38,7 @@ const indexLogoAssets: Record<string, ImageMetadata> = {
   '/indexes/ISNI.png': ISNI,
   '/indexes/ISSN.png': ISSN,
   '/partners/library-logo.png': CASHLLogo,
+  '/partners/jandl-academic-group-logo.png': JandLAcademicGroup,
   '/indexes/LOCKSS.png': LOCKSS,
   '/indexes/OpenAIRE.svg': OpenAIRE,
   '/indexes/OpenAlex.png': OpenAlex,

@@ -182,5 +182,13 @@
     "logo": "/partners/shiharr-publishing-logo.png",
     "url": "https://www.shiharr.cn/",
     "notes": "Partner logo provided from Shiharr's OJS site. The official website identifies the organisation as 拾华出版 / SHIHARR PUBLISHING."
+  },
+  {
+    "id": "jandl-academic-group",
+    "name": "J&L Academic Group",
+    "category": "publishing-partner",
+    "logo": "/partners/jandl-academic-group-logo.png",
+    "url": "https://www.jandlpress.com/",
+    "notes": "Partner logo provided from the official J&L Press website."
   }
 ]
