@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T00:00:00Z",
+  "generatedAt": "2026-09-21T07:59:01.902Z",
   "maxItems": 5,
   "announcements": [
     {
@@ -129,37 +129,14 @@
       }
     },
     {
-      "id": "research-institute-officially-open-2026",
-      "source": "research",
-      "sourceLabel": "Panorama Research Institute",
-      "type": "Notice",
-      "title": "Panorama Research Institute Is Now Officially Open",
-      "summary": "Panorama Research Institute has completed its foundational phase and is now officially open, accepting membership, fellowship, research assistant, research proposal, and collaboration inquiries.",
-      "date": "2026-08-23",
-      "href": "https://research.panorama-sg.com/announcements/institute-officially-open-2026",
-      "fallback": true
-    },
-    {
-      "id": "research-recruitment-2027",
-      "source": "research",
-      "sourceLabel": "Panorama Research Institute",
-      "type": "Recruitment",
-      "title": "Now Recruiting: Research Fellows, Associate Research Fellows, and Research Assistants",
-      "summary": "Panorama Research Institute is accepting applications for Research Fellow, Associate Research Fellow, and Research Assistant positions. The application deadline is February 15, 2027.",
-      "date": "2026-08-23",
-      "href": "https://research.panorama-sg.com/announcements/research-recruitment-2027",
-      "fallback": true
-    },
-    {
-      "id": "research-attachment-upload-fix-2026-08",
+      "id": "auto-research-research-aHR0cHM6Ly9y",
       "source": "research",
       "sourceLabel": "Panorama Research Institute",
       "type": "Update",
       "title": "Improved multi-file attachment uploads on collaboration forms",
       "summary": "The Membership and Research Fellow application forms now reliably receive every uploaded attachment, with a 10MB total size limit.",
       "date": "2026-08-23",
-      "href": "https://research.panorama-sg.com/announcements/attachment-upload-fix-2026-08",
-      "fallback": true
+      "href": "https://research.panorama-sg.com/announcements/attachment-upload-fix-2026-08"
     },
     {
       "id": "posi-pre-operational-launch-2026",
