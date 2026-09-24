@@ -21,7 +21,7 @@ working notes); this document is the current, authoritative summary.
 
 | Domain | Primitive examples | Semantic examples |
 |---|---|---|
-| Colour | `--p-paper-50`, `--p-forest-900`, `--p-navy-950`, `--p-blue-600`, `--p-gold-300/500/700` | `--surface-primary`, `--text-primary`, `--brand-primary`, `--interactive-default` |
+| Colour | `--p-paper-50`, `--p-forest-900`, `--p-navy-950`, `--p-blue-600`, `--p-bronze-300/500/700` | `--surface-primary`, `--text-primary`, `--brand-primary`, `--interactive-default` |
 | Spacing (4px base) | `--p-space-0` … `--p-space-11` (0 to 160px) | *(no separate semantic layer — spacing rarely needs re-mapping; components use `--p-space-*` directly, consistent with the existing codebase)* |
 | Radius | `--p-radius-button` 10px, `--p-radius-surface` 12px, `--p-radius-card` 16px, `--p-radius-feature` 24px, `--p-radius-pill` 999px (tags/status only) | — |
 | Border | `--p-border-hairline` 1px, `--p-border-strong` 2px | `--border-subtle`, `--border-strong` |
@@ -31,30 +31,32 @@ working notes); this document is the current, authoritative summary.
 | Shadow (Version 2) | `--p-shadow-sm`, `--p-shadow-md` — two shadows, site-wide, deliberately restrained per §Shadows below | `--shadow-raised` (sticky header, open dropdown panels), `--shadow-overlay` (reserved; not currently used) |
 
 Shape values match the brief's requested scale exactly (small 8-ish →
-`--p-radius-button` 10px is the closest functional analogue used for
-buttons; surface 12px, card 16px, large-container 20–24px →
-`--p-radius-feature` 24px). No pill-shaped elements outside tags/status
+`--p-radius-button` 8px is the institutional action radius used for
+buttons; surface 10px, card 12px, large feature 16px →
+`--p-radius-feature` 16px). No pill-shaped elements outside tags/status
 labels.
 
 ## Colour
 
-The current corporate palette uses Japanese editorial paper whites as
-the reading system: `#F7F6F1` for the default surface, `#F0EFE9` for
-quiet secondary areas, and `#FCFBF8` for raised surfaces. These are
-neutral greyed whites rather than yellow cream, keeping the site calm
-without reading as a lifestyle or hospitality brand.
+The trust-first corporate palette uses Japanese editorial paper whites
+as the reading system: `#F6F5F0` for the default surface, `#EFEDE7`
+for quiet secondary areas, and `#FDFCF8` for raised surfaces. These
+are neutral greyed whites rather than yellow cream, keeping the site
+calm without reading as a lifestyle or hospitality brand.
 
 Ink Green (`--p-forest-*`) is PSG's primary institutional colour.
-Navigation, primary actions, focus states, inline links, and the group
-illustration motif all use this family so the shell reads as one
-coherent identity. Body text uses a slightly softened sumi-inspired
-neutral ink instead of blue-black. Midnight Navy remains available as a
-secondary academic tone but is no longer the default interaction
-colour. Restrained Gold remains a small editorial accent only. The
-homepage Research block uses the light `--surface-feature` treatment
-instead of an inverse dark band, so the homepage stays in one light
-editorial register. The core text and interaction pairings were checked
-against WCAG 2.2 AA using relative luminance.
+`#1F4639` anchors the wordmark, primary actions, and formal navigation
+states; `#356657` is the normal interaction colour. Body text uses
+`#1E211E`, a softened sumi-inspired neutral ink. Aged Bronze
+(`--p-bronze-*`) is the only corporate accent family and is limited to
+small editorial signals, proof metrics, rules, and diagram details. It
+does not replace Ink Green as the brand colour. Midnight Navy remains
+available as a supporting academic tone, while the homepage Research
+block uses the light `#E7ECE8` feature surface instead of a dark band.
+The palette is intended to read as established scholarly publishing
+rather than technology, luxury, or lifestyle branding. Core text and
+interaction pairings were checked against WCAG 2.2 AA using relative
+luminance.
 
 **Five imprint accents** (subordinate to the PSG corporate identity,
 used only for imprint-scoped UI, never replacing the core palette):
