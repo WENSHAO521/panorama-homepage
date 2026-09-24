@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
 import { getContent } from '@/i18n/content';
-import { getNavigationLabels } from '@/i18n/navigation';
 import { localizePath } from '@/i18n/utils';
 import AFS from '@/assets/journal-covers/AFS.png';
 import JLPCS from '@/assets/journal-covers/JLPCS.png';
@@ -13,17 +12,11 @@ import TTS from '@/assets/journal-covers/TTS.png';
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
-const labels = getNavigationLabels(locale);
 ---
 
 <section class="hero">
   <div class="container-wide hero__row">
     <div class="hero__copy">
-      <p class="hero__institutional-line">
-        <span>{labels.publishing}</span>
-        <span>{labels.research}</span>
-        <span>{labels.infrastructure}</span>
-      </p>
       <h1 class="hero__title">
         {t('home.heroTitleOne')}<br class="hero__break" />
         {t('home.heroTitleTwo')}
@@ -62,22 +55,6 @@ const labels = getNavigationLabels(locale);
     </div>
   </div>
 
-  <div class="container-wide hero__proof">
-    <a class="hero__proof-item hero__proof-item--metric" href={localizePath('/journals/', locale)}>
-      <strong>24</strong>
-      <span>{labels.journals}</span>
-    </a>
-    <a class="hero__proof-item hero__proof-item--metric" href={localizePath('/imprints/', locale)}>
-      <strong>5</strong>
-      <span>{labels.imprints}</span>
-    </a>
-    <a class="hero__proof-item" href={localizePath('/standards/editorial/', locale)}>
-      <span>{labels.editorialStandards}</span>
-    </a>
-    <a class="hero__proof-item" href={localizePath('/about/governance/', locale)}>
-      <span>{labels.governance}</span>
-    </a>
-  </div>
 </section>
 
 <style>
@@ -99,29 +76,6 @@ const labels = getNavigationLabels(locale);
     z-index: 1;
   }
 
-  .hero__institutional-line {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem 1.15rem;
-    margin: 0;
-    color: var(--brand-primary);
-    font-size: 0.62rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.12em;
-    line-height: 1.35;
-    text-transform: uppercase;
-  }
-
-  .hero__institutional-line span {
-    position: relative;
-  }
-
-  .hero__institutional-line span + span::before {
-    position: absolute;
-    inset-inline-start: -0.65rem;
-    color: var(--brand-accent);
-    content: '/';
-  }
 
   .hero__title {
     max-width: none;
@@ -269,47 +223,6 @@ const labels = getNavigationLabels(locale);
   .hero__meta--left { left: 4.5%; }
   .hero__meta--right { right: 4.5%; }
 
-  .hero__proof {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-top: var(--p-border-hairline) solid var(--border-strong);
-  }
-
-  .hero__proof-item {
-    display: flex;
-    min-height: 4.25rem;
-    align-items: center;
-    gap: 0.55rem;
-    padding: 0.85rem 0;
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-    color: var(--text-secondary);
-    font-size: 0.67rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-  }
-
-  .hero__proof-item:nth-child(odd) {
-    padding-inline-end: 1rem;
-  }
-
-  .hero__proof-item:nth-child(even) {
-    padding-inline-start: 1rem;
-    border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .hero__proof-item strong {
-    color: var(--brand-accent);
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: var(--fw-regular);
-    line-height: 1;
-  }
-
-  .hero__proof-item:hover,
-  .hero__proof-item:focus-visible {
-    color: var(--interactive-hover);
-  }
 
   @media (min-width: 768px) {
     .hero {
@@ -333,23 +246,6 @@ const labels = getNavigationLabels(locale);
 
     .hero__actions { margin-top: 3.5rem; }
 
-    .hero__proof {
-      grid-template-columns: 1fr 1fr 1.35fr 1.35fr;
-    }
-
-    .hero__proof-item,
-    .hero__proof-item:nth-child(odd),
-    .hero__proof-item:nth-child(even) {
-      min-height: 4.5rem;
-      padding-inline: 1rem;
-      border-bottom: 0;
-      border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
-    }
-
-    .hero__proof-item:first-child {
-      padding-inline-start: 0;
-      border-inline-start: 0;
-    }
 
     .hero__art {
       max-width: none;
