@@ -23,7 +23,7 @@ const graticulePath = globePath(geoGraticule().step([20, 20])()) ?? '';
 const spherePath = globePath({ type: 'Sphere' }) ?? '';
 ---
 
-<section class="row row--inverse research-infra">
+<section class="row research-infra">
   <div class="container-wide research-infra__grid">
     <div class="research-infra__copy">
       <p class="text-overline">{t('home.researchOverline')}</p>
@@ -90,8 +90,9 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
 
 <style>
   .research-infra {
-    background: var(--surface-inverse);
-    color: var(--text-inverse);
+    background: var(--surface-feature);
+    color: var(--text-primary);
+    border-block: var(--p-border-hairline) solid var(--border-subtle);
     padding-block: 2.4rem 2.1rem;
   }
 
@@ -105,7 +106,7 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
   .research-infra__title {
     max-width: 16ch;
     margin-top: 0.75rem;
-    color: var(--text-inverse);
+    color: var(--text-primary);
     font-size: clamp(1.75rem, 3.6vw, 2.25rem);
     font-weight: var(--fw-regular);
     line-height: 1.05;
@@ -114,7 +115,7 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
   .research-infra__lede {
     max-width: 27rem;
     margin-top: 0.85rem;
-    color: var(--text-inverse-muted);
+    color: var(--text-secondary);
     font-family: var(--font-display);
     font-size: 0.76rem;
     line-height: 1.45;
@@ -124,7 +125,7 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    color: var(--text-inverse);
+    color: var(--text-link);
     font-family: var(--font-display);
     font-size: 0.82rem;
     text-decoration: underline;
@@ -140,12 +141,12 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
 
   .research-infra__link--local {
     padding-block-start: 0.75rem;
-    border-block-start: var(--p-border-hairline) solid var(--border-inverse);
-    color: var(--brand-accent);
+    border-block-start: var(--p-border-hairline) solid var(--border-subtle);
+    color: var(--text-link);
   }
 
   .research-infra__link span { font-family: var(--font-body); font-size: 1rem; }
-  .research-infra__link:hover { color: var(--brand-accent); }
+  .research-infra__link:hover { color: var(--text-link-hover); }
 
   .research-infra__figure {
     position: relative;
@@ -163,32 +164,32 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
   .research-globe__orbits ellipse,
   .research-globe__orbits path {
     fill: none;
-    stroke: var(--brand-accent);
+    stroke: var(--brand-primary);
     stroke-width: 1.1;
-    opacity: 0.8;
+    opacity: 0.55;
   }
 
   .research-globe__sphere circle,
   .research-globe__sphere ellipse,
   .research-globe__sphere path {
     fill: none;
-    stroke: var(--border-inverse);
+    stroke: var(--border-strong);
     stroke-width: 0.9;
-    opacity: 0.88;
+    opacity: 0.9;
   }
 
   .research-globe__land path {
-    fill: color-mix(in srgb, var(--brand-accent) 7%, transparent);
-    stroke: var(--border-inverse);
+    fill: color-mix(in srgb, var(--brand-primary) 6%, transparent);
+    stroke: var(--border-strong);
     stroke-width: 0.85;
     opacity: 0.9;
   }
 
   .research-globe__connections path {
     fill: none;
-    stroke: var(--brand-accent);
+    stroke: var(--interactive-default);
     stroke-width: 0.9;
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
   .research-globe__connections circle {
@@ -196,7 +197,7 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
   }
 
   .research-globe__connections text {
-    fill: var(--text-inverse-muted);
+    fill: var(--text-muted);
     font-family: var(--font-body);
     font-size: 9px;
     font-weight: var(--fw-semibold);
