@@ -19,16 +19,16 @@
 :root {
   /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
 
-  /* Japanese paper whites: neutral, low-yellow editorial surfaces */
-  --p-paper-0:      #FDFCF8;
-  --p-paper-50:     #F6F5F0;
-  --p-paper-100:    #EFEDE7;
-  --p-paper-200:    #E5E2D9;
+  /* Japanese kinari paper: warm, unbleached editorial surfaces */
+  --p-paper-0:      #FBF8F0;
+  --p-paper-50:     #F4F0E6;
+  --p-paper-100:    #EDE7DA;
+  --p-paper-200:    #E2DACB;
 
-  /* Sumi-inspired neutral ink */
-  --p-ink-900:      #1E211E;
-  --p-ink-700:      #454943;
-  --p-ink-500:      #696E67;
+  /* Sumi-inspired warm neutral ink */
+  --p-ink-900:      #24231F;
+  --p-ink-700:      #555249;
+  --p-ink-500:      #726C62;
 
   /* Midnight Navy (secondary academic tone) */
   --p-navy-950:     #0B1B2B;
@@ -51,15 +51,15 @@
   --p-teal-800:     #0F3D3E;
   --p-teal-600:     #1B5C5D;
 
-  /* Muted paper stone (borders, dividers, quiet surfaces) */
-  --p-stone-100:    #ECEAE4;
-  --p-stone-200:    #DAD7CE;
-  --p-stone-300:    #C5C1B5;
-  --p-stone-500:    #88847A;
+  /* Warm paper stone (borders, dividers, quiet surfaces) */
+  --p-stone-100:    #E9E2D5;
+  --p-stone-200:    #D8D0C1;
+  --p-stone-300:    #C4B9A7;
+  --p-stone-500:    #857D70;
 
   /* Aged bronze — restrained editorial accent, never a primary brand colour */
-  --p-bronze-300:   #C7AA83;
-  --p-bronze-500:   #8C6A46;
+  --p-bronze-300:   #C6A47A;
+  --p-bronze-500:   #8A6847;
   --p-bronze-700:   #755635;
 
   /* Semantic status (used sparingly — form validation, not decoration) */
@@ -151,7 +151,7 @@
   --surface-primary:       var(--p-paper-50);
   --surface-secondary:     var(--p-paper-100);
   --surface-raised:        var(--p-paper-0);
-  --surface-feature:       #E7ECE8;
+  --surface-feature:       #E7E8DE;
   --surface-inverse:       var(--p-forest-950);
   --surface-inverse-soft:  var(--p-forest-800);
   --surface-inverse-2:     var(--p-forest-900);
