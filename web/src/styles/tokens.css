@@ -91,10 +91,10 @@
   --p-space-11:  10rem;    /* 160px */
 
   /* ───────────────────────── PRIMITIVE: RADIUS ───────────────────────── */
-  --p-radius-button:  10px;
-  --p-radius-surface: 12px;
-  --p-radius-card:    16px;
-  --p-radius-feature: 24px;
+  --p-radius-button:   8px;
+  --p-radius-surface: 10px;
+  --p-radius-card:    12px;
+  --p-radius-feature: 16px;
   --p-radius-pill:    999px; /* tags / status / category labels ONLY */
 
   /* ───────────────────────── PRIMITIVE: BORDER WIDTH ─────────────────── */
@@ -123,8 +123,8 @@
   /* Deliberately restrained -- see docs/DESIGN-SYSTEM.md §Shadows.
      Academic credibility leans on borders/tonal surface difference, not
      Material-style elevation. Only two shadows exist site-wide. */
-  --p-shadow-sm: 0 1px 2px rgba(11, 27, 43, 0.06);
-  --p-shadow-md: 0 4px 16px rgba(11, 27, 43, 0.10);
+  --p-shadow-sm: 0 1px 2px rgba(24, 53, 45, 0.05);
+  --p-shadow-md: 0 4px 16px rgba(24, 53, 45, 0.08);
 
   /* ───────────────────────── PRIMITIVE: Z-INDEX ──────────────────────── */
   --p-z-base:        0;
