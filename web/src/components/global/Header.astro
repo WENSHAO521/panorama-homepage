@@ -53,13 +53,12 @@ const currentPath = new URL(Astro.request.url).pathname;
     top: 0;
     z-index: var(--p-z-sticky);
     background: var(--surface-raised);
-    border-top: 3px solid var(--brand-primary);
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    border-bottom: var(--p-border-hairline) solid transparent;
     transition: box-shadow var(--p-duration-base) var(--p-ease-standard),
       border-color var(--p-duration-base) var(--p-ease-standard);
   }
   .site-header.is-scrolled {
-    border-bottom-color: color-mix(in srgb, var(--brand-primary) 24%, var(--border-subtle));
+    border-bottom-color: color-mix(in srgb, var(--brand-primary) 18%, var(--border-subtle));
     box-shadow: var(--shadow-raised);
   }
 
