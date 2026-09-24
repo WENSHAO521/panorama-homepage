@@ -21,7 +21,7 @@ working notes); this document is the current, authoritative summary.
 
 | Domain | Primitive examples | Semantic examples |
 |---|---|---|
-| Colour | `--p-paper-50`, `--p-navy-950`, `--p-blue-600`, `--p-gold-500/700` | `--surface-primary`, `--text-primary`, `--brand-primary`, `--interactive-default` |
+| Colour | `--p-paper-50`, `--p-forest-900`, `--p-navy-950`, `--p-blue-600`, `--p-gold-300/500/700` | `--surface-primary`, `--text-primary`, `--brand-primary`, `--interactive-default` |
 | Spacing (4px base) | `--p-space-0` … `--p-space-11` (0 to 160px) | *(no separate semantic layer — spacing rarely needs re-mapping; components use `--p-space-*` directly, consistent with the existing codebase)* |
 | Radius | `--p-radius-button` 10px, `--p-radius-surface` 12px, `--p-radius-card` 16px, `--p-radius-feature` 24px, `--p-radius-pill` 999px (tags/status only) | — |
 | Border | `--p-border-hairline` 1px, `--p-border-strong` 2px | `--border-subtle`, `--border-strong` |
@@ -38,15 +38,19 @@ labels.
 
 ## Colour
 
-Semantic roles map to the brief's requested palette: Warm Paper
-(`--p-paper-*`), Midnight Navy (`--p-navy-*`), Academic Blue
-(`--p-blue-*`, links/interactive), Deep Teal (`--p-teal-*`, secondary
-brand), Muted Stone (`--p-stone-*`, borders), plus a restrained Gold
-accent split into an AA-safe small-text variant (`--text-accent`,
-`#7A5A22`, 6.0:1 contrast) and a large-text/decorative-only variant
-(`--brand-accent`, `#A9843C`). Every pairing was checked against WCAG
-2.2 AA via the relative-luminance formula (full table:
-`docs/rebuild/DESIGN-FOUNDATION.md` §3) — not eyeballed.
+The current corporate palette uses Warm Paper (`--p-paper-*`) as the
+reading surface and Ink Green (`--p-forest-*`) as PSG's primary
+institutional colour. Midnight Navy (`--p-navy-*`) remains a secondary
+academic tone for illustration and supporting visual structure, while
+Academic Blue (`--p-blue-*`) remains available for conventional inline
+links. UI interaction states (navigation, controls, focus and primary
+actions) use Ink Green so the global shell reads as one coherent brand
+system. Muted Stone (`--p-stone-*`) supplies borders, while restrained
+Gold provides editorial accents: `--text-accent` uses `#7A5A22` on
+light paper, `--text-accent-inverse` uses the lighter `#D0B46A` on
+Ink Green inverse surfaces, and `--brand-accent` remains `#A9843C`
+for decorative use. The core pairings were checked against WCAG 2.2 AA
+with relative luminance rather than selected by eye.
 
 **Five imprint accents** (subordinate to the PSG corporate identity,
 used only for imprint-scoped UI, never replacing the core palette):
