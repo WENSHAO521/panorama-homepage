@@ -40,7 +40,14 @@
   --p-blue-600:     #1F4E79;
   --p-blue-700:     #163A5A;
 
-  /* Deep Teal (secondary brand) */
+  /* Ink Green (PSG corporate brand) */
+  --p-forest-950:   #0E2F28;
+  --p-forest-900:   #173F35;
+  --p-forest-800:   #1C4B3F;
+  --p-forest-700:   #245E4F;
+  --p-forest-600:   #2E6F5E;
+
+  /* Deep Teal (legacy/imprint-supporting tone) */
   --p-teal-800:     #0F3D3E;
   --p-teal-600:     #1B5C5D;
 
@@ -51,6 +58,7 @@
   --p-stone-500:    #8C8778;
 
   /* Restrained gold — decorative/large-text accent ONLY, never body text */
+  --p-gold-300:     #D0B46A;
   --p-gold-500:     #A9843C;
   --p-gold-700:     #7A5A22;
 
@@ -140,12 +148,12 @@
   --p-gutter-desktop:    clamp(3rem, 7.8vw, 7rem);
 
   /* ───────────────────────── SEMANTIC: SURFACE ───────────────────────── */
-  --surface-primary:    var(--p-paper-50);
-  --surface-secondary:  var(--p-paper-100);
-  --surface-raised:     var(--p-paper-0);
-  --surface-inverse:       var(--p-navy-950);
-  --surface-inverse-soft:  var(--p-navy-800);
-  --surface-inverse-2:     var(--p-navy-900);
+  --surface-primary:       var(--p-paper-50);
+  --surface-secondary:     var(--p-paper-100);
+  --surface-raised:        var(--p-paper-0);
+  --surface-inverse:       var(--p-forest-950);
+  --surface-inverse-soft:  var(--p-forest-800);
+  --surface-inverse-2:     var(--p-forest-900);
 
   /* ───────────────────────── SEMANTIC: TEXT ──────────────────────────── */
   --text-primary:    var(--p-ink-900);
@@ -157,7 +165,7 @@
   --text-link:       var(--p-blue-600);
   --text-link-hover: var(--p-blue-700);
   --text-accent:     var(--p-gold-700); /* AA-safe gold for small labels */
-  --text-accent-inverse: var(--p-gold-500); /* AA-safe accent on inverse surfaces */
+  --text-accent-inverse: var(--p-gold-300); /* AA-safe light gold on Ink Green inverse surfaces */
 
   /* ───────────────────────── SEMANTIC: BORDER ────────────────────────── */
   --border-subtle:   var(--p-stone-200);
@@ -165,15 +173,15 @@
   --border-inverse:  color-mix(in srgb, var(--p-paper-50) 18%, transparent);
 
   /* ───────────────────────── SEMANTIC: BRAND ─────────────────────────── */
-  --brand-primary:    var(--p-navy-950);
-  --brand-secondary:  var(--p-teal-800);
+  --brand-primary:    var(--p-forest-900);
+  --brand-secondary:  var(--p-navy-900);
   --brand-accent:     var(--p-gold-500); /* decorative use only */
 
   /* ───────────────────────── SEMANTIC: INTERACTIVE ───────────────────── */
-  --interactive-default:  var(--p-blue-600);
-  --interactive-hover:    var(--p-blue-700);
+  --interactive-default:  var(--p-forest-700);
+  --interactive-hover:    var(--p-forest-900);
   --interactive-on-dark:  var(--p-paper-50);
-  --focus-ring:            var(--p-blue-600);
+  --focus-ring:            var(--p-forest-600);
   --focus-ring-offset:     2px;
 
   /* ───────────────────────── SEMANTIC: SHADOW ────────────────────────── */
