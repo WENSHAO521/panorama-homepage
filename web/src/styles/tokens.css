@@ -19,11 +19,11 @@
 :root {
   /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
 
-  /* Japanese kinari paper: warm, unbleached editorial surfaces */
-  --p-paper-0:      #FBF8F0;
-  --p-paper-50:     #F4F0E6;
-  --p-paper-100:    #EDE7DA;
-  --p-paper-200:    #E2DACB;
+  /* Japanese paper whites: Hakuji + Shironeri inspired editorial surfaces */
+  --p-paper-0:      #FBFAF5;
+  --p-paper-50:     #F7F4EC;
+  --p-paper-100:    #F1ECE2;
+  --p-paper-200:    #E7E0D5;
 
   /* Sumi-inspired warm neutral ink */
   --p-ink-900:      #24231F;
@@ -51,11 +51,11 @@
   --p-teal-800:     #0F3D3E;
   --p-teal-600:     #1B5C5D;
 
-  /* Warm paper stone (borders, dividers, quiet surfaces) */
-  --p-stone-100:    #E9E2D5;
-  --p-stone-200:    #D8D0C1;
-  --p-stone-300:    #C4B9A7;
-  --p-stone-500:    #857D70;
+  /* Paper stone: warm-neutral boundaries without grey cast */
+  --p-stone-100:    #ECE6DC;
+  --p-stone-200:    #DDD5C9;
+  --p-stone-300:    #C9BFB1;
+  --p-stone-500:    #898176;
 
   /* Aged bronze — restrained editorial accent, never a primary brand colour */
   --p-bronze-300:   #C6A47A;
@@ -151,7 +151,7 @@
   --surface-primary:       var(--p-paper-50);
   --surface-secondary:     var(--p-paper-100);
   --surface-raised:        var(--p-paper-0);
-  --surface-feature:       #E7E8DE;
+  --surface-feature:       #ECEEE7;
   --surface-inverse:       var(--p-forest-950);
   --surface-inverse-soft:  var(--p-forest-800);
   --surface-inverse-2:     var(--p-forest-900);
