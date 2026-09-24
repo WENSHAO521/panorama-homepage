@@ -38,7 +38,7 @@ labels.
 
 ## Colour
 
-The trust-first corporate palette uses Japanese editorial paper whites
+The corporate palette uses Japanese editorial paper whites
 as the reading system: `#F6F5F0` for the default surface, `#EFEDE7`
 for quiet secondary areas, and `#FDFCF8` for raised surfaces. These
 are neutral greyed whites rather than yellow cream, keeping the site
@@ -53,8 +53,7 @@ small editorial signals, proof metrics, rules, and diagram details. It
 does not replace Ink Green as the brand colour. Midnight Navy remains
 available as a supporting academic tone, while the homepage Research
 block uses the light `#E7ECE8` feature surface instead of a dark band.
-The palette is intended to read as established scholarly publishing
-rather than technology, luxury, or lifestyle branding. Core text and
+The palette is intended to feel quiet, editorial, and institutionally restrained rather than technology-led or lifestyle-oriented. Core text and
 interaction pairings were checked against WCAG 2.2 AA using relative
 luminance.
 
