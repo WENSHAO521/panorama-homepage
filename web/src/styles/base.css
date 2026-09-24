@@ -57,7 +57,7 @@ a:hover {
 }
 
 ::selection {
-  background: var(--p-navy-900);
+  background: var(--brand-primary);
   color: var(--text-inverse);
 }
 
