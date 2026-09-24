@@ -86,6 +86,7 @@ function flattenChildren(item: NavItem): NavItem[] {
     width: 100%;
     height: 100%;
     border: none;
+    border-top: var(--p-border-strong) solid var(--brand-primary);
     background: var(--surface-primary);
     color: var(--text-primary);
   }
@@ -151,8 +152,13 @@ function flattenChildren(item: NavItem): NavItem[] {
     font-size: 1.2em;
     color: var(--text-muted);
   }
+  details[open] > .mobile-nav__accordion-trigger {
+    color: var(--brand-primary);
+  }
+
   details[open] > .mobile-nav__accordion-trigger::after {
     content: '−';
+    color: var(--brand-primary);
   }
   .mobile-nav__sublist {
     list-style: none;
@@ -166,6 +172,13 @@ function flattenChildren(item: NavItem): NavItem[] {
     padding: var(--p-space-3) var(--p-space-2);
     color: var(--text-secondary);
     text-decoration: none;
+  }
+
+  .mobile-nav__link:hover,
+  .mobile-nav__link:focus-visible,
+  .mobile-nav__sublink:hover,
+  .mobile-nav__sublink:focus-visible {
+    color: var(--interactive-default);
   }
 
   .mobile-nav__footer {
