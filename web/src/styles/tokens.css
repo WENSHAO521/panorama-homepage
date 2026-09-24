@@ -30,13 +30,13 @@
   --p-ink-700:      #3A3F44;
   --p-ink-500:      #5B6268;
 
-  /* Midnight Navy (dark / inverse surfaces) */
+  /* Midnight Navy (secondary academic tone) */
   --p-navy-950:     #0B1B2B;
   --p-navy-900:     #10263B;
   --p-navy-800:     #183650;
   --p-navy-700:     #1D3A57;
 
-  /* Academic Blue (interactive / links) */
+  /* Academic Blue (conventional inline links) */
   --p-blue-600:     #1F4E79;
   --p-blue-700:     #163A5A;
 
