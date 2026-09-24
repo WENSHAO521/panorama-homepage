@@ -54,6 +54,7 @@ const t = getContent(locale);
       </div>
     </div>
   </div>
+
 </section>
 
 <style>
@@ -74,6 +75,7 @@ const t = getContent(locale);
     position: relative;
     z-index: 1;
   }
+
 
   .hero__title {
     max-width: none;
@@ -136,7 +138,7 @@ const t = getContent(locale);
   .hero__orbit-arc--blue,
   .hero__orbit-arc--sage,
   .hero__orbit-arc--terra,
-  .hero__orbit-arc--plum { stroke: var(--p-navy-700); }
+  .hero__orbit-arc--plum { stroke: var(--brand-primary); }
   .hero__orbit-arc--gold { stroke: var(--brand-accent); }
 
   .hero__orbit-arc:nth-child(odd) {
@@ -149,7 +151,7 @@ const t = getContent(locale);
     width: auto;
     height: auto;
     object-fit: cover;
-    box-shadow: 0 0.15rem 0.25rem rgba(11, 27, 43, 0.08);
+    box-shadow: 0 0.15rem 0.25rem color-mix(in srgb, var(--brand-primary) 8%, transparent);
   }
 
   .hero__books {
@@ -221,6 +223,7 @@ const t = getContent(locale);
   .hero__meta--left { left: 4.5%; }
   .hero__meta--right { right: 4.5%; }
 
+
   @media (min-width: 768px) {
     .hero {
       padding-top: 0;
@@ -242,6 +245,7 @@ const t = getContent(locale);
     }
 
     .hero__actions { margin-top: 3.5rem; }
+
 
     .hero__art {
       max-width: none;
