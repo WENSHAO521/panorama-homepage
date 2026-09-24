@@ -80,7 +80,12 @@ const primaryNav = getPrimaryNav(locale);
   .desktop-nav__link:hover,
   .desktop-nav__trigger:hover {
     color: var(--interactive-default);
-    background: var(--surface-secondary);
+    background: color-mix(in srgb, var(--brand-primary) 6%, var(--surface-secondary));
+  }
+
+  .desktop-nav__dropdown[open] > .desktop-nav__trigger {
+    color: var(--brand-primary);
+    background: color-mix(in srgb, var(--brand-primary) 8%, var(--surface-secondary));
   }
   .desktop-nav__trigger:focus-visible,
   .desktop-nav__link:focus-visible {
@@ -107,6 +112,7 @@ const primaryNav = getPrimaryNav(locale);
     margin-top: var(--p-space-2);
     background: var(--surface-raised);
     border: var(--p-border-hairline) solid var(--border-subtle);
+    border-top: var(--p-border-strong) solid var(--brand-primary);
     border-radius: var(--p-radius-surface);
     box-shadow: var(--shadow-raised);
   }
