@@ -19,16 +19,16 @@
 :root {
   /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
 
-  /* Japanese paper whites: Hakuji + Shironeri inspired editorial surfaces */
-  --p-paper-0:      #FBFAF5;
-  --p-paper-50:     #F7F4EC;
-  --p-paper-100:    #F1ECE2;
-  --p-paper-200:    #E7E0D5;
+  /* Japanese paper whites: Unohana as the global canvas */
+  --p-paper-0:      #FFFFFB; /* Gofun */
+  --p-paper-50:     #F7FCFE; /* Unohana */
+  --p-paper-100:    #EFF6F7;
+  --p-paper-200:    #E4ECEE;
 
-  /* Sumi-inspired warm neutral ink */
-  --p-ink-900:      #24231F;
-  --p-ink-700:      #555249;
-  --p-ink-500:      #726C62;
+  /* Japanese ink neutrals */
+  --p-ink-900:      #1C1C1C; /* Sumi */
+  --p-ink-700:      #524E4D; /* Keshizumi */
+  --p-ink-500:      #727171;
 
   /* Midnight Navy (secondary academic tone) */
   --p-navy-950:     #0B1B2B;
@@ -40,27 +40,27 @@
   --p-blue-600:     #1F4E79;
   --p-blue-700:     #163A5A;
 
-  /* Ink Green (PSG corporate brand, Japanese editorial register) */
-  --p-forest-950:   #17372E;
-  --p-forest-900:   #1F4639;
-  --p-forest-800:   #295447;
-  --p-forest-700:   #356657;
-  --p-forest-600:   #47796A;
+  /* Tetsu family: cool blue-green institutional brand */
+  --p-tetsu-950:    #182F31;
+  --p-tetsu-900:    #244344; /* Tetsu */
+  --p-tetsu-800:    #2F5653;
+  --p-tetsu-700:    #3A6960; /* Aoseki */
+  --p-tetsu-600:    #5F836D;
 
   /* Deep Teal (legacy/imprint-supporting tone) */
   --p-teal-800:     #0F3D3E;
   --p-teal-600:     #1B5C5D;
 
-  /* Paper stone: warm-neutral boundaries without grey cast */
-  --p-stone-100:    #ECE6DC;
-  --p-stone-200:    #DDD5C9;
-  --p-stone-300:    #C9BFB1;
-  --p-stone-500:    #898176;
+  /* Cool paper stone: boundaries derived from Unohana */
+  --p-stone-100:    #EEF3F4;
+  --p-stone-200:    #DDE6E8;
+  --p-stone-300:    #C8D3D5;
+  --p-stone-500:    #7A8384;
 
-  /* Aged bronze — restrained editorial accent, never a primary brand colour */
-  --p-bronze-300:   #C6A47A;
-  --p-bronze-500:   #8A6847;
-  --p-bronze-700:   #755635;
+  /* Traditional warm counterpoint: Biwacha + Susutake */
+  --p-biwa-300:     #D6B896;
+  --p-biwa-500:     #AE7C4F; /* Biwacha */
+  --p-biwa-700:     #6F514C; /* Susutake */
 
   /* Semantic status (used sparingly — form validation, not decoration) */
   --p-red-600:      #B3261E;
@@ -123,8 +123,8 @@
   /* Deliberately restrained -- see docs/DESIGN-SYSTEM.md §Shadows.
      Academic credibility leans on borders/tonal surface difference, not
      Material-style elevation. Only two shadows exist site-wide. */
-  --p-shadow-sm: 0 1px 2px rgba(24, 53, 45, 0.05);
-  --p-shadow-md: 0 4px 16px rgba(24, 53, 45, 0.08);
+  --p-shadow-sm: 0 1px 2px rgba(36, 67, 68, 0.05);
+  --p-shadow-md: 0 4px 16px rgba(36, 67, 68, 0.08);
 
   /* ───────────────────────── PRIMITIVE: Z-INDEX ──────────────────────── */
   --p-z-base:        0;
@@ -151,10 +151,10 @@
   --surface-primary:       var(--p-paper-50);
   --surface-secondary:     var(--p-paper-100);
   --surface-raised:        var(--p-paper-0);
-  --surface-feature:       #ECEEE7;
-  --surface-inverse:       var(--p-forest-950);
-  --surface-inverse-soft:  var(--p-forest-800);
-  --surface-inverse-2:     var(--p-forest-900);
+  --surface-feature:       #EEF4F1;
+  --surface-inverse:       var(--p-tetsu-950);
+  --surface-inverse-soft:  var(--p-tetsu-800);
+  --surface-inverse-2:     var(--p-tetsu-900);
 
   /* ───────────────────────── SEMANTIC: TEXT ──────────────────────────── */
   --text-primary:    var(--p-ink-900);
@@ -163,10 +163,10 @@
   --text-inverse:    var(--p-paper-50);
   --text-inverse-muted: color-mix(in srgb, var(--p-paper-50) 70%, transparent);
   --text-inverse-muted-strong: color-mix(in srgb, var(--p-paper-50) 82%, transparent);
-  --text-link:       var(--p-forest-700);
-  --text-link-hover: var(--p-forest-900);
-  --text-accent:     var(--p-bronze-700); /* AA-safe aged bronze for small editorial labels */
-  --text-accent-inverse: var(--p-bronze-300); /* light bronze on Ink Green inverse surfaces */
+  --text-link:       var(--p-tetsu-700);
+  --text-link-hover: var(--p-tetsu-900);
+  --text-accent:     var(--p-biwa-700); /* AA-safe Susutake for small editorial labels */
+  --text-accent-inverse: var(--p-biwa-300); /* light Biwacha tint on Tetsu inverse surfaces */
 
   /* ───────────────────────── SEMANTIC: BORDER ────────────────────────── */
   --border-subtle:   var(--p-stone-200);
@@ -174,15 +174,15 @@
   --border-inverse:  color-mix(in srgb, var(--p-paper-50) 18%, transparent);
 
   /* ───────────────────────── SEMANTIC: BRAND ─────────────────────────── */
-  --brand-primary:    var(--p-forest-900);
-  --brand-secondary:  var(--p-forest-800);
-  --brand-accent:     var(--p-bronze-500); /* restrained editorial accent only */
+  --brand-primary:    var(--p-tetsu-900);
+  --brand-secondary:  var(--p-tetsu-800);
+  --brand-accent:     var(--p-biwa-500); /* restrained traditional warm accent only */
 
   /* ───────────────────────── SEMANTIC: INTERACTIVE ───────────────────── */
-  --interactive-default:  var(--p-forest-700);
-  --interactive-hover:    var(--p-forest-900);
+  --interactive-default:  var(--p-tetsu-700);
+  --interactive-hover:    var(--p-tetsu-900);
   --interactive-on-dark:  var(--p-paper-50);
-  --focus-ring:            var(--p-forest-600);
+  --focus-ring:            var(--p-tetsu-600);
   --focus-ring-offset:     2px;
 
   /* ───────────────────────── SEMANTIC: SHADOW ────────────────────────── */
