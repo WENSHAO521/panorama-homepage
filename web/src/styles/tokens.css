@@ -19,16 +19,16 @@
 :root {
   /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
 
-  /* Warm Paper (light surfaces) */
-  --p-paper-0:      #FFFFFF;
-  --p-paper-50:     #FAF9F6;
-  --p-paper-100:    #F3F1EA;
-  --p-paper-200:    #EDEAE1;
+  /* Japanese paper whites: neutral, low-yellow editorial surfaces */
+  --p-paper-0:      #FCFBF8;
+  --p-paper-50:     #F7F6F1;
+  --p-paper-100:    #F0EFE9;
+  --p-paper-200:    #E7E5DD;
 
-  /* Ink (text on light surfaces) */
-  --p-ink-900:      #16191C;
-  --p-ink-700:      #3A3F44;
-  --p-ink-500:      #5B6268;
+  /* Sumi-inspired neutral ink */
+  --p-ink-900:      #20231F;
+  --p-ink-700:      #474B45;
+  --p-ink-500:      #686D65;
 
   /* Midnight Navy (secondary academic tone) */
   --p-navy-950:     #0B1B2B;
@@ -40,22 +40,22 @@
   --p-blue-600:     #1F4E79;
   --p-blue-700:     #163A5A;
 
-  /* Ink Green (PSG corporate brand) */
-  --p-forest-950:   #0E2F28;
-  --p-forest-900:   #173F35;
-  --p-forest-800:   #1C4B3F;
-  --p-forest-700:   #245E4F;
-  --p-forest-600:   #2E6F5E;
+  /* Ink Green (PSG corporate brand, cooler Japanese editorial register) */
+  --p-forest-950:   #18352D;
+  --p-forest-900:   #23483C;
+  --p-forest-800:   #2D584A;
+  --p-forest-700:   #376B5A;
+  --p-forest-600:   #477C6A;
 
   /* Deep Teal (legacy/imprint-supporting tone) */
   --p-teal-800:     #0F3D3E;
   --p-teal-600:     #1B5C5D;
 
-  /* Muted Stone (borders, dividers, quiet surfaces) */
-  --p-stone-100:    #EDEAE1;
-  --p-stone-200:    #DCD8CD;
-  --p-stone-300:    #C9C4B8;
-  --p-stone-500:    #8C8778;
+  /* Muted paper stone (borders, dividers, quiet surfaces) */
+  --p-stone-100:    #ECEAE3;
+  --p-stone-200:    #DCD9D0;
+  --p-stone-300:    #C9C5BA;
+  --p-stone-500:    #8A867D;
 
   /* Restrained gold — decorative/large-text accent ONLY, never body text */
   --p-gold-300:     #D0B46A;
@@ -151,6 +151,7 @@
   --surface-primary:       var(--p-paper-50);
   --surface-secondary:     var(--p-paper-100);
   --surface-raised:        var(--p-paper-0);
+  --surface-feature:       #ECEFE9;
   --surface-inverse:       var(--p-forest-950);
   --surface-inverse-soft:  var(--p-forest-800);
   --surface-inverse-2:     var(--p-forest-900);
@@ -162,8 +163,8 @@
   --text-inverse:    var(--p-paper-50);
   --text-inverse-muted: color-mix(in srgb, var(--p-paper-50) 70%, transparent);
   --text-inverse-muted-strong: color-mix(in srgb, var(--p-paper-50) 82%, transparent);
-  --text-link:       var(--p-blue-600);
-  --text-link-hover: var(--p-blue-700);
+  --text-link:       var(--p-forest-700);
+  --text-link-hover: var(--p-forest-900);
   --text-accent:     var(--p-gold-700); /* AA-safe gold for small labels */
   --text-accent-inverse: var(--p-gold-300); /* AA-safe light gold on Ink Green inverse surfaces */
 
