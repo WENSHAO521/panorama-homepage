@@ -38,19 +38,23 @@ labels.
 
 ## Colour
 
-The current corporate palette uses Warm Paper (`--p-paper-*`) as the
-reading surface and Ink Green (`--p-forest-*`) as PSG's primary
-institutional colour. Midnight Navy (`--p-navy-*`) remains a secondary
-academic tone for illustration and supporting visual structure, while
-Academic Blue (`--p-blue-*`) remains available for conventional inline
-links. UI interaction states (navigation, controls, focus and primary
-actions) use Ink Green so the global shell reads as one coherent brand
-system. Muted Stone (`--p-stone-*`) supplies borders, while restrained
-Gold provides editorial accents: `--text-accent` uses `#7A5A22` on
-light paper, `--text-accent-inverse` uses the lighter `#D0B46A` on
-Ink Green inverse surfaces, and `--brand-accent` remains `#A9843C`
-for decorative use. The core pairings were checked against WCAG 2.2 AA
-with relative luminance rather than selected by eye.
+The current corporate palette uses Japanese editorial paper whites as
+the reading system: `#F7F6F1` for the default surface, `#F0EFE9` for
+quiet secondary areas, and `#FCFBF8` for raised surfaces. These are
+neutral greyed whites rather than yellow cream, keeping the site calm
+without reading as a lifestyle or hospitality brand.
+
+Ink Green (`--p-forest-*`) is PSG's primary institutional colour.
+Navigation, primary actions, focus states, inline links, and the group
+illustration motif all use this family so the shell reads as one
+coherent identity. Body text uses a slightly softened sumi-inspired
+neutral ink instead of blue-black. Midnight Navy remains available as a
+secondary academic tone but is no longer the default interaction
+colour. Restrained Gold remains a small editorial accent only. The
+homepage Research block uses the light `--surface-feature` treatment
+instead of an inverse dark band, so the homepage stays in one light
+editorial register. The core text and interaction pairings were checked
+against WCAG 2.2 AA using relative luminance.
 
 **Five imprint accents** (subordinate to the PSG corporate identity,
 used only for imprint-scoped UI, never replacing the core palette):
