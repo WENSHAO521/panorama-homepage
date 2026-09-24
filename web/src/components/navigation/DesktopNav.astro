@@ -112,9 +112,19 @@ const primaryNav = getPrimaryNav(locale);
     margin-top: var(--p-space-2);
     background: var(--surface-raised);
     border: var(--p-border-hairline) solid var(--border-subtle);
-    border-top: var(--p-border-strong) solid var(--brand-primary);
-    border-radius: var(--p-radius-surface);
-    box-shadow: var(--shadow-raised);
+    border-radius: var(--p-radius-card);
+    box-shadow: var(--shadow-overlay);
+  }
+
+  .desktop-nav__panel::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    inset-inline-start: 1.5rem;
+    width: 2.6rem;
+    height: 2px;
+    border-radius: var(--p-radius-pill);
+    background: var(--brand-primary);
   }
 
   @media (prefers-reduced-motion: no-preference) {
