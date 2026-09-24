@@ -74,6 +74,10 @@ const imprints = imprintsData as Imprint[];
     color: var(--interactive-default);
   }
 
+  .reference-nav details[open] > summary {
+    color: var(--brand-primary);
+  }
+
   .reference-nav details {
     position: relative;
   }
@@ -96,6 +100,7 @@ const imprints = imprintsData as Imprint[];
     min-width: 10rem;
     padding: 0.65rem;
     border: var(--p-border-hairline) solid var(--border-subtle);
+    border-top: var(--p-border-strong) solid var(--brand-primary);
     border-radius: var(--p-radius-surface);
     background: var(--surface-raised);
     box-shadow: var(--shadow-raised);
