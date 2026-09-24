@@ -33,6 +33,7 @@
   /* Midnight Navy (dark / inverse surfaces) */
   --p-navy-950:     #0B1B2B;
   --p-navy-900:     #10263B;
+  --p-navy-800:     #183650;
   --p-navy-700:     #1D3A57;
 
   /* Academic Blue (interactive / links) */
@@ -142,8 +143,9 @@
   --surface-primary:    var(--p-paper-50);
   --surface-secondary:  var(--p-paper-100);
   --surface-raised:     var(--p-paper-0);
-  --surface-inverse:    var(--p-navy-950);
-  --surface-inverse-2:  var(--p-navy-900);
+  --surface-inverse:       var(--p-navy-950);
+  --surface-inverse-soft:  var(--p-navy-800);
+  --surface-inverse-2:     var(--p-navy-900);
 
   /* ───────────────────────── SEMANTIC: TEXT ──────────────────────────── */
   --text-primary:    var(--p-ink-900);
@@ -151,6 +153,7 @@
   --text-muted:      var(--p-ink-500);
   --text-inverse:    var(--p-paper-50);
   --text-inverse-muted: color-mix(in srgb, var(--p-paper-50) 70%, transparent);
+  --text-inverse-muted-strong: color-mix(in srgb, var(--p-paper-50) 82%, transparent);
   --text-link:       var(--p-blue-600);
   --text-link-hover: var(--p-blue-700);
   --text-accent:     var(--p-gold-700); /* AA-safe gold for small labels */
