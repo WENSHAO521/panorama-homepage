@@ -100,10 +100,20 @@ const imprints = imprintsData as Imprint[];
     min-width: 10rem;
     padding: 0.65rem;
     border: var(--p-border-hairline) solid var(--border-subtle);
-    border-top: var(--p-border-strong) solid var(--brand-primary);
-    border-radius: var(--p-radius-surface);
+    border-radius: var(--p-radius-card);
     background: var(--surface-raised);
-    box-shadow: var(--shadow-raised);
+    box-shadow: var(--shadow-overlay);
+  }
+
+  .reference-nav__panel::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    inset-inline-start: 1rem;
+    width: 2.4rem;
+    height: 2px;
+    border-radius: var(--p-radius-pill);
+    background: var(--brand-primary);
   }
 
   .reference-nav details[open] .reference-nav__panel {
