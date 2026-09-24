@@ -19,39 +19,48 @@
 :root {
   /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
 
-  /* Warm Paper (light surfaces) */
-  --p-paper-0:      #FFFFFF;
-  --p-paper-50:     #FAF9F6;
-  --p-paper-100:    #F3F1EA;
-  --p-paper-200:    #EDEAE1;
+  /* Japanese paper whites: neutral, low-yellow editorial surfaces */
+  --p-paper-0:      #FDFCF8;
+  --p-paper-50:     #F6F5F0;
+  --p-paper-100:    #EFEDE7;
+  --p-paper-200:    #E5E2D9;
 
-  /* Ink (text on light surfaces) */
-  --p-ink-900:      #16191C;
-  --p-ink-700:      #3A3F44;
-  --p-ink-500:      #5B6268;
+  /* Sumi-inspired neutral ink */
+  --p-ink-900:      #1E211E;
+  --p-ink-700:      #454943;
+  --p-ink-500:      #696E67;
 
-  /* Midnight Navy (dark / inverse surfaces) */
+  /* Midnight Navy (secondary academic tone) */
   --p-navy-950:     #0B1B2B;
   --p-navy-900:     #10263B;
+  --p-navy-800:     #183650;
   --p-navy-700:     #1D3A57;
 
-  /* Academic Blue (interactive / links) */
+  /* Academic Blue (conventional inline links) */
   --p-blue-600:     #1F4E79;
   --p-blue-700:     #163A5A;
 
-  /* Deep Teal (secondary brand) */
+  /* Ink Green (PSG corporate brand, Japanese editorial register) */
+  --p-forest-950:   #17372E;
+  --p-forest-900:   #1F4639;
+  --p-forest-800:   #295447;
+  --p-forest-700:   #356657;
+  --p-forest-600:   #47796A;
+
+  /* Deep Teal (legacy/imprint-supporting tone) */
   --p-teal-800:     #0F3D3E;
   --p-teal-600:     #1B5C5D;
 
-  /* Muted Stone (borders, dividers, quiet surfaces) */
-  --p-stone-100:    #EDEAE1;
-  --p-stone-200:    #DCD8CD;
-  --p-stone-300:    #C9C4B8;
-  --p-stone-500:    #8C8778;
+  /* Muted paper stone (borders, dividers, quiet surfaces) */
+  --p-stone-100:    #ECEAE4;
+  --p-stone-200:    #DAD7CE;
+  --p-stone-300:    #C5C1B5;
+  --p-stone-500:    #88847A;
 
-  /* Restrained gold — decorative/large-text accent ONLY, never body text */
-  --p-gold-500:     #A9843C;
-  --p-gold-700:     #7A5A22;
+  /* Aged bronze — restrained editorial accent, never a primary brand colour */
+  --p-bronze-300:   #C7AA83;
+  --p-bronze-500:   #8C6A46;
+  --p-bronze-700:   #755635;
 
   /* Semantic status (used sparingly — form validation, not decoration) */
   --p-red-600:      #B3261E;
@@ -82,10 +91,10 @@
   --p-space-11:  10rem;    /* 160px */
 
   /* ───────────────────────── PRIMITIVE: RADIUS ───────────────────────── */
-  --p-radius-button:  10px;
-  --p-radius-surface: 12px;
-  --p-radius-card:    16px;
-  --p-radius-feature: 24px;
+  --p-radius-button:   8px;
+  --p-radius-surface: 10px;
+  --p-radius-card:    12px;
+  --p-radius-feature: 16px;
   --p-radius-pill:    999px; /* tags / status / category labels ONLY */
 
   /* ───────────────────────── PRIMITIVE: BORDER WIDTH ─────────────────── */
@@ -114,8 +123,8 @@
   /* Deliberately restrained -- see docs/DESIGN-SYSTEM.md §Shadows.
      Academic credibility leans on borders/tonal surface difference, not
      Material-style elevation. Only two shadows exist site-wide. */
-  --p-shadow-sm: 0 1px 2px rgba(11, 27, 43, 0.06);
-  --p-shadow-md: 0 4px 16px rgba(11, 27, 43, 0.10);
+  --p-shadow-sm: 0 1px 2px rgba(24, 53, 45, 0.05);
+  --p-shadow-md: 0 4px 16px rgba(24, 53, 45, 0.08);
 
   /* ───────────────────────── PRIMITIVE: Z-INDEX ──────────────────────── */
   --p-z-base:        0;
@@ -139,11 +148,13 @@
   --p-gutter-desktop:    clamp(3rem, 7.8vw, 7rem);
 
   /* ───────────────────────── SEMANTIC: SURFACE ───────────────────────── */
-  --surface-primary:    var(--p-paper-50);
-  --surface-secondary:  var(--p-paper-100);
-  --surface-raised:     var(--p-paper-0);
-  --surface-inverse:    var(--p-navy-950);
-  --surface-inverse-2:  var(--p-navy-900);
+  --surface-primary:       var(--p-paper-50);
+  --surface-secondary:     var(--p-paper-100);
+  --surface-raised:        var(--p-paper-0);
+  --surface-feature:       #E7ECE8;
+  --surface-inverse:       var(--p-forest-950);
+  --surface-inverse-soft:  var(--p-forest-800);
+  --surface-inverse-2:     var(--p-forest-900);
 
   /* ───────────────────────── SEMANTIC: TEXT ──────────────────────────── */
   --text-primary:    var(--p-ink-900);
@@ -151,10 +162,11 @@
   --text-muted:      var(--p-ink-500);
   --text-inverse:    var(--p-paper-50);
   --text-inverse-muted: color-mix(in srgb, var(--p-paper-50) 70%, transparent);
-  --text-link:       var(--p-blue-600);
-  --text-link-hover: var(--p-blue-700);
-  --text-accent:     var(--p-gold-700); /* AA-safe gold for small labels */
-  --text-accent-inverse: var(--p-gold-500); /* AA-safe accent on inverse surfaces */
+  --text-inverse-muted-strong: color-mix(in srgb, var(--p-paper-50) 82%, transparent);
+  --text-link:       var(--p-forest-700);
+  --text-link-hover: var(--p-forest-900);
+  --text-accent:     var(--p-bronze-700); /* AA-safe aged bronze for small editorial labels */
+  --text-accent-inverse: var(--p-bronze-300); /* light bronze on Ink Green inverse surfaces */
 
   /* ───────────────────────── SEMANTIC: BORDER ────────────────────────── */
   --border-subtle:   var(--p-stone-200);
@@ -162,15 +174,15 @@
   --border-inverse:  color-mix(in srgb, var(--p-paper-50) 18%, transparent);
 
   /* ───────────────────────── SEMANTIC: BRAND ─────────────────────────── */
-  --brand-primary:    var(--p-navy-950);
-  --brand-secondary:  var(--p-teal-800);
-  --brand-accent:     var(--p-gold-500); /* decorative use only */
+  --brand-primary:    var(--p-forest-900);
+  --brand-secondary:  var(--p-forest-800);
+  --brand-accent:     var(--p-bronze-500); /* restrained editorial accent only */
 
   /* ───────────────────────── SEMANTIC: INTERACTIVE ───────────────────── */
-  --interactive-default:  var(--p-blue-600);
-  --interactive-hover:    var(--p-blue-700);
+  --interactive-default:  var(--p-forest-700);
+  --interactive-hover:    var(--p-forest-900);
   --interactive-on-dark:  var(--p-paper-50);
-  --focus-ring:            var(--p-blue-600);
+  --focus-ring:            var(--p-forest-600);
   --focus-ring-offset:     2px;
 
   /* ───────────────────────── SEMANTIC: SHADOW ────────────────────────── */
