@@ -175,7 +175,7 @@
 
   /* ───────────────────────── SEMANTIC: BRAND ─────────────────────────── */
   --brand-primary:    var(--p-forest-900);
-  --brand-secondary:  var(--p-navy-900);
+  --brand-secondary:  var(--p-forest-800);
   --brand-accent:     var(--p-bronze-500); /* restrained editorial accent only */
 
   /* ───────────────────────── SEMANTIC: INTERACTIVE ───────────────────── */
