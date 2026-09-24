@@ -58,8 +58,12 @@ const currentPath = new URL(Astro.request.url).pathname;
       border-color var(--p-duration-base) var(--p-ease-standard);
   }
   .site-header.is-scrolled {
-    border-bottom-color: var(--border-subtle);
+    border-bottom-color: color-mix(in srgb, var(--brand-primary) 18%, var(--border-subtle));
     box-shadow: var(--shadow-raised);
+  }
+
+  .site-header :global(.logo__name) {
+    color: var(--brand-primary);
   }
 
   .site-header__row {
