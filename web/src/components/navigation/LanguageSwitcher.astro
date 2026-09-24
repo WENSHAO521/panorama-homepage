@@ -77,14 +77,25 @@ const t = getUiStrings(current.code);
     overflow-y: auto;
     background: var(--surface-raised);
     border: var(--p-border-hairline) solid var(--border-subtle);
-    border-top: var(--p-border-strong) solid var(--brand-primary);
-    border-radius: var(--p-radius-surface);
-    box-shadow: var(--shadow-raised);
-    padding: clamp(0.75rem, 2vw, 1rem);
+    border-radius: var(--p-radius-card);
+    box-shadow: var(--shadow-overlay);
+    padding: 1.5rem 1.75rem 1.65rem;
   }
+  .lang-switcher__panel::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    inset-inline-start: 1.75rem;
+    width: 2.6rem;
+    height: 2px;
+    border-radius: var(--p-radius-pill);
+    background: var(--brand-primary);
+  }
+
   .lang-switcher__note {
     color: var(--text-muted);
-    margin: 0 0 var(--p-space-3);
+    margin: 0 0 1.35rem;
+    letter-spacing: 0.08em;
   }
   .lang-switcher__list {
     list-style: none;
@@ -92,14 +103,14 @@ const t = getUiStrings(current.code);
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(7rem, 100%), 1fr));
-    gap: 0.15rem clamp(0.25rem, 1vw, 0.6rem);
+    gap: 0.55rem clamp(1.25rem, 3vw, 3.5rem);
   }
   .lang-switcher__link {
     display: flex;
     align-items: center;
-    min-height: 2.25rem;
+    min-height: 2.4rem;
     padding: 0.45rem 0.5rem;
-    border-radius: 0;
+    border-radius: calc(var(--p-radius-button) - 2px);
     color: var(--text-primary);
     text-decoration: none;
     font-size: var(--fs-body-sm);
@@ -108,19 +119,18 @@ const t = getUiStrings(current.code);
   }
   .lang-switcher__link:hover,
   .lang-switcher__link:focus-visible {
-    background: transparent;
+    background: var(--surface-secondary);
     color: var(--lang-switcher-accent, var(--interactive-hover));
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.22em;
+    text-decoration: none;
   }
   .lang-switcher__link[aria-current='true'] {
     background: transparent;
     font-weight: var(--fw-semibold);
     color: var(--lang-switcher-accent, var(--interactive-default));
     text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.22em;
+    text-decoration-color: var(--interactive-default);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.28em;
   }
 
   @media (max-width: 22rem) {
