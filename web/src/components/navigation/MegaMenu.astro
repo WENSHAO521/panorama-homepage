@@ -6,7 +6,6 @@
 //     -> each renders as its own labelled column (Publishing: "Explore" + "Imprints")
 //   - children are plain leaf links -> single unlabelled column (Research, Infrastructure, About)
 import type { NavItem } from '@/types';
-import ExternalLink from '@/components/ui/ExternalLink.astro';
 
 interface Props { item: NavItem }
 const { item } = Astro.props;
@@ -16,57 +15,159 @@ const columns: NavItem[] = isMultiColumn ? item.children! : [{ label: item.label
 ---
 
 <div class="mega-panel" style={`--mega-cols: ${columns.length}`}>
-  {columns.map((col) => (
-    <div class="mega-panel__column">
-      {isMultiColumn && <p class="mega-panel__column-title text-overline">{col.label}</p>}
-      <ul class="mega-panel__list">
-        {col.children?.map((link) => (
-          <li class="mega-panel__item">
-            {link.external ? (
-              <ExternalLink href={link.path!} class="mega-panel__link">{link.label}</ExternalLink>
-            ) : (
-              <a href={link.path} class="mega-panel__link">{link.label}</a>
-            )}
-            {link.description && <p class="mega-panel__desc text-caption">{link.description}</p>}
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
+  {item.path && (
+    <a class="mega-panel__overview" href={item.path}>
+      <span>{item.label}</span>
+      <svg class="mega-panel__arrow" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+    </a>
+  )}
+  <div class="mega-panel__columns">
+    {columns.map((col) => (
+      <div class="mega-panel__column">
+        {isMultiColumn && <p class="mega-panel__column-title">{col.label}</p>}
+        <ul class="mega-panel__list">
+          {col.children?.map((link) => (
+            <li>
+              <!-- The whole row is the link (title + description), so the hit
+                   target matches what highlights on hover. External rows get
+                   the same new-tab behaviour ExternalLink.astro gives, and no
+                   visual marker, matching the sitewide decision recorded there. -->
+              <a
+                href={link.path}
+                class="mega-panel__link"
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
+              >
+                <span class="mega-panel__label">{link.label}</span>
+                {link.description && <span class="mega-panel__desc">{link.description}</span>}
+                <svg class="mega-panel__arrow" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                {link.external && <span class="visually-hidden"> (opens in a new tab)</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
 </div>
 
 <style>
   .mega-panel {
+    padding: 0.5rem;
+  }
+
+  /* Section overview link: the dropdown's own label, doubling as the way
+     to the section landing page (/infrastructure/, /standards/...). */
+  .mega-panel__overview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0 0 0.35rem;
+    padding: 0.7rem 0.85rem 0.8rem;
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+  }
+  .mega-panel__overview:hover,
+  .mega-panel__overview:focus-visible { color: var(--interactive-default); }
+  .mega-panel__overview .mega-panel__arrow { opacity: 1; transform: none; }
+
+  .mega-panel__columns {
     display: grid;
-    grid-template-columns: repeat(var(--mega-cols, 1), minmax(11rem, 16rem));
-    gap: var(--p-space-8);
-    padding: var(--p-space-6);
+    grid-template-columns: repeat(var(--mega-cols, 1), minmax(15rem, 18rem));
+    gap: 0.5rem;
   }
+
   .mega-panel__column-title {
-    margin: 0 0 var(--p-space-3);
+    margin: 0.6rem 0 0.2rem;
+    padding-inline: 0.85rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: var(--fw-semibold);
   }
+
   .mega-panel__list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    gap: var(--p-space-3);
-  }
-  .mega-panel__link {
-    display: inline-block;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-weight: var(--fw-medium);
-  }
-  .mega-panel__link:hover { color: var(--interactive-default); }
-  .mega-panel__desc {
-    margin: var(--p-space-1) 0 0;
-    color: var(--text-muted);
+    gap: 0.125rem;
   }
 
-  @media (max-width: 1023px) {
-    .mega-panel {
-      grid-template-columns: 1fr;
-    }
+  .mega-panel__link {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 0.75rem;
+    row-gap: 0.2rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: var(--p-radius-button);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color var(--p-duration-fast) var(--p-ease-standard);
+  }
+  .mega-panel__link:hover,
+  .mega-panel__link:focus-visible {
+    background: var(--surface-secondary);
+  }
+  .mega-panel__link:focus-visible,
+  .mega-panel__overview:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: -2px;
+  }
+
+  .mega-panel__label {
+    font-size: 0.9375rem;
+    font-weight: var(--fw-semibold);
+    line-height: 1.3;
+  }
+  .mega-panel__link:hover .mega-panel__label,
+  .mega-panel__link:focus-visible .mega-panel__label {
+    color: var(--interactive-default);
+  }
+
+  .mega-panel__desc {
+    grid-column: 1;
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    line-height: 1.45;
+  }
+
+  /* Arrow sits in the right gutter and only appears on hover/focus, as
+     feedback on the row under the pointer. */
+  .mega-panel__arrow {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    width: 0.9rem;
+    height: 0.9rem;
+    color: var(--interactive-default);
+    opacity: 0;
+    transform: translateX(-0.25rem);
+    transition: opacity var(--p-duration-fast) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-standard);
+  }
+  .mega-panel__link:hover .mega-panel__arrow,
+  .mega-panel__link:focus-visible .mega-panel__arrow {
+    opacity: 1;
+    transform: none;
+  }
+  :global([dir='rtl']) .mega-panel__arrow { scale: -1 1; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mega-panel__arrow { transition: none; transform: none; }
   }
 </style>
