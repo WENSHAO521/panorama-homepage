@@ -40,7 +40,8 @@ const t = getUiStrings(locale);
     align-items: center;
     gap: 0.55rem;
     min-height: 2.5rem;
-    padding: 0.5rem var(--p-space-4) 0.5rem 0;
+    padding-block: 0.5rem;
+    padding-inline: 0 var(--p-space-4); /* logical, so RTL keeps the gap before the divider */
     border-radius: var(--p-radius-button);
     color: inherit;
     font-size: 0.68rem;

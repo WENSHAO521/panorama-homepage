@@ -80,12 +80,27 @@ const primaryNav = getPrimaryNav(locale);
   .desktop-nav__link:hover,
   .desktop-nav__trigger:hover {
     color: var(--interactive-default);
-    background: color-mix(in srgb, var(--brand-primary) 6%, var(--surface-secondary));
   }
 
+  /* Open state: the label turns brand colour and a 2px rule sits under it,
+     tying the trigger to its panel. No filled pill. */
+  .desktop-nav__trigger { position: relative; }
+  .desktop-nav__trigger::after {
+    content: '';
+    position: absolute;
+    inset-inline: var(--p-space-2);
+    bottom: 0.2rem;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--brand-primary);
+    transform: scaleX(0);
+    transition: transform var(--p-duration-fast) var(--p-ease-standard);
+  }
   .desktop-nav__dropdown[open] > .desktop-nav__trigger {
     color: var(--brand-primary);
-    background: color-mix(in srgb, var(--brand-primary) 8%, var(--surface-secondary));
+  }
+  .desktop-nav__dropdown[open] > .desktop-nav__trigger::after {
+    transform: scaleX(1);
   }
   .desktop-nav__trigger:focus-visible,
   .desktop-nav__link:focus-visible {
@@ -109,22 +124,19 @@ const primaryNav = getPrimaryNav(locale);
     top: 100%;
     inset-inline-start: 0;
     z-index: var(--p-z-dropdown);
-    margin-top: var(--p-space-2);
+    min-width: 20rem;
+    margin-top: 0.35rem;
     background: var(--surface-raised);
     border: var(--p-border-hairline) solid var(--border-subtle);
-    border-radius: var(--p-radius-card);
+    border-radius: var(--p-radius-surface);
     box-shadow: var(--shadow-overlay);
   }
 
-  .desktop-nav__panel::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    inset-inline-start: 1.5rem;
-    width: 2.6rem;
-    height: 2px;
-    border-radius: var(--p-radius-pill);
-    background: var(--brand-primary);
+  /* The last dropdown (About) sits near the viewport edge at 1024px, so it
+     opens towards the start instead of running off-screen. */
+  .desktop-nav__item:last-child .desktop-nav__panel {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
   }
 
   @media (prefers-reduced-motion: no-preference) {

@@ -17,21 +17,37 @@ const t = getUiStrings(current.code);
 
 <details class="js-dismissible lang-switcher" aria-label={t.language}>
   <summary class="lang-switcher__trigger">
-    {current.code.toUpperCase()}
+    <!-- Icons are inline and stroke-matched to the header's search icon
+         (1.6 stroke, currentColor) so imprint headers that recolour the
+         trigger recolour these too. -->
+    <svg class="lang-switcher__globe" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false">
+      <circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.6" />
+      <path d="M2.75 10h14.5M10 2.75c2 2.1 2.9 4.5 2.9 7.25s-.9 5.15-2.9 7.25c-2-2.1-2.9-4.5-2.9-7.25s.9-5.15 2.9-7.25z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+    </svg>
+    <span class="lang-switcher__code">{current.code.toUpperCase()}</span>
+    <svg class="lang-switcher__chevron" viewBox="0 0 20 20" width="12" height="12" aria-hidden="true" focusable="false">
+      <path d="M5.5 8l4.5 4.5L14.5 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
   </summary>
   <div class="lang-switcher__panel">
-    <p class="lang-switcher__note text-caption">{t.language}</p>
-    <ul class="lang-switcher__list">
+    <p class="lang-switcher__note" id={`lang-switcher-note-${current.code}`}>{t.language}</p>
+    <ul class="lang-switcher__list" aria-labelledby={`lang-switcher-note-${current.code}`}>
       {locales.map((locale) => (
         <li>
           <a
             href={localizePath(currentPath, locale.code)}
             lang={locale.bcp47}
             hreflang={locale.bcp47}
+            dir={locale.dir}
             aria-current={locale.code === current.code ? 'true' : undefined}
             class="lang-switcher__link"
           >
-            {locale.label}
+            <span>{locale.label}</span>
+            {locale.code === current.code && (
+              <svg class="lang-switcher__check" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" focusable="false">
+                <path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
           </a>
         </li>
       ))}
@@ -46,6 +62,7 @@ const t = getUiStrings(current.code);
   .lang-switcher__trigger {
     display: inline-flex;
     align-items: center;
+    gap: 0.4rem;
     padding: var(--p-space-2);
     border-radius: var(--p-radius-button);
     font: inherit;
@@ -62,40 +79,69 @@ const t = getUiStrings(current.code);
     border-radius: var(--p-radius-button);
   }
 
+  .lang-switcher__globe {
+    display: block;
+    flex: 0 0 auto;
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+  .lang-switcher__chevron {
+    display: block;
+    flex: 0 0 auto;
+    width: 0.75rem;
+    height: 0.75rem;
+    opacity: 0.7;
+    transition: transform var(--p-duration-fast) var(--p-ease-standard);
+  }
+  .lang-switcher[open] .lang-switcher__chevron { transform: rotate(180deg); }
+
+  /* 1024-1279px: the desktop header has no spare width (see docs/HOMEPAGE.md
+     bug #2), so the trigger drops the globe and keeps code + chevron. */
+  @media (min-width: 768px) and (max-width: 1279px) {
+    .lang-switcher__globe { display: none; }
+    .lang-switcher__trigger { gap: 0.25rem; }
+  }
+
   .lang-switcher[open] > .lang-switcher__panel {
     display: block;
   }
+  /* Anchored to the trigger's end edge, so the panel drops out of the
+     button rather than floating off to one side. */
   .lang-switcher__panel {
     display: none;
     position: absolute;
     inset-inline-end: 0;
-    top: calc(100% + var(--p-space-2));
+    top: calc(100% + 0.4rem);
     z-index: var(--p-z-dropdown);
-    width: min(17rem, calc(100vw - 1.5rem));
+    width: min(19rem, calc(100vw - 1.5rem));
     box-sizing: border-box;
-    overflow: visible;
     background: var(--surface-raised);
     border: var(--p-border-hairline) solid var(--border-subtle);
     border-radius: var(--p-radius-card);
     box-shadow: var(--shadow-overlay);
-    padding: 1.15rem 1.25rem 1.25rem;
+    padding: 1rem;
+    transform-origin: top right;
   }
-  .lang-switcher__panel::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    inset-inline-start: 1.25rem;
-    width: 2.25rem;
-    height: 2px;
-    border-radius: var(--p-radius-pill);
-    background: var(--brand-primary);
+  :global([dir='rtl']) .lang-switcher__panel { transform-origin: top left; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lang-switcher[open] > .lang-switcher__panel {
+      animation: lang-switcher-in 160ms var(--p-ease-decelerate) both;
+    }
+  }
+  @keyframes lang-switcher-in {
+    from { opacity: 0; transform: translateY(-0.25rem) scale(0.98); }
+    to { opacity: 1; transform: none; }
   }
 
   .lang-switcher__note {
-    color: var(--text-muted);
-    margin: 0 0 0.9rem;
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
+    margin: 0 0 0.6rem;
+    padding-inline: 0.6rem;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.04em;
+    line-height: 1.3;
   }
   .lang-switcher__list {
     list-style: none;
@@ -103,45 +149,75 @@ const t = getUiStrings(current.code);
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 0.75rem;
-    row-gap: 0.25rem;
+    gap: 0.2rem 0.4rem;
   }
   .lang-switcher__link {
     display: flex;
     align-items: center;
-    min-height: 2rem;
-    padding: 0.32rem 0.38rem;
-    border-radius: calc(var(--p-radius-button) - 2px);
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+    padding: 0.45rem 0.6rem;
+    border-radius: var(--p-radius-button);
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
+    font-weight: var(--fw-medium);
     line-height: 1.2;
-    transition: color var(--p-duration-fast) var(--p-ease-standard), text-decoration-color var(--p-duration-fast) var(--p-ease-standard);
+    transition: background-color var(--p-duration-fast) var(--p-ease-standard), color var(--p-duration-fast) var(--p-ease-standard);
   }
+  /* Each label renders in its own script's UI face. Without these, Windows
+     falls back to Yu Gothic / JhengHei, which sit visibly lighter than the
+     other eight labels. */
+  .lang-switcher__link:lang(ja) {
+    font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', Meiryo, sans-serif;
+    font-weight: var(--fw-regular); /* Yu Gothic UI snaps 500 up to semibold */
+  }
+  .lang-switcher__link:lang(ko) {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  }
+  .lang-switcher__link:lang(zh-Hant) {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif;
+  }
+  .lang-switcher__link:lang(zh-Hans) {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif;
+  }
+
+  /* العربية reads right-to-left: dir="rtl" on the link flips its own text
+     alignment; keep it in the same grid cell as its neighbours. */
+  .lang-switcher__link[dir='rtl'] { text-align: right; }
+
   .lang-switcher__link:hover,
   .lang-switcher__link:focus-visible {
     background: var(--surface-secondary);
     color: var(--lang-switcher-accent, var(--interactive-hover));
     text-decoration: none;
   }
-  .lang-switcher__link[aria-current='true'] {
-    background: transparent;
-    font-weight: var(--fw-semibold);
+  .lang-switcher__link[aria-current='true'],
+  .lang-switcher__link[aria-current='true']:lang(ja) {
+    background: color-mix(in srgb, var(--lang-switcher-accent, var(--interactive-default)) 9%, transparent);
     color: var(--lang-switcher-accent, var(--interactive-default));
-    text-decoration: underline;
-    text-decoration-color: var(--interactive-default);
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 0.28em;
+    font-weight: var(--fw-semibold);
+  }
+  .lang-switcher__check {
+    display: block;
+    flex: 0 0 auto;
+    width: 0.9rem;
+    height: 0.9rem;
   }
 
   @media (max-width: 22rem) {
     .lang-switcher__panel {
       width: min(16rem, calc(100vw - 1rem));
-      padding-inline: 1rem;
+      padding-inline: 0.75rem;
     }
 
     .lang-switcher__list {
       grid-template-columns: 1fr;
     }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang-switcher__chevron { transition: none; }
   }
 </style>
