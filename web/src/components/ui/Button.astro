@@ -73,6 +73,8 @@ const extra = href
     transform: translateY(-1px);
   }
 
+  .btn:active { transform: translateY(0) scale(0.98); }
+
   .btn--ghost {
     background: transparent;
     color: var(--interactive-default);
@@ -124,6 +126,7 @@ const extra = href
 
   @media (prefers-reduced-motion: reduce) {
     .btn:hover,
-    .btn:focus-visible { transform: none; }
+    .btn:focus-visible,
+    .btn:active { transform: none; }
   }
 </style>

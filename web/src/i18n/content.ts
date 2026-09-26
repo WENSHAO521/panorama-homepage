@@ -79,7 +79,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     ar: 'ننشر الدوريات والكتب والأعمال العلمية التي تصل البحث الرصين بالأسئلة التي تشكّل عالمنا.',
   },
   'home.explorePublishing': {
-    en: 'Explore the publishing programme',
+    en: 'Explore publishing',
     'zh-hans': '了解出版项目',
     'zh-hant': '了解出版項目',
     ja: '出版プログラムを見る',

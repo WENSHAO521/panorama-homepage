@@ -10,7 +10,7 @@ const t = getContent(locale);
 
 const announcements = getAnnouncements(locale)
   .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, 5);
+  .slice(0, 3);
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat(locale, {
@@ -31,7 +31,10 @@ function isExternal(value: string) {
 ---
 
 <section class="row latest-announcements">
-  <div class="container-wide">
+  <!-- Heading column + list column, so the list fills the width instead of
+       leaving the left third empty. The right column carries real content,
+       not a floating explainer. -->
+  <div class="container-wide latest-announcements__grid">
     <div class="latest-announcements__header">
       <SectionHeading
         title={t('home.latestAnnouncements')}
@@ -40,8 +43,8 @@ function isExternal(value: string) {
       <a href={localizePath('/news/', locale)} class="latest-announcements__link">{t('common.viewAllAnnouncements')}</a>
     </div>
 
-    <ol class="latest-announcements__list">
-      {announcements.map((announcement, index) => (
+    <ol class="latest-announcements__list" role="list">
+      {announcements.map((announcement) => (
         <li>
           <a
             href={announcementHref(announcement.href)}
@@ -50,9 +53,7 @@ function isExternal(value: string) {
             rel={isExternal(announcement.href) ? 'noopener noreferrer' : undefined}
             aria-label={announcement.title}
           >
-            <span class="latest-announcements__number" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
+            <time datetime={announcement.date}>{formatDate(announcement.date)}</time>
             <span class="latest-announcements__content">
               <span class="latest-announcements__meta">
                 <span>{announcement.sourceLabel}</span>
@@ -61,7 +62,6 @@ function isExternal(value: string) {
               <span class="latest-announcements__title">{announcement.title}</span>
               <span class="latest-announcements__summary">{announcement.summary}</span>
             </span>
-            <time datetime={announcement.date}>{formatDate(announcement.date)}</time>
           </a>
         </li>
       ))}
@@ -73,36 +73,37 @@ function isExternal(value: string) {
   .latest-announcements {
     background: var(--surface-primary);
     border-top: var(--p-border-hairline) solid var(--border-subtle);
-    padding-block: 2rem 2.35rem;
+    padding-block: 3.5rem 4rem;
+  }
+
+  .latest-announcements__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
   }
 
   .latest-announcements :global(.section-heading__title) {
-    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: var(--fw-regular);
-    line-height: 1.15;
+    line-height: 1.12;
   }
 
   .latest-announcements :global(.section-heading__lede) {
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
     font-family: var(--font-display);
-    font-size: 0.82rem;
-    line-height: 1.35;
-  }
-
-  .latest-announcements__header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
+    font-size: 1rem;
+    line-height: 1.45;
   }
 
   .latest-announcements__link {
-    margin-top: 0.35rem;
+    display: inline-block;
+    margin-top: 1.25rem;
     color: var(--text-primary);
-    font-size: 0.72rem;
+    font-size: 0.875rem;
     font-weight: var(--fw-semibold);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: var(--brand-accent);
+    text-underline-offset: 0.35em;
     white-space: nowrap;
   }
 
@@ -112,37 +113,36 @@ function isExternal(value: string) {
   }
 
   .latest-announcements__list {
-    margin: 1.5rem 0 0;
+    margin: 0;
     padding: 0;
     list-style: none;
-    border-top: var(--p-border-hairline) solid var(--border-default);
   }
 
-  .latest-announcements__list li {
-    border-bottom: var(--p-border-hairline) solid var(--border-default);
+  .latest-announcements__list li + li {
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
   }
 
   .latest-announcements__item {
     display: grid;
-    grid-template-columns: 1.8rem minmax(0, 1fr);
-    gap: 0.75rem;
-    align-items: start;
-    padding-block: 0.9rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+    padding-block: 1.25rem;
     color: inherit;
     text-decoration: none;
   }
+
+  .latest-announcements__list li:first-child .latest-announcements__item { padding-top: 0; }
 
   .latest-announcements__item:hover .latest-announcements__title,
   .latest-announcements__item:focus-visible .latest-announcements__title {
     color: var(--interactive-default);
   }
 
-  .latest-announcements__number {
-    padding-top: 0.15rem;
-    color: var(--text-accent);
-    font-size: 0.6rem;
+  .latest-announcements__item time {
+    color: var(--text-primary);
+    font-size: 0.875rem;
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.1em;
+    white-space: nowrap;
   }
 
   .latest-announcements__content {
@@ -153,12 +153,12 @@ function isExternal(value: string) {
   .latest-announcements__meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem 0.8rem;
+    gap: 0.35rem 0.9rem;
     color: var(--text-muted);
-    font-size: 0.54rem;
+    font-size: 0.75rem;
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.1em;
-    line-height: 1.25;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
     text-transform: uppercase;
   }
 
@@ -168,44 +168,34 @@ function isExternal(value: string) {
 
   .latest-announcements__title {
     display: block;
-    margin-top: 0.35rem;
+    margin-top: 0.45rem;
     font-family: var(--font-display);
-    font-size: 1.02rem;
-    line-height: 1.18;
+    font-size: 1.3rem;
+    line-height: 1.2;
     transition: color var(--p-duration-fast) var(--p-ease-standard);
   }
 
   .latest-announcements__summary {
     display: block;
-    max-width: 72ch;
-    margin-top: 0.35rem;
+    max-width: 68ch;
+    margin-top: 0.45rem;
     color: var(--text-secondary);
     font-family: var(--font-display);
-    font-size: 0.74rem;
-    line-height: 1.4;
+    font-size: 0.9375rem;
+    line-height: 1.5;
   }
 
-  .latest-announcements__item time {
-    grid-column: 2;
-    color: var(--text-muted);
-    font-size: 0.58rem;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-  }
+  @media (min-width: 900px) {
+    .latest-announcements__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: 4rem;
+    }
 
-  @media (min-width: 768px) {
     .latest-announcements__item {
-      grid-template-columns: 2rem minmax(0, 1fr) 5.4rem;
-      gap: 1rem;
-      align-items: center;
-      padding-block: 1rem;
+      grid-template-columns: 7.5rem minmax(0, 1fr);
+      gap: 1.5rem;
     }
 
-    .latest-announcements__item time {
-      grid-column: auto;
-      justify-self: end;
-      align-self: start;
-      padding-top: 0.15rem;
-    }
+    .latest-announcements__item time { padding-top: 0.05rem; }
   }
 </style>
