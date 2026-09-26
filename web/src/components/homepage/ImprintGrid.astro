@@ -13,7 +13,10 @@ const t = getContent(locale);
 const imprints = imprintsData as Imprint[];
 ---
 
-<section class="row imprint-section">
+<!-- row--tight: this section is a heading plus one line of logos, so the
+     group-wide section rhythm (up to 7rem each side, group-system.css)
+     leaves it looking empty. The tight variant is the system's own step. -->
+<section class="row row--tight imprint-section">
   <div class="container-wide">
     <div class="imprint-section__header">
       <SectionHeading
@@ -33,7 +36,6 @@ const imprints = imprintsData as Imprint[];
 <style>
   .imprint-section {
     background: var(--surface-primary);
-    padding-block: 1.35rem 1.8rem;
   }
 
   .imprint-section :global(.section-heading__title) {
