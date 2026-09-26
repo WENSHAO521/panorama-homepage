@@ -114,8 +114,9 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
           <nav class="dora-related__links" aria-label={copy.relatedTitle}>
             {relatedLinks.map((link) => (
               <a href={link.href}>
-                <span>{link.title}</span>
-                <small>{link.body}</small>
+                <span class="dora-related__title">{link.title}</span>
+                <span class="dora-related__desc">{link.body}</span>
+                <svg class="dora-related__arrow" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
               </a>
             ))}
           </nav>
@@ -327,22 +328,14 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
   }
 
   .dora-section h2,
-  .dora-related h2 {
-    margin: 0;
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    line-height: 1.08;
-  }
-
   .dora-section > p,
-  .dora-related > p,
   .dora-footer > p {
     color: var(--text-secondary);
     font-size: var(--fs-body);
     line-height: var(--lh-body);
   }
 
-  .dora-section > h2 + p,
-  .dora-related > h2 + p {
+  .dora-section > h2 + p {
     margin-top: 1.25rem;
   }
 
@@ -380,43 +373,87 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
     line-height: 1.6;
   }
 
+  /* End-of-page "further reading": a hairline and a list of link rows, not
+     a tinted card with an accent bar. Rows carry an arrow so they read as
+     links, and the whole row is the hit target. */
   .dora-related {
-    margin-top: 0.5rem;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    border: var(--p-border-hairline) solid var(--border-subtle);
-    border-inline-start: 3px solid var(--brand-accent);
-    border-radius: var(--p-radius-surface);
-    background: var(--surface-secondary);
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .dora-related h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+    line-height: 1.15;
+  }
+
+  .dora-related > p {
+    max-width: 60ch;
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
   }
 
   .dora-related__links {
     display: grid;
-    gap: 1.1rem 1.5rem;
     margin-top: 1.5rem;
   }
 
   .dora-related__links a {
     display: grid;
-    gap: 0.35rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 1.5rem;
+    row-gap: 0.3rem;
+    padding-block: 1rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
     color: var(--text-primary);
     text-decoration: none;
   }
 
-  .dora-related__links a:hover span,
-  .dora-related__links a:focus-visible span {
-    text-decoration: underline;
-    text-underline-offset: 0.3em;
+  .dora-related__links a:last-child {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
   }
 
-  .dora-related__links span {
-    font-size: 0.78rem;
+  .dora-related__title {
+    font-size: 1rem;
     font-weight: var(--fw-semibold);
+    line-height: 1.35;
+    transition: color var(--p-duration-fast) var(--p-ease-standard);
   }
 
-  .dora-related__links small {
-    color: var(--text-muted);
-    font-size: 0.78rem;
+  .dora-related__desc {
+    grid-column: 1;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
     line-height: 1.5;
+  }
+
+  .dora-related__arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--text-muted);
+    transition: transform var(--p-duration-fast) var(--p-ease-standard), color var(--p-duration-fast) var(--p-ease-standard);
+  }
+
+  :global([dir='rtl']) .dora-related__arrow { transform: scaleX(-1); }
+
+  .dora-related__links a:hover .dora-related__title,
+  .dora-related__links a:focus-visible .dora-related__title,
+  .dora-related__links a:hover .dora-related__arrow,
+  .dora-related__links a:focus-visible .dora-related__arrow {
+    color: var(--interactive-default);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .dora-related__links a:hover .dora-related__arrow,
+    .dora-related__links a:focus-visible .dora-related__arrow { transform: translateX(0.25rem); }
+    :global([dir='rtl']) .dora-related__links a:hover .dora-related__arrow,
+    :global([dir='rtl']) .dora-related__links a:focus-visible .dora-related__arrow { transform: scaleX(-1) translateX(0.25rem); }
   }
 
   .dora-footer {
@@ -435,9 +472,6 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
       align-items: center;
     }
 
-    .dora-related__links {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
   }
 
   @media (max-width: 767px) {
