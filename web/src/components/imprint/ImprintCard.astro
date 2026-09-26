@@ -6,7 +6,7 @@ interface Props { imprint: Imprint; locale?: string }
 const { imprint, locale = Astro.currentLocale ?? 'en' } = Astro.props;
 ---
 
-<li class={`imprint-card imprint-card--${imprint.slug}`} style={`--accent: ${imprint.accent}`}>
+<li class={`imprint-card imprint-card--${imprint.slug}`}>
   <a href={localizePath(`/imprints/${imprint.slug}/`, locale)} class="imprint-card__link">
     <img class="imprint-card__logo" src={imprint.logo} alt={imprint.name} loading="lazy" />
   </a>
@@ -14,36 +14,44 @@ const { imprint, locale = Astro.currentLocale ?? 'en' } = Astro.props;
 
 <style>
   .imprint-card {
+    display: flex;
     min-width: 0;
   }
 
   .imprint-card__link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-height: 5.9rem;
-    padding: 1rem 0.35rem 1.25rem;
-    color: inherit;
-    text-decoration: none;
-    transition: background-color var(--p-duration-base) var(--p-ease-standard);
+    min-height: 2.75rem;
+    padding-block: 0.25rem;
+    border-radius: var(--p-radius-button);
+    transition: opacity var(--p-duration-fast) var(--p-ease-standard);
+  }
+  .imprint-card__link:hover { opacity: 0.7; }
+  .imprint-card__link:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 
-  .imprint-card__link:hover { background: transparent; }
+  /* One optical size for all five wordmarks. The SVGs carry different
+     internal whitespace and letterforms, so each gets a scale factor tuned
+     by eye against the others (cap height roughly equal). */
+  .imprint-card { --logo-base: 1.9rem; --logo-scale: 1; }
+  .imprint-card--ridgeline { --logo-scale: 1.12; }
+  .imprint-card--health-nexus { --logo-scale: 0.86; }
+  .imprint-card--verdant-science { --logo-scale: 1.22; }
+  .imprint-card--charter { --logo-scale: 1.02; }
+  .imprint-card--threnody { --logo-scale: 1.2; }
 
   .imprint-card__logo {
     display: block;
-    width: min(100%, 10.5rem);
-    height: 3.2rem;
-    object-fit: contain;
+    width: auto;
+    height: calc(var(--logo-base) * var(--logo-scale));
+    max-width: 100%;
   }
 
-  .imprint-card--verdant-science .imprint-card__logo,
-  .imprint-card--threnody .imprint-card__logo {
-    height: 3.6rem;
-  }
-
-  @media (max-width: 639px) {
-    .imprint-card__link { min-height: 5rem; }
+  /* 640-1199px: the five marks at full size don't fit on one line; scale
+     them together rather than letting the last one wrap alone. */
+  @media (min-width: 640px) and (max-width: 1199px) {
+    .imprint-card { --logo-base: 1.55rem; }
   }
 </style>
