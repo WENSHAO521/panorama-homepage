@@ -25,20 +25,20 @@ const t = getContent(locale);
 <style>
   .featured-journals {
     background: var(--surface-primary);
-    padding-block: 2rem 1rem;
+    padding-block: 3.5rem 3.5rem;
   }
 
   .featured-journals :global(.section-heading__title) {
-    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: var(--fw-regular);
-    line-height: 1.15;
+    line-height: 1.12;
   }
 
   .featured-journals :global(.section-heading__lede) {
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
     font-family: var(--font-display);
-    font-size: 0.82rem;
-    line-height: 1.35;
+    font-size: 1rem;
+    line-height: 1.45;
   }
 
   .featured-journals__header {
@@ -50,11 +50,13 @@ const t = getContent(locale);
   }
 
   .featured-journals__link {
-    margin-top: 0.35rem;
+    margin-top: 0.5rem;
     color: var(--text-primary);
-    font-size: 0.72rem;
+    font-size: 0.875rem;
     font-weight: var(--fw-semibold);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: var(--brand-accent);
+    text-underline-offset: 0.35em;
     white-space: nowrap;
   }
 

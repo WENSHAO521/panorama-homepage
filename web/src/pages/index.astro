@@ -33,3 +33,37 @@ const t = getContent(locale);
 
   <InstitutionalPartner locale={locale} />
 </BaseLayout>
+
+<script>
+  // Sections below the hero fade up once as they enter the viewport. The
+  // hidden state is only applied from JS, so no-JS and reduced-motion
+  // visitors always see content immediately.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    const sections = document.querySelectorAll<HTMLElement>('main > section:not(.hero)');
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('is-revealed');
+        io.unobserve(entry.target);
+      }
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top < window.innerHeight) continue;
+      section.classList.add('reveal');
+      io.observe(section);
+    }
+  }
+</script>
+
+<style is:global>
+  main > section.reveal > * {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  main > section.reveal.is-revealed > * {
+    opacity: 1;
+    transform: none;
+  }
+</style>

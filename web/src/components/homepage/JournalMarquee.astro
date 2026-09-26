@@ -40,6 +40,7 @@ const journals = [
 ];
 ---
 
+<div class="container-wide">
 <ul class="journal-marquee__track" role="list">
   {journals.map((journal) => (
     <li class="journal-marquee__item">
@@ -48,7 +49,7 @@ const journals = [
         class="journal-marquee__link"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${journal.title} — ${journal.imprint} (${t('common.visitJournalWebsite')}, ${t('common.opensNewTab')})`}
+        aria-label={`${journal.title}, ${journal.imprint} (${t('common.visitJournalWebsite')}, ${t('common.opensNewTab')})`}
       >
         <Image
           src={journal.cover}
@@ -68,15 +69,15 @@ const journals = [
     </li>
   ))}
 </ul>
+</div>
 
 <style>
   .journal-marquee__track {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.6rem 1.1rem;
-    width: min(100%, var(--p-container-max));
-    margin: 1rem auto 0;
-    padding-inline: var(--p-gutter-mobile);
+    margin: 2rem 0 0;
+    padding: 0;
     list-style: none;
   }
 
@@ -106,9 +107,9 @@ const journals = [
   }
 
   .journal-marquee__imprint {
-    margin-top: 0.65rem;
+    margin-top: 0.85rem;
     color: var(--text-muted);
-    font-size: 0.5rem;
+    font-size: 0.6875rem;
     font-weight: var(--fw-semibold);
     letter-spacing: 0.14em;
     line-height: 1.25;
@@ -116,8 +117,8 @@ const journals = [
   }
 
   .journal-marquee__title {
-    margin-top: 0.35rem;
-    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
     font-weight: var(--fw-regular);
     line-height: 1.15;
   }
@@ -126,8 +127,28 @@ const journals = [
     margin-top: 0.4rem;
     color: var(--text-secondary);
     font-family: var(--font-display);
-    font-size: 0.76rem;
-    line-height: 1.35;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  /* Phones: five covers in a two-column grid leaves an orphan, so the row
+     becomes a swipeable strip that peeks the next cover. */
+  @media (max-width: 639px) {
+    .journal-marquee__track {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 44%;
+      gap: 1rem;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      /* room for the hover lift, which overflow-x would otherwise clip */
+      margin-top: 1.5rem;
+      padding-top: 0.5rem;
+    }
+    .journal-marquee__track::-webkit-scrollbar { display: none; }
+    .journal-marquee__item { scroll-snap-align: start; }
   }
 
   @media (min-width: 640px) and (max-width: 767px) {
@@ -138,7 +159,6 @@ const journals = [
     .journal-marquee__track {
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 1.9rem;
-      padding-inline: var(--p-gutter-tablet);
     }
   }
 

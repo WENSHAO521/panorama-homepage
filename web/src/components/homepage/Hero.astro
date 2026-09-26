@@ -3,11 +3,13 @@ import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
-import AFS from '@/assets/journal-covers/AFS.png';
-import JLPCS from '@/assets/journal-covers/JLPCS.png';
+// Deliberately a different five from FeaturedJournals/JournalMarquee so the
+// hero and the featured row never show the same covers twice.
+import CSSR from '@/assets/journal-covers/CSSR.png';
+import HNDH from '@/assets/journal-covers/HNDH.png';
 import PFR from '@/assets/journal-covers/PFR.png';
 import Silence from '@/assets/journal-covers/Silence.png';
-import TTS from '@/assets/journal-covers/TTS.png';
+import CPRT from '@/assets/journal-covers/CPRT.png';
 
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
@@ -18,8 +20,7 @@ const t = getContent(locale);
   <div class="container-wide hero__row">
     <div class="hero__copy">
       <h1 class="hero__title">
-        {t('home.heroTitleOne')}<br class="hero__break" />
-        {t('home.heroTitleTwo')}
+        {t('home.heroTitleOne')}<br class="hero__break" />{' '}{t('home.heroTitleTwo')}
       </h1>
       <p class="hero__lede">
         {t('home.heroLede')}
@@ -34,23 +35,14 @@ const t = getContent(locale);
 
     <div class="hero__visual" aria-label={t('home.heroVisual')}>
       <div class="hero__art">
-        <svg class="hero__orbit" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-          <circle class="hero__orbit-arc hero__orbit-arc--blue" cx="50" cy="50" r="47" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="2" />
-          <circle class="hero__orbit-arc hero__orbit-arc--sage" cx="50" cy="50" r="47.4" pathLength="100" stroke-dasharray="14 86" stroke-dashoffset="-20" transform="rotate(-5 50 50)" />
-          <circle class="hero__orbit-arc hero__orbit-arc--gold" cx="50" cy="50" r="46.6" pathLength="100" stroke-dasharray="17 83" stroke-dashoffset="-40" transform="rotate(4 50 50)" />
-          <circle class="hero__orbit-arc hero__orbit-arc--terra" cx="50" cy="50" r="47.2" pathLength="100" stroke-dasharray="13 87" stroke-dashoffset="-62" transform="rotate(-7 50 50)" />
-          <circle class="hero__orbit-arc hero__orbit-arc--plum" cx="50" cy="50" r="46.8" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="-82" transform="rotate(6 50 50)" />
-        </svg>
         <div class="hero__books">
-          <Image class="hero__book hero__book--front-left" src={AFS} alt="AI &amp; Future Society" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
-          <Image class="hero__book hero__book--front-left-mid" src={JLPCS} alt="Journal of Law, Psychology, and Communication Studies" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+          <Image class="hero__book hero__book--front-left" src={CSSR} alt="Computational Social Sciences Review" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+          <Image class="hero__book hero__book--front-left-mid" src={HNDH} alt="Health Nexus: Digital Health and Medical AI" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
           <Image class="hero__book hero__book--front-center" src={PFR} alt="Panorama Frontier Review" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
           <Image class="hero__book hero__book--front-right-mid" src={Silence} alt="Silence" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
-          <Image class="hero__book hero__book--front-right" src={TTS} alt="Three Teachings Studies" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
+          <Image class="hero__book hero__book--front-right" src={CPRT} alt="Comparative Philosophy &amp; Religious Traditions" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
         </div>
         <span class="hero__shelf-line" aria-hidden="true"></span>
-        <span class="hero__meta hero__meta--left text-caption">Panorama Scholarly Group</span>
-        <span class="hero__meta hero__meta--right text-caption">{t('home.globalNetwork')}</span>
       </div>
     </div>
   </div>
@@ -109,41 +101,11 @@ const t = getContent(locale);
   .hero__art {
     position: relative;
     width: 100%;
-    max-width: 29rem;
+    max-width: 32rem;
     margin-inline: auto;
-    aspect-ratio: 1.1 / 1;
+    aspect-ratio: 1.6 / 1;
   }
 
-  .hero__orbit {
-    position: absolute;
-    top: 22%;
-    left: 14.5%;
-    width: 46%;
-    aspect-ratio: 1;
-    overflow: visible;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .hero__orbit-arc {
-    fill: none;
-    stroke-width: 0.86;
-    stroke-linecap: round;
-    opacity: 0.65;
-    vector-effect: non-scaling-stroke;
-  }
-
-  /* The group-level motif uses one restrained system palette. Imprint
-     colours remain reserved for imprint and journal taxonomy pages. */
-  .hero__orbit-arc--blue,
-  .hero__orbit-arc--sage,
-  .hero__orbit-arc--terra,
-  .hero__orbit-arc--plum { stroke: var(--brand-primary); }
-  .hero__orbit-arc--gold { stroke: var(--brand-accent); }
-
-  .hero__orbit-arc:nth-child(odd) {
-    opacity: 0.57;
-  }
 
   .hero__book {
     position: absolute;
@@ -161,67 +123,87 @@ const t = getContent(locale);
     z-index: 3;
   }
 
-  /* Five volumes share one shelf line, with gentle overlap for a book-like rhythm. */
+  /* Five volumes share one shelf line, with gentle overlap for a book-like
+     rhythm. The centre volume is the tallest; the outer pair sit lowest in
+     the stack order so the fan reads from the middle outwards. */
   .hero__book--front-left {
-    bottom: 19%;
+    bottom: 14%;
     left: 0;
-    width: 18%;
+    width: 21%;
     z-index: 4;
   }
 
   .hero__book--front-left-mid {
-    bottom: 19%;
-    left: 14.5%;
-    width: 19%;
+    bottom: 14%;
+    left: 16.5%;
+    width: 22%;
     z-index: 5;
   }
 
   .hero__book--front-center {
-    bottom: 19%;
-    left: 30%;
-    width: 21%;
-    z-index: 6;
-  }
-
-  .hero__book--front-right-mid {
-    bottom: 19%;
-    left: 48%;
-    width: 18.5%;
-    z-index: 7;
-  }
-
-  .hero__book--front-right {
-    bottom: 19%;
-    left: 64.5%;
-    width: 20%;
+    bottom: 14%;
+    left: 34%;
+    width: 24.5%;
     z-index: 8;
   }
 
+  .hero__book--front-right-mid {
+    bottom: 14%;
+    left: 53.5%;
+    width: 21.5%;
+    z-index: 6;
+  }
+
+  .hero__book--front-right {
+    bottom: 14%;
+    left: 70.5%;
+    width: 22%;
+    z-index: 4;
+  }
+
+  /* Entry: the volumes rise onto the shelf one after another, centre first.
+     Communicates "a collection", not decoration, and runs once. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__book {
+      animation: hero-book-rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .hero__book--front-center { animation-delay: 80ms; }
+    .hero__book--front-left-mid,
+    .hero__book--front-right-mid { animation-delay: 200ms; }
+    .hero__book--front-left,
+    .hero__book--front-right { animation-delay: 320ms; }
+
+    .hero__copy > * {
+      animation: hero-copy-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .hero__copy > :nth-child(2) { animation-delay: 90ms; }
+    .hero__copy > :nth-child(3) { animation-delay: 180ms; }
+  }
+
+  @keyframes hero-book-rise {
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes hero-copy-in {
+    from { opacity: 0; transform: translateY(0.75rem); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* The shelf's top edge sits exactly on the books' bottom edge (14%), and
+     it is drawn behind the covers, so the volumes stand on it rather than
+     appearing to sink through it. */
   .hero__shelf-line {
     position: absolute;
     right: 0;
-    bottom: 18%;
+    bottom: calc(14% - 0.45rem);
     left: 0;
     height: 0.45rem;
     background: linear-gradient(var(--border-strong), var(--border-strong)) top / 100% 0.12rem no-repeat,
       linear-gradient(color-mix(in srgb, var(--border-strong) 22%, transparent), transparent) bottom / 100% 0.35rem no-repeat;
-    z-index: 9;
+    z-index: 2;
   }
 
-  .hero__meta {
-    position: absolute;
-    bottom: 4.5%;
-    color: var(--text-accent);
-    font-size: 0.48rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.16em;
-    line-height: 1;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .hero__meta--left { left: 4.5%; }
-  .hero__meta--right { right: 4.5%; }
 
 
   @media (min-width: 768px) {
@@ -241,15 +223,23 @@ const t = getContent(locale);
       flex-direction: column;
       justify-content: flex-end;
       padding-top: 2.15rem;
-      padding-bottom: 22%;
+      padding-bottom: 12%;
     }
 
     .hero__actions { margin-top: 3.5rem; }
 
+    /* The fan sits on the same baseline as the CTAs, below the
+       (nowrap, wide) headline, so the two never collide. */
+    .hero__visual {
+      display: flex;
+      align-items: flex-end;
+      padding-top: 7rem;
+    }
+
 
     .hero__art {
       max-width: none;
-      aspect-ratio: 1.1 / 1;
+      aspect-ratio: 1.55 / 1;
       width: calc(100% + 5rem);
       margin-inline-start: -1.5rem;
       margin-inline-end: 0;
@@ -267,10 +257,10 @@ const t = getContent(locale);
   }
 
   @media (max-width: 767px) {
+    .hero__row { gap: 1.25rem; }
+    .hero__art { aspect-ratio: 1.9 / 1; }
     .hero__break { display: none; }
     .hero__title { max-width: 18ch; }
-    .hero__art { min-height: 18rem; }
-    .hero__keywords { right: 1%; }
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
