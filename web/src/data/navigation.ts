@@ -139,9 +139,9 @@ export const footerGroups: FooterGroup[] = [
 // platform row below provides the visual route to the same scholarly systems.
 // Credentials has no approved logo asset (see docs/ASSET-AUDIT.md), so it
 // remains available from the header's Infrastructure menu only.
-export const footerPlatformLogos: { label: string; path: string; logo: string }[] = [
+export const footerPlatformLogos: { label: string; path: string; logo: string; wide?: boolean }[] = [
   { label: 'Research Institute', path: externalSystems.research, logo: '/brand/psg/platforms/research-institute-logo.svg' },
-  { label: 'POSI', path: externalSystems.posi, logo: '/brand/psg/platforms/posi-logo.svg' },
+  { label: 'POSI', path: externalSystems.posi, logo: '/brand/psg/platforms/posi-logo.svg', wide: true },
   { label: 'Profiles', path: externalSystems.profiles, logo: '/brand/psg/platforms/editorial-directory-logo-transparent.png' },
 ];
 

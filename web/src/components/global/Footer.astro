@@ -66,7 +66,7 @@ const year = new Date().getFullYear();
       <nav class="site-footer__platform-list" aria-label={labels.platforms}>
         {footerPlatformLogos.map((platform) => (
           <a
-            class="site-footer__platform"
+            class:list={['site-footer__platform', { 'site-footer__platform--wide': platform.wide }]}
             href={platform.path}
             target="_blank"
             rel="noopener noreferrer"
@@ -245,6 +245,11 @@ const year = new Date().getFullYear();
     height: 2.7rem;
     object-fit: contain;
     object-position: left center;
+  }
+
+  .site-footer__platform--wide img {
+    width: 15rem;
+    max-width: 100%;
   }
 
   .site-footer__rule {
