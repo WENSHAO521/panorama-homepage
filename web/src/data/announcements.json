@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T07:59:01.902Z",
+  "generatedAt": "2026-09-28T08:41:54.230Z",
   "maxItems": 5,
   "announcements": [
     {
@@ -132,11 +132,11 @@
       "id": "auto-research-research-aHR0cHM6Ly9y",
       "source": "research",
       "sourceLabel": "Panorama Research Institute",
-      "type": "Update",
-      "title": "Improved multi-file attachment uploads on collaboration forms",
-      "summary": "The Membership and Research Fellow application forms now reliably receive every uploaded attachment, with a 10MB total size limit.",
+      "type": "Recruitment",
+      "title": "Now Recruiting: Research Fellows, Associate Research Fellows, and Research Assistants",
+      "summary": "Panorama Research Institute is accepting applications for Research Fellow, Associate Research Fellow, and Research Assistant positions. Application deadline: February 15, 2027.",
       "date": "2026-08-23",
-      "href": "https://research.panorama-sg.com/announcements/attachment-upload-fix-2026-08"
+      "href": "https://research.panorama-sg.com/announcements/research-recruitment-2027"
     },
     {
       "id": "posi-pre-operational-launch-2026",
