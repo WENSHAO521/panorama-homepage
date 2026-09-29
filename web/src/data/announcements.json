@@ -1,7 +1,17 @@
 {
-  "generatedAt": "2026-09-28T08:41:54.230Z",
-  "maxItems": 5,
+  "generatedAt": "2026-09-29T14:25:36.491Z",
+  "maxItems": 12,
   "announcements": [
+    {
+      "id": "auto-research-research-6fb5441e2446",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Notice",
+      "title": "POSI Database Officially Launched",
+      "summary": "The Panorama Open Scholarly Index (POSI) was officially launched on 27 September 2026 and is now publicly accessible at posi.panorama-sg.com.",
+      "date": "2026-09-27",
+      "href": "https://research.panorama-sg.com/announcements/posi-official-launch-2026"
+    },
     {
       "id": "dora-signatory-2026",
       "source": "group",
@@ -129,6 +139,36 @@
       }
     },
     {
+      "id": "auto-hndh-113",
+      "source": "journals",
+      "sourceLabel": "Health Nexus: Digital Health and Medical AI",
+      "type": "Call for papers",
+      "title": "Call for Papers: Health Nexus: Digital Health and Medical AI Is Now Accepting Submissions",
+      "summary": "Health Nexus: Digital Health and Medical AI is now accepting submissions for forthcoming issues. The journal welcomes original and interdisciplinary research across digital health, medical artificial intelligence, clinical informatics, computational medicine,…",
+      "date": "2026-09-08",
+      "href": "https://journals.panorama-sg.com/hndh/announcement/view/113"
+    },
+    {
+      "id": "auto-grhas-112",
+      "source": "journals",
+      "sourceLabel": "Global Review of Humanities, Arts, & Society",
+      "type": "Call for papers",
+      "title": "Call for Papers: GRHAS Vol. 2, No. 5 (October 2026)",
+      "summary": "Global Review of Humanities, Arts, and Society (GRHAS) invites original, interdisciplinary, and critically engaged submissions for Volume 2, Issue 5, scheduled for publication in October 2026. We welcome research and scholarly contributions across the…",
+      "date": "2026-08-30",
+      "href": "https://journals.panorama-sg.com/grhas/announcement/view/112"
+    },
+    {
+      "id": "auto-research-research-a49b0dc1b33e",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Notice",
+      "title": "Panorama Research Institute Is Now Officially Open",
+      "summary": "Panorama Research Institute has completed its foundational phase and is now officially open, accepting membership, fellowship, and research assistant applications, as well as research proposals and academic collaboration inquiries.",
+      "date": "2026-08-23",
+      "href": "https://research.panorama-sg.com/announcements/institute-officially-open-2026"
+    },
+    {
       "id": "auto-research-research-5818304dc6e1",
       "source": "research",
       "sourceLabel": "Panorama Research Institute",
@@ -159,6 +199,36 @@
       "date": "2026-08-01",
       "href": "https://books.panorama-sg.com/",
       "fallback": true
+    },
+    {
+      "id": "auto-resonance-109",
+      "source": "journals",
+      "sourceLabel": "Resonance",
+      "type": "Update",
+      "title": "Frank Gunderson Joins Resonance as Academic Advisor",
+      "summary": "Professor Frank Gunderson joins Resonance as Academic Advisor, bringing expertise in fieldwork-based ethnomusicology, African music studies, sonic repatriation, religion and music, sound archives, and academic publishing.",
+      "date": "2026-07-06",
+      "href": "https://journals.panorama-sg.com/Resonance/announcement/view/109"
+    },
+    {
+      "id": "auto-cropt-107",
+      "source": "journals",
+      "sourceLabel": "Contemporary Review of Political Thought",
+      "type": "Call for papers",
+      "title": "Call for Papers: Volume 1 of Contemporary Review of Political Thought",
+      "summary": "Contemporary Review of Political Thought (CRoPT) is now inviting submissions for its first volume. We welcome original scholarly work in English or Chinese on political thought, political philosophy, intellectual history, Marxist theory, ideological and…",
+      "date": "2026-05-21",
+      "href": "https://journals.panorama-sg.com/cropt/announcement/view/107"
+    },
+    {
+      "id": "auto-cropt-106",
+      "source": "journals",
+      "sourceLabel": "Contemporary Review of Political Thought",
+      "type": "Update",
+      "title": "Publication Schedule｜出版时间安排",
+      "summary": "The journal is published annually, with the annual issue scheduled for publication on 15 December each year. 本刊为年刊，每年一期，年度期次计划于每年 12月15日 正式出版。",
+      "date": "2026-05-15",
+      "href": "https://journals.panorama-sg.com/cropt/announcement/view/106"
     }
   ]
 }
