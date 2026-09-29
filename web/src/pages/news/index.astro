@@ -9,7 +9,7 @@ const locale = Astro.currentLocale ?? 'en';
 const copy = getNewsCopy(locale);
 const posts = getAnnouncements(locale)
   .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, 5);
+  .slice(0, 10);
 
 const [featured, ...recent] = posts;
 const sourceCount = new Set(posts.map((post) => post.source)).size;

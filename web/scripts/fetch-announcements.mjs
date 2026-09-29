@@ -3,12 +3,15 @@
 // Sources:
 //   1. Public announcements sections on the Research Institute and POSI sites.
 //   2. The Panorama Scholarly Books notice banner.
-//   3. Each journal's native OJS announcements page.
+//   3. Each journal's native OJS announcements, read over plain HTTP (Atom
+//      feed first, then the announcement list HTML) and only falling back to
+//      the headless browser when both are unavailable.
 //
 // The corporate site remains static and build-safe: this script runs in the
 // weekly workflow and commits only the small normalized JSON payload.
 
 import { chromium } from 'playwright';
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -20,9 +23,12 @@ const RESEARCH_URL = 'https://research.panorama-sg.com/';
 const POSI_URL = 'https://posi.panorama-sg.com/';
 const BOOKS_URL = 'https://books.panorama-sg.com/';
 const USER_AGENT = 'Mozilla/5.0 (compatible; PanoramaSiteDataBot/1.0; +https://panorama-sg.com)';
-const MAX_ITEMS = 5;
+const MAX_ITEMS = 12;
+const MAX_PER_SOURCE = 3;
 const MAX_PER_JOURNAL = 5;
 const NAV_TIMEOUT_MS = 30000;
+const FETCH_TIMEOUT_MS = 20000;
+const CHALLENGE_WAIT_MS = 15000;
 
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, 'utf-8'));
@@ -67,8 +73,53 @@ function idFor(source, slug, detailUrl) {
   const announcementId = parsed.pathname.match(/\/announcement\/view\/(\d+)/);
   if (announcementId) return 'auto-' + slug.toLowerCase() + '-' + announcementId[1];
   const sourceSlug = source + '-' + slug.toLowerCase();
-  const suffix = Buffer.from(detailUrl).toString('base64url').slice(0, 12);
+  // Hash the whole URL: a prefix of its encoding is identical for every page
+  // on the same host, which made distinct announcements overwrite each other.
+  const suffix = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
   return 'auto-' + sourceSlug + '-' + suffix;
+}
+
+function decodeEntities(value) {
+  const named = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
+  return String(value || '').replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, entity) => {
+    if (entity[0] === '#') {
+      const code = entity[1].toLowerCase() === 'x'
+        ? parseInt(entity.slice(2), 16)
+        : parseInt(entity.slice(1), 10);
+      return Number.isFinite(code) ? String.fromCodePoint(code) : match;
+    }
+    return named[entity.toLowerCase()] ?? match;
+  });
+}
+
+function htmlToText(value) {
+  return decodeEntities(String(value || '')
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' '))
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([.,;:!?)])/g, '$1')
+    .trim();
+}
+
+function isChallengePage(title, body = '') {
+  return /just a moment|attention required|checking your browser|cf-chl|challenge-platform/i
+    .test(String(title) + ' ' + String(body).slice(0, 5000));
+}
+
+async function fetchText(url) {
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': USER_AGENT,
+      Accept: 'text/html,application/atom+xml,application/xml;q=0.9,*/*;q=0.8',
+    },
+    redirect: 'follow',
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
+  const text = await response.text();
+  if (isChallengePage('', text)) throw new Error('blocked by bot challenge (HTTP ' + response.status + ')');
+  if (!response.ok) throw new Error('HTTP ' + response.status);
+  return text;
 }
 
 function loadJournals() {
@@ -90,6 +141,27 @@ async function waitForRenderedPage(page) {
     // Cloudflare and third-party requests can keep the network busy. The DOM
     // is still useful after the initial document has loaded.
   }
+
+  // A non-interactive Cloudflare check usually clears itself after a few
+  // seconds; give it that chance before reading the DOM.
+  if (isChallengePage(await page.title())) {
+    try {
+      await page.waitForFunction(
+        () => !/just a moment|attention required|checking your browser/i.test(document.title),
+        null,
+        { timeout: CHALLENGE_WAIT_MS },
+      );
+      await page.waitForLoadState('domcontentloaded');
+    } catch {
+      // Still challenged; describePage() reports it when nothing is found.
+    }
+  }
+}
+
+async function describePage(page) {
+  const title = await page.title().catch(() => '');
+  const blocked = isChallengePage(title);
+  return (blocked ? 'blocked by bot challenge, ' : '') + 'page title "' + compactText(title, 60) + '"';
 }
 
 async function scrapeLinkedPlatform(page, platform) {
@@ -136,7 +208,7 @@ async function scrapeLinkedPlatform(page, platform) {
   });
 
   const seen = new Set();
-  return items
+  const results = items
     .filter((item) => {
       if (seen.has(item.href)) return false;
       seen.add(item.href);
@@ -151,7 +223,8 @@ async function scrapeLinkedPlatform(page, platform) {
       summary: compactText(item.summary || item.title),
       date: normalizeDate(item.date),
       href: item.href,
-  }));
+    }));
+  return { items: results, note: results.length ? '' : await describePage(page) };
 }
 
 async function scrapeBooksNotice(page) {
@@ -175,8 +248,8 @@ async function scrapeBooksNotice(page) {
     };
   });
 
-  if (!item || !item.title) return [];
-  return [{
+  if (!item || !item.title) return { items: [], note: await describePage(page) };
+  return { items: [{
     id: idFor('books', 'books', BOOKS_URL + '#notice-' + item.title),
     source: 'books',
     sourceLabel: 'Panorama Scholarly Books',
@@ -185,10 +258,114 @@ async function scrapeBooksNotice(page) {
     summary: compactText(item.summary || item.title),
     date: normalizeDate(item.raw),
     href: BOOKS_URL,
-  }];
+  }], note: '' };
+}
+
+function journalItem(journal, item) {
+  return {
+    id: idFor('journals', journal.slug, item.href),
+    source: 'journals',
+    sourceLabel: journal.title,
+    type: classifyType(item.title),
+    title: compactText(item.title, 180),
+    summary: compactText(item.summary || item.title),
+    date: normalizeDate(item.date),
+    href: item.href,
+  };
+}
+
+// OJS AnnouncementFeedGatewayPlugin. Carries full text and dates, so no
+// per-announcement requests are needed.
+async function fetchJournalFeed(journal) {
+  const base = journal.journalUrl.replace(/\/$/, '');
+  const xml = await fetchText(base + '/gateway/plugin/AnnouncementFeedGatewayPlugin/atom');
+  if (!/<feed[\s>]/i.test(xml)) throw new Error('announcement feed is not Atom');
+
+  const tag = (entry, name) => {
+    const match = entry.match(new RegExp('<' + name + '\\b[^>]*>([\\s\\S]*?)</' + name + '>', 'i'));
+    return match ? match[1] : '';
+  };
+  const entries = xml.match(/<entry\b[\s\S]*?<\/entry>/gi) || [];
+  return entries.map((entry) => {
+    const link = entry.match(/<link\b[^>]*rel=["']alternate["'][^>]*>/i)
+      || entry.match(/<link\b[^>]*>/i);
+    const href = link ? decodeEntities((link[0].match(/href=["']([^"']+)["']/i) || [])[1] || '') : '';
+    return {
+      title: htmlToText(decodeEntities(tag(entry, 'title'))),
+      href: href ? new URL(href, base + '/').href : '',
+      date: tag(entry, 'published') || tag(entry, 'updated'),
+      summary: htmlToText(decodeEntities(tag(entry, 'content') || tag(entry, 'summary'))),
+    };
+  }).filter((item) => item.title && item.href);
+}
+
+// The announcement list page, parsed without a browser. Tolerates both the
+// default and Bootstrap-based OJS themes.
+async function fetchJournalListHtml(journal) {
+  const listUrl = journal.journalUrl.replace(/\/$/, '') + '/announcement';
+  const html = await fetchText(listUrl);
+  // Each summary runs until the next one starts (or the list ends), which
+  // avoids having to balance nested <div>s with a regular expression.
+  const opener = /<(?:article|div|li)\b[^>]*class=["'][^"']*announcement[_-]summary[^"']*["'][^>]*>/gi;
+  const starts = Array.from(html.matchAll(opener), (match) => match.index);
+  const blocks = starts.map((start, index) => {
+    const end = starts[index + 1] ?? start + 6000;
+    const chunk = html.slice(start, end);
+    const listEnd = chunk.search(/<\/(?:section|main|ul|ol)>|class=["'][^"']*(?:cmp_pagination|pagination)/i);
+    return listEnd > 0 ? chunk.slice(0, listEnd) : chunk;
+  });
+
+  return blocks.map((block) => {
+    const heading = block.match(/<h[2-4]\b[^>]*>([\s\S]*?)<\/h[2-4]>/i);
+    const anchor = (heading ? heading[1] : block).match(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/i);
+    if (!anchor) return null;
+    const title = htmlToText(anchor[2]);
+    const text = htmlToText(block);
+    const summaryHtml = block.match(/<(div|p)\b[^>]*class=["'](?:[^"']*\s)?(summary|description)(?:\s[^"']*)?["'][^>]*>([\s\S]*?)<\/\1>/i);
+    const summary = summaryHtml
+      ? htmlToText(summaryHtml[3])
+      : htmlToText(block
+        .replace(/<h[2-4]\b[\s\S]*?<\/h[2-4]>/i, ' ')
+        .replace(/<(\w+)\b[^>]*class=["'][^"']*\bdate\b[^"']*["'][^>]*>[\s\S]*?<\/\1>/gi, ' ')
+        .replace(/<a\b[^>]*class=["'][^"']*read[_-]?more[^"']*["'][^>]*>[\s\S]*?<\/a>/gi, ' '));
+    return {
+      title,
+      href: new URL(decodeEntities(anchor[1]), listUrl).href,
+      date: text,
+      summary: summary.replace(/\s*read more\s*$/i, ''),
+    };
+  }).filter((item) => item && item.title && item.href);
 }
 
 async function scrapeJournal(page, journal) {
+  const notes = [];
+
+  try {
+    const items = await fetchJournalFeed(journal);
+    if (items.length) {
+      return { items: items.slice(0, MAX_PER_JOURNAL).map((item) => journalItem(journal, item)), note: 'atom feed' };
+    }
+    notes.push('feed empty');
+  } catch (error) {
+    notes.push('feed: ' + String(error.message || error).slice(0, 60));
+  }
+
+  try {
+    const items = await fetchJournalListHtml(journal);
+    if (items.length) {
+      return { items: items.slice(0, MAX_PER_JOURNAL).map((item) => journalItem(journal, item)), note: 'list html' };
+    }
+    notes.push('list html empty');
+  } catch (error) {
+    notes.push('list html: ' + String(error.message || error).slice(0, 60));
+  }
+
+  const browserResult = await scrapeJournalInBrowser(page, journal);
+  if (!browserResult.items.length) browserResult.note = notes.concat(browserResult.note).join('; ');
+  return browserResult;
+}
+
+async function scrapeJournalInBrowser(page, journal) {
   const listUrl = journal.journalUrl.replace(/\/$/, '') + '/announcement';
   await page.goto(listUrl, {
     waitUntil: 'domcontentloaded',
@@ -210,6 +387,7 @@ async function scrapeJournal(page, journal) {
       };
     }).filter((item) => item.title && item.href);
   });
+  if (!summaries.length) return { items: [], note: 'browser: ' + await describePage(page) };
 
   const results = [];
   for (const item of summaries.slice(0, MAX_PER_JOURNAL)) {
@@ -241,31 +419,41 @@ async function scrapeJournal(page, journal) {
       // The list-page summary/date still gives us a useful announcement.
     }
 
-    results.push({
-      id: idFor('journals', journal.slug, item.href),
-      source: 'journals',
-      sourceLabel: journal.title,
-      type: classifyType(item.title),
-      title: compactText(item.title, 180),
-      summary: compactText(summary || item.title),
-      date,
-      href: item.href,
-    });
+    results.push({ ...journalItem(journal, { ...item, summary }), date });
   }
-  return results;
+  return { items: results, note: 'browser' };
+}
+
+// Journals share one `source`, so each journal is its own feed for merging.
+function feedKey(item) {
+  return item.source === 'journals' ? 'journals:' + item.sourceLabel : item.source;
 }
 
 function mergeAndLimit(existing, fetched) {
-  const successfulSources = new Set(fetched.map((item) => item.source));
-  const sourceFallbacks = existing.filter((item) => (
-    item.fallback && !successfulSources.has(item.source)
-  ));
+  // A feed that returned nothing this run (blocked, down, or empty) keeps
+  // what it had before instead of silently dropping off the site.
+  const refreshedFeeds = new Set(fetched.map(feedKey));
+  const carriedOver = existing.filter((item) => item.fallback || !refreshedFeeds.has(feedKey(item)));
   const byId = new Map();
-  [...sourceFallbacks, ...fetched].forEach((item) => byId.set(item.id, item));
+  [...carriedOver, ...fetched].forEach((item) => byId.set(item.id, item));
 
+  const perFeed = new Map();
   return Array.from(byId.values())
     .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+    .filter((item) => {
+      if (item.fallback) return true;
+      const count = perFeed.get(feedKey(item)) || 0;
+      perFeed.set(feedKey(item), count + 1);
+      return count < MAX_PER_SOURCE;
+    })
     .slice(0, MAX_ITEMS);
+}
+
+function logResult(label, result) {
+  const line = '[ok] ' + label.padEnd(16) + String(result.items.length).padStart(2) + ' announcements';
+  const message = result.note ? line + '  (' + result.note + ')' : line;
+  if (result.items.length) console.log(message);
+  else console.warn(message.replace('[ok]', '[--]'));
 }
 
 async function main() {
@@ -291,27 +479,27 @@ async function main() {
 
     for (const platform of linkedPlatforms) {
       try {
-        const items = await scrapeLinkedPlatform(page, platform);
-        console.log('[ok] ' + platform.source.padEnd(16) + items.length + ' announcements');
-        fetched.push(...items);
+        const result = await scrapeLinkedPlatform(page, platform);
+        logResult(platform.source, result);
+        fetched.push(...result.items);
       } catch (error) {
         console.warn('[skip] ' + platform.source.padEnd(16) + String(error.message || error).slice(0, 100));
       }
     }
 
     try {
-      const items = await scrapeBooksNotice(page);
-      console.log('[ok] books'.padEnd(20) + items.length + ' announcements');
-      fetched.push(...items);
+      const result = await scrapeBooksNotice(page);
+      logResult('books', result);
+      fetched.push(...result.items);
     } catch (error) {
       console.warn('[skip] books ' + String(error.message || error).slice(0, 100));
     }
 
     for (const journal of loadJournals()) {
       try {
-        const items = await scrapeJournal(page, journal);
-        console.log('[ok] ' + journal.slug.padEnd(16) + items.length + ' announcements');
-        fetched.push(...items);
+        const result = await scrapeJournal(page, journal);
+        logResult(journal.slug, result);
+        fetched.push(...result.items);
       } catch (error) {
         console.warn('[skip] ' + journal.slug.padEnd(16) + String(error.message || error).slice(0, 100));
       }
