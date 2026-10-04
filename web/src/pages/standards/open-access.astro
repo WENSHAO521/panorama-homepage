@@ -3,6 +3,7 @@ import LegalPage from '@/components/legal/LegalPage.astro';
 import { getNavigationLabels } from '@/i18n/navigation';
 import { getPolicyCopy } from '@/i18n/policies';
 import { getPolicyBody, renderPolicyHtml } from '@/i18n/policy-body';
+import { getDoiPolicyCopy } from '@/i18n/doi-policy';
 
 const locale = Astro.currentLocale ?? 'en';
 const policy = getPolicyCopy('openAccess', locale);
@@ -34,6 +35,7 @@ const sections = [
   relatedLinks={[
     { href: '/standards/editorial/', label: labels.editorialStandards },
     { href: '/standards/ethics/', label: labels.publicationEthics },
+    { href: '/standards/doi-policy/', label: getDoiPolicyCopy(locale).title },
     { href: '/about/contact/', label: labels.contact },
   ]}
   railTitle={policy.railTitle}

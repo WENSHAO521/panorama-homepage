@@ -13,6 +13,7 @@ import { getImprintCopyStrings, type ImprintSlug } from '@/i18n/imprints';
 import { getAboutCopy, getContactCopy, getGovernanceCopy, getPartnershipsCopy } from '@/i18n/group';
 import { getResearchCopy } from '@/i18n/pages';
 import { getInfrastructureCopy } from '@/i18n/infrastructure';
+import { getDoiPolicyCopy } from '@/i18n/doi-policy';
 import { getBooksCopy, getPublishingCopy } from '@/i18n/sections';
 import { getAllImprints } from '@/lib/content/imprints';
 import { getAllJournals } from '@/lib/content/journals';
@@ -147,6 +148,7 @@ const localizedPagePaths = new Set([
   '/books/',
   '/research/',
   '/infrastructure/',
+  '/standards/doi-policy/',
   '/about/',
   '/about/governance/',
   '/about/partnerships/',
@@ -168,6 +170,7 @@ const corePages: SearchRecord[] = [
   { type: 'page', title: 'Editorial Standards', description: "Panorama Scholarly Group's editorial standards.", url: '/standards/editorial/', keywords: ['editorial', 'peer review', 'standards'] },
   { type: 'page', title: 'Publication Ethics', description: "Panorama Scholarly Group's group-wide policy for research integrity, ethical editorial practice, and stewardship of the scholarly record.", url: '/standards/ethics/', keywords: ['ethics', 'misconduct', 'integrity', 'authorship', 'retraction'] },
   { type: 'page', title: 'Open Access Policy', description: "Panorama Scholarly Group's policy for open access, copyright, licensing, fees, and responsible reuse of scholarly works.", url: '/standards/open-access/', keywords: ['open access', 'copyright', 'licensing', 'creative commons', 'oa'] },
+  { type: 'page', title: 'DOI Allocation Policy', description: 'Crossref publisher DOIs, Zenodo repository DOIs, complimentary sections and existing identifiers.', url: '/standards/doi-policy/', keywords: ['DOI', 'Crossref', 'Zenodo', 'DataCite', 'book review', 'APC', 'complimentary'] },
   { type: 'page', title: 'Responsible Research Assessment', description: 'Panorama Scholarly Group Ltd is an organizational signatory to DORA and publishes its commitment to responsible research assessment.', url: '/standards/research-assessment/', keywords: ['DORA', 'DORA signatory', 'research assessment', 'responsible metrics', 'research evaluation'] },
   { type: 'page', title: 'Books', description: 'Institutional book publications from Panorama Scholarly Group.', url: '/books/', keywords: ['books', 'monographs'] },
   { type: 'page', title: 'Panorama Research Institute', description: 'Panorama Research Institute, the research division of Panorama Scholarly Group.', url: '/research/', keywords: ['research', 'institute'] },
@@ -218,6 +221,7 @@ function buildLocalizedRecords(locale: LocaleCode): SearchRecord[] {
   const books = getBooksCopy(locale);
   const research = getResearchCopy(locale);
   const infrastructure = getInfrastructureCopy(locale);
+  const doiPolicy = getDoiPolicyCopy(locale);
   const about = getAboutCopy(locale);
   const governance = getGovernanceCopy(locale);
   const partnerships = getPartnershipsCopy(locale);
@@ -225,6 +229,7 @@ function buildLocalizedRecords(locale: LocaleCode): SearchRecord[] {
   const localizedImprints = getAllImprints().map((imprint) => getLocalizedImprint(imprint, locale));
 
   const pageRecords = [
+    makePageRecord(locale, '/standards/doi-policy/', doiPolicy.title, doiPolicy.summary, ['DOI', 'Crossref', 'Zenodo', 'DataCite', 'APC', 'book reviews'], [doiPolicy]),
     makePageRecord(locale, '/', 'Panorama Scholarly Group', t('home.heroLede', 'Independent scholarly publishing, research, and infrastructure.'), ['home', 'group', 'publishing', 'research', 'infrastructure'], [getContentStrings(locale), corporateStructure, site]),
     makePageRecord(locale, '/publishing/', publishing.title, publishing.metaDescription, ['publishing', 'journals', 'imprints', 'books'], [publishing, corporateStructure.divisions[0]]),
     makePageRecord(locale, '/books/', books.title, books.metaDescription, ['books', 'monographs', 'authors', 'editors'], [books, externalSystems.books]),

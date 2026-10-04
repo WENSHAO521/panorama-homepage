@@ -1,0 +1,39 @@
+---
+import LegalPage from '@/components/legal/LegalPage.astro';
+import { doiSectionIds, getDoiPolicyCopy } from '@/i18n/doi-policy';
+import { getNavigationLabels } from '@/i18n/navigation';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getDoiPolicyCopy(locale);
+const labels = getNavigationLabels(locale);
+const sections = doiSectionIds.map((id, index) => ({ id, label: copy.labels[index] }));
+---
+
+<LegalPage
+  title={copy.title}
+  description={copy.summary}
+  path="/standards/doi-policy/"
+  locale={locale}
+  lede={copy.summary}
+  updated={copy.updated}
+  sections={sections}
+  relatedLinks={[
+    { href: '/standards/editorial/', label: labels.editorialStandards },
+    { href: '/standards/open-access/', label: labels.openAccess },
+    { href: '/about/contact/', label: labels.contact },
+  ]}
+>
+  {sections.map((section, index) => (
+    <section class="legal-section" id={section.id}>
+      <h2><span>{String(index + 1).padStart(2, '0')}</span>{section.label}</h2>
+      <p>{copy.paragraphs[index]}</p>
+    </section>
+  ))}
+  <aside class="legal-note">
+    <a href="https://www.crossref.org" target="_blank" rel="noopener noreferrer">Crossref</a>
+    {' · '}
+    <a href="https://help.zenodo.org/docs/deposit/describe-records/reserve-doi/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>
+    {' · '}
+    <a href="https://datacite.org" target="_blank" rel="noopener noreferrer">DataCite</a>
+  </aside>
+</LegalPage>

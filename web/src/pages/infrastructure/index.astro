@@ -8,9 +8,11 @@ import { getIndexLogoAsset } from '@/lib/assets/indexLogos';
 import { getInfrastructureCopy } from '@/i18n/infrastructure';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
+import { getDoiPolicyCopy } from '@/i18n/doi-policy';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getInfrastructureCopy(locale);
+const doiPolicy = getDoiPolicyCopy(locale);
 const partners = partnersData as Partner[];
 const partnerById = new Map(partners.map((partner) => [partner.id, partner]));
 
@@ -97,7 +99,10 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
       </ol>
 
       <div class="infra-inline-links">
+        <a href={localizePath('/standards/doi-policy/', locale)}>{doiPolicy.title}</a>
         <a href="https://www.crossref.org" target="_blank" rel="noopener noreferrer">Crossref</a>
+        <a href="https://zenodo.org" target="_blank" rel="noopener noreferrer">Zenodo</a>
+        <a href="https://datacite.org" target="_blank" rel="noopener noreferrer">DataCite</a>
         <a href="https://www.doi.org" target="_blank" rel="noopener noreferrer">DOI Foundation</a>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { getLegalNav } from '@/data/navigation';
 import { getNavigationLabels } from '@/i18n/navigation';
 import { localizePath } from '@/i18n/utils';
 import type { Imprint } from '@/types';
+import { getDoiPolicyCopy } from '@/i18n/doi-policy';
 
 interface NavLink {
   label: string;
@@ -44,6 +45,7 @@ const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independ
     <nav class="imprint-footer__nav" aria-label={`${imprint.name} footer navigation`}>
       {links.map((link) => <a href={link.href}>{link.label}</a>)}
       <a href={localizePath('/search/', locale)}>{labels.search}</a>
+      <a href={localizePath('/standards/doi-policy/', locale)}>{getDoiPolicyCopy(locale).title}</a>
     </nav>
   </div>
 

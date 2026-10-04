@@ -1,4 +1,5 @@
 import type { LocaleCode } from './config';
+import { getDoiPolicyCopy } from './doi-policy';
 
 interface StandardsItem {
   index: string;
@@ -366,5 +367,13 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
 };
 
 export function getStandardsCopy(locale = 'en'): StandardsPageCopy {
-  return copy[locale as LocaleCode] ?? copy.en;
+  const page = copy[locale as LocaleCode] ?? copy.en;
+  const doi = getDoiPolicyCopy(locale);
+  return {
+    ...page,
+    standards: [...page.standards, {
+      index: '06', title: doi.title, description: doi.summary,
+      href: '/standards/doi-policy/', action: doi.title,
+    }],
+  };
 }

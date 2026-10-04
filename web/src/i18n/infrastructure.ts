@@ -1,4 +1,5 @@
 import type { LocaleCode } from './config';
+import { getDoiPolicyCopy } from './doi-policy';
 
 export interface InfrastructureStepCopy {
   title: string;
@@ -84,5 +85,14 @@ const infrastructure: Record<LocaleCode, InfrastructureCopy> = {
 };
 
 export function getInfrastructureCopy(locale = 'en'): InfrastructureCopy {
-  return infrastructure[locale as LocaleCode] ?? infrastructure.en;
+  const copy = infrastructure[locale as LocaleCode] ?? infrastructure.en;
+  const doiPolicy = getDoiPolicyCopy(locale);
+  return {
+    ...copy,
+    summary: copy.summary.map(([label, value], index) => [label, index === 0 ? 'Crossref · Zenodo / DataCite' : value]),
+    doiSteps: copy.doiSteps.map((step, index) => ({
+      ...step,
+      body: index === 0 ? doiPolicy.summary : index === 2 ? doiPolicy.resolution : step.body,
+    })),
+  };
 }
