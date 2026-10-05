@@ -1,8 +1,39 @@
 {
-  "generatedAt": "2026-09-29T14:25:56.108Z",
+  "generatedAt": "2026-10-05T08:59:00.289Z",
   "source": "Journal-specific OAI-PMH feeds (oai_dc)",
   "maxItems": null,
   "articles": [
+    {
+      "id": "10.63802/pemr.V2.I2.357",
+      "doi": "10.63802/pemr.V2.I2.357",
+      "title": "From Technological Capability to Disaster Governance in North Korea: An Evidence-Bounded Framework from Scientific Publications",
+      "authors": [
+        "Liu, Leyuan"
+      ],
+      "journal": "PoliEcoM Administration Review",
+      "journalSlug": "pemr",
+      "journalUrl": "https://journals.panorama-sg.com/pemr",
+      "publishedAt": "2026-10-03",
+      "url": "https://journals.panorama-sg.com/pemr/article/view/357",
+      "journalArticleUrl": "https://journals.panorama-sg.com/pemr/article/view/357",
+      "summary": "This study examines the extent to which scientific publications can support claims about algorithmic disaster governance in an information-limited setting. The empirical corpus consists of two purposively selected 2024 North Korean journal issues—Computer and Software Technology…"
+    },
+    {
+      "id": "10.63802/rjgms.V2.I2.354",
+      "doi": "10.63802/rjgms.V2.I2.354",
+      "title": "In Transit",
+      "authors": [
+        "Zhang, Linxi",
+        "张麟溪"
+      ],
+      "journal": "Resonance",
+      "journalSlug": "resonance",
+      "journalUrl": "https://journals.panorama-sg.com/resonance",
+      "publishedAt": "2026-10-02",
+      "url": "https://journals.panorama-sg.com/Resonance/article/view/354",
+      "journalArticleUrl": "https://journals.panorama-sg.com/Resonance/article/view/354",
+      "summary": "In Transit is a bilingual poem about the movement of music across languages, technologies, platforms, and listening communities. Rather than imagining a musical work as a fixed object that simply travels from one place to another, the poem follows a song as it is recorded,…"
+    },
     {
       "id": "10.63802/hn.V2.2026.348",
       "doi": "10.63802/hn.V2.2026.348",
@@ -51,8 +82,8 @@
       "summary": "Cross-linguistic music circulation on digital platforms depends not only on recordings but also on translated titles, lyric subtitles, Romanization, captions, hashtags, playlist labels, sound pages, and comment-based explanation. This article examines how these practices…"
     },
     {
-      "id": "https://journals.panorama-sg.com/grhas/article/view/345",
-      "doi": "",
+      "id": "10.5281/zenodo.23118625",
+      "doi": "10.5281/zenodo.23118625",
       "title": "The Return of Human Judgment: Why Interpretation Still Matters in the Age of Artificial Intelligence",
       "authors": [
         "Yang, Shuting"
@@ -66,8 +97,8 @@
       "summary": "Generative artificial intelligence can summarize, translate, classify, synthesize, and produce interpretations that are fluent and plausible. This development encourages a misleading question: what work will remain for human scholars when machines perform so many intellectual…"
     },
     {
-      "id": "https://journals.panorama-sg.com/grhas/article/view/346",
-      "doi": "",
+      "id": "10.5281/zenodo.23118671",
+      "doi": "10.5281/zenodo.23118671",
       "title": "The Cultural Cost of Convenience: What Digital Platforms Change Beyond Technology",
       "authors": [
         "Yang, Shuting"
@@ -189,8 +220,8 @@
       "summary": "本文由一场面向高校音乐专业学生的公开讲座整理而成。文章以“琴键之外”为线索，围绕钢琴学习者在演奏与教学之外可能面对的艺术现场和职业情境，讨论钢琴训练所形成的能力如何被重新认识、调整和运用。文章结合作者在国际古典音乐项目、艺术家个人事务、艺术传播、内容制作及钢琴教学等方面的实践经历，分析钢琴专业能力在机构项目系统、艺术家个人工作系统、媒介传播和个人职业发展中的转化方式。…"
     },
     {
-      "id": "https://journals.panorama-sg.com/grhas/article/view/302",
-      "doi": "",
+      "id": "10.5281/zenodo.23118710",
+      "doi": "10.5281/zenodo.23118710",
       "title": "De-Westernizing Science Fiction Studies and Centering Chinese Visions: A Review of Chinese Science Fiction: Concepts, Forms, and Histories",
       "authors": [
         "Xue, Junyue"
@@ -720,8 +751,8 @@
       "summary": "This commentary uses the humanoid facial robot lip-motion generation study by Hu et al., published in Science Robotics, as a starting point to explore the broader cognitive, social, and ethical implications behind its technical achievements. By integrating a soft silicone facial…"
     },
     {
-      "id": "https://journals.panorama-sg.com/pemr/article/view/214",
-      "doi": "",
+      "id": "10.5281/zenodo.23118523",
+      "doi": "10.5281/zenodo.23118523",
       "title": "Institutional Reconstruction or Platform Governance? Reviewing Huawei’s Path to Digital Transformation through the Lens of Governance Logic and Data Sovereignty",
       "authors": [
         "Hu, Yang"
@@ -735,8 +766,8 @@
       "summary": "This review examines Huawei’s Path to Digital Transformation through the lenses of institutional analysis and development (IAD), dynamic capabilities theory, and platform governance. The book outlines Huawei’s attempt to restructure internal governance and production relations…"
     },
     {
-      "id": "https://journals.panorama-sg.com/grhas/article/view/213",
-      "doi": "",
+      "id": "10.5281/zenodo.23139978",
+      "doi": "10.5281/zenodo.23139978",
       "title": "From Inflammation to Liberation: Reading Inflamed as a Decolonial Medical Manifesto",
       "authors": [
         "Li, Zhihan"
@@ -765,8 +796,8 @@
       "summary": "This study proposes a three-stage AI-assisted intercultural EFL pedagogy model structured as experience–reflection–creation to address the persistent challenges of superficial cultural teaching and the separation between language learning and cultural awareness development.…"
     },
     {
-      "id": "https://journals.panorama-sg.com/grhas/article/view/202",
-      "doi": "",
+      "id": "10.5281/zenodo.23139641",
+      "doi": "10.5281/zenodo.23139641",
       "title": "Studying Migration through Visibility? Method, Invisibility, and the Politics of Digital Migration Research A Review of Doing Digital Migration Studies: Theories and Practices of the Everyday",
       "authors": [
         "Zeng, Xing"
@@ -780,8 +811,8 @@
       "summary": "This critical book review examines Doing Digital Migration Studies: Theories and Practices of the Everyday (Leurs & Ponzanesi, eds., 2024), a landmark edited volume that explores how migration is increasingly mediated, studied, and governed through digital technologies. The…"
     },
     {
-      "id": "https://journals.panorama-sg.com/grhas/article/view/203",
-      "doi": "",
+      "id": "10.5281/zenodo.23139782",
+      "doi": "10.5281/zenodo.23139782",
       "title": "Functionalizing Intimacy? Technological Mediation and the Limits of Emotional Optimization A Review of Relationships 5.0: How AI, VR, and Robots Will Reshape Our Emotional Lives",
       "authors": [
         "Wu, Mengzhou"
@@ -795,8 +826,8 @@
       "summary": "This critical book review examines Elyakim Kislev’s Relationships 5.0: How AI, VR, and Robots Will Reshape Our Emotional Lives (2022), which argues that emerging technologies are transforming intimate relationships from human-centered bonds into modular, technologically mediated…"
     },
     {
-      "id": "https://journals.panorama-sg.com/grhas/article/view/204",
-      "doi": "",
+      "id": "10.5281/zenodo.23139890",
+      "doi": "10.5281/zenodo.23139890",
       "title": "When Data Justice Becomes Governance: On the Depoliticization of a Critical Concept",
       "authors": [
         "Zhu, Junyu"

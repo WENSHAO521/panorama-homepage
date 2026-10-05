@@ -1,7 +1,17 @@
 {
-  "generatedAt": "2026-09-29T14:25:36.491Z",
+  "generatedAt": "2026-10-05T08:58:40.199Z",
   "maxItems": 12,
   "announcements": [
+    {
+      "id": "auto-jdes-114",
+      "source": "journals",
+      "sourceLabel": "Journal of Dance and Embodied Structure",
+      "type": "Call for papers",
+      "title": "Launch Announcement and Call for Papers",
+      "summary": "The Journal of Dance and Embodied Structure (JDES) is now open for submissions. The journal welcomes original and interdisciplinary research on dance, embodiment, movement, choreography, performance, and the structural, cultural, spatial, and technological…",
+      "date": "2026-10-01",
+      "href": "https://journals.panorama-sg.com/jdes/announcement/view/114"
+    },
     {
       "id": "auto-research-research-6fb5441e2446",
       "source": "research",
@@ -219,16 +229,6 @@
       "summary": "Contemporary Review of Political Thought (CRoPT) is now inviting submissions for its first volume. We welcome original scholarly work in English or Chinese on political thought, political philosophy, intellectual history, Marxist theory, ideological and…",
       "date": "2026-05-21",
       "href": "https://journals.panorama-sg.com/cropt/announcement/view/107"
-    },
-    {
-      "id": "auto-cropt-106",
-      "source": "journals",
-      "sourceLabel": "Contemporary Review of Political Thought",
-      "type": "Update",
-      "title": "Publication Schedule｜出版时间安排",
-      "summary": "The journal is published annually, with the annual issue scheduled for publication on 15 December each year. 本刊为年刊，每年一期，年度期次计划于每年 12月15日 正式出版。",
-      "date": "2026-05-15",
-      "href": "https://journals.panorama-sg.com/cropt/announcement/view/106"
     }
   ]
 }
