@@ -200,6 +200,15 @@
   --focus-ring:            var(--p-green-600);
   --focus-ring-offset:     2px;
 
+  /* ───────────────────────── SEMANTIC: LOGO ──────────────────────────── */
+  /* The Panorama wordmark keeps its original default colours and is
+     deliberately NOT tied to the page palette — do not re-theme. */
+  --logo-ink:         #1C1C1C;
+  --logo-name:        #244344;
+  --logo-sub:         #727171;
+  --logo-inverse:     #F6F1E8;
+  --logo-inverse-sub: rgba(246, 241, 232, 0.7);
+
   /* ───────────────────────── SEMANTIC: SHADOW ────────────────────────── */
   --shadow-raised:  var(--p-shadow-sm); /* sticky header after scroll, open dropdown panels */
   --shadow-overlay: var(--p-shadow-md); /* mobile nav dialog only */

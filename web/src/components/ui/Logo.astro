@@ -17,7 +17,7 @@ const { href = '/', inverse = false } = Astro.props;
     flex-shrink: 0;
     flex-direction: column;
     align-items: flex-start;
-    color: var(--text-primary);
+    color: var(--logo-ink);
     text-decoration: none;
     line-height: 1;
   }
@@ -31,21 +31,21 @@ const { href = '/', inverse = false } = Astro.props;
 
   .logo__sub {
     margin-top: 0.2rem;
-    color: var(--text-muted);
+    color: var(--logo-sub);
     font-size: 0.42rem;
     font-weight: var(--fw-semibold);
     letter-spacing: 0.15em;
   }
 
   .logo--inverse {
-    color: var(--text-inverse) !important;
+    color: var(--logo-inverse) !important;
   }
 
   .logo--inverse .logo__name {
-    color: var(--text-inverse) !important;
+    color: var(--logo-inverse) !important;
   }
 
   .logo--inverse .logo__sub {
-    color: var(--text-inverse-muted) !important;
+    color: var(--logo-inverse-sub) !important;
   }
 </style>
