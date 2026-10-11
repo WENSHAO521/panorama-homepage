@@ -79,7 +79,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   locale={locale}
   showChrome={false}
 >
-  <div class="charter-page">
+  <div class="charter-page" data-imprint-theme="charter">
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <main>
@@ -263,17 +263,18 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
 <style>
   .charter-page {
-    --charter-paper: var(--p-paper-50);
-    --charter-paper-deep: var(--p-paper-100);
-    --charter-ink: var(--p-navy-950);
-    --charter-ink-soft: var(--p-navy-700);
-    --charter-line: var(--p-stone-300);
-    --charter-red: #9d2f2f;
-    --charter-red-bright: #b73231;
-    --charter-gold: #a8701e;
-    --charter-gold-ink: #7b5616;
-    --charter-gold-light: #d7a063;
-    --imprint-accent: var(--charter-red-bright);
+    /* Mapped onto the Charter theme in src/styles/imprint-themes.css */
+    --charter-paper: var(--imprint-paper);
+    --charter-paper-deep: var(--imprint-tint);
+    --charter-ink: var(--imprint-deeper);
+    --charter-ink-soft: var(--imprint-text-soft);
+    --charter-line: var(--imprint-line);
+    --charter-red: var(--imprint-primary);
+    --charter-red-bright: var(--imprint-primary);
+    --charter-gold: var(--imprint-secondary);
+    --charter-gold-ink: var(--imprint-secondary-ink);
+    --charter-gold-light: var(--imprint-secondary-light);
+    --imprint-accent: var(--charter-red);
     --charter-shell: min(100% - 7rem, 1480px);
     overflow: hidden;
     background: var(--charter-paper);
@@ -324,7 +325,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-hero .charter-kicker,
   .charter-manifesto .charter-kicker { color: var(--charter-gold-light); }
   .charter-hero__imprint { margin: 1.35rem 0 0; color: color-mix(in srgb, var(--charter-paper) 70%, transparent); font-size: 0.58rem; font-weight: 750; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
-  .charter-hero__imprint span, .charter-hero__keywords span { margin-inline: 0.45rem; color: var(--charter-red-bright); }
+  .charter-hero__imprint span, .charter-hero__keywords span { margin-inline: 0.45rem; color: var(--charter-gold-light); }
   .charter-hero h1 { max-width: 10ch; margin: 1rem 0 1.5rem; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(3.65rem, 6.5vw, 6.5rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.89; }
   .charter-rule { display: block; width: 2.6rem; height: 2px; }
   .charter-rule--red { background: var(--charter-red-bright); }
@@ -375,7 +376,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-text-link { display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; margin-top: auto; padding-top: 1.25rem; border-bottom: 1px solid currentColor; color: var(--charter-ink-soft); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.13em; line-height: 1.75; text-decoration: none; text-transform: uppercase; }
   .charter-actions .charter-text-link,
   .charter-authors__actions .charter-text-link { min-height: var(--p-action-height); margin-top: 0; padding-top: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
-  .charter-actions .charter-text-link { border-color: var(--charter-red-bright); color: var(--charter-paper); }
+  .charter-actions .charter-text-link { border-color: var(--charter-gold-light); color: var(--charter-paper); }
   .charter-actions .charter-text-link:hover,
   .charter-actions .charter-text-link:focus-visible { border-color: var(--charter-paper); color: var(--charter-paper); }
   .charter-text-link--inverse { color: var(--charter-paper); }
@@ -409,10 +410,10 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-manifesto h2 { max-width: 10ch; margin: 1rem 0 0; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(3rem, 5.2vw, 5.4rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
   .charter-manifesto__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--charter-paper) 42%, transparent); }
   .charter-manifesto__body > p { max-width: 31rem; margin: 0; color: color-mix(in srgb, var(--charter-paper) 88%, transparent); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
-  .charter-signals { display: grid; gap: 0.65rem; margin-top: 1.6rem; color: #d7a063; font-size: 0.56rem; font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }
+  .charter-signals { display: grid; gap: 0.65rem; margin-top: 1.6rem; color: var(--charter-gold-light); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }
   .charter-signals span { padding-top: 0.55rem; border-top: 1px solid color-mix(in srgb, var(--charter-paper) 28%, transparent); }
 
-  .charter-footer { background: var(--p-teal-800); color: var(--charter-paper); }
+  .charter-footer { background: var(--imprint-deep); color: var(--charter-paper); }
   .charter-footer__top { display: grid; grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 1.5fr) minmax(8rem, 0.55fr); gap: 2rem; align-items: center; padding-block: 2.8rem 2.4rem; }
   .charter-footer__brand { color: var(--charter-paper); }
   .charter-footer__brand small { color: color-mix(in srgb, var(--charter-paper) 65%, transparent); }

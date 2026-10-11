@@ -127,7 +127,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   locale={locale}
   showChrome={false}
 >
-  <div class="charter-secondary">
+  <div class="charter-secondary" data-imprint-theme="charter">
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <main>
@@ -275,7 +275,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 </BaseLayout>
 
 <style>
-  .charter-secondary { --cs-paper: var(--p-paper-50); --cs-paper-deep: var(--p-paper-100); --cs-ink: var(--p-navy-950); --cs-ink-soft: var(--p-navy-700); --cs-line: var(--p-stone-300); --cs-red: #a43331; --cs-gold: #a8701e; --cs-gold-ink: #7b5616; --cs-gold-light: #d7a063; --cs-teal: var(--p-teal-800); --imprint-accent: var(--cs-red); --cs-shell: min(100% - 7rem, 1480px); overflow: hidden; background: var(--cs-paper); color: var(--cs-ink); }
+  .charter-secondary { /* Mapped onto the Charter theme in src/styles/imprint-themes.css */ --cs-paper: var(--imprint-paper); --cs-paper-deep: var(--imprint-tint); --cs-ink: var(--imprint-deeper); --cs-ink-soft: var(--imprint-text-soft); --cs-line: var(--imprint-line); --cs-red: var(--imprint-primary); --cs-gold: var(--imprint-secondary); --cs-gold-ink: var(--imprint-secondary-ink); --cs-gold-light: var(--imprint-secondary-light); --cs-teal: var(--imprint-deep); --imprint-accent: var(--cs-red); --cs-shell: min(100% - 7rem, 1480px); overflow: hidden; background: var(--cs-paper); color: var(--cs-ink); }
   .charter-secondary__shell { width: var(--cs-shell); margin-inline: auto; }
   .charter-secondary__header { position: relative; z-index: 10; border-bottom: 1px solid color-mix(in srgb, var(--cs-ink) 18%, transparent); background: var(--cs-paper); }
   .charter-secondary__header-inner { display: flex; align-items: center; gap: 2rem; min-height: 5rem; }
@@ -338,7 +338,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__dark-grid > div:last-child { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid color-mix(in srgb, var(--cs-paper) 35%, transparent); }
   .charter-secondary__dark-grid > div:last-child > p { margin: 0; color: color-mix(in srgb, var(--cs-paper) 84%, transparent); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
   .charter-secondary__dark-grid > div:last-child > p + p { margin-top: 1rem; }
-  .charter-secondary__inverse-link { margin-top: 1.8rem; border-color: var(--cs-red); color: var(--cs-paper); }
+  .charter-secondary__inverse-link { margin-top: 1.8rem; border-color: var(--cs-gold-light); color: var(--cs-paper); }
   .charter-secondary__link-row > .charter-secondary__text-link,
   .charter-secondary__link-row > .charter-secondary__inverse-link { min-height: var(--p-action-height); margin-top: 0; padding-block: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
 

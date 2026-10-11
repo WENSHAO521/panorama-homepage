@@ -62,7 +62,7 @@ const footerNav = [
   locale={locale}
   showChrome={false}
 >
-  <div class="ridgeline-page" style={`--ridgeline-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}; --imprint-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}`}>
+  <div class="ridgeline-page" data-imprint-theme="ridgeline" style={`--ridgeline-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}; --imprint-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}`}>
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <div>
@@ -236,13 +236,13 @@ const footerNav = [
 
 <style>
   .ridgeline-page {
-    --ridge-paper: var(--p-paper-50);
-    --ridge-paper-deep: var(--p-paper-100);
-    --ridge-ink: var(--p-navy-950);
-    --ridge-ink-soft: var(--p-navy-700);
-    --ridge-line: var(--p-stone-300);
-    --ridge-copper: #8f3e35;
-    --ridge-blue: var(--p-imprint-ridgeline);
+    --ridge-paper: var(--imprint-paper);
+    --ridge-paper-deep: var(--imprint-tint);
+    --ridge-ink: var(--imprint-deep);
+    --ridge-ink-soft: var(--imprint-text-soft);
+    --ridge-line: var(--imprint-line);
+    --ridge-copper: var(--imprint-primary);
+    --ridge-blue: var(--imprint-primary);
     --ridge-shell: min(100% - 7rem, 1480px);
     background: var(--ridge-paper);
     color: var(--ridge-ink);
@@ -747,7 +747,7 @@ const footerNav = [
     padding-block: clamp(1.4rem, 2.5vw, 3.75rem) 0;
   }
 
-  .ridgeline-purpose .ridgeline-kicker { color: #d49a78; }
+  .ridgeline-purpose .ridgeline-kicker { color: var(--imprint-accent-light); }
 
   .ridgeline-purpose h2 {
     max-width: 100%;
@@ -779,12 +779,12 @@ const footerNav = [
   }
 
   .ridgeline-text-link--inverse {
-    border-color: #d49a78;
+    border-color: var(--imprint-accent-light);
     color: var(--ridge-paper);
   }
 
   .ridgeline-text-link--inverse:hover,
-  .ridgeline-text-link--inverse:focus-visible { color: #d49a78; }
+  .ridgeline-text-link--inverse:focus-visible { color: var(--imprint-accent-light); }
 
   .ridgeline-areas { padding-block: 0.25rem 0; }
 

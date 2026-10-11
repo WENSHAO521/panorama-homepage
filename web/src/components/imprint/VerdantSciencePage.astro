@@ -75,7 +75,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   locale={locale}
   showChrome={false}
 >
-  <div class="verdant-page">
+  <div class="verdant-page" data-imprint-theme="verdant-science">
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <main>
@@ -238,16 +238,17 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
 <style>
   .verdant-page {
-    --verdant-paper: #f6f5ed;
-    --verdant-paper-deep: #ecebe0;
-    --verdant-ink: #102e2a;
-    --verdant-ink-soft: #4b625b;
-    --verdant-green: #3f6b2e;
-    --verdant-green-dark: #113d32;
-    --verdant-sage: #a8bc9e;
-    --verdant-line: #c9d0c2;
-    --verdant-rust: #b34c2e;
-    --imprint-accent: var(--verdant-rust);
+    /* Mapped onto the Verdant Science theme in src/styles/imprint-themes.css */
+    --verdant-paper: var(--imprint-paper);
+    --verdant-paper-deep: var(--imprint-tint);
+    --verdant-ink: var(--imprint-deeper);
+    --verdant-ink-soft: var(--imprint-text-soft);
+    --verdant-green: var(--imprint-primary);
+    --verdant-green-dark: var(--imprint-deep);
+    --verdant-sage: var(--imprint-accent-light);
+    --verdant-line: var(--imprint-line);
+    --verdant-rust: var(--imprint-secondary-ink);
+    --imprint-accent: var(--verdant-green);
     --verdant-shell: min(100% - 7rem, 1480px);
     background: var(--verdant-paper);
     color: var(--verdant-ink);
@@ -360,7 +361,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-button:focus-visible { transform: translateY(-1px); }
   .verdant-button--primary { margin-top: 2rem; background: var(--verdant-green-dark); color: var(--verdant-paper); }
   .verdant-button--primary:hover,
-  .verdant-button--primary:focus-visible { background: var(--verdant-rust); border-color: var(--verdant-rust); }
+  .verdant-button--primary:focus-visible { background: var(--verdant-green); border-color: var(--verdant-green); }
   .verdant-hero__signature { align-self: start; justify-self: end; width: min(14rem, 80%); padding-top: 0.35rem; }
   .verdant-hero__signature img { display: block; width: 100%; height: auto; }
   .verdant-hero__signature p { margin: 1.6rem 0 0; padding-inline-start: 1rem; border-inline-start: 1px solid var(--verdant-green); color: var(--verdant-ink-soft); font-size: 0.58rem; font-weight: 750; letter-spacing: 0.18em; line-height: 1.8; text-transform: uppercase; }
@@ -427,7 +428,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-about__actions .verdant-text-link { min-height: var(--p-action-height); margin-top: 0; padding-top: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
   .verdant-button--solid { background: var(--verdant-green-dark); color: var(--verdant-paper); }
   .verdant-button--solid:hover,
-  .verdant-button--solid:focus-visible { background: var(--verdant-rust); border-color: var(--verdant-rust); }
+  .verdant-button--solid:focus-visible { background: var(--verdant-green); border-color: var(--verdant-green); }
   .verdant-about blockquote { margin: 0; color: var(--verdant-green-dark); font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.85rem); font-style: italic; line-height: 1.15; }
 
   .verdant-footer { background: var(--verdant-green-dark); color: var(--verdant-paper); }

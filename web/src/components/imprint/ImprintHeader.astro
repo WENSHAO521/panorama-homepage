@@ -97,10 +97,12 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
 
 <style>
   .imprint-header {
-    --imprint-header-bg: var(--p-paper-50);
-    --imprint-header-ink: var(--p-ink-900);
-    --imprint-header-line: var(--p-stone-300);
-    --imprint-header-hover: var(--imprint-accent, var(--p-blue-600));
+    /* Theme tokens come from src/styles/imprint-themes.css; fallbacks keep
+       the shell usable outside a [data-imprint-theme] root. */
+    --imprint-header-bg: var(--imprint-paper, var(--p-paper-50));
+    --imprint-header-ink: var(--imprint-text, var(--p-ink-900));
+    --imprint-header-line: var(--imprint-line, var(--p-stone-300));
+    --imprint-header-hover: var(--imprint-primary, var(--imprint-accent, var(--brand-primary)));
     position: relative;
     z-index: var(--p-z-sticky);
     border-bottom: 1px solid color-mix(in srgb, var(--imprint-header-ink) 15%, transparent);
@@ -109,10 +111,10 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
   }
 
   .imprint-header--dark {
-    --imprint-header-bg: var(--p-ink-900);
-    --imprint-header-ink: var(--p-paper-50);
-    --imprint-header-line: color-mix(in srgb, var(--p-paper-50) 24%, transparent);
-    --imprint-header-hover: var(--imprint-accent, var(--p-biwa-500));
+    --imprint-header-bg: var(--imprint-deeper, var(--p-ink-900));
+    --imprint-header-ink: var(--imprint-on-deep, var(--p-paper-50));
+    --imprint-header-line: color-mix(in srgb, var(--imprint-header-ink) 24%, transparent);
+    --imprint-header-hover: var(--imprint-accent-light, var(--text-accent-inverse));
   }
 
   .imprint-shell {

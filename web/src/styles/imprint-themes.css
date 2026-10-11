@@ -1,0 +1,117 @@
+/*
+  Imprint themes — Japanese Editorial Minimalism
+  ----------------------------------------------
+  Each of the five imprints owns one restrained brand hue. A page opts in
+  with `data-imprint-theme="<slug>"` on its root element; nothing here
+  matches outside that attribute, so group pages are never affected.
+
+  Every theme exposes the same token names, so imprint page components
+  map their local palette variables onto these instead of hard-coding hex:
+
+    --imprint-primary         brand hue: CTA fills, labels, numerals, rules
+    --imprint-primary-hover   darker step for hover / pressed
+    --imprint-tint            light brand background (bands, hero panels)
+    --imprint-tint-strong     slightly deeper tint for nested blocks
+    --imprint-deep            dark brand field (hero overlays, footers)
+    --imprint-deeper          darkest brand field
+    --imprint-accent-light    brand-light text/rules on deep fields
+    --imprint-secondary       supporting decorative hue (from the logo mark)
+    --imprint-secondary-ink   AA-safe text variant of the secondary hue
+    --imprint-secondary-light secondary hue on deep fields
+    --imprint-line            brand-tinted hairline
+
+  Reading areas stay on the warm group neutrals (Kinari / Unohana / Sumi).
+  All text pairs are AA (≥4.5:1) — see docs/DESIGN-SYSTEM.md §Imprint themes.
+  Journal covers and logos are images and are never recoloured.
+*/
+
+[data-imprint-theme] {
+  /* Shared warm neutral reading surface */
+  --imprint-paper:     var(--p-paper-50);   /* #F6F3EA */
+  --imprint-card:      var(--p-paper-0);    /* #FCFBF7 */
+  --imprint-text:      var(--p-ink-900);    /* #272B29 */
+  --imprint-text-soft: var(--p-ink-700);    /* #59635E — ≥5.3:1 on every tint */
+  --imprint-border:    var(--p-stone-200);  /* #D8D9CF */
+  --imprint-on-primary: var(--p-paper-0);
+  --imprint-on-deep:    var(--p-paper-50);
+}
+
+/* Ridgeline — Technology, Engineering & AI. Ai-nezu slate blue. */
+[data-imprint-theme='ridgeline'] {
+  --imprint-primary:         var(--p-imprint-ridgeline); /* #304C64 — 8.1:1 on Kinari */
+  --imprint-primary-hover:   #243A4E;
+  --imprint-tint:            #EBF0F4;
+  --imprint-tint-strong:     #DCE4EB;
+  --imprint-deep:            #1E3142;
+  --imprint-deeper:          #15222E;
+  --imprint-accent-light:    #A9BED1; /* 7.0:1 on deep */
+  --imprint-secondary:       #3E5F8A; /* logo mark blue */
+  --imprint-secondary-ink:   #3E5F8A;
+  --imprint-secondary-light: #A9BED1;
+  --imprint-line:            #C7D2DC;
+  --imprint-accent:          var(--imprint-primary);
+}
+
+/* Health Nexus — Medicine & Health Sciences. Seiji celadon teal. */
+[data-imprint-theme='health-nexus'] {
+  --imprint-primary:         var(--p-imprint-health-nexus); /* #2E696D — 5.6:1 on Kinari */
+  --imprint-primary-hover:   #225356;
+  --imprint-tint:            #E6F1EF;
+  --imprint-tint-strong:     #D3E5E2;
+  --imprint-deep:            #1C4346;
+  --imprint-deeper:          #133133;
+  --imprint-accent-light:    #9CCBC6; /* 6.1:1 on deep */
+  --imprint-secondary:       #9E5A4E; /* muted coral, echoes the logo cross */
+  --imprint-secondary-ink:   #9E5A4E; /* 4.5:1 on tint */
+  --imprint-secondary-light: #E1B3A9;
+  --imprint-line:            #C3D6D3;
+  --imprint-accent:          var(--imprint-primary);
+}
+
+/* Verdant Science — Sustainability, Environment & Life Sciences. Tokiwa green. */
+[data-imprint-theme='verdant-science'] {
+  --imprint-primary:         var(--p-imprint-verdant-science); /* #3F654B — 6.0:1 on Kinari */
+  --imprint-primary-hover:   #2F4D39;
+  --imprint-tint:            #EBF0E6;
+  --imprint-tint-strong:     #DCE5D4;
+  --imprint-deep:            #263F2E;
+  --imprint-deeper:          #1B2E21;
+  --imprint-accent-light:    #B5C9A9; /* 6.5:1 on deep */
+  --imprint-secondary:       #9C6A45; /* soil / bark, low chroma */
+  --imprint-secondary-ink:   #85593A;
+  --imprint-secondary-light: #D6B794;
+  --imprint-line:            #CBD5C2;
+  --imprint-accent:          var(--imprint-primary);
+}
+
+/* Charter — Policy, Law & Governance. Ebicha wine with logo gold. */
+[data-imprint-theme='charter'] {
+  --imprint-primary:         var(--p-imprint-charter); /* #754551 — 6.9:1 on Kinari */
+  --imprint-primary-hover:   #5C3540;
+  --imprint-tint:            #F5EBEB;
+  --imprint-tint-strong:     #EADADB;
+  --imprint-deep:            #472A32;
+  --imprint-deeper:          #331E24;
+  --imprint-accent-light:    #DDBAC1; /* 7.2:1 on deep */
+  --imprint-secondary:       #A8803F; /* logo gold, desaturated */
+  --imprint-secondary-ink:   #7A5A2A; /* 5.4:1 on tint */
+  --imprint-secondary-light: #C9A46A; /* 5.5:1 on deep */
+  --imprint-line:            #E0CFCF;
+  --imprint-accent:          var(--imprint-primary);
+}
+
+/* Threnody — Humanities, Arts & Philosophy. Kikyō-nezu muted violet. */
+[data-imprint-theme='threnody'] {
+  --imprint-primary:         var(--p-imprint-threnody); /* #664F70 — 6.5:1 on Kinari */
+  --imprint-primary-hover:   #4F3D57;
+  --imprint-tint:            #F1EBF2;
+  --imprint-tint-strong:     #E3D9E5;
+  --imprint-deep:            #3A2D41;
+  --imprint-deeper:          #2A2030;
+  --imprint-accent-light:    #CDBDD4; /* 7.3:1 on deep */
+  --imprint-secondary:       #93764C; /* logo bronze */
+  --imprint-secondary-ink:   #765C38;
+  --imprint-secondary-light: #C4A77C; /* 5.6:1 on deep */
+  --imprint-line:            #DDD2DF;
+  --imprint-accent:          var(--imprint-primary);
+}

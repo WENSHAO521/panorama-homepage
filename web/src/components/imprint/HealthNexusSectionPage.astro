@@ -117,7 +117,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   locale={locale}
   showChrome={false}
 >
-  <div class="health-nexus-secondary">
+  <div class="health-nexus-secondary" data-imprint-theme="health-nexus">
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <main>
@@ -341,16 +341,17 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 
 <style>
   .health-nexus-secondary {
-    --hn-secondary-deep: #06485b;
-    --hn-secondary-deeper: #062f40;
-    --hn-secondary-ink: #0b2d42;
-    --hn-secondary-ink-soft: #325365;
-    --hn-secondary-paper: #f5f8f6;
-    --hn-secondary-paper-deep: #e8f0ee;
-    --hn-secondary-line: #bdd0d0;
-    --hn-secondary-cyan: #13b7c4;
-    --hn-secondary-cyan-light: #7adce2;
-    --hn-secondary-coral: #ec7b6d;
+    /* Mapped onto the Health Nexus theme in src/styles/imprint-themes.css */
+    --hn-secondary-deep: var(--imprint-primary);
+    --hn-secondary-deeper: var(--imprint-deep);
+    --hn-secondary-ink: var(--imprint-deeper);
+    --hn-secondary-ink-soft: var(--imprint-text-soft);
+    --hn-secondary-paper: var(--imprint-paper);
+    --hn-secondary-paper-deep: var(--imprint-tint);
+    --hn-secondary-line: var(--imprint-line);
+    --hn-secondary-cyan: var(--imprint-primary);
+    --hn-secondary-cyan-light: var(--imprint-accent-light);
+    --hn-secondary-coral: var(--imprint-secondary);
     --imprint-accent: var(--hn-secondary-deep);
     --hn-secondary-shell: min(100% - 7rem, 1480px);
     min-height: 100vh;
@@ -422,7 +423,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__dark-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
   .health-nexus-secondary__dark-grid > div:last-child { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 35%, transparent); }
   .health-nexus-secondary__dark-grid > div:last-child > p + p { margin-top: 1rem; }
-  .health-nexus-secondary__inverse-link { align-self: flex-end; margin-top: 0; border-color: var(--hn-secondary-cyan); color: var(--hn-secondary-paper); }
+  .health-nexus-secondary__inverse-link { align-self: flex-end; margin-top: 0; border-color: var(--hn-secondary-cyan-light); color: var(--hn-secondary-paper); }
   .health-nexus-secondary__link-row > .health-nexus-secondary__text-link,
   .health-nexus-secondary__link-row > .health-nexus-secondary__inverse-link { align-self: center; min-height: var(--p-action-height); margin-top: 0; padding-block: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
   .health-nexus-secondary__field-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -445,9 +446,9 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__steps span, .health-nexus-secondary__principle-grid span { color: var(--hn-secondary-deep); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em; }
   .health-nexus-secondary__steps h3 { margin-top: 2rem; max-width: 14rem; }
   .health-nexus-secondary__link-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 1.8rem; }
-  .health-nexus-secondary__button { display: inline-flex; align-items: center; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--hn-secondary-cyan); border-radius: var(--p-radius-button); background: var(--hn-secondary-cyan); color: var(--hn-secondary-deeper); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: background-color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-decelerate); }
+  .health-nexus-secondary__button { display: inline-flex; align-items: center; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--hn-secondary-cyan-light); border-radius: var(--p-radius-button); background: var(--hn-secondary-cyan-light); color: var(--hn-secondary-ink); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: background-color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-decelerate); }
   .health-nexus-secondary__button:hover,
-  .health-nexus-secondary__button:focus-visible { background: var(--hn-secondary-deeper); border-color: var(--hn-secondary-deeper); color: var(--hn-secondary-paper); transform: translateY(-1px); }
+  .health-nexus-secondary__button:focus-visible { background: var(--hn-secondary-paper); border-color: var(--hn-secondary-paper); color: var(--hn-secondary-ink); transform: translateY(-1px); }
   .health-nexus-secondary__submission-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .health-nexus-secondary__submission-grid article { display: flex; min-height: 12rem; flex-direction: column; padding: 1.6rem 1.5rem 1rem 0; border-bottom: 1px solid var(--hn-secondary-line); }
   .health-nexus-secondary__submission-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
