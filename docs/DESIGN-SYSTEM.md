@@ -38,42 +38,63 @@ labels.
 
 ## Colour
 
-Semantic roles map to the brief's requested palette: Warm Paper
-(`--p-paper-*`), Midnight Navy (`--p-navy-*`), Academic Blue
-(`--p-blue-*`, links/interactive), Deep Teal (`--p-teal-*`, secondary
-brand), Muted Stone (`--p-stone-*`, borders), plus a restrained Gold
-accent split into an AA-safe small-text variant (`--text-accent`,
-`#7A5A22`, 6.0:1 contrast) and a large-text/decorative-only variant
-(`--brand-accent`, `#A9843C`). Every pairing was checked against WCAG
-2.2 AA via the relative-luminance formula (full table:
-`docs/rebuild/DESIGN-FOUNDATION.md` §3) — not eyeballed.
+### Japanese Editorial Minimalism (current)
 
-**Five imprint accents** (subordinate to the PSG corporate identity,
-used only for imprint-scoped UI, never replacing the core palette):
+Warm, restrained, low-chroma. Kinari (unbleached silk) is the canvas,
+Unohana the card stock, Fukamidori (deep green) the single group brand
+hue, with Kincha gold for rules and ornaments only. Primitives live in
+`web/src/styles/tokens.css`; components reference semantic tokens only.
+The legacy primitive names (`--p-navy-*`, `--p-tetsu-*`, `--p-teal-*`,
+`--p-blue-*`, `--p-biwa-*`) are kept as aliases onto the new palette so
+older selectors cannot re-introduce retired hues.
 
-| Imprint | Accent | Token |
-|---|---|---|
-| Ridgeline | Slate blue `#2B4C7E` | `--imprint-ridgeline` |
-| Health Nexus | Muted crimson `#7A2E3A` | `--imprint-health-nexus` |
-| Verdant Science | Deep green `#2F5D3A` | `--imprint-verdant-science` |
-| Charter | Ochre `#8A5A20` | `--imprint-charter` |
-| Threnody | Muted plum `#5B3A5E` | `--imprint-threnody` |
+| Role | Value | Semantic token | Contrast |
+|---|---|---|---|
+| Page background | `#F6F3EA` | `--surface-primary` | — |
+| Card background | `#FCFBF7` | `--surface-raised` / `--surface-card` | — |
+| Secondary band | `#ECECE4` | `--surface-secondary` / `--surface-feature` | — |
+| Primary text | `#272B29` | `--text-primary` | 12.9:1 on page |
+| Secondary text | `#59635E` | `--text-secondary` | 5.6:1 on page, 5.3:1 on band |
+| Muted text | `#646C67` | `--text-muted` | 4.9:1 on page, 4.6:1 on band |
+| Border | `#D8D9CF` | `--border-subtle` | — |
+| Group primary | `#23473E` | `--brand-primary`, `--interactive-default`, `--text-link` | 9.3:1 on page; white on it 10.3:1 |
+| Primary hover / inverse surface | `#17362E` | `--brand-primary-hover`, `--interactive-hover`, `--surface-inverse` | Kinari on it 11.8:1 |
+| Decorative gold | `#AD9061` | `--brand-accent` | 2.7:1 — rules/ornaments only, never text |
+| Gold label (light) | `#7A6440` | `--text-accent` | 5.1:1 on page |
+| Gold label (dark) | `#CDBA92` | `--text-accent-inverse` | 6.6:1 on `#17362E` |
 
-`web/src/data/imprints.json`'s `accent` field stores the **token
-reference** (`"var(--imprint-ridgeline)"`), not a raw hex — so a future
-re-theme changes one CSS file, not five JSON entries.
+There is no dark mode on this site (`color-scheme: light`), so none was
+added.
 
-**Update (Version 2, project brief §47):** the accents are now placed
-next to the real imprint logos on the homepage's imprint tiles
-(`components/homepage/ImprintCard.astro` — a 3px accent top border
-over a light card, `ImprintGrid.astro`'s section) and verified via
-real-Chromium screenshot (see docs/HOMEPAGE.md). No clash found: the
-logos themselves are near-black/dark-grey text marks (see
-docs/ASSET-AUDIT.md §Logo decision), so an accent-coloured border
-above them reads as a clean identification stripe rather than
-competing with the logo's own colour. The logos were not altered to
-"match" the accents — only the surrounding card UI was designed around
-them, per the brief's own instruction.
+### Imprint themes
+
+Each imprint page root carries `data-imprint-theme="<slug>"`; the theme
+tokens are defined only under that attribute in
+`web/src/styles/imprint-themes.css`, so they cannot leak into group
+pages. Page components map their local palette variables
+(`--ridge-*`, `--hn-*`, `--verdant-*`/`--vs-*`, `--charter-*`/`--cs-*`,
+`--th-*`) onto these tokens instead of hard-coding hex. Reading areas
+stay on the warm group neutrals; brand colour is for heroes, headings,
+CTAs, labels, numerals, rules and tint bands. Journal covers and imprint
+logos are images and are never recoloured.
+
+| Imprint | Primary | Tint | Deep field | Light-on-deep | Supporting | Primary on Kinari |
+|---|---|---|---|---|---|---|
+| Ridgeline | `#304C64` | `#EBF0F4` | `#1E3142` | `#A9BED1` | `#3E5F8A` (logo blue) | 8.1:1 |
+| Health Nexus | `#2E696D` | `#E6F1EF` | `#1C4346` | `#9CCBC6` | `#9E5A4E` (muted coral) | 5.6:1 |
+| Verdant Science | `#3F654B` | `#EBF0E6` | `#263F2E` | `#B5C9A9` | `#85593A` (soil) | 6.0:1 |
+| Charter | `#754551` | `#F5EBEB` | `#472A32` | `#DDBAC1` | `#A8803F` / `#7A5A2A` (logo gold) | 6.9:1 |
+| Threnody | `#664F70` | `#F1EBF2` | `#3A2D41` | `#CDBDD4` | `#93764C` (logo bronze) | 6.5:1 |
+
+White text on each primary is ≥6.2:1, `#59635E` body text is ≥5.3:1 on
+each tint, and every light-on-deep pair is ≥6:1. The official logo marks
+(`public/brand/imprints/*`) were checked first: the suggested primaries
+match each page's existing hue family, and the logo colours are kept as
+each theme's supporting accent.
+
+The group-level `--imprint-<slug>` tokens (used by the homepage imprint
+tiles and `imprints.json` `accent` references) resolve to the same
+primaries.
 
 ## Typography
 

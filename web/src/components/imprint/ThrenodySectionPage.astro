@@ -122,7 +122,7 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
 ---
 
 <BaseLayout title={`${localizedCurrent.kicker} | Threnody`} description={description} path={pagePath} locale={locale} showChrome={false}>
-  <div class="threnody-section-page">
+  <div class="threnody-section-page" data-imprint-theme="threnody">
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} theme="dark" />
 
     <main>
@@ -226,7 +226,7 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
 </BaseLayout>
 
 <style>
-  .threnody-section-page { --th-s-paper: #f4f0e8; --th-s-paper-deep: #e9e4db; --th-s-night: #171515; --th-s-night-soft: #252122; --th-s-ink: #16161a; --th-s-muted: #5f5a5b; --th-s-ivory: #f6f1e8; --th-s-copper: #aa4f42; --th-s-copper-ink: #8f3e35; --th-s-copper-bright: #eeb7a5; --th-s-plum: #5b3a5e; --th-s-line: #d3ccc2; --imprint-accent: #d99882; --th-s-shell: min(100% - 7rem, 1390px); overflow: hidden; background: var(--th-s-paper); color: var(--th-s-ink); }
+  .threnody-section-page { /* Mapped onto the Threnody theme in src/styles/imprint-themes.css */ --th-s-paper: var(--imprint-paper); --th-s-paper-deep: var(--imprint-tint); --th-s-night: var(--imprint-deeper); --th-s-night-soft: var(--imprint-deep); --th-s-ink: var(--imprint-deeper); --th-s-muted: var(--imprint-text-soft); --th-s-ivory: var(--imprint-on-deep); --th-s-copper: var(--imprint-primary); --th-s-copper-ink: var(--imprint-primary); --th-s-copper-bright: var(--imprint-accent-light); --th-s-copper-light: var(--imprint-accent-light); --th-s-plum: var(--imprint-primary-hover); --th-s-line: var(--imprint-line); --imprint-accent: var(--imprint-accent-light); --th-s-shell: min(100% - 7rem, 1390px); overflow: hidden; background: var(--th-s-paper); color: var(--th-s-ink); }
   .threnody-section-shell { width: var(--th-s-shell); margin-inline: auto; }
   .threnody-section-header { position: relative; z-index: 10; border-bottom: 1px solid color-mix(in srgb, var(--th-s-ivory) 22%, transparent); background: var(--th-s-night); color: var(--th-s-ivory); }
   .threnody-section-header__inner { display: flex; align-items: center; min-height: 4.6rem; gap: 2rem; }
@@ -234,7 +234,7 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
   .threnody-section-nav, .threnody-section-tools, .threnody-section-footer__top nav { display: flex; align-items: center; }
   .threnody-section-nav { gap: clamp(1rem, 2.3vw, 2.5rem); margin-inline-start: auto; }
   .threnody-section-nav a, .threnody-section-tools > a, .threnody-section-language :global(.lang-switcher__trigger), .threnody-section-footer__top nav a { color: var(--th-s-ivory); font-size: 0.61rem; font-weight: 700; letter-spacing: 0.13em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
-  .threnody-section-nav a:hover, .threnody-section-nav a:focus-visible, .threnody-section-nav a[aria-current='page'], .threnody-section-tools > a:hover, .threnody-section-tools > a:focus-visible, .threnody-section-footer__top nav a:hover, .threnody-section-footer__top nav a:focus-visible { color: #d99882; }
+  .threnody-section-nav a:hover, .threnody-section-nav a:focus-visible, .threnody-section-nav a[aria-current='page'], .threnody-section-tools > a:hover, .threnody-section-tools > a:focus-visible, .threnody-section-footer__top nav a:hover, .threnody-section-footer__top nav a:focus-visible { color: var(--th-s-copper-light); }
   .threnody-section-tools { gap: 1rem; margin-inline-start: 0.5rem; }
   .threnody-section-tools > a, .threnody-section-language { padding-inline-start: 1rem; border-inline-start: 1px solid color-mix(in srgb, var(--th-s-ivory) 30%, transparent); }
   .threnody-section-menu { display: none; border-radius: var(--p-radius-button); }
@@ -243,17 +243,17 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
   .threnody-section-hero { position: relative; min-height: clamp(35rem, 52vw, 46rem); overflow: hidden; background: var(--th-s-night); color: var(--th-s-ivory); }
   .threnody-section-hero__art, .threnody-section-hero__shade { position: absolute; inset: 0; width: 100%; height: 100%; }
   .threnody-section-hero__art { object-fit: cover; object-position: 64% center; opacity: 0.68; }
-  .threnody-section-hero__shade { background: rgba(23, 21, 21, 0.62); }
+  .threnody-section-hero__shade { background: color-mix(in srgb, var(--th-s-night) 62%, transparent); }
   .threnody-section-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.38fr); gap: clamp(3rem, 8vw, 9rem); align-items: end; min-height: inherit; padding-block: clamp(4rem, 8vw, 8rem); }
   .threnody-section-hero__copy { max-width: 52rem; }
   .threnody-section-logo { display: block; width: min(13rem, 70%); height: auto; }
   .threnody-section-rule { display: block; width: 8rem; height: 1px; margin-block: 1.6rem 1.8rem; background: var(--th-s-copper); }
   .threnody-section-kicker { margin: 0; color: var(--th-s-copper-ink); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.5; text-transform: uppercase; }
-  .threnody-section-hero .threnody-section-kicker { color: #d99a82; }
-  .threnody-section-dark .threnody-section-kicker { color: #d99882; }
+  .threnody-section-hero .threnody-section-kicker { color: var(--th-s-copper-light); }
+  .threnody-section-dark .threnody-section-kicker { color: var(--th-s-copper-light); }
   .threnody-section-hero h1 { max-width: 15ch; margin: 1.2rem 0 1.5rem; color: var(--th-s-ivory); font-family: var(--font-display); font-size: clamp(3rem, 5.8vw, 6.25rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.91; }
-  .threnody-section-hero__lede { max-width: 42rem; margin: 0; color: rgba(246, 241, 232, 0.86); font-family: var(--font-display); font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 1.42; }
-  .threnody-section-hero__note { display: grid; gap: 0.8rem; align-self: end; padding-inline-start: 1.5rem; border-inline-start: 1px solid rgba(246, 241, 232, 0.35); color: rgba(246, 241, 232, 0.8); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.18em; line-height: 1.5; text-transform: uppercase; }
+  .threnody-section-hero__lede { max-width: 42rem; margin: 0; color: color-mix(in srgb, var(--th-s-ivory) 86%, transparent); font-family: var(--font-display); font-size: clamp(1.05rem, 1.55vw, 1.35rem); line-height: 1.42; }
+  .threnody-section-hero__note { display: grid; gap: 0.8rem; align-self: end; padding-inline-start: 1.5rem; border-inline-start: 1px solid color-mix(in srgb, var(--th-s-ivory) 35%, transparent); color: color-mix(in srgb, var(--th-s-ivory) 80%, transparent); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.18em; line-height: 1.5; text-transform: uppercase; }
   .threnody-section-hero__note p { margin: 1.2rem 0 0; color: var(--th-s-ivory); font-family: var(--font-display); font-size: 1.25rem; font-style: italic; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; text-transform: none; }
 
   .threnody-section-light { padding-block: clamp(4rem, 7vw, 7rem); background: var(--th-s-paper); }
@@ -267,7 +267,7 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
   .threnody-section-journal-list { border-bottom: 1px solid var(--th-s-line); }
   .threnody-section-journal-row { display: grid; grid-template-columns: minmax(11rem, 17rem) minmax(0, 1fr); gap: clamp(2rem, 6vw, 7rem); align-items: center; padding-block: 2.5rem; border-top: 1px solid var(--th-s-line); }
   .threnody-section-journal-cover-wrap { position: relative; width: 100%; max-width: 17rem; }
-  .threnody-section-journal-cover-wrap > a { display: block; border: 1px solid var(--th-s-line); box-shadow: 0 0.8rem 1.3rem rgba(22, 22, 26, 0.12); transition: transform 180ms ease; }
+  .threnody-section-journal-cover-wrap > a { display: block; border: 1px solid var(--th-s-line); box-shadow: 0 0.8rem 1.3rem color-mix(in srgb, var(--th-s-ink) 12%, transparent); transition: transform 180ms ease; }
   .threnody-section-journal-cover-wrap > a:hover, .threnody-section-journal-cover-wrap > a:focus-visible { transform: translateY(-0.35rem); }
   .threnody-section-journal-cover { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: contain; }
   .threnody-section-journal-number { position: absolute; top: -0.15rem; left: -0.35rem; z-index: 1; display: grid; place-items: center; width: 1.8rem; height: 1.8rem; background: var(--th-s-paper); color: var(--th-s-copper-ink); font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; }
@@ -287,11 +287,11 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
   .threnody-section-dark { padding-block: clamp(4rem, 7vw, 7rem); background: var(--th-s-night); color: var(--th-s-ivory); }
   .threnody-section-dark__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
   .threnody-section-dark h2, .threnody-section-closing h2 { max-width: 14ch; margin: 1rem 0 0; color: var(--th-s-ivory); font-family: var(--font-display); font-size: clamp(2.5rem, 4.7vw, 5.25rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.92; }
-  .threnody-section-dark__grid > div:last-child { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid rgba(246, 241, 232, 0.3); }
-  .threnody-section-dark__grid > div:last-child > p { color: rgba(246, 241, 232, 0.84); }
+  .threnody-section-dark__grid > div:last-child { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid color-mix(in srgb, var(--th-s-ivory) 30%, transparent); }
+  .threnody-section-dark__grid > div:last-child > p { color: color-mix(in srgb, var(--th-s-ivory) 84%, transparent); }
   .threnody-section-dark__grid > div:last-child > p + p { margin-top: 1rem; }
-  .threnody-section-inverse-link { border-color: #d99a82; color: var(--th-s-ivory); }
-  .threnody-section-inverse-link:hover, .threnody-section-inverse-link:focus-visible { color: #d99a82; }
+  .threnody-section-inverse-link { border-color: var(--th-s-copper-light); color: var(--th-s-ivory); }
+  .threnody-section-inverse-link:hover, .threnody-section-inverse-link:focus-visible { color: var(--th-s-copper-light); }
 
   .threnody-section-field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .threnody-section-field-grid article { min-height: 14rem; padding: 2rem 2rem 2rem 0; border-bottom: 1px solid var(--th-s-line); }
@@ -308,7 +308,7 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
   .threnody-section-closing { padding-block: clamp(3.5rem, 6vw, 6rem); background: var(--th-s-plum); color: var(--th-s-ivory); }
   .threnody-section-closing__inner { display: flex; justify-content: space-between; gap: 3rem; align-items: end; }
   .threnody-section-closing .threnody-section-kicker { color: var(--th-s-copper-bright); }
-  .threnody-section-closing .threnody-section-text-link { margin: 0; border-color: #e2a08c; color: var(--th-s-ivory); }
+  .threnody-section-closing .threnody-section-text-link { margin: 0; border-color: var(--th-s-copper-light); color: var(--th-s-ivory); }
   .threnody-section-link-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 1.8rem; }
   .threnody-section-button { display: inline-flex; align-items: center; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--th-s-copper); border-radius: var(--p-radius-button); background: var(--th-s-copper); color: var(--th-s-ivory); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: background-color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-decelerate); }
   .threnody-section-button:hover, .threnody-section-button:focus-visible { background: var(--th-s-plum); border-color: var(--th-s-plum); transform: translateY(-1px); }
@@ -353,17 +353,17 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
     .threnody-section-company :global(.logo__name) { font-size: 0.92rem; }
     .threnody-section-nav, .threnody-section-tools > a, .threnody-section-language { display: none; }
     .threnody-section-tools { margin-inline-start: auto; }
-    .threnody-section-menu { display: grid; gap: 0.32rem; width: 2.6rem; height: 2.6rem; padding: 0.7rem 0.5rem; border: 1px solid rgba(246, 241, 232, 0.5); border-radius: var(--p-radius-button); background: transparent; }
+    .threnody-section-menu { display: grid; gap: 0.32rem; width: 2.6rem; height: 2.6rem; padding: 0.7rem 0.5rem; border: 1px solid color-mix(in srgb, var(--th-s-ivory) 50%, transparent); border-radius: var(--p-radius-button); background: transparent; }
     .threnody-section-menu > span:not(.visually-hidden) { display: block; width: 100%; height: 1px; background: var(--th-s-ivory); }
-    .threnody-section-mobile-nav { position: absolute; inset: 100% 0 auto; z-index: 12; padding-bottom: 0.75rem; border-bottom: 1px solid var(--th-s-line); background: var(--th-s-night); box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.12); }
+    .threnody-section-mobile-nav { position: absolute; inset: 100% 0 auto; z-index: 12; padding-bottom: 0.75rem; border-bottom: 1px solid var(--th-s-line); background: var(--th-s-night); box-shadow: 0 0.9rem 1.7rem color-mix(in srgb, var(--th-s-night) 12%, transparent); }
     .threnody-section-mobile-nav:not([hidden]) { display: grid; }
-    .threnody-section-mobile-nav a { padding: 0.9rem 1rem; border-top: 1px solid rgba(246, 241, 232, 0.15); color: var(--th-s-ivory); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
+    .threnody-section-mobile-nav a { padding: 0.9rem 1rem; border-top: 1px solid color-mix(in srgb, var(--th-s-ivory) 15%, transparent); color: var(--th-s-ivory); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
     .threnody-section-mobile-nav > div { padding: 0.75rem 1rem 0; }
     .threnody-section-mobile-nav :global(.lang-switcher__trigger) { color: var(--th-s-ivory); }
     .threnody-section-hero { min-height: 43rem; }
     .threnody-section-hero__inner { align-content: end; padding-block: 3.5rem 4rem; }
     .threnody-section-hero__art { object-position: 66% center; }
-    .threnody-section-hero__shade { background: rgba(23, 21, 21, 0.7); }
+    .threnody-section-hero__shade { background: color-mix(in srgb, var(--th-s-night) 70%, transparent); }
     .threnody-section-hero h1 { max-width: 11ch; font-size: clamp(3.1rem, 13vw, 5.2rem); }
     .threnody-section-hero__note { gap: 0.55rem; padding-inline-start: 1rem; }
     .threnody-section-hero__note p { margin-top: 0.7rem; }

@@ -70,7 +70,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   locale={locale}
   showChrome={false}
 >
-  <div class="health-nexus-page">
+  <div class="health-nexus-page" data-imprint-theme="health-nexus">
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <main>
@@ -250,16 +250,18 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
 <style>
   .health-nexus-page {
-    --hn-deep: #06485b;
-    --hn-deeper: #062f40;
-    --hn-ink: #0b2d42;
-    --hn-ink-soft: #325365;
-    --hn-paper: #f5f8f6;
-    --hn-paper-deep: #e8f0ee;
-    --hn-line: #bdd0d0;
-    --hn-cyan: #13b7c4;
-    --hn-cyan-light: #7adce2;
-    --hn-coral: #ec7b6d;
+    /* Mapped onto the Health Nexus theme in src/styles/imprint-themes.css */
+    --hn-deep: var(--imprint-primary);
+    --hn-deeper: var(--imprint-deep);
+    --hn-ink: var(--imprint-deeper);
+    --hn-ink-soft: var(--imprint-text-soft);
+    --hn-paper: var(--imprint-paper);
+    --hn-paper-deep: var(--imprint-tint);
+    --hn-line: var(--imprint-line);
+    --hn-cyan: var(--imprint-primary);
+    --hn-cyan-light: var(--imprint-accent-light);
+    --hn-coral: var(--imprint-secondary);
+    --hn-field-blue: color-mix(in srgb, var(--imprint-primary) 62%, var(--imprint-paper));
     --imprint-accent: var(--hn-deep);
     --hn-shell: min(100% - 7rem, 1480px);
     background: var(--hn-paper);
@@ -370,7 +372,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     min-height: clamp(32rem, 38vw, 40rem);
     overflow: hidden;
     color: var(--hn-paper);
-    background: var(--hn-deep);
+    background: var(--hn-deeper);
   }
 
   .health-nexus-hero__wallpaper,
@@ -468,9 +470,12 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .health-nexus-button:hover,
   .health-nexus-button:focus-visible { transform: translateY(-1px); }
 
-  .health-nexus-button--primary { background: var(--hn-cyan); }
+  .health-nexus-button--primary { background: var(--hn-deep); color: var(--imprint-on-primary); }
   .health-nexus-button--primary:hover,
-  .health-nexus-button--primary:focus-visible { background: var(--hn-paper); border-color: var(--hn-paper); }
+  .health-nexus-button--primary:focus-visible { background: var(--imprint-primary-hover); border-color: var(--imprint-primary-hover); color: var(--imprint-on-primary); }
+  .health-nexus-hero .health-nexus-button--primary { border-color: var(--hn-cyan-light); background: var(--hn-cyan-light); color: var(--hn-ink); }
+  .health-nexus-hero .health-nexus-button--primary:hover,
+  .health-nexus-hero .health-nexus-button--primary:focus-visible { border-color: var(--hn-paper); background: var(--hn-paper); color: var(--hn-ink); }
 
   .health-nexus-link {
     display: inline-flex;
@@ -555,7 +560,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     width: 2.2rem;
     height: 1px;
     margin-top: 0.8rem;
-    background: var(--hn-cyan);
+    background: var(--hn-cyan-light);
     content: '';
   }
 
@@ -798,12 +803,12 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   .health-nexus-field__marker { display: block; width: 0.62rem; height: 2.2rem; margin-bottom: 0.8rem; border-inline-start: 2px solid var(--hn-cyan); border-block-start: 2px solid var(--hn-cyan); }
   .health-nexus-field__marker::before { display: block; width: 0.58rem; height: 0.58rem; margin: -0.35rem 0 0 -0.38rem; border-radius: 50%; background: var(--hn-cyan); content: ''; }
-  .health-nexus-field--blue .health-nexus-field__marker { border-color: #2378a4; }
-  .health-nexus-field--blue .health-nexus-field__marker::before { background: #2378a4; }
+  .health-nexus-field--blue .health-nexus-field__marker { border-color: var(--hn-field-blue); }
+  .health-nexus-field--blue .health-nexus-field__marker::before { background: var(--hn-field-blue); }
   .health-nexus-field--coral .health-nexus-field__marker { border-color: var(--hn-coral); }
   .health-nexus-field--coral .health-nexus-field__marker::before { background: var(--hn-coral); }
-  .health-nexus-field--deep .health-nexus-field__marker { border-color: var(--hn-deep); }
-  .health-nexus-field--deep .health-nexus-field__marker::before { background: var(--hn-deep); }
+  .health-nexus-field--deep .health-nexus-field__marker { border-color: var(--hn-deeper); }
+  .health-nexus-field--deep .health-nexus-field__marker::before { background: var(--hn-deeper); }
 
   .health-nexus-field h3 { max-width: 9rem; margin: 0; color: var(--hn-ink); font-family: var(--font-display); font-size: clamp(0.98rem, 1.25vw, 1.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
   .health-nexus-field p { max-width: 10rem; margin: 0.8rem 0 0; color: var(--hn-ink-soft); font-family: var(--font-display); font-size: 0.72rem; line-height: 1.35; }

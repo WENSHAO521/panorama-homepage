@@ -41,7 +41,7 @@ const disciplineKeys: Record<string, string> = {
   locale={locale}
   showChrome={false}
 >
-  <div class="ridgeline-directory" style={`--imprint-accent: ${imprint?.accent ?? 'var(--imprint-ridgeline)'}`}>
+  <div class="ridgeline-directory" data-imprint-theme="ridgeline" style={`--imprint-accent: ${imprint?.accent ?? 'var(--imprint-ridgeline)'}`}>
     <ImprintHeader imprint={imprint!} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <main>
@@ -115,11 +115,11 @@ const disciplineKeys: Record<string, string> = {
 
 <style>
   .ridgeline-directory {
-    --ridge-paper: var(--p-paper-50);
-    --ridge-ink: var(--p-navy-950);
-    --ridge-ink-soft: var(--p-navy-700);
-    --ridge-line: var(--p-stone-300);
-    --ridge-copper: #8f3e35;
+    --ridge-paper: var(--imprint-paper);
+    --ridge-ink: var(--imprint-deep);
+    --ridge-ink-soft: var(--imprint-text-soft);
+    --ridge-line: var(--imprint-line);
+    --ridge-copper: var(--imprint-primary);
     min-height: 100vh;
     background: var(--ridge-paper);
     color: var(--ridge-ink);

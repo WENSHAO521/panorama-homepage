@@ -18,62 +18,73 @@
 
 :root {
   /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
+  /* Japanese Editorial Minimalism — warm, restrained, low-chroma.
+     Kinari (unbleached silk) is the canvas, Unohana (deutzia white) the
+     card stock, Fukamidori (deep green) the single group brand hue, with
+     a sparing touch of Kincha gold for rules and ornaments only.
+     Contrast ratios are recorded in docs/DESIGN-SYSTEM.md §Colour. */
 
-  /* Japanese paper whites: Unohana as the global canvas */
-  --p-paper-0:      #FFFFFB; /* Gofun */
-  --p-paper-50:     #F7FCFE; /* Unohana */
-  --p-paper-100:    #EFF6F7;
-  --p-paper-200:    #E4ECEE;
+  /* Paper — Kinari / Unohana */
+  --p-paper-0:      #FCFBF7; /* Unohana — cards, raised surfaces */
+  --p-paper-50:     #F6F3EA; /* Kinari — page background */
+  --p-paper-100:    #ECECE4; /* secondary bands */
+  --p-paper-200:    #E3E2D8;
 
-  /* Japanese ink neutrals */
-  --p-ink-900:      #1C1C1C; /* Sumi */
-  --p-ink-700:      #524E4D; /* Keshizumi */
-  --p-ink-500:      #727171;
+  /* Sumi ink neutrals (green-grey undertone) */
+  --p-ink-900:      #272B29; /* body text — 12.9:1 on Kinari */
+  --p-ink-700:      #59635E; /* secondary text — 5.6:1 on Kinari */
+  --p-ink-500:      #646C67; /* muted text — 4.9:1 on Kinari, 4.6:1 on #ECECE4 */
 
-  /* Midnight Navy (secondary academic tone) */
-  --p-navy-950:     #0B1B2B;
-  --p-navy-900:     #10263B;
-  --p-navy-800:     #183650;
-  --p-navy-700:     #1D3A57;
+  /* Fukamidori — group brand family */
+  --p-green-950:    #102923; /* deepest inverse field */
+  --p-green-900:    #17362E; /* primary hover / inverse surface */
+  --p-green-800:    #23473E; /* group primary */
+  --p-green-700:    #2F5A4F;
+  --p-green-600:    #4C7266; /* focus ring / decorative strokes */
 
-  /* Academic Blue (conventional inline links) */
-  --p-blue-600:     #1F4E79;
-  --p-blue-700:     #163A5A;
+  /* Stone — warm hairlines */
+  --p-stone-100:    #ECECE4;
+  --p-stone-200:    #D8D9CF; /* default border */
+  --p-stone-300:    #C3C5B9; /* strong border */
+  --p-stone-500:    #858A80;
 
-  /* Tetsu family: cool blue-green institutional brand */
-  --p-tetsu-950:    #182F31;
-  --p-tetsu-900:    #244344; /* Tetsu */
-  --p-tetsu-800:    #2F5653;
-  --p-tetsu-700:    #3A6960; /* Aoseki */
-  --p-tetsu-600:    #5F836D;
+  /* Kincha gold — decoration only (2.7:1 on Kinari; never small text) */
+  --p-gold-300:     #CDBA92; /* gold text on deep-green inverse — 6.6:1 on #17362E */
+  --p-gold-500:     #AD9061; /* rules, ornaments, numerals at display size */
+  --p-gold-700:     #7A6440; /* AA-safe gold for small labels — 5.1:1 on Kinari */
 
-  /* Deep Teal (legacy/imprint-supporting tone) */
-  --p-teal-800:     #0F3D3E;
-  --p-teal-600:     #1B5C5D;
-
-  /* Cool paper stone: boundaries derived from Unohana */
-  --p-stone-100:    #EEF3F4;
-  --p-stone-200:    #DDE6E8;
-  --p-stone-300:    #C8D3D5;
-  --p-stone-500:    #7A8384;
-
-  /* Traditional warm counterpoint: Biwacha + Susutake */
-  --p-biwa-300:     #D6B896;
-  --p-biwa-500:     #AE7C4F; /* Biwacha */
-  --p-biwa-700:     #6F514C; /* Susutake */
+  /* Legacy primitive names. Kept as aliases so older selectors resolve to
+     the new palette instead of re-introducing the retired blue/teal hues. */
+  --p-navy-950:     var(--p-green-950);
+  --p-navy-900:     var(--p-green-900);
+  --p-navy-800:     var(--p-green-800);
+  --p-navy-700:     var(--p-green-700);
+  --p-blue-600:     var(--p-green-800);
+  --p-blue-700:     var(--p-green-900);
+  --p-tetsu-950:    var(--p-green-900);
+  --p-tetsu-900:    var(--p-green-800);
+  --p-tetsu-800:    var(--p-green-700);
+  --p-tetsu-700:    var(--p-green-800);
+  --p-tetsu-600:    var(--p-green-600);
+  --p-teal-800:     var(--p-green-800);
+  --p-teal-600:     var(--p-green-700);
+  --p-biwa-300:     var(--p-gold-300);
+  --p-biwa-500:     var(--p-gold-500);
+  --p-biwa-700:     var(--p-gold-700);
 
   /* Semantic status (used sparingly — form validation, not decoration) */
-  --p-red-600:      #B3261E;
-  --p-green-700:    #2E6B4F;
+  --p-red-600:      #A1342C;
+  --p-green-status: #2E6B4F;
 
-  /* Imprint accents — one hue per scholarly brand. Provisional; ratified
-     in Round 3 against real logos/covers. All pass AA at normal text
-     size on --p-paper-50 and for white-on-accent solid fills. */
-  --p-imprint-ridgeline:      #2B4C7E; /* Technology, Engineering & AI */
-  --p-imprint-health-nexus:   #7A2E3A; /* Medicine & Health Sciences */
-  --p-imprint-verdant-science:#2F5D3A; /* Sustainability, Environment & Life Sciences */
-  --p-imprint-charter:        #8A5A20; /* Policy, Law & Civic Studies */
-  --p-imprint-threnody:       #5B3A5E; /* Humanities & Cultural Studies */
+  /* Imprint primaries — one hue per scholarly brand. Full imprint themes
+     (tint, ink, hover, light accent for dark fields) live in
+     src/styles/imprint-themes.css. Each passes AA for normal text on
+     Kinari and on its own tint, and for white text on a solid fill. */
+  --p-imprint-ridgeline:       #304C64; /* Technology, Engineering & AI */
+  --p-imprint-health-nexus:    #2E696D; /* Medicine & Health Sciences */
+  --p-imprint-verdant-science: #3F654B; /* Sustainability, Environment & Life Sciences */
+  --p-imprint-charter:         #754551; /* Policy, Law & Governance */
+  --p-imprint-threnody:        #664F70; /* Humanities, Arts & Philosophy */
 
   /* ───────────────────────── PRIMITIVE: SPACING ──────────────────────── */
   /* 4px base unit. Use these for padding/margin/gap — never a raw px. */
@@ -123,10 +134,10 @@
   /* Deliberately restrained -- see docs/DESIGN-SYSTEM.md §Shadows.
      Academic credibility leans on borders/tonal surface difference, not
      Material-style elevation. Only two shadows exist site-wide. */
-  --p-shadow-sm: 0 1px 2px rgba(36, 67, 68, 0.05);
+  --p-shadow-sm: 0 1px 2px rgba(39, 43, 41, 0.05);
   --p-shadow-md:
-    0 10px 30px rgba(36, 67, 68, 0.07),
-    0 1px 2px rgba(36, 67, 68, 0.04);
+    0 10px 30px rgba(39, 43, 41, 0.07),
+    0 1px 2px rgba(39, 43, 41, 0.04);
 
   /* ───────────────────────── PRIMITIVE: Z-INDEX ──────────────────────── */
   --p-z-base:        0;
@@ -153,10 +164,11 @@
   --surface-primary:       var(--p-paper-50);
   --surface-secondary:     var(--p-paper-100);
   --surface-raised:        var(--p-paper-0);
-  --surface-feature:       #EEF4F1;
-  --surface-inverse:       var(--p-tetsu-950);
-  --surface-inverse-soft:  var(--p-tetsu-800);
-  --surface-inverse-2:     var(--p-tetsu-900);
+  --surface-card:          var(--p-paper-0);
+  --surface-feature:       var(--p-paper-100);
+  --surface-inverse:       var(--p-green-900);
+  --surface-inverse-soft:  var(--p-green-700);
+  --surface-inverse-2:     var(--p-green-800);
 
   /* ───────────────────────── SEMANTIC: TEXT ──────────────────────────── */
   --text-primary:    var(--p-ink-900);
@@ -165,10 +177,10 @@
   --text-inverse:    var(--p-paper-50);
   --text-inverse-muted: color-mix(in srgb, var(--p-paper-50) 70%, transparent);
   --text-inverse-muted-strong: color-mix(in srgb, var(--p-paper-50) 82%, transparent);
-  --text-link:       var(--p-tetsu-700);
-  --text-link-hover: var(--p-tetsu-900);
-  --text-accent:     var(--p-biwa-700); /* AA-safe Susutake for small editorial labels */
-  --text-accent-inverse: var(--p-biwa-300); /* light Biwacha tint on Tetsu inverse surfaces */
+  --text-link:       var(--p-green-800);
+  --text-link-hover: var(--p-green-900);
+  --text-accent:     var(--p-gold-700); /* AA-safe gold for small editorial labels */
+  --text-accent-inverse: var(--p-gold-300); /* light gold on deep-green inverse surfaces */
 
   /* ───────────────────────── SEMANTIC: BORDER ────────────────────────── */
   --border-subtle:   var(--p-stone-200);
@@ -176,15 +188,16 @@
   --border-inverse:  color-mix(in srgb, var(--p-paper-50) 18%, transparent);
 
   /* ───────────────────────── SEMANTIC: BRAND ─────────────────────────── */
-  --brand-primary:    var(--p-tetsu-900);
-  --brand-secondary:  var(--p-tetsu-800);
-  --brand-accent:     var(--p-biwa-500); /* restrained traditional warm accent only */
+  --brand-primary:       var(--p-green-800);
+  --brand-primary-hover: var(--p-green-900);
+  --brand-secondary:     var(--p-green-700);
+  --brand-accent:        var(--p-gold-500); /* decorative rules/ornaments only — never small text */
 
   /* ───────────────────────── SEMANTIC: INTERACTIVE ───────────────────── */
-  --interactive-default:  var(--p-tetsu-700);
-  --interactive-hover:    var(--p-tetsu-900);
+  --interactive-default:  var(--p-green-800);
+  --interactive-hover:    var(--p-green-900);
   --interactive-on-dark:  var(--p-paper-50);
-  --focus-ring:            var(--p-tetsu-600);
+  --focus-ring:            var(--p-green-600);
   --focus-ring-offset:     2px;
 
   /* ───────────────────────── SEMANTIC: SHADOW ────────────────────────── */

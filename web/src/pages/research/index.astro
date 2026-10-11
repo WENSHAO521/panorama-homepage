@@ -292,13 +292,13 @@ const copy = getResearchCopy(locale);
 
   .research-principle-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    border-top: var(--p-border-hairline) solid rgba(250, 249, 246, 0.26);
+    border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-inverse) 26%, transparent);
   }
 
   .research-principle-list > li {
     min-height: 14rem;
     padding: 1.35rem 1.5rem 0 0;
-    border-inline-end: var(--p-border-hairline) solid rgba(250, 249, 246, 0.26);
+    border-inline-end: var(--p-border-hairline) solid color-mix(in srgb, var(--text-inverse) 26%, transparent);
   }
 
   .research-principle-list > li + li {
@@ -372,7 +372,7 @@ const copy = getResearchCopy(locale);
       min-height: 0;
       padding: 1.25rem 0;
       border-inline-end: 0;
-      border-bottom: var(--p-border-hairline) solid rgba(250, 249, 246, 0.26);
+      border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--text-inverse) 26%, transparent);
     }
 
     .research-principle-list > li:last-child {

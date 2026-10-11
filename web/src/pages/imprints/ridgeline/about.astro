@@ -47,7 +47,7 @@ const researchAreas = [
   locale={locale}
   showChrome={false}
 >
-  <div class="ridgeline-page" style={`--ridgeline-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}; --imprint-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}`}>
+  <div class="ridgeline-page" data-imprint-theme="ridgeline" style={`--ridgeline-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}; --imprint-accent: ${imprint.accent ?? 'var(--imprint-ridgeline)'}`}>
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <main>
@@ -170,12 +170,12 @@ const researchAreas = [
 
 <style>
   .ridgeline-page {
-    --ridge-paper: var(--p-paper-50);
-    --ridge-ink: var(--p-navy-950);
-    --ridge-ink-soft: var(--p-navy-700);
-    --ridge-line: var(--p-stone-300);
-    --ridge-copper: #8f3e35;
-    --ridge-blue: var(--p-imprint-ridgeline);
+    --ridge-paper: var(--imprint-paper);
+    --ridge-ink: var(--imprint-deep);
+    --ridge-ink-soft: var(--imprint-text-soft);
+    --ridge-line: var(--imprint-line);
+    --ridge-copper: var(--imprint-primary);
+    --ridge-blue: var(--imprint-primary);
     --ridge-shell: min(100% - 7rem, 1480px);
     background: var(--ridge-paper);
     color: var(--ridge-ink);
@@ -409,7 +409,7 @@ const researchAreas = [
     padding-block: clamp(3rem, 5vw, 5rem);
   }
 
-  .ridgeline-about-purpose .ridgeline-kicker { color: #d49a78; }
+  .ridgeline-about-purpose .ridgeline-kicker { color: var(--imprint-accent-light); }
 
   .ridgeline-about-purpose h2 {
     max-width: 12ch;
@@ -476,17 +476,17 @@ const researchAreas = [
 
   .ridgeline-about-cta { background: var(--ridge-ink); color: var(--ridge-paper); }
   .ridgeline-about-cta__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.7fr); gap: 3rem; align-items: end; padding-block: clamp(3.5rem, 6vw, 6rem); }
-  .ridgeline-about-cta .ridgeline-kicker { color: #d49a78; }
+  .ridgeline-about-cta .ridgeline-kicker { color: var(--imprint-accent-light); }
   .ridgeline-about-cta h2 { max-width: 14ch; margin: 1.4rem 0 0; color: var(--ridge-paper); font-family: var(--font-display); font-size: clamp(2.45rem, 4.4vw, 4.8rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.96; }
   .ridgeline-about-cta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); }
   .ridgeline-button--light { border-color: var(--ridge-paper); background: var(--ridge-paper); color: var(--ridge-ink); }
   .ridgeline-button--light:hover,
-  .ridgeline-button--light:focus-visible { background: #d49a78; border-color: #d49a78; }
+  .ridgeline-button--light:focus-visible { background: var(--imprint-accent-light); border-color: var(--imprint-accent-light); }
   .ridgeline-text-link { display: inline-flex; align-items: center; min-height: var(--p-action-height); border-bottom: 1px solid var(--ridge-copper); color: var(--ridge-ink); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-transform: uppercase; }
   .ridgeline-about-cta__actions .ridgeline-text-link { min-height: var(--p-action-height); margin-top: 0; }
   .ridgeline-text-link--inverse { color: var(--ridge-paper); }
   .ridgeline-text-link--inverse:hover,
-  .ridgeline-text-link--inverse:focus-visible { color: #d49a78; }
+  .ridgeline-text-link--inverse:focus-visible { color: var(--imprint-accent-light); }
 
   .ridgeline-footer { border-top: 1px solid var(--ridge-line); background: var(--ridge-paper); }
   .ridgeline-footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 1.35rem; }

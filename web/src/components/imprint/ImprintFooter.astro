@@ -59,20 +59,21 @@ const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independ
 
 <style>
   .imprint-footer {
-    --imprint-footer-bg: var(--p-paper-50);
-    --imprint-footer-ink: var(--p-ink-900);
-    --imprint-footer-muted: var(--p-ink-700);
-    --imprint-footer-line: var(--p-stone-300);
+    /* Theme tokens come from src/styles/imprint-themes.css. */
+    --imprint-footer-bg: var(--imprint-paper, var(--p-paper-50));
+    --imprint-footer-ink: var(--imprint-text, var(--p-ink-900));
+    --imprint-footer-muted: var(--imprint-text-soft, var(--p-ink-700));
+    --imprint-footer-line: var(--imprint-line, var(--p-stone-300));
     background: var(--imprint-footer-bg);
     border-top: 1px solid var(--imprint-footer-line);
     color: var(--imprint-footer-ink);
   }
 
   .imprint-footer--dark {
-    --imprint-footer-bg: var(--p-ink-900);
-    --imprint-footer-ink: var(--p-paper-50);
-    --imprint-footer-muted: color-mix(in srgb, var(--p-paper-50) 72%, transparent);
-    --imprint-footer-line: color-mix(in srgb, var(--p-paper-50) 22%, transparent);
+    --imprint-footer-bg: var(--imprint-deeper, var(--p-ink-900));
+    --imprint-footer-ink: var(--imprint-on-deep, var(--p-paper-50));
+    --imprint-footer-muted: color-mix(in srgb, var(--imprint-footer-ink) 76%, transparent);
+    --imprint-footer-line: color-mix(in srgb, var(--imprint-footer-ink) 22%, transparent);
   }
 
   .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-desktop))), var(--p-container-ultra)); margin-inline: auto; }

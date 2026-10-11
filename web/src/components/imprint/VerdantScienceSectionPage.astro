@@ -94,7 +94,7 @@ const localizedPageDescription = isJournals
 ---
 
 <BaseLayout title={`${pageTitle} | Verdant Science`} description={localizedPageDescription} path={pagePath} locale={locale} showChrome={false}>
-  <div class="verdant-section-page">
+  <div class="verdant-section-page" data-imprint-theme="verdant-science">
     <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
 
     <div class="verdant-section-main">
@@ -261,17 +261,18 @@ const localizedPageDescription = isJournals
 
 <style>
   .verdant-section-page {
-    --vs-paper: #f6f5ed;
-    --vs-paper-deep: #ecebe0;
-    --vs-ink: #102e2a;
-    --vs-ink-soft: #4b625b;
-    --vs-green: #3f6b2e;
-    --vs-green-dark: #113d32;
-    --vs-sage: #a8bc9e;
-    --vs-line: #c9d0c2;
-    --vs-rust: #b34c2e;
-    --vs-rust-ink: #9e3f28;
-    --imprint-accent: var(--vs-rust);
+    /* Mapped onto the Verdant Science theme in src/styles/imprint-themes.css */
+    --vs-paper: var(--imprint-paper);
+    --vs-paper-deep: var(--imprint-tint);
+    --vs-ink: var(--imprint-deeper);
+    --vs-ink-soft: var(--imprint-text-soft);
+    --vs-green: var(--imprint-primary);
+    --vs-green-dark: var(--imprint-deep);
+    --vs-sage: var(--imprint-accent-light);
+    --vs-line: var(--imprint-line);
+    --vs-rust: var(--imprint-secondary-ink);
+    --vs-rust-ink: var(--imprint-secondary-ink);
+    --imprint-accent: var(--vs-green);
     --vs-shell: min(100% - 7rem, 1480px);
     background: var(--vs-paper);
     color: var(--vs-ink);
@@ -329,7 +330,7 @@ const localizedPageDescription = isJournals
   .verdant-section-rule { display: block; width: 3.5rem; height: 2px; margin-block: 1.4rem; background: var(--vs-rust); }
   .verdant-section-button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: var(--p-action-height); margin-top: 2rem; padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--vs-green-dark); border-radius: var(--p-radius-button); background: var(--vs-green-dark); color: var(--vs-paper); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; transition: transform var(--p-duration-fast) var(--p-ease-decelerate), background-color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard); }
   .verdant-section-button:hover,
-  .verdant-section-button:focus-visible { background: var(--vs-rust); border-color: var(--vs-rust); transform: translateY(-0.15rem); }
+  .verdant-section-button:focus-visible { background: var(--vs-green); border-color: var(--vs-green); transform: translateY(-0.15rem); }
 
   .verdant-section-directory,
   .verdant-about-fields { padding-block: 0.75rem clamp(4rem, 7vw, 7rem); background: var(--vs-paper); }
@@ -401,7 +402,7 @@ const localizedPageDescription = isJournals
   .verdant-about-cta__actions .verdant-section-text-link { min-height: var(--p-action-height); margin-top: 0; padding-block: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
   .verdant-section-button--light { background: var(--vs-paper); border-color: var(--vs-paper); color: var(--vs-green-dark); }
   .verdant-section-button--light:hover,
-  .verdant-section-button--light:focus-visible { background: var(--vs-rust); border-color: var(--vs-rust); color: var(--vs-paper); }
+  .verdant-section-button--light:focus-visible { background: var(--vs-green); border-color: var(--vs-green); color: var(--vs-paper); }
   .verdant-section-text-link--light { color: var(--vs-paper); }
 
   .verdant-section-footer { background: var(--vs-green-dark); color: var(--vs-paper); }
