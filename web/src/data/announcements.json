@@ -1,7 +1,77 @@
 {
-  "generatedAt": "2026-10-05T08:58:40.199Z",
+  "generatedAt": "2026-10-12T09:12:11.010Z",
   "maxItems": 12,
   "announcements": [
+    {
+      "id": "auto-research-research-b22e24786231",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Update",
+      "title": "Institute Sponsorship: First Journal Articles Published",
+      "summary": "Four journal articles supported by Panorama Research Institute sponsorship have been published, two of them with Institute members among the authors. A new Sponsorship section lists sponsored works.",
+      "date": "2026-10-10",
+      "href": "https://research.panorama-sg.com/announcements/sponsorship-first-articles-2026"
+    },
+    {
+      "id": "auto-research-research-e5b6a03ad3cf",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Update",
+      "title": "New Research Fellow and Associate Research Fellows Join the Institute",
+      "summary": "Dr. Sebastian Lenz has joined as a Research Fellow, and Dr. Yanlin Feng, Jiahong Ao, Xiaoyue Yan, and Dr. Jiale Li have joined as Associate Research Fellows.",
+      "date": "2026-10-10",
+      "href": "https://research.panorama-sg.com/announcements/new-members-2026-10"
+    },
+    {
+      "id": "auto-research-research-a8f5a70f4718",
+      "source": "research",
+      "sourceLabel": "Panorama Research Institute",
+      "type": "Update",
+      "title": "Institute Charter Version 1.2 Takes Effect",
+      "summary": "Version 1.2 of the Institute Charter took effect on 10 October 2026. Earlier versions remain publicly available on the Charter Version History page.",
+      "date": "2026-10-10",
+      "href": "https://research.panorama-sg.com/announcements/charter-v1-2-effective-2026"
+    },
+    {
+      "id": "auto-hncbt-116",
+      "source": "journals",
+      "sourceLabel": "Health Nexus: Cancer Biology and Therapeutics",
+      "type": "Update",
+      "title": "Journal Website Update",
+      "summary": "The journal website has been updated with a refreshed design, improved navigation, and a more consistent reading experience on desktop and mobile devices.",
+      "date": "2026-10-08",
+      "href": "https://journals.panorama-sg.com/hncbt/announcement/view/116"
+    },
+    {
+      "id": "auto-jpoii-117",
+      "source": "journals",
+      "sourceLabel": "Journal of Public Oversight and Institutional Integrity",
+      "type": "Update",
+      "title": "Journal Website Update",
+      "summary": "The journal website has been updated with a refreshed design, improved navigation, and a more consistent reading experience on desktop and mobile devices.",
+      "date": "2026-10-08",
+      "href": "https://journals.panorama-sg.com/jpoii/announcement/view/117"
+    },
+    {
+      "id": "auto-tts-115",
+      "source": "journals",
+      "sourceLabel": "Three Teachings Studies",
+      "type": "Update",
+      "title": "Journal Website Update",
+      "summary": "The journal website has been updated with a refreshed design, improved navigation, and a more consistent reading experience on desktop and mobile devices.",
+      "date": "2026-10-08",
+      "href": "https://journals.panorama-sg.com/tts/announcement/view/115"
+    },
+    {
+      "id": "auto-resonance-118",
+      "source": "journals",
+      "sourceLabel": "Resonance",
+      "type": "Update",
+      "title": "Journal Website Update",
+      "summary": "The journal website has been updated with a refreshed design, improved navigation, and a more consistent reading experience on desktop and mobile devices.",
+      "date": "2026-10-08",
+      "href": "https://journals.panorama-sg.com/Resonance/announcement/view/118"
+    },
     {
       "id": "auto-jdes-114",
       "source": "journals",
@@ -11,16 +81,6 @@
       "summary": "The Journal of Dance and Embodied Structure (JDES) is now open for submissions. The journal welcomes original and interdisciplinary research on dance, embodiment, movement, choreography, performance, and the structural, cultural, spatial, and technological…",
       "date": "2026-10-01",
       "href": "https://journals.panorama-sg.com/jdes/announcement/view/114"
-    },
-    {
-      "id": "auto-research-research-6fb5441e2446",
-      "source": "research",
-      "sourceLabel": "Panorama Research Institute",
-      "type": "Notice",
-      "title": "POSI Database Officially Launched",
-      "summary": "The Panorama Open Scholarly Index (POSI) was officially launched on 27 September 2026 and is now publicly accessible at posi.panorama-sg.com.",
-      "date": "2026-09-27",
-      "href": "https://research.panorama-sg.com/announcements/posi-official-launch-2026"
     },
     {
       "id": "dora-signatory-2026",
@@ -167,68 +227,6 @@
       "summary": "Global Review of Humanities, Arts, and Society (GRHAS) invites original, interdisciplinary, and critically engaged submissions for Volume 2, Issue 5, scheduled for publication in October 2026. We welcome research and scholarly contributions across the…",
       "date": "2026-08-30",
       "href": "https://journals.panorama-sg.com/grhas/announcement/view/112"
-    },
-    {
-      "id": "auto-research-research-a49b0dc1b33e",
-      "source": "research",
-      "sourceLabel": "Panorama Research Institute",
-      "type": "Notice",
-      "title": "Panorama Research Institute Is Now Officially Open",
-      "summary": "Panorama Research Institute has completed its foundational phase and is now officially open, accepting membership, fellowship, and research assistant applications, as well as research proposals and academic collaboration inquiries.",
-      "date": "2026-08-23",
-      "href": "https://research.panorama-sg.com/announcements/institute-officially-open-2026"
-    },
-    {
-      "id": "auto-research-research-5818304dc6e1",
-      "source": "research",
-      "sourceLabel": "Panorama Research Institute",
-      "type": "Recruitment",
-      "title": "Now Recruiting: Research Fellows, Associate Research Fellows, and Research Assistants",
-      "summary": "Panorama Research Institute is accepting applications for Research Fellow, Associate Research Fellow, and Research Assistant positions. Application deadline: February 15, 2027.",
-      "date": "2026-08-23",
-      "href": "https://research.panorama-sg.com/announcements/research-recruitment-2027"
-    },
-    {
-      "id": "posi-pre-operational-launch-2026",
-      "source": "posi",
-      "sourceLabel": "POSI — Panorama Open Scholarly Index",
-      "type": "Notice",
-      "title": "POSI Begins Pre-Operational Launch on August 12, 2026",
-      "summary": "POSI moves into pre-operational launch, making journal indexing, lifecycle ratings, subject rankings, and citation analytics available for public use.",
-      "date": "2026-08-12",
-      "href": "https://posi.panorama-sg.com/announcements/posi-pre-operational-launch/",
-      "fallback": true
-    },
-    {
-      "id": "books-fees-2026",
-      "source": "books",
-      "sourceLabel": "Panorama Scholarly Books",
-      "type": "Notice",
-      "title": "Updated Book Publishing Fees Effective 1 August 2026",
-      "summary": "Panorama Scholarly Books has updated its publishing fees to reflect expanded editorial screening, rights verification, metadata management, production control, archiving, and post-publication compliance coordination.",
-      "date": "2026-08-01",
-      "href": "https://books.panorama-sg.com/",
-      "fallback": true
-    },
-    {
-      "id": "auto-resonance-109",
-      "source": "journals",
-      "sourceLabel": "Resonance",
-      "type": "Update",
-      "title": "Frank Gunderson Joins Resonance as Academic Advisor",
-      "summary": "Professor Frank Gunderson joins Resonance as Academic Advisor, bringing expertise in fieldwork-based ethnomusicology, African music studies, sonic repatriation, religion and music, sound archives, and academic publishing.",
-      "date": "2026-07-06",
-      "href": "https://journals.panorama-sg.com/Resonance/announcement/view/109"
-    },
-    {
-      "id": "auto-cropt-107",
-      "source": "journals",
-      "sourceLabel": "Contemporary Review of Political Thought",
-      "type": "Call for papers",
-      "title": "Call for Papers: Volume 1 of Contemporary Review of Political Thought",
-      "summary": "Contemporary Review of Political Thought (CRoPT) is now inviting submissions for its first volume. We welcome original scholarly work in English or Chinese on political thought, political philosophy, intellectual history, Marxist theory, ideological and…",
-      "date": "2026-05-21",
-      "href": "https://journals.panorama-sg.com/cropt/announcement/view/107"
     }
   ]
 }

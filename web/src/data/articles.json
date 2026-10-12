@@ -1,8 +1,119 @@
 {
-  "generatedAt": "2026-10-05T08:59:00.289Z",
+  "generatedAt": "2026-10-12T09:12:32.358Z",
   "source": "Journal-specific OAI-PMH feeds (oai_dc)",
   "maxItems": null,
   "articles": [
+    {
+      "id": "10.63802/cropt.2026.363",
+      "doi": "10.63802/cropt.2026.363",
+      "title": "From Urban–Rural Antagonism to Urban–Rural Integration: A Contemporary Interpretation of Marx’s Theory of Urban–Rural Relations",
+      "authors": [
+        "Wang, Xinmeng",
+        "Zhu, Junyu"
+      ],
+      "journal": "Contemporary Review of Political Thought",
+      "journalSlug": "cropt",
+      "journalUrl": "https://journals.panorama-sg.com/cropt",
+      "publishedAt": "2026-10-12",
+      "url": "https://journals.panorama-sg.com/cropt/article/view/363",
+      "journalArticleUrl": "https://journals.panorama-sg.com/cropt/article/view/363",
+      "summary": "Urban–rural connectivity can deepen while the relations of subordination embedded in it persist. This article explains that divergence through a contemporary reconstruction of Marx’s account of town–country antagonism. Reading selected primary texts alongside scholarship on…"
+    },
+    {
+      "id": "10.63802/hndh.V1.I1.361",
+      "doi": "10.63802/hndh.V1.I1.361",
+      "title": "Quality and Reliability of Chinese-Language Lumbar Disc Herniation Videos on TikTok and Bilibili: A Cross-Sectional Multiplatform Study",
+      "authors": [
+        "Wang, Chen",
+        "Yan, Chao",
+        "Ma, Yibo",
+        "Wang, Guoyi",
+        "Zhang, Yuyu",
+        "Wang, Yayan",
+        "Wu, Qian",
+        "Qi, Xin",
+        "Wang, Qilong",
+        "Song, Chengwen"
+      ],
+      "journal": "Health Nexus: Digital Health and Medical AI",
+      "journalSlug": "hndh",
+      "journalUrl": "https://journals.panorama-sg.com/hndh",
+      "publishedAt": "2026-10-11",
+      "url": "https://journals.panorama-sg.com/hndh/article/view/361",
+      "journalArticleUrl": "https://journals.panorama-sg.com/hndh/article/view/361",
+      "summary": "Background: Short-video platforms are common health-information sources, but lumbar disc herniation (LDH) videos may vary in quality and reliability. Objective: To compare Chinese-language LDH videos on TikTok and Bilibili and examine associations with platform, source, and…"
+    },
+    {
+      "id": "10.63802/hndh.V1.I1.362",
+      "doi": "10.63802/hndh.V1.I1.362",
+      "title": "Human Oversight Is Not Enough: Rethinking Accountability in AI-Assisted Clinical Decision-Making",
+      "authors": [
+        "Ren, Yangyi"
+      ],
+      "journal": "Health Nexus: Digital Health and Medical AI",
+      "journalSlug": "hndh",
+      "journalUrl": "https://journals.panorama-sg.com/hndh",
+      "publishedAt": "2026-10-11",
+      "url": "https://journals.panorama-sg.com/hndh/article/view/362",
+      "journalArticleUrl": "https://journals.panorama-sg.com/hndh/article/view/362",
+      "summary": "Governance of artificial intelligence (AI) in clinical care often places clinicians between AI outputs and care decisions, yet a human signature can coexist with weak practical control. This Perspective asks why participation may fail to produce accountable oversight, how duties…"
+    },
+    {
+      "id": "10.63802/rjgms.V2.I2.360",
+      "doi": "10.63802/rjgms.V2.I2.360",
+      "title": "Liturgische Klangordnung in der katholischen Messe: Musik, Partizipation und das deutschsprachige Gotteslob",
+      "authors": [
+        "Feng, Yanlin",
+        "Lenz, Sebastian"
+      ],
+      "journal": "Resonance",
+      "journalSlug": "resonance",
+      "journalUrl": "https://journals.panorama-sg.com/resonance",
+      "publishedAt": "2026-10-10",
+      "url": "https://journals.panorama-sg.com/Resonance/article/view/360",
+      "journalArticleUrl": "https://journals.panorama-sg.com/Resonance/article/view/360",
+      "summary": "Die musikalische Partizipation in der nachkonziliaren römischen Messe nimmt durch öffentlich zugewiesene Aufgaben sowie deren textuelle und zeitliche Organisation Gestalt an. Dieser theoretische Aufsatz entwickelt die liturgische Klangordnung als Verfahren zur Rekonstruktion und…"
+    },
+    {
+      "id": "10.63802/hndh.V1.I1.356",
+      "doi": "10.63802/hndh.V1.I1.356",
+      "title": "Assessing the quality and reliability of short video platforms as sources of information on depression among Chinese adolescents: a comparative study with data from Douyin, Bilibili, WeChat, and Xiaohongshu APPs",
+      "authors": [
+        "Wang, Qilong",
+        "Fan, Xixi",
+        "Qi, Xin",
+        "Zhang, Yuyu",
+        "Wang, Yayan",
+        "Wang, Chen",
+        "Wu, Qian",
+        "Song, Chengwen",
+        "Ma, Siheng"
+      ],
+      "journal": "Health Nexus: Digital Health and Medical AI",
+      "journalSlug": "hndh",
+      "journalUrl": "https://journals.panorama-sg.com/hndh",
+      "publishedAt": "2026-10-09",
+      "url": "https://journals.panorama-sg.com/hndh/article/view/356",
+      "journalArticleUrl": "https://journals.panorama-sg.com/hndh/article/view/356",
+      "summary": "Objective: This study aims to systematically evaluate and compare the quality, reliability, and content characteristics of short videos regarding adolescent depression on four major Chinese social media platforms: Douyin, Bilibili, WeChat, and Xiaohongshu. Methods: A…"
+    },
+    {
+      "id": "10.63802/hndh.V1.I1.358",
+      "doi": "10.63802/hndh.V1.I1.358",
+      "title": "Digital Phenotyping for Relapse Prediction in Depression and Schizophrenia: A Narrative Review of Signals, Models, and Clinical Translation",
+      "authors": [
+        "Wu, Qian",
+        "Fan, Xixi",
+        "Qi, Xin"
+      ],
+      "journal": "Health Nexus: Digital Health and Medical AI",
+      "journalSlug": "hndh",
+      "journalUrl": "https://journals.panorama-sg.com/hndh",
+      "publishedAt": "2026-10-08",
+      "url": "https://journals.panorama-sg.com/hndh/article/view/358",
+      "journalArticleUrl": "https://journals.panorama-sg.com/hndh/article/view/358",
+      "summary": "Digital phenotyping brings measurement of daily behaviour and physiology into the study of psychiatric relapse. Smartphones capture mobility, communication-related activity, and device interactions, while wearable sensors trace sleep, rest–activity rhythms, and selected…"
+    },
     {
       "id": "10.63802/pemr.V2.I2.357",
       "doi": "10.63802/pemr.V2.I2.357",
