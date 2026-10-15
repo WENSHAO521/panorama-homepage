@@ -58,7 +58,7 @@ const {
   }
 
   .group-hero__title {
-    max-width: 18ch;
+    max-width: 24ch;
     margin: 1rem 0 0;
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 5.6vw, 3.75rem);
@@ -188,17 +188,24 @@ const {
   }
 
   .group-hero--compact .group-hero__title {
-    max-width: 13ch;
+    max-width: 20ch;
     font-size: clamp(2.2rem, 4.6vw, 3.25rem);
   }
 
   .group-hero--catalogue .group-hero__title {
-    max-width: 17ch;
+    max-width: 22ch;
   }
 
   .group-hero--image .group-hero__aside {
     padding-top: 0;
     border-top: 0;
+  }
+
+  /* Never split a word across lines on wide screens (long Russian words). */
+  @media (min-width: 768px) {
+    .group-hero__title {
+      overflow-wrap: normal;
+    }
   }
 
   /* Larger left-hand copy shared by the books and research heroes. */
