@@ -121,6 +121,7 @@ const t = getContent(locale);
   .books-hero h1 {
     max-width: 9ch;
     margin-top: 1.2rem;
+    font-size: clamp(2.4rem, 5.6vw, 3.75rem);
     line-height: 0.99;
   }
 
@@ -202,6 +203,10 @@ const t = getContent(locale);
           max(0px, (100vw - var(--p-container-max)) / 2))
       );
     }
+
+  .books-hero h1 {
+    font-size: clamp(2.4rem, 5.2vw, 3.75rem);
+  }
 
     .books-actions {
       margin-top: 2rem;
