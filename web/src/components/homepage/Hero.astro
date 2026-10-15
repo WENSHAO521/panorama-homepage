@@ -88,9 +88,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
 <style>
   .hero { background: var(--surface-primary); }
 
-  .hero__eyebrow { color: var(--p-gold-700); }
-  /* gold-700 is 4.26:1 on the sage band; a 20% ink mix restores AA (5.1:1). */
-  .hero__feature .hero__eyebrow { color: color-mix(in srgb, var(--p-gold-700) 80%, var(--p-ink-900)); }
+  .hero__eyebrow { color: var(--text-accent); }
 
   .hero__intro {
     display: flex;
@@ -172,11 +170,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
   }
   .hero__link:hover { gap: 0.85em; border-color: currentColor; }
 
-  /* Feature band: a sage tint of the group green, so it follows the palette
-     rather than introducing a new hue. */
-  .hero__feature {
-    background: color-mix(in srgb, var(--p-green-600) 14%, var(--surface-primary));
-  }
+  .hero__feature { background: var(--surface-secondary); }
 
   .hero__feature-grid {
     display: grid;
@@ -185,7 +179,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
     padding-block: clamp(1.75rem, 4vw, 2.75rem);
   }
 
-  .hero__cover { display: block; background: var(--border-subtle); box-shadow: 0 1px 2px rgb(23 54 46 / 0.1), 0 10px 24px -12px rgb(23 54 46 / 0.28); }
+  .hero__cover { display: block; background: var(--border-subtle); box-shadow: 0 1px 2px rgb(43 39 36 / 0.1), 0 10px 24px -12px rgb(43 39 36 / 0.28); }
   .hero__cover :global(img) { display: block; width: 100%; height: auto; }
   .hero__cover--lead { width: min(62%, 15.6rem); transition: transform 400ms var(--p-ease-decelerate); }
   .hero__cover--lead:hover { transform: translateY(-0.25rem); }

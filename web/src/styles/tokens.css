@@ -20,54 +20,60 @@
   /* ───────────────────────── PRIMITIVE: COLOUR ───────────────────────── */
   /* Japanese Editorial Minimalism — warm, restrained, low-chroma.
      Kinari (unbleached silk) is the canvas, Unohana (deutzia white) the
-     card stock, Fukamidori (deep green) the single group brand hue, with
-     a sparing touch of Kincha gold for rules and ornaments only.
-     Contrast ratios are recorded in docs/DESIGN-SYSTEM.md §Colour. */
+     card stock, Sumi (ink) the group brand colour, with Shu (vermilion)
+     used sparingly for links and small labels. Kincha gold is kept for
+     rules and ornaments only. Contrast ratios are recorded in
+     docs/DESIGN-SYSTEM.md §Colour. */
 
   /* Paper — Kinari / Unohana */
-  --p-paper-0:      #FCFBF7; /* Unohana — cards, raised surfaces */
-  --p-paper-50:     #F6F3EA; /* Kinari — page background */
-  --p-paper-100:    #ECECE4; /* secondary bands */
-  --p-paper-200:    #E3E2D8;
+  --p-paper-0:      #FDFBF6; /* Unohana — cards, raised surfaces */
+  --p-paper-50:     #F7F3EC; /* Kinari — page background */
+  --p-paper-100:    #EDE6DA; /* secondary bands */
+  --p-paper-200:    #E3DBCC;
 
-  /* Sumi ink neutrals (green-grey undertone) */
-  --p-ink-900:      #272B29; /* body text — 12.9:1 on Kinari */
-  --p-ink-700:      #59635E; /* secondary text — 5.6:1 on Kinari */
-  --p-ink-500:      #646C67; /* muted text — 4.9:1 on Kinari, 4.6:1 on #ECECE4 */
+  /* Sumi ink neutrals (warm undertone) */
+  --p-ink-900:      #2B2724; /* body text — 13.4:1 on Kinari */
+  --p-ink-700:      #62594F; /* secondary text — 6.2:1 on Kinari, 5.5:1 on bands */
+  --p-ink-500:      #6B6156; /* muted text — 5.5:1 on Kinari, 4.9:1 on bands */
 
-  /* Fukamidori — group brand family */
-  --p-green-950:    #102923; /* deepest inverse field */
-  --p-green-900:    #17362E; /* primary hover / inverse surface */
-  --p-green-800:    #23473E; /* group primary */
-  --p-green-700:    #2F5A4F;
-  --p-green-600:    #4C7266; /* focus ring / decorative strokes */
+  /* Sumi — group brand family (buttons, inverse surfaces) */
+  --p-sumi-950:     #151210; /* deepest inverse field */
+  --p-sumi-900:     #1F1B19; /* primary hover / inverse surface */
+  --p-sumi-800:     #2B2724; /* group primary */
+  --p-sumi-700:     #433C37;
+  --p-sumi-600:     #7A7066; /* focus ring / decorative strokes — 4.4:1 on Kinari */
+
+  /* Shu — vermilion accent for links and small labels */
+  --p-shu-700:      #A04A35; /* 5.4:1 on Kinari, 4.8:1 on #EDE6DA */
+  --p-shu-800:      #843826; /* hover — 7.4:1 on Kinari */
+  --p-shu-300:      #E8A894; /* on sumi inverse surfaces — 8.5:1 on #1F1B19 */
 
   /* Stone — warm hairlines */
-  --p-stone-100:    #ECECE4;
-  --p-stone-200:    #D8D9CF; /* default border */
-  --p-stone-300:    #C3C5B9; /* strong border */
-  --p-stone-500:    #858A80;
+  --p-stone-100:    #EDE6DA;
+  --p-stone-200:    #DDD5C7; /* default border */
+  --p-stone-300:    #C9BFAE; /* strong border */
+  --p-stone-500:    #8A8072;
 
-  /* Kincha gold — decoration only (2.7:1 on Kinari; never small text) */
-  --p-gold-300:     #CDBA92; /* gold text on deep-green inverse — 6.6:1 on #17362E */
+  /* Kincha gold — decoration only (never small text) */
+  --p-gold-300:     #CDBA92;
   --p-gold-500:     #AD9061; /* rules, ornaments, numerals at display size */
-  --p-gold-700:     #7A6440; /* AA-safe gold for small labels — 5.1:1 on Kinari */
+  --p-gold-700:     #7A6440;
 
   /* Legacy primitive names. Kept as aliases so older selectors resolve to
      the new palette instead of re-introducing the retired blue/teal hues. */
-  --p-navy-950:     var(--p-green-950);
-  --p-navy-900:     var(--p-green-900);
-  --p-navy-800:     var(--p-green-800);
-  --p-navy-700:     var(--p-green-700);
-  --p-blue-600:     var(--p-green-800);
-  --p-blue-700:     var(--p-green-900);
-  --p-tetsu-950:    var(--p-green-900);
-  --p-tetsu-900:    var(--p-green-800);
-  --p-tetsu-800:    var(--p-green-700);
-  --p-tetsu-700:    var(--p-green-800);
-  --p-tetsu-600:    var(--p-green-600);
-  --p-teal-800:     var(--p-green-800);
-  --p-teal-600:     var(--p-green-700);
+  --p-navy-950:     var(--p-sumi-950);
+  --p-navy-900:     var(--p-sumi-900);
+  --p-navy-800:     var(--p-sumi-800);
+  --p-navy-700:     var(--p-sumi-700);
+  --p-blue-600:     var(--p-sumi-800);
+  --p-blue-700:     var(--p-sumi-900);
+  --p-tetsu-950:    var(--p-sumi-900);
+  --p-tetsu-900:    var(--p-sumi-800);
+  --p-tetsu-800:    var(--p-sumi-700);
+  --p-tetsu-700:    var(--p-sumi-800);
+  --p-tetsu-600:    var(--p-sumi-600);
+  --p-teal-800:     var(--p-sumi-800);
+  --p-teal-600:     var(--p-sumi-700);
   --p-biwa-300:     var(--p-gold-300);
   --p-biwa-500:     var(--p-gold-500);
   --p-biwa-700:     var(--p-gold-700);
@@ -166,9 +172,9 @@
   --surface-raised:        var(--p-paper-0);
   --surface-card:          var(--p-paper-0);
   --surface-feature:       var(--p-paper-100);
-  --surface-inverse:       var(--p-green-900);
-  --surface-inverse-soft:  var(--p-green-700);
-  --surface-inverse-2:     var(--p-green-800);
+  --surface-inverse:       var(--p-sumi-900);
+  --surface-inverse-soft:  var(--p-sumi-700);
+  --surface-inverse-2:     var(--p-sumi-800);
 
   /* ───────────────────────── SEMANTIC: TEXT ──────────────────────────── */
   --text-primary:    var(--p-ink-900);
@@ -177,10 +183,10 @@
   --text-inverse:    var(--p-paper-50);
   --text-inverse-muted: color-mix(in srgb, var(--p-paper-50) 70%, transparent);
   --text-inverse-muted-strong: color-mix(in srgb, var(--p-paper-50) 82%, transparent);
-  --text-link:       var(--p-green-800);
-  --text-link-hover: var(--p-green-900);
-  --text-accent:     var(--p-gold-700); /* AA-safe gold for small editorial labels */
-  --text-accent-inverse: var(--p-gold-300); /* light gold on deep-green inverse surfaces */
+  --text-link:       var(--p-shu-700);
+  --text-link-hover: var(--p-shu-800);
+  --text-accent:     var(--p-shu-700); /* AA-safe vermilion for small editorial labels */
+  --text-accent-inverse: var(--p-shu-300); /* light vermilion on sumi inverse surfaces */
 
   /* ───────────────────────── SEMANTIC: BORDER ────────────────────────── */
   --border-subtle:   var(--p-stone-200);
@@ -188,16 +194,16 @@
   --border-inverse:  color-mix(in srgb, var(--p-paper-50) 18%, transparent);
 
   /* ───────────────────────── SEMANTIC: BRAND ─────────────────────────── */
-  --brand-primary:       var(--p-green-800);
-  --brand-primary-hover: var(--p-green-900);
-  --brand-secondary:     var(--p-green-700);
+  --brand-primary:       var(--p-sumi-800);
+  --brand-primary-hover: var(--p-sumi-900);
+  --brand-secondary:     var(--p-sumi-700);
   --brand-accent:        var(--p-gold-500); /* decorative rules/ornaments only — never small text */
 
   /* ───────────────────────── SEMANTIC: INTERACTIVE ───────────────────── */
-  --interactive-default:  var(--p-green-800);
-  --interactive-hover:    var(--p-green-900);
+  --interactive-default:  var(--p-shu-700);
+  --interactive-hover:    var(--p-shu-800);
   --interactive-on-dark:  var(--p-paper-50);
-  --focus-ring:            var(--p-green-600);
+  --focus-ring:            var(--p-sumi-600);
   --focus-ring-offset:     2px;
 
   /* ───────────────────────── SEMANTIC: LOGO ──────────────────────────── */
