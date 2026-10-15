@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import AFS from '@/assets/journal-covers/AFS.png';
+import JESA from '@/assets/journal-covers/JESA.png';
 import CSGS from '@/assets/journal-covers/CSGS.png';
-import HealthNexus from '@/assets/journal-covers/HealthNexus.png';
+import HNDH from '@/assets/journal-covers/HNDH.png';
 import JLPCS from '@/assets/journal-covers/JLPCS.png';
 import TTS from '@/assets/journal-covers/TTS.png';
 import { getContent } from '@/i18n/content';
@@ -13,9 +13,9 @@ const t = getContent(locale);
 
 const journals = [
   {
-    slug: 'afs', imprint: 'Ridgeline', title: 'AI & Future Society',
-    description: 'Technology, society and human flourishing.', cover: AFS,
-    journalUrl: 'https://journals.panorama-sg.com/afs',
+    slug: 'jesa', imprint: 'Ridgeline', title: 'Journal of Engineering Systems & Applications',
+    description: 'Engineering systems and their applications.', cover: JESA,
+    journalUrl: 'https://journals.panorama-sg.com/jesa',
   },
   {
     slug: 'csgs', imprint: 'Verdant Science', title: 'Climate Sustainability & Global Systems',
@@ -23,9 +23,9 @@ const journals = [
     journalUrl: 'https://journals.panorama-sg.com/csgs',
   },
   {
-    slug: 'healthnexus', imprint: 'Health Nexus', title: 'Health Nexus',
-    description: 'Medicine, policy and population health.', cover: HealthNexus,
-    journalUrl: 'https://journals.panorama-sg.com/healthnexus',
+    slug: 'hndh', imprint: 'Health Nexus', title: 'Health Nexus: Digital Health and Medical AI',
+    description: 'Digital health and medical AI.', cover: HNDH,
+    journalUrl: 'https://journals.panorama-sg.com/hndh',
   },
   {
     slug: 'jlpcs', imprint: 'Charter', title: 'Journal of Law, Psychology, and Communication Studies',

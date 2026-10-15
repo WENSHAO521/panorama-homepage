@@ -13,6 +13,11 @@ const articles = [...articleData.articles]
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
   .slice(0, 3);
 
+// Long consortium author lists crowd out the title; show the first three.
+function formatAuthors(authors: string[]) {
+  return authors.length > 3 ? `${authors.slice(0, 3).join(', ')} et al.` : authors.join(', ');
+}
+
 function formatDate(value: string) {
   return new Intl.DateTimeFormat(locale, {
     year: 'numeric',
@@ -48,7 +53,7 @@ function formatDate(value: string) {
             </div>
             <h3>{article.title}</h3>
             {index === 0 && <p>{article.summary}</p>}
-            <span class="latest-articles__authors">{article.authors.join(', ')}</span>
+            <span class="latest-articles__authors">{formatAuthors(article.authors)}</span>
           </a>
         </li>
       ))}
