@@ -79,22 +79,23 @@ pages. Page components map their local palette variables
 (`--ridge-*`, `--hn-*`, `--verdant-*`/`--vs-*`, `--charter-*`/`--cs-*`,
 `--th-*`) onto these tokens instead of hard-coding hex. Reading areas
 stay on the warm group neutrals; brand colour is for heroes, headings,
-CTAs, labels, numerals, rules and tint bands. Journal covers and imprint
-logos are images and are never recoloured.
+CTAs, labels, numerals, rules and tint bands. Journal covers are images and are
+never recoloured; the imprint logo marks keep their letterforms and only
+the accent fill was softened to match the palette (2026 revision).
 
 | Imprint | Primary | Tint | Deep field | Light-on-deep | Supporting | Primary on Kinari |
 |---|---|---|---|---|---|---|
-| Ridgeline | `#304C64` | `#EBF0F4` | `#1E3142` | `#A9BED1` | `#3E5F8A` (logo blue) | 8.1:1 |
-| Health Nexus | `#2E696D` | `#E6F1EF` | `#1C4346` | `#9CCBC6` | `#9E5A4E` (muted coral) | 5.6:1 |
-| Verdant Science | `#3F654B` | `#EBF0E6` | `#263F2E` | `#B5C9A9` | `#85593A` (soil) | 6.0:1 |
-| Charter | `#754551` | `#F5EBEB` | `#472A32` | `#DDBAC1` | `#A8803F` / `#7A5A2A` (logo gold) | 6.9:1 |
-| Threnody | `#664F70` | `#F1EBF2` | `#3A2D41` | `#CDBDD4` | `#93764C` (logo bronze) | 6.5:1 |
+| Ridgeline (縹 hanada) | `#46647F` | `#E7E9E8` | `#354452` | `#C6CED2` | `#557AA3` / `#3E5F8A` (logo blue) | 5.6:1 |
+| Health Nexus (青磁 seiji) | `#346A66` | `#E5EAE5` | `#2B4744` | `#C1D0CB` | `#A35E4F` / `#92503F` (muted coral) | 5.6:1 |
+| Verdant Science (老竹 oitake) | `#4B6A45` | `#E8EAE1` | `#384732` | `#C8D0C1` | `#9C6A45` / `#85593A` (soil) | 5.5:1 |
+| Charter (小豆 azuki) | `#8A5562` | `#EFE7E4` | `#5B3B42` | `#DAC9CA` | `#A8803F` / `#7A5A2A` (logo gold) | 5.3:1 |
+| Threnody (濡羽 nureba, ink black) | `#2E3236` | `#ECEBE8` | `#25282B` | `#C9C6C0` | `#93764C` / `#765C38` (logo bronze) | 11.7:1 |
 
-White text on each primary is ≥6.2:1, `#59635E` body text is ≥5.3:1 on
-each tint, and every light-on-deep pair is ≥6:1. The official logo marks
-(`public/brand/imprints/*`) were checked first: the suggested primaries
-match each page's existing hue family, and the logo colours are kept as
-each theme's supporting accent.
+White text on each primary is ≥5.7:1, `#62594F` body text is ≥5.3:1 on each
+tint, and every light-on-deep pair is ≥6:1. Primaries were softened in the
+2026 revision (lower saturation, Japanese traditional colour families);
+Threnody is the one imprint whose colour is ink itself, with the logo bronze
+carrying its accents (kickers, rules, buttons).
 
 The group-level `--imprint-<slug>` tokens (used by the homepage imprint
 tiles and `imprints.json` `accent` references) resolve to the same
