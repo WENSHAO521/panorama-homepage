@@ -100,18 +100,19 @@
   --imprint-accent:          var(--imprint-primary);
 }
 
-/* Threnody — Humanities, Arts & Philosophy. Fujinezu (藤鼠) wisteria grey. */
+/* Threnody — Humanities, Arts & Philosophy. Nureba (濡羽) ink black with the
+   logo's old-bronze accent; the only imprint whose colour is ink itself. */
 [data-imprint-theme='threnody'] {
-  --imprint-primary:         var(--p-imprint-threnody); /* #6A5D80 */
-  --imprint-primary-hover:   #5A4E69;
-  --imprint-tint:            #EBE8E8;
-  --imprint-tint-strong:     #E5E2E3;
-  --imprint-deep:            #494053;
-  --imprint-deeper:          #3C3440;
-  --imprint-accent-light:    #D1CCD3;
+  --imprint-primary:         var(--p-imprint-threnody); /* #2E3236 — 11.7:1 on Kinari */
+  --imprint-primary-hover:   #1F2225;
+  --imprint-tint:            #ECEBE8;
+  --imprint-tint-strong:     #E4E2DE;
+  --imprint-deep:            #25282B;
+  --imprint-deeper:          #1B1D20;
+  --imprint-accent-light:    #C9C6C0; /* 8.7:1 on deep */
   --imprint-secondary:       #93764C; /* logo bronze */
-  --imprint-secondary-ink:   #765C38;
-  --imprint-secondary-light: #C4A77C; /* 5.6:1 on deep */
-  --imprint-line:            #D4CFD5;
+  --imprint-secondary-ink:   #765C38; /* 5.7:1 on Kinari, 5.2:1 on tint */
+  --imprint-secondary-light: #C4A77C; /* 6.5:1 on deep */
+  --imprint-line:            #D6D3CD;
   --imprint-accent:          var(--imprint-primary);
 }
