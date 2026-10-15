@@ -1,281 +1,271 @@
 ---
 import { Image } from 'astro:assets';
-import Button from '@/components/ui/Button.astro';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
-// Deliberately a different five from FeaturedJournals/JournalMarquee so the
-// hero and the featured row never show the same covers twice.
-import CSSR from '@/assets/journal-covers/CSSR.png';
-import HNDH from '@/assets/journal-covers/HNDH.png';
-import PFR from '@/assets/journal-covers/PFR.png';
-import Silence from '@/assets/journal-covers/Silence.png';
-import CPRT from '@/assets/journal-covers/CPRT.png';
+import { getFeaturedJournals, getJournalBySlug } from '@/lib/content/journals';
+import { getAllImprints } from '@/lib/content/imprints';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
+
+// The lead and the "also of interest" slot come from the curated featured
+// flag (docs/HOMEPAGE.md §Featured journal selection), so no title is hand-picked here.
+const [lead, ...others] = getFeaturedJournals();
+const also = getJournalBySlug('healthnexus') ?? others[0];
+const imprintName = (slug: string) => getAllImprints().find((i) => i.slug === slug)?.name ?? slug;
+const leadCover = getJournalCoverAsset(lead.cover);
+const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
 ---
 
-<section class="hero">
-  <div class="container-wide hero__row">
-    <div class="hero__copy">
-      <h1 class="hero__title">
-        {t('home.heroTitleOne')}<br class="hero__break" />{' '}{t('home.heroTitleTwo')}
-      </h1>
-      <p class="hero__lede">
-        {t('home.heroLede')}
-      </p>
-      <div class="hero__actions">
-        <Button href={localizePath('/publishing/', locale)} variant="primary">
-          {t('home.explorePublishing')}
-        </Button>
-        <Button href={localizePath('/journals/', locale)} variant="secondary">{t('common.browseJournals')}</Button>
-      </div>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container-wide hero__intro">
+    <div>
+      <p class="text-overline hero__eyebrow">{t('home.heroOverline')}</p>
+      <h1 id="hero-title" class="hero__title">{t('home.heroStatement')}</h1>
     </div>
-
-    <div class="hero__visual" aria-label={t('home.heroVisual')}>
-      <div class="hero__art">
-        <div class="hero__books">
-          <Image class="hero__book hero__book--front-left" src={CSSR} alt="Computational Social Sciences Review" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
-          <Image class="hero__book hero__book--front-left-mid" src={HNDH} alt="Health Nexus: Digital Health and Medical AI" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
-          <Image class="hero__book hero__book--front-center" src={PFR} alt="Panorama Frontier Review" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
-          <Image class="hero__book hero__book--front-right-mid" src={Silence} alt="Silence" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
-          <Image class="hero__book hero__book--front-right" src={CPRT} alt="Comparative Philosophy &amp; Religious Traditions" width={495} height={700} widths={[240, 320, 495]} sizes="(max-width: 767px) 38vw, 20rem" loading="eager" fetchpriority="high" />
-        </div>
-        <span class="hero__shelf-line" aria-hidden="true"></span>
-      </div>
+    <div class="hero__search">
+      <form action={localizePath('/search/', locale)} method="get" role="search" class="hero__form">
+        <label for="hero-search" class="visually-hidden">{t('home.searchLabel')}</label>
+        <svg viewBox="0 0 17 17" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="7.2" cy="7.2" r="5.2" /><path d="M11 11l4.5 4.5" /></svg>
+        <input id="hero-search" name="q" type="search" placeholder={t('home.searchLabel')} autocomplete="off" />
+        <button type="submit" aria-label={t('home.searchLabel')}>
+          <svg viewBox="0 0 14 10" width="14" height="10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" /></svg>
+        </button>
+      </form>
+      <a class="hero__link" href={localizePath('/journals/', locale)}>{t('common.browseJournals')} <span aria-hidden="true">→</span></a>
     </div>
   </div>
 
+  <div class="hero__feature">
+    <div class="container-wide hero__feature-grid">
+      <a class="hero__cover hero__cover--lead" href={lead.journalUrl} target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+        {leadCover && <Image src={leadCover} alt="" width={495} height={700} widths={[250, 500]} sizes="(max-width: 639px) 62vw, 15.6rem" loading="eager" fetchpriority="high" />}
+      </a>
+
+      <div class="hero__main">
+        <p class="text-overline hero__eyebrow">{t('home.featuredJournal')}</p>
+        <h2 class="hero__feature-title">{lead.title}</h2>
+        <p class="hero__feature-text">{lead.description}</p>
+        <a class="hero__link" href={lead.journalUrl} target="_blank" rel="noopener noreferrer">
+          {t('common.visitJournalWebsite')} <span aria-hidden="true">→</span>
+          <span class="visually-hidden"> — {lead.title} ({t('common.opensNewTab')})</span>
+        </a>
+      </div>
+
+      <aside class="hero__rail">
+        <dl class="hero__facts">
+          <div><dt>{t('common.journal')}</dt><dd>{lead.title}</dd></div>
+          <div><dt>{t('home.factImprint')}</dt><dd>{imprintName(lead.imprint)}</dd></div>
+          <div><dt>{t('home.factDisciplines')}</dt><dd>{lead.disciplines.join(' · ')}</dd></div>
+          <div>
+            <dt>{t('home.factAccess')}</dt>
+            <dd>{[lead.openAccess ? t('common.openAccess') : null, lead.license, lead.issn ? `ISSN ${lead.issn}` : null].filter(Boolean).join(' · ')}</dd>
+          </div>
+        </dl>
+
+        {also && (
+          <div class="hero__also">
+            <a class="hero__cover hero__cover--also" href={also.journalUrl} target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              {alsoCover && <Image src={alsoCover} alt="" width={200} height={283} widths={[100, 200]} sizes="6rem" loading="lazy" />}
+            </a>
+            <div>
+              <p class="text-overline hero__eyebrow">{t('home.alsoOfInterest')}</p>
+              <h3 class="hero__also-title">{also.title}</h3>
+              <a class="hero__link" href={also.journalUrl} target="_blank" rel="noopener noreferrer">
+                {t('common.visitJournalWebsite')} <span aria-hidden="true">→</span>
+                <span class="visually-hidden"> — {also.title} ({t('common.opensNewTab')})</span>
+              </a>
+            </div>
+          </div>
+        )}
+      </aside>
+    </div>
+  </div>
 </section>
 
 <style>
-  .hero {
-    background: var(--surface-primary);
-    padding-block: 2.35rem 1.45rem;
-  }
+  .hero { background: var(--surface-primary); }
 
-  .hero__row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.35rem;
-    align-items: center;
-  }
+  .hero__eyebrow { color: var(--p-gold-700); }
 
-  .hero__copy {
-    position: relative;
-    z-index: 1;
-  }
-
-
-  .hero__title {
-    max-width: none;
-    margin-top: 1.1rem;
-    font-size: clamp(3rem, 5.4vw, 4.2rem);
-    font-weight: var(--fw-regular);
-    line-height: 1.04;
-    letter-spacing: -0.025em;
-  }
-
-  .hero__lede {
-    max-width: 32rem;
-    margin-top: 1.15rem;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: 1.08rem;
-    line-height: 1.5;
-  }
-
-  .hero__actions {
+  .hero__intro {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.75rem 2rem;
+    padding-block: clamp(1.75rem, 4vw, 2.75rem) clamp(1.5rem, 3vw, 2.1rem);
+  }
+
+  .hero__title {
+    max-width: 15ch;
+    margin-top: 0.9rem;
+    font-size: clamp(2.4rem, 5.6vw, 3.75rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.04;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  .hero__search {
+    display: grid;
+    justify-items: start;
+    gap: 0.9rem;
+    width: min(100%, 27.5rem);
+  }
+
+  .hero__form {
+    display: flex;
+    align-items: center;
     gap: 0.65rem;
-    margin-top: 1.35rem;
-  }
-
-  .hero__visual {
-    min-width: 0;
-  }
-
-  .hero__art {
-    position: relative;
     width: 100%;
-    max-width: 32rem;
-    margin-inline: auto;
-    aspect-ratio: 1.6 / 1;
+    height: 2.9rem;
+    padding-inline: 0.9rem;
+    color: var(--text-secondary);
+    background: var(--surface-raised);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+    transition: border-color var(--p-duration-base) var(--p-ease-standard);
+  }
+  .hero__form:focus-within { border-color: var(--interactive-default); }
+  .hero__form input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.875rem;
+    background: none;
+    border: 0;
+    outline: none;
+  }
+  .hero__form input::placeholder { color: var(--text-secondary); }
+  .hero__form button {
+    display: grid;
+    place-items: center;
+    min-width: 2rem;
+    min-height: 2rem;
+    color: var(--text-secondary);
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .hero__form button:hover { color: var(--interactive-default); }
+  .hero__form button:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 
+  .hero__link {
+    display: inline-flex;
+    gap: 0.5em;
+    align-items: baseline;
+    padding-bottom: 0.15rem;
+    color: var(--interactive-default);
+    font-size: 0.875rem;
+    font-weight: var(--fw-medium);
+    border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--interactive-default) 45%, transparent);
+    transition: gap var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard);
+  }
+  .hero__link:hover { gap: 0.85em; border-color: currentColor; }
 
-  .hero__book {
-    position: absolute;
-    display: block;
-    width: auto;
-    height: auto;
-    object-fit: cover;
-    box-shadow: 0 0.15rem 0.25rem color-mix(in srgb, var(--brand-primary) 8%, transparent);
+  /* Feature band: a sage tint of the group green, so it follows the palette
+     rather than introducing a new hue. */
+  .hero__feature {
+    background: color-mix(in srgb, var(--p-green-600) 14%, var(--surface-primary));
   }
 
-  .hero__books {
-    position: absolute;
-    inset: 0;
-    transform: translateX(4.5%);
-    z-index: 3;
+  .hero__feature-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    padding-block: clamp(1.75rem, 4vw, 2.75rem);
   }
 
-  /* Five volumes share one shelf line, with gentle overlap for a book-like
-     rhythm. The centre volume is the tallest; the outer pair sit lowest in
-     the stack order so the fan reads from the middle outwards. */
-  .hero__book--front-left {
-    bottom: 14%;
-    left: 0;
-    width: 21%;
-    z-index: 4;
+  .hero__cover { display: block; background: var(--border-subtle); box-shadow: 0 1px 2px rgb(23 54 46 / 0.1), 0 10px 24px -12px rgb(23 54 46 / 0.28); }
+  .hero__cover :global(img) { display: block; width: 100%; height: auto; }
+  .hero__cover--lead { width: min(62%, 15.6rem); transition: transform 400ms var(--p-ease-decelerate); }
+  .hero__cover--lead:hover { transform: translateY(-0.25rem); }
+
+  .hero__feature-title {
+    margin: 0.9rem 0 1rem;
+    font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+    font-weight: var(--fw-regular);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
-  .hero__book--front-left-mid {
-    bottom: 14%;
-    left: 16.5%;
-    width: 22%;
-    z-index: 5;
+  .hero__feature-text {
+    max-width: 44ch;
+    margin: 0 0 1.35rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    line-height: 1.55;
   }
 
-  .hero__book--front-center {
-    bottom: 14%;
-    left: 34%;
-    width: 24.5%;
-    z-index: 8;
+  .hero__rail {
+    display: grid;
+    gap: 1.5rem;
+    align-content: center;
+    padding-top: 1.5rem;
+    border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
   }
 
-  .hero__book--front-right-mid {
-    bottom: 14%;
-    left: 53.5%;
-    width: 21.5%;
-    z-index: 6;
+  .hero__facts { display: grid; gap: 0.8rem; margin: 0; }
+  .hero__facts div { display: grid; gap: 0.1rem; }
+  .hero__facts dt {
+    color: var(--text-secondary);
+    font-size: 0.6rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .hero__facts dd { margin: 0; font-family: var(--font-display); font-size: 0.9rem; }
+
+  .hero__also {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 1.1rem;
+    align-items: start;
+    padding-top: 1.4rem;
+    border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
+  }
+  .hero__also-title {
+    margin: 0.4rem 0 0.7rem;
+    font-size: 1.3rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.14;
   }
 
-  .hero__book--front-right {
-    bottom: 14%;
-    left: 70.5%;
-    width: 22%;
-    z-index: 4;
+  @media (min-width: 640px) {
+    .hero__feature-grid { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 2.5rem; }
+    .hero__cover--lead { width: 100%; }
+    .hero__rail { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; gap: 2rem; padding-top: 1.75rem; }
+    .hero__also { padding-top: 0; border-top: 0; }
   }
 
-  /* Entry: the volumes rise onto the shelf one after another, centre first.
-     Communicates "a collection", not decoration, and runs once. */
+  @media (min-width: 1024px) {
+    .hero__feature-grid { grid-template-columns: 15.6rem minmax(0, 1fr) 20rem; column-gap: 3rem; align-items: center; }
+    .hero__rail {
+      grid-column: auto;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 0 0 0 2rem;
+      border-top: 0;
+      border-inline-start: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
+    }
+    .hero__also { padding-top: 1.4rem; border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
+  }
+
   @media (prefers-reduced-motion: no-preference) {
-    .hero__book {
-      animation: hero-book-rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-    .hero__book--front-center { animation-delay: 80ms; }
-    .hero__book--front-left-mid,
-    .hero__book--front-right-mid { animation-delay: 200ms; }
-    .hero__book--front-left,
-    .hero__book--front-right { animation-delay: 320ms; }
-
-    .hero__copy > * {
-      animation: hero-copy-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-    .hero__copy > :nth-child(2) { animation-delay: 90ms; }
-    .hero__copy > :nth-child(3) { animation-delay: 180ms; }
+    .hero__intro > div, .hero__main { animation: hero-in 700ms var(--p-ease-decelerate) both; }
+    .hero__intro > .hero__search { animation-delay: 90ms; }
   }
-
-  @keyframes hero-book-rise {
-    from { opacity: 0; transform: translateY(1.5rem); }
-    to { opacity: 1; transform: none; }
-  }
-
-  @keyframes hero-copy-in {
+  @keyframes hero-in {
     from { opacity: 0; transform: translateY(0.75rem); }
     to { opacity: 1; transform: none; }
-  }
-
-  /* The shelf's top edge sits exactly on the books' bottom edge (14%), and
-     it is drawn behind the covers, so the volumes stand on it rather than
-     appearing to sink through it. */
-  .hero__shelf-line {
-    position: absolute;
-    right: 0;
-    bottom: calc(14% - 0.45rem);
-    left: 0;
-    height: 0.45rem;
-    background: linear-gradient(var(--border-strong), var(--border-strong)) top / 100% 0.12rem no-repeat,
-      linear-gradient(color-mix(in srgb, var(--border-strong) 22%, transparent), transparent) bottom / 100% 0.35rem no-repeat;
-    z-index: 2;
-  }
-
-
-
-  @media (min-width: 768px) {
-    .hero {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    .hero__row {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 1rem;
-      align-items: stretch;
-    }
-
-    .hero__copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-top: 2.15rem;
-      padding-bottom: 12%;
-    }
-
-    .hero__actions { margin-top: 3.5rem; }
-
-    /* The fan sits on the same baseline as the CTAs, below the
-       (nowrap, wide) headline, so the two never collide. */
-    .hero__visual {
-      display: flex;
-      align-items: flex-end;
-      padding-top: 7rem;
-    }
-
-
-    .hero__art {
-      max-width: none;
-      aspect-ratio: 1.55 / 1;
-      width: calc(100% + 5rem);
-      margin-inline-start: -1.5rem;
-      margin-inline-end: 0;
-    }
-
-    .hero__title {
-      white-space: nowrap;
-      font-size: clamp(3.8rem, 5.2vw, 5.1rem);
-    }
-
-    .hero__lede {
-      max-width: 34rem;
-      font-size: 1.15rem;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .hero__row { gap: 1.25rem; }
-    .hero__art { aspect-ratio: 1.9 / 1; }
-    .hero__break { display: none; }
-    .hero__title { max-width: 18ch; }
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .hero__books { transform: translateX(0); }
-  }
-
-  @media (min-width: 1200px) {
-    .hero__title {
-      font-size: clamp(4rem, 5.4vw, 5.4rem);
-    }
-
-    .hero__lede {
-      max-width: 35rem;
-      font-size: 1.18rem;
-    }
-
-    .hero__actions { margin-top: 5rem; }
   }
 </style>
