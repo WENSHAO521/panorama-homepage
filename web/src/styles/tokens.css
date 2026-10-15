@@ -129,12 +129,14 @@
      Panorama shell and every imprint, while each imprint keeps its own hue. */
   --p-action-height:           2.75rem;
   --p-action-pad-y:            0.75rem;
-  --p-action-pad-x:            1.05rem;
-  --p-action-font-size:        0.68rem;
-  --p-action-font-weight:      750;
-  --p-action-letter-spacing:   0.04em;
+  --p-action-pad-x:            1.25rem;
+  --p-action-font-size:        0.875rem;
+  --p-action-font-weight:      600;
+  --p-action-letter-spacing:   0.01em;
   --p-action-row-gap:          1rem;
-  --p-action-underline-offset: 0.28em;
+  --p-action-underline-offset: 0.32em;
+  --p-link-font-size:          0.875rem;
+  --p-link-min-height:         1.75rem;
 
   /* ───────────────────────── PRIMITIVE: SHADOW ───────────────────────── */
   /* Deliberately restrained -- see docs/DESIGN-SYSTEM.md §Shadows.

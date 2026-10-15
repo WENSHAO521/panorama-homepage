@@ -99,7 +99,7 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
                 <p>{relationship.description}</p>
               </div>
               {relationshipLogos[index].href && (
-                <a href={relationshipLogos[index].href} target="_blank" rel="noopener noreferrer">{copy.visitPlatform}</a>
+                <a class="action-link" href={relationshipLogos[index].href} target="_blank" rel="noopener noreferrer">{copy.visitPlatform}</a>
               )}
             </article>
           ))}

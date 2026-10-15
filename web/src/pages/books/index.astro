@@ -21,11 +21,11 @@ const t = getContent(locale);
   <div class="books-page">
     <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="books-title" variant="image">
       <div slot="actions" class="books-actions" aria-label={copy.actionsAria}>
-        <a class="books-button" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+        <a class="books-button" data-action="primary" href={bookPlatform} target="_blank" rel="noopener noreferrer">
           {copy.browseBooks}
           <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
         </a>
-        <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+        <a class="books-link" data-action="secondary" href={bookPlatform} target="_blank" rel="noopener noreferrer">
           {copy.submitProposal}
           <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
         </a>

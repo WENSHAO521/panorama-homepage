@@ -101,6 +101,25 @@ The group-level `--imprint-<slug>` tokens (used by the homepage imprint
 tiles and `imprints.json` `accent` references) resolve to the same
 primaries.
 
+## Actions (buttons and links)
+
+One shared system in `web/src/styles/actions.css`, driven by `--p-action-*`
+and `--p-link-*` tokens. Group pages and imprint pages keep their own
+colours; geometry and type are global.
+
+| Tier | Markup | Spec |
+|---|---|---|
+| Primary button | `data-action="primary"` | 44px high, 8px radius, 14px / 600, sentence case, trailing arrow that nudges 3px on hover/focus |
+| Secondary button | `data-action="secondary"` | Same box, 1px border at 65% of the text colour, 7% tint on hover (works on paper, bands and dark surfaces because it uses `currentColor`) |
+| Text link | `.action-link` (or a listed per-page class) | 14px / 500, 1px underline at 45% that goes solid on hover, trailing arrow, 28px minimum target |
+
+Rules: uppercase and wide letter-spacing are for eyebrows only and never for
+anything clickable; no clickable text under 14px; navigation items are not
+actions and keep their own style; the focus ring is 2px with a 3px offset.
+New links should use `.action-link`. The explicit class list in
+`actions.css` exists only so the older hand-written per-imprint link classes
+share the same treatment (it uses native CSS nesting, so it is written once).
+
 ## Typography
 
 **Source Serif 4** (display/editorial) + **Inter** (interface/body),

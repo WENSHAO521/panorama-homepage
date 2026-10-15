@@ -1,16 +1,32 @@
 /*
   Shared action system
   --------------------
-  CTA geometry is deliberately global. Group pages and imprint pages keep
-  their own colour tokens, but they cannot drift in height, radius, type,
-  alignment, or secondary-link treatment.
+  Three tiers, one geometry. Group pages and imprint pages keep their own
+  colour tokens, but they cannot drift in height, radius, type or treatment.
+
+    data-action="primary"    filled button           (44px, 14px / 600, arrow)
+    data-action="secondary"  outlined button         (same box, 1px border)
+    .action-link & friends   text link               (14px / 500, underline, arrow)
+
+  Uppercase, wide-tracked type is reserved for eyebrows and is never used on
+  anything clickable. Colours come from the page (currentColor, background),
+  so imprint hues and dark surfaces work without extra rules.
 */
 
+/* Shared arrow glyph, drawn with a mask so it follows currentColor. */
+:root {
+  --p-action-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 10' fill='none' stroke='black' stroke-width='1.4'%3E%3Cpath d='M0 5h12M8 1l4 4-4 4'/%3E%3C/svg%3E");
+}
+
+/* ── Tier 1 + 2: buttons ─────────────────────────────────────────────── */
 body.group-site [data-action="primary"],
-body.standalone-site [data-action="primary"] {
+body.group-site [data-action="secondary"],
+body.standalone-site [data-action="primary"],
+body.standalone-site [data-action="secondary"] {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  gap: 0.6em !important;
   box-sizing: border-box;
   min-height: var(--p-action-height) !important;
   padding: var(--p-action-pad-y) var(--p-action-pad-x) !important;
@@ -19,35 +35,50 @@ body.standalone-site [data-action="primary"] {
   font-weight: var(--p-action-font-weight) !important;
   letter-spacing: var(--p-action-letter-spacing) !important;
   line-height: 1.2 !important;
+  text-transform: none !important;
   text-decoration: none !important;
-}
-
-body.group-site [data-action="secondary"],
-body.standalone-site [data-action="secondary"] {
-  display: inline-flex !important;
-  align-items: center !important;
-  box-sizing: border-box;
-  min-height: var(--p-action-height) !important;
-  padding: 0 !important;
-  border: 0 !important;
-  border-bottom: 1px solid currentColor !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  font-size: var(--p-action-font-size) !important;
-  font-weight: var(--p-action-font-weight) !important;
-  letter-spacing: var(--p-action-letter-spacing) !important;
-  line-height: 1.2 !important;
-  text-decoration: none !important;
-}
-
-body.group-site [data-action="primary"],
-body.group-site [data-action="secondary"],
-body.standalone-site [data-action="primary"],
-body.standalone-site [data-action="secondary"] {
   transition: background-color var(--p-duration-base) var(--p-ease-standard),
     color var(--p-duration-base) var(--p-ease-standard),
     border-color var(--p-duration-base) var(--p-ease-standard),
     transform var(--p-duration-fast) var(--p-ease-decelerate);
+}
+
+/* Secondary is an outlined button: border and tint follow the text colour. */
+body.group-site [data-action="secondary"],
+body.standalone-site [data-action="secondary"] {
+  border: var(--p-border-hairline) solid color-mix(in srgb, currentColor 65%, transparent) !important;
+  background: transparent !important;
+}
+body.group-site [data-action="secondary"]:hover,
+body.standalone-site [data-action="secondary"]:hover {
+  border-color: currentColor !important;
+  background: color-mix(in srgb, currentColor 7%, transparent) !important;
+}
+
+/* Trailing arrow on primary buttons; it nudges right on hover/focus. */
+body.group-site [data-action="primary"]::after,
+body.standalone-site [data-action="primary"]::after {
+  content: '';
+  flex: none;
+  width: 0.9em;
+  height: 0.65em;
+  background: currentColor;
+  -webkit-mask: var(--p-action-arrow) center / contain no-repeat;
+  mask: var(--p-action-arrow) center / contain no-repeat;
+  transition: transform var(--p-duration-base) var(--p-ease-standard);
+}
+body.group-site [data-action="primary"]:hover::after,
+body.group-site [data-action="primary"]:focus-visible::after,
+body.standalone-site [data-action="primary"]:hover::after,
+body.standalone-site [data-action="primary"]:focus-visible::after {
+  transform: translateX(3px);
+}
+
+body.group-site [data-action="primary"]:active,
+body.group-site [data-action="secondary"]:active,
+body.standalone-site [data-action="primary"]:active,
+body.standalone-site [data-action="secondary"]:active {
+  transform: translateY(1px) !important;
 }
 
 body.group-site [data-action="primary"]:hover,
@@ -66,5 +97,92 @@ body.group-site [data-action="secondary"]:focus-visible,
 body.standalone-site [data-action="primary"]:focus-visible,
 body.standalone-site [data-action="secondary"]:focus-visible {
   outline: var(--p-border-strong) solid var(--focus-ring);
-  outline-offset: var(--focus-ring-offset);
+  outline-offset: calc(var(--focus-ring-offset) + 1px);
+}
+
+/* ── Tier 3: text links ──────────────────────────────────────────────── */
+/* `.action-link` is the canonical class for new links. The hand-written
+   per-page link selectors are listed once, here, so they share one treatment
+   while keeping their own colours. Anything carrying data-action is a button.
+   Navigation items (headers, footers, sub-navs) are not actions and keep
+   their own style. */
+:is(
+  .action-link,
+  .journal-directory__visit,
+  .journal-directory__imprint-link,
+  .charter-text-link,
+  .charter-secondary__text-link,
+  .charter-secondary__quiet-link,
+  .charter-secondary__inverse-link,
+  .charter-section-bar > a,
+  .health-nexus-link,
+  .health-nexus-secondary__text-link,
+  .health-nexus-secondary__inverse-link,
+  .ridgeline-text-link,
+  .ridgeline-directory__link,
+  .threnody-archive-text-link,
+  .threnody-section-text-link,
+  .threnody-section-inverse-link,
+  .verdant-text-link,
+  .verdant-section-text-link,
+  .verdant-section-bar > a,
+  .standards-list__action,
+  .standards-text-link,
+  .standards-sdg__links a,
+  .dora-links a,
+  .policy-hero__scope a,
+  .dora-hero__scope a,
+  .publishing-pathway__link,
+  .publishing-inline-link,
+  .imprints-directory__closing-link,
+  .books-link,
+  .contact-route__action,
+  .about-division-list a,
+  .about-connection > a,
+  .about-closing__links a,
+  .partnership-card > a,
+  .infra-hero__nav a,
+  .infra-inline-links a,
+  .search-empty__links a
+):not([data-action]) {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5em !important;
+  min-height: var(--p-link-min-height) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  font-size: var(--p-link-font-size) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.25 !important;
+  text-transform: none !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1px !important;
+  text-underline-offset: var(--p-action-underline-offset) !important;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent) !important;
+  transition: color var(--p-duration-base) var(--p-ease-standard),
+    text-decoration-color var(--p-duration-base) var(--p-ease-standard);
+
+  &:hover {
+    text-decoration-color: currentColor !important;
+  }
+
+  /* Arrow, same glyph as the buttons; it nudges right on hover/focus. */
+  &::after {
+    content: '';
+    flex: none;
+    width: 0.85em;
+    height: 0.62em;
+    background: currentColor;
+    -webkit-mask: var(--p-action-arrow) center / contain no-repeat;
+    mask: var(--p-action-arrow) center / contain no-repeat;
+    transition: transform var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: translateX(3px);
+  }
 }
