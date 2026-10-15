@@ -117,41 +117,11 @@ const t = getContent(locale);
     border-bottom: var(--p-border-hairline) solid var(--border-subtle);
   }
 
-  .books-hero__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(25rem, 1.05fr);
-    gap: clamp(3rem, 6vw, 7rem);
-    align-items: stretch;
-    min-height: min(39rem, 73vh);
-    padding-block: 0;
-  }
-
-  .books-hero__copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 40rem;
-    padding-block: clamp(1.5rem, 2vw, 2rem);
-  }
-
-  .books-hero__copy .text-overline {
-    color: var(--text-accent);
-  }
-
   .books-hero h1 {
     max-width: 9ch;
     margin-top: 1.2rem;
     font-size: clamp(2.4rem, 5.6vw, 3.75rem);
     line-height: 0.99;
-  }
-
-  .books-hero__lede {
-    max-width: 35rem;
-    margin-top: 2rem;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: clamp(1.12rem, 1rem + 0.35vw, 1.35rem);
-    line-height: 1.42;
   }
 
   .books-actions {
@@ -211,10 +181,6 @@ const t = getContent(locale);
   }
 
   @media (min-width: 900px) {
-    .books-hero__inner {
-      height: auto;
-      min-height: 0;
-    }
 
     .books-hero__visual {
       align-self: start;
@@ -237,18 +203,9 @@ const t = getContent(locale);
       );
     }
 
-  .books-hero__copy {
-    margin-inline-start: clamp(-4rem, -4vw, -1.5rem);
-    padding-block: 0.75rem;
-  }
-
   .books-hero h1 {
     font-size: clamp(2.4rem, 5.2vw, 3.75rem);
   }
-
-    .books-hero__lede {
-      margin-top: 1.75rem;
-    }
 
     .books-actions {
       margin-top: 2rem;
@@ -370,7 +327,6 @@ const t = getContent(locale);
     border-bottom: var(--p-border-hairline) solid var(--border-strong);
   }
 
-
   .books-format-list h3 {
     margin-top: 1.15rem;
     font-family: var(--font-display);
@@ -431,11 +387,6 @@ const t = getContent(locale);
   }
 
   @media (max-width: 899px) {
-    .books-hero__inner {
-      grid-template-columns: minmax(0, 1fr);
-      min-height: 0;
-      height: auto;
-    }
 
     .books-hero__visual {
       min-height: 27rem;

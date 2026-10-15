@@ -203,70 +203,6 @@ const localizedBasePath = localizePath('/about/', locale);
     padding-block: clamp(4rem, 8vw, 7.5rem) clamp(3.5rem, 7vw, 6rem);
   }
 
-  .about-hero__copy { max-width: 50rem; }
-
-  .about-hero__copy h1 {
-    max-width: 12ch;
-    margin-top: 0.75rem;
-    font-size: clamp(2.4rem, 5.6vw, 3.75rem);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.05em;
-    line-height: 0.98;
-  }
-
-  .about-hero__lede {
-    max-width: 38rem;
-    margin-top: 2rem;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.7vw, 1.3rem);
-    line-height: 1.45;
-  }
-
-  .about-hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 2rem;
-  }
-
-  .about-hero__index {
-    border-top: var(--p-border-strong) solid var(--brand-accent);
-    padding-top: 1rem;
-  }
-
-  .about-hero__index .text-overline { color: var(--interactive-default); }
-
-  .about-hero__index dl { margin: 1rem 0 0; }
-
-  .about-hero__index dl > div {
-    display: grid;
-    grid-template-columns: minmax(5rem, 0.7fr) minmax(0, 1.3fr);
-    gap: 1rem;
-    padding-block: 0.9rem;
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .about-hero__index dt,
-  .about-hero__index dd {
-    margin: 0;
-  }
-
-  .about-hero__index dt {
-    color: var(--text-muted);
-    font-size: 0.62rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .about-hero__index dd {
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-size: 0.98rem;
-    line-height: 1.3;
-  }
-
   .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
 
   .about-statement,
@@ -530,8 +466,6 @@ const localizedBasePath = localizePath('/about/', locale);
 
   @media (max-width: 639px) {
     .about-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
-    .about-hero__copy h1 { max-width: 10ch; font-size: clamp(2.2rem, 10vw, 3rem); }
-    .about-hero__index dl > div { grid-template-columns: 1fr; gap: 0.3rem; }
     .about-statement__grid,
     .about-closing__inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
     .about-statement h2,

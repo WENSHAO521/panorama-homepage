@@ -152,49 +152,6 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
 
   .partnerships-hero { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
 
-  .partnerships-hero__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
-    gap: clamp(3rem, 10vw, 10rem);
-    align-items: end;
-    min-height: 30rem;
-    padding-block: clamp(4rem, 8vw, 7rem) clamp(3.5rem, 7vw, 6rem);
-  }
-
-  .partnerships-hero__copy h1 {
-    max-width: 12ch;
-    margin-top: 0.75rem;
-    font-size: clamp(2.4rem, 5.6vw, 3.75rem);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.05em;
-    line-height: 0.98;
-  }
-
-  .partnerships-hero__lede {
-    max-width: 40rem;
-    margin-top: 1.8rem;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-    line-height: 1.45;
-  }
-
-  .partnerships-hero__index {
-    border-top: var(--p-border-strong) solid var(--brand-accent);
-    padding-top: 1rem;
-  }
-
-  .partnerships-hero__index .text-overline { color: var(--interactive-default); }
-
-  .partnerships-hero__index > p:last-child {
-    max-width: 24rem;
-    margin-top: 1rem;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    line-height: 1.45;
-  }
-
   .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
 
   .partnerships-intro,
@@ -385,14 +342,11 @@ const localizedBasePath = localizePath('/about/partnerships/', locale);
   }
 
   @media (max-width: 900px) {
-    .partnerships-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
     .partnerships-section-head { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
     .partnerships-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   @media (max-width: 639px) {
-    .partnerships-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
-    .partnerships-hero__copy h1 { max-width: 10ch; font-size: clamp(2.2rem, 10vw, 3rem); }
     .partnerships-intro__grid,
     .partnerships-closing__inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
     .partnerships-intro h2,
