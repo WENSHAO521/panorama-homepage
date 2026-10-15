@@ -164,55 +164,6 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     color: var(--text-primary);
   }
 
-  .publishing-hero {
-    overflow: hidden;
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .publishing-hero__grid {
-    display: grid;
-    align-items: center;
-    gap: clamp(2rem, 6vw, 6rem);
-    min-height: min(38rem, 64vh);
-    padding-block: clamp(3.5rem, 6vw, 5.5rem);
-  }
-
-  .publishing-hero__copy {
-    position: relative;
-    z-index: 1;
-  }
-
-  .publishing-hero__overline,
-  .publishing-imprints__overline {
-    color: var(--text-accent);
-  }
-
-  .publishing-hero h1 {
-    max-width: none;
-    margin: 1.1rem 0 1.5rem;
-    font-family: var(--font-display);
-    font-size: clamp(2.4rem, 4.2vw, 3.75rem);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.055em;
-    line-height: 0.94;
-  }
-
-  .publishing-hero__lede {
-    max-width: 34rem;
-    margin: 0;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-    line-height: 1.42;
-  }
-
-  .publishing-hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 2.35rem;
-  }
-
   .publishing-hero__visual {
     position: relative;
     min-height: clamp(20rem, 34vw, 31rem);
@@ -525,11 +476,6 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   @media (min-width: 768px) {
-    .publishing-hero__grid {
-      grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
-      gap: clamp(2rem, 4vw, 4rem);
-    }
-
     .publishing-next__grid { grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr); }
     .publishing-next__actions { justify-content: flex-end; }
   }
@@ -542,8 +488,6 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   @media (max-width: 767px) {
-    .publishing-hero__grid { min-height: 0; }
-
     .publishing-hero__visual {
       min-height: 19rem;
       margin-top: 0.5rem;
@@ -551,7 +495,6 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
     .publishing-hero__orbits { width: min(100%, 22rem); }
 
-    .publishing-hero__keywords { top: 9%; }
     .publishing-hero__note { bottom: 0; }
 
     .publishing-pathways__list { grid-template-columns: 1fr; gap: 2rem; }
@@ -592,12 +535,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   @media (max-width: 479px) {
-    .publishing-hero h1 {
-      max-width: 18ch;
-      font-size: clamp(2.2rem, 10vw, 3rem);
-    }
     .publishing-hero__visual { min-height: 16rem; }
-    .publishing-hero__keywords { right: 0; }
     .publishing-hero__note p { font-size: var(--fs-caption); }
   }
 </style>
