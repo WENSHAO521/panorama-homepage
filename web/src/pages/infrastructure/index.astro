@@ -312,15 +312,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
     border-bottom: var(--p-border-hairline) solid var(--brand-accent);
   }
 
-  .infra-hero__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
-    gap: clamp(2rem, 8vw, 8rem);
-    align-items: end;
-    min-height: 20rem;
-    padding-block: clamp(3rem, 4.5vw, 3.75rem) clamp(2.5rem, 4vw, 3.5rem);
-  }
-
   .infra-hero .text-overline,
   .infra-hero h1 {
     color: var(--text-inverse);
@@ -336,15 +327,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
     font-size: clamp(2.65rem, 3.4vw, 3.5rem);
     font-weight: var(--fw-regular);
     line-height: 0.98;
-  }
-
-  .infra-hero__lede {
-    max-width: 34rem;
-    margin-top: 1.65rem;
-    color: var(--text-inverse-muted);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.7vw, 1.35rem);
-    line-height: 1.45;
   }
 
   .infra-hero__nav {
@@ -376,48 +358,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   .infra-hero__nav a:hover,
   .infra-hero__nav a:focus-visible {
     color: var(--text-link-hover);
-  }
-
-  .infra-hero__summary {
-    border-top: var(--p-border-strong) solid var(--brand-accent);
-    padding-top: 1rem;
-  }
-
-  .infra-hero__summary .text-overline {
-    color: var(--text-inverse-muted);
-  }
-
-  .infra-hero__summary dl {
-    margin: 0.8rem 0 0;
-  }
-
-  .infra-hero__summary dl > div {
-    display: grid;
-    grid-template-columns: minmax(5rem, 0.7fr) minmax(0, 1.3fr);
-    gap: 1rem;
-    padding-block: 0.9rem;
-    border-top: var(--p-border-hairline) solid var(--border-inverse);
-  }
-
-  .infra-hero__summary dt {
-    color: var(--text-inverse-muted);
-    font-size: 0.62rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.1em;
-    line-height: 1.4;
-    text-transform: uppercase;
-  }
-
-  .infra-hero__summary dd {
-    margin: 0;
-    color: var(--text-inverse);
-    font-family: var(--font-display);
-    font-size: 0.98rem;
-    line-height: 1.3;
-  }
-
-  .infra-hero__summary dd span {
-    color: var(--text-accent-inverse);
   }
 
   .row {
@@ -924,7 +864,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   }
 
   @media (max-width: 900px) {
-    .infra-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
     .infra-hero h1 { max-width: 13ch; }
     .infra-intro__grid,
     .infra-note__inner,
@@ -943,9 +882,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   }
 
   @media (max-width: 639px) {
-    .infra-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
     .infra-hero h1 { max-width: 10ch; font-size: clamp(2.2rem, 10vw, 3rem); }
-    .infra-hero__summary dl > div { grid-template-columns: 1fr; gap: 0.3rem; }
     .infra-intro h2,
     .infra-note h2,
     .infra-doi h2,

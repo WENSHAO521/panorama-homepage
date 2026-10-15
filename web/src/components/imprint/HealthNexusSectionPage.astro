@@ -361,23 +361,8 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   }
 
   .health-nexus-secondary__shell { width: var(--hn-secondary-shell); margin-inline: auto; }
-  .health-nexus-secondary__header { position: relative; z-index: 10; border-bottom: 1px solid color-mix(in srgb, var(--hn-secondary-ink) 14%, transparent); background: var(--hn-secondary-paper); }
-  .health-nexus-secondary__header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 5rem; gap: 2rem; }
-  .health-nexus-secondary__brands { display: flex; align-items: center; flex: 0 0 auto; gap: 1rem; }
-  .health-nexus-secondary__divider { width: 1px; height: 2.25rem; background: var(--hn-secondary-line); }
-  .health-nexus-secondary__brand { display: inline-flex; align-items: center; gap: 1.2rem; color: inherit; text-decoration: none; }
-  .health-nexus-secondary__brand img { display: block; width: 11.7rem; height: auto; max-width: none; }
-  .health-nexus-secondary__nav { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.3rem); margin-inline-start: auto; }
-  .health-nexus-secondary__nav a, .health-nexus-secondary__footer a { color: var(--hn-secondary-ink); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; }
-  .health-nexus-secondary__nav a:hover, .health-nexus-secondary__nav a:focus-visible, .health-nexus-secondary__nav a[aria-current='page'] { color: var(--hn-secondary-deep); }
-  .health-nexus-secondary__footer a:hover, .health-nexus-secondary__footer a:focus-visible { color: var(--hn-secondary-cyan-light); }
-  .health-nexus-secondary__search { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
-  .health-nexus-secondary__header-tools { display: flex; align-items: center; gap: 0.75rem; margin-inline-start: 0.2rem; }
-  .health-nexus-secondary__lang { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--hn-secondary-line); }
   .health-nexus-secondary__lang :global(.lang-switcher__trigger) { color: var(--hn-secondary-ink); }
   .health-nexus-secondary__lang :global(.lang-switcher__trigger:hover) { color: var(--hn-secondary-deep); }
-  .health-nexus-secondary__menu-button { display: none; border-radius: var(--p-radius-button); }
-  .health-nexus-secondary__mobile-nav { display: none; }
   .health-nexus-secondary__kicker { margin: 0; color: var(--hn-secondary-deep); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.4; text-transform: uppercase; }
   .health-nexus-secondary__hero .health-nexus-secondary__kicker,
   .health-nexus-secondary__closing-band .health-nexus-secondary__kicker,
@@ -408,9 +393,6 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__journal-copy h2 a { color: inherit; text-decoration: none; }
   .health-nexus-secondary__journal-copy h2 a:hover, .health-nexus-secondary__journal-copy h2 a:focus-visible { color: var(--hn-secondary-deep); }
   .health-nexus-secondary__journal-copy > p:not(.health-nexus-secondary__eyebrow) { max-width: 35rem; margin: 1.15rem 0 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
-  .health-nexus-secondary__journal-meta { display: flex; gap: 0.8rem; margin: 1.5rem 0 0; color: var(--hn-secondary-ink-soft); font-size: 0.62rem; letter-spacing: 0.08em; }
-  .health-nexus-secondary__journal-meta dt { color: var(--hn-secondary-deep); font-weight: 800; text-transform: uppercase; }
-  .health-nexus-secondary__journal-meta dd { margin: 0; }
   .health-nexus-secondary__text-link, .health-nexus-secondary__inverse-link { display: inline-flex; align-items: center; gap: 0.45rem; align-self: flex-start; margin-top: 2rem; border-bottom: 1px solid var(--hn-secondary-cyan); color: var(--hn-secondary-deep); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
   .health-nexus-secondary__text-link:hover, .health-nexus-secondary__text-link:focus-visible { color: var(--hn-secondary-deep); }
   .health-nexus-secondary__cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--hn-secondary-paper-deep); color: var(--hn-secondary-ink-soft); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; }
@@ -464,21 +446,8 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__principle-grid article + article { padding-inline-start: 1.25rem; }
   .health-nexus-secondary__principle-grid h3 { margin-top: 2rem; }
 
-  .health-nexus-secondary__footer { border-top: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 20%, transparent); background: var(--hn-secondary-deeper); color: var(--hn-secondary-paper); }
-  .health-nexus-secondary__footer-top { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 3rem; padding-block: 2rem; }
-  .health-nexus-secondary__brand--footer > span { color: color-mix(in srgb, var(--hn-secondary-paper) 72%, transparent); border-color: color-mix(in srgb, var(--hn-secondary-paper) 25%, transparent); }
-  .health-nexus-secondary__footer-nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-  .health-nexus-secondary__footer a { color: var(--hn-secondary-paper); font-size: 0.6rem; }
-  .health-nexus-secondary__footer-group { display: flex; align-items: center; gap: 0.75rem; padding-inline-start: 2rem; border-inline-start: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 25%, transparent); color: color-mix(in srgb, var(--hn-secondary-paper) 82%, transparent); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.3; text-transform: uppercase; }
-  .health-nexus-secondary__footer-group img { width: 2.5rem; height: 2.5rem; object-fit: contain; }
-  .health-nexus-secondary__footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: 1rem; border-top: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 20%, transparent); color: color-mix(in srgb, var(--hn-secondary-paper) 62%, transparent); font-size: 0.58rem; }
-  .health-nexus-secondary__footer-bottom p { margin: 0; }
-  .health-nexus-secondary__footer-bottom nav { display: flex; gap: 1.2rem; }
-
   @media (max-width: 900px) {
     .health-nexus-secondary { --hn-secondary-shell: min(100% - 3rem, 44rem); }
-    .health-nexus-secondary__nav { gap: 1.1rem; }
-    .health-nexus-secondary__nav a { font-size: 0.6rem; }
     .health-nexus-secondary__hero-inner, .health-nexus-secondary__dark-grid, .health-nexus-secondary__closing-inner, .health-nexus-secondary__about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .health-nexus-secondary__hero { min-height: 35rem; }
     .health-nexus-secondary__hero-wallpaper { inset: 42% 0 0 0; width: 100%; opacity: 0.46; }
@@ -496,17 +465,6 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 
   @media (max-width: 639px) {
     .health-nexus-secondary { --hn-secondary-shell: calc(100% - 2rem); }
-    .health-nexus-secondary__header-inner { min-height: 4.3rem; }
-    .health-nexus-secondary__brand img { width: 8rem; }
-    .health-nexus-secondary__nav { display: none; }
-    .health-nexus-secondary__header-tools { margin-inline-start: auto; }
-    .health-nexus-secondary__lang { display: none; }
-    .health-nexus-secondary__menu-button { display: grid; gap: 0.32rem; width: 2.6rem; height: 2.6rem; padding: 0.7rem 0.5rem; border: 1px solid var(--hn-secondary-ink); border-radius: var(--p-radius-button); background: transparent; }
-    .health-nexus-secondary__menu-button span:not(.visually-hidden) { display: block; width: 100%; height: 1px; background: var(--hn-secondary-ink); }
-    .health-nexus-secondary__mobile-nav { position: absolute; inset: 100% 0 auto; z-index: 12; background: var(--hn-secondary-paper); border-bottom: 1px solid var(--hn-secondary-line); box-shadow: 0 0.9rem 1.7rem color-mix(in srgb, var(--hn-secondary-ink) 9%, transparent); }
-    .health-nexus-secondary__mobile-nav:not([hidden]) { display: grid; }
-    .health-nexus-secondary__mobile-nav a { padding: 1rem; border-top: 1px solid var(--hn-secondary-line); color: var(--hn-secondary-ink); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
-    .health-nexus-secondary__mobile-language { padding: 0.75rem 1rem 1rem; border-top: 1px solid var(--hn-secondary-line); }
     .health-nexus-secondary__mobile-language :global(.lang-switcher__trigger) { padding-inline: 0.5rem; color: var(--hn-secondary-ink); }
     .health-nexus-secondary__mobile-language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
     .health-nexus-secondary__mobile-language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; border: 0; color: var(--hn-secondary-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
@@ -519,15 +477,11 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
     .health-nexus-secondary__journal-cover-wrap { width: 11rem; }
     .health-nexus-secondary__journal-copy { padding-block: 0; }
     .health-nexus-secondary__journal-copy h2 { font-size: 2.5rem; }
-    .health-nexus-secondary__journal-meta { flex-wrap: wrap; }
     .health-nexus-secondary__closing-inner h2, .health-nexus-secondary__dark-grid h2 { font-size: 3rem; }
     .health-nexus-secondary__dark-grid > div:last-child, .health-nexus-secondary__prose { padding-inline-start: 1rem; }
     .health-nexus-secondary__field-grid, .health-nexus-secondary__steps, .health-nexus-secondary__submission-grid, .health-nexus-secondary__principle-grid, .health-nexus-secondary__commitment-grid { grid-template-columns: 1fr; }
     .health-nexus-secondary__field-grid article, .health-nexus-secondary__field-grid article:nth-child(even), .health-nexus-secondary__steps article, .health-nexus-secondary__commitment-grid article, .health-nexus-secondary__commitment-grid article + article, .health-nexus-secondary__principle-grid article, .health-nexus-secondary__principle-grid article + article, .health-nexus-secondary__submission-grid article, .health-nexus-secondary__submission-grid article + article { min-height: auto; padding: 1.5rem 0; border-inline-start: 0; border-bottom: 1px solid var(--hn-secondary-line); }
     .health-nexus-secondary__steps article:first-child { padding-top: 0; }
     .health-nexus-secondary__steps h3, .health-nexus-secondary__principle-grid h3 { margin-top: 1.25rem; }
-    .health-nexus-secondary__footer-top, .health-nexus-secondary__footer-bottom { align-items: flex-start; grid-template-columns: 1fr; flex-direction: column; gap: 1.4rem; }
-    .health-nexus-secondary__footer-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; }
-    .health-nexus-secondary__footer-group { padding-inline-start: 0; border-inline-start: 0; }
   }
 </style>

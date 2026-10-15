@@ -277,22 +277,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 <style>
   .charter-secondary { /* Mapped onto the Charter theme in src/styles/imprint-themes.css */ --cs-paper: var(--imprint-paper); --cs-paper-deep: var(--imprint-tint); --cs-ink: var(--imprint-deeper); --cs-ink-soft: var(--imprint-text-soft); --cs-line: var(--imprint-line); --cs-red: var(--imprint-primary); --cs-gold: var(--imprint-secondary); --cs-gold-ink: var(--imprint-secondary-ink); --cs-gold-light: var(--imprint-secondary-light); --cs-teal: var(--imprint-deep); --imprint-accent: var(--cs-red); --cs-shell: min(100% - 7rem, 1480px); overflow: hidden; background: var(--cs-paper); color: var(--cs-ink); }
   .charter-secondary__shell { width: var(--cs-shell); margin-inline: auto; }
-  .charter-secondary__header { position: relative; z-index: 10; border-bottom: 1px solid color-mix(in srgb, var(--cs-ink) 18%, transparent); background: var(--cs-paper); }
-  .charter-secondary__header-inner { display: flex; align-items: center; gap: 2rem; min-height: 5rem; }
-  .charter-secondary__brands { display: flex; align-items: center; flex: 0 0 auto; gap: 1rem; }
-  .charter-secondary__divider { width: 1px; height: 2.25rem; background: var(--cs-line); }
-  .charter-secondary__brand { display: inline-flex; align-items: center; gap: 1.2rem; color: inherit; text-decoration: none; }
-  .charter-secondary__brand img { display: block; width: 13rem; height: auto; }
-  .charter-secondary__nav { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2.2rem); margin-inline-start: auto; }
-  .charter-secondary__nav a, .charter-secondary__footer a { color: var(--cs-ink); font-size: 0.65rem; font-weight: 750; letter-spacing: 0.06em; text-decoration: none; }
-  .charter-secondary__nav a[aria-current='page'] { color: var(--cs-red); }
-  .charter-secondary__search { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--cs-line); }
-  .charter-secondary__tools { display: flex; align-items: center; gap: 1rem; margin-inline-start: 0.4rem; }
-  .charter-secondary__lang { padding-inline-start: 1rem; border-inline-start: 1px solid var(--cs-line); }
   .charter-secondary__lang :global(.lang-switcher__trigger) { color: var(--cs-ink); }
-  .charter-secondary__menu-button { display: none; width: 2.6rem; height: 2.6rem; padding: 0.7rem 0.5rem; border: 1px solid var(--cs-ink); border-radius: var(--p-radius-button); background: transparent; }
-  .charter-secondary__menu-button span:not(.visually-hidden) { display: block; width: 100%; height: 1px; margin: 0.3rem 0; background: var(--cs-ink); }
-  .charter-secondary__mobile-nav { display: none; }
 
   .charter-secondary__hero { position: relative; isolation: isolate; min-height: clamp(34rem, 53vw, 49rem); overflow: hidden; background: var(--cs-ink); color: var(--cs-paper); }
   .charter-secondary__hero-wallpaper { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 72% center; }
@@ -323,9 +308,6 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__journal-copy h2 a { color: inherit; text-decoration: none; }
   .charter-secondary__journal-copy h2 a:hover { color: var(--cs-red); }
   .charter-secondary__journal-copy > p:not(.charter-secondary__eyebrow) { max-width: 40rem; margin: 1.15rem 0 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
-  .charter-secondary__journal-meta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1.5rem 0 0; color: var(--cs-ink-soft); font-size: 0.62rem; letter-spacing: 0.08em; }
-  .charter-secondary__journal-meta dt { color: var(--cs-red); font-weight: 800; text-transform: uppercase; }
-  .charter-secondary__journal-meta dd { margin: 0; }
   .charter-secondary__cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--cs-paper-deep); color: var(--cs-ink-soft); font-size: 0.62rem; letter-spacing: 0.12em; text-align: center; text-transform: uppercase; }
   .charter-secondary__link-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 2rem; }
   .charter-secondary__text-link, .charter-secondary__quiet-link, .charter-secondary__inverse-link { display: inline-flex; align-items: center; gap: 0.45rem; border-bottom: 1px solid var(--cs-red); color: var(--cs-ink); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
@@ -377,39 +359,14 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__closing-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: end; }
   .charter-secondary__closing-grid h2 { max-width: 15ch; margin: 1.2rem 0 0; font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 4.2rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
 
-  .charter-secondary__footer { background: var(--cs-teal); color: var(--cs-paper); }
-  .charter-secondary__footer-top { display: grid; grid-template-columns: minmax(13rem, 0.8fr) minmax(0, 1.5fr) minmax(8rem, 0.55fr); gap: 2rem; align-items: center; padding-block: 2.8rem 2.4rem; }
-  .charter-secondary__footer-brand { display: inline-flex; flex-direction: column; color: var(--cs-paper) !important; }
-  .charter-secondary__footer-brand span { font-family: var(--font-display); font-size: 1.05rem; font-weight: 650; letter-spacing: -0.03em; line-height: 0.95; }
-  .charter-secondary__footer-brand small { margin-top: 0.18rem; color: color-mix(in srgb, var(--cs-paper) 65%, transparent); font-size: 0.4rem; font-weight: 750; letter-spacing: 0.14em; line-height: 1; text-transform: uppercase; }
-  .charter-secondary__footer-brand p { max-width: 12rem; margin: 1rem 0 0; color: color-mix(in srgb, var(--cs-paper) 68%, transparent); font-family: var(--font-display); font-size: 0.8rem; line-height: 1.4; }
-  .charter-secondary__footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.85rem 1.45rem; }
-  .charter-secondary__footer-nav a { color: color-mix(in srgb, var(--cs-paper) 86%, transparent); }
-  .charter-secondary__footer-mark { justify-self: end; display: block; width: min(10rem, 100%); }
-  .charter-secondary__footer-mark img { display: block; width: 100%; height: auto; }
-  .charter-secondary__footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem 2rem; padding-block: 1rem; border-top: 1px solid color-mix(in srgb, var(--cs-paper) 22%, transparent); color: color-mix(in srgb, var(--cs-paper) 58%, transparent); font-size: 0.58rem; }
-  .charter-secondary__footer-bottom p { margin: 0; }
-  .charter-secondary__footer-bottom nav { display: flex; gap: 1.2rem; }
-  .charter-secondary__footer-bottom a { color: inherit; }
-
   @media (max-width: 1000px) {
     .charter-secondary { --cs-shell: min(100% - 4rem, 1480px); }
-    .charter-secondary__nav { gap: 1rem; }
-    .charter-secondary__nav a { font-size: 0.58rem; }
     .charter-secondary__principle-grid, .charter-secondary__submission-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .charter-secondary__principle-grid article:nth-child(odd), .charter-secondary__submission-grid article:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
     .charter-secondary__principle-grid article:nth-child(n + 3), .charter-secondary__submission-grid article:nth-child(n + 3) { border-top: 1px solid var(--cs-line); }
   }
 
   @media (max-width: 800px) {
-    .charter-secondary__header-inner { gap: 1rem; }
-    .charter-secondary__nav { display: none; }
-    .charter-secondary__tools { margin-inline-start: auto; }
-    .charter-secondary__menu-button { display: grid; }
-    .charter-secondary__mobile-nav { gap: 0; padding: 0 2rem 1rem; border-top: 1px solid var(--cs-line); background: var(--cs-paper); }
-    .charter-secondary__mobile-nav:not([hidden]) { display: grid; }
-    .charter-secondary__mobile-nav a { padding: 0.85rem 0; border-bottom: 1px solid var(--cs-line); color: var(--cs-ink); font-size: 0.68rem; font-weight: 750; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
-    .charter-secondary__mobile-language { padding-top: 0.75rem; }
     .charter-secondary__hero { min-height: 38rem; }
     .charter-secondary__hero-inner, .charter-secondary__dark-grid, .charter-secondary__about-grid { grid-template-columns: 1fr; gap: 3rem; }
     .charter-secondary__hero-wallpaper { inset: 38% 0 0; height: 62%; object-position: 72% center; }
@@ -423,17 +380,10 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
     .charter-secondary__split-heading { grid-template-columns: 1fr; gap: 1.5rem; }
     .charter-secondary__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2rem; }
     .charter-secondary__steps article:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
-    .charter-secondary__footer-top { grid-template-columns: 1fr 1fr; }
-    .charter-secondary__footer-nav { justify-content: flex-start; }
-    .charter-secondary__footer-mark { justify-self: start; }
   }
 
   @media (max-width: 600px) {
     .charter-secondary { --cs-shell: calc(100% - 2rem); }
-    .charter-secondary__header-inner { min-height: 4.3rem; }
-    .charter-secondary__brand img { width: 10rem; }
-    .charter-secondary__lang { display: none; }
-    .charter-secondary__mobile-nav { padding-inline: 1rem; }
     .charter-secondary__hero { min-height: 39rem; }
     .charter-secondary__hero h1 { max-width: 10ch; font-size: clamp(3rem, 14vw, 4.7rem); }
     .charter-secondary__hero-inner { padding-block: 3.5rem 4rem; }
@@ -449,8 +399,5 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
     .charter-secondary__steps h3, .charter-secondary__principle-grid h3 { margin-top: 1.25rem; }
     .charter-secondary__dark-grid > div:last-child, .charter-secondary__prose { padding-inline-start: 1rem; }
     .charter-secondary__closing-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .charter-secondary__footer-top, .charter-secondary__footer-bottom { align-items: flex-start; grid-template-columns: 1fr; flex-direction: column; gap: 1.4rem; }
-    .charter-secondary__footer-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1.5rem; }
-    .charter-secondary__footer-mark { width: 8rem; }
   }
 </style>

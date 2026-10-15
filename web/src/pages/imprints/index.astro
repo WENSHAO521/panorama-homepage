@@ -158,15 +158,6 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     color: var(--text-primary);
   }
 
-  .imprints-directory__hero {
-    padding-block: clamp(3.8rem, 7vw, 6.5rem) 0;
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .imprints-directory__hero-inner {
-    padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
-  }
-
   .imprints-directory__overline,
   .imprint-row__meta,
   .imprint-row__journals-header,
@@ -186,14 +177,6 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     color: var(--text-secondary);
   }
 
-  .imprints-directory__hero-grid {
-    display: grid;
-    align-items: end;
-    gap: clamp(2.5rem, 8vw, 9rem);
-    grid-template-columns: minmax(0, 1.5fr) minmax(15rem, 0.5fr);
-    margin-top: 1.35rem;
-  }
-
   .imprints-directory h1,
   .imprints-directory h2,
   .imprints-directory h3 {
@@ -207,15 +190,6 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     margin: 0;
     font-size: clamp(3.6rem, 7.5vw, 7.2rem);
     line-height: 0.92;
-  }
-
-  .imprints-directory__hero-lede {
-    max-width: 36rem;
-    margin: 1.65rem 0 0;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.55vw, 1.3rem);
-    line-height: 1.42;
   }
 
   .imprints-directory__stats {
@@ -555,10 +529,6 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     .imprints-directory__section-heading,
     .imprint-row {
       grid-template-columns: 1fr;
-    }
-
-    .imprints-directory__hero-grid {
-      gap: 2.5rem;
     }
 
     .imprints-directory h1 {

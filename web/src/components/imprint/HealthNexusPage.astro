@@ -270,101 +270,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   .health-nexus-shell { width: var(--hn-shell); margin-inline: auto; }
-
-  .health-nexus-header {
-    position: relative;
-    z-index: 10;
-    min-height: clamp(4rem, 5vw, 5rem);
-    border-bottom: 1px solid color-mix(in srgb, var(--hn-ink) 14%, transparent);
-    background: var(--hn-paper);
-  }
-
-  .health-nexus-header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: inherit;
-    gap: 2rem;
-  }
-
-  .health-nexus-header__brands { display: flex; align-items: center; flex: 0 0 auto; gap: 1rem; }
-  .health-nexus-header__divider { width: 1px; height: 2.25rem; background: var(--hn-line); }
-
-  .health-nexus-brand,
-  .health-nexus-footer__brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .health-nexus-brand img { width: clamp(10rem, 16vw, 13rem); height: auto; }
-
-  .health-nexus-footer__brand span {
-    max-width: 8.5rem;
-    padding-inline-start: 0.8rem;
-    border-inline-start: 1px solid var(--hn-line);
-    color: var(--hn-ink-soft);
-    font-size: 0.53rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    line-height: 1.45;
-    text-transform: uppercase;
-  }
-
-  .health-nexus-nav,
-  .health-nexus-footer__nav {
-    display: flex;
-    align-items: center;
-    gap: clamp(1rem, 2vw, 2.25rem);
-    margin-inline-start: auto;
-  }
-
-  .health-nexus-nav a,
-  .health-nexus-footer__nav a {
-    position: relative;
-    color: var(--hn-ink);
-    font-size: 0.66rem;
-    font-weight: 650;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: color var(--p-duration-base) var(--p-ease-standard);
-  }
-
-  .health-nexus-nav a::after {
-    position: absolute;
-    inset-inline: 0;
-    inset-block-end: -0.62rem;
-    height: 1px;
-    background: var(--hn-cyan);
-    content: '';
-    opacity: 0;
-    transform: scaleX(0.4);
-    transition: opacity var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-base) var(--p-ease-standard);
-  }
-
-  .health-nexus-nav a:hover,
-  .health-nexus-nav a:focus-visible,
-  .health-nexus-footer__nav a:hover,
-  .health-nexus-footer__nav a:focus-visible { color: var(--hn-deep); }
-
-  .health-nexus-nav a:hover::after,
-  .health-nexus-nav a:focus-visible::after,
-  .health-nexus-nav a.is-active::after { opacity: 1; transform: scaleX(1); }
-
-  .health-nexus-nav__search {
-    padding-inline-start: 1.25rem;
-    border-inline-start: 1px solid var(--hn-line);
-  }
-
-  .health-nexus-header__tools { display: flex; align-items: center; gap: 0.75rem; margin-inline-start: 0.2rem; }
-  .health-nexus-header__lang { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--hn-line); }
   .health-nexus-header__lang :global(.lang-switcher__trigger) { color: var(--hn-ink); }
   .health-nexus-header__lang :global(.lang-switcher__trigger:hover) { color: var(--hn-deep); }
-
-  .health-nexus-menu-button,
-  .health-nexus-mobile-nav { display: none; }
 
   .health-nexus-hero {
     position: relative;
@@ -830,26 +737,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .health-nexus-authors__copy > p { margin: 0; color: var(--hn-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
   .health-nexus-authors blockquote { margin: 0; color: var(--hn-deep); font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 2rem); font-style: italic; line-height: 1.1; }
 
-  .health-nexus-footer { background: var(--hn-deeper); color: var(--hn-paper); padding-block: 2.6rem 1rem; }
-  .health-nexus-footer__top { display: grid; grid-template-columns: minmax(13rem, 1fr) minmax(0, 1.5fr) auto; gap: 2rem; align-items: center; padding-bottom: 2.4rem; }
-  .health-nexus-footer__brand { align-items: flex-start; flex-direction: column; gap: 0.75rem; }
-  .health-nexus-footer__brand img { width: min(13rem, 100%); height: auto; }
-  .health-nexus-footer__brand span { max-width: none; padding: 0; border: 0; color: color-mix(in srgb, var(--hn-paper) 60%, transparent); font-size: 0.5rem; }
-  .health-nexus-footer__nav { justify-content: center; margin: 0; }
-  .health-nexus-footer__nav a { color: color-mix(in srgb, var(--hn-paper) 84%, transparent); }
-  .health-nexus-footer__group { display: inline-flex; align-items: center; gap: 0.55rem; padding-inline-start: 1.5rem; border-inline-start: 1px solid color-mix(in srgb, var(--hn-paper) 25%, transparent); color: color-mix(in srgb, var(--hn-paper) 86%, transparent); font-size: 0.63rem; font-weight: 700; line-height: 1.25; }
-  .health-nexus-footer__group img { width: 2.5rem; height: 2.5rem; }
-  .health-nexus-footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem 2rem; padding-top: 1rem; border-top: 1px solid color-mix(in srgb, var(--hn-paper) 20%, transparent); color: color-mix(in srgb, var(--hn-paper) 58%, transparent); font-size: 0.62rem; }
-  .health-nexus-footer__bottom p { margin: 0; }
-  .health-nexus-footer__bottom nav { display: flex; gap: 1.25rem; }
-  .health-nexus-footer__bottom a { color: inherit; text-decoration: none; }
-  .health-nexus-footer__nav a:hover,
-  .health-nexus-footer__nav a:focus-visible,
-  .health-nexus-footer__bottom a:hover { color: var(--hn-cyan-light); }
-
   @media (max-width: 1080px) {
     .health-nexus-page { --hn-shell: min(100% - 4rem, 1480px); }
-    .health-nexus-nav { gap: 1rem; }
     .health-nexus-hero__side-note { inset-inline-end: 1rem; width: 7rem; }
     .health-nexus-field-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 2rem; }
     .health-nexus-field:nth-child(4) { padding-inline-start: 0; border-inline-start: 0; }
@@ -859,16 +748,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   @media (max-width: 760px) {
     .health-nexus-page { --hn-shell: min(100% - 2.5rem, 42rem); }
-    .health-nexus-header__inner { min-height: 4.5rem; }
-    .health-nexus-nav { display: none; }
-    .health-nexus-header__tools { margin-inline-start: auto; }
-    .health-nexus-header__lang { display: none; }
-    .health-nexus-menu-button { display: grid; gap: 0.35rem; width: 2.6rem; padding: 0.6rem; border: 0; border-radius: var(--p-radius-button); background: transparent; color: var(--hn-ink); cursor: pointer; }
-    .health-nexus-menu-button span:not(.visually-hidden) { display: block; width: 100%; height: 1px; background: currentColor; }
-    .health-nexus-mobile-nav { display: grid; gap: 0; padding: 0 var(--p-gutter-mobile) 1rem; border-top: 1px solid var(--hn-line); background: var(--hn-paper); }
-    .health-nexus-mobile-nav[hidden] { display: none; }
-    .health-nexus-mobile-nav a { padding: 0.7rem 0; border-bottom: 1px solid var(--hn-line); color: var(--hn-ink); font-size: 0.78rem; font-weight: 700; text-decoration: none; }
-    .health-nexus-mobile-nav__language { padding-top: 0.75rem; }
     .health-nexus-mobile-nav__language :global(.lang-switcher__trigger) { padding-inline: 0.25rem; color: var(--hn-ink); }
     .health-nexus-mobile-nav__language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
     .health-nexus-mobile-nav__language :global(.lang-switcher__link) { padding: 0.65rem 0.25rem; border: 0; color: var(--hn-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
@@ -903,9 +782,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     .health-nexus-authors__inner { grid-template-columns: 1fr; gap: 2rem; }
     .health-nexus-authors__heading { padding: 0 0 1.5rem; border-inline-end: 0; border-bottom: 1px solid var(--hn-line); }
     .health-nexus-authors blockquote { padding-top: 1.5rem; border-top: 1px solid var(--hn-line); }
-    .health-nexus-footer__top { grid-template-columns: 1fr; gap: 2rem; }
-    .health-nexus-footer__nav { justify-content: flex-start; flex-wrap: wrap; margin: 0; }
-    .health-nexus-footer__group { width: fit-content; padding: 1rem 0 0; border-inline-start: 0; border-top: 1px solid color-mix(in srgb, var(--hn-paper) 25%, transparent); }
   }
 
   @media (max-width: 460px) {

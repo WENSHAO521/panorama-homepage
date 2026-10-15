@@ -280,42 +280,9 @@ const localizedPageDescription = isJournals
   }
 
   .verdant-section-shell { width: var(--vs-shell); margin-inline: auto; }
-
-  .verdant-section-header { position: relative; z-index: 10; background: var(--vs-paper); border-bottom: 1px solid var(--vs-line); }
-  .verdant-section-header__inner { display: flex; align-items: center; min-height: 5rem; gap: 1.4rem; }
-  .verdant-section-header__brands { display: flex; align-items: center; flex: 0 0 auto; gap: 1rem; }
-  .verdant-section-group-brand,
-  .verdant-section-imprint-brand,
-  .verdant-section-footer__brand { color: inherit; text-decoration: none; }
-  .verdant-section-group-brand { display: inline-flex; align-items: flex-start; }
-  .verdant-section-header__divider { width: 1px; height: 2.25rem; background: var(--vs-line); }
-  .verdant-section-imprint-brand { display: block; width: 8.5rem; }
-  .verdant-section-imprint-brand img { display: block; width: 100%; height: auto; }
-  .verdant-section-nav,
-  .verdant-section-footer__nav { display: flex; align-items: center; gap: clamp(0.85rem, 1.8vw, 2rem); margin-inline-start: auto; }
-  .verdant-section-nav a,
-  .verdant-section-footer__nav a,
-  .verdant-section-header__search,
-  .verdant-section-header__lang { color: var(--vs-ink); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-decoration: none; white-space: nowrap; }
-  .verdant-section-nav a { position: relative; padding-block: 0.4rem; }
-  .verdant-section-nav a::after { position: absolute; inset-inline: 0; inset-block-end: -1.1rem; height: 2px; background: var(--vs-rust); content: ''; opacity: 0; transform: scaleX(0.5); transition: opacity var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-base) var(--p-ease-standard); }
-  .verdant-section-nav a:hover::after,
-  .verdant-section-nav a:focus-visible::after,
-  .verdant-section-nav a[aria-current='page']::after { opacity: 1; transform: scaleX(1); }
-  .verdant-section-nav a:hover,
-  .verdant-section-nav a:focus-visible,
-  .verdant-section-header__search:hover,
-  .verdant-section-header__search:focus-visible,
-  .verdant-section-footer__nav a:hover,
-  .verdant-section-footer__nav a:focus-visible { color: var(--vs-green); }
-  .verdant-section-header__tools { display: flex; align-items: center; gap: 0.9rem; margin-inline-start: 0.4rem; }
-  .verdant-section-header__search { padding-inline-start: 1rem; border-inline-start: 1px solid var(--vs-line); }
-  .verdant-section-header__lang { padding-inline-start: 0.9rem; border-inline-start: 1px solid var(--vs-line); }
   .verdant-section-header__lang :global(.lang-switcher__trigger) { color: var(--vs-ink); }
   .verdant-section-header__lang :global(.lang-switcher__trigger:hover) { color: var(--vs-green); }
   .verdant-section-header__lang :global(.lang-switcher__panel) { font-size: var(--fs-body-sm); font-weight: 400; letter-spacing: normal; white-space: normal; }
-  .verdant-section-menu-button { display: none; border-radius: var(--p-radius-button); }
-  .verdant-section-mobile-nav { display: none; }
 
   .verdant-section-hero { position: relative; isolation: isolate; min-height: clamp(29rem, 43vw, 39rem); overflow: hidden; border-bottom: 1px solid var(--vs-line); background: var(--vs-paper); }
   .verdant-section-hero__wallpaper { position: absolute; inset: 0 0 0 45%; z-index: -2; width: 55%; height: 100%; object-fit: cover; object-position: center; opacity: 0.62; mix-blend-mode: multiply; filter: saturate(0.78) contrast(0.92); }
@@ -355,10 +322,6 @@ const localizedPageDescription = isJournals
   .verdant-journal-row__copy h2 a:hover,
   .verdant-journal-row__copy h2 a:focus-visible { color: var(--vs-rust); }
   .verdant-journal-row__summary { max-width: 38rem; margin: 1.3rem 0 0; color: var(--vs-ink-soft); font-family: var(--font-display); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.45; }
-  .verdant-journal-row__meta { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; margin: 1.8rem 0 0; padding-top: 1rem; border-top: 1px solid var(--vs-line); }
-  .verdant-journal-row__meta div { display: flex; gap: 0.55rem; align-items: baseline; }
-  .verdant-journal-row__meta dt { color: var(--vs-green); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; }
-  .verdant-journal-row__meta dd { margin: 0; color: var(--vs-ink-soft); font-size: 0.72rem; }
   .verdant-section-text-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.8rem; border-bottom: 1px solid currentColor; color: var(--vs-green-dark); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
   .verdant-section-text-link:hover,
   .verdant-section-text-link:focus-visible { color: var(--vs-rust); }
@@ -405,45 +368,13 @@ const localizedPageDescription = isJournals
   .verdant-section-button--light:focus-visible { background: var(--vs-green); border-color: var(--vs-green); color: var(--vs-paper); }
   .verdant-section-text-link--light { color: var(--vs-paper); }
 
-  .verdant-section-footer { background: var(--vs-green-dark); color: var(--vs-paper); }
-  .verdant-section-footer__top { display: grid; grid-template-columns: minmax(13rem, 0.85fr) minmax(0, 1.5fr) minmax(8rem, 0.45fr); gap: 2.5rem; align-items: center; padding-block: 2.5rem; }
-  .verdant-section-footer__brand { display: flex; align-items: center; gap: 1rem; }
-  .verdant-section-footer__brand img { display: block; width: 8.5rem; height: auto; }
-  .verdant-section-footer__brand span { max-width: 8rem; padding-inline-start: 0.9rem; border-inline-start: 1px solid color-mix(in srgb, var(--vs-paper) 35%, transparent); color: color-mix(in srgb, var(--vs-paper) 72%, transparent); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.12em; line-height: 1.5; text-transform: uppercase; }
-  .verdant-section-footer__nav { flex-wrap: wrap; justify-content: flex-start; margin: 0; }
-  .verdant-section-footer__nav a { color: var(--vs-paper); }
-  .verdant-section-footer__nav a:hover,
-  .verdant-section-footer__nav a:focus-visible { color: var(--vs-sage); }
-  .verdant-section-footer__group { display: flex; align-items: center; gap: 0.65rem; justify-self: end; padding-inline-start: 1.5rem; border-inline-start: 1px solid color-mix(in srgb, var(--vs-paper) 35%, transparent); color: color-mix(in srgb, var(--vs-paper) 72%, transparent); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.4; text-transform: uppercase; }
-  .verdant-section-footer__group img { display: block; width: 2.5rem; height: 2.5rem; object-fit: contain; }
-  .verdant-section-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; border-top: 1px solid color-mix(in srgb, var(--vs-paper) 24%, transparent); color: color-mix(in srgb, var(--vs-paper) 65%, transparent); font-size: 0.6rem; }
-  .verdant-section-footer__bottom p { margin: 0; }
-  .verdant-section-footer__bottom nav { display: flex; gap: 1.25rem; }
-  .verdant-section-footer__bottom a { color: inherit; text-decoration: none; }
-  .verdant-section-footer__bottom a:hover,
-  .verdant-section-footer__bottom a:focus-visible { color: var(--vs-paper); }
-
   @media (max-width: 1200px) {
     .verdant-section-page { --vs-shell: min(100% - 4rem, 1120px); }
-    .verdant-section-nav { gap: 0.85rem; }
-    .verdant-section-nav a { font-size: 0.57rem; }
-    .verdant-section-header__search { display: none; }
     .verdant-section-hero__inner { grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.62fr); }
   }
 
   @media (max-width: 900px) {
     .verdant-section-page { --vs-shell: min(100% - 3rem, 44rem); }
-    .verdant-section-header__inner { min-height: 4.5rem; }
-    .verdant-section-nav { display: none; }
-    .verdant-section-header__tools { margin-inline-start: auto; }
-    .verdant-section-header__search { display: inline; }
-    .verdant-section-menu-button { display: inline-flex; align-items: center; min-height: 2rem; padding: 0.45rem 0.7rem; border: 1px solid var(--vs-ink); border-radius: var(--p-radius-button); background: transparent; color: var(--vs-ink); font: inherit; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-    .verdant-section-menu-button:hover,
-    .verdant-section-menu-button:focus-visible { background: var(--vs-ink); color: var(--vs-paper); }
-    .verdant-section-mobile-nav { position: absolute; inset: 100% 0 auto; z-index: 12; background: var(--vs-paper); border-bottom: 1px solid var(--vs-line); box-shadow: 0 0.75rem 1.5rem color-mix(in srgb, var(--vs-ink) 10%, transparent); }
-    .verdant-section-mobile-nav:not([hidden]) { display: grid; }
-    .verdant-section-mobile-nav a { padding: 0.95rem var(--p-gutter-mobile); border-top: 1px solid var(--vs-line); color: var(--vs-ink); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
-    .verdant-section-mobile-nav__language { padding: 0.75rem var(--p-gutter-mobile) 1rem; border-top: 1px solid var(--vs-line); }
     .verdant-section-mobile-nav__language :global(.lang-switcher__trigger) { padding-inline: 0.5rem; color: var(--vs-ink); }
     .verdant-section-mobile-nav__language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
     .verdant-section-mobile-nav__language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; border: 0; color: var(--vs-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
@@ -462,17 +393,10 @@ const localizedPageDescription = isJournals
     .verdant-about-fields__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .verdant-about-fields__grid article:nth-child(4) { padding-inline-start: 0; border-inline-start: 0; }
     .verdant-about-principles__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .verdant-section-footer__top { grid-template-columns: 1fr 1fr; }
-    .verdant-section-footer__group { justify-self: start; }
   }
 
   @media (max-width: 639px) {
     .verdant-section-page { --vs-shell: calc(100% - 2rem); }
-    .verdant-section-header__brands { gap: 0.65rem; }
-    .verdant-section-header__divider { height: 1.8rem; }
-    .verdant-section-imprint-brand { width: 6.7rem; }
-    .verdant-section-header__lang { display: none; }
-    .verdant-section-header__search { padding-inline-start: 0; border-inline-start: 0; }
     .verdant-section-hero { min-height: 43rem; }
     .verdant-section-hero__wallpaper { inset: 46% -18% 0 0; width: 118%; opacity: 0.38; }
     .verdant-section-hero__wash { inset: 0 0 48% 0; }
@@ -488,7 +412,6 @@ const localizedPageDescription = isJournals
     .verdant-journal-row__copy { grid-column: 2; }
     .verdant-journal-row__copy h2 { font-size: 2.5rem; }
     .verdant-journal-row__summary { font-size: 1rem; }
-    .verdant-journal-row__meta { display: grid; gap: 0.55rem; }
     .verdant-section-dark-band h2,
     .verdant-about-statement h2,
     .verdant-about-principles h2,
@@ -503,10 +426,6 @@ const localizedPageDescription = isJournals
     .verdant-about-fields__grid p { font-size: 0.8rem; }
     .verdant-about-principles__grid { grid-template-columns: 1fr; gap: 1.8rem; }
     .verdant-about-cta__actions { align-items: flex-start; flex-direction: column; }
-    .verdant-section-footer__top { grid-template-columns: 1fr; gap: 2rem; padding-block: 2.25rem; }
-    .verdant-section-footer__nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1rem; }
-    .verdant-section-footer__group { justify-self: start; padding-inline-start: 0; padding-top: 1rem; border-inline-start: 0; border-top: 1px solid color-mix(in srgb, var(--vs-paper) 35%, transparent); }
-    .verdant-section-footer__bottom { align-items: flex-start; flex-direction: column; }
   }
 
   @media (prefers-reduced-motion: reduce) {

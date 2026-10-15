@@ -133,18 +133,6 @@ function compactDescription(description?: string) {
     color: var(--text-primary);
   }
 
-  .journal-directory__hero {
-    padding-block: clamp(3.5rem, 6vw, 5.5rem) clamp(3.5rem, 6vw, 5rem);
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .journal-directory__hero-grid {
-    display: grid;
-    align-items: end;
-    gap: clamp(3rem, 8vw, 9rem);
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .journal-directory__overline,
   .journal-directory__imprint-name p,
   .journal-directory__discipline {
@@ -157,10 +145,6 @@ function compactDescription(description?: string) {
     text-transform: uppercase;
   }
 
-  .journal-directory__overline {
-    color: var(--text-secondary);
-  }
-
   .journal-directory h1 {
     max-width: 18ch;
     margin: 1.2rem 0 1.5rem;
@@ -169,52 +153,6 @@ function compactDescription(description?: string) {
     font-weight: var(--fw-regular);
     letter-spacing: -0.055em;
     line-height: 0.94;
-  }
-
-  .journal-directory__lede {
-    max-width: 39rem;
-    margin: 0;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.65vw, 1.35rem);
-    line-height: 1.4;
-  }
-
-  .journal-directory__stat {
-    display: grid;
-    align-content: end;
-    justify-items: start;
-    max-width: 18rem;
-    padding-block: 0.35rem 0.2rem;
-    padding-inline-start: 1.4rem;
-    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
-  }
-
-  .journal-directory__stat strong {
-    font-family: var(--font-display);
-    font-size: clamp(3.2rem, 5vw, 4.75rem);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.06em;
-    line-height: 0.9;
-  }
-
-  .journal-directory__stat span {
-    margin-top: 0.6rem;
-    color: var(--text-muted);
-    font-size: 0.58rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.2em;
-    line-height: 1.35;
-    text-transform: uppercase;
-  }
-
-  .journal-directory__stat p {
-    max-width: 16rem;
-    margin: 1.2rem 0 0;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    line-height: 1.4;
   }
 
   .journal-directory__groups {
@@ -362,9 +300,6 @@ function compactDescription(description?: string) {
   }
 
   @media (min-width: 768px) {
-    .journal-directory__hero-grid {
-      grid-template-columns: minmax(0, 1.55fr) minmax(15rem, 0.45fr);
-    }
 
     .journal-directory__journal-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -379,18 +314,10 @@ function compactDescription(description?: string) {
   }
 
   @media (max-width: 639px) {
-    .journal-directory__hero {
-      padding-block: 4rem 3.5rem;
-    }
 
     .journal-directory h1 {
       max-width: 13ch;
       font-size: clamp(2.2rem, 10vw, 3rem);
-    }
-
-    .journal-directory__stat {
-      max-width: none;
-      margin-top: 0.5rem;
     }
 
     .journal-directory__imprint-header {
