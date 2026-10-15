@@ -98,7 +98,7 @@ const localizedBasePath = localizePath('/about/', locale);
                 <h3>{copy.divisions[index].name}</h3>
                 <p>{copy.divisions[index].description}</p>
               </div>
-              <a href={localizePath(division.path, locale)}>{copy.visitDivision}</a>
+              <a class="action-link" href={localizePath(division.path, locale)}>{copy.visitDivision}</a>
             </li>
           ))}
         </ol>
@@ -155,7 +155,7 @@ const localizedBasePath = localizePath('/about/', locale);
                 <p>{relationship.description}</p>
               </div>
               {relationshipLogos[index].href && (
-                <a href={relationshipLogos[index].href} target="_blank" rel="noopener noreferrer">{copy.visitPlatform}</a>
+                <a class="action-link" href={relationshipLogos[index].href} target="_blank" rel="noopener noreferrer">{copy.visitPlatform}</a>
               )}
             </article>
           ))}

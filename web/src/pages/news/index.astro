@@ -78,6 +78,7 @@ function isExternal(value: string) {
                 <h2 id="latest-announcement-title">{featured.title}</h2>
                 <p>{featured.summary}</p>
                 <a
+                  class="action-link"
                   href={announcementHref(featured.href)}
                   target={isExternal(featured.href) ? '_blank' : undefined}
                   rel={isExternal(featured.href) ? 'noopener noreferrer' : undefined}
