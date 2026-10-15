@@ -287,10 +287,10 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-hero { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); min-height: clamp(34rem, 53vw, 49rem); }
   .charter-hero__copy { display: grid; align-items: center; background: var(--charter-ink); color: var(--charter-paper); }
   .charter-hero__copy-inner { width: min(100% - 7rem, 38rem); margin-inline: auto; padding-block: clamp(2.5rem, 5vw, 4rem); }
-  .charter-kicker { margin: 0; color: var(--charter-gold-ink); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.35; text-transform: uppercase; }
+  .charter-kicker { margin: 0; color: var(--charter-gold-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
   .charter-hero .charter-kicker,
   .charter-manifesto .charter-kicker { color: var(--charter-gold-light); }
-  .charter-hero__imprint { margin: 1.35rem 0 0; color: color-mix(in srgb, var(--charter-paper) 70%, transparent); font-size: 0.58rem; font-weight: 750; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
+  .charter-hero__imprint { margin: 1.35rem 0 0; color: color-mix(in srgb, var(--charter-paper) 70%, transparent); font-size: var(--fs-label); font-weight: 750; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
   .charter-hero__imprint span, .charter-hero__keywords span { margin-inline: 0.45rem; color: var(--charter-gold-light); }
   .charter-hero h1 { max-width: 10ch; margin: 1rem 0 1.5rem; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.89; }
   .charter-rule { display: block; width: 2.6rem; height: 2px; }
@@ -303,14 +303,14 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-button--red { background: var(--charter-red-bright); color: var(--charter-paper); }
   .charter-button--red:hover,
   .charter-button--red:focus-visible { background: var(--charter-paper); border-color: var(--charter-paper); color: var(--charter-ink); }
-  .charter-hero__keywords { margin: 2.8rem 0 0; color: color-mix(in srgb, var(--charter-paper) 60%, transparent); font-size: 0.53rem; font-weight: 750; letter-spacing: 0.19em; line-height: 1.5; text-transform: uppercase; }
+  .charter-hero__keywords { margin: 2.8rem 0 0; color: color-mix(in srgb, var(--charter-paper) 60%, transparent); font-size: var(--fs-label); font-weight: 750; letter-spacing: 0.16em; line-height: 1.5; text-transform: uppercase; }
   .charter-hero__visual { position: relative; min-height: inherit; overflow: hidden; background: var(--charter-paper-deep); }
   .charter-hero__visual > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
   .charter-hero__visual::after { position: absolute; inset: 0; background: color-mix(in srgb, var(--charter-paper) 8%, transparent); content: ''; pointer-events: none; }
   .charter-hero__signature { position: absolute; z-index: 1; inset-block-start: clamp(2rem, 5vw, 5.5rem); inset-inline-end: clamp(2rem, 6vw, 6rem); width: 11rem; }
   .charter-hero__signature img { display: block; width: 100%; height: auto; }
-  .charter-hero__signature p { margin: 1.25rem 0 0; padding-inline-start: 1rem; border-inline-start: 2px solid var(--charter-red); color: var(--charter-ink); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.16em; line-height: 1.65; text-transform: uppercase; }
-  .charter-hero__topics { position: absolute; z-index: 1; inset-block-start: 30%; inset-inline-end: 1.1rem; display: grid; gap: 0.4rem; color: var(--charter-ink); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.17em; line-height: 1.4; text-transform: uppercase; }
+  .charter-hero__signature p { margin: 1.25rem 0 0; padding-inline-start: 1rem; border-inline-start: 2px solid var(--charter-red); color: var(--charter-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.65; text-transform: uppercase; }
+  .charter-hero__topics { position: absolute; z-index: 1; inset-block-start: 30%; inset-inline-end: 1.1rem; display: grid; gap: 0.4rem; color: var(--charter-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.4; text-transform: uppercase; }
 
   .charter-purpose { border-bottom: 1px solid var(--charter-line); background: var(--charter-paper); }
   .charter-purpose__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 1.05fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
@@ -322,8 +322,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-journals, .charter-fields { background: var(--charter-paper); }
   .charter-journals { padding-block: clamp(2.5rem, 5vw, 4rem); }
   .charter-section-bar { display: flex; align-items: center; gap: 1.25rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--charter-line); }
-  .charter-section-bar > p:not(.charter-kicker) { margin: 0 0 0 auto; color: var(--charter-ink-soft); font-size: 0.57rem; font-weight: 750; letter-spacing: 0.17em; line-height: 1.4; text-transform: uppercase; }
-  .charter-section-bar > a { color: var(--charter-red); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; }
+  .charter-section-bar > p:not(.charter-kicker) { margin: 0 0 0 auto; color: var(--charter-ink-soft); font-size: var(--fs-label); font-weight: 750; letter-spacing: 0.16em; line-height: 1.4; text-transform: uppercase; }
+  .charter-section-bar > a { color: var(--charter-red); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; }
   .charter-section-bar > a:hover, .charter-text-link:hover { color: var(--charter-ink); }
   .charter-journals__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.52fr); gap: 3rem; align-items: end; padding-block: clamp(2rem, 4vw, 3.5rem) 2rem; }
   .charter-journals__heading h2 { max-width: 12ch; margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
@@ -334,12 +334,12 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-journal-card__cover-link { display: block; margin-bottom: 1.1rem; transition: transform var(--p-duration-base) var(--p-ease-decelerate); }
   .charter-journal-card__cover-link:hover, .charter-journal-card__cover-link:focus-visible { transform: translateY(-0.3rem); }
   .charter-journal-card__cover { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: contain; box-shadow: 0 0.7rem 1.3rem color-mix(in srgb, var(--charter-ink) 14%, transparent); }
-  .charter-journal-card__label { min-height: 2.2em; margin: 0 0 0.45rem; color: var(--charter-red); font-size: 0.54rem; font-weight: 800; letter-spacing: 0.15em; line-height: 1.45; text-transform: uppercase; }
+  .charter-journal-card__label { min-height: 2.2em; margin: 0 0 0.45rem; color: var(--charter-red); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.15em; line-height: 1.45; text-transform: uppercase; }
   .charter-journal-card h3 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(1.15rem, 1.65vw, 1.55rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
   .charter-journal-card h3 a { color: inherit; text-decoration: none; }
   .charter-journal-card h3 a:hover { color: var(--charter-red); }
   .charter-journal-card__summary { margin: 0.8rem 0 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 0.82rem; line-height: 1.35; }
-  .charter-text-link { display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; margin-top: auto; padding-top: 1.25rem; border-bottom: 1px solid currentColor; color: var(--charter-ink-soft); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.13em; line-height: 1.75; text-decoration: none; text-transform: uppercase; }
+  .charter-text-link { display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; margin-top: auto; padding-top: 1.25rem; border-bottom: 1px solid currentColor; color: var(--charter-ink-soft); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.13em; line-height: 1.75; text-decoration: none; text-transform: uppercase; }
   .charter-actions .charter-text-link,
   .charter-authors__actions .charter-text-link { min-height: var(--p-action-height); margin-top: 0; padding-top: 0; font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; }
   .charter-actions .charter-text-link { border-color: var(--charter-gold-light); color: var(--charter-paper); }
@@ -356,9 +356,9 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-field:nth-child(5n + 1) { border-inline-start: 0; }
   .charter-field:nth-child(n + 6) { border-top: 1px solid var(--charter-line); }
   .charter-field:hover { background: var(--charter-ink); color: var(--charter-paper); }
-  .charter-field__number { display: block; margin-bottom: 1.1rem; color: var(--charter-red); font-size: 0.55rem; font-weight: 800; letter-spacing: 0.12em; }
+  .charter-field__number { display: block; margin-bottom: 1.1rem; color: var(--charter-red); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.12em; }
   .charter-field h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.05rem, 1.4vw, 1.35rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; }
-  .charter-field > span:last-child { display: block; margin-top: 0.8rem; color: currentColor; font-size: 0.52rem; font-weight: 800; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
+  .charter-field > span:last-child { display: block; margin-top: 0.8rem; color: currentColor; font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
   .charter-field b { color: var(--charter-red); font-weight: 800; }
 
   .charter-authors { background: var(--charter-paper-deep); }
@@ -376,7 +376,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-manifesto h2 { max-width: 10ch; margin: 1rem 0 0; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
   .charter-manifesto__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--charter-paper) 42%, transparent); }
   .charter-manifesto__body > p { max-width: 31rem; margin: 0; color: color-mix(in srgb, var(--charter-paper) 88%, transparent); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
-  .charter-signals { display: grid; gap: 0.65rem; margin-top: 1.6rem; color: var(--charter-gold-light); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }
+  .charter-signals { display: grid; gap: 0.65rem; margin-top: 1.6rem; color: var(--charter-gold-light); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }
   .charter-signals span { padding-top: 0.55rem; border-top: 1px solid color-mix(in srgb, var(--charter-paper) 28%, transparent); }
 
   @media (max-width: 1180px) {

@@ -269,9 +269,9 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
   .publishing-hero__note p {
     margin: 0;
-    font-size: 0.58rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     line-height: 1.5;
     text-transform: uppercase;
   }
@@ -325,7 +325,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
   .publishing-pathway__number {
     color: var(--text-inverse-muted);
-    font-size: 0.62rem;
+    font-size: var(--fs-caption);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.14em;
     line-height: 1.4;
@@ -356,7 +356,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     margin-top: 1.45rem;
     border-bottom: var(--p-border-hairline) solid currentColor;
     color: var(--text-inverse);
-    font-size: 0.6rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.16em;
     line-height: 1.6;
@@ -406,7 +406,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     flex: 0 0 auto;
     justify-items: end;
     color: var(--text-muted);
-    font-size: 0.58rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.16em;
     line-height: 1.4;
@@ -436,9 +436,9 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-imprints__table-head {
     padding-block: 0.8rem;
     color: var(--text-muted);
-    font-size: 0.55rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     line-height: 1.35;
     text-transform: uppercase;
   }
@@ -470,7 +470,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-imprint__index {
     padding-top: 0.2rem;
     color: var(--imprint-accent);
-    font-size: 0.58rem;
+    font-size: var(--fs-caption);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.12em;
   }
@@ -487,7 +487,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     max-width: 15rem;
     margin: 0.75rem 0 0;
     color: var(--text-muted);
-    font-size: 0.58rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.14em;
     line-height: 1.45;
@@ -510,7 +510,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     margin: 0.9rem 0 0;
     padding: 0;
     color: var(--text-muted);
-    font-size: 0.57rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.13em;
     line-height: 1.35;
@@ -542,7 +542,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
   .publishing-imprint__programme span {
     color: var(--text-muted);
-    font-size: 0.54rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.15em;
     line-height: 1.4;
@@ -749,6 +749,6 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     }
     .publishing-hero__visual { min-height: 16rem; }
     .publishing-hero__keywords { right: 0; }
-    .publishing-hero__note p { font-size: 0.5rem; }
+    .publishing-hero__note p { font-size: var(--fs-caption); }
   }
 </style>

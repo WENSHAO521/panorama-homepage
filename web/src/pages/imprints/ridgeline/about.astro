@@ -189,9 +189,9 @@ const researchAreas = [
   .ridgeline-kicker {
     margin: 0;
     color: var(--ridge-copper);
-    font-size: 0.66rem;
+    font-size: var(--fs-label);
     font-weight: 700;
-    letter-spacing: 0.19em;
+    letter-spacing: 0.16em;
     line-height: 1.4;
     text-transform: uppercase;
   }
@@ -366,7 +366,7 @@ const researchAreas = [
     border-bottom: 1px solid var(--ridge-line);
   }
 
-  .ridgeline-section-bar p:last-child { margin: 0; color: var(--ridge-ink-soft); font-size: 0.61rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+  .ridgeline-section-bar p:last-child { margin: 0; color: var(--ridge-ink-soft); font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 
   .ridgeline-principle-grid,
   .ridgeline-area-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -382,7 +382,7 @@ const researchAreas = [
   .ridgeline-area { min-height: 8rem; padding: 1.1rem 1.1rem 1.2rem; border-inline-start: 1px solid var(--ridge-line); }
   .ridgeline-area:first-child { padding-inline-start: 0; border-inline-start: 0; }
   .ridgeline-area h3 { max-width: 11rem; margin: 0; color: var(--ridge-ink); font-family: var(--font-display); font-size: 0.98rem; font-weight: 600; line-height: 1.1; }
-  .ridgeline-area p { max-width: 11rem; margin: 0.8rem 0 0; color: var(--ridge-ink-soft); font-family: var(--font-display); font-size: 0.7rem; line-height: 1.28; }
+  .ridgeline-area p { max-width: 11rem; margin: 0.8rem 0 0; color: var(--ridge-ink-soft); font-family: var(--font-display); font-size: var(--fs-caption); line-height: 1.28; }
 
   .ridgeline-about-cta { background: var(--ridge-ink); color: var(--ridge-paper); }
   .ridgeline-about-cta__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.7fr); gap: 3rem; align-items: end; padding-block: clamp(2.5rem, 5vw, 4rem); }
@@ -427,7 +427,7 @@ const researchAreas = [
     .ridgeline-about-purpose h2 { max-width: 10ch; font-size: 2.25rem; }
     .ridgeline-about-purpose__body { padding-inline-start: 1.2rem; }
     .ridgeline-section-bar { align-items: flex-start; flex-direction: column; gap: 0.55rem; }
-    .ridgeline-section-bar p:last-child { font-size: 0.55rem; }
+    .ridgeline-section-bar p:last-child { font-size: var(--fs-caption); }
     .ridgeline-principle-grid { grid-template-columns: 1fr; }
     .ridgeline-principle,
     .ridgeline-principle:first-child { min-height: auto; padding: 1.4rem 0 1.5rem; border-inline-start: 0; border-top: 1px solid var(--ridge-line); }

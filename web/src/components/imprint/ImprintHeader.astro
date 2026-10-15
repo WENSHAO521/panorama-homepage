@@ -165,7 +165,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
 
   .imprint-header__nav a {
     color: inherit;
-    font-size: 0.66rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.08em;
     text-decoration: none;
@@ -191,7 +191,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
     .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-tablet))), 44rem); }
     .imprint-header__inner { gap: 1rem; }
     .imprint-header__nav { gap: 1rem; }
-    .imprint-header__nav a { font-size: 0.6rem; }
+    .imprint-header__nav a { font-size: var(--fs-caption); }
   }
 
   @media (max-width: 639px) {
