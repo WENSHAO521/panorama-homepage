@@ -28,3 +28,30 @@
 
 .u-text-center { text-align: center; }
 .u-text-muted  { color: var(--text-muted); }
+
+/* Standalone text links (block / flex / inline-flex) get a 24px minimum target
+   height (WCAG 2.2 target size). Links inside running text are exempt. */
+main a[class*="link"],
+main a[class*="action"],
+.about-connection a,
+.partnership-card a,
+.charter-section-bar a,
+.verdant-section-bar a,
+.about-closing__links a,
+.search-empty__links a,
+.standards-sdg__links a,
+.dora-links a,
+.infra-inline-links a,
+.infra-hero__nav a,
+.charter-journals__footer a,
+.imprint-row__journals-header a,
+.journal-rights-meta a,
+.legal-hero__meta a,
+.imprint-footer__brand,
+.legal-index a,
+.about-division-list a,
+.policy-hero__scope a,
+.dora-hero__scope a,
+.news-feature__body a {
+  min-height: 1.5rem;
+}

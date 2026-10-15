@@ -62,6 +62,8 @@ const { imprint, locale = Astro.currentLocale ?? 'en', count, countLabel } = Ast
     width: auto;
     height: calc(var(--logo-base) * var(--logo-scale));
     max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
   }
 
   /* 640-1199px: the five marks at full size don't fit on one line; scale
