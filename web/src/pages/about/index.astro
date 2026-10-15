@@ -190,20 +190,6 @@ const localizedBasePath = localizePath('/about/', locale);
 <style>
   .about-page { background: var(--surface-primary); }
 
-  .about-hero {
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-    background: var(--surface-primary);
-  }
-
-  .about-hero__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.28fr) minmax(18rem, 0.72fr);
-    gap: clamp(3rem, 10vw, 10rem);
-    align-items: end;
-    min-height: 34rem;
-    padding-block: clamp(4rem, 8vw, 7.5rem) clamp(3.5rem, 7vw, 6rem);
-  }
-
   .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
 
   .about-statement,
@@ -457,7 +443,6 @@ const localizedBasePath = localizePath('/about/', locale);
   }
 
   @media (max-width: 900px) {
-    .about-hero__inner { grid-template-columns: minmax(0, 1fr); gap: 3rem; }
     .about-section-head { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
     .about-division-list li { grid-template-columns: 3rem minmax(0, 1fr) auto; }
     .about-division-list li > p { grid-column: 2; }
@@ -466,7 +451,6 @@ const localizedBasePath = localizePath('/about/', locale);
   }
 
   @media (max-width: 639px) {
-    .about-hero__inner { min-height: 0; padding-block: 3.5rem 3rem; }
     .about-statement__grid,
     .about-closing__inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
     .about-statement h2,

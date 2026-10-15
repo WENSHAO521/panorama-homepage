@@ -254,8 +254,6 @@ const footerNav = [
     width: var(--ridge-shell);
     margin-inline: auto;
   }
-  .ridgeline-header__lang :global(.lang-switcher__trigger) { color: var(--ridge-ink); }
-  .ridgeline-header__lang :global(.lang-switcher__trigger:hover) { color: var(--ridge-copper); }
 
   .ridgeline-hero {
     position: relative;
@@ -782,9 +780,6 @@ const footerNav = [
   @media (max-width: 639px) {
     .ridgeline-page { --ridge-shell: calc(100% - 2rem); }
     .ridgeline-hero .ridgeline-actions { flex-wrap: wrap; }
-    .ridgeline-mobile-nav__language :global(.lang-switcher__trigger) { padding-inline: 0.5rem; color: var(--ridge-ink); }
-    .ridgeline-mobile-nav__language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
-    .ridgeline-mobile-nav__language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; border: 0; color: var(--ridge-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
     .ridgeline-hero { min-height: 52rem; }
     .ridgeline-hero__inner { min-height: 52rem; }
     .ridgeline-hero__ridge { inset-inline-end: -33%; width: 118%; height: 55%; opacity: 0.52; }
