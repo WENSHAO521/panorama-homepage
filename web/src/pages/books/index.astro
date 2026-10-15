@@ -113,18 +113,6 @@ const t = getContent(locale);
     overflow: hidden;
   }
 
-  .books-hero {
-    background: var(--surface-primary);
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .books-hero h1 {
-    max-width: 9ch;
-    margin-top: 1.2rem;
-    font-size: clamp(2.4rem, 5.6vw, 3.75rem);
-    line-height: 0.99;
-  }
-
   .books-actions {
     display: flex;
     flex-wrap: wrap;
@@ -203,10 +191,6 @@ const t = getContent(locale);
           max(0px, (100vw - var(--p-container-max)) / 2))
       );
     }
-
-  .books-hero h1 {
-    font-size: clamp(2.4rem, 5.2vw, 3.75rem);
-  }
 
     .books-actions {
       margin-top: 2rem;
@@ -415,11 +399,6 @@ const t = getContent(locale);
   }
 
   @media (max-width: 639px) {
-    .books-hero h1 {
-      max-width: 8ch;
-      font-size: clamp(2.2rem, 10vw, 3rem);
-    }
-
     .books-paths__grid {
       grid-template-columns: minmax(0, 1fr);
     }
