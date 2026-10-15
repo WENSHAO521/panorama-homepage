@@ -6,7 +6,7 @@ interface Props {
   title: string;
   lede?: string;
   titleId: string;
-  variant?: 'default' | 'compact' | 'catalogue' | 'document' | 'image';
+  variant?: 'default' | 'compact' | 'catalogue' | 'document' | 'image' | 'feature';
 }
 
 const {
@@ -199,6 +199,31 @@ const {
   .group-hero--image .group-hero__aside {
     padding-top: 0;
     border-top: 0;
+  }
+
+  /* Larger left-hand copy shared by the books and research heroes. */
+  @media (min-width: 900px) {
+    .group-hero--image .group-hero__inner,
+    .group-hero--feature .group-hero__inner {
+      grid-template-columns: minmax(0, 1.3fr) minmax(17rem, 0.9fr);
+    }
+
+    .group-hero--image .group-hero__copy,
+    .group-hero--feature .group-hero__copy {
+      max-width: 56rem;
+    }
+
+    .group-hero--image .group-hero__title,
+    .group-hero--feature .group-hero__title {
+      font-size: clamp(3rem, 6.4vw, 5rem);
+      line-height: 1.02;
+    }
+
+    .group-hero--image .group-hero__lede,
+    .group-hero--feature .group-hero__lede {
+      max-width: 44rem;
+      font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+    }
   }
 
   @media (max-width: 767px) {
