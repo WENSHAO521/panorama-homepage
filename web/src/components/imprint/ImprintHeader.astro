@@ -183,6 +183,12 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
     --header-tools-hover: var(--imprint-header-hover);
     --header-tools-line: var(--imprint-header-line);
     --lang-switcher-accent: var(--imprint-header-hover);
+    /* The dropdown follows the header's own palette, so dark imprints get a
+       dark panel instead of cream with light text. */
+    --lang-switcher-panel-bg: var(--imprint-header-bg);
+    --lang-switcher-panel-line: var(--imprint-header-line);
+    --lang-switcher-ink: var(--imprint-header-ink);
+    --lang-switcher-hover-bg: color-mix(in srgb, var(--imprint-header-ink) 8%, transparent);
   }
   .imprint-header__menu,
   .imprint-header__mobile-nav { display: none; }
@@ -227,9 +233,9 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
 
     .imprint-header__mobile-nav:not([hidden]) { display: grid; }
     .imprint-header__mobile-nav > a { padding: 1rem; border-top: 1px solid var(--imprint-header-line); color: inherit; font-size: 0.7rem; font-weight: var(--fw-semibold); letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
-    .imprint-header__mobile-language { --lang-switcher-accent: var(--imprint-header-hover); padding: 0.75rem 1rem 1rem; border-top: 1px solid var(--imprint-header-line); }
+    .imprint-header__mobile-language { --lang-switcher-accent: var(--imprint-header-hover); --lang-switcher-ink: var(--imprint-header-ink); --lang-switcher-hover-bg: color-mix(in srgb, var(--imprint-header-ink) 8%, transparent); padding: 0.75rem 1rem 1rem; border-top: 1px solid var(--imprint-header-line); }
     .imprint-header__mobile-language :global(.lang-switcher__trigger) { color: inherit; }
-    .imprint-header__mobile-language :global(.lang-switcher__panel) { position: static; width: auto; max-width: none; max-height: none; overflow: visible; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
-    .imprint-header__mobile-language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; color: inherit; }
+    .imprint-header__mobile-language :global(.lang-switcher__panel) { position: static; width: auto; max-width: none; max-height: none; overflow: visible; padding: 0.75rem 0 0; border: 0; box-shadow: none; background: transparent; }
+    .imprint-header__mobile-language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; }
   }
 </style>
