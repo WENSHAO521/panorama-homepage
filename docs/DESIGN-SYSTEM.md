@@ -41,27 +41,31 @@ labels.
 ### Japanese Editorial Minimalism (current)
 
 Warm, restrained, low-chroma. Kinari (unbleached silk) is the canvas,
-Unohana the card stock, Fukamidori (deep green) the single group brand
-hue, with Kincha gold for rules and ornaments only. Primitives live in
-`web/src/styles/tokens.css`; components reference semantic tokens only.
-The legacy primitive names (`--p-navy-*`, `--p-tetsu-*`, `--p-teal-*`,
-`--p-blue-*`, `--p-biwa-*`) are kept as aliases onto the new palette so
-older selectors cannot re-introduce retired hues.
+Unohana the card stock, Sumi (ink) the single group brand colour, with
+Shu (vermilion) for links and small labels and Kincha gold for rules and
+ornaments only. Primitives live in `web/src/styles/tokens.css`;
+components reference semantic tokens only. The legacy primitive names
+(`--p-navy-*`, `--p-tetsu-*`, `--p-teal-*`, `--p-blue-*`, `--p-biwa-*`)
+are kept as aliases onto the new palette so older selectors cannot
+re-introduce retired hues. (The earlier Fukamidori deep-green brand colour
+was replaced by Sumi + Shu so the group colour no longer competes with the
+green imprint hues.)
 
 | Role | Value | Semantic token | Contrast |
 |---|---|---|---|
-| Page background | `#F6F3EA` | `--surface-primary` | — |
-| Card background | `#FCFBF7` | `--surface-raised` / `--surface-card` | — |
-| Secondary band | `#ECECE4` | `--surface-secondary` / `--surface-feature` | — |
-| Primary text | `#272B29` | `--text-primary` | 12.9:1 on page |
-| Secondary text | `#59635E` | `--text-secondary` | 5.6:1 on page, 5.3:1 on band |
-| Muted text | `#646C67` | `--text-muted` | 4.9:1 on page, 4.6:1 on band |
-| Border | `#D8D9CF` | `--border-subtle` | — |
-| Group primary | `#23473E` | `--brand-primary`, `--interactive-default`, `--text-link` | 9.3:1 on page; white on it 10.3:1 |
-| Primary hover / inverse surface | `#17362E` | `--brand-primary-hover`, `--interactive-hover`, `--surface-inverse` | Kinari on it 11.8:1 |
+| Page background | `#F7F3EC` | `--surface-primary` | — |
+| Card background | `#FDFBF6` | `--surface-raised` / `--surface-card` | — |
+| Secondary band | `#EDE6DA` | `--surface-secondary` / `--surface-feature` | — |
+| Primary text | `#2B2724` | `--text-primary` | 13.4:1 on page |
+| Secondary text | `#62594F` | `--text-secondary` | 6.2:1 on page, 5.5:1 on band |
+| Muted text | `#6B6156` | `--text-muted` | 5.5:1 on page, 4.9:1 on band |
+| Border | `#DDD5C7` | `--border-subtle` | — |
+| Group primary (buttons) | `#2B2724` | `--brand-primary` | 13.4:1 on page; Kinari on it 13.4:1 |
+| Primary hover / inverse surface | `#1F1B19` | `--brand-primary-hover`, `--surface-inverse` | Kinari on it 15.5:1 |
+| Link / small label (Shu) | `#A04A35` | `--interactive-default`, `--text-link`, `--text-accent` | 5.4:1 on page, 4.8:1 on band |
+| Link hover | `#843826` | `--interactive-hover`, `--text-link-hover` | 7.4:1 on page |
+| Shu label (dark) | `#E8A894` | `--text-accent-inverse` | 8.5:1 on `#1F1B19` |
 | Decorative gold | `#AD9061` | `--brand-accent` | 2.7:1 — rules/ornaments only, never text |
-| Gold label (light) | `#7A6440` | `--text-accent` | 5.1:1 on page |
-| Gold label (dark) | `#CDBA92` | `--text-accent-inverse` | 6.6:1 on `#17362E` |
 
 There is no dark mode on this site (`color-scheme: light`), so none was
 added.
