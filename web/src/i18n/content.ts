@@ -150,32 +150,17 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     ru: 'Связанная научная сеть',
     ar: 'شبكة علمية مترابطة',
   },
-  'home.globeDescription': {
-    en: 'A code-drawn globe with latitude, longitude, orbital paths, and five labelled connection points: People, Places, Ideas, Research, and Impact.',
-    'zh-hans': '由代码绘制的地球，包含经纬线、轨道路径以及五个标注节点：人物、地点、思想、研究与影响。',
-    'zh-hant': '由程式繪製的地球，包含經緯線、軌道路徑以及五個標註節點：人物、地點、思想、研究與影響。',
-    ja: '緯度・経度、軌道、そしてPeople、Places、Ideas、Research、Impactの5つの接続点を描いたコードによる地球儀。',
-    ko: '위도와 경도, 궤도, People·Places·Ideas·Research·Impact의 다섯 연결 지점을 코드로 그린 지구본입니다.',
-    de: 'Ein per Code gezeichneter Globus mit Breiten- und Längengraden, Umlaufbahnen und fünf markierten Verbindungspunkten: Menschen, Orte, Ideen, Forschung und Wirkung.',
-    fr: 'Un globe dessiné par code, avec latitudes, longitudes, trajectoires orbitales et cinq points de connexion : personnes, lieux, idées, recherche et impact.',
-    es: 'Un globo dibujado mediante código, con latitudes, longitudes, trayectorias orbitales y cinco puntos de conexión: personas, lugares, ideas, investigación e impacto.',
-    ru: 'Глобус, созданный средствами кода, с широтами, долготами, орбитальными траекториями и пятью точками связи: люди, места, идеи, исследования и влияние.',
-    ar: 'كرة أرضية مرسومة برمجيًا تضم دوائر العرض والطول ومسارات مدارية وخمس نقاط اتصال: الناس والأماكن والأفكار والبحث والأثر.',
-  },
-  'common.people': {
-    en: 'People', 'zh-hans': '人物', 'zh-hant': '人物', ja: 'People', ko: 'People', de: 'Menschen', fr: 'Personnes', es: 'Personas', ru: 'Люди', ar: 'الناس',
-  },
-  'common.places': {
-    en: 'Places', 'zh-hans': '地点', 'zh-hant': '地點', ja: 'Places', ko: 'Places', de: 'Orte', fr: 'Lieux', es: 'Lugares', ru: 'Места', ar: 'الأماكن',
-  },
-  'common.ideas': {
-    en: 'Ideas', 'zh-hans': '思想', 'zh-hant': '思想', ja: 'Ideas', ko: 'Ideas', de: 'Ideen', fr: 'Idées', es: 'Ideas', ru: 'Идеи', ar: 'الأفكار',
-  },
-  'common.research': {
-    en: 'Research', 'zh-hans': '研究', 'zh-hant': '研究', ja: 'Research', ko: 'Research', de: 'Forschung', fr: 'Recherche', es: 'Investigación', ru: 'Исследования', ar: 'البحث',
-  },
-  'common.impact': {
-    en: 'Impact', 'zh-hans': '影响', 'zh-hant': '影響', ja: 'Impact', ko: 'Impact', de: 'Wirkung', fr: 'Impact', es: 'Impacto', ru: 'Влияние', ar: 'الأثر',
+  'home.mapDescription': {
+    en: 'A world map with the group’s two offices marked: Hong Kong and Nanjing.',
+    'zh-hans': '世界地图，标出了集团的两处办公地点：香港和南京。',
+    'zh-hant': '世界地圖，標出集團的兩處辦公地點：香港與南京。',
+    ja: '世界地図。グループの2つのオフィス、香港と南京を示しています。',
+    ko: '그룹의 두 사무소인 홍콩과 난징을 표시한 세계 지도입니다.',
+    de: 'Eine Weltkarte mit den beiden Büros der Gruppe: Hongkong und Nanjing.',
+    fr: 'Une carte du monde indiquant les deux bureaux du groupe : Hong Kong et Nanjing.',
+    es: 'Un mapa del mundo con las dos oficinas del grupo: Hong Kong y Nanjing.',
+    ru: 'Карта мира с отмеченными двумя офисами группы: Гонконг и Нанкин.',
+    ar: 'خريطة للعالم تُظهر مكتبَي المجموعة: هونغ كونغ ونانجينغ.',
   },
   'home.imprintsTitle': {
     en: 'Our five imprints',
