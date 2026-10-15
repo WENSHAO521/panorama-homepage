@@ -34,7 +34,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
           <svg viewBox="0 0 14 10" width="14" height="10" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M0 5h12M8 1l4 4-4 4" /></svg>
         </button>
       </form>
-      <a class="hero__link" href={localizePath('/journals/', locale)}>{t('common.browseJournals')} <span aria-hidden="true">→</span></a>
+      <a class="action-link" href={localizePath('/journals/', locale)}>{t('common.browseJournals')}</a>
     </div>
   </div>
 
@@ -48,8 +48,8 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
         <p class="text-overline hero__eyebrow">{t('home.featuredJournal')}</p>
         <h2 class="hero__feature-title">{lead.title}</h2>
         <p class="hero__feature-text">{lead.description}</p>
-        <a class="hero__link" href={lead.journalUrl} target="_blank" rel="noopener noreferrer">
-          {t('common.visitJournalWebsite')} <span aria-hidden="true">→</span>
+        <a class="action-link" href={lead.journalUrl} target="_blank" rel="noopener noreferrer">
+          {t('common.visitJournalWebsite')}
           <span class="visually-hidden"> — {lead.title} ({t('common.opensNewTab')})</span>
         </a>
       </div>
@@ -73,8 +73,8 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
             <div>
               <p class="text-overline hero__eyebrow">{t('home.alsoOfInterest')}</p>
               <h3 class="hero__also-title">{also.title}</h3>
-              <a class="hero__link" href={also.journalUrl} target="_blank" rel="noopener noreferrer">
-                {t('common.visitJournalWebsite')} <span aria-hidden="true">→</span>
+              <a class="action-link" href={also.journalUrl} target="_blank" rel="noopener noreferrer">
+                {t('common.visitJournalWebsite')}
                 <span class="visually-hidden"> — {also.title} ({t('common.opensNewTab')})</span>
               </a>
             </div>
@@ -156,19 +156,6 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
     outline: var(--p-border-strong) solid var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
   }
-
-  .hero__link {
-    display: inline-flex;
-    gap: 0.5em;
-    align-items: baseline;
-    padding-bottom: 0.15rem;
-    color: var(--interactive-default);
-    font-size: 0.875rem;
-    font-weight: var(--fw-medium);
-    border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--interactive-default) 45%, transparent);
-    transition: gap var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard);
-  }
-  .hero__link:hover { gap: 0.85em; border-color: currentColor; }
 
   .hero__feature { background: var(--surface-secondary); }
 
