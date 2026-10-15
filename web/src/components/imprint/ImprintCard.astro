@@ -2,13 +2,15 @@
 import type { Imprint } from '@/types';
 import { localizePath } from '@/i18n/utils';
 
-interface Props { imprint: Imprint; locale?: string }
-const { imprint, locale = Astro.currentLocale ?? 'en' } = Astro.props;
+interface Props { imprint: Imprint; locale?: string; count?: number; countLabel?: string }
+const { imprint, locale = Astro.currentLocale ?? 'en', count, countLabel } = Astro.props;
 ---
 
 <li class={`imprint-card imprint-card--${imprint.slug}`}>
   <a href={localizePath(`/imprints/${imprint.slug}/`, locale)} class="imprint-card__link">
     <img class="imprint-card__logo" src={imprint.logo} alt={imprint.name} loading="lazy" />
+    <span class="imprint-card__scope">{imprint.scope}</span>
+    {count !== undefined && <span class="imprint-card__count">{count} {countLabel}</span>}
   </a>
 </li>
 
@@ -18,15 +20,28 @@ const { imprint, locale = Astro.currentLocale ?? 'en' } = Astro.props;
     min-width: 0;
   }
 
+  .imprint-card { flex-direction: column; border-top: 3px solid var(--imprint-accent-rule, var(--border-strong)); }
+  .imprint-card--ridgeline { --imprint-accent-rule: var(--p-imprint-ridgeline); }
+  .imprint-card--health-nexus { --imprint-accent-rule: var(--p-imprint-health-nexus); }
+  .imprint-card--verdant-science { --imprint-accent-rule: var(--p-imprint-verdant-science); }
+  .imprint-card--charter { --imprint-accent-rule: var(--p-imprint-charter); }
+  .imprint-card--threnody { --imprint-accent-rule: var(--p-imprint-threnody); }
+
   .imprint-card__link {
     display: flex;
-    align-items: center;
-    min-height: 2.75rem;
-    padding-block: 0.25rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+    padding-block: 1rem 0.25rem;
+    text-decoration: none;
     border-radius: var(--p-radius-button);
-    transition: opacity var(--p-duration-fast) var(--p-ease-standard);
+    transition: transform var(--p-duration-base) var(--p-ease-standard);
   }
-  .imprint-card__link:hover { opacity: 0.7; }
+  .imprint-card__link:hover { transform: translateY(-0.2rem); }
+
+  .imprint-card__logo { align-self: flex-start; }
+  .imprint-card__scope { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4; }
+  .imprint-card__count { color: var(--text-primary); font-size: 0.7rem; font-weight: var(--fw-semibold); letter-spacing: 0.06em; }
   .imprint-card__link:focus-visible {
     outline: var(--p-border-strong) solid var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
