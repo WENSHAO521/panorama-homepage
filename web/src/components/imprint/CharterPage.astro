@@ -286,13 +286,13 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   .charter-hero { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); min-height: clamp(34rem, 53vw, 49rem); }
   .charter-hero__copy { display: grid; align-items: center; background: var(--charter-ink); color: var(--charter-paper); }
-  .charter-hero__copy-inner { width: min(100% - 7rem, 38rem); margin-inline: auto; padding-block: clamp(3rem, 5vw, 5.75rem); }
+  .charter-hero__copy-inner { width: min(100% - 7rem, 38rem); margin-inline: auto; padding-block: clamp(2.5rem, 5vw, 4rem); }
   .charter-kicker { margin: 0; color: var(--charter-gold-ink); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.35; text-transform: uppercase; }
   .charter-hero .charter-kicker,
   .charter-manifesto .charter-kicker { color: var(--charter-gold-light); }
   .charter-hero__imprint { margin: 1.35rem 0 0; color: color-mix(in srgb, var(--charter-paper) 70%, transparent); font-size: 0.58rem; font-weight: 750; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
   .charter-hero__imprint span, .charter-hero__keywords span { margin-inline: 0.45rem; color: var(--charter-gold-light); }
-  .charter-hero h1 { max-width: 10ch; margin: 1rem 0 1.5rem; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(3.65rem, 6.5vw, 6.5rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.89; }
+  .charter-hero h1 { max-width: 10ch; margin: 1rem 0 1.5rem; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.89; }
   .charter-rule { display: block; width: 2.6rem; height: 2px; }
   .charter-rule--red { background: var(--charter-red-bright); }
   .charter-hero__lede { max-width: 28rem; margin: 1.45rem 0 0; color: color-mix(in srgb, var(--charter-paper) 86%, transparent); font-family: var(--font-display); font-size: clamp(1.02rem, 1.25vw, 1.23rem); line-height: 1.35; }
@@ -313,20 +313,20 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-hero__topics { position: absolute; z-index: 1; inset-block-start: 30%; inset-inline-end: 1.1rem; display: grid; gap: 0.4rem; color: var(--charter-ink); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.17em; line-height: 1.4; text-transform: uppercase; }
 
   .charter-purpose { border-bottom: 1px solid var(--charter-line); background: var(--charter-paper); }
-  .charter-purpose__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 1.05fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: center; padding-block: clamp(2.8rem, 5.5vw, 5.75rem); }
-  .charter-purpose h2 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2.5rem, 4.45vw, 4.7rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
+  .charter-purpose__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 1.05fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
+  .charter-purpose h2 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
   .charter-purpose__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 2px solid var(--charter-red); }
   .charter-purpose__body p { max-width: 42rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: clamp(1rem, 1.25vw, 1.2rem); line-height: 1.38; }
   .charter-purpose__body p + p { margin-top: 1rem; }
 
   .charter-journals, .charter-fields { background: var(--charter-paper); }
-  .charter-journals { padding-block: clamp(3rem, 5vw, 5rem); }
+  .charter-journals { padding-block: clamp(2.5rem, 5vw, 4rem); }
   .charter-section-bar { display: flex; align-items: center; gap: 1.25rem; padding-bottom: 0.85rem; border-bottom: 1px solid var(--charter-line); }
   .charter-section-bar > p:not(.charter-kicker) { margin: 0 0 0 auto; color: var(--charter-ink-soft); font-size: 0.57rem; font-weight: 750; letter-spacing: 0.17em; line-height: 1.4; text-transform: uppercase; }
   .charter-section-bar > a { color: var(--charter-red); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; }
   .charter-section-bar > a:hover, .charter-text-link:hover { color: var(--charter-ink); }
   .charter-journals__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.52fr); gap: 3rem; align-items: end; padding-block: clamp(2rem, 4vw, 3.5rem) 2rem; }
-  .charter-journals__heading h2 { max-width: 12ch; margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2.7rem, 5vw, 5.2rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
+  .charter-journals__heading h2 { max-width: 12ch; margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
   .charter-journals__heading p { max-width: 28rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
   .charter-journal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--charter-line); border-bottom: 1px solid var(--charter-line); }
   .charter-journal-card { display: flex; flex-direction: column; min-width: 0; padding: 1.2rem clamp(0.8rem, 1.5vw, 1.5rem) 1.65rem; border-inline-start: 1px solid var(--charter-line); }
@@ -350,7 +350,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-journals__footer p { max-width: 38rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 0.94rem; line-height: 1.4; }
   .charter-journals__footer .charter-text-link { margin: 0; padding-top: 0; }
 
-  .charter-fields { padding-block: 0 clamp(3rem, 5vw, 5rem); }
+  .charter-fields { padding-block: 0 clamp(2.5rem, 5vw, 4rem); }
   .charter-field-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-bottom: 1px solid var(--charter-line); }
   .charter-field { min-height: 8.5rem; padding: 1.1rem 1.1rem 1.3rem; border-inline-start: 1px solid var(--charter-line); color: var(--charter-ink); text-decoration: none; transition: background var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard); }
   .charter-field:nth-child(5n + 1) { border-inline-start: 0; }
@@ -362,9 +362,9 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-field b { color: var(--charter-red); font-weight: 800; }
 
   .charter-authors { background: var(--charter-paper-deep); }
-  .charter-authors__inner { display: grid; grid-template-columns: minmax(16rem, 0.95fr) minmax(18rem, 1fr) minmax(12rem, 0.55fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(3rem, 5vw, 5rem); }
+  .charter-authors__inner { display: grid; grid-template-columns: minmax(16rem, 0.95fr) minmax(18rem, 1fr) minmax(12rem, 0.55fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
   .charter-authors__heading { padding-inline-end: clamp(1.5rem, 3vw, 3rem); border-inline-end: 1px solid var(--charter-line); }
-  .charter-authors h2 { max-width: 14ch; margin: 1rem 0 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2.25rem, 3.75vw, 4rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
+  .charter-authors h2 { max-width: 14ch; margin: 1rem 0 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 3.75vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
   .charter-authors__copy > p { max-width: 34rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.42; }
   .charter-authors__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
   .charter-authors blockquote { margin: 0; padding-inline-start: clamp(1.3rem, 2.4vw, 2.4rem); border-inline-start: 2px solid var(--charter-red); color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(1.4rem, 2.1vw, 2.15rem); font-style: italic; line-height: 1.05; }
@@ -372,8 +372,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-manifesto { position: relative; isolation: isolate; overflow: hidden; background: var(--charter-ink); color: var(--charter-paper); }
   .charter-manifesto__wallpaper { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: right center; opacity: 0.22; filter: grayscale(0.5) contrast(0.85); mix-blend-mode: screen; }
   .charter-manifesto__shade { position: absolute; inset: 0; z-index: -1; background: color-mix(in srgb, var(--charter-ink) 82%, transparent); }
-  .charter-manifesto__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; min-height: clamp(18rem, 24vw, 24rem); padding-block: clamp(3rem, 5vw, 5rem); }
-  .charter-manifesto h2 { max-width: 10ch; margin: 1rem 0 0; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(3rem, 5.2vw, 5.4rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
+  .charter-manifesto__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; min-height: clamp(18rem, 24vw, 24rem); padding-block: clamp(2.5rem, 5vw, 4rem); }
+  .charter-manifesto h2 { max-width: 10ch; margin: 1rem 0 0; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
   .charter-manifesto__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--charter-paper) 42%, transparent); }
   .charter-manifesto__body > p { max-width: 31rem; margin: 0; color: color-mix(in srgb, var(--charter-paper) 88%, transparent); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
   .charter-signals { display: grid; gap: 0.65rem; margin-top: 1.6rem; color: var(--charter-gold-light); font-size: 0.56rem; font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }
@@ -404,7 +404,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   @media (max-width: 620px) {
     .charter-page { --charter-shell: min(100% - 2.25rem, 42rem); }
     .charter-hero__copy-inner { width: var(--charter-shell); padding-block: 3.5rem 3rem; }
-    .charter-hero h1 { font-size: clamp(3.4rem, 16vw, 5.5rem); }
+    .charter-hero h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
     .charter-hero__visual { min-height: 25rem; }
     .charter-hero__signature { inset-block-start: 2rem; inset-inline-end: 1.5rem; width: 8.5rem; }
     .charter-hero__topics { inset-block-start: auto; inset-block-end: 1.5rem; inset-inline-end: 1.5rem; }

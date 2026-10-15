@@ -260,7 +260,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
     display: flex;
     flex-direction: column;
     width: min(100%, 43rem);
-    padding: clamp(3rem, 5vw, 6.5rem) clamp(2rem, 5vw, 6rem) clamp(2.2rem, 4vw, 4.5rem);
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) clamp(2.2rem, 4vw, 4rem);
   }
 
   .threnody-archive-mark { display: block; width: min(13.5rem, 72%); height: auto; }
@@ -273,7 +273,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
     margin: 0;
     color: var(--th-ivory);
     font-family: var(--font-display);
-    font-size: clamp(3.4rem, 5.5vw, 6rem);
+    font-size: clamp(2.4rem, 5.5vw, 3.75rem);
     font-weight: 500;
     letter-spacing: -0.07em;
     line-height: 0.88;
@@ -355,14 +355,14 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
   .threnody-archive-art img { display: block; width: 100%; height: 100%; min-height: 42rem; object-fit: cover; object-position: center bottom; }
   .threnody-archive-art figcaption { position: absolute; right: clamp(1.3rem, 3vw, 3.5rem); bottom: 1.2rem; z-index: 1; max-width: 13rem; color: color-mix(in srgb, var(--th-ivory) 82%, transparent); font-size: 0.55rem; font-weight: 700; letter-spacing: 0.2em; line-height: 1.7; text-align: right; text-transform: uppercase; }
 
-  .threnody-archive-journals { padding-block: clamp(4rem, 7vw, 7rem) clamp(3rem, 5vw, 5rem); background: var(--th-paper); }
+  .threnody-archive-journals { padding-block: clamp(2.5rem, 5vw, 4rem) clamp(2.5rem, 5vw, 4rem); background: var(--th-paper); }
   .threnody-archive-section-bar { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; color: var(--th-copper); font-size: 0.61rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; }
   .threnody-archive-section-bar p { margin: 0; }
   .threnody-archive-section-bar span { display: block; height: 1px; background: var(--th-copper); opacity: 0.75; }
   .threnody-archive-section-bar p:last-child { color: var(--th-muted); font-size: 0.55rem; letter-spacing: 0.14em; text-align: right; }
 
   .threnody-archive-journals__intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(13rem, 0.55fr); gap: clamp(2rem, 8vw, 9rem); align-items: start; padding-block: 1.6rem 2.8rem; }
-  .threnody-archive-journals__intro h2 { max-width: 15ch; margin: 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2.8rem, 4.7vw, 5.3rem); font-weight: 500; letter-spacing: -0.075em; line-height: 0.9; }
+  .threnody-archive-journals__intro h2 { max-width: 15ch; margin: 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.075em; line-height: 0.9; }
   .threnody-archive-journals__intro > div > p { max-width: 39rem; margin: 1.5rem 0 0; color: var(--th-muted); font-family: var(--font-display); font-size: clamp(1rem, 1.2vw, 1.15rem); line-height: 1.45; }
   .threnody-archive-journals__signals { margin: 0.8rem 0 0; color: var(--th-plum); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.3em; line-height: 2.2; text-transform: uppercase; }
 
@@ -381,11 +381,11 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
   .threnody-archive-journal-card__summary { max-width: 16rem; margin: 0; color: var(--th-muted); font-family: var(--font-display); font-size: 0.78rem; line-height: 1.4; }
   .threnody-archive-journal-card .threnody-archive-text-link--small { align-self: flex-start; margin-top: auto; padding-top: 1.25rem; }
 
-  .threnody-archive-research { padding-block: clamp(4rem, 6vw, 6rem); background: var(--th-night-soft); color: var(--th-ivory); }
+  .threnody-archive-research { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--th-night-soft); color: var(--th-ivory); }
   .threnody-archive-research__intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.65fr); gap: clamp(2rem, 8vw, 9rem); align-items: end; padding-bottom: 2.2rem; border-bottom: 1px solid color-mix(in srgb, var(--th-ivory) 25%, transparent); }
   .threnody-archive-kicker { margin: 0; color: var(--th-copper-ink); font-size: 0.59rem; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; }
   .threnody-archive-research .threnody-archive-kicker { color: var(--th-copper-light); }
-  .threnody-archive-research h2 { max-width: 13ch; margin: 1rem 0 0; color: var(--th-ivory); font-family: var(--font-display); font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.9; }
+  .threnody-archive-research h2 { max-width: 13ch; margin: 1rem 0 0; color: var(--th-ivory); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.9; }
   .threnody-archive-research__intro > p { max-width: 25rem; margin: 0; color: color-mix(in srgb, var(--th-ivory) 75%, transparent); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
   .threnody-archive-fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .threnody-archive-fields article { min-height: 10rem; padding: 1.5rem 1.1rem 0 0; border-inline-end: 1px solid color-mix(in srgb, var(--th-ivory) 23%, transparent); }
@@ -396,13 +396,13 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
   .threnody-archive-fields span { display: block; max-width: 11rem; margin-top: 0.65rem; color: color-mix(in srgb, var(--th-ivory) 70%, transparent); font-family: var(--font-display); font-size: 0.85rem; line-height: 1.4; }
 
   .threnody-archive-authors { background: var(--th-paper); }
-  .threnody-archive-authors__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(2rem, 8vw, 9rem); align-items: center; padding-block: clamp(4rem, 7vw, 7rem); }
+  .threnody-archive-authors__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(2rem, 8vw, 9rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
   .threnody-archive-authors h2,
-  .threnody-archive-about h2 { max-width: 15ch; margin: 1rem 0 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2.5rem, 4.4vw, 4.8rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.92; }
+  .threnody-archive-about h2 { max-width: 15ch; margin: 1rem 0 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.92; }
   .threnody-archive-authors__copy { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid var(--th-copper); }
   .threnody-archive-authors__copy > p,
   .threnody-archive-about__inner > div:last-child p { max-width: 31rem; margin: 0; color: var(--th-muted); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.5; }
-  .threnody-archive-about { padding-block: clamp(4rem, 7vw, 7rem); background: var(--th-paper-deep); }
+  .threnody-archive-about { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--th-paper-deep); }
   .threnody-archive-about__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.82fr); gap: clamp(2rem, 8vw, 9rem); }
   .threnody-archive-about__inner > div:last-child { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid var(--th-line); }
   .threnody-archive-about__inner > div:last-child p + p { margin-top: 1.2rem; }
@@ -411,7 +411,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
     .threnody-archive-page { --th-shell: min(100% - 4rem, 1390px); }
     .threnody-archive-hero { grid-template-columns: minmax(22rem, 0.43fr) minmax(0, 0.57fr); }
     .threnody-archive-hero__copy-inner { padding-inline: clamp(1.5rem, 4vw, 3.5rem); }
-    .threnody-archive-hero h1 { font-size: clamp(3.1rem, 5.1vw, 5rem); }
+    .threnody-archive-hero h1 { font-size: clamp(2.4rem, 5.1vw, 3.75rem); }
   }
 
   @media (max-width: 760px) {
@@ -419,7 +419,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
     .threnody-archive-mobile-nav__language :global(.lang-switcher__trigger) { color: var(--th-ivory); }
     .threnody-archive-hero { grid-template-columns: 1fr; min-height: 0; }
     .threnody-archive-hero__copy-inner { min-height: 42rem; padding-block: 3.2rem 3rem; }
-    .threnody-archive-hero h1 { max-width: 10ch; font-size: clamp(3.4rem, 14vw, 5.8rem); }
+    .threnody-archive-hero h1 { max-width: 10ch; font-size: clamp(2.2rem, 10vw, 3rem); }
     .threnody-archive-art { order: -1; }
     .threnody-archive-art img { min-height: 22rem; height: 58vw; }
     .threnody-archive-art figcaption { bottom: 1rem; }
