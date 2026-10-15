@@ -190,6 +190,10 @@ function flattenChildren(item: NavItem): NavItem[] {
      absolute-positioned dropdown still works, just anchored inside it. */
   .mobile-nav__footer :global(.lang-switcher__panel) {
     position: static;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    overflow: visible;
     box-shadow: none;
     border: none;
     padding: var(--p-space-3) 0 0;
