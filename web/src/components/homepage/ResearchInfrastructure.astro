@@ -167,6 +167,19 @@ const pins = getOfficeDirectory(locale).map((office) => {
     stroke-width: 0.9;
   }
   .research-map__halo { fill: var(--text-accent); opacity: 0.2; }
+
+  /* The two office markers pulse twice when the band first loads, then rest. */
+  @keyframes research-map-pulse {
+    from { transform: scale(0.6); opacity: 0.4; }
+    to { transform: scale(2.2); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .research-map__halo {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: research-map-pulse 2.4s ease-out 1s 2 backwards;
+    }
+  }
   .research-map__dot { fill: var(--text-accent); stroke: var(--surface-feature); stroke-width: 1.2; }
 
   /* Labels are HTML, not SVG text, so they keep their size on small screens. */
