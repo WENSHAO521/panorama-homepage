@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -127,7 +128,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
         <div class="health-nexus-secondary__shell health-nexus-secondary__hero-inner">
           <div>
             <p class="health-nexus-secondary__kicker">{localizedCurrent.kicker}</p>
-            <h1 id="health-nexus-secondary-title">{localizedCurrent.title}</h1>
+            <h1 id="health-nexus-secondary-title"><PhraseText text={localizedCurrent.title} /></h1>
             <p class="health-nexus-secondary__hero-lede">{localizedCurrent.lede}</p>
           </div>
           <aside class="health-nexus-secondary__hero-note" aria-label={tx('section.heroNoteLabel', 'Health Nexus focus')}>
@@ -189,7 +190,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell health-nexus-secondary__closing-inner">
               <div>
                 <p class="health-nexus-secondary__kicker">{tx('section.journals.closingKicker', 'The Health Nexus programme')}</p>
-                <h2 id="health-nexus-journals-closing-title">{tx('section.journals.closingTitle', 'A broader view of health.')}</h2>
+                <h2 id="health-nexus-journals-closing-title"><PhraseText text={tx('section.journals.closingTitle', 'A broader view of health.')} /></h2>
               </div>
               <p>{tx('section.journals.closingBody', 'New journals can join this family as their editorial programmes develop, while the same shared expectations for rigour, transparency and responsible scholarship remain in place.')}</p>
             </div>
@@ -203,7 +204,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell health-nexus-secondary__dark-grid">
               <div>
                 <p class="health-nexus-secondary__kicker">{tx('section.research.positionKicker', 'Our research position')}</p>
-                <h2 id="health-nexus-research-statement-title">{tx('section.research.positionTitle', 'Health is a system, not a silo.')}</h2>
+                <h2 id="health-nexus-research-statement-title"><PhraseText text={tx('section.research.positionTitle', 'Health is a system, not a silo.')} /></h2>
               </div>
               <div>
                 <p>{tx('section.research.positionBodyOne', 'Health is shaped by more than clinical encounters. It is also shaped by policy, infrastructure, data, environments, communities and the technologies that mediate everyday life.')}</p>
@@ -221,7 +222,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
                 {fields.map((field, index) => (
                   <article>
                     <span class="health-nexus-secondary__field-marker">{String(index + 1).padStart(2, '0')}</span>
-                    <h2>{tx(`field.${field.key}.title`, field.title)}</h2>
+                    <h2><PhraseText text={tx(`field.${field.key}.title`, field.title)} /></h2>
                     <p>{tx(`field.${field.key}.body`, field.body)}</p>
                   </article>
                 ))}
@@ -232,11 +233,11 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell">
               <div class="health-nexus-secondary__split-heading">
                 <p class="health-nexus-secondary__kicker">{tx('section.research.approachKicker', 'How we work')}</p>
-                <h2 id="health-nexus-approach-title">{tx('section.research.approachTitle', 'Interdisciplinary by design. Precise in practice.')}</h2>
+                <h2 id="health-nexus-approach-title"><PhraseText text={tx('section.research.approachTitle', 'Interdisciplinary by design. Precise in practice.')} /></h2>
               </div>
               <div class="health-nexus-secondary__commitment-grid">
                 {commitments.map((commitment) => (
-                  <article><h3>{tx(`section.commitment.${commitment.key}.title`, commitment.title)}</h3><p>{tx(`section.commitment.${commitment.key}.body`, commitment.body)}</p></article>
+                  <article><h3><PhraseText text={tx(`section.commitment.${commitment.key}.title`, commitment.title)} /></h3><p>{tx(`section.commitment.${commitment.key}.body`, commitment.body)}</p></article>
                 ))}
               </div>
             </div>
@@ -250,12 +251,12 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell">
               <div class="health-nexus-secondary__split-heading">
                 <p class="health-nexus-secondary__kicker">{tx('section.authors.beforeKicker', 'Before you submit')}</p>
-                <h2 id="health-nexus-author-process-title">{tx('section.authors.processTitle', 'A clear route from research to publication.')}</h2>
+                <h2 id="health-nexus-author-process-title"><PhraseText text={tx('section.authors.processTitle', 'A clear route from research to publication.')} /></h2>
                 <p>{tx('section.authors.processBody', 'Every Health Nexus journal has its own scope and submission requirements. These shared steps help authors begin in the right place.')}</p>
               </div>
               <div class="health-nexus-secondary__steps">
                 {authorSteps.map((step) => (
-                  <article><span>{step.number}</span><h3>{tx(`section.step.${step.key}.title`, step.title)}</h3><p>{tx(`section.step.${step.key}.body`, step.body)}</p></article>
+                  <article><span>{step.number}</span><h3><PhraseText text={tx(`section.step.${step.key}.title`, step.title)} /></h3><p>{tx(`section.step.${step.key}.body`, step.body)}</p></article>
                 ))}
               </div>
             </div>
@@ -264,7 +265,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell health-nexus-secondary__dark-grid">
               <div>
                 <p class="health-nexus-secondary__kicker">{tx('section.authors.standardsKicker', 'Shared standards')}</p>
-                <h2 id="health-nexus-author-standards-title">{tx('section.authors.standardsTitle', 'Strong submissions begin with responsible scholarship.')}</h2>
+                <h2 id="health-nexus-author-standards-title"><PhraseText text={tx('section.authors.standardsTitle', 'Strong submissions begin with responsible scholarship.')} /></h2>
               </div>
               <div>
                 <p>{tx('section.authors.standardsBody', 'Authors should report methods and evidence accurately, disclose relevant interests, follow applicable ethical requirements and make the limits of a study clear.')}</p>
@@ -283,7 +284,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
               </div>
               <div class="health-nexus-secondary__submission-grid">
                 {activeJournals.map((journal) => (
-                  <article><p class="health-nexus-secondary__eyebrow">{tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' · '))}</p><h2>{journal.title}</h2><a class="health-nexus-secondary__text-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('openSubmission', 'Open submission system')}</a></article>
+                  <article><p class="health-nexus-secondary__eyebrow">{tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' · '))}</p><h2><PhraseText text={journal.title} /></h2><a class="health-nexus-secondary__text-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('openSubmission', 'Open submission system')}</a></article>
                 ))}
               </div>
             </div>
@@ -297,7 +298,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell health-nexus-secondary__about-grid">
               <div>
                 <p class="health-nexus-secondary__kicker">{tx('section.about.remitKicker', 'Our remit')}</p>
-                <h2 id="health-nexus-about-remit-title">{tx('section.about.remitTitle', 'A home for connected health scholarship.')}</h2>
+                <h2 id="health-nexus-about-remit-title"><PhraseText text={tx('section.about.remitTitle', 'A home for connected health scholarship.')} /></h2>
               </div>
               <div class="health-nexus-secondary__prose">
                 <p>{tx('section.about.remitBodyOne', 'Health Nexus is an imprint of Panorama Scholarly Group dedicated to research at the intersections of medicine, public health, health sciences and the systems that connect them.')}</p>
@@ -314,14 +315,14 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
               </div>
               <div class="health-nexus-secondary__principle-grid">
                 {aboutPrinciples.map((principle, index) => (
-                  <article><span>{String(index + 1).padStart(2, '0')}</span><h3>{tx(`section.principle.${principle.key}.title`, principle.title)}</h3><p>{tx(`section.principle.${principle.key}.body`, principle.body)}</p></article>
+                  <article><span>{String(index + 1).padStart(2, '0')}</span><h3><PhraseText text={tx(`section.principle.${principle.key}.title`, principle.title)} /></h3><p>{tx(`section.principle.${principle.key}.body`, principle.body)}</p></article>
                 ))}
               </div>
             </div>
           </section>
           <section class="health-nexus-secondary__dark-statement" aria-labelledby="health-nexus-about-group-title">
             <div class="health-nexus-secondary__shell health-nexus-secondary__dark-grid">
-              <div><p class="health-nexus-secondary__kicker">{tx('section.about.groupKicker', 'Part of Panorama')}</p><h2 id="health-nexus-about-group-title">{tx('section.about.groupTitle', 'Independent journals. A shared commitment to scholarship.')}</h2></div>
+              <div><p class="health-nexus-secondary__kicker">{tx('section.about.groupKicker', 'Part of Panorama')}</p><h2 id="health-nexus-about-group-title"><PhraseText text={tx('section.about.groupTitle', 'Independent journals. A shared commitment to scholarship.')} /></h2></div>
               <div><p>{tx('section.about.groupBody', 'Health Nexus is one of Panorama Scholarly Group’s publishing imprints. Our group-wide standards support editorial independence, responsible research and open access across a growing family of journals.')}</p><div class="health-nexus-secondary__link-row"><a class="health-nexus-secondary__button" data-action="primary" href={localizePath('/standards/editorial/', locale)}>{tx('section.about.groupLink', 'Read editorial standards')}</a><a class="health-nexus-secondary__inverse-link" data-action="secondary" href={localizePath('/', locale)}>{tx('visitPanorama', 'Visit Panorama')}</a></div></div>
             </div>
           </section>

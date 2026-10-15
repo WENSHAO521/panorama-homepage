@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -67,7 +68,7 @@ const researchAreas = [
         <div class="ridgeline-shell ridgeline-about-hero__inner">
           <p class="ridgeline-kicker">{tx('section.about.kicker', 'Ridgeline / Panorama Scholarly Group')}</p>
           <div class="ridgeline-about-hero__grid">
-            <h1 id="ridgeline-about-hero-title">{tx('section.about.title', 'Research for the technologies shaping tomorrow.')}</h1>
+            <h1 id="ridgeline-about-hero-title"><PhraseText text={tx('section.about.title', 'Research for the technologies shaping tomorrow.')} /></h1>
             <div class="ridgeline-about-hero__summary">
               <p>{tx('section.about.lede', 'Ridgeline is Panorama Scholarly Group’s imprint for independent, research-led journals across technology, engineering, applied AI and society.')}</p>
               <a class="ridgeline-button ridgeline-button--primary" data-action="primary" href={localizedJournalsPath}>{tx('exploreJournals', 'Explore Ridgeline journals')}</a>
@@ -91,7 +92,7 @@ const researchAreas = [
         <div class="ridgeline-shell ridgeline-about-purpose__inner">
           <div>
             <p class="ridgeline-kicker">{tx('section.about.purposeKicker', 'Our purpose')}</p>
-            <h2 id="ridgeline-about-purpose-title">{tx('section.about.purposeTitle', 'Knowledge across disciplines for real-world progress.')}</h2>
+            <h2 id="ridgeline-about-purpose-title"><PhraseText text={tx('section.about.purposeTitle', 'Knowledge across disciplines for real-world progress.')} /></h2>
             <span class="ridgeline-rule ridgeline-rule--copper" aria-hidden="true"></span>
           </div>
           <div class="ridgeline-about-purpose__body">
@@ -111,17 +112,17 @@ const researchAreas = [
           <div class="ridgeline-principle-grid">
             <article class="ridgeline-principle">
               <p class="ridgeline-kicker">01</p>
-              <h3>{tx('section.principle.rigour.title', 'Editorial rigour')}</h3>
+              <h3><PhraseText text={tx('section.principle.rigour.title', 'Editorial rigour')} /></h3>
               <p>{tx('section.principle.rigour.body', 'We look for methodological clarity, evidentiary strength and a clearly defined contribution.')}</p>
             </article>
             <article class="ridgeline-principle">
               <p class="ridgeline-kicker">02</p>
-              <h3>{tx('section.principle.responsibility.title', 'Responsible scholarship')}</h3>
+              <h3><PhraseText text={tx('section.principle.responsibility.title', 'Responsible scholarship')} /></h3>
               <p>{tx('section.principle.responsibility.body', 'We expect transparent research practices, ethical conduct and accurate representation of evidence.')}</p>
             </article>
             <article class="ridgeline-principle">
               <p class="ridgeline-kicker">03</p>
-              <h3>{tx('section.principle.relevance.title', 'Cross-disciplinary relevance')}</h3>
+              <h3><PhraseText text={tx('section.principle.relevance.title', 'Cross-disciplinary relevance')} /></h3>
               <p>{tx('section.principle.relevance.body', 'We welcome work that travels across fields while remaining precise about its methods and limits.')}</p>
             </article>
           </div>
@@ -137,7 +138,7 @@ const researchAreas = [
           <div class="ridgeline-area-grid">
             {researchAreas.map((area) => (
               <article class="ridgeline-area">
-                <h3>{tx(`section.area.${area.key}.title`, area.title)}</h3>
+                <h3><PhraseText text={tx(`section.area.${area.key}.title`, area.title)} /></h3>
                 <p>{tx(`section.area.${area.key}.body`, area.body)}</p>
               </article>
             ))}
@@ -149,7 +150,7 @@ const researchAreas = [
         <div class="ridgeline-shell ridgeline-about-cta__inner">
           <div>
             <p class="ridgeline-kicker">{tx('section.about.ctaKicker', 'The Ridgeline programme')}</p>
-            <h2 id="ridgeline-about-cta-title">{tx('section.about.ctaTitle', 'Better systems begin with better questions.')}</h2>
+            <h2 id="ridgeline-about-cta-title"><PhraseText text={tx('section.about.ctaTitle', 'Better systems begin with better questions.')} /></h2>
           </div>
           <div class="ridgeline-about-cta__actions">
             <a class="ridgeline-button ridgeline-button--light" data-action="primary" href={localizedJournalsPath}>{tx('exploreJournals', 'Explore our journals')}</a>

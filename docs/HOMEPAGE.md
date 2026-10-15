@@ -142,3 +142,13 @@ this way, each with a code comment at the fix site:
   state were rendered with real Chromium and visually inspected (not
   just generated) — see docs/DEPLOYMENT.md / docs/ARCHITECTURE.md for
   the note on which Chromium build this environment used.
+
+
+## Lower sections (2026 redesign)
+
+The research band, selected articles and latest announcements follow the hero's
+rhythm: one `SectionHead` (title + lede on the left, one arrow link on the
+right, hairline below), the same hairline-separated columns, and the shared
+`.action-link` / primary button. Articles are a lead plus two compact items;
+announcements are three across (the same shelf rhythm as the featured
+journals). Bands alternate paper / tint down the page.

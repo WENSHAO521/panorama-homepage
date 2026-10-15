@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AboutSubnav from '@/components/about/AboutSubnav.astro';
 import Button from '@/components/ui/Button.astro';
@@ -51,7 +52,7 @@ const routes = copy.routes.map((route, index) => ({
         <header class="contact-section-head">
           <div>
             <p class="text-overline">{copy.chooseOverline}</p>
-            <h2 id="routes-title">{copy.routesTitle}</h2>
+            <h2 id="routes-title"><PhraseText text={copy.routesTitle} /></h2>
           </div>
           <p>{copy.routesIntro}</p>
         </header>
@@ -75,7 +76,7 @@ const routes = copy.routes.map((route, index) => ({
       <div class="container-wide contact-details__grid">
         <div>
           <p class="text-overline">{copy.writeOverline}</p>
-          <h2 id="details-title">{copy.detailsTitle}</h2>
+          <h2 id="details-title"><PhraseText text={copy.detailsTitle} /></h2>
         </div>
         <div class="contact-details__copy">
           <p>
@@ -98,7 +99,7 @@ const routes = copy.routes.map((route, index) => ({
       <div class="container-wide contact-closing__inner">
         <div>
           <p class="text-overline">{copy.beforeOverline}</p>
-          <h2 id="contact-closing-title">{copy.closingTitle}</h2>
+          <h2 id="contact-closing-title"><PhraseText text={copy.closingTitle} /></h2>
         </div>
         <div class="contact-closing__copy">
           <p>{copy.closingBody}</p>

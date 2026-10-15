@@ -3,6 +3,8 @@ import { externalSystems } from '@/data/site';
 import { geoGraticule, geoOrthographic, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 import worldAtlas from 'world-atlas/land-110m.json' with { type: 'json' };
+import Button from '@/components/ui/Button.astro';
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
 
@@ -23,22 +25,17 @@ const graticulePath = globePath(geoGraticule().step([20, 20])()) ?? '';
 const spherePath = globePath({ type: 'Sphere' }) ?? '';
 ---
 
-<section class="row research-infra">
+<section class="row research-infra" aria-labelledby="research-infra-title">
   <div class="container-wide research-infra__grid">
     <div class="research-infra__copy">
       <p class="text-overline">{t('home.researchOverline')}</p>
-      <h2 class="research-infra__title">{t('home.researchTitle')}</h2>
+      <h2 id="research-infra-title" class="research-infra__title"><PhraseText text={t('home.researchTitle')} locale={locale} /></h2>
       <p class="research-infra__lede">
         {t('home.researchLede')}
       </p>
       <div class="research-infra__actions">
-        <a class="research-infra__link" href={externalSystems.research} target="_blank" rel="noopener noreferrer">
-          {t('common.visitResearch')}
-          <span class="visually-hidden"> (opens in a new tab)</span>
-        </a>
-        <a class="research-infra__link research-infra__link--local" href={localizePath('/infrastructure/', locale)}>
-          {t('common.viewInfrastructure')}
-        </a>
+        <Button href={externalSystems.research} variant="primary" external>{t('common.visitResearch')}</Button>
+        <a class="action-link" href={localizePath('/infrastructure/', locale)}>{t('common.viewInfrastructure')}</a>
       </div>
     </div>
 
@@ -93,7 +90,7 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
     background: var(--surface-feature);
     color: var(--text-primary);
     border-block: var(--p-border-hairline) solid var(--border-subtle);
-    padding-block: 3.5rem 3rem;
+    padding-block: clamp(2.5rem, 5vw, 4rem);
   }
 
   .research-infra__grid {
@@ -107,9 +104,10 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
     max-width: 20ch;
     margin-top: 0.75rem;
     color: var(--text-primary);
-    font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+    font-size: clamp(1.9rem, 3.6vw, 2.75rem);
     font-weight: var(--fw-regular);
-    line-height: 1.05;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
   }
 
   .research-infra__lede {
@@ -121,32 +119,13 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
     line-height: 1.55;
   }
 
-  .research-infra__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    color: var(--text-link);
-    font-family: var(--font-display);
-    font-size: 1rem;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-  }
-
   .research-infra__actions {
-    display: grid;
-    justify-items: start;
-    gap: 0.75rem;
-    margin-top: 1.35rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1.5rem;
+    margin-top: 1.5rem;
   }
-
-  .research-infra__link--local {
-    padding-block-start: 0.75rem;
-    border-block-start: var(--p-border-hairline) solid var(--border-subtle);
-    color: var(--text-link);
-  }
-
-  .research-infra__link span { font-family: var(--font-body); font-size: 1rem; }
-  .research-infra__link:hover { color: var(--text-link-hover); }
 
   .research-infra__figure {
     position: relative;
@@ -212,13 +191,4 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
     }
   }
 
-  @media (max-width: 639px) {
-    .research-infra__actions {
-      gap: 0.7rem;
-    }
-
-    .research-infra__link--local {
-      padding-block-start: 0.7rem;
-    }
-  }
 </style>

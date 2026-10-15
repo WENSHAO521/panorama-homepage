@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -188,7 +189,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="health-nexus-shell health-nexus-purpose__inner">
           <div>
             <p class="health-nexus-kicker">{tx('purposeKicker', 'Our purpose')}</p>
-            <h2 id="health-nexus-purpose-title">{tx('purposeTitle', 'Health is a system, not a silo.')}</h2>
+            <h2 id="health-nexus-purpose-title"><PhraseText text={tx('purposeTitle', 'Health is a system, not a silo.')} /></h2>
           </div>
           <div class="health-nexus-purpose__body">
             <p>{tx('purposeBody', 'We publish research that connects clinical care, population health, data and society — because real progress happens at the intersections.')}</p>
@@ -211,7 +212,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
             {fields.map((field) => (
               <article class={`health-nexus-field health-nexus-field--${field.accent}`}>
                 <span class="health-nexus-field__marker" aria-hidden="true"></span>
-                <h3>{tx(`field.${field.key}.title`, field.title)}</h3>
+                <h3><PhraseText text={tx(`field.${field.key}.title`, field.title)} /></h3>
                 <p>{tx(`field.${field.key}.body`, field.body)}</p>
               </article>
             ))}

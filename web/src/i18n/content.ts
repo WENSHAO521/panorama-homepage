@@ -786,6 +786,30 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     ru: 'Доступ',
     ar: 'الإتاحة',
   },
+  'home.readArticle': {
+    en: 'Read the article',
+    'zh-hans': '阅读文章',
+    'zh-hant': '閱讀文章',
+    ja: '記事を読む',
+    ko: '기사 읽기',
+    de: 'Artikel lesen',
+    fr: 'Lire l’article',
+    es: 'Leer el artículo',
+    ru: 'Читать статью',
+    ar: 'اقرأ المقال',
+  },
+  'home.readAnnouncement': {
+    en: 'Read announcement',
+    'zh-hans': '阅读公告',
+    'zh-hant': '閱讀公告',
+    ja: 'お知らせを読む',
+    ko: '공지 읽기',
+    de: 'Ankündigung lesen',
+    fr: 'Lire l’annonce',
+    es: 'Leer el anuncio',
+    ru: 'Читать объявление',
+    ar: 'اقرأ الإعلان',
+  },
 };
 
 export function getContent(locale = 'en') {

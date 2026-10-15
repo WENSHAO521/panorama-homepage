@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -131,7 +132,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           </div>
 
           <div class="verdant-journals__heading">
-            <h2 id="verdant-journals-title">{tx('journalsTitle', 'Research for a more resilient world.')}</h2>
+            <h2 id="verdant-journals-title"><PhraseText text={tx('journalsTitle', 'Research for a more resilient world.')} /></h2>
             <p>{tx('journalsBody', 'Rigorous, interdisciplinary journals advancing knowledge across the systems that shape life on Earth.')}</p>
           </div>
 
@@ -180,7 +181,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
             {disciplines.map((discipline, index) => (
               <article class="verdant-discipline">
                 <span class="verdant-discipline__number">0{index + 1}</span>
-                <h3>{tx(`discipline.${discipline.key}.name`, discipline.name)}</h3>
+                <h3><PhraseText text={tx(`discipline.${discipline.key}.name`, discipline.name)} /></h3>
                 <p>{tx(`discipline.${discipline.key}.note`, discipline.note)}</p>
               </article>
             ))}
@@ -195,7 +196,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="verdant-shell verdant-research__inner">
           <div class="verdant-research__heading">
             <p class="verdant-kicker">{tx('researchKicker', 'A more connected tomorrow')}</p>
-            <h2 id="verdant-research-title">{tx('researchTitle', 'Research today for a more resilient tomorrow.')}</h2>
+            <h2 id="verdant-research-title"><PhraseText text={tx('researchTitle', 'Research today for a more resilient tomorrow.')} /></h2>
           </div>
           <div class="verdant-research__body">
             <p>{tx('researchBody', 'Verdant Science publishes rigorous, solution-oriented research that bridges environmental systems, human communities, and long-term planetary wellbeing.')}</p>
@@ -212,7 +213,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="verdant-shell verdant-about__inner">
           <div class="verdant-about__heading">
             <p class="verdant-kicker">{tx('authorsKicker', 'For authors and editors')}</p>
-            <h2 id="verdant-about-title">{tx('authorsTitle', 'A trusted home for impactful research.')}</h2>
+            <h2 id="verdant-about-title"><PhraseText text={tx('authorsTitle', 'A trusted home for impactful research.')} /></h2>
           </div>
           <div class="verdant-about__copy">
             <p>{tx('authorsBody', 'We welcome original research, reviews, and perspectives that make complex environmental and life-science questions clearer, more useful, and more open to the communities they affect.')}</p>

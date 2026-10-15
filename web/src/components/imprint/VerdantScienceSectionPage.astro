@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -104,7 +105,7 @@ const localizedPageDescription = isJournals
         <div class="verdant-section-shell verdant-section-hero__inner">
           <div class="verdant-section-hero__copy">
             <p class="verdant-section-kicker">{tx(isJournals ? 'section.journals.kicker' : 'section.about.kicker', isJournals ? 'Verdant Science / Journal programme' : 'Verdant Science / Our imprint')}</p>
-            <h1 id="verdant-section-title">{tx(isJournals ? 'section.journals.title' : 'section.about.title', isJournals ? 'A connected programme for a living planet.' : 'Research for a more resilient world.')}</h1>
+            <h1 id="verdant-section-title"><PhraseText text={tx(isJournals ? 'section.journals.title' : 'section.about.title', isJournals ? 'A connected programme for a living planet.' : 'Research for a more resilient world.')} /></h1>
             <p class="verdant-section-hero__lede">
               {tx(isJournals ? 'section.journals.lede' : 'section.about.lede', isJournals
                 ? 'A growing family of journals for research that moves across environmental systems, communities, health, and the conditions of a sustainable future.'
@@ -170,7 +171,7 @@ const localizedPageDescription = isJournals
             <div class="verdant-section-shell verdant-section-dark-band__inner">
               <div>
                 <p class="verdant-section-kicker">{tx('section.journals.closingKicker', 'The Verdant Science programme')}</p>
-                <h2 id="verdant-journal-closing-title">{tx('section.journals.closingTitle', 'Research travels further when systems are considered together.')}</h2>
+                <h2 id="verdant-journal-closing-title"><PhraseText text={tx('section.journals.closingTitle', 'Research travels further when systems are considered together.')} /></h2>
               </div>
               <p>{tx('section.journals.closingBody', 'As new journals join the imprint, each will retain a clear editorial identity while sharing the same commitment to methodological rigour, transparent scholarship, and meaningful public value.')}</p>
             </div>
@@ -184,7 +185,7 @@ const localizedPageDescription = isJournals
             <div class="verdant-section-shell verdant-about-statement__inner">
               <div>
                 <p class="verdant-section-kicker">{tx('section.about.positionKicker', 'Our editorial position')}</p>
-                <h2 id="verdant-about-statement-title">{tx('section.about.positionTitle', 'Evidence in context. Knowledge in use.')}</h2>
+                <h2 id="verdant-about-statement-title"><PhraseText text={tx('section.about.positionTitle', 'Evidence in context. Knowledge in use.')} /></h2>
               </div>
               <div>
                 <p>{tx('section.about.positionBodyOne', 'Verdant Science publishes research across the environmental and life sciences with attention to the systems in which evidence is produced, interpreted, and applied.')}</p>
@@ -204,7 +205,7 @@ const localizedPageDescription = isJournals
                 {fields.map((field, index) => (
                   <article>
                     <span>{String(index + 1).padStart(2, '0')}</span>
-                    <h2>{tx(`section.field.${field.key}.title`, field.title)}</h2>
+                    <h2><PhraseText text={tx(`section.field.${field.key}.title`, field.title)} /></h2>
                     <p>{tx(`section.field.${field.key}.body`, field.body)}</p>
                   </article>
                 ))}
@@ -216,13 +217,13 @@ const localizedPageDescription = isJournals
             <div class="verdant-section-shell verdant-about-principles__inner">
               <div class="verdant-about-principles__heading">
                 <p class="verdant-section-kicker">{tx('section.about.principlesKicker', 'How we work')}</p>
-                <h2 id="verdant-about-principles-title">{tx('section.about.principlesTitle', 'Editorially rigorous. Open to connected questions.')}</h2>
+                <h2 id="verdant-about-principles-title"><PhraseText text={tx('section.about.principlesTitle', 'Editorially rigorous. Open to connected questions.')} /></h2>
               </div>
               <div class="verdant-about-principles__grid">
                 {principles.map((principle) => (
                   <article>
                     <span>{principle.number}</span>
-                    <h3>{tx(`section.principle.${principle.key}.title`, principle.title)}</h3>
+                    <h3><PhraseText text={tx(`section.principle.${principle.key}.title`, principle.title)} /></h3>
                     <p>{tx(`section.principle.${principle.key}.body`, principle.body)}</p>
                   </article>
                 ))}
@@ -234,7 +235,7 @@ const localizedPageDescription = isJournals
             <div class="verdant-section-shell verdant-about-cta__inner">
               <div>
                 <p class="verdant-section-kicker">{tx('section.about.authorsKicker', 'For authors and editors')}</p>
-                <h2 id="verdant-about-cta-title">{tx('section.about.authorsTitle', 'Bring important research into view.')}</h2>
+                <h2 id="verdant-about-cta-title"><PhraseText text={tx('section.about.authorsTitle', 'Bring important research into view.')} /></h2>
               </div>
               <div>
                 <p>{tx('section.about.authorsBody', 'We welcome scholarship that clarifies complex environmental and life-science questions and helps evidence travel between disciplines and communities.')}</p>

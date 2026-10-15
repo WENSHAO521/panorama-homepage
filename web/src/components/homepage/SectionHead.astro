@@ -1,0 +1,52 @@
+---
+// Section header shared by the homepage list sections: title (+ optional lede)
+// on the left, one text link on the right, a hairline underneath. Same rhythm
+// as the hero's statement + search row.
+import PhraseText from '@/components/ui/PhraseText.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  lede?: string;
+  href?: string;
+  linkLabel?: string;
+  locale?: string;
+}
+const { id, title, lede, href, linkLabel, locale = Astro.currentLocale ?? 'en' } = Astro.props;
+---
+
+<div class="section-head">
+  <div class="section-head__text">
+    <h2 id={id} class="section-head__title"><PhraseText text={title} locale={locale} /></h2>
+    {lede && <p class="section-head__lede">{lede}</p>}
+  </div>
+  {href && linkLabel && <a class="action-link" href={href}>{linkLabel}</a>}
+</div>
+
+<style>
+  .section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    padding-bottom: 1.1rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+  }
+  .section-head__title {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+  }
+  .section-head__lede {
+    max-width: 48ch;
+    margin: 0.5rem 0 0;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+</style>

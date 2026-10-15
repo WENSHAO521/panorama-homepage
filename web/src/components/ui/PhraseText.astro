@@ -1,0 +1,8 @@
+---
+// Renders text with CJK-safe line-break hints (see lib/text/phrases.ts).
+import { phraseHtml } from '@/lib/text/phrases';
+
+interface Props { text: string; locale?: string }
+const { text, locale = Astro.currentLocale ?? 'en' } = Astro.props;
+---
+<Fragment set:html={phraseHtml(text, locale)} />

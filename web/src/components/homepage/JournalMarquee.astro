@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import JESA from '@/assets/journal-covers/JESA.png';
 import CSGS from '@/assets/journal-covers/CSGS.png';
@@ -63,7 +64,7 @@ const journals = [
           decoding="async"
         />
         <p class="text-caption journal-marquee__imprint">{journal.imprint}</p>
-        <h3 class="journal-marquee__title">{journal.title}</h3>
+        <h3 class="journal-marquee__title"><PhraseText text={journal.title} /></h3>
         <p class="journal-marquee__description">{journal.description}</p>
       </a>
     </li>

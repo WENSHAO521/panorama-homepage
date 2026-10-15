@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AboutSubnav from '@/components/about/AboutSubnav.astro';
@@ -72,7 +73,7 @@ const localizedBasePath = localizePath('/about/', locale);
       <div class="container-wide about-statement__grid">
         <div>
           <p class="text-overline">{copy.howWorks}</p>
-          <h2 id="about-statement-title">{copy.statementTitle}</h2>
+          <h2 id="about-statement-title"><PhraseText text={copy.statementTitle} /></h2>
         </div>
         <div class="about-statement__copy">
           {copy.statementParagraphs.map((paragraph) => <p>{paragraph}</p>)}
@@ -85,7 +86,7 @@ const localizedBasePath = localizePath('/about/', locale);
         <header class="about-section-head">
           <div>
             <p class="text-overline">{copy.organisation}</p>
-            <h2 id="divisions-title">{copy.divisionsTitle}</h2>
+            <h2 id="divisions-title"><PhraseText text={copy.divisionsTitle} /></h2>
           </div>
           <p>{copy.divisionsIntro}</p>
         </header>
@@ -95,7 +96,7 @@ const localizedBasePath = localizePath('/about/', locale);
             <li>
               <span class="about-division-list__number">{String(index + 1).padStart(2, '0')}</span>
               <div>
-                <h3>{copy.divisions[index].name}</h3>
+                <h3><PhraseText text={copy.divisions[index].name} /></h3>
                 <p>{copy.divisions[index].description}</p>
               </div>
               <a class="action-link" href={localizePath(division.path, locale)}>{copy.visitDivision}</a>
@@ -110,7 +111,7 @@ const localizedBasePath = localizePath('/about/', locale);
         <header class="about-section-head about-section-head--inverse">
           <div>
             <p class="text-overline">{copy.common}</p>
-            <h2 id="commitments-title">{copy.commitmentsTitle}</h2>
+            <h2 id="commitments-title"><PhraseText text={copy.commitmentsTitle} /></h2>
           </div>
           <p>{copy.commitmentsIntro}</p>
         </header>
@@ -119,7 +120,7 @@ const localizedBasePath = localizePath('/about/', locale);
           {copy.commitments.map((commitment, index) => (
             <article>
               <span>{String(index + 1).padStart(2, '0')}</span>
-              <h3>{commitment.title}</h3>
+              <h3><PhraseText text={commitment.title} /></h3>
               <p>{commitment.body}</p>
             </article>
           ))}
@@ -132,7 +133,7 @@ const localizedBasePath = localizePath('/about/', locale);
         <header class="about-section-head">
           <div>
             <p class="text-overline">{copy.connections}</p>
-            <h2 id="connections-title">{copy.connectionsTitle}</h2>
+            <h2 id="connections-title"><PhraseText text={copy.connectionsTitle} /></h2>
           </div>
           <p>{copy.connectionsIntro}</p>
         </header>
@@ -151,7 +152,7 @@ const localizedBasePath = localizePath('/about/', locale);
               </div>
               <div class="about-connection__body">
                 <p class="text-overline">{relationship.kind}</p>
-                <h3>{relationship.name}</h3>
+                <h3><PhraseText text={relationship.name} /></h3>
                 <p>{relationship.description}</p>
               </div>
               {relationshipLogos[index].href && (
@@ -171,7 +172,7 @@ const localizedBasePath = localizePath('/about/', locale);
       <div class="container-wide about-closing__inner">
         <div>
           <p class="text-overline">{copy.continue}</p>
-          <h2 id="about-closing-title">{copy.closingTitle}</h2>
+          <h2 id="about-closing-title"><PhraseText text={copy.closingTitle} /></h2>
         </div>
         <div class="about-closing__copy">
           <p>{copy.closingBody}</p>

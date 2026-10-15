@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { externalSystems } from '@/data/site';
@@ -47,7 +48,7 @@ const copy = getResearchCopy(locale);
         <header class="research-section-head">
           <div>
             <p class="text-overline">{copy.areasOverline}</p>
-            <h2 id="research-areas-title">{copy.areasTitle}</h2>
+            <h2 id="research-areas-title"><PhraseText text={copy.areasTitle} /></h2>
           </div>
           <p>{copy.areasIntro}</p>
         </header>
@@ -57,7 +58,7 @@ const copy = getResearchCopy(locale);
             <li>
               <span class="research-area-list__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <div>
-                <h3>{area.title}</h3>
+                <h3><PhraseText text={area.title} /></h3>
                 <p>{area.description}</p>
               </div>
             </li>
@@ -71,7 +72,7 @@ const copy = getResearchCopy(locale);
         <header class="research-section-head research-section-head--inverse">
           <div>
             <p class="text-overline">{copy.principlesOverline}</p>
-            <h2 id="research-principles-title">{copy.principlesTitle}</h2>
+            <h2 id="research-principles-title"><PhraseText text={copy.principlesTitle} /></h2>
           </div>
           <p>{copy.principlesIntro}</p>
         </header>
@@ -80,7 +81,7 @@ const copy = getResearchCopy(locale);
           {copy.principles.map(([number, title, description]) => (
             <li>
               <span aria-hidden="true">{number}</span>
-              <h3>{title}</h3>
+              <h3><PhraseText text={title} /></h3>
               <p>{description}</p>
             </li>
           ))}
@@ -92,7 +93,7 @@ const copy = getResearchCopy(locale);
       <div class="container-wide research-closing__grid">
         <div>
           <p class="text-overline">{copy.closingOverline}</p>
-          <h2 id="research-closing-title">{copy.closingTitle}</h2>
+          <h2 id="research-closing-title"><PhraseText text={copy.closingTitle} /></h2>
         </div>
         <div class="research-closing__body">
           <p>{copy.closingBody}</p>

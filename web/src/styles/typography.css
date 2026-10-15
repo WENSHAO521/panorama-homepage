@@ -90,6 +90,21 @@ h5, h6 {
 
 /* Balanced headings avoid a lone word on the last line; paragraphs avoid orphans. */
 h1, h2, h3, h4 { text-wrap: balance; }
+
+/* CJK headlines: break only at the <wbr> hints from PhraseText (word and clause
+   boundaries), never inside a word. Korean has spaces, so keep-all suffices. */
+:is(h1, h2, h3):lang(zh),
+:is(h1, h2, h3):lang(ja),
+:is(h1, h2, h3):lang(ko) {
+  word-break: keep-all;
+  line-break: strict;
+}
+
+/* One clause = one unit; it only wraps internally when it is wider than the line. */
+.phrase {
+  display: inline-block;
+  max-width: 100%;
+}
 p, li, figcaption, blockquote { text-wrap: pretty; }
 
 h1 { font-size: var(--fs-h1); }

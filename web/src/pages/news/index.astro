@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getAnnouncements } from '@/data/announcements';
 import { getNewsCopy } from '@/i18n/utility';
@@ -75,7 +76,7 @@ function isExternal(value: string) {
               </div>
 
               <div class="news-feature__body">
-                <h2 id="latest-announcement-title">{featured.title}</h2>
+                <h2 id="latest-announcement-title"><PhraseText text={featured.title} /></h2>
                 <p>{featured.summary}</p>
                 <a
                   class="action-link"
@@ -102,7 +103,7 @@ function isExternal(value: string) {
             <div class="news-archive__header">
               <div>
                 <p class="text-overline">{copy.recentUpdates}</p>
-                <h2 id="recent-updates-title">{copy.archiveTitle}</h2>
+                <h2 id="recent-updates-title"><PhraseText text={copy.archiveTitle} /></h2>
               </div>
               <p>{copy.archiveText}</p>
             </div>
@@ -140,7 +141,7 @@ function isExternal(value: string) {
       <section class="news-empty row" aria-labelledby="empty-news-title">
         <div class="container-wide">
           <p class="text-overline">{copy.title}</p>
-          <h2 id="empty-news-title">{copy.emptyTitle}</h2>
+          <h2 id="empty-news-title"><PhraseText text={copy.emptyTitle} /></h2>
           <p>{copy.emptyText}</p>
         </div>
       </section>

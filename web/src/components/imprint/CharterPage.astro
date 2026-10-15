@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -142,7 +143,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           </div>
 
           <div class="charter-journals__heading">
-            <h2 id="charter-journals-title">{tx('journalsTitle', 'Research for the systems we share.')}</h2>
+            <h2 id="charter-journals-title"><PhraseText text={tx('journalsTitle', 'Research for the systems we share.')} /></h2>
             <p>{tx('journalsBody', 'A growing programme of journals connecting legal reasoning, public policy, governance, and the social sciences.')}</p>
           </div>
 
@@ -197,7 +198,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
             {fields.map((field) => (
               <a class="charter-field" href={localizePath(`${basePath}journals/`, locale)}>
                 <span class="charter-field__number">{field.number}</span>
-                <h3>{tx(`field.${field.key}.title`, field.name)}</h3>
+                <h3><PhraseText text={tx(`field.${field.key}.title`, field.name)} /></h3>
                 <span>{tx(`field.${field.key}.note`, field.note)}</span>
               </a>
             ))}
@@ -209,7 +210,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="charter-shell charter-authors__inner">
           <div class="charter-authors__heading">
             <p class="charter-kicker">{tx('authorsKicker', 'For authors and editors')}</p>
-            <h2 id="charter-authors-title">{tx('authorsTitle', 'A trusted home for research with real-world impact.')}</h2>
+            <h2 id="charter-authors-title"><PhraseText text={tx('authorsTitle', 'A trusted home for research with real-world impact.')} /></h2>
           </div>
           <div class="charter-authors__copy">
             <p>{tx('authorsBody', 'We welcome original research, reviews, and perspectives that deepen understanding of law, policy, and society. Our journals are committed to rigorous peer review, editorial independence, and a clear route from strong ideas to meaningful public scholarship.')}</p>
@@ -237,7 +238,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="charter-shell charter-manifesto__inner">
           <div>
             <p class="charter-kicker">{tx('manifestoKicker', 'Charter by Panorama')}</p>
-            <h2 id="charter-manifesto-title">{tx('manifestoTitle', 'Knowledge in the public interest.')}</h2>
+            <h2 id="charter-manifesto-title"><PhraseText text={tx('manifestoTitle', 'Knowledge in the public interest.')} /></h2>
           </div>
           <div class="charter-manifesto__body">
             <p>{tx('manifestoBody', 'Charter and Panorama Scholarly Group work together to champion independent research, informed debate, and evidence-based solutions for a more just and resilient world.')}</p>

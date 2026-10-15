@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { localizePath } from '@/i18n/utils';
@@ -56,14 +57,14 @@ const sdgCopy = getSdgReferenceCopy(locale);
     <section id="standards-framework" class="standards-framework" aria-labelledby="framework-title">
       <div class="container-wide">
         <div class="standards-section-intro">
-          <h2 id="framework-title">{copy.frameworkTitle}</h2>
+          <h2 id="framework-title"><PhraseText text={copy.frameworkTitle} /></h2>
           <p>{copy.frameworkBody}</p>
         </div>
 
         <div class="standards-commitments" role="list">
           {copy.commitments.map((commitment) => (
             <article class="standards-commitment" role="listitem">
-              <h3>{commitment.title}</h3>
+              <h3><PhraseText text={commitment.title} /></h3>
               <p>{commitment.body}</p>
             </article>
           ))}
@@ -74,7 +75,7 @@ const sdgCopy = getSdgReferenceCopy(locale);
     <section class="standards-directory" aria-labelledby="directory-title">
       <div class="container-wide">
         <div class="standards-section-intro standards-section-intro--directory">
-          <h2 id="directory-title">{copy.directoryTitle}</h2>
+          <h2 id="directory-title"><PhraseText text={copy.directoryTitle} /></h2>
           <p>{copy.directoryBody}</p>
         </div>
 
@@ -97,7 +98,7 @@ const sdgCopy = getSdgReferenceCopy(locale);
       <div class="container-wide standards-sdg__grid">
         <div class="standards-sdg__copy">
           <p class="standards-sdg__label">{sdgCopy.sectionLabel}</p>
-          <h2 id="sdg-title">{sdgCopy.title}</h2>
+          <h2 id="sdg-title"><PhraseText text={sdgCopy.title} /></h2>
           <p class="standards-sdg__body">{sdgCopy.body}</p>
           <div class="standards-sdg__links">
             <a href={sdgAgendaUrl} target="_blank" rel="noopener noreferrer">{sdgCopy.agendaLabel}</a>
@@ -123,14 +124,14 @@ const sdgCopy = getSdgReferenceCopy(locale);
     <section class="standards-workflow" aria-labelledby="workflow-title">
       <div class="container-wide">
         <div class="standards-section-intro">
-          <h2 id="workflow-title">{copy.workflowTitle}</h2>
+          <h2 id="workflow-title"><PhraseText text={copy.workflowTitle} /></h2>
           <p>{copy.workflowBody}</p>
         </div>
 
         <ol class="standards-workflow__list">
           {copy.workflow.map((stage) => (
             <li class="standards-workflow__item">
-              <h3>{stage.title}</h3>
+              <h3><PhraseText text={stage.title} /></h3>
               <p>{stage.body}</p>
             </li>
           ))}
@@ -141,7 +142,7 @@ const sdgCopy = getSdgReferenceCopy(locale);
     <section class="standards-contact" aria-labelledby="contact-title">
       <div class="container-wide standards-contact__grid">
         <div>
-          <h2 id="contact-title">{copy.contactTitle}</h2>
+          <h2 id="contact-title"><PhraseText text={copy.contactTitle} /></h2>
           <p>{copy.contactBody}</p>
         </div>
         <div class="standards-contact__action">
