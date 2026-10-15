@@ -4,6 +4,8 @@ import LanguageSwitcher from '@/components/navigation/LanguageSwitcher.astro';
 import Logo from '@/components/ui/Logo.astro';
 import type { Imprint } from '@/types';
 import { localizePath } from '@/i18n/utils';
+import { getContent, fill } from '@/i18n/content';
+import { getNavigationLabels } from '@/i18n/navigation';
 
 interface NavLink {
   label: string;
@@ -29,8 +31,9 @@ const {
 
 const mobileNavId = `imprint-mobile-nav-${imprint.slug}`;
 const brandHome = localizePath(`/imprints/${imprint.slug}/`, locale);
-const searchLabel = locale === 'zh-hans' ? '搜索' : locale === 'zh-hant' ? '搜尋' : 'Search';
-const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ? '開啟導航' : 'Open navigation';
+const tc = getContent(locale);
+const searchLabel = getNavigationLabels(locale).search;
+const menuLabel = tc('common.openNavigation');
 ---
 
 <header class:list={['imprint-header', `imprint-header--${theme}`]} data-imprint-header={imprint.slug}>
@@ -38,7 +41,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
     <div class="imprint-header__brands">
       <Logo href={localizePath('/', locale)} inverse={theme === 'dark'} />
       <span class="imprint-header__divider" aria-hidden="true"></span>
-      <a class="imprint-header__brand" href={brandHome} aria-label={`${imprint.name} home`}>
+      <a class="imprint-header__brand" href={brandHome} aria-label={fill(tc('common.homeLabel'), { name: imprint.name })}>
         <img
           src={theme === 'dark' ? imprint.logoLight : imprint.logo}
           alt={imprint.name}
@@ -48,7 +51,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
       </a>
     </div>
 
-    <nav class="imprint-header__nav" aria-label={`${imprint.name} navigation`}>
+    <nav class="imprint-header__nav" aria-label={fill(tc('common.navLabel'), { name: imprint.name })}>
       {links.map((link) => (
         <a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
       ))}
@@ -64,7 +67,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
     </div>
   </div>
 
-  <nav id={mobileNavId} class="imprint-header__mobile-nav" aria-label={`${imprint.name} mobile navigation`} hidden>
+  <nav id={mobileNavId} class="imprint-header__mobile-nav" aria-label={fill(tc('common.mobileNavLabel'), { name: imprint.name })} hidden>
     {links.map((link) => (
       <a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
     ))}

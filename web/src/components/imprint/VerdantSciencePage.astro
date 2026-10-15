@@ -1,4 +1,5 @@
 ---
+import { getContent, fill } from '@/i18n/content';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import wallpaper from '@/assets/wallpapers/verdant-science-wallpaper-4k.jpg';
@@ -52,6 +53,7 @@ const disciplines = [
 const basePath = '/imprints/verdant-science/';
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const tx = (key: string, fallback: string) => imprintText('verdant-science', locale, key, fallback);
 const pageDescription = tx('pageDescription', 'Verdant Science is Panorama Scholarly Group’s imprint for rigorous research across sustainability, environmental systems, food, rural development, and human wellbeing.');
 const labels = getNavigationLabels(locale);
@@ -140,11 +142,11 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
               const coverAsset = getJournalCoverAsset(journal.cover);
               return (
                 <article class="verdant-journal-card">
-                  <a class="verdant-journal-card__cover" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${journal.title} website`}>
+                  <a class="verdant-journal-card__cover" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={fill(tc('common.visitWebsiteOf'), { title: journal.title })}>
                     {coverAsset ? (
                       <Image
                         src={coverAsset}
-                        alt={`${journal.title} cover`}
+                        alt={fill(tc('common.coverAlt'), { title: journal.title })}
                         width={495}
                         height={700}
                         widths={[180, 240, 320, 495]}
@@ -152,7 +154,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
                         loading="eager"
                       />
                     ) : (
-                      <Image src={journal.cover!} alt={`${journal.title} cover`} width={495} height={700} loading="eager" />
+                      <Image src={journal.cover!} alt={fill(tc('common.coverAlt'), { title: journal.title })} width={495} height={700} loading="eager" />
                     )}
                   </a>
                   <div class="verdant-journal-card__body">

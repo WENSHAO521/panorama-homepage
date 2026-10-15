@@ -16,7 +16,7 @@ const imprintCopy: Record<string, Partial<Record<LocaleCode, ImprintCopy>>> = {
     de: { scope: 'Technologie, Ingenieurwesen & KI', description: 'Das Imprint der Panorama Scholarly Group für Forschung zu Technologie, Ingenieurwesen und angewandter KI – für eine menschlichere, nachhaltigere und gerechtere Zukunft.', disciplines: ['Technologie', 'Ingenieurwesen', 'Künstliche Intelligenz'] },
     fr: { scope: 'Technologie, ingénierie et IA', description: 'La marque éditoriale de Panorama Scholarly Group consacrée aux recherches en technologie, ingénierie et IA appliquée, pour un avenir plus humain, durable et équitable.', disciplines: ['Technologie', 'Ingénierie', 'Intelligence artificielle'] },
     es: { scope: 'Tecnología, ingeniería e IA', description: 'El sello de Panorama Scholarly Group dedicado a la investigación en tecnología, ingeniería e inteligencia artificial aplicada para un futuro más humano, sostenible y equitativo.', disciplines: ['Tecnología', 'Ingeniería', 'Inteligencia artificial'] },
-    ru: { scope: 'Технологии, инженерия и ИИ', description: 'Импринт Panorama Scholarly Group для исследований в области технологий, инженерии и прикладного ИИ — ради более гуманного, устойчивого и справедливого будущего.', disciplines: ['Технологии', 'Инженерия', 'Искусственный интеллект'] },
+    ru: { scope: 'Технологии, инженерия и ИИ', description: 'Издательское направление Panorama Scholarly Group для исследований в области технологий, инженерии и прикладного ИИ — ради более гуманного, устойчивого и справедливого будущего.', disciplines: ['Технологии', 'Инженерия', 'Искусственный интеллект'] },
     ar: { scope: 'التكنولوجيا والهندسة والذكاء الاصطناعي', description: 'علامة Panorama Scholarly Group المتخصصة في أبحاث التكنولوجيا والهندسة والذكاء الاصطناعي التطبيقي من أجل مستقبل أكثر إنسانية واستدامة وإنصافًا.', disciplines: ['التكنولوجيا', 'الهندسة', 'الذكاء الاصطناعي'] },
   },
   'health-nexus': {
@@ -27,7 +27,7 @@ const imprintCopy: Record<string, Partial<Record<LocaleCode, ImprintCopy>>> = {
     de: { scope: 'Medizin & Gesundheitswissenschaften', description: 'Das Imprint der Panorama Scholarly Group für Forschung in Medizin, öffentlicher Gesundheit und Gesundheitswissenschaften.', disciplines: ['Medizin', 'Öffentliche Gesundheit', 'Digitale Gesundheit & medizinische KI'] },
     fr: { scope: 'Médecine et sciences de la santé', description: 'La marque éditoriale de Panorama Scholarly Group consacrée à la médecine, à la santé publique et aux sciences de la santé.', disciplines: ['Médecine', 'Santé publique', 'Santé numérique et IA médicale'] },
     es: { scope: 'Medicina y ciencias de la salud', description: 'El sello de Panorama Scholarly Group dedicado a la investigación en medicina, salud pública y ciencias de la salud.', disciplines: ['Medicina', 'Salud pública', 'Salud digital e IA médica'] },
-    ru: { scope: 'Медицина и науки о здоровье', description: 'Импринт Panorama Scholarly Group для исследований в области медицины, общественного здоровья и наук о здоровье.', disciplines: ['Медицина', 'Общественное здоровье', 'Цифровое здравоохранение и медицинский ИИ'] },
+    ru: { scope: 'Медицина и науки о здоровье', description: 'Издательское направление Panorama Scholarly Group для исследований в области медицины, общественного здоровья и наук о здоровье.', disciplines: ['Медицина', 'Общественное здоровье', 'Цифровое здравоохранение и медицинский ИИ'] },
     ar: { scope: 'الطب وعلوم الصحة', description: 'علامة Panorama Scholarly Group المتخصصة في أبحاث الطب والصحة العامة وعلوم الصحة.', disciplines: ['الطب', 'الصحة العامة', 'الصحة الرقمية والذكاء الاصطناعي الطبي'] },
   },
   'verdant-science': {
@@ -38,7 +38,7 @@ const imprintCopy: Record<string, Partial<Record<LocaleCode, ImprintCopy>>> = {
     de: { scope: 'Nachhaltigkeit, Umwelt & Lebenswissenschaften', description: 'Das Imprint der Panorama Scholarly Group für Forschung zu Nachhaltigkeit, Umwelt und Lebenswissenschaften.', disciplines: ['Nachhaltigkeit', 'Umweltwissenschaften', 'Lebenswissenschaften'] },
     fr: { scope: 'Durabilité, environnement et sciences de la vie', description: 'La marque éditoriale de Panorama Scholarly Group consacrée aux recherches sur la durabilité, l’environnement et les sciences de la vie.', disciplines: ['Durabilité', 'Sciences de l’environnement', 'Sciences de la vie'] },
     es: { scope: 'Sostenibilidad, medio ambiente y ciencias de la vida', description: 'El sello de Panorama Scholarly Group dedicado a la investigación sobre sostenibilidad, medio ambiente y ciencias de la vida.', disciplines: ['Sostenibilidad', 'Ciencias ambientales', 'Ciencias de la vida'] },
-    ru: { scope: 'Устойчивое развитие, окружающая среда и науки о жизни', description: 'Импринт Panorama Scholarly Group для исследований в области устойчивого развития, окружающей среды и наук о жизни.', disciplines: ['Устойчивое развитие', 'Науки об окружающей среде', 'Науки о жизни'] },
+    ru: { scope: 'Устойчивое развитие, окружающая среда и науки о жизни', description: 'Издательское направление Panorama Scholarly Group для исследований в области устойчивого развития, окружающей среды и наук о жизни.', disciplines: ['Устойчивое развитие', 'Науки об окружающей среде', 'Науки о жизни'] },
     ar: { scope: 'الاستدامة والبيئة وعلوم الحياة', description: 'علامة Panorama Scholarly Group المتخصصة في أبحاث الاستدامة والبيئة وعلوم الحياة.', disciplines: ['الاستدامة', 'علوم البيئة', 'علوم الحياة'] },
   },
   charter: {
@@ -49,7 +49,7 @@ const imprintCopy: Record<string, Partial<Record<LocaleCode, ImprintCopy>>> = {
     de: { scope: 'Politik, Recht & Governance', description: 'Das Imprint der Panorama Scholarly Group für Forschung zu Politik, Recht und Governance.', disciplines: ['Öffentliche Politik', 'Recht', 'Governance'] },
     fr: { scope: 'Politiques publiques, droit et gouvernance', description: 'La marque éditoriale de Panorama Scholarly Group consacrée aux recherches sur les politiques publiques, le droit et la gouvernance.', disciplines: ['Politiques publiques', 'Droit', 'Gouvernance'] },
     es: { scope: 'Política, derecho y gobernanza', description: 'El sello de Panorama Scholarly Group dedicado a la investigación sobre políticas públicas, derecho y gobernanza.', disciplines: ['Políticas públicas', 'Derecho', 'Gobernanza'] },
-    ru: { scope: 'Политика, право и управление', description: 'Импринт Panorama Scholarly Group для исследований в области политики, права и управления.', disciplines: ['Государственная политика', 'Право', 'Управление'] },
+    ru: { scope: 'Политика, право и управление', description: 'Издательское направление Panorama Scholarly Group для исследований в области политики, права и управления.', disciplines: ['Государственная политика', 'Право', 'Управление'] },
     ar: { scope: 'السياسات والقانون والحوكمة', description: 'علامة Panorama Scholarly Group المتخصصة في أبحاث السياسات والقانون والحوكمة.', disciplines: ['السياسات العامة', 'القانون', 'الحوكمة'] },
   },
   threnody: {
@@ -60,7 +60,7 @@ const imprintCopy: Record<string, Partial<Record<LocaleCode, ImprintCopy>>> = {
     de: { scope: 'Geisteswissenschaften, Kunst & Philosophie', description: 'Das Imprint der Panorama Scholarly Group für Forschung in Geisteswissenschaften, Kunst und Philosophie.', disciplines: ['Geisteswissenschaften', 'Kunst', 'Philosophie'] },
     fr: { scope: 'Sciences humaines, arts et philosophie', description: 'La marque éditoriale de Panorama Scholarly Group consacrée aux recherches en sciences humaines, arts et philosophie.', disciplines: ['Sciences humaines', 'Arts', 'Philosophie'] },
     es: { scope: 'Humanidades, artes y filosofía', description: 'El sello de Panorama Scholarly Group dedicado a la investigación en humanidades, artes y filosofía.', disciplines: ['Humanidades', 'Artes', 'Filosofía'] },
-    ru: { scope: 'Гуманитарные науки, искусство и философия', description: 'Импринт Panorama Scholarly Group для исследований в области гуманитарных наук, искусства и философии.', disciplines: ['Гуманитарные науки', 'Искусство', 'Философия'] },
+    ru: { scope: 'Гуманитарные науки, искусство и философия', description: 'Издательское направление Panorama Scholarly Group для исследований в области гуманитарных наук, искусства и философии.', disciplines: ['Гуманитарные науки', 'Искусство', 'Философия'] },
     ar: { scope: 'العلوم الإنسانية والفنون والفلسفة', description: 'علامة Panorama Scholarly Group المتخصصة في أبحاث العلوم الإنسانية والفنون والفلسفة.', disciplines: ['العلوم الإنسانية', 'الفنون', 'الفلسفة'] },
   },
 };

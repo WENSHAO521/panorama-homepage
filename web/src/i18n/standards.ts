@@ -278,7 +278,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { title: 'Publier', body: 'Les travaux acceptés reçoivent des métadonnées claires, les informations sur les contributeurs, la licence et les liens pertinents.' },
       { title: 'Préserver', body: 'Le dossier publié est corrigé lorsque de nouvelles informations imposent une mise à jour ou un avis officiel.' },
     ],
-    contactTitle: 'Besoin d’aide pour trouver la bonne politique ?', contactBody: 'Commencez par la norme pertinente ci-dessus. Si vous ne savez pas quelle revue, quelle marque ou quelle équipe éditoriale doit recevoir votre question, nous vous orienterons.', contactAction: 'Contacter le groupe',
+    contactTitle: 'Besoin d’aide pour trouver la bonne politique ?', contactBody: 'Commencez par la norme pertinente ci-dessus. Si vous ne savez pas quelle revue, quelle marque ou quelle équipe éditoriale doit recevoir votre question, nous vous orienterons.', contactAction: 'Contacter le groupe',
   },
   es: {
     title: 'Normas', metaDescription: 'Normas editoriales, éticas, de acceso abierto y accesibilidad de Panorama Scholarly Group para una publicación académica responsable.',
@@ -334,7 +334,7 @@ const copy: Record<LocaleCode, StandardsPageCopy> = {
       { title: 'Публикация', body: 'Принятые работы получают ясные метаданные, сведения об авторах и участниках, лицензию и ссылки на соответствующие документы.' },
       { title: 'Поддержание', body: 'Опубликованный архив исправляется, когда новая информация требует обновления или официального уведомления.' },
     ],
-    contactTitle: 'Нужна помощь в выборе политики?', contactBody: 'Начните с соответствующего стандарта выше. Если вы не уверены, какому журналу, импринту или издательской команде направить вопрос, мы поможем выбрать адресата.', contactAction: 'Связаться с группой',
+    contactTitle: 'Нужна помощь в выборе политики?', contactBody: 'Начните с соответствующего стандарта выше. Если вы не уверены, какому журналу, издательскому направлению или издательской команде направить вопрос, мы поможем выбрать адресата.', contactAction: 'Связаться с группой',
   },
   ar: {
     title: 'المعايير', metaDescription: 'معايير Panorama Scholarly Group التحريرية والأخلاقية والوصول المفتوح وإمكانية الوصول من أجل نشر علمي مسؤول.',

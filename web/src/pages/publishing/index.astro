@@ -8,10 +8,12 @@ import { getAllImprints, getJournalsForImprint } from '@/lib/content/imprints';
 import { getPublishingCopy } from '@/i18n/sections';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
+import { getContent } from '@/i18n/content';
 import GroupHero from '@/components/group/GroupHero.astro';
 import SectionHead from '@/components/homepage/SectionHead.astro';
 
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const copy = getPublishingCopy(locale);
 const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprint, index) => ({
   imprint,
@@ -74,7 +76,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
               <p>{route.description}</p>
               <a href={route.href} class="action-link" target={route.external ? '_blank' : undefined} rel={route.external ? 'noopener noreferrer' : undefined}>
                 {route.label}
-                {route.external && <span class="visually-hidden"> (opens in a new tab)</span>}
+                {route.external && <span class="visually-hidden"> {tc('common.opensNewTabNote')}</span>}
               </a>
             </li>
           ))}

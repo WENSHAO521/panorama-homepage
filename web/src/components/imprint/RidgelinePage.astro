@@ -1,4 +1,5 @@
 ---
+import { getContent, fill } from '@/i18n/content';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -19,6 +20,7 @@ interface Props {
 const { imprint, journals } = Astro.props;
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const tx = (key: string, fallback: string) => imprintText('ridgeline', locale, key, fallback);
 const activeJournals = journals.filter((journal) => journal.status === 'active' && journal.cover);
 const heroJournal = activeJournals.find((journal) => journal.slug === 'afs') ?? activeJournals[0];
@@ -92,7 +94,7 @@ const footerNav = [
           </div>
 
           {heroJournal && (
-            <a class="ridgeline-hero__cover-link" href={heroJournal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${heroJournal.title} website`}>
+            <a class="ridgeline-hero__cover-link" href={heroJournal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={fill(tc('common.visitWebsiteOf'), { title: heroJournal.title })}>
               {heroCoverAsset ? (
                 <Image
                   class="ridgeline-hero__cover"
@@ -137,7 +139,7 @@ const footerNav = [
 
             {activeJournals.map((journal) => (
               <article class="ridgeline-journal-entry">
-                <a class="ridgeline-journal-entry__cover-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${journal.title} website`}>
+                <a class="ridgeline-journal-entry__cover-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={fill(tc('common.visitWebsiteOf'), { title: journal.title })}>
                   {getJournalCoverAsset(journal.cover) ? (
                     <Image
                       class="ridgeline-journal-entry__cover"

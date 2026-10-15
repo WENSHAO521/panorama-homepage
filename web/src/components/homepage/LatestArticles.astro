@@ -34,7 +34,7 @@ function formatAuthors(authors: string[]) {
         <!-- Lead + two: the newest article gets room for its summary; the next
              two stay compact, so three identical text cards never sit side by side. -->
         <article class="home-articles__lead">
-          <a href={lead.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={lead.title + ' (opens in a new tab)'}>
+          <a href={lead.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={`${lead.title} ${t('common.opensNewTabNote')}`}>
             <p class="home-articles__meta"><span>{lead.journal}</span><time datetime={lead.publishedAt}>{formatDate(lead.publishedAt)}</time></p>
             <h3 class="home-articles__lead-title"><PhraseText text={lead.title} /></h3>
             <p class="home-articles__summary">{lead.summary}</p>
@@ -46,7 +46,7 @@ function formatAuthors(authors: string[]) {
         <ul class="home-articles__list" role="list">
           {rest.map((article) => (
             <li>
-              <a href={article.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={article.title + ' (opens in a new tab)'}>
+              <a href={article.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={`${article.title} ${t('common.opensNewTabNote')}`}>
                 <p class="home-articles__meta"><span>{article.journal}</span><time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time></p>
                 <h3 class="home-articles__title"><PhraseText text={article.title} /></h3>
                 <p class="home-articles__authors">{formatAuthors(article.authors)}</p>

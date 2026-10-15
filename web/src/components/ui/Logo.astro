@@ -3,10 +3,12 @@ interface Props {
   href?: string;
   inverse?: boolean;
 }
+import { getContent, fill } from '@/i18n/content';
 const { href = '/', inverse = false } = Astro.props;
+const homeLabel = fill(getContent(Astro.currentLocale ?? 'en')('common.homeLabel'), { name: 'Panorama Scholarly Group' });
 ---
 
-<a href={href} class:list={['logo', { 'logo--inverse': inverse }]} aria-label="Panorama Scholarly Group, home">
+<a href={href} class:list={['logo', { 'logo--inverse': inverse }]} aria-label={homeLabel}>
   <span class="logo__name">PANORAMA</span>
   <span class="logo__sub">SCHOLARLY GROUP</span>
 </a>

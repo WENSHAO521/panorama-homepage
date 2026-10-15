@@ -5,9 +5,11 @@ import Button from '@/components/ui/Button.astro';
 import { externalSystems } from '@/data/site';
 import { getResearchCopy } from '@/i18n/pages';
 import { localizePath } from '@/i18n/utils';
+import { getContent } from '@/i18n/content';
 import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const copy = getResearchCopy(locale);
 ---
 
@@ -100,7 +102,7 @@ const copy = getResearchCopy(locale);
           <div class="research-closing__links">
             <a href={externalSystems.research} target="_blank" rel="noopener noreferrer">
               {copy.visit}
-              <span class="visually-hidden"> (opens in a new tab)</span>
+              <span class="visually-hidden"> {tc('common.opensNewTabNote')}</span>
             </a>
             <a href={localizePath('/infrastructure/', locale)}>{copy.exploreInfrastructure}</a>
           </div>

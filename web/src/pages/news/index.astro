@@ -2,7 +2,7 @@
 import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getAnnouncements } from '@/data/announcements';
-import { getNewsCopy } from '@/i18n/utility';
+import { getAnnouncementTypeLabel, getNewsCopy } from '@/i18n/utility';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
 
@@ -71,7 +71,7 @@ function isExternal(value: string) {
             <article class="news-feature__item">
               <div class="news-feature__source">
                 <span>{displaySource(featured.sourceLabel)}</span>
-                <span>{copy.typeLabels[featured.type.toLowerCase() as keyof typeof copy.typeLabels] ?? featured.type}</span>
+                <span>{getAnnouncementTypeLabel(featured.type, locale)}</span>
                 <time datetime={featured.date}>{formatDate(featured.date)}</time>
               </div>
 
@@ -122,7 +122,7 @@ function isExternal(value: string) {
                     </span>
                     <span class="news-archive__meta">
                       <span>{displaySource(post.sourceLabel)}</span>
-                      <span>{copy.typeLabels[post.type.toLowerCase() as keyof typeof copy.typeLabels] ?? post.type}</span>
+                      <span>{getAnnouncementTypeLabel(post.type, locale)}</span>
                       <time datetime={post.date}>{formatDate(post.date)}</time>
                     </span>
                     <span class="news-archive__body">

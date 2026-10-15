@@ -3,6 +3,7 @@ import Logo from '@/components/ui/Logo.astro';
 import { getLegalNav } from '@/data/navigation';
 import { getNavigationLabels } from '@/i18n/navigation';
 import { localizePath } from '@/i18n/utils';
+import { getContent, fill } from '@/i18n/content';
 import type { Imprint } from '@/types';
 import { getDoiPolicyCopy } from '@/i18n/doi-policy';
 
@@ -28,6 +29,7 @@ const {
 } = Astro.props;
 
 const labels = getNavigationLabels(locale);
+const tc = getContent(locale);
 const legalNav = getLegalNav(locale);
 const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independent scholarship.`;
 ---
@@ -42,7 +44,7 @@ const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independ
       <p>{resolvedTagline}</p>
     </div>
 
-    <nav class="imprint-footer__nav" aria-label={`${imprint.name} footer navigation`}>
+    <nav class="imprint-footer__nav" aria-label={fill(tc('common.footerNavLabel'), { name: imprint.name })}>
       {links.map((link) => <a href={link.href}>{link.label}</a>)}
       <a href={localizePath('/search/', locale)}>{labels.search}</a>
       <a href={localizePath('/standards/doi-policy/', locale)}>{getDoiPolicyCopy(locale).title}</a>

@@ -1,4 +1,5 @@
 ---
+import { getContent, fill } from '@/i18n/content';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import wallpaper from '@/assets/wallpapers/health-nexus-wallpaper-4k.jpg';
@@ -50,6 +51,7 @@ const fields = [
 
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const tx = (key: string, fallback: string) => imprintText('health-nexus', locale, key, fallback);
 const pageDescription = tx('pageDescription', 'Health Nexus is Panorama Scholarly Group’s imprint for interdisciplinary medical, public health, and health sciences research.');
 const labels = getNavigationLabels(locale);
@@ -102,12 +104,12 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           </div>
 
           {heroJournal && (
-            <a class="health-nexus-hero__cover-link" href={heroJournal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${heroJournal.title} website`}>
+            <a class="health-nexus-hero__cover-link" href={heroJournal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={fill(tc('common.visitWebsiteOf'), { title: heroJournal.title })}>
               {heroCoverAsset ? (
                 <Image
                   class="health-nexus-hero__cover"
                   src={heroCoverAsset}
-                  alt={`${heroJournal.title} cover`}
+                  alt={fill(tc('common.coverAlt'), { title: heroJournal.title })}
                   width={495}
                   height={700}
                   widths={[240, 320, 495, 640]}
@@ -115,7 +117,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
                   loading="eager"
                 />
               ) : (
-                <Image class="health-nexus-hero__cover" src={heroJournal.cover!} alt={`${heroJournal.title} cover`} width={495} height={700} loading="eager" />
+                <Image class="health-nexus-hero__cover" src={heroJournal.cover!} alt={fill(tc('common.coverAlt'), { title: heroJournal.title })} width={495} height={700} loading="eager" />
               )}
             </a>
           )}
@@ -153,12 +155,12 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
                     <div class="health-nexus-journal-entry__marker" aria-hidden="true">
                       <span>{String(index + 1).padStart(2, '0')}</span>
                     </div>
-                    <a class="health-nexus-journal-entry__cover-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${journal.title} website`}>
+                    <a class="health-nexus-journal-entry__cover-link" href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={fill(tc('common.visitWebsiteOf'), { title: journal.title })}>
                       {coverAsset ? (
                         <Image
                           class="health-nexus-journal-entry__cover"
                           src={coverAsset}
-                          alt={`${journal.title} cover`}
+                          alt={fill(tc('common.coverAlt'), { title: journal.title })}
                           width={495}
                           height={700}
                           widths={[160, 240, 320, 495]}
@@ -166,7 +168,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
                           loading="lazy"
                         />
                       ) : (
-                        <Image class="health-nexus-journal-entry__cover" src={journal.cover!} alt={`${journal.title} cover`} width={495} height={700} loading="lazy" />
+                        <Image class="health-nexus-journal-entry__cover" src={journal.cover!} alt={fill(tc('common.coverAlt'), { title: journal.title })} width={495} height={700} loading="lazy" />
                       )}
                     </a>
                     <p class="health-nexus-journal-entry__label">{tx(`journal.${journal.slug}.label`, meta?.label ?? journal.disciplines.join(' · '))}</p>

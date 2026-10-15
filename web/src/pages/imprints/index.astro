@@ -5,12 +5,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getAllImprints } from '@/lib/content/imprints';
 import { getJournalsForImprint } from '@/lib/content/imprints';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
-import { getContent } from '@/i18n/content';
+import { getContent, fill } from '@/i18n/content';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const t = getContent(locale);
 
 const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprint, index) => {
@@ -109,7 +110,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
                   const coverAsset = getJournalCoverAsset(journal.cover);
                   return (
                     <li>
-                      <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${journal.title} website`}>
+                      <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={fill(tc('common.visitWebsiteOf'), { title: journal.title })}>
                         {coverAsset ? (
                           <Image
                             src={coverAsset}

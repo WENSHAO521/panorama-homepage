@@ -44,7 +44,7 @@ const copy: Record<LocaleCode, SdgReferenceCopy> = {
     siteLabel: '瀏覽聯合國可持續發展目標網站',
     guidelinesLabel: '查看可持續發展目標標識使用指南',
     imageAlt: '供非聯合國實體使用的不含聯合國徽的可持續發展目標標識',
-    disclaimer: '本出版物內容未經聯合國批准，不代表聯合國、其官員或會員國的觀點。',
+    disclaimer: '本出版物內容未經聯合國批準，不代表聯合國、其官員或會員國的觀點。',
   },
   ja: {
     sectionLabel: '持続可能な開発',

@@ -3,6 +3,7 @@ import PhraseText from '@/components/ui/PhraseText.astro';
 import SectionHead from './SectionHead.astro';
 import { getAnnouncements } from '@/data/announcements';
 import { getContent } from '@/i18n/content';
+import { getAnnouncementTypeLabel } from '@/i18n/utility';
 import { localizePath } from '@/i18n/utils';
 
 interface Props { locale?: string }
@@ -49,7 +50,7 @@ function isExternal(value: string) {
           >
             <p class="home-announcements__meta">
               <time datetime={announcement.date}>{formatDate(announcement.date)}</time>
-              <span>{announcement.type}</span>
+              <span>{getAnnouncementTypeLabel(announcement.type, locale)}</span>
             </p>
             <p class="home-announcements__source">{announcement.sourceLabel}</p>
             <h3 class="home-announcements__title"><PhraseText text={announcement.title} /></h3>

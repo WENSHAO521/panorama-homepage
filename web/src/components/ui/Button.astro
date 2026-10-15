@@ -5,6 +5,7 @@
 // ExternalLink.astro does (new tab, "opens in a new tab" label) -- used
 // when a primary/secondary CTA itself is the external link, rather than a
 // plain inline link.
+import { getContent } from '@/i18n/content';
 interface Props {
   href?: string;
   variant?: 'primary' | 'secondary' | 'ghost';
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const { href, variant = 'primary', type = 'button', external = false } = Astro.props;
+const tc = getContent(Astro.currentLocale ?? 'en');
 const Tag = href ? 'a' : 'button';
 const extra = href
   ? external
@@ -24,7 +26,7 @@ const extra = href
 <Tag class={`btn btn--${variant}`} data-action={variant === 'ghost' ? undefined : variant} {...extra}>
   <slot />
   {external && (
-    <span class="visually-hidden"> (opens in a new tab)</span>
+    <span class="visually-hidden"> {tc('common.opensNewTabNote')}</span>
   )}
 </Tag>
 

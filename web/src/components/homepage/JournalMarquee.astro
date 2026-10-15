@@ -6,7 +6,7 @@ import CSGS from '@/assets/journal-covers/CSGS.png';
 import HNDH from '@/assets/journal-covers/HNDH.png';
 import JLPCS from '@/assets/journal-covers/JLPCS.png';
 import TTS from '@/assets/journal-covers/TTS.png';
-import { getContent } from '@/i18n/content';
+import { getContent, listSeparator } from '@/i18n/content';
 
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
@@ -50,7 +50,7 @@ const journals = [
         class="journal-marquee__link"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${journal.title}, ${journal.imprint} (${t('common.visitJournalWebsite')}, ${t('common.opensNewTab')})`}
+        aria-label={`${journal.title}${listSeparator(locale)}${journal.imprint}. ${t('common.visitJournalWebsite')} ${t('common.opensNewTabNote')}`}
       >
         <Image
           src={journal.cover}

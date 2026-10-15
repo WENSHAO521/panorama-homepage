@@ -1,4 +1,5 @@
 ---
+import { getContent, fill } from '@/i18n/content';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import wallpaper from '@/assets/wallpapers/threnody-wallpaper-4k.jpg';
@@ -20,6 +21,7 @@ const { imprint, journals } = Astro.props;
 const basePath = '/imprints/threnody/';
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const tx = (key: string, fallback: string) => imprintText('threnody', locale, key, fallback);
 const labels = getNavigationLabels(locale);
 const localizedBasePath = localizePath(basePath, locale);
@@ -116,7 +118,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
                     {coverAsset ? (
                       <Image
                         src={coverAsset}
-                        alt={`${journal.title} cover`}
+                        alt={fill(tc('common.coverAlt'), { title: journal.title })}
                         width={495}
                         height={700}
                         widths={[220, 320, 495]}
@@ -124,7 +126,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
                         loading="lazy"
                       />
                     ) : (
-                      <Image src={journal.cover!} alt={`${journal.title} cover`} width={495} height={700} loading="lazy" />
+                      <Image src={journal.cover!} alt={fill(tc('common.coverAlt'), { title: journal.title })} width={495} height={700} loading="lazy" />
                     )}
                   </a>
                   <p class="threnody-archive-journal-card__label">{journalLabel}</p>

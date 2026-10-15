@@ -1,4 +1,5 @@
 ---
+import { getContent, fill } from '@/i18n/content';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import wallpaper from '@/assets/wallpapers/charter-wallpaper-4k.jpg';
@@ -25,6 +26,7 @@ const basePath = '/imprints/charter/';
 const pagePath = `${basePath}${section}/`;
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const tx = (key: string, fallback: string) => imprintText('charter', locale, key, fallback);
 const labels = getNavigationLabels(locale);
 const localizedBasePath = localizePath(basePath, locale);
@@ -169,7 +171,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
                         <span class="charter-secondary__journal-number">{String(index + 1).padStart(2, '0')}</span>
                         <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer" aria-label={`${tx('visitJournal', 'Visit journal website')}: ${journal.title}`}>
                           {coverAsset ? (
-                            <Image class="charter-secondary__journal-cover" src={coverAsset} alt={`${journal.title} cover`} width={495} height={700} widths={[180, 260, 360, 495]} sizes="(max-width: 639px) 11rem, (max-width: 900px) 14rem, 18rem" loading="lazy" />
+                            <Image class="charter-secondary__journal-cover" src={coverAsset} alt={fill(tc('common.coverAlt'), { title: journal.title })} width={495} height={700} widths={[180, 260, 360, 495]} sizes="(max-width: 639px) 11rem, (max-width: 900px) 14rem, 18rem" loading="lazy" />
                           ) : <div class="charter-secondary__cover-placeholder">{tx('coverForthcoming', 'Cover forthcoming')}</div>}
                         </a>
                       </div>

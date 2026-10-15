@@ -11,16 +11,19 @@
 // to keep this site open behind -- not applied mechanically to every
 // external URL sitewide (e.g. the journal-platform link on a journal
 // page stays a normal same-tab link).
+import { getContent } from '@/i18n/content';
+
 interface Props {
   href: string;
   class?: string;
 }
 const { href, class: className } = Astro.props;
+const tc = getContent(Astro.currentLocale ?? 'en');
 ---
 
 <a href={href} target="_blank" rel="noopener noreferrer" class:list={['external-link', className]}>
   <slot />
-  <span class="visually-hidden"> (opens in a new tab)</span>
+  <span class="visually-hidden"> {tc('common.opensNewTabNote')}</span>
 </a>
 
 <style>

@@ -24,11 +24,11 @@ const t = getContent(locale);
       <div slot="actions" class="books-actions" aria-label={copy.actionsAria}>
         <a class="books-button" data-action="primary" href={bookPlatform} target="_blank" rel="noopener noreferrer">
           {copy.browseBooks}
-          <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+          <span class="visually-hidden"> {t('common.opensNewTabNote')}</span>
         </a>
         <a class="books-link" data-action="secondary" href={bookPlatform} target="_blank" rel="noopener noreferrer">
           {copy.submitProposal}
-          <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+          <span class="visually-hidden"> {t('common.opensNewTabNote')}</span>
         </a>
       </div>
 
@@ -55,7 +55,7 @@ const t = getContent(locale);
           <p>{copy.readersBody}</p>
           <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
             {copy.visitPlatform}
-            <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+            <span class="visually-hidden"> {t('common.opensNewTabNote')}</span>
           </a>
         </article>
 
@@ -65,7 +65,7 @@ const t = getContent(locale);
           <p>{copy.authorsBody}</p>
           <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
             {copy.submitProposal}
-            <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+            <span class="visually-hidden"> {t('common.opensNewTabNote')}</span>
           </a>
         </article>
       </div>
@@ -101,7 +101,7 @@ const t = getContent(locale);
         </div>
         <a class="books-link books-link--inverse" href={bookPlatform} target="_blank" rel="noopener noreferrer">
           {copy.exploreBooks}
-          <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
+          <span class="visually-hidden"> {t('common.opensNewTabNote')}</span>
         </a>
       </div>
     </section>

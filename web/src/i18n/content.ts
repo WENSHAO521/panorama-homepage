@@ -22,8 +22,8 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     en: 'Panorama Scholarly Group is an independent scholarly publishing, research, and infrastructure organisation operating five editorial imprints and 24 peer-reviewed journals.',
     'zh-hans': 'Panorama Scholarly Group 是一家独立的学术出版、研究与基础设施机构，旗下拥有五个出版品牌和 24 本同行评审期刊。',
     'zh-hant': 'Panorama Scholarly Group 是一家獨立的學術出版、研究與基礎設施機構，旗下擁有五個出版品牌和 24 本同行評審期刊。',
-    ja: 'Panorama Scholarly Groupは、5つの出版ブランドと24誌の査読学術誌を運営する独立した学術出版・研究・基盤組織です。',
-    ko: 'Panorama Scholarly Group은 5개 출판 브랜드와 24개 동료심사 학술지를 운영하는 독립 학술 출판·연구·인프라 기관입니다.',
+    ja: 'Panorama Scholarly Groupは、5つのインプリントと24誌の査読学術誌を運営する独立した学術出版・研究・基盤組織です。',
+    ko: 'Panorama Scholarly Group은 5개 임프린트와 24개 동료심사 학술지를 운영하는 독립 학술 출판·연구·인프라 기관입니다.',
     de: 'Panorama Scholarly Group ist eine unabhängige Organisation für wissenschaftliches Publizieren, Forschung und Infrastruktur mit fünf redaktionellen Imprints und 24 begutachteten Zeitschriften.',
     fr: 'Panorama Scholarly Group est une organisation indépendante de publication scientifique, de recherche et d’infrastructures, qui réunit cinq marques éditoriales et 24 revues évaluées par les pairs.',
     es: 'Panorama Scholarly Group es una organización independiente de publicación académica, investigación e infraestructura que reúne cinco sellos editoriales y 24 revistas revisadas por pares.',
@@ -157,7 +157,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     ja: '世界地図。グループの2つのオフィス、香港と南京を示しています。',
     ko: '그룹의 두 사무소인 홍콩과 난징을 표시한 세계 지도입니다.',
     de: 'Eine Weltkarte mit den beiden Büros der Gruppe: Hongkong und Nanjing.',
-    fr: 'Une carte du monde indiquant les deux bureaux du groupe : Hong Kong et Nanjing.',
+    fr: 'Une carte du monde indiquant les deux bureaux du groupe : Hong Kong et Nanjing.',
     es: 'Un mapa del mundo con las dos oficinas del grupo: Hong Kong y Nanjing.',
     ru: 'Карта мира с отмеченными двумя офисами группы: Гонконг и Нанкин.',
     ar: 'خريطة للعالم تُظهر مكتبَي المجموعة: هونغ كونغ ونانجينغ.',
@@ -171,7 +171,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Unsere fünf Imprints',
     fr: 'Nos cinq marques éditoriales',
     es: 'Nuestros cinco sellos editoriales',
-    ru: 'Наши пять импринтов',
+    ru: 'Наши пять издательских направлений',
     ar: 'علاماتنا التحريرية الخمس',
   },
   'home.imprintsLede': {
@@ -195,7 +195,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Alle Imprints ansehen',
     fr: 'Voir toutes les marques',
     es: 'Ver todos los sellos',
-    ru: 'Все импринты',
+    ru: 'Все издательские направления',
     ar: 'عرض جميع العلامات',
   },
   'home.featuredJournals': {
@@ -219,7 +219,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Entdecken Sie Forschung aus unseren Imprints.',
     fr: 'Découvrez les recherches de nos marques éditoriales.',
     es: 'Descubra la investigación de nuestros sellos.',
-    ru: 'Откройте для себя исследования наших импринтов.',
+    ru: 'Откройте для себя исследования наших издательских направлений.',
     ar: 'اكتشف الأبحاث المنشورة عبر علاماتنا التحريرية.',
   },
   'home.researchOverline': {
@@ -288,7 +288,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     'zh-hant': '精選文章',
     ja: '注目論文',
     ko: '주요 논문',
-    de: 'Ausgewählte Beiträge',
+    de: 'Ausgewählte Artikel',
     fr: 'Articles sélectionnés',
     es: 'Artículos seleccionados',
     ru: 'Избранные статьи',
@@ -459,7 +459,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Entdecken Sie die aktiven Zeitschriften der fünf Imprints der Panorama Scholarly Group.',
     fr: 'Découvrez les revues actives publiées par les cinq marques éditoriales de Panorama Scholarly Group.',
     es: 'Explore las revistas activas publicadas por los cinco sellos de Panorama Scholarly Group.',
-    ru: 'Ознакомьтесь с действующими журналами пяти импринтов Panorama Scholarly Group.',
+    ru: 'Ознакомьтесь с действующими журналами пяти издательских направлений Panorama Scholarly Group.',
     ar: 'استكشف الدوريات النشطة التي تنشرها العلامات التحريرية الخمس التابعة لـ Panorama Scholarly Group.',
   },
   'journals.statText': {
@@ -471,7 +471,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Fünf Imprints. Eine globale Forschungsgemeinschaft. Eine offenere Zukunft.',
     fr: 'Cinq marques éditoriales. Une communauté mondiale de chercheurs. Un avenir plus ouvert.',
     es: 'Cinco sellos. Una comunidad mundial de investigadores. Un futuro más abierto.',
-    ru: 'Пять импринтов. Глобальное сообщество исследователей. Более открытое завтра.',
+    ru: 'Пять издательских направлений. Глобальное сообщество исследователей. Более открытое завтра.',
     ar: 'خمس علامات تحريرية. مجتمع عالمي من الباحثين. وغد أكثر انفتاحًا.',
   },
   'common.viewImprint': {
@@ -483,7 +483,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Imprint ansehen',
     fr: 'Voir la marque',
     es: 'Ver el sello',
-    ru: 'Перейти к импринту',
+    ru: 'Перейти к издательскому направлению',
     ar: 'عرض العلامة',
   },
   'common.visitJournalWebsite': {
@@ -531,7 +531,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Entdecken Sie die fünf redaktionellen Imprints der Panorama Scholarly Group und ihre Zeitschriften.',
     fr: 'Découvrez les cinq marques éditoriales de Panorama Scholarly Group et les revues qu’elles réunissent.',
     es: 'Explore los cinco sellos editoriales de Panorama Scholarly Group y las revistas que reúnen.',
-    ru: 'Изучите пять редакционных импринтов Panorama Scholarly Group и объединённые ими журналы.',
+    ru: 'Изучите пять издательских направлений Panorama Scholarly Group и объединённые ими журналы.',
     ar: 'استكشف العلامات التحريرية الخمس التابعة لـ Panorama Scholarly Group والدوريات التي تجمعها.',
   },
   'common.viewAllJournals': {
@@ -600,7 +600,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Redaktionelle Imprints',
     fr: 'Marques éditoriales',
     es: 'Sellos editoriales',
-    ru: 'Редакционные импринты',
+    ru: 'Редакционные издательские направления',
     ar: 'العلامات التحريرية',
   },
   'imprints.systemOverline': {
@@ -612,7 +612,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Das Imprint-System',
     fr: 'Le système des marques',
     es: 'El sistema de sellos',
-    ru: 'Система импринтов',
+    ru: 'Система издательских направлений',
     ar: 'منظومة العلامات التحريرية',
   },
   'imprints.systemTitle': {
@@ -636,7 +636,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Jedes Imprint hat seinen eigenen redaktionellen Charakter, seine Disziplinen und seine Community – gemeinsam sind ihnen die Gruppenstandards für unabhängige Wissenschaft.',
     fr: 'Chaque marque possède son caractère éditorial, ses disciplines et sa communauté, tout en partageant les exigences du groupe en matière de recherche indépendante.',
     es: 'Cada sello tiene su propio carácter editorial, disciplinas y comunidad, pero comparte los estándares del grupo para una investigación independiente.',
-    ru: 'У каждого импринта есть собственный редакционный профиль, круг дисциплин и сообщество, но все они разделяют стандарты группы для независимой науки.',
+    ru: 'У каждого издательского направления есть собственный редакционный профиль, круг дисциплин и сообщество, но все они разделяют стандарты группы для независимой науки.',
     ar: 'لكل علامة طابعها التحريري وتخصصاتها ومجتمعها، مع اشتراكها في معايير المجموعة للبحث المستقل.',
   },
   'common.exploreImprint': {
@@ -648,7 +648,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Imprint entdecken',
     fr: 'Découvrir la marque',
     es: 'Explorar el sello',
-    ru: 'Изучить импринт',
+    ru: 'Изучить направление',
     ar: 'استكشف العلامة',
   },
   'common.moreJournals': {
@@ -744,7 +744,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     de: 'Imprint',
     fr: 'Marque éditoriale',
     es: 'Sello editorial',
-    ru: 'Импринт',
+    ru: 'Издательское направление',
     ar: 'العلامة التحريرية',
   },
   'home.factDisciplines': {
@@ -777,7 +777,7 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     'zh-hant': '閱讀文章',
     ja: '論文を読む',
     ko: '논문 읽기',
-    de: 'Beitrag lesen',
+    de: 'Artikel lesen',
     fr: 'Lire l’article',
     es: 'Leer el artículo',
     ru: 'Читать статью',
@@ -795,7 +795,128 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     ru: 'Читать объявление',
     ar: 'اقرأ الإعلان',
   },
+  'common.coverAlt': {
+    en: '{title} cover',
+    'zh-hans': '{title} 封面',
+    'zh-hant': '{title} 封面',
+    ja: '{title} の表紙',
+    ko: '{title} 표지',
+    de: 'Cover von {title}',
+    fr: 'Couverture de {title}',
+    es: 'Portada de {title}',
+    ru: 'Обложка журнала «{title}»',
+    ar: 'غلاف {title}',
+  },
+  'common.visitWebsiteOf': {
+    en: 'Visit {title} website',
+    'zh-hans': '访问 {title} 网站',
+    'zh-hant': '訪問 {title} 網站',
+    ja: '{title} のウェブサイトへ',
+    ko: '{title} 웹사이트 방문',
+    de: 'Website von {title} besuchen',
+    fr: 'Visiter le site de {title}',
+    es: 'Visitar el sitio de {title}',
+    ru: 'Перейти на сайт «{title}»',
+    ar: 'زيارة موقع {title}',
+  },
+  'common.homeLabel': {
+    en: '{name}, home',
+    'zh-hans': '{name}，返回首页',
+    'zh-hant': '{name}，回到首頁',
+    ja: '{name}、ホームへ',
+    ko: '{name}, 홈',
+    de: '{name}, Startseite',
+    fr: '{name}, accueil',
+    es: '{name}, inicio',
+    ru: '{name}, на главную',
+    ar: '{name}، الصفحة الرئيسية',
+  },
+  'common.navLabel': {
+    en: '{name} navigation',
+    'zh-hans': '{name} 导航',
+    'zh-hant': '{name} 導覽',
+    ja: '{name} ナビゲーション',
+    ko: '{name} 내비게이션',
+    de: 'Navigation {name}',
+    fr: 'Navigation {name}',
+    es: 'Navegación de {name}',
+    ru: 'Навигация {name}',
+    ar: 'التنقل في {name}',
+  },
+  'common.mobileNavLabel': {
+    en: '{name} mobile navigation',
+    'zh-hans': '{name} 移动端导航',
+    'zh-hant': '{name} 行動版導覽',
+    ja: '{name} モバイルナビゲーション',
+    ko: '{name} 모바일 내비게이션',
+    de: 'Mobile Navigation {name}',
+    fr: 'Navigation mobile {name}',
+    es: 'Navegación móvil de {name}',
+    ru: 'Мобильная навигация {name}',
+    ar: 'التنقل عبر الجوّال في {name}',
+  },
+  'common.footerNavLabel': {
+    en: '{name} footer navigation',
+    'zh-hans': '{name} 页脚导航',
+    'zh-hant': '{name} 頁尾導覽',
+    ja: '{name} フッターナビゲーション',
+    ko: '{name} 푸터 내비게이션',
+    de: 'Fußnavigation {name}',
+    fr: 'Navigation de pied de page {name}',
+    es: 'Navegación del pie de página de {name}',
+    ru: 'Навигация в подвале {name}',
+    ar: 'التنقل في تذييل {name}',
+  },
+  'standards.navLabel': {
+    en: 'Standards navigation',
+    'zh-hans': '标准导航',
+    'zh-hant': '標準導覽',
+    ja: '基準ナビゲーション',
+    ko: '기준 내비게이션',
+    de: 'Standards-Navigation',
+    fr: 'Navigation des normes',
+    es: 'Navegación de normas',
+    ru: 'Навигация по стандартам',
+    ar: 'التنقل في المعايير',
+  },
+  'common.openNavigation': {
+    en: 'Open navigation',
+    'zh-hans': '打开导航',
+    'zh-hant': '開啟導覽',
+    ja: 'ナビゲーションを開く',
+    ko: '내비게이션 열기',
+    de: 'Navigation öffnen',
+    fr: 'Ouvrir la navigation',
+    es: 'Abrir navegación',
+    ru: 'Открыть навигацию',
+    ar: 'فتح قائمة التنقل',
+  },
+  'common.opensNewTabNote': {
+    en: '(opens in a new tab)',
+    'zh-hans': '（在新标签页中打开）',
+    'zh-hant': '（在新分頁中開啟）',
+    ja: '（新しいタブで開きます）',
+    ko: '(새 탭에서 열림)',
+    de: '(wird in einem neuen Tab geöffnet)',
+    fr: '(s’ouvre dans un nouvel onglet)',
+    es: '(se abre en una pestaña nueva)',
+    ru: '(открывается в новой вкладке)',
+    ar: '(يفتح في علامة تبويب جديدة)',
+  },
 };
+
+/** Fill `{name}`-style placeholders in a translated string. */
+export function fill(text: string, vars: Record<string, string>): string {
+  return text.replace(/\{(\w+)\}/g, (m, k) => vars[k] ?? m);
+}
+
+/** List separator for screen-reader labels that join several phrases. */
+export function listSeparator(locale: string): string {
+  if (locale === 'zh-hans' || locale === 'zh-hant') return '，';
+  if (locale === 'ja') return '、';
+  if (locale === 'ar') return '، ';
+  return ', ';
+}
 
 export function getContent(locale = 'en') {
   return (key: string, fallback?: string): string => copy[key]?.[locale as LocaleCode] ?? copy[key]?.en ?? fallback ?? key;

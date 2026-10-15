@@ -1,4 +1,5 @@
 ---
+import { getContent, fill } from '@/i18n/content';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import wallpaper from '@/assets/wallpapers/charter-wallpaper-4k.jpg';
@@ -20,6 +21,7 @@ const { imprint, journals } = Astro.props;
 const basePath = '/imprints/charter/';
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const tx = (key: string, fallback: string) => imprintText('charter', locale, key, fallback);
 const labels = getNavigationLabels(locale);
 const localizedBasePath = localizePath(basePath, locale);
@@ -158,7 +160,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
                       <Image
                         class="charter-journal-card__cover"
                         src={coverAsset}
-                        alt={`${journal.title} cover`}
+                        alt={fill(tc('common.coverAlt'), { title: journal.title })}
                         width={495}
                         height={700}
                         widths={[180, 240, 320, 495]}
@@ -166,7 +168,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
                         loading="lazy"
                       />
                     ) : (
-                      <img class="charter-journal-card__cover" src={journal.cover} alt={`${journal.title} cover`} loading="lazy" />
+                      <img class="charter-journal-card__cover" src={journal.cover} alt={fill(tc('common.coverAlt'), { title: journal.title })} loading="lazy" />
                     )}
                   </a>
                   <p class="charter-journal-card__label">{journalLabel}</p>

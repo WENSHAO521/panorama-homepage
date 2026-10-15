@@ -3,11 +3,13 @@ import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { localizePath } from '@/i18n/utils';
+import { getContent } from '@/i18n/content';
 import { getStandardsCopy } from '@/i18n/standards';
 import { getSdgReferenceCopy, sdgAgendaUrl, sdgGuidelinesUrl, sdgSiteUrl } from '@/i18n/sdg';
 import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
+const tc = getContent(locale);
 const copy = getStandardsCopy(locale);
 const sdgCopy = getSdgReferenceCopy(locale);
 ---

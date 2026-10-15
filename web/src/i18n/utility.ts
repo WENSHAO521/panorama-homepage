@@ -69,7 +69,7 @@ export interface NewsPageCopy {
   readAnnouncement: string;
   emptyTitle: string;
   emptyText: string;
-  typeLabels: { notice: string; recruitment: string; update: string };
+  typeLabels: { notice: string; recruitment: string; update: string; callForPapers: string };
 }
 
 const searchClient = (
@@ -147,7 +147,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: 'Read announcement',
       emptyTitle: 'New updates will appear here.',
       emptyText: 'There are no group announcements available at the moment. Please return soon for the latest notices.',
-      typeLabels: { notice: 'Notice', recruitment: 'Recruitment', update: 'Update' },
+      typeLabels: { notice: 'Notice', recruitment: 'Recruitment', update: 'Update', callForPapers: 'Call for papers' },
     },
   },
   'zh-hans': {
@@ -219,7 +219,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: '阅读公告',
       emptyTitle: '新的动态将在这里发布。',
       emptyText: '目前暂无集团公告，请稍后回来查看最新通知。',
-      typeLabels: { notice: '通知', recruitment: '招聘', update: '更新' },
+      typeLabels: { notice: '通知', recruitment: '招聘', update: '更新', callForPapers: '征稿启事' },
     },
   },
   'zh-hant': {
@@ -291,16 +291,16 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: '閱讀公告',
       emptyTitle: '新的動態將在這裡發布。',
       emptyText: '目前沒有集團公告，請稍後回來查看最新通知。',
-      typeLabels: { notice: '通知', recruitment: '招聘', update: '更新' },
+      typeLabels: { notice: '通知', recruitment: '招聘', update: '更新', callForPapers: '徵稿啟事' },
     },
   },
   ja: {
     search: {
       title: '検索',
-      metaDescription: 'Panorama Scholarly Groupの学術誌、論文、インプリント、告知、各種リソースを検索します。',
+      metaDescription: 'Panorama Scholarly Groupの学術誌、論文、インプリント、お知らせ、各種リソースを検索します。',
       overline: 'Panorama Scholarly Group / 検索',
       heroTitle: '研究を支える問いを探す。',
-      heroLede: '学術誌、論文、インプリント、告知、グループのリソースを横断して検索できます。',
+      heroLede: '学術誌、論文、インプリント、お知らせ、グループのリソースを横断して検索できます。',
       guidanceLabel: '検索のヒント',
       guidanceText: '学術誌名、研究用語、DOI、著者名、プラットフォーム名で検索してください。',
       catalogueLabel: 'カタログを検索',
@@ -314,13 +314,13 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       browseCategoriesLabel: '検索カテゴリを見る',
       browseJournals: '学術誌を見る',
       exploreImprints: 'インプリントを見る',
-      readAnnouncements: '告知を見る',
+      readAnnouncements: 'お知らせを見る',
       noscriptPrefix: '検索にはJavaScriptが必要です。直接',
       noscriptJournals: '学術誌',
       noscriptOr: 'または',
-      noscriptAnnouncements: '告知',
+      noscriptAnnouncements: 'お知らせ',
       client: searchClient(
-        { article: '論文', announcement: '告知', journal: '学術誌', imprint: 'インプリント', page: 'ページ' },
+        { article: '論文', announcement: 'お知らせ', journal: '学術誌', imprint: 'インプリント', page: 'ページ' },
         {
           initialStatus: 'グループのカタログから検索を始めてください。',
           searchingStatus: 'カタログを検索しています……',
@@ -344,26 +344,26 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       ),
     },
     news: {
-      title: '告知',
-      metaDescription: 'Panorama Scholarly Groupと学術ネットワークからの公式告知、プラットフォームの更新、機会に関する情報。',
-      overline: 'Panorama Scholarly Group / 告知',
+      title: 'お知らせ',
+      metaDescription: 'Panorama Scholarly Groupと学術ネットワークからの公式のお知らせ、プラットフォームの更新、機会に関する情報。',
+      overline: 'Panorama Scholarly Group / お知らせ',
       heroTitle: '学術を前へ進める最新情報。',
-      heroLede: '出版・研究ネットワークからの公式告知、プラットフォームの更新、各種機会をお知らせします。',
-      overviewLabel: '告知の概要',
+      heroLede: '出版・研究ネットワークからの公式のお知らせ、プラットフォームの更新、各種機会をお知らせします。',
+      overviewLabel: 'お知らせの概要',
       acrossGroup: 'グループ全体',
-      latestAnnouncements: '最新の告知',
+      latestAnnouncements: '最新のお知らせ',
       publishingSources: 'つの出版・研究プラットフォームから更新情報をお届けします。',
       publishingSourceSingular: 'つの出版・研究プラットフォームから更新情報をお届けします。',
-      latestAnnouncement: '最新の告知',
+      latestAnnouncement: '最新のお知らせ',
       fromNetwork: 'ネットワークから',
       recentUpdates: '最近の更新',
       archiveTitle: 'ネットワーク各所から。',
-      archiveText: '学術活動を支えるプラットフォームからの告知と変更です。',
-      readFullAnnouncement: '告知全文を読む',
-      readAnnouncement: '告知を読む',
+      archiveText: '学術活動を支えるプラットフォームからのお知らせと変更です。',
+      readFullAnnouncement: 'お知らせ全文を読む',
+      readAnnouncement: 'お知らせを読む',
       emptyTitle: '新しい情報はここに掲載します。',
       emptyText: '現在、グループからのお知らせはありません。最新情報は後ほどご確認ください。',
-      typeLabels: { notice: 'お知らせ', recruitment: '採用', update: '更新' },
+      typeLabels: { notice: 'お知らせ', recruitment: '採用', update: '更新', callForPapers: '論文募集' },
     },
   },
   ko: {
@@ -435,7 +435,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: '공지 읽기',
       emptyTitle: '새로운 소식이 이곳에 게시됩니다.',
       emptyText: '현재 그룹 공지가 없습니다. 최신 소식을 확인하려면 다시 방문해 주세요.',
-      typeLabels: { notice: '공지', recruitment: '채용', update: '업데이트' },
+      typeLabels: { notice: '공지', recruitment: '채용', update: '업데이트', callForPapers: '논문 투고 안내' },
     },
   },
   de: {
@@ -507,7 +507,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: 'Mitteilung lesen',
       emptyTitle: 'Neue Updates erscheinen hier.',
       emptyText: 'Derzeit liegen keine Mitteilungen der Gruppe vor. Bitte schauen Sie später wieder vorbei.',
-      typeLabels: { notice: 'Hinweis', recruitment: 'Ausschreibung', update: 'Update' },
+      typeLabels: { notice: 'Hinweis', recruitment: 'Ausschreibung', update: 'Aktualisierung', callForPapers: 'Aufruf zur Einreichung' },
     },
   },
   fr: {
@@ -522,7 +522,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       catalogueLabel: 'Rechercher dans le catalogue',
       inputLabel: 'Rechercher dans Panorama Scholarly Group',
       placeholder: 'Rechercher une revue, un article, un DOI ou un sujet',
-      hint: 'Essayez « intelligence artificielle », « santé », « 10.63802 » ou le nom d’une revue.',
+      hint: 'Essayez « intelligence artificielle », « santé », « 10.63802 » ou le nom d’une revue.',
       resultsLabel: 'Résultats de recherche',
       resultsTitle: 'Un chemin plus clair pour faire parvenir la recherche au monde.',
       emptyLabel: 'Commencer par une question',
@@ -542,12 +542,12 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
           searchingStatus: 'Recherche dans le catalogue du groupe…',
           unavailableStatus: 'La recherche est momentanément indisponible.',
           loadFailure: 'Le catalogue ne peut pas être chargé pour le moment. Veuillez réessayer bientôt.',
-          noResults: 'Aucun résultat pour « {query} ».',
+          noResults: 'Aucun résultat pour « {query} ».',
           try: 'Essayez de',
           or: 'ou',
           browseJournals: 'parcourir les revues',
           exploreImprints: 'découvrir les marques',
-          resultsSummary: '{count} résultats pour « {query} »',
+          resultsSummary: '{count} résultats pour « {query} »',
           resultsPageSummary: '{base} Page {page} sur {pages}.',
           paginationLabel: 'Pages des résultats de recherche',
           previousPage: 'Précédent',
@@ -579,7 +579,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: 'Lire l’annonce',
       emptyTitle: 'Les nouvelles mises à jour apparaîtront ici.',
       emptyText: 'Aucune annonce du groupe n’est disponible pour le moment. Revenez bientôt pour les dernières informations.',
-      typeLabels: { notice: 'Avis', recruitment: 'Recrutement', update: 'Mise à jour' },
+      typeLabels: { notice: 'Avis', recruitment: 'Recrutement', update: 'Mise à jour', callForPapers: 'Appel à contributions' },
     },
   },
   es: {
@@ -651,16 +651,16 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: 'Leer el anuncio',
       emptyTitle: 'Las nuevas actualizaciones aparecerán aquí.',
       emptyText: 'No hay anuncios del grupo disponibles en este momento. Vuelva pronto para consultar las últimas novedades.',
-      typeLabels: { notice: 'Aviso', recruitment: 'Contratación', update: 'Actualización' },
+      typeLabels: { notice: 'Aviso', recruitment: 'Contratación', update: 'Actualización', callForPapers: 'Convocatoria de artículos' },
     },
   },
   ru: {
     search: {
       title: 'Поиск',
-      metaDescription: 'Поиск по журналам, научным статьям, импринтам, объявлениям и ресурсам Panorama Scholarly Group.',
+      metaDescription: 'Поиск по журналам, научным статьям, издательским направлениям, объявлениям и ресурсам Panorama Scholarly Group.',
       overline: 'Panorama Scholarly Group / Поиск',
       heroTitle: 'Найдите работу, которая стоит за работой.',
-      heroLede: 'Ищите по журналам, научным статьям, импринтам, объявлениям и ресурсам группы.',
+      heroLede: 'Ищите по журналам, научным статьям, издательским направлениям, объявлениям и ресурсам группы.',
       guidanceLabel: 'Подсказки для поиска',
       guidanceText: 'Введите название журнала, научный термин, DOI, имя автора или название платформы.',
       catalogueLabel: 'Поиск в каталоге',
@@ -673,14 +673,14 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyText: 'Ищите названия, темы, записи DOI, авторов и платформы, поддерживающие нашу издательскую сеть.',
       browseCategoriesLabel: 'Категории поиска',
       browseJournals: 'Журналы',
-      exploreImprints: 'Импринты',
+      exploreImprints: 'Издательские направления',
       readAnnouncements: 'Объявления',
       noscriptPrefix: 'Для поиска требуется JavaScript. Вы можете открыть',
       noscriptJournals: 'журналы',
       noscriptOr: 'или',
       noscriptAnnouncements: 'объявления',
       client: searchClient(
-        { article: 'Статья', announcement: 'Объявление', journal: 'Журнал', imprint: 'Импринт', page: 'Страница' },
+        { article: 'Статья', announcement: 'Объявление', journal: 'Журнал', imprint: 'Направление', page: 'Страница' },
         {
           initialStatus: 'Начните с поиска в каталоге группы.',
           searchingStatus: 'Поиск в каталоге группы…',
@@ -690,7 +690,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
           try: 'Попробуйте',
           or: 'или',
           browseJournals: 'просмотреть журналы',
-          exploreImprints: 'изучить импринты',
+          exploreImprints: 'изучить издательские направления',
           resultsSummary: 'Результатов по запросу «{query}»: {count}',
           resultsPageSummary: '{base} Страница {page} из {pages}.',
           paginationLabel: 'Страницы результатов поиска',
@@ -723,7 +723,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: 'Читать объявление',
       emptyTitle: 'Новые обновления появятся здесь.',
       emptyText: 'Сейчас объявлений группы нет. Вернитесь позже, чтобы узнать последние новости.',
-      typeLabels: { notice: 'Уведомление', recruitment: 'Набор', update: 'Обновление' },
+      typeLabels: { notice: 'Уведомление', recruitment: 'Набор', update: 'Обновление', callForPapers: 'Приём статей' },
     },
   },
   ar: {
@@ -795,7 +795,7 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       readAnnouncement: 'اقرأ الإعلان',
       emptyTitle: 'ستظهر التحديثات الجديدة هنا.',
       emptyText: 'لا تتوفر إعلانات للمجموعة حاليًا. يرجى العودة قريبًا للاطلاع على أحدث الإشعارات.',
-      typeLabels: { notice: 'إشعار', recruitment: 'توظيف', update: 'تحديث' },
+      typeLabels: { notice: 'إشعار', recruitment: 'توظيف', update: 'تحديث', callForPapers: 'دعوة لتقديم الأبحاث' },
     },
   },
 };
@@ -806,4 +806,12 @@ export function getSearchCopy(locale = 'en'): SearchPageCopy {
 
 export function getNewsCopy(locale = 'en'): NewsPageCopy {
   return copy[locale as LocaleCode]?.news ?? copy.en.news;
+}
+
+/** Localised label for an announcement type as harvested from the feeds ("Update", "Call for papers", ...). */
+export function getAnnouncementTypeLabel(type: string, locale = 'en'): string {
+  const labels = getNewsCopy(locale).typeLabels;
+  const key = type.trim().toLowerCase();
+  if (key === 'call for papers') return labels.callForPapers;
+  return labels[key as 'notice' | 'recruitment' | 'update'] ?? type;
 }

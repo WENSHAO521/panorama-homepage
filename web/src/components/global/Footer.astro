@@ -5,6 +5,7 @@ import { footerPlatformLogos, getFooterGroups, getLegalNav } from '@/data/naviga
 import { getOfficeDirectory, site } from '@/data/site';
 import { getNavigationLabels } from '@/i18n/navigation';
 import { localizePath } from '@/i18n/utils';
+import { getContent } from '@/i18n/content';
 
 interface Props {
   locale?: string;
@@ -14,6 +15,7 @@ const { locale = 'en' } = Astro.props;
 const offices = getOfficeDirectory(locale);
 const footerGroups = getFooterGroups(locale);
 const legalNav = getLegalNav(locale);
+const tc = getContent(locale);
 const labels = getNavigationLabels(locale);
 
 const year = new Date().getFullYear();
@@ -49,7 +51,7 @@ const year = new Date().getFullYear();
                     href={item.path}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noopener noreferrer' : undefined}
-                    aria-label={item.external ? `${item.label} (opens in a new tab)` : undefined}
+                    aria-label={item.external ? `${item.label} ${tc('common.opensNewTabNote')}` : undefined}
                   >{item.label}</a>
                 </li>
               ))}

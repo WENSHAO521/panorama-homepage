@@ -51,7 +51,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
         <p class="hero__feature-text">{lead.description}</p>
         <a class="action-link" href={lead.journalUrl} target="_blank" rel="noopener noreferrer">
           {t('common.visitJournalWebsite')}
-          <span class="visually-hidden"> — {lead.title} ({t('common.opensNewTab')})</span>
+          <span class="visually-hidden"> — {lead.title} {t('common.opensNewTabNote')}</span>
         </a>
       </div>
 
@@ -76,7 +76,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
               <h3 class="hero__also-title"><PhraseText text={also.title} /></h3>
               <a class="action-link" href={also.journalUrl} target="_blank" rel="noopener noreferrer">
                 {t('common.visitJournalWebsite')}
-                <span class="visually-hidden"> — {also.title} ({t('common.opensNewTab')})</span>
+                <span class="visually-hidden"> — {also.title} {t('common.opensNewTabNote')}</span>
               </a>
             </div>
           </div>
