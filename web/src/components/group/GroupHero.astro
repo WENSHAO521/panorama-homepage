@@ -213,10 +213,21 @@ const {
       max-width: 56rem;
     }
 
-    .group-hero--image .group-hero__title,
-    .group-hero--feature .group-hero__title {
+    .group-hero--image .group-hero__title {
       font-size: clamp(3rem, 6.4vw, 5rem);
       line-height: 1.02;
+    }
+
+    .group-hero--feature .group-hero__title {
+      max-width: 22ch;
+      font-size: clamp(2.8rem, 5.2vw, 4rem);
+      line-height: 1.04;
+    }
+
+    .group-hero--feature .group-hero__title:lang(zh),
+    .group-hero--feature .group-hero__title:lang(ja),
+    .group-hero--feature .group-hero__title:lang(ko) {
+      max-width: 16em;
     }
 
     .group-hero--image .group-hero__lede,
