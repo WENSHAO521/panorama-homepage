@@ -292,6 +292,13 @@ const localizedPageDescription = isJournals
   .verdant-section-kicker { margin: 0; color: var(--vs-green); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.4; text-transform: uppercase; }
   .verdant-section-hero h1 { max-width: 14ch; margin: 1.35rem 0 1.5rem; color: var(--vs-ink); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.91; }
   .verdant-section-hero__lede { max-width: 37rem; margin: 0; color: var(--vs-ink-soft); font-family: var(--font-display); font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.42; }
+  /* Keep the lede clear of the wallpaper, which starts at 45% of the hero. */
+  @media (min-width: 901px) {
+    .verdant-section-hero__lede { max-width: min(37rem, max(18rem, calc(45vw - 12rem))); }
+  }
+  @media (min-width: 1760px) {
+    .verdant-section-hero__lede { max-width: 31rem; }
+  }
   .verdant-section-hero__aside { align-self: end; max-width: 18rem; padding-inline-start: 1.4rem; border-inline-start: 1px solid var(--vs-rust); color: var(--vs-ink-soft); font-size: 0.62rem; font-weight: 750; letter-spacing: 0.15em; line-height: 1.65; text-transform: uppercase; }
   .verdant-section-hero__aside p { margin: 0; color: var(--vs-ink); font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.28; text-transform: none; }
   .verdant-section-rule { display: block; width: 3.5rem; height: 2px; margin-block: 1.4rem; background: var(--vs-rust); }
@@ -328,7 +335,7 @@ const localizedPageDescription = isJournals
   .verdant-section-dark-band { background: var(--vs-green-dark); color: var(--vs-paper); }
   .verdant-section-dark-band__inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.95fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: end; padding-block: clamp(2.5rem, 5vw, 4rem); }
   .verdant-section-dark-band .verdant-section-kicker { color: var(--vs-sage); }
-  .verdant-section-dark-band h2 { max-width: 16ch; margin: 1.25rem 0 0; color: var(--vs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.96; }
+  .verdant-section-dark-band h2 { max-width: 20ch; margin: 1.25rem 0 0; color: var(--vs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.96; }
   .verdant-section-dark-band p:last-child { max-width: 34rem; margin: 0; color: color-mix(in srgb, var(--vs-paper) 82%, transparent); font-family: var(--font-display); font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.45; }
 
   .verdant-about-statement,
@@ -336,7 +343,7 @@ const localizedPageDescription = isJournals
   .verdant-about-statement__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
   .verdant-about-statement .verdant-section-kicker,
   .verdant-about-cta .verdant-section-kicker { color: var(--vs-sage); }
-  .verdant-about-statement h2 { max-width: 13ch; margin: 1.3rem 0 0; color: var(--vs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.94; }
+  .verdant-about-statement h2 { max-width: 18ch; margin: 1.3rem 0 0; color: var(--vs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.94; }
   .verdant-about-statement__inner > div:last-child { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--vs-paper) 38%, transparent); }
   .verdant-about-statement__inner > div:last-child p { max-width: 32rem; margin: 0; color: color-mix(in srgb, var(--vs-paper) 84%, transparent); font-family: var(--font-display); font-size: clamp(1.05rem, 1.35vw, 1.25rem); line-height: 1.48; }
   .verdant-about-statement__inner > div:last-child p + p { margin-top: 1.2rem; }
@@ -351,13 +358,13 @@ const localizedPageDescription = isJournals
   .verdant-about-fields__grid p { margin: 0.75rem 0 0; color: var(--vs-ink-soft); font-family: var(--font-display); font-size: 0.9rem; line-height: 1.38; }
   .verdant-about-principles { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--vs-paper-deep); }
   .verdant-about-principles__inner { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2.5rem, 8vw, 8rem); }
-  .verdant-about-principles h2 { max-width: 13ch; margin: 1.3rem 0 0; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.95; }
+  .verdant-about-principles h2 { max-width: 18ch; margin: 1.3rem 0 0; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.95; }
   .verdant-about-principles__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
   .verdant-about-principles__grid article { padding-top: 0.9rem; border-top: 2px solid var(--vs-rust); }
   .verdant-about-principles__grid h3 { margin: 2rem 0 0; font-family: var(--font-display); font-size: 1.25rem; line-height: 1.05; }
   .verdant-about-principles__grid p { margin: 0.8rem 0 0; color: var(--vs-ink-soft); font-family: var(--font-display); font-size: 0.88rem; line-height: 1.42; }
   .verdant-about-cta__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: end; padding-block: clamp(2.5rem, 5vw, 4rem); }
-  .verdant-about-cta h2 { max-width: 13ch; margin: 1.3rem 0 0; color: var(--vs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.95; }
+  .verdant-about-cta h2 { max-width: 18ch; margin: 1.3rem 0 0; color: var(--vs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.95; }
   .verdant-about-cta__inner > div:last-child { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--vs-paper) 38%, transparent); }
   .verdant-about-cta__inner > div:last-child > p { max-width: 34rem; margin: 0; color: color-mix(in srgb, var(--vs-paper) 84%, transparent); font-family: var(--font-display); font-size: clamp(1rem, 1.3vw, 1.2rem); line-height: 1.45; }
   .verdant-about-cta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 1.8rem; }

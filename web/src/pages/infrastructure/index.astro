@@ -48,7 +48,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   locale={locale}
 >
   <GroupHero eyebrow={copy.heroOverline} title={copy.heroTitle} lede={copy.heroLede} titleId="infrastructure-title">
-    <div slot="aside" class="infra-hero__aside-content">
+    <div slot="aside" class="infra-hero__aside-content group-hero__aside-content">
       <p class="text-overline">{copy.summaryOverline}</p>
       <dl>
         {copy.summary.map(([label, value]) => (
@@ -378,7 +378,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
 
   .infra-intro h2,
   .infra-note h2 {
-    max-width: 16ch;
+    max-width: 20ch;
     margin-top: 0.65rem;
     font-size: clamp(2rem, 3.25vw, 2.75rem);
     font-weight: var(--fw-regular);
@@ -411,7 +411,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   .infra-discovery h2,
   .infra-preservation h2,
   .infra-identifiers h2 {
-    max-width: 15ch;
+    max-width: 20ch;
     margin-top: 0.65rem;
     font-size: clamp(2rem, 3.4vw, 2.75rem);
     font-weight: var(--fw-regular);
