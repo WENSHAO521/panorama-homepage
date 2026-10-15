@@ -22,6 +22,7 @@ import '@/styles/layout.css';
 import '@/styles/utilities.css';
 import '@/styles/group-system.css';
 import '@/styles/actions.css';
+import '@/styles/motion.css';
 
 interface Props {
   title: string;
@@ -81,6 +82,9 @@ const englishPath = localizePath(path, 'en');
   <link rel="icon" type="image/png" href="/favicon/favicon.png" />
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationJsonLd())} />
+  <script>
+    import '@/scripts/reveal';
+  </script>
 </head>
 <body class={showChrome ? 'group-site' : 'standalone-site'}>
   <SkipLink label={t.skipToContent} />

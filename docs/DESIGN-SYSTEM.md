@@ -120,6 +120,26 @@ New links should use `.action-link`. The explicit class list in
 `actions.css` exists only so the older hand-written per-imprint link classes
 share the same treatment (it uses native CSS nesting, so it is written once).
 
+## Motion
+
+Restrained and shared (`web/src/styles/motion.css`, `web/src/scripts/reveal.ts`).
+
+| What | How |
+|---|---|
+| Scroll reveal | Content blocks of below-the-fold `<main>` sections fade up once (700ms, staggered 70ms). The hidden "before" state is applied by JS, so no-JS visitors see everything |
+| Hero copy (secondary and imprint pages) | The block holding the `h1` rises in, children staggered, 560ms, CSS only (`:has(> h1)`) |
+| Journal covers | 3px lift on hover (hover-capable devices only) |
+| Research band map | The two office markers pulse twice, then rest |
+| Publishing hero | The five imprint-coloured rings fade in one after another, once |
+
+Rules: only `transform` and `opacity`; no layout properties; played once; everything
+sits behind `prefers-reduced-motion: no-preference` (reduced-motion visitors get no
+animation and no hidden state); decorative layers (wallpapers, textures, aria-hidden
+art, positioned or sticky elements) are never animated; use `backwards`, not `both`,
+as the animation fill so an element's own hover states still work afterwards.
+Measured on production builds: CLS equal to or lower than before on all sampled
+pages (home 0), no extra JS file, hidden-after-scroll elements 0.
+
 ## Typography
 
 **Source Serif 4** (display/editorial) + **Inter** (interface/body),

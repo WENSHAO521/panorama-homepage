@@ -234,22 +234,35 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
   .publishing-hero__orbit {
     fill: none;
-    stroke-width: 1.05;
+    stroke-width: 1.6;
     stroke-linecap: round;
     vector-effect: non-scaling-stroke;
+    opacity: 0.9;
   }
 
-  .publishing-hero__orbit--blue,
-  .publishing-hero__orbit--sage,
-  .publishing-hero__orbit--terra,
-  .publishing-hero__orbit--plum {
-    stroke: color-mix(in srgb, var(--brand-secondary) 55%, var(--surface-primary));
-    opacity: 0.8;
-  }
+  /* Five rings = five imprints, innermost to outermost. The class names are
+     historical (blue / sage / terra / gold / plum); each now carries an
+     imprint colour from the shared tokens. */
+  .publishing-hero__orbit--gold { stroke: var(--imprint-health-nexus); }
+  .publishing-hero__orbit--terra { stroke: var(--imprint-charter); }
+  .publishing-hero__orbit--sage { stroke: var(--imprint-verdant-science); }
+  .publishing-hero__orbit--blue { stroke: var(--imprint-ridgeline); }
+  .publishing-hero__orbit--plum { stroke: var(--imprint-threnody); }
 
-  .publishing-hero__orbit--gold {
-    stroke: color-mix(in srgb, var(--brand-accent) 68%, var(--surface-primary));
-    opacity: 0.72;
+  /* The rings fade in one after another, once. Opacity only: the circles carry
+     their rotation in an SVG transform attribute, which a CSS transform would
+     override. */
+  @keyframes publishing-orbit-in {
+    from { opacity: 0; }
+    to { opacity: 0.9; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .publishing-hero__orbit { animation: publishing-orbit-in 900ms var(--p-ease-decelerate) backwards; }
+    .publishing-hero__orbit--gold { animation-delay: 200ms; }
+    .publishing-hero__orbit--terra { animation-delay: 360ms; }
+    .publishing-hero__orbit--sage { animation-delay: 520ms; }
+    .publishing-hero__orbit--blue { animation-delay: 680ms; }
+    .publishing-hero__orbit--plum { animation-delay: 840ms; }
   }
 
   .publishing-hero__note {

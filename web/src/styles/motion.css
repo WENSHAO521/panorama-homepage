@@ -1,0 +1,68 @@
+/*
+  Restrained motion
+  -----------------
+  Rules for everything that moves on this site:
+    - only `transform` and `opacity` (never layout properties), so CLS stays 0;
+    - 160-700ms, decelerating easing, played once;
+    - gated on `prefers-reduced-motion: no-preference`, so reduced-motion
+      visitors get no animation and no hidden initial state;
+    - the hidden "before" state of scroll reveals is applied from JS
+      (scripts/reveal.ts), so with JS off everything is simply visible;
+    - wallpapers and other decorative backgrounds are never animated.
+*/
+
+@keyframes motion-rise {
+  from { opacity: 0; transform: translateY(0.75rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Scroll reveal (below-the-fold sections) ─────────────────────────── */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ── Hero copy on secondary and imprint pages ──────────────────────── */
+  /* The text block that holds the h1 rises in, children staggered. The home
+     hero (.hero) has its own entrance; wallpapers sit outside these blocks. */
+  main :is(section, header):not(.hero)[class*="hero"] div:has(> h1) > * {
+    /* `backwards`, not `both`: once it has played, the element's own styles
+       (e.g. a button's hover transform) apply again. */
+    animation: motion-rise 560ms var(--p-ease-decelerate) backwards;
+  }
+  main :is(section, header):not(.hero)[class*="hero"] div:has(> h1) > :nth-child(2) { animation-delay: 70ms; }
+  main :is(section, header):not(.hero)[class*="hero"] div:has(> h1) > :nth-child(3) { animation-delay: 140ms; }
+  main :is(section, header):not(.hero)[class*="hero"] div:has(> h1) > :nth-child(4) { animation-delay: 210ms; }
+  main :is(section, header):not(.hero)[class*="hero"] div:has(> h1) > :nth-child(n + 5) { animation-delay: 280ms; }
+}
+
+/* ── Journal cover links: a small lift on hover ──────────────────────── */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  :is(
+    .hero__cover,
+    .journal-directory__cover-link,
+    .charter-journal-card__cover-link,
+    .health-nexus-hero__cover-link,
+    .health-nexus-journal-entry__cover-link,
+    .ridgeline-hero__cover-link,
+    .ridgeline-journal-entry__cover-link,
+    .ridgeline-directory__cover-link,
+    .threnody-archive-journal-card__cover,
+    .verdant-journal-card__cover,
+    .verdant-journal-row__cover
+  ) {
+    transition: transform var(--p-duration-base) var(--p-ease-standard);
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-3px);
+    }
+  }
+}
