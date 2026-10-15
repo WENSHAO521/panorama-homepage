@@ -245,6 +245,10 @@ const t = getContent(locale);
     padding-block: 0.5rem 0.75rem;
   }
 
+  .books-path:not(:last-child) {
+    padding-inline-end: clamp(1.5rem, 4vw, 4rem);
+  }
+
   .books-path + .books-path {
     padding-inline-start: clamp(2rem, 5vw, 5rem);
     border-inline-start: var(--p-border-hairline) solid var(--border-strong);
@@ -297,7 +301,7 @@ const t = getContent(locale);
   }
 
   .books-programme__head h2 {
-    max-width: 16ch;
+    max-width: 20ch;
     margin-top: 0.7rem;
   }
 
@@ -359,7 +363,7 @@ const t = getContent(locale);
   }
 
   .books-cta h2 {
-    max-width: 13ch;
+    max-width: 18ch;
     margin-top: 0.7rem;
     color: var(--text-inverse);
   }
@@ -417,6 +421,10 @@ const t = getContent(locale);
 
     .books-paths__grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .books-path:not(:last-child) {
+      padding-inline-end: 0;
     }
 
     .books-path {
