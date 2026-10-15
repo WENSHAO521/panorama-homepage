@@ -100,6 +100,17 @@ h1, h2, h3, h4 { text-wrap: balance; }
   line-break: strict;
 }
 
+/* Body copy: Korean has spaces, so keep words whole; Japanese breaks at phrase
+   boundaries where the browser supports it (ignored elsewhere). */
+:is(p, li, dt, dd):lang(ko) {
+  word-break: keep-all;
+}
+
+:is(p, li, dt, dd):lang(ja) {
+  line-break: strict;
+  word-break: auto-phrase;
+}
+
 /* One clause = one unit; it only wraps internally when it is wider than the line. */
 .phrase {
   display: inline-block;
