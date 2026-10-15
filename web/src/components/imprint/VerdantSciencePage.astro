@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
+import wallpaper from '@/assets/wallpapers/verdant-science-wallpaper-4k.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
@@ -48,7 +49,6 @@ const disciplines = [
   { key: 'health', name: 'Health & activity', note: 'Wellbeing & society' },
 ];
 
-const wallpaper = '/images/publishing/verdant-science-wallpaper-4k.jpg';
 const basePath = '/imprints/verdant-science/';
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
@@ -85,9 +85,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           <Image
             src={wallpaper}
             alt=""
-            width={3840}
-            height={2160}
-            widths={[960, 1440, 1920, 2880, 3840]}
+            widths={[640, 960, 1440, 1920]} format="webp" quality={68}
             sizes="(max-width: 639px) 100vw, 62vw"
             loading="eager"
             fetchpriority="high"
@@ -191,7 +189,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
       <section id="research" class="verdant-research" aria-labelledby="verdant-research-title">
         <div class="verdant-research__texture" aria-hidden="true">
-          <Image src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="100vw" loading="lazy" />
+          <Image src={wallpaper} alt="" widths={[640, 960, 1440, 1920]} format="webp" quality={68} sizes="100vw" loading="lazy" />
         </div>
         <div class="verdant-shell verdant-research__inner">
           <div class="verdant-research__heading">

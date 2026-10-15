@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
+import wallpaper from '@/assets/wallpapers/threnody-wallpaper-4k.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
@@ -23,7 +24,6 @@ const { imprint, journals, section } = Astro.props;
 const basePath = '/imprints/threnody/';
 const pagePath = `${basePath}${section}/`;
 const currentPath = Astro.url.pathname;
-const wallpaper = '/images/publishing/threnody-wallpaper-4k.jpg';
 const locale = Astro.currentLocale ?? 'en';
 const tx = (key: string, fallback: string) => imprintText('threnody', locale, key, fallback);
 const labels = getNavigationLabels(locale);
@@ -128,7 +128,7 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
 
     <main>
       <section class="threnody-section-hero" aria-labelledby="threnody-section-title">
-        <Image class="threnody-section-hero__art" src={wallpaper} alt={tx('heroImageAlt', 'Abstract sound ripples and light in a dark field')} width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="100vw" loading="eager" fetchpriority="high" />
+        <Image class="threnody-section-hero__art" src={wallpaper} alt={tx('heroImageAlt', 'Abstract sound ripples and light in a dark field')} widths={[640, 960, 1440, 1920]} format="webp" quality={68} sizes="100vw" loading="eager" fetchpriority="high" />
         <div class="threnody-section-hero__shade" aria-hidden="true"></div>
         <div class="threnody-section-shell threnody-section-hero__inner">
           <div class="threnody-section-hero__copy">

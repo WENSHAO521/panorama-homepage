@@ -696,7 +696,7 @@
     },
     {
       "originalPath": "assets/wallpapers/health-nexus-wallpaper-4k.jpg",
-      "newPath": "web/public/images/publishing/health-nexus-wallpaper-4k.jpg",
+      "newPath": "web/src/assets/wallpapers/health-nexus-wallpaper-4k.jpg",
       "filename": "health-nexus-wallpaper-4k.jpg",
       "category": "corporate-image",
       "format": "jpg",
@@ -724,7 +724,7 @@
     },
     {
       "originalPath": "assets/wallpapers/threnody-wallpaper-4k.jpg",
-      "newPath": "web/public/images/publishing/threnody-wallpaper-4k.jpg",
+      "newPath": "web/src/assets/wallpapers/threnody-wallpaper-4k.jpg",
       "filename": "threnody-wallpaper-4k.jpg",
       "category": "corporate-image",
       "format": "jpg",
@@ -738,7 +738,7 @@
     },
     {
       "originalPath": "assets/wallpapers/verdant-science-wallpaper-4k.jpg",
-      "newPath": "web/public/images/publishing/verdant-science-wallpaper-4k.jpg",
+      "newPath": "web/src/assets/wallpapers/verdant-science-wallpaper-4k.jpg",
       "filename": "verdant-science-wallpaper-4k.jpg",
       "category": "corporate-image",
       "format": "jpg",

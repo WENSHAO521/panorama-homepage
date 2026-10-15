@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
+import wallpaper from '@/assets/wallpapers/verdant-science-wallpaper-4k.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
@@ -24,7 +25,6 @@ const basePath = '/imprints/verdant-science/';
 const journalsPath = `${basePath}journals/`;
 const aboutPath = `${basePath}about/`;
 const pagePath = section === 'journals' ? journalsPath : aboutPath;
-const wallpaper = '/images/publishing/verdant-science-wallpaper-4k.jpg';
 const isJournals = section === 'journals';
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
@@ -100,7 +100,7 @@ const localizedPageDescription = isJournals
 
     <div class="verdant-section-main">
       <section class="verdant-section-hero" aria-labelledby="verdant-section-title">
-        <Image class="verdant-section-hero__wallpaper" src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="(max-width: 639px) 100vw, 58vw" loading="eager" fetchpriority="high" />
+        <Image class="verdant-section-hero__wallpaper" src={wallpaper} alt="" widths={[640, 960, 1440, 1920]} format="webp" quality={68} sizes="(max-width: 639px) 100vw, 58vw" loading="eager" fetchpriority="high" />
         <div class="verdant-section-hero__wash" aria-hidden="true"></div>
         <div class="verdant-section-shell verdant-section-hero__inner">
           <div class="verdant-section-hero__copy">

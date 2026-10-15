@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
+import wallpaper from '@/assets/wallpapers/health-nexus-wallpaper-4k.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
@@ -20,7 +21,6 @@ interface Props {
 }
 
 const { imprint, journals, section } = Astro.props;
-const wallpaper = '/images/publishing/health-nexus-wallpaper-4k.jpg';
 const basePath = '/imprints/health-nexus/';
 const pagePath = `${basePath}${section}/`;
 const currentPath = Astro.url.pathname;
@@ -123,7 +123,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 
     <main>
       <section class="health-nexus-secondary__hero" aria-labelledby="health-nexus-secondary-title">
-        <Image class="health-nexus-secondary__hero-wallpaper" src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="58vw" loading="eager" fetchpriority="high" />
+        <Image class="health-nexus-secondary__hero-wallpaper" src={wallpaper} alt="" widths={[640, 960, 1440, 1920]} format="webp" quality={68} sizes="58vw" loading="eager" fetchpriority="high" />
         <div class="health-nexus-secondary__hero-shade" aria-hidden="true"></div>
         <div class="health-nexus-secondary__shell health-nexus-secondary__hero-inner">
           <div>

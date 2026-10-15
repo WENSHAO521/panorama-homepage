@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
+import wallpaper from '@/assets/wallpapers/health-nexus-wallpaper-4k.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
@@ -47,7 +48,6 @@ const fields = [
   { key: 'translational', title: 'Translational Research', body: 'Bridging science and real-world change.', accent: 'aqua' },
 ];
 
-const wallpaper = '/images/publishing/health-nexus-wallpaper-4k.jpg';
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
 const tx = (key: string, fallback: string) => imprintText('health-nexus', locale, key, fallback);
@@ -80,9 +80,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           class="health-nexus-hero__wallpaper"
           src={wallpaper}
           alt=""
-          width={3840}
-          height={2160}
-          widths={[960, 1440, 1920, 2880, 3840]}
+          widths={[640, 960, 1440, 1920]} format="webp" quality={68}
           sizes="100vw"
           loading="eager"
           fetchpriority="high"
@@ -184,7 +182,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
       </section>
 
       <section id="research" class="health-nexus-purpose" aria-labelledby="health-nexus-purpose-title">
-        <Image class="health-nexus-purpose__wallpaper" src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="100vw" loading="lazy" />
+        <Image class="health-nexus-purpose__wallpaper" src={wallpaper} alt="" widths={[640, 960, 1440, 1920]} format="webp" quality={68} sizes="100vw" loading="lazy" />
         <div class="health-nexus-purpose__shade" aria-hidden="true"></div>
         <div class="health-nexus-shell health-nexus-purpose__inner">
           <div>
@@ -221,7 +219,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
       </section>
 
       <section id="authors" class="health-nexus-authors" aria-labelledby="health-nexus-authors-title">
-        <Image class="health-nexus-authors__wallpaper" src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="100vw" loading="lazy" />
+        <Image class="health-nexus-authors__wallpaper" src={wallpaper} alt="" widths={[640, 960, 1440, 1920]} format="webp" quality={68} sizes="100vw" loading="lazy" />
         <div class="health-nexus-shell health-nexus-authors__inner">
           <div class="health-nexus-authors__heading">
             <p class="health-nexus-kicker">{tx('authorsKicker', 'For authors')}</p>
