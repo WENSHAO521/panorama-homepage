@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
+import wallpaper from '@/assets/wallpapers/charter-wallpaper-4k.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
@@ -23,7 +24,6 @@ const tx = (key: string, fallback: string) => imprintText('charter', locale, key
 const labels = getNavigationLabels(locale);
 const localizedBasePath = localizePath(basePath, locale);
 const pageDescription = tx('pageDescription', 'Charter publishes rigorous research in law, public policy, governance, and the institutions that shape public life.');
-const wallpaper = '/images/publishing/charter-wallpaper-4k.jpg';
 
 const journalOrder = ['jlpcs', 'cropt', 'ggsr', 'jpoii'];
 const activeJournals = journals.filter((journal) => journal.status === 'active' && journal.cover);
@@ -104,9 +104,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           <Image
             src={wallpaper}
             alt=""
-            width={3840}
-            height={2160}
-            widths={[960, 1440, 1920, 2880, 3840]}
+            widths={[640, 960, 1440, 1920]} format="webp" quality={68}
             sizes="(max-width: 760px) 100vw, 54vw"
             loading="eager"
             fetchpriority="high"
@@ -228,9 +226,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           class="charter-manifesto__wallpaper"
           src={wallpaper}
           alt=""
-          width={3840}
-          height={2160}
-          widths={[960, 1440, 1920, 2880, 3840]}
+          widths={[640, 960, 1440, 1920]} format="webp" quality={68}
           sizes="100vw"
           loading="lazy"
         />
