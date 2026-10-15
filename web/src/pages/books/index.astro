@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import bookHeroStillLife from '@/assets/books/books-hero-still-life.png';
@@ -46,11 +47,11 @@ const t = getContent(locale);
     </GroupHero>
 
     <section class="books-paths row" aria-labelledby="paths-title">
-      <h2 id="paths-title" class="visually-hidden">{copy.pathsTitle}</h2>
+      <h2 id="paths-title" class="visually-hidden"><PhraseText text={copy.pathsTitle} /></h2>
       <div class="container-wide books-paths__grid">
         <article class="books-path">
           <span class="books-path__rule" aria-hidden="true"></span>
-          <h2>{copy.readersTitle}</h2>
+          <h2><PhraseText text={copy.readersTitle} /></h2>
           <p>{copy.readersBody}</p>
           <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
             {copy.visitPlatform}
@@ -60,7 +61,7 @@ const t = getContent(locale);
 
         <article class="books-path">
           <span class="books-path__rule" aria-hidden="true"></span>
-          <h2>{copy.authorsTitle}</h2>
+          <h2><PhraseText text={copy.authorsTitle} /></h2>
           <p>{copy.authorsBody}</p>
           <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
             {copy.submitProposal}
@@ -75,7 +76,7 @@ const t = getContent(locale);
         <div class="books-programme__head">
           <div>
             <p class="text-overline">{copy.programmeOverline}</p>
-            <h2 id="programme-title">{copy.programmeTitle}</h2>
+            <h2 id="programme-title"><PhraseText text={copy.programmeTitle} /></h2>
           </div>
           <p>{copy.programmeIntro}</p>
         </div>
@@ -84,7 +85,7 @@ const t = getContent(locale);
           {copy.formats.map((format) => (
             <li>
               <span class="books-format__rule" aria-hidden="true"></span>
-              <h3>{format.name}</h3>
+              <h3><PhraseText text={format.name} /></h3>
               <p>{format.description}</p>
             </li>
           ))}
@@ -96,7 +97,7 @@ const t = getContent(locale);
       <div class="container-wide books-cta__inner">
         <div>
           <p class="text-overline">{copy.overline}</p>
-          <h2 id="books-cta-title">{copy.ctaTitle}</h2>
+          <h2 id="books-cta-title"><PhraseText text={copy.ctaTitle} /></h2>
         </div>
         <a class="books-link books-link--inverse" href={bookPlatform} target="_blank" rel="noopener noreferrer">
           {copy.exploreBooks}

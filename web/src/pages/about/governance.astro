@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AboutSubnav from '@/components/about/AboutSubnav.astro';
 import Button from '@/components/ui/Button.astro';
@@ -33,7 +34,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
       <div class="container-wide governance-intro__grid">
         <div>
           <p class="text-overline">{copy.framework}</p>
-          <h2 id="governance-intro-title">{copy.introTitle}</h2>
+          <h2 id="governance-intro-title"><PhraseText text={copy.introTitle} /></h2>
         </div>
         <div class="governance-intro__copy">
           {copy.introParagraphs.map((paragraph) => <p>{paragraph}</p>)}
@@ -46,7 +47,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
         <header class="governance-section-head">
           <div>
             <p class="text-overline">{copy.howItWorks}</p>
-            <h2 id="practices-title">{copy.practicesTitle}</h2>
+            <h2 id="practices-title"><PhraseText text={copy.practicesTitle} /></h2>
           </div>
           <p>{copy.practicesIntro}</p>
         </header>
@@ -56,7 +57,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
             <li>
               <span>{String(index + 1).padStart(2, '0')}</span>
               <div>
-                <h3>{practice.title}</h3>
+                <h3><PhraseText text={practice.title} /></h3>
                 <p>{practice.body}</p>
               </div>
             </li>
@@ -70,7 +71,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
         <header class="governance-section-head governance-section-head--inverse">
           <div>
             <p class="text-overline">{copy.sharedResponsibility}</p>
-            <h2 id="responsibilities-title">{copy.responsibilitiesTitle}</h2>
+            <h2 id="responsibilities-title"><PhraseText text={copy.responsibilitiesTitle} /></h2>
           </div>
           <p>{copy.responsibilitiesIntro}</p>
         </header>
@@ -79,7 +80,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
           {copy.responsibilities.map((responsibility, index) => (
             <article>
               <span>{String(index + 1).padStart(2, '0')}</span>
-              <h3>{responsibility.title}</h3>
+              <h3><PhraseText text={responsibility.title} /></h3>
               <p>{responsibility.body}</p>
             </article>
           ))}
@@ -91,7 +92,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
       <div class="container-wide governance-closing__inner">
         <div>
           <p class="text-overline">{copy.standardsOverline}</p>
-          <h2 id="governance-closing-title">{copy.closingTitle}</h2>
+          <h2 id="governance-closing-title"><PhraseText text={copy.closingTitle} /></h2>
         </div>
         <div class="governance-closing__copy">
           <p>{copy.closingBody}</p>

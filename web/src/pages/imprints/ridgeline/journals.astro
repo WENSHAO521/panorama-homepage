@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -48,7 +49,7 @@ const disciplineKeys: Record<string, string> = {
       <section class="ridgeline-directory__intro" aria-labelledby="ridgeline-directory-title">
         <div class="ridgeline-directory__shell">
           <p class="ridgeline-directory__kicker">{tx('section.journals.kicker', 'Ridgeline / Panorama Scholarly Group')}</p>
-          <h1 id="ridgeline-directory-title">{tx('section.journals.title', 'Advancing technology. Shaping what comes next.')}</h1>
+          <h1 id="ridgeline-directory-title"><PhraseText text={tx('section.journals.title', 'Advancing technology. Shaping what comes next.')} /></h1>
           <p class="ridgeline-directory__lede">{tx('section.journals.lede', 'Explore independent journals advancing research across technology, engineering, applied AI, and the systems shaping our shared future.')}</p>
         </div>
       </section>

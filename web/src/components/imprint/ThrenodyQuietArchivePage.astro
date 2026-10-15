@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
@@ -99,7 +100,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
 
           <div class="threnody-archive-journals__intro">
             <div>
-              <h2 id="threnody-archive-journals-title">{tx('journalsTitle', 'Distinct journals. Shared standards.')}</h2>
+              <h2 id="threnody-archive-journals-title"><PhraseText text={tx('journalsTitle', 'Distinct journals. Shared standards.')} /></h2>
               <p>{tx('journalsBody', 'Threnody’s journal programme publishes rigorous, peer-reviewed research across the humanities, arts, philosophy, memory, culture, and sound. The titles shown here are a selected view of a growing programme; each has a defined editorial scope and a distinct scholarly community.')}</p>
             </div>
             <p class="threnody-archive-journals__signals">{tx('signalScope', 'Scope')}<br />{tx('signalEvidence', 'Evidence')}<br />{tx('signalContext', 'Context')}<br />{tx('signalScholarship', 'Scholarship')}</p>
@@ -149,7 +150,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
           <div class="threnody-archive-research__intro">
             <div>
               <p class="threnody-archive-kicker">{tx('researchKicker', 'Research')}</p>
-              <h2 id="threnody-archive-research-title">{tx('researchTitle', 'Interpretation grounded in evidence.')}</h2>
+              <h2 id="threnody-archive-research-title"><PhraseText text={tx('researchTitle', 'Interpretation grounded in evidence.')} /></h2>
             </div>
             <p>{tx('researchBody', 'Threnody supports scholarship that makes its questions, sources, methods, and limits clear without reducing complex cultural objects to simple conclusions.')}</p>
           </div>
@@ -157,7 +158,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
             {researchFields.map((field) => (
               <article>
                 <p>{field.number}</p>
-                <h3>{tx(`field.${field.key}.title`, field.title)}</h3>
+                <h3><PhraseText text={tx(`field.${field.key}.title`, field.title)} /></h3>
                 <span>{tx(`field.${field.key}.body`, field.body)}</span>
               </article>
             ))}
@@ -169,7 +170,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
         <div class="threnody-archive-shell threnody-archive-authors__inner">
           <div>
             <p class="threnody-archive-kicker">{tx('authorsKicker', 'For authors and editors')}</p>
-            <h2 id="threnody-archive-authors-title">{tx('authorsTitle', 'A serious home for work that changes how we understand.')}</h2>
+            <h2 id="threnody-archive-authors-title"><PhraseText text={tx('authorsTitle', 'A serious home for work that changes how we understand.')} /></h2>
           </div>
           <div class="threnody-archive-authors__copy">
             <p>{tx('authorsBody', 'We welcome original research, critical reviews, and carefully argued perspectives that advance humanities, arts, and philosophical inquiry through clear questions, appropriate methods, and accountable evidence.')}</p>
@@ -185,7 +186,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
         <div class="threnody-archive-shell threnody-archive-about__inner">
           <div>
             <p class="threnody-archive-kicker">{tx('aboutKicker', 'About Threnody')}</p>
-            <h2 id="threnody-archive-about-title">{tx('aboutTitle', 'A Panorama imprint for humanities, arts, and philosophy.')}</h2>
+            <h2 id="threnody-archive-about-title"><PhraseText text={tx('aboutTitle', 'A Panorama imprint for humanities, arts, and philosophy.')} /></h2>
           </div>
           <div>
             <p>{tx('aboutBodyOne', 'Threnody is the humanities, arts, and philosophy imprint of Panorama Scholarly Group. We publish independent scholarship on the ideas, practices, traditions, and cultural forms through which people interpret experience and live with one another.')}</p>

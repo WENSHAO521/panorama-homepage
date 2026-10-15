@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getLegalChromeCopy } from '@/i18n/legal';
 import { getNavigationLabels } from '@/i18n/navigation';
@@ -40,7 +41,7 @@ const disclosures = body.disclosures ?? [];
       <div class="container-wide policy-hero__grid">
         <div class="policy-hero__copy">
           <p class="text-overline">{locale === 'en' ? 'Panorama Scholarly Group / Standards' : `Panorama Scholarly Group / ${policy.title}`}</p>
-          <h1>{policy.title}</h1>
+          <h1><PhraseText text={policy.title} /></h1>
           <p class="policy-hero__lede">{policy.lede}</p>
         </div>
 
@@ -74,17 +75,17 @@ const disclosures = body.disclosures ?? [];
 
       <div class="policy-content">
         <section id="scope" class="policy-section">
-          <h2>{policy.sections.scope}</h2>
+          <h2><PhraseText text={policy.sections.scope} /></h2>
           <Fragment set:html={render(body.sections.scope)} />
         </section>
 
         <section id="principles" class="policy-section">
-          <h2>{policy.sections.principles}</h2>
+          <h2><PhraseText text={policy.sections.principles} /></h2>
           <Fragment set:html={render(body.sections.principles)} />
           <div class="principle-list">
             {principles.map((principle) => (
               <article class="principle-item">
-                <h3>{principle.title}</h3>
+                <h3><PhraseText text={principle.title} /></h3>
                 <p>{principle.body}</p>
               </article>
             ))}
@@ -92,12 +93,12 @@ const disclosures = body.disclosures ?? [];
         </section>
 
         <section id="roles" class="policy-section">
-          <h2>{policy.sections.roles}</h2>
+          <h2><PhraseText text={policy.sections.roles} /></h2>
           <Fragment set:html={render(body.sections.roles)} />
           <div class="responsibility-list">
             {responsibilities.map((responsibility) => (
               <article class="responsibility-item">
-                <h3>{responsibility.title}</h3>
+                <h3><PhraseText text={responsibility.title} /></h3>
                 <p>{responsibility.body}</p>
               </article>
             ))}
@@ -105,22 +106,22 @@ const disclosures = body.disclosures ?? [];
         </section>
 
         <section id="peer-review" class="policy-section">
-          <h2>{policy.sections['peer-review']}</h2>
+          <h2><PhraseText text={policy.sections['peer-review']} /></h2>
           <Fragment set:html={render(body.sections['peer-review'])} />
         </section>
 
         <section id="integrity" class="policy-section">
-          <h2>{policy.sections.integrity}</h2>
+          <h2><PhraseText text={policy.sections.integrity} /></h2>
           <Fragment set:html={render(body.sections.integrity)} />
         </section>
 
         <section id="transparency" class="policy-section">
-          <h2>{policy.sections.transparency}</h2>
+          <h2><PhraseText text={policy.sections.transparency} /></h2>
           <Fragment set:html={render(body.sections.transparency)} />
           <div class="disclosure-list">
             {disclosures.map((disclosure) => (
               <div class="disclosure-item">
-                <h3>{disclosure.title}</h3>
+                <h3><PhraseText text={disclosure.title} /></h3>
                 <p>{disclosure.body}</p>
               </div>
             ))}
@@ -128,17 +129,17 @@ const disclosures = body.disclosures ?? [];
         </section>
 
         <section id="record" class="policy-section">
-          <h2>{policy.sections.record}</h2>
+          <h2><PhraseText text={policy.sections.record} /></h2>
           <Fragment set:html={render(body.sections.record)} />
         </section>
 
         <section id="appeals" class="policy-section">
-          <h2>{policy.sections.appeals}</h2>
+          <h2><PhraseText text={policy.sections.appeals} /></h2>
           <Fragment set:html={render(body.sections.appeals)} />
         </section>
 
         <aside class="policy-note">
-          <h2>{legalUi.relatedPages}</h2>
+          <h2><PhraseText text={legalUi.relatedPages} /></h2>
           <p>{body.relatedIntro}</p>
           <nav class="policy-note__links" aria-label="Related standards">
             <a href={localizePath('/standards/ethics/', locale)}>

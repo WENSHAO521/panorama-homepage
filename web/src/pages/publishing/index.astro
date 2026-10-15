@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
@@ -65,7 +66,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       <div class="container-wide">
         <header class="publishing-pathways__header">
           <p class="text-overline">{copy.pathwaysOverline}</p>
-          <h2 id="pathways-title">{copy.pathwaysTitle}</h2>
+          <h2 id="pathways-title"><PhraseText text={copy.pathwaysTitle} /></h2>
         </header>
 
         <ol class="publishing-pathways__list" role="list">
@@ -73,7 +74,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
             <li class="publishing-pathway">
               <span class="publishing-pathway__number" aria-hidden="true">{route.number}</span>
               <div class="publishing-pathway__body">
-                <h3>{route.title}</h3>
+                <h3><PhraseText text={route.title} /></h3>
                 <p>{route.description}</p>
                 <a href={route.href} class="publishing-pathway__link" target={route.external ? '_blank' : undefined} rel={route.external ? 'noopener noreferrer' : undefined}>
                   {route.label}
@@ -91,7 +92,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
         <header class="publishing-imprints__header">
           <div>
             <p class="publishing-imprints__overline text-overline">{copy.imprintsOverline}</p>
-            <h2 id="imprints-title">{copy.imprintsTitle}</h2>
+            <h2 id="imprints-title"><PhraseText text={copy.imprintsTitle} /></h2>
             <p class="publishing-imprints__lede">{copy.imprintsLede}</p>
           </div>
           <p class="publishing-imprints__count"><strong>{activeJournals.length}</strong> {copy.activeJournals}</p>
@@ -150,7 +151,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       <div class="container-wide publishing-next__grid">
         <div>
           <p class="text-overline">{copy.nextOverline}</p>
-          <h2 id="publishing-next-title">{copy.nextTitle}</h2>
+          <h2 id="publishing-next-title"><PhraseText text={copy.nextTitle} /></h2>
           <p>{copy.nextBody}</p>
         </div>
         <div class="publishing-next__actions">

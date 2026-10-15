@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getResearchAssessmentCopy, declarationUrl, signersUrl, badgesUrl } from '@/i18n/research-assessment';
 import { localizePath } from '@/i18n/utils';
@@ -37,7 +38,7 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
       <div class="container-wide dora-hero__grid">
         <div class="dora-hero__copy">
           <p class="text-overline">{copy.heroEyebrow}</p>
-          <h1>{copy.heroTitle}</h1>
+          <h1><PhraseText text={copy.heroTitle} /></h1>
           <p class="dora-hero__lede">{copy.heroLede}</p>
         </div>
 
@@ -92,14 +93,14 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
       <main class="dora-content">
         {sections.map((section) => (
           <section id={section.id} class="dora-section">
-            <h2>{section.title}</h2>
+            <h2><PhraseText text={section.title} /></h2>
             {section.intro && <p class="dora-section__intro">{section.intro}</p>}
             {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
             {section.cards && (
               <div class="dora-principles">
                 {section.cards.map((card) => (
                   <article class="dora-principle">
-                    <h3>{card.title}</h3>
+                    <h3><PhraseText text={card.title} /></h3>
                     <p>{card.body}</p>
                   </article>
                 ))}
@@ -109,7 +110,7 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
         ))}
 
         <aside class="dora-related">
-          <h2>{copy.relatedTitle}</h2>
+          <h2><PhraseText text={copy.relatedTitle} /></h2>
           <p>{copy.relatedIntro}</p>
           <nav class="dora-related__links" aria-label={copy.relatedTitle}>
             {relatedLinks.map((link) => (

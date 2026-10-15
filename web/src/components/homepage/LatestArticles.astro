@@ -1,5 +1,6 @@
 ---
-import SectionHeading from '@/components/ui/SectionHeading.astro';
+import PhraseText from '@/components/ui/PhraseText.astro';
+import SectionHead from './SectionHead.astro';
 import articleData from '@/data/articles.json';
 import { isRetractedArticle } from '@/lib/articleFilter.mjs';
 import { getContent } from '@/i18n/content';
@@ -8,177 +9,175 @@ interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
 
-const articles = [...articleData.articles]
+const [lead, ...rest] = [...articleData.articles]
   .filter((article) => !isRetractedArticle(article))
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
   .slice(0, 3);
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' })
+    .format(new Date(value + 'T00:00:00Z'));
+}
 
 // Long consortium author lists crowd out the title; show the first three.
 function formatAuthors(authors: string[]) {
   return authors.length > 3 ? `${authors.slice(0, 3).join(', ')} et al.` : authors.join(', ');
 }
-
-function formatDate(value: string) {
-  return new Intl.DateTimeFormat(locale, {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-    timeZone: 'UTC',
-  }).format(new Date(value + 'T00:00:00Z'));
-}
 ---
 
-<section class="row latest-articles">
+<section class="row home-articles" aria-labelledby="home-articles-title">
   <div class="container-wide">
-    <SectionHeading
-      title={t('home.selectedArticles')}
-      lede={t('home.selectedArticlesLede')}
-    />
+    <SectionHead id="home-articles-title" title={t('home.selectedArticles')} lede={t('home.selectedArticlesLede')} locale={locale} />
 
-    <!-- Lead + two: the newest article gets room for its summary, the next
-         two are compact. Avoids three identical text cards side by side. -->
-    <ul class="latest-articles__list" role="list">
-      {articles.map((article, index) => (
-        <li class:list={['latest-articles__item', { 'latest-articles__item--lead': index === 0 }]}>
-          <a
-            href={article.url}
-            class="latest-articles__link-card"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={article.title + ' (opens in a new tab)'}
-          >
-            <div class="latest-articles__meta">
-              <span>{article.journal}</span>
-              <time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
-            </div>
-            <h3>{article.title}</h3>
-            {index === 0 && <p>{article.summary}</p>}
-            <span class="latest-articles__authors">{formatAuthors(article.authors)}</span>
+    {lead && (
+      <div class="home-articles__grid">
+        <!-- Lead + two: the newest article gets room for its summary; the next
+             two stay compact, so three identical text cards never sit side by side. -->
+        <article class="home-articles__lead">
+          <a href={lead.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={lead.title + ' (opens in a new tab)'}>
+            <p class="home-articles__meta"><span>{lead.journal}</span><time datetime={lead.publishedAt}>{formatDate(lead.publishedAt)}</time></p>
+            <h3 class="home-articles__lead-title"><PhraseText text={lead.title} /></h3>
+            <p class="home-articles__summary">{lead.summary}</p>
+            <p class="home-articles__authors">{formatAuthors(lead.authors)}</p>
+            <span class="home-articles__cta">{t('home.readArticle')}</span>
           </a>
-        </li>
-      ))}
-    </ul>
+        </article>
+
+        <ul class="home-articles__list" role="list">
+          {rest.map((article) => (
+            <li>
+              <a href={article.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={article.title + ' (opens in a new tab)'}>
+                <p class="home-articles__meta"><span>{article.journal}</span><time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time></p>
+                <h3 class="home-articles__title"><PhraseText text={article.title} /></h3>
+                <p class="home-articles__authors">{formatAuthors(article.authors)}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
   </div>
 </section>
 
 <style>
-  .latest-articles {
+  .home-articles {
     background: var(--surface-secondary);
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
-    padding-block: 3.5rem 3.75rem;
+    padding-block: clamp(2.5rem, 5vw, 4rem);
   }
 
-  .latest-articles :global(.section-heading__title) {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: var(--fw-regular);
-    line-height: 1.12;
-  }
-
-  .latest-articles :global(.section-heading__lede) {
-    margin-top: 0.5rem;
-    font-family: var(--font-display);
-    font-size: 1rem;
-    line-height: 1.45;
-  }
-
-  .latest-articles__list {
+  .home-articles__grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    margin: 2rem 0 0;
-    padding: 0;
-    list-style: none;
+    gap: 2rem;
   }
 
-  .latest-articles__item {
-    min-width: 0;
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .latest-articles__link-card {
-    display: block;
-    height: 100%;
-    padding-block: 1.25rem 1.5rem;
+  .home-articles__link {
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
     color: inherit;
     text-decoration: none;
   }
-
-  .latest-articles__link-card:hover h3,
-  .latest-articles__link-card:focus-visible h3 {
-    color: var(--interactive-default);
+  .home-articles__link:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
   }
 
-  .latest-articles__meta {
+  .home-articles__meta {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem 1rem;
-    color: var(--text-muted);
-    font-size: 0.75rem;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.06em;
-    line-height: 1.3;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
+  .home-articles__meta span { color: var(--text-accent); }
 
-  .latest-articles__meta span { color: var(--text-accent); }
-
-  .latest-articles__meta time {
-    margin-inline-start: auto;
-    font-weight: var(--fw-medium);
-    white-space: nowrap;
-  }
-
-  .latest-articles h3 {
-    max-width: 38ch;
-    margin-top: 0.7rem;
-    font-family: var(--font-display);
-    font-size: 1.25rem;
+  .home-articles__lead-title,
+  .home-articles__title {
+    margin: 0;
     font-weight: var(--fw-regular);
-    line-height: 1.2;
-    transition: color var(--p-duration-fast) var(--p-ease-standard);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .home-articles__lead-title { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.12; }
+  .home-articles__title { font-size: 1.25rem; line-height: 1.2; }
+
+  .home-articles__link:hover :is(.home-articles__lead-title, .home-articles__title) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
   }
 
-  .latest-articles__item--lead h3 {
-    font-size: clamp(1.5rem, 2.4vw, 2rem);
-    line-height: 1.15;
-  }
-
-  .latest-articles__link-card > p {
-    max-width: 60ch;
-    margin-top: 0.9rem;
+  .home-articles__summary {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    max-width: 56ch;
+    margin: 0;
     color: var(--text-secondary);
     font-family: var(--font-display);
     font-size: 1rem;
     line-height: 1.55;
-    /* Feed summaries run to 80+ words; four lines is a teaser, not the abstract. */
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    overflow: hidden;
   }
 
-  .latest-articles__authors {
-    display: block;
-    margin-top: 0.85rem;
+  .home-articles__authors {
+    margin: 0;
     color: var(--text-muted);
-    font-size: 0.8125rem;
-    line-height: 1.4;
+    font-size: var(--fs-caption);
   }
+
+  /* Same arrow link as the rest of the site, drawn on a span because the whole
+     card is the link. */
+  .home-articles__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    width: fit-content;
+    min-height: var(--p-link-min-height);
+    margin-top: 0.4rem;
+    color: var(--text-link);
+    font-size: var(--p-link-font-size);
+    font-weight: var(--fw-medium);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: var(--p-action-underline-offset);
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  }
+  .home-articles__cta::after {
+    content: '';
+    width: 0.85em;
+    height: 0.62em;
+    background: currentColor;
+    -webkit-mask: var(--p-action-arrow) center / contain no-repeat;
+    mask: var(--p-action-arrow) center / contain no-repeat;
+    transition: transform var(--p-duration-base) var(--p-ease-standard);
+  }
+  .home-articles__link:hover .home-articles__cta { text-decoration-color: currentColor; }
+  .home-articles__link:hover .home-articles__cta::after { transform: translateX(3px); }
+
+  .home-articles__list {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .home-articles__list li { padding-block: 1.25rem; border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
+  .home-articles__list li:first-child { padding-top: 0; border-top: 0; }
+  .home-articles__list li:last-child { padding-bottom: 0; }
 
   @media (min-width: 900px) {
-    .latest-articles__list {
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      grid-template-rows: auto auto;
-      column-gap: 3rem;
+    .home-articles__grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 3rem; }
+    .home-articles__list {
+      padding-inline-start: 3rem;
+      border-inline-start: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
+      align-content: start;
     }
-
-    .latest-articles__item--lead {
-      grid-row: 1 / span 2;
-    }
-
-    .latest-articles__item--lead .latest-articles__link-card {
-      padding-block-end: 0;
-    }
+    .home-articles__list li:first-child { padding-top: 0; }
   }
 </style>

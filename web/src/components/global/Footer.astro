@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import Logo from '@/components/ui/Logo.astro';
 import { footerPlatformLogos, getFooterGroups, getLegalNav } from '@/data/navigation';
 import { getOfficeDirectory, site } from '@/data/site';
@@ -39,7 +40,7 @@ const year = new Date().getFullYear();
       <div class="site-footer__groups">
         {footerGroups.map((group) => (
           <nav class="site-footer__group" aria-label={group.title}>
-            <h2 class="site-footer__group-title">{group.title}</h2>
+            <h2 class="site-footer__group-title"><PhraseText text={group.title} /></h2>
             <ul class="site-footer__group-list" role="list">
               {group.items.map((item) => (
                 <li>
@@ -60,7 +61,7 @@ const year = new Date().getFullYear();
 
     <section class="site-footer__platforms" aria-labelledby="footer-platforms-title">
       <div class="site-footer__platform-intro">
-        <h2 id="footer-platforms-title" class="site-footer__group-title">{labels.platforms}</h2>
+        <h2 id="footer-platforms-title" class="site-footer__group-title"><PhraseText text={labels.platforms} /></h2>
         <p>{labels.platformDescription}</p>
       </div>
       <nav class="site-footer__platform-list" aria-label={labels.platforms}>

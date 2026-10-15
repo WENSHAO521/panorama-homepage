@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/data/site';
 import { localizePath } from '@/i18n/utils';
@@ -66,7 +67,7 @@ const localizedHref = (href: string) => href.startsWith('/') ? localizePath(href
       <div class="container-wide legal-hero__inner">
         <div class="legal-hero__copy">
           <p class="text-overline">{eyebrow === 'Panorama Scholarly Group / Legal' ? ui.eyebrow : eyebrow}</p>
-          <h1>{title}</h1>
+          <h1><PhraseText text={title} /></h1>
           <p class="legal-hero__lede">{lede}</p>
         </div>
 

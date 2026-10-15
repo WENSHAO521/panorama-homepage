@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
 import { getFeaturedJournals, getJournalBySlug } from '@/lib/content/journals';
@@ -23,7 +24,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
   <div class="container-wide hero__intro">
     <div>
       <p class="text-overline hero__eyebrow">{t('home.heroOverline')}</p>
-      <h1 id="hero-title" class="hero__title">{t('home.heroStatement')}</h1>
+      <h1 id="hero-title" class="hero__title"><PhraseText text={t('home.heroStatement')} locale={locale} /></h1>
     </div>
     <div class="hero__search">
       <form action={localizePath('/search/', locale)} method="get" role="search" class="hero__form">
@@ -46,7 +47,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
 
       <div class="hero__main">
         <p class="text-overline hero__eyebrow">{t('home.featuredJournal')}</p>
-        <h2 class="hero__feature-title">{lead.title}</h2>
+        <h2 class="hero__feature-title"><PhraseText text={lead.title} /></h2>
         <p class="hero__feature-text">{lead.description}</p>
         <a class="action-link" href={lead.journalUrl} target="_blank" rel="noopener noreferrer">
           {t('common.visitJournalWebsite')}
@@ -72,7 +73,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
             </a>
             <div>
               <p class="text-overline hero__eyebrow">{t('home.alsoOfInterest')}</p>
-              <h3 class="hero__also-title">{also.title}</h3>
+              <h3 class="hero__also-title"><PhraseText text={also.title} /></h3>
               <a class="action-link" href={also.journalUrl} target="_blank" rel="noopener noreferrer">
                 {t('common.visitJournalWebsite')}
                 <span class="visually-hidden"> — {also.title} ({t('common.opensNewTab')})</span>

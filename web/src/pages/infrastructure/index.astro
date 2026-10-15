@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
@@ -67,7 +68,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
     <div class="container-wide infra-intro__grid">
       <div>
           <p class="text-overline">{copy.introOverline}</p>
-          <h2>{copy.introTitle}</h2>
+          <h2><PhraseText text={copy.introTitle} /></h2>
       </div>
       <div class="infra-intro__copy">
           <p>{copy.introParagraphs[0]}</p>
@@ -81,7 +82,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
       <div class="infra-section-head infra-doi__head">
         <div class="section-heading">
           <p class="text-overline">{copy.doiOverline}</p>
-          <h2 id="doi-title">{copy.doiTitle}</h2>
+          <h2 id="doi-title"><PhraseText text={copy.doiTitle} /></h2>
         </div>
         <p class="infra-section-head__lede">
           {copy.doiLede}
@@ -92,7 +93,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
         {copy.doiSteps.map((step, index) => (
           <li>
             <span class="infra-step__number">{String(index + 1).padStart(2, '0')}</span>
-            <h3>{step.title}</h3>
+            <h3><PhraseText text={step.title} /></h3>
             <p>{step.body}</p>
           </li>
         ))}
@@ -113,7 +114,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
       <div class="infra-section-head">
         <div class="section-heading">
           <p class="text-overline">{copy.discoveryOverline}</p>
-          <h2 id="discovery-title">{copy.discoveryTitle}</h2>
+          <h2 id="discovery-title"><PhraseText text={copy.discoveryTitle} /></h2>
         </div>
         <p class="infra-section-head__lede">
           {copy.discoveryLede}
@@ -188,7 +189,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
       <div class="infra-preservation__head">
         <div class="section-heading">
           <p class="text-overline">{copy.preservationOverline}</p>
-          <h2 id="preservation-title">{copy.preservationTitle}</h2>
+          <h2 id="preservation-title"><PhraseText text={copy.preservationTitle} /></h2>
         </div>
         <p>
           {copy.preservationBody}
@@ -230,7 +231,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
       <div class="infra-section-head">
         <div class="section-heading">
           <p class="text-overline">{copy.identifiersOverline}</p>
-          <h2 id="identifiers-title">{copy.identifiersTitle}</h2>
+          <h2 id="identifiers-title"><PhraseText text={copy.identifiersTitle} /></h2>
         </div>
         <p class="infra-section-head__lede">
           {copy.identifiersLede}
@@ -277,7 +278,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
           </div>
           <div class="infra-library-partner__copy">
             <p class="text-overline">{copy.libraryOverline}</p>
-            <h3>{libraryPartner.name}</h3>
+            <h3><PhraseText text={libraryPartner.name} /></h3>
             <p>{copy.libraryBody}</p>
           </div>
         </div>
@@ -289,7 +290,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
     <div class="container-wide infra-note__inner">
       <div>
         <p class="text-overline">{copy.noteOverline}</p>
-        <h2>{copy.noteTitle}</h2>
+        <h2><PhraseText text={copy.noteTitle} /></h2>
       </div>
       <div class="infra-note__copy">
         <p>

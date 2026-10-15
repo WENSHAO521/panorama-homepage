@@ -1,4 +1,6 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
+
 interface Props {
   eyebrow: string;
   title: string;
@@ -20,7 +22,7 @@ const {
   <div class="container-wide group-hero__inner">
     <div class="group-hero__copy">
       <p class="group-hero__eyebrow text-overline">{eyebrow}</p>
-      <h1 id={titleId} class="group-hero__title">{title}</h1>
+      <h1 id={titleId} class="group-hero__title"><PhraseText text={title} /></h1>
       {lede && <p class="group-hero__lede">{lede}</p>}
       {Astro.slots.has('actions') && <div class="group-hero__actions"><slot name="actions" /></div>}
     </div>

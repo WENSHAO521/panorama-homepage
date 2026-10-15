@@ -181,6 +181,19 @@ Measured across 46 routes at 1280px and 400px: text elements below the
 floor went from 3,664 to 0. New CSS should reference these tokens rather than
 writing `font-size: 0.6rem`.
 
+### CJK headlines
+
+Chinese and Japanese titles have no spaces, so browsers break them mid-word.
+Wrap any heading text in `<PhraseText text={...} />` (done for every `h1`–`h3`
+that renders a single expression, plus the layouts). It splits the title into
+clauses after punctuation, makes each clause one unit, and offers wrap points
+only at real word boundaries (`Intl.Segmenter`); single-character function
+words stay attached to a neighbouring word. CSS (`word-break: keep-all`,
+`.phrase`) forbids every other break. Across zh-Hans, zh-Hant and ja at four
+widths, 2,322 heading line breaks were checked: no breaks inside Chinese
+words; the few remaining Japanese cases are long katakana loanwords that are
+wider than the line by themselves.
+
 ## Shadows
 
 Two shadow tokens only (`--p-shadow-sm`/`--shadow-raised`,

@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getSearchCopy } from '@/i18n/utility';
 import { localizePath } from '@/i18n/utils';
@@ -46,7 +47,7 @@ const copy = getSearchCopy(locale);
           <div class="search-results-head">
             <div>
               <p class="text-overline">{copy.resultsLabel}</p>
-              <h2 id="search-results-title">{copy.resultsTitle}</h2>
+              <h2 id="search-results-title"><PhraseText text={copy.resultsTitle} /></h2>
             </div>
             <p class="search-results-status" data-search-status aria-live="polite">
               {copy.client.initialStatus}

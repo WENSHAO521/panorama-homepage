@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import taoistAssociationLogo from '@/assets/partners/taoist-association-korea-logo.png';
 import cashlLogo from '@/assets/index-logos/library-logo.png';
@@ -49,7 +50,7 @@ const partnerLogos = [
 <section class="institutional-partner" aria-labelledby="institutional-partner-title">
   <div class="container-wide institutional-partner__inner">
     <div class="institutional-partner__intro">
-      <h2 id="institutional-partner-title">{t('common.inPartnershipWith')}</h2>
+      <h2 id="institutional-partner-title"><PhraseText text={t('common.inPartnershipWith')} /></h2>
     </div>
 
     <div class="institutional-partner__marquee" aria-label="Partner logos">

@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 import ImprintCard from '@/components/imprint/ImprintCard.astro';
 import imprintsData from '@/data/imprints.json';
 import type { Imprint } from '@/types';
@@ -22,7 +23,7 @@ const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
   <div class="container-wide">
     <div class="imprint-section__inner">
       <div class="imprint-section__header">
-        <h2 id="imprint-section-title" class="imprint-section__title">{t('home.imprintsTitle')}</h2>
+        <h2 id="imprint-section-title" class="imprint-section__title"><PhraseText text={t('home.imprintsTitle')} /></h2>
         <a href={localizePath('/imprints/', locale)} class="imprint-section__link">{t('common.viewAllImprints')}</a>
       </div>
 

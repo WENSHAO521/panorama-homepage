@@ -1,4 +1,5 @@
 ---
+import PhraseText from '@/components/ui/PhraseText.astro';
 // For legal/governance documents (privacy, terms, ethics, open-access
 // policy). Distinct from EditorialLayout because policy pages get
 // `noindex`-free but change-controlled treatment (effective date) and
@@ -19,7 +20,7 @@ const { title, description, path, locale = 'en', effectiveDate } = Astro.props;
 <BaseLayout title={title} description={description} path={path} locale={locale}>
   <article class="container-reading">
     <header>
-      <h1>{title}</h1>
+      <h1><PhraseText text={title} /></h1>
       {effectiveDate && (
         <p class="effective-date">
           Effective {effectiveDate.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
