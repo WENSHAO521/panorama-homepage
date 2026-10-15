@@ -27,91 +27,91 @@
 
 [data-imprint-theme] {
   /* Shared warm neutral reading surface */
-  --imprint-paper:     var(--p-paper-50);   /* #F6F3EA */
-  --imprint-card:      var(--p-paper-0);    /* #FCFBF7 */
-  --imprint-text:      var(--p-ink-900);    /* #272B29 */
-  --imprint-text-soft: var(--p-ink-700);    /* #59635E — ≥5.3:1 on every tint */
-  --imprint-border:    var(--p-stone-200);  /* #D8D9CF */
+  --imprint-paper:     var(--p-paper-50);   /* Kinari */
+  --imprint-card:      var(--p-paper-0);    /* Unohana */
+  --imprint-text:      var(--p-ink-900);    /* Sumi */
+  --imprint-text-soft: var(--p-ink-700);    /* ≥5.1:1 on every tint */
+  --imprint-border:    var(--p-stone-200);  /* warm hairline */
   --imprint-on-primary: var(--p-paper-0);
   --imprint-on-deep:    var(--p-paper-50);
 }
 
-/* Ridgeline — Technology, Engineering & AI. Ai-nezu slate blue. */
+/* Ridgeline — Technology, Engineering & AI. Hanada (縹) dusty blue. */
 [data-imprint-theme='ridgeline'] {
-  --imprint-primary:         var(--p-imprint-ridgeline); /* #304C64 — 8.1:1 on Kinari */
-  --imprint-primary-hover:   #243A4E;
-  --imprint-tint:            #EBF0F4;
-  --imprint-tint-strong:     #DCE4EB;
-  --imprint-deep:            #1E3142;
-  --imprint-deeper:          #15222E;
-  --imprint-accent-light:    #A9BED1; /* 7.0:1 on deep */
-  --imprint-secondary:       #3E5F8A; /* logo mark blue */
+  --imprint-primary:         var(--p-imprint-ridgeline); /* #46647F */
+  --imprint-primary-hover:   #3D5469;
+  --imprint-tint:            #E7E9E8;
+  --imprint-tint-strong:     #E0E3E3;
+  --imprint-deep:            #354452;
+  --imprint-deeper:          #2E3740;
+  --imprint-accent-light:    #C6CED2;
+  --imprint-secondary:       #557AA3; /* logo mark blue, softened */
   --imprint-secondary-ink:   #3E5F8A;
   --imprint-secondary-light: #A9BED1;
-  --imprint-line:            #C7D2DC;
+  --imprint-line:            #CAD1D5;
   --imprint-accent:          var(--imprint-primary);
 }
 
-/* Health Nexus — Medicine & Health Sciences. Seiji celadon teal. */
+/* Health Nexus — Medicine & Health Sciences. Seiji (青磁) celadon. */
 [data-imprint-theme='health-nexus'] {
-  --imprint-primary:         var(--p-imprint-health-nexus); /* #2E696D — 5.6:1 on Kinari */
-  --imprint-primary-hover:   #225356;
-  --imprint-tint:            #E6F1EF;
-  --imprint-tint-strong:     #D3E5E2;
-  --imprint-deep:            #1C4346;
-  --imprint-deeper:          #133133;
-  --imprint-accent-light:    #9CCBC6; /* 6.1:1 on deep */
-  --imprint-secondary:       #9E5A4E; /* muted coral, echoes the logo cross */
-  --imprint-secondary-ink:   #9E5A4E; /* 4.5:1 on tint */
+  --imprint-primary:         var(--p-imprint-health-nexus); /* #346A66 */
+  --imprint-primary-hover:   #2F5955;
+  --imprint-tint:            #E5EAE5;
+  --imprint-tint-strong:     #DDE4DF;
+  --imprint-deep:            #2B4744;
+  --imprint-deeper:          #273936;
+  --imprint-accent-light:    #C1D0CB;
+  --imprint-secondary:       #A35E4F; /* muted coral, echoes the logo cross */
+  --imprint-secondary-ink:   #92503F;
   --imprint-secondary-light: #E1B3A9;
-  --imprint-line:            #C3D6D3;
+  --imprint-line:            #C5D2CE;
   --imprint-accent:          var(--imprint-primary);
 }
 
-/* Verdant Science — Sustainability, Environment & Life Sciences. Tokiwa green. */
+/* Verdant Science — Sustainability, Environment & Life Sciences. Oitake (老竹) aged bamboo. */
 [data-imprint-theme='verdant-science'] {
-  --imprint-primary:         var(--p-imprint-verdant-science); /* #3F654B — 6.0:1 on Kinari */
-  --imprint-primary-hover:   #2F4D39;
-  --imprint-tint:            #EBF0E6;
-  --imprint-tint-strong:     #DCE5D4;
-  --imprint-deep:            #263F2E;
-  --imprint-deeper:          #1B2E21;
-  --imprint-accent-light:    #B5C9A9; /* 6.5:1 on deep */
+  --imprint-primary:         var(--p-imprint-verdant-science); /* #4B6A45 */
+  --imprint-primary-hover:   #41593B;
+  --imprint-tint:            #E8EAE1;
+  --imprint-tint-strong:     #E1E4DA;
+  --imprint-deep:            #384732;
+  --imprint-deeper:          #30392A;
+  --imprint-accent-light:    #C8D0C1;
   --imprint-secondary:       #9C6A45; /* soil / bark, low chroma */
   --imprint-secondary-ink:   #85593A;
   --imprint-secondary-light: #D6B794;
-  --imprint-line:            #CBD5C2;
+  --imprint-line:            #CBD2C4;
   --imprint-accent:          var(--imprint-primary);
 }
 
-/* Charter — Policy, Law & Governance. Ebicha wine with logo gold. */
+/* Charter — Policy, Law & Governance. Azuki (小豆) red-bean mauve with logo gold. */
 [data-imprint-theme='charter'] {
-  --imprint-primary:         var(--p-imprint-charter); /* #754551 — 6.9:1 on Kinari */
-  --imprint-primary-hover:   #5C3540;
-  --imprint-tint:            #F5EBEB;
-  --imprint-tint-strong:     #EADADB;
-  --imprint-deep:            #472A32;
-  --imprint-deeper:          #331E24;
-  --imprint-accent-light:    #DDBAC1; /* 7.2:1 on deep */
+  --imprint-primary:         var(--p-imprint-charter); /* #8A5562 */
+  --imprint-primary-hover:   #724852;
+  --imprint-tint:            #EFE7E4;
+  --imprint-tint-strong:     #EBE0DE;
+  --imprint-deep:            #5B3B42;
+  --imprint-deeper:          #483135;
+  --imprint-accent-light:    #DAC9CA;
   --imprint-secondary:       #A8803F; /* logo gold, desaturated */
   --imprint-secondary-ink:   #7A5A2A; /* 5.4:1 on tint */
   --imprint-secondary-light: #C9A46A; /* 5.5:1 on deep */
-  --imprint-line:            #E0CFCF;
+  --imprint-line:            #DDCDCD;
   --imprint-accent:          var(--imprint-primary);
 }
 
-/* Threnody — Humanities, Arts & Philosophy. Kikyō-nezu muted violet. */
+/* Threnody — Humanities, Arts & Philosophy. Fujinezu (藤鼠) wisteria grey. */
 [data-imprint-theme='threnody'] {
-  --imprint-primary:         var(--p-imprint-threnody); /* #664F70 — 6.5:1 on Kinari */
-  --imprint-primary-hover:   #4F3D57;
-  --imprint-tint:            #F1EBF2;
-  --imprint-tint-strong:     #E3D9E5;
-  --imprint-deep:            #3A2D41;
-  --imprint-deeper:          #2A2030;
-  --imprint-accent-light:    #CDBDD4; /* 7.3:1 on deep */
+  --imprint-primary:         var(--p-imprint-threnody); /* #6A5D80 */
+  --imprint-primary-hover:   #5A4E69;
+  --imprint-tint:            #EBE8E8;
+  --imprint-tint-strong:     #E5E2E3;
+  --imprint-deep:            #494053;
+  --imprint-deeper:          #3C3440;
+  --imprint-accent-light:    #D1CCD3;
   --imprint-secondary:       #93764C; /* logo bronze */
   --imprint-secondary-ink:   #765C38;
   --imprint-secondary-light: #C4A77C; /* 5.6:1 on deep */
-  --imprint-line:            #DDD2DF;
+  --imprint-line:            #D4CFD5;
   --imprint-accent:          var(--imprint-primary);
 }
