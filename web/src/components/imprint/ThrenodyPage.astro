@@ -306,15 +306,15 @@ const pageDescription = 'Threnody is Panorama Scholarly Group’s imprint for ri
 
 <style>
   .threnody-page {
-    --threnody-paper: #f5f2ea;
-    --threnody-paper-deep: #ebe6dc;
-    --threnody-ink: #17141a;
-    --threnody-muted: #655f64;
-    --threnody-plum: #5b3a5e;
-    --threnody-plum-dark: #281d2b;
-    --threnody-copper: #a94f43;
-    --threnody-blue: #536d7b;
-    --threnody-line: #d4cec3;
+    --threnody-paper: var(--p-paper-50);
+    --threnody-paper-deep: var(--p-paper-100);
+    --threnody-ink: var(--p-ink-900);
+    --threnody-muted: var(--p-ink-500);
+    --threnody-plum: var(--p-imprint-threnody);
+    --threnody-plum-dark: color-mix(in srgb, var(--p-imprint-threnody) 24%, var(--p-sumi-950));
+    --threnody-copper: var(--p-shu-700);
+    --threnody-blue: var(--p-sumi-600);
+    --threnody-line: var(--border-subtle);
     --threnody-shell: min(100% - 6.5rem, 1360px);
     background: var(--threnody-paper);
     color: var(--threnody-ink);
@@ -457,14 +457,14 @@ const pageDescription = 'Threnody is Panorama Scholarly Group’s imprint for ri
 
   .threnody-authors { background: var(--threnody-plum-dark); color: var(--threnody-paper); }
   .threnody-authors__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr) minmax(12rem, 0.48fr); gap: clamp(2rem, 5vw, 6rem); align-items: center; padding-block: clamp(3rem, 6vw, 6rem); }
-  .threnody-authors .threnody-kicker { color: #d99a82; }
+  .threnody-authors .threnody-kicker { color: var(--p-shu-300); }
   .threnody-authors h2 { max-width: 14ch; margin: 1rem 0 0; color: var(--threnody-paper); font-family: var(--font-display); font-size: clamp(2.2rem, 3.7vw, 4.5rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
   .threnody-authors__copy { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid color-mix(in srgb, var(--threnody-paper) 28%, transparent); }
   .threnody-authors__copy > p { max-width: 32rem; margin: 0; color: color-mix(in srgb, var(--threnody-paper) 82%, transparent); font-family: var(--font-display); font-size: 1rem; line-height: 1.45; }
-  .threnody-authors .threnody-text-link { border-color: #d99a82; color: var(--threnody-paper); }
+  .threnody-authors .threnody-text-link { border-color: var(--p-shu-300); color: var(--threnody-paper); }
   .threnody-authors .threnody-text-link:hover,
-  .threnody-authors .threnody-text-link:focus-visible { border-color: var(--threnody-paper); color: #d99a82; }
-  .threnody-authors blockquote { margin: 0; color: #d9c5c2; font-family: var(--font-display); font-size: clamp(1.6rem, 2.25vw, 2.5rem); font-style: italic; line-height: 1.08; }
+  .threnody-authors .threnody-text-link:focus-visible { border-color: var(--threnody-paper); color: var(--p-shu-300); }
+  .threnody-authors blockquote { margin: 0; color: var(--text-inverse-muted-strong); font-family: var(--font-display); font-size: clamp(1.6rem, 2.25vw, 2.5rem); font-style: italic; line-height: 1.08; }
 
   .threnody-about { padding-block: clamp(3.5rem, 6vw, 6rem); background: var(--threnody-paper-deep); }
   .threnody-about__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.85fr); gap: clamp(2rem, 6vw, 8rem); }
