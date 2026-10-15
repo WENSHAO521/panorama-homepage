@@ -11,6 +11,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { containsRetractionMarker, isRetractedArticle } from '../src/lib/articleFilter.mjs';
+import { normalizeAuthorName } from '../src/lib/authorName.mjs';
 
 const WEB_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const JOURNALS_PATH = path.join(WEB_ROOT, 'src', 'data', 'journals.json');
@@ -172,7 +173,7 @@ function parseOaiRecords(xml, journal) {
       id: doi || url,
       doi,
       title: compactText(title, 220),
-      authors: creators.slice(0, 12),
+      authors: creators.slice(0, 12).map(normalizeAuthorName),
       journal: journal.title,
       journalSlug: journal.slug,
       journalUrl: journal.journalUrl,
