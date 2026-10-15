@@ -5,7 +5,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { externalSystems } from '@/data/site';
 import { getAllImprints, getJournalsForImprint } from '@/lib/content/imprints';
-import { getActiveJournals } from '@/lib/content/journals';
 import { getPublishingCopy } from '@/i18n/sections';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
@@ -14,7 +13,6 @@ import SectionHead from '@/components/homepage/SectionHead.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getPublishingCopy(locale);
-const activeJournals = getActiveJournals();
 const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprint, index) => ({
   imprint,
   index: String(index + 1).padStart(2, '0'),
@@ -138,7 +136,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
           ))}
         </div>
 
-        <p class="publishing-imprints__footer"><strong>{activeJournals.length}</strong> {copy.activeJournals} — {copy.imprintsClosing}</p>
+        <p class="publishing-imprints__footer">{copy.imprintsClosing}</p>
       </div>
     </section>
 
@@ -425,7 +423,6 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     font-size: 0.95rem;
     line-height: 1.5;
   }
-  .publishing-imprints__footer strong { color: var(--text-primary); font-weight: var(--fw-semibold); }
 
   .publishing-next { padding-block: clamp(3rem, 6vw, 5rem); }
 
