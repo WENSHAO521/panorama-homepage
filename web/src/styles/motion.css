@@ -59,10 +59,34 @@
     .verdant-journal-row__cover
   ) {
     transition: transform var(--p-duration-base) var(--p-ease-standard);
+  }
 
-    &:hover,
-    &:focus-visible {
-      transform: translateY(-3px);
-    }
+  :is(
+    .hero__cover,
+    .journal-directory__cover-link,
+    .charter-journal-card__cover-link,
+    .health-nexus-hero__cover-link,
+    .health-nexus-journal-entry__cover-link,
+    .ridgeline-hero__cover-link,
+    .ridgeline-journal-entry__cover-link,
+    .ridgeline-directory__cover-link,
+    .threnody-archive-journal-card__cover,
+    .verdant-journal-card__cover,
+    .verdant-journal-row__cover
+  ):hover,
+  :is(
+    .hero__cover,
+    .journal-directory__cover-link,
+    .charter-journal-card__cover-link,
+    .health-nexus-hero__cover-link,
+    .health-nexus-journal-entry__cover-link,
+    .ridgeline-hero__cover-link,
+    .ridgeline-journal-entry__cover-link,
+    .ridgeline-directory__cover-link,
+    .threnody-archive-journal-card__cover,
+    .verdant-journal-card__cover,
+    .verdant-journal-row__cover
+  ):focus-visible {
+    transform: translateY(-3px);
   }
 }

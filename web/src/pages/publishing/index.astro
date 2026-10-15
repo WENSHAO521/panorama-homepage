@@ -10,6 +10,7 @@ import { getPublishingCopy } from '@/i18n/sections';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
+import SectionHead from '@/components/homepage/SectionHead.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getPublishingCopy(locale);
@@ -62,25 +63,21 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       </div>
     </GroupHero>
 
-    <section class="publishing-pathways row--inverse" aria-labelledby="pathways-title">
+    <section class="publishing-pathways" aria-labelledby="pathways-title">
       <div class="container-wide">
-        <header class="publishing-pathways__header">
-          <p class="text-overline">{copy.pathwaysOverline}</p>
-          <h2 id="pathways-title"><PhraseText text={copy.pathwaysTitle} /></h2>
-        </header>
+        <p class="text-overline publishing-section__overline">{copy.pathwaysOverline}</p>
+        <SectionHead id="pathways-title" title={copy.pathwaysTitle} locale={locale} />
 
         <ol class="publishing-pathways__list" role="list">
           {programmeRoutes.map((route) => (
             <li class="publishing-pathway">
               <span class="publishing-pathway__number" aria-hidden="true">{route.number}</span>
-              <div class="publishing-pathway__body">
-                <h3><PhraseText text={route.title} /></h3>
-                <p>{route.description}</p>
-                <a href={route.href} class="publishing-pathway__link" target={route.external ? '_blank' : undefined} rel={route.external ? 'noopener noreferrer' : undefined}>
-                  {route.label}
-                  {route.external && <span class="visually-hidden"> (opens in a new tab)</span>}
-                </a>
-              </div>
+              <h3><PhraseText text={route.title} locale={locale} /></h3>
+              <p>{route.description}</p>
+              <a href={route.href} class="action-link" target={route.external ? '_blank' : undefined} rel={route.external ? 'noopener noreferrer' : undefined}>
+                {route.label}
+                {route.external && <span class="visually-hidden"> (opens in a new tab)</span>}
+              </a>
             </li>
           ))}
         </ol>
@@ -89,14 +86,15 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
     <section id="imprints" class="publishing-imprints" aria-labelledby="imprints-title">
       <div class="container-wide">
-        <header class="publishing-imprints__header">
-          <div>
-            <p class="publishing-imprints__overline text-overline">{copy.imprintsOverline}</p>
-            <h2 id="imprints-title"><PhraseText text={copy.imprintsTitle} /></h2>
-            <p class="publishing-imprints__lede">{copy.imprintsLede}</p>
-          </div>
-          <p class="publishing-imprints__count"><strong>{activeJournals.length}</strong> {copy.activeJournals}</p>
-        </header>
+        <p class="text-overline publishing-section__overline">{copy.imprintsOverline}</p>
+        <SectionHead
+          id="imprints-title"
+          title={copy.imprintsTitle}
+          lede={copy.imprintsLede}
+          href={localizePath('/imprints/', locale)}
+          linkLabel={copy.exploreAllImprints}
+          locale={locale}
+        />
 
         <div class="publishing-imprints__table" role="table" aria-label={copy.tableAria}>
           <div class="publishing-imprints__table-head" role="row">
@@ -140,10 +138,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
           ))}
         </div>
 
-        <div class="publishing-imprints__footer">
-          <p>{copy.imprintsClosing}</p>
-          <a class="publishing-inline-link" href={localizePath('/imprints/', locale)}>{copy.exploreAllImprints}</a>
-        </div>
+        <p class="publishing-imprints__footer"><strong>{activeJournals.length}</strong> {copy.activeJournals} — {copy.imprintsClosing}</p>
       </div>
     </section>
 
@@ -151,7 +146,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       <div class="container-wide publishing-next__grid">
         <div>
           <p class="text-overline">{copy.nextOverline}</p>
-          <h2 id="publishing-next-title"><PhraseText text={copy.nextTitle} /></h2>
+          <h2 id="publishing-next-title"><PhraseText text={copy.nextTitle} locale={locale} /></h2>
           <p>{copy.nextBody}</p>
         </div>
         <div class="publishing-next__actions">
@@ -290,55 +285,31 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     text-transform: uppercase;
   }
 
-  .publishing-pathways {
-    background: var(--surface-inverse);
-    color: var(--text-inverse);
-    padding-block: clamp(4rem, 7vw, 6.5rem);
-  }
+  /* ── Below the hero: same rhythm as the homepage sections ─────────── */
+  .publishing-section__overline { margin: 0 0 0.9rem; color: var(--text-accent); }
 
-  .publishing-pathways__header {
-    max-width: 50rem;
-  }
-
-  .publishing-pathways__header .text-overline {
-    color: var(--text-accent-inverse);
-  }
-
-  .publishing-pathways h2 {
-    margin-top: 1.15rem;
-    color: var(--text-inverse);
-    font-family: var(--font-display);
-    max-width: 28ch;
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.05em;
-    line-height: 0.98;
-  }
+  .publishing-pathways { padding-block: clamp(3rem, 6vw, 5rem); }
 
   .publishing-pathways__list {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin: clamp(2.75rem, 5vw, 4.5rem) 0 0;
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+    margin: 0;
     padding: 0;
+    list-style: none;
   }
 
   .publishing-pathway {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1.1rem;
+    display: flex;
     min-width: 0;
-    padding-inline: clamp(1rem, 2.2vw, 2.5rem);
-  }
-
-  .publishing-pathway:first-child { padding-inline-start: 0; }
-  .publishing-pathway:last-child { padding-inline-end: 0; }
-
-  .publishing-pathway + .publishing-pathway {
-    border-inline-start: var(--p-border-hairline) solid var(--border-inverse);
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1.1rem;
+    border-top: var(--p-border-strong) solid var(--text-primary);
   }
 
   .publishing-pathway__number {
-    color: var(--text-inverse-muted);
+    color: var(--text-accent);
     font-size: var(--fs-caption);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.14em;
@@ -346,94 +317,29 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   .publishing-pathway h3 {
-    margin: 0;
-    color: var(--text-inverse);
-    font-family: var(--font-display);
-    font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+    margin: 0.7rem 0 0;
+    font-size: clamp(1.45rem, 2.2vw, 1.85rem);
     font-weight: var(--fw-regular);
-    letter-spacing: -0.03em;
-    line-height: 1;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+    text-wrap: balance;
   }
 
   .publishing-pathway p {
-    max-width: 18rem;
-    margin: 1rem 0 0;
-    color: var(--text-inverse-muted);
-    font-family: var(--font-display);
-    font-size: 0.92rem;
-    line-height: 1.45;
-  }
-
-  .publishing-pathway__link,
-  .publishing-inline-link {
-    display: inline-block;
-    margin-top: 1.45rem;
-    border-bottom: var(--p-border-hairline) solid currentColor;
-    color: var(--text-inverse);
-    font-size: var(--fs-label);
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.16em;
-    line-height: 1.6;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard);
-  }
-
-  .publishing-pathway__link:hover,
-  .publishing-pathway__link:focus-visible {
-    color: var(--text-accent-inverse);
-  }
-
-  .publishing-imprints {
-    padding-block: clamp(4rem, 8vw, 7.25rem);
-  }
-
-  .publishing-imprints__header {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-bottom: clamp(2.5rem, 5vw, 4rem);
-  }
-
-  .publishing-imprints h2 {
-    max-width: 17ch;
-    margin-top: 1.1rem;
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.055em;
-    line-height: 0.95;
-  }
-
-  .publishing-imprints__lede {
-    max-width: 36rem;
-    margin: 1rem 0 0;
+    max-width: 34ch;
+    margin: 0.8rem 0 1.25rem;
     color: var(--text-secondary);
     font-family: var(--font-display);
-    font-size: clamp(1rem, 1.4vw, 1.15rem);
-    line-height: 1.45;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
-  .publishing-imprints__count {
-    display: grid;
-    flex: 0 0 auto;
-    justify-items: end;
-    color: var(--text-muted);
-    font-size: var(--fs-label);
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.16em;
-    line-height: 1.4;
-    text-transform: uppercase;
-  }
+  .publishing-pathway .action-link { margin-top: auto; }
 
-  .publishing-imprints__count strong {
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    font-weight: var(--fw-regular);
-    letter-spacing: -0.06em;
-    line-height: 0.9;
+  .publishing-imprints {
+    padding-block: clamp(3rem, 6vw, 5rem);
+    border-block: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-secondary);
   }
 
   .publishing-imprints__table {
@@ -449,7 +355,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
   .publishing-imprints__table-head {
     padding-block: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.16em;
@@ -461,17 +367,15 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     position: relative;
     align-items: center;
     min-width: 0;
-    padding-block: clamp(1.4rem, 2.6vw, 2.3rem);
+    padding-block: clamp(1.25rem, 2.4vw, 2rem);
     border-top: var(--p-border-hairline) solid var(--border-subtle);
     color: inherit;
     text-decoration: none;
-    transition: background-color var(--p-duration-base) var(--p-ease-standard), padding-inline var(--p-duration-base) var(--p-ease-standard);
+    transition: background-color var(--p-duration-base) var(--p-ease-standard);
   }
 
   .publishing-imprint:hover,
-  .publishing-imprint:focus-visible {
-    background: var(--surface-secondary);
-  }
+  .publishing-imprint:focus-visible { background: var(--surface-raised); }
 
   .publishing-imprint__brand {
     display: grid;
@@ -500,7 +404,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-imprint__brand p {
     max-width: 15rem;
     margin: 0.75rem 0 0;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.14em;
@@ -509,12 +413,12 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   .publishing-imprint__description p {
-    max-width: 31rem;
+    max-width: 34rem;
     margin: 0;
     color: var(--text-secondary);
     font-family: var(--font-display);
     font-size: 1rem;
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
   .publishing-imprint__description ul {
@@ -523,7 +427,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     gap: 0.45rem 1rem;
     margin: 0.9rem 0 0;
     padding: 0;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.13em;
@@ -547,15 +451,14 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   .publishing-imprint__programme strong {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 3.2vw, 3.2rem);
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
     font-weight: var(--fw-regular);
-    letter-spacing: -0.06em;
-    line-height: 0.9;
+    letter-spacing: -0.02em;
+    line-height: 1;
   }
 
   .publishing-imprint__programme span {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.15em;
@@ -564,62 +467,43 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   .publishing-imprints__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding-top: 1.35rem;
-  }
-
-  .publishing-imprints__footer p {
-    max-width: 31rem;
-    margin: 0;
-    color: var(--text-muted);
+    max-width: 48ch;
+    margin: 1.25rem 0 0;
+    color: var(--text-secondary);
     font-family: var(--font-display);
-    font-size: 0.85rem;
-    line-height: 1.45;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
+  .publishing-imprints__footer strong { color: var(--text-primary); font-weight: var(--fw-semibold); }
 
-  .publishing-inline-link {
-    flex: 0 0 auto;
-    color: var(--text-link);
-  }
-
-  .publishing-inline-link:hover,
-  .publishing-inline-link:focus-visible {
-    color: var(--text-link-hover);
-  }
-
-  .publishing-next {
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
-    background: var(--surface-secondary);
-    padding-block: clamp(3.5rem, 7vw, 6.5rem);
-  }
+  .publishing-next { padding-block: clamp(3rem, 6vw, 5rem); }
 
   .publishing-next__grid {
     display: grid;
     align-items: end;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .publishing-next h2 {
-    max-width: 16ch;
-    margin-top: 1rem;
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
+    max-width: 20ch;
+    margin: 0.9rem 0 0;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: var(--fw-regular);
-    letter-spacing: -0.055em;
-    line-height: 0.95;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+    text-wrap: balance;
   }
 
   .publishing-next p:not(.text-overline) {
-    max-width: 36rem;
-    margin: 1.15rem 0 0;
+    max-width: 44ch;
+    margin: 1rem 0 0;
     color: var(--text-secondary);
     font-family: var(--font-display);
     font-size: 1rem;
-    line-height: 1.45;
+    line-height: 1.5;
   }
+
+  .publishing-next .text-overline { color: var(--text-accent); }
 
   .publishing-next__actions {
     display: flex;
@@ -646,13 +530,8 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       gap: clamp(2rem, 4vw, 4rem);
     }
 
-    .publishing-next__grid {
-      grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
-    }
-
-    .publishing-next__actions {
-      justify-content: flex-end;
-    }
+    .publishing-next__grid { grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr); }
+    .publishing-next__actions { justify-content: flex-end; }
   }
 
   @media (max-width: 1023px) {
@@ -660,74 +539,39 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     .publishing-imprint {
       grid-template-columns: minmax(12rem, 0.8fr) minmax(14rem, 1.35fr) minmax(7rem, 0.4fr);
     }
-
-    .publishing-imprint__description p { font-size: 0.9rem; }
   }
 
   @media (max-width: 767px) {
-    .publishing-hero__grid {
-      min-height: 0;
-    }
+    .publishing-hero__grid { min-height: 0; }
 
     .publishing-hero__visual {
       min-height: 19rem;
       margin-top: 0.5rem;
     }
 
-    .publishing-hero__orbits {
-      width: min(100%, 22rem);
-    }
+    .publishing-hero__orbits { width: min(100%, 22rem); }
 
     .publishing-hero__keywords { top: 9%; }
     .publishing-hero__note { bottom: 0; }
 
-    .publishing-pathways__list {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .publishing-pathway,
-    .publishing-pathway:first-child,
-    .publishing-pathway:last-child {
-      padding-inline: 0;
-    }
-
-    .publishing-pathway + .publishing-pathway {
-      padding-top: 2rem;
-      border-block-start: var(--p-border-hairline) solid var(--border-inverse);
-      border-inline-start: 0;
-    }
-
-    .publishing-imprints__header {
-      align-items: start;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .publishing-imprints__count {
-      justify-items: start;
-    }
+    .publishing-pathways__list { grid-template-columns: 1fr; gap: 2rem; }
 
     .publishing-imprints__table-head { display: none; }
 
     .publishing-imprint {
       grid-template-columns: 2rem minmax(0, 1fr);
       gap: 0.9rem;
-      padding-block: 1.7rem;
+      padding-block: 1.5rem;
     }
 
-    .publishing-imprint__brand {
-      display: contents;
-    }
+    .publishing-imprint__brand { display: contents; }
 
     .publishing-imprint__index {
       grid-column: 1;
       grid-row: 1 / span 3;
     }
 
-    .publishing-imprint__brand > div {
-      grid-column: 2;
-    }
+    .publishing-imprint__brand > div { grid-column: 2; }
 
     .publishing-imprint__description {
       grid-column: 2;
@@ -744,16 +588,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       border-inline-start: 0;
     }
 
-    .publishing-imprints__footer {
-      align-items: start;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .publishing-next__actions {
-      display: grid;
-      justify-items: start;
-    }
+    .publishing-next__actions { display: grid; justify-items: start; }
   }
 
   @media (max-width: 479px) {

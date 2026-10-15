@@ -682,7 +682,7 @@
     },
     {
       "originalPath": "assets/wallpapers/charter-wallpaper-4k.jpg",
-      "newPath": "web/public/images/publishing/charter-wallpaper-4k.jpg",
+      "newPath": "web/src/assets/wallpapers/charter-wallpaper-4k.jpg",
       "filename": "charter-wallpaper-4k.jpg",
       "category": "corporate-image",
       "format": "jpg",

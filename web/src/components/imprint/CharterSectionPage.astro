@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
+import wallpaper from '@/assets/wallpapers/charter-wallpaper-4k.jpg';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
@@ -23,7 +24,6 @@ const { imprint, journals, section } = Astro.props;
 const basePath = '/imprints/charter/';
 const pagePath = `${basePath}${section}/`;
 const currentPath = Astro.url.pathname;
-const wallpaper = '/images/publishing/charter-wallpaper-4k.jpg';
 const locale = Astro.currentLocale ?? 'en';
 const tx = (key: string, fallback: string) => imprintText('charter', locale, key, fallback);
 const labels = getNavigationLabels(locale);
@@ -133,7 +133,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 
     <main>
       <section class="charter-secondary__hero" aria-labelledby="charter-secondary-title">
-        <Image class="charter-secondary__hero-wallpaper" src={wallpaper} alt="" width={3840} height={2160} widths={[960, 1440, 1920, 2880, 3840]} sizes="100vw" loading="eager" fetchpriority="high" />
+        <Image class="charter-secondary__hero-wallpaper" src={wallpaper} alt="" widths={[640, 960, 1440, 1920]} format="webp" quality={68} sizes="100vw" loading="eager" fetchpriority="high" />
         <div class="charter-secondary__hero-shade" aria-hidden="true"></div>
         <div class="charter-secondary__shell charter-secondary__hero-inner">
           <div>

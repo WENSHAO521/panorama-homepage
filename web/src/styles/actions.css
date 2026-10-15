@@ -106,6 +106,7 @@ body.standalone-site [data-action="secondary"]:focus-visible {
    while keeping their own colours. Anything carrying data-action is a button.
    Navigation items (headers, footers, sub-navs) are not actions and keep
    their own style. */
+/* Written flat (no native CSS nesting) so Safari < 17.2 keeps the treatment. */
 :is(
   .action-link,
   .imprint-section__link,
@@ -167,25 +168,189 @@ body.standalone-site [data-action="secondary"]:focus-visible {
   text-decoration-color: color-mix(in srgb, currentColor 45%, transparent) !important;
   transition: color var(--p-duration-base) var(--p-ease-standard),
     text-decoration-color var(--p-duration-base) var(--p-ease-standard);
+}
 
-  &:hover {
-    text-decoration-color: currentColor !important;
-  }
+:is(
+  .action-link,
+  .imprint-section__link,
+  .featured-journals__link,
+  .institutional-partner__link,
+  .journal-directory__visit,
+  .journal-directory__imprint-link,
+  .charter-text-link,
+  .charter-secondary__text-link,
+  .charter-secondary__quiet-link,
+  .charter-secondary__inverse-link,
+  .charter-section-bar > a,
+  .health-nexus-link,
+  .health-nexus-secondary__text-link,
+  .health-nexus-secondary__inverse-link,
+  .ridgeline-text-link,
+  .ridgeline-directory__link,
+  .threnody-archive-text-link,
+  .threnody-section-text-link,
+  .threnody-section-inverse-link,
+  .verdant-text-link,
+  .verdant-section-text-link,
+  .verdant-section-bar > a,
+  .standards-list__action,
+  .standards-text-link,
+  .standards-sdg__links a,
+  .dora-links a,
+  .policy-hero__scope a,
+  .dora-hero__scope a,
+  .publishing-pathway__link,
+  .publishing-inline-link,
+  .imprints-directory__closing-link,
+  .books-link,
+  .contact-route__action,
+  .about-division-list a,
+  .about-connection > a,
+  .about-closing__links a,
+  .partnership-card > a,
+  .infra-hero__nav a,
+  .infra-inline-links a,
+  .search-empty__links a
+):not([data-action]):hover {
+  text-decoration-color: currentColor !important;
+}
 
-  /* Arrow, same glyph as the buttons; it nudges right on hover/focus. */
-  &::after {
-    content: '';
-    flex: none;
-    width: 0.85em;
-    height: 0.62em;
-    background: currentColor;
-    -webkit-mask: var(--p-action-arrow) center / contain no-repeat;
-    mask: var(--p-action-arrow) center / contain no-repeat;
-    transition: transform var(--p-duration-base) var(--p-ease-standard);
-  }
+/* Arrow, same glyph as the buttons; it nudges right on hover/focus. */
+:is(
+  .action-link,
+  .imprint-section__link,
+  .featured-journals__link,
+  .institutional-partner__link,
+  .journal-directory__visit,
+  .journal-directory__imprint-link,
+  .charter-text-link,
+  .charter-secondary__text-link,
+  .charter-secondary__quiet-link,
+  .charter-secondary__inverse-link,
+  .charter-section-bar > a,
+  .health-nexus-link,
+  .health-nexus-secondary__text-link,
+  .health-nexus-secondary__inverse-link,
+  .ridgeline-text-link,
+  .ridgeline-directory__link,
+  .threnody-archive-text-link,
+  .threnody-section-text-link,
+  .threnody-section-inverse-link,
+  .verdant-text-link,
+  .verdant-section-text-link,
+  .verdant-section-bar > a,
+  .standards-list__action,
+  .standards-text-link,
+  .standards-sdg__links a,
+  .dora-links a,
+  .policy-hero__scope a,
+  .dora-hero__scope a,
+  .publishing-pathway__link,
+  .publishing-inline-link,
+  .imprints-directory__closing-link,
+  .books-link,
+  .contact-route__action,
+  .about-division-list a,
+  .about-connection > a,
+  .about-closing__links a,
+  .partnership-card > a,
+  .infra-hero__nav a,
+  .infra-inline-links a,
+  .search-empty__links a
+):not([data-action])::after {
+  content: '';
+  flex: none;
+  width: 0.85em;
+  height: 0.62em;
+  background: currentColor;
+  -webkit-mask: var(--p-action-arrow) center / contain no-repeat;
+  mask: var(--p-action-arrow) center / contain no-repeat;
+  transition: transform var(--p-duration-base) var(--p-ease-standard);
+}
 
-  &:hover::after,
-  &:focus-visible::after {
-    transform: translateX(3px);
-  }
+:is(
+  .action-link,
+  .imprint-section__link,
+  .featured-journals__link,
+  .institutional-partner__link,
+  .journal-directory__visit,
+  .journal-directory__imprint-link,
+  .charter-text-link,
+  .charter-secondary__text-link,
+  .charter-secondary__quiet-link,
+  .charter-secondary__inverse-link,
+  .charter-section-bar > a,
+  .health-nexus-link,
+  .health-nexus-secondary__text-link,
+  .health-nexus-secondary__inverse-link,
+  .ridgeline-text-link,
+  .ridgeline-directory__link,
+  .threnody-archive-text-link,
+  .threnody-section-text-link,
+  .threnody-section-inverse-link,
+  .verdant-text-link,
+  .verdant-section-text-link,
+  .verdant-section-bar > a,
+  .standards-list__action,
+  .standards-text-link,
+  .standards-sdg__links a,
+  .dora-links a,
+  .policy-hero__scope a,
+  .dora-hero__scope a,
+  .publishing-pathway__link,
+  .publishing-inline-link,
+  .imprints-directory__closing-link,
+  .books-link,
+  .contact-route__action,
+  .about-division-list a,
+  .about-connection > a,
+  .about-closing__links a,
+  .partnership-card > a,
+  .infra-hero__nav a,
+  .infra-inline-links a,
+  .search-empty__links a
+):not([data-action]):hover::after,
+:is(
+  .action-link,
+  .imprint-section__link,
+  .featured-journals__link,
+  .institutional-partner__link,
+  .journal-directory__visit,
+  .journal-directory__imprint-link,
+  .charter-text-link,
+  .charter-secondary__text-link,
+  .charter-secondary__quiet-link,
+  .charter-secondary__inverse-link,
+  .charter-section-bar > a,
+  .health-nexus-link,
+  .health-nexus-secondary__text-link,
+  .health-nexus-secondary__inverse-link,
+  .ridgeline-text-link,
+  .ridgeline-directory__link,
+  .threnody-archive-text-link,
+  .threnody-section-text-link,
+  .threnody-section-inverse-link,
+  .verdant-text-link,
+  .verdant-section-text-link,
+  .verdant-section-bar > a,
+  .standards-list__action,
+  .standards-text-link,
+  .standards-sdg__links a,
+  .dora-links a,
+  .policy-hero__scope a,
+  .dora-hero__scope a,
+  .publishing-pathway__link,
+  .publishing-inline-link,
+  .imprints-directory__closing-link,
+  .books-link,
+  .contact-route__action,
+  .about-division-list a,
+  .about-connection > a,
+  .about-closing__links a,
+  .partnership-card > a,
+  .infra-hero__nav a,
+  .infra-inline-links a,
+  .search-empty__links a
+):not([data-action]):focus-visible::after {
+  transform: translateX(3px);
 }
