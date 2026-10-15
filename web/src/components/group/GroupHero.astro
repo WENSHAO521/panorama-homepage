@@ -44,7 +44,6 @@ const {
     grid-template-columns: minmax(0, 1.12fr) minmax(17rem, 0.88fr);
     gap: clamp(2.5rem, 7vw, 7rem);
     align-items: end;
-    min-height: clamp(28rem, 48vw, 40rem);
     padding-block: var(--group-hero-space);
   }
 
@@ -178,10 +177,6 @@ const {
     margin: 0;
   }
 
-  .group-hero--compact .group-hero__inner {
-    min-height: 25rem;
-  }
-
   .group-hero--compact .group-hero__title {
     max-width: 13ch;
     font-size: clamp(2.6rem, 4.8vw, 4.75rem);
@@ -189,10 +184,6 @@ const {
 
   .group-hero--catalogue .group-hero__title {
     max-width: 13ch;
-  }
-
-  .group-hero--document .group-hero__inner {
-    min-height: 26rem;
   }
 
   .group-hero--image .group-hero__aside {
@@ -204,7 +195,6 @@ const {
     .group-hero__inner {
       grid-template-columns: 1fr;
       gap: 2.5rem;
-      min-height: auto;
       padding-block: 3.5rem 3rem;
     }
 
