@@ -1,8 +1,8 @@
 ---
-import { externalSystems } from '@/data/site';
-import { geoGraticule, geoOrthographic, geoPath } from 'd3-geo';
-import { feature } from 'topojson-client';
-import worldAtlas from 'world-atlas/land-110m.json' with { type: 'json' };
+import { externalSystems, getOfficeDirectory } from '@/data/site';
+import { geoGraticule, geoNaturalEarth1, geoPath } from 'd3-geo';
+import { feature, mesh } from 'topojson-client';
+import worldAtlas from 'world-atlas/countries-110m.json' with { type: 'json' };
 import Button from '@/components/ui/Button.astro';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { getContent } from '@/i18n/content';
@@ -12,17 +12,40 @@ interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
 
-const globeProjection = geoOrthographic()
-  .rotate([-18, -8, 0])
-  .translate([335, 178])
-  .scale(126)
-  .clipAngle(90)
-  .precision(0.45);
-const globePath = geoPath(globeProjection);
-const landFeature = feature(worldAtlas as any, (worldAtlas as any).objects.land);
-const landPath = globePath(landFeature) ?? '';
-const graticulePath = globePath(geoGraticule().step([20, 20])()) ?? '';
-const spherePath = globePath({ type: 'Sphere' }) ?? '';
+// A plain world map: Natural Earth projection, countries without Antarctica,
+// drawn at build time from world-atlas (no runtime JS, no extra request).
+const W = 620;
+const H = 316;
+const topo = worldAtlas as any;
+const countries = {
+  type: 'GeometryCollection',
+  geometries: topo.objects.countries.geometries.filter((g: any) => String(g.id) !== '010'),
+};
+const land = feature(topo, countries as any);
+const projection = geoNaturalEarth1().rotate([-20, 0]).fitExtent([[2, 2], [W - 2, H - 2]], land as any);
+const path = geoPath(projection);
+const landPath = path(land as any) ?? '';
+const bordersPath = path(mesh(topo, countries as any, (a: any, b: any) => a !== b)) ?? '';
+const graticulePath = path(geoGraticule().step([30, 30])()) ?? '';
+
+// The group's two real offices (src/data/site.ts), marked on the map.
+const coordinates: Record<string, [number, number]> = {
+  'hong-kong': [114.17, 22.32],
+  nanjing: [118.8, 32.06],
+};
+const labelOffset: Record<string, [number, number]> = {
+  nanjing: [-40, -24],
+  'hong-kong': [-40, 30],
+};
+const pins = getOfficeDirectory(locale).map((office) => {
+  const [x, y] = projection(coordinates[office.id]) as [number, number];
+  const [dx, dy] = labelOffset[office.id];
+  return {
+    id: office.id,
+    name: office.addressLocality.split(/[，,、]/)[0].trim(),
+    x, y, lx: x + dx, ly: y + dy,
+  };
+});
 ---
 
 <section class="row research-infra" aria-labelledby="research-infra-title">
@@ -40,47 +63,25 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
     </div>
 
     <figure class="research-infra__figure">
-      <svg class="research-globe" viewBox="0 0 620 360" role="img" aria-labelledby="research-globe-title research-globe-description">
-        <title id="research-globe-title">{t('home.connectedNetwork')}</title>
-        <desc id="research-globe-description">{t('home.globeDescription')}</desc>
-
-        <g class="research-globe__orbits" aria-hidden="true">
-          <ellipse cx="335" cy="178" rx="158" ry="68" transform="rotate(18 335 178)" />
-          <ellipse cx="335" cy="178" rx="163" ry="73" transform="rotate(-24 335 178)" />
-          <path d="M178 221C225 305 412 322 493 163" />
-        </g>
-
-          <g class="research-globe__sphere" aria-hidden="true">
-            <path class="research-globe__outline" d={spherePath} />
-            <path class="research-globe__graticule" d={graticulePath} />
-          </g>
-
-          <g class="research-globe__land" aria-hidden="true">
-            <path d={landPath} />
-          </g>
-
-        <g class="research-globe__connections">
-          <path d="M120 93h65" />
-          <circle cx="186" cy="93" r="3.5" />
-          <text x="28" y="97">{t('common.people')}</text>
-
-          <path d="M475 93h42" />
-          <circle cx="475" cy="93" r="3.5" />
-          <text x="526" y="97">{t('common.places')}</text>
-
-          <path d="M478 178h43" />
-          <circle cx="478" cy="178" r="3.5" />
-          <text x="530" y="182">{t('common.ideas')}</text>
-
-          <path d="M119 255h70" />
-          <circle cx="189" cy="255" r="3.5" />
-          <text x="28" y="259">{t('common.research')}</text>
-
-          <path d="M463 273h50" />
-          <circle cx="463" cy="273" r="3.5" />
-          <text x="523" y="277">{t('common.impact')}</text>
-        </g>
-      </svg>
+      <div class="research-map">
+        <svg class="research-map__svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="research-map-title research-map-description">
+          <title id="research-map-title">{t('home.connectedNetwork')}</title>
+          <desc id="research-map-description">{t('home.mapDescription')}</desc>
+          <path class="research-map__graticule" d={graticulePath} />
+          <path class="research-map__land" d={landPath} />
+          <path class="research-map__borders" d={bordersPath} />
+          {pins.map((pin) => (
+            <g class="research-map__pin" aria-hidden="true">
+              <path class="research-map__leader" d={`M${pin.x} ${pin.y}L${pin.lx} ${pin.ly}`} />
+              <circle class="research-map__halo" cx={pin.x} cy={pin.y} r="9" />
+              <circle class="research-map__dot" cx={pin.x} cy={pin.y} r="3.6" />
+            </g>
+          ))}
+        </svg>
+        {pins.map((pin) => (
+          <span class="research-map__label" aria-hidden="true" style={`left:${(pin.lx / W) * 100}%;top:${(pin.ly / H) * 100}%`}>{pin.name}</span>
+        ))}
+      </div>
     </figure>
   </div>
 </section>
@@ -133,55 +134,53 @@ const spherePath = globePath({ type: 'Sphere' }) ?? '';
     margin: 0;
   }
 
-  .research-globe {
+  .research-map { position: relative; }
+
+  .research-map__svg {
     display: block;
     width: 100%;
     height: auto;
-    overflow: visible;
+    overflow: hidden;
   }
 
-  .research-globe__orbits ellipse,
-  .research-globe__orbits path {
+  .research-map__graticule {
     fill: none;
-    stroke: var(--brand-primary);
-    stroke-width: 1.1;
-    opacity: 0.55;
-  }
-
-  .research-globe__sphere circle,
-  .research-globe__sphere ellipse,
-  .research-globe__sphere path {
-    fill: none;
-    stroke: var(--border-strong);
-    stroke-width: 0.9;
+    stroke: var(--border-subtle);
+    stroke-width: 0.6;
     opacity: 0.9;
   }
 
-  .research-globe__land path {
-    fill: color-mix(in srgb, var(--brand-primary) 6%, transparent);
-    stroke: var(--border-strong);
-    stroke-width: 0.85;
-    opacity: 0.9;
+  .research-map__land {
+    fill: color-mix(in srgb, var(--text-primary) 17%, var(--surface-feature));
   }
 
-  .research-globe__connections path {
+  .research-map__borders {
     fill: none;
-    stroke: var(--interactive-default);
+    stroke: var(--surface-feature);
+    stroke-width: 0.6;
+    stroke-linejoin: round;
+  }
+
+  .research-map__leader {
+    fill: none;
+    stroke: var(--text-accent);
     stroke-width: 0.9;
-    opacity: 0.8;
   }
+  .research-map__halo { fill: var(--text-accent); opacity: 0.2; }
+  .research-map__dot { fill: var(--text-accent); stroke: var(--surface-feature); stroke-width: 1.2; }
 
-  .research-globe__connections circle {
-    fill: var(--brand-accent);
-  }
-
-  .research-globe__connections text {
-    fill: var(--text-muted);
-    font-family: var(--font-body);
+  /* Labels are HTML, not SVG text, so they keep their size on small screens. */
+  .research-map__label {
+    position: absolute;
+    transform: translate(-100%, -50%);
+    padding-inline-end: 0.4rem;
+    color: var(--text-primary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
+    line-height: 1;
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   @media (min-width: 768px) {
