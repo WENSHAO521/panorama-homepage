@@ -89,6 +89,8 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
   .hero { background: var(--surface-primary); }
 
   .hero__eyebrow { color: var(--p-gold-700); }
+  /* gold-700 is 4.26:1 on the sage band; a 20% ink mix restores AA (5.1:1). */
+  .hero__feature .hero__eyebrow { color: color-mix(in srgb, var(--p-gold-700) 80%, var(--p-ink-900)); }
 
   .hero__intro {
     display: flex;

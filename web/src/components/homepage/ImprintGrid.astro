@@ -2,6 +2,8 @@
 import ImprintCard from '@/components/imprint/ImprintCard.astro';
 import imprintsData from '@/data/imprints.json';
 import type { Imprint } from '@/types';
+import { getLocalizedImprints } from '@/i18n/catalog';
+import { getJournalsForImprint } from '@/lib/content/imprints';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
 
@@ -9,7 +11,7 @@ interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
 
-const imprints = imprintsData as Imprint[];
+const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
 ---
 
 <!-- A brand strip in the manner of a publisher's "Our brands" row: hairline,
@@ -26,7 +28,7 @@ const imprints = imprintsData as Imprint[];
 
       <ul class="imprint-grid" role="list">
         {imprints.map((imprint) => (
-          <ImprintCard imprint={imprint} locale={locale} />
+          <ImprintCard imprint={imprint} locale={locale} count={getJournalsForImprint(imprint.slug).length} countLabel={t('common.journals')} />
         ))}
       </ul>
     </div>
@@ -73,29 +75,15 @@ const imprints = imprintsData as Imprint[];
   }
   .imprint-section__link:hover { color: var(--interactive-default); text-decoration-color: currentColor; }
 
-  /* Logos run edge to edge: first flush with the start of the rule, last
-     flush with the end, even gaps between. */
   .imprint-grid {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.25rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1.5rem;
     list-style: none;
-    margin: 1.25rem 0 0;
+    margin: 1.5rem 0 0;
     padding: 0;
   }
 
-  @media (min-width: 640px) and (max-width: 1199px) {
-    .imprint-grid { column-gap: 1.25rem; }
-  }
-
-  /* Phones: two per row, start-aligned, so wrapping never centres a lone logo. */
-  @media (max-width: 639px) {
-    .imprint-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem 1.5rem;
-    }
-  }
+  @media (min-width: 640px) { .imprint-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { .imprint-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 2rem; } }
 </style>
