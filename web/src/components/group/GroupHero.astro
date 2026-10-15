@@ -42,7 +42,7 @@ const {
   .group-hero__inner {
     display: grid;
     grid-template-columns: minmax(0, 1.12fr) minmax(17rem, 0.88fr);
-    gap: clamp(2.5rem, 7vw, 7rem);
+    gap: clamp(2rem, 5vw, 4rem);
     align-items: end;
     padding-block: var(--group-hero-space);
   }
@@ -56,22 +56,30 @@ const {
   }
 
   .group-hero__title {
-    max-width: 15ch;
+    max-width: 18ch;
     margin: 1rem 0 0;
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 5.3vw, 5.25rem);
+    font-size: clamp(2.4rem, 5.6vw, 3.75rem);
     font-weight: var(--fw-regular);
-    letter-spacing: -0.045em;
-    line-height: 0.98;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
     text-wrap: balance;
+  }
+
+  /* ch counts Latin digits, so a 15ch cap splits CJK titles mid-phrase; cap by em. */
+  .group-hero .group-hero__title:lang(zh),
+  .group-hero .group-hero__title:lang(ja),
+  .group-hero .group-hero__title:lang(ko) {
+    max-width: 13em;
+    letter-spacing: 0;
   }
 
   .group-hero__lede {
     max-width: 40rem;
-    margin: 1.7rem 0 0;
+    margin: 1.25rem 0 0;
     color: var(--text-secondary);
     font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
     line-height: 1.45;
   }
 
@@ -122,9 +130,9 @@ const {
 
   :global(.group-hero__metric) strong {
     font-family: var(--font-display);
-    font-size: clamp(3.5rem, 5.8vw, 5.5rem);
+    font-size: clamp(2.5rem, 4.4vw, 3.5rem);
     font-weight: var(--fw-regular);
-    letter-spacing: -0.06em;
+    letter-spacing: -0.04em;
     line-height: 0.86;
   }
 
@@ -179,11 +187,11 @@ const {
 
   .group-hero--compact .group-hero__title {
     max-width: 13ch;
-    font-size: clamp(2.6rem, 4.8vw, 4.75rem);
+    font-size: clamp(2.2rem, 4.6vw, 3.25rem);
   }
 
   .group-hero--catalogue .group-hero__title {
-    max-width: 13ch;
+    max-width: 17ch;
   }
 
   .group-hero--image .group-hero__aside {
@@ -195,14 +203,14 @@ const {
     .group-hero__inner {
       grid-template-columns: 1fr;
       gap: 2.5rem;
-      padding-block: 3.5rem 3rem;
+      padding-block: 2rem;
     }
 
     .group-hero__title,
     .group-hero--compact .group-hero__title {
       max-width: 14ch;
-      font-size: clamp(2.65rem, 12vw, 4rem);
-      line-height: 1;
+      font-size: clamp(2.2rem, 10vw, 3rem);
+      line-height: 1.04;
     }
 
     .group-hero__lede {

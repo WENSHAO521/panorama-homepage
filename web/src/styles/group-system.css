@@ -7,9 +7,9 @@
 */
 
 body.group-site {
-  --group-section-space: clamp(4rem, 7vw, 7rem);
-  --group-section-space-tight: clamp(2.75rem, 5vw, 4.5rem);
-  --group-hero-space: clamp(3.5rem, 6vw, 5.5rem);
+  --group-section-space: clamp(2.75rem, 5vw, 4rem);
+  --group-section-space-tight: clamp(2rem, 4vw, 3rem);
+  --group-hero-space: clamp(2rem, 4vw, 2.75rem);
   background: var(--surface-primary);
   color: var(--text-primary);
 }
@@ -60,7 +60,7 @@ body.group-site .row--tight {
 }
 
 body.group-site .row--roomy {
-  padding-block: clamp(5rem, 9vw, 9rem);
+  padding-block: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 body.group-site .text-overline {
@@ -94,7 +94,7 @@ body.group-site .group-detail__hero {
 }
 
 body.group-site .group-detail__hero-inner {
-  padding-block: clamp(4.5rem, 8vw, 8rem) clamp(3.5rem, 6vw, 5.5rem);
+  padding-block: clamp(2.5rem, 5vw, 3.5rem) clamp(2rem, 4vw, 3rem);
 }
 
 body.group-site .group-detail__hero-inner::before {
@@ -109,10 +109,10 @@ body.group-site .group-detail__hero h1 {
   max-width: 18ch;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 5.3vw, 5.25rem);
+  font-size: clamp(2.4rem, 5.6vw, 3.75rem);
   font-weight: var(--fw-regular);
-  letter-spacing: -0.05em;
-  line-height: 0.98;
+  letter-spacing: -0.022em;
+  line-height: 1.04;
   text-wrap: balance;
 }
 
@@ -124,7 +124,7 @@ body.group-site .group-detail__date {
 }
 
 body.group-site .group-detail__body {
-  padding-block: clamp(3.5rem, 6vw, 6rem) clamp(5rem, 8vw, 8rem);
+  padding-block: clamp(2.5rem, 5vw, 4rem) clamp(3.5rem, 6vw, 5rem);
 }
 
 /* Announcements use the same editorial rhythm as long-form pages, but their
