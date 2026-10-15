@@ -1,0 +1,917 @@
+{
+  "locale": "zh-hant",
+  "reviewedRows": 1444,
+  "corrections": [
+    {
+      "file": "web/src/i18n/locales/zh-hant.ts",
+      "key": "ui.skipToContent",
+      "oldLiteral": "'跳轉到主要內容'",
+      "newText": "跳至主要內容",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.standardsLede",
+      "oldLiteral": "'這些承諾規範 PSG 的日常運作，而不是營銷宣傳。'",
+      "newText": "這些承諾規範 PSG 的日常運作，並非市場宣傳用語。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.journals.lede",
+      "oldLiteral": "'本活躍期刊涵蓋科學、健康、技術、社會與人文學科，並以嚴謹標準和開放學術為共同基礎。'",
+      "newText": "目前發行的期刊涵蓋科學、健康、技術、社會與人文學科，並以嚴謹標準和開放學術為共同基礎。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.journals.active",
+      "oldLiteral": "'活躍期刊'",
+      "newText": "現行期刊",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.journal",
+      "oldLiteral": "'本期刊'",
+      "newText": "期刊",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.journals",
+      "oldLiteral": "'本期刊'",
+      "newText": "期刊",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.active",
+      "oldLiteral": "'活躍'",
+      "newText": "現行",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.moreJournals",
+      "oldLiteral": "'本更多期刊'",
+      "newText": "更多期刊",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.factAccess",
+      "oldLiteral": "'獲取方式'",
+      "newText": "取用方式",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.facts[1].value",
+      "oldLiteral": "'24 種活躍期刊'",
+      "newText": "24 本現行期刊",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[0]",
+      "oldLiteral": "'本集團框架適用於期刊內容的 DOI 分配。各刊透過公布文章類型、審稿和收費政策，對新發表內容逐步實施，並明確已納入的欄目；適用路徑須在發表前確定。DOI 用於識別出版物，不代表同行評審認證，也不保證被資料庫收錄。'",
+      "newText": "本集團框架規範期刊內容的 DOI 分配。各期刊依據已公布的文章類型規範、同行評審政策及收費政策，將此框架適用於其後出版的內容；各刊須標明已採用的欄目，並於出版前確認內容是否符合資格。DOI 用於識別出版物，不代表同行評審認證，也不保證資料庫收錄。",
+      "reason": "將 review policy 明確譯為同行評審政策，避免與一般審查混淆。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.detailsTitle",
+      "oldLiteral": "'提供必要背景，有助於更快完成分流。'",
+      "newText": "提供相關背景，讓問題更快轉交處理。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.detailsBody",
+      "oldLiteral": "'來信請說明您查詢的出版物、平台或項目，並附上相關的稿件、DOI、提案或合作資訊。'",
+      "newText": "來信請說明您查詢的出版物、平台或計畫，並附上相關稿件、DOI、提案或合作資訊，方便我們轉交適當團隊。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.visitResearch",
+      "oldLiteral": "'訪問 Panorama Research Institute'",
+      "newText": "前往 Panorama Research Institute",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.visitJournalWebsite",
+      "oldLiteral": "'訪問期刊網站'",
+      "newText": "前往期刊網站",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.statementParagraphs[1]",
+      "oldLiteral": "'將這些項目連接起來的，是對學術工作的質量、清晰度與長期價值的共同重視。集團為各項目提供穩定的組織基礎，同時保持其清晰的編輯身份。'",
+      "newText": "將這些項目連繫起來的，是對學術工作的質素、清晰度與長期價值的共同重視。集團為各項目提供穩定的組織基礎，同時保持各自清晰的編輯定位。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.divisions[1].description",
+      "oldLiteral": "'Panorama Scholarly Group 的研究部門，獨立運營於 research.panorama-sg.com。'",
+      "newText": "Panorama Scholarly Group 的研究部門，獨立運作，網址為 research.panorama-sg.com。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[1].body",
+      "oldLiteral": "'我們將識別碼、元數據、訪問與長期保存視為出版工作本身的一部分。'",
+      "newText": "我們將識別碼、元資料、取用與長期保存視為出版工作本身的一部分。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[2].title",
+      "oldLiteral": "'建立有用的連接'",
+      "newText": "建立有價值的連繫",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[2].body",
+      "oldLiteral": "'我們建立連接，幫助研究在不同的人群、學科與地區之間傳播。'",
+      "newText": "我們建立連繫，讓研究能在人群、學科與地區之間傳播。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.connections",
+      "oldLiteral": "'部分合作連接'",
+      "newText": "精選連結",
+      "reason": "Selected 應譯為精選；connections 涵蓋連結與服務，不限於合作關係。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[0].description",
+      "oldLiteral": "'連接學術出版與韓國文化及思想社群的合作關係。'",
+      "newText": "連繫學術出版與韓國文化及思想社群的合作關係。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[1].description",
+      "oldLiteral": "'面向人文社會科學研究社群的發現與文獻服務連接。'",
+      "newText": "面向人文與社會科學研究社群的文獻檢索與服務連結。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.visitDivision",
+      "oldLiteral": "'訪問項目'",
+      "newText": "前往部門網站",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.visitPlatform",
+      "oldLiteral": "'訪問平台'",
+      "newText": "前往平台",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.connectionsNote",
+      "oldLiteral": "'平台連結用於說明學術成果可被發現或訪問的路徑，不代表所有權或背書。'",
+      "newText": "平台連結說明讀者可透過哪些途徑找到或取用學術成果，並不代表所有權或背書。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.visitInstitute",
+      "oldLiteral": "'訪問研究院'",
+      "newText": "前往研究院",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.routes[1].label",
+      "oldLiteral": "'訪問研究院'",
+      "newText": "前往研究院",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group 如何建立問責機制、編輯獨立性並負責任地維護學術工作。'",
+      "newText": "Panorama Scholarly Group 如何建立問責機制、保障編輯獨立，並負責任地管理學術成果。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.responsibilitiesIntro",
+      "oldLiteral": "'每一位參與者都應為編輯與研究工作的公平、準確和可問責承擔相應責任。'",
+      "newText": "每位參與者都有責任維護編輯與研究工作的公平、準確及問責性。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[1].body",
+      "oldLiteral": "'編輯及編輯團隊依據期刊、圖書項目或出版品牌公開的範圍與標準作出出版決定。'",
+      "newText": "編輯及編輯團隊依據期刊、圖書或出版品牌明確公布的範圍與標準作出出版決定。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[2].body",
+      "oldLiteral": "'公開政策、職責與問題提出路徑，使參與者了解相關決定如何處理。'",
+      "newText": "公開政策、職責與提出疑慮的管道，讓參與者了解決策如何處理。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[3].body",
+      "oldLiteral": "'當學術記錄需要處理時，我們會按比例調查、記錄結果，並向讀者清晰說明重大變更。'",
+      "newText": "當學術紀錄需要處理時，我們會依問題情況進行適度調查、記錄結果，並向讀者清楚說明重大變更。",
+      "reason": "needs attention 不限於更正；保留需處理學術紀錄的廣義含義。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.responsibilities[1].body",
+      "oldLiteral": "'維護每項出版工作的獨立性、質量與學科特有的學術誠信。'",
+      "newText": "維護每項出版物的獨立性、質素與各學科特有的學術誠信。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[0].description",
+      "oldLiteral": "'支持韓國學術出版與文化、思想社群交流的機構合作。'",
+      "newText": "促進韓國學術交流的文化與思想合作夥伴關係。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[1].description",
+      "oldLiteral": "'面向人文社會科學研究社群，協助讀者發現與取得相關文獻的服務。'",
+      "newText": "協助人文與社會科學研究社群查找相關文獻的檢索服務。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[2].description",
+      "oldLiteral": "'涵蓋期刊、圖書與研究文獻發現的學術知識服務平台。'",
+      "newText": "支援讀者檢索期刊、圖書與研究文獻的知識服務平台。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.principlesLabel",
+      "oldLiteral": "'良好的連接應當'",
+      "newText": "良好的合作關係應當",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.introParagraphs[1]",
+      "oldLiteral": "'本頁記錄集團周邊的部分合作連接。平台連結用於說明發現或訪問路徑，不代表所有權或背書。'",
+      "newText": "本頁記錄與集團相關的精選連結。平台連結說明讀者如何檢索或取用相關內容，並不代表所有權或背書。",
+      "reason": "修正 selected、around the group 及 connections 的語義，避免限縮為部分合作關係。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.networkIntro",
+      "oldLiteral": "'我們區分機構關係與幫助讀者發現或訪問學術成果的服務。'",
+      "newText": "我們區分機構合作關係與協助讀者檢索或取用學術成果的服務。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.visitPlatform",
+      "oldLiteral": "'訪問平台'",
+      "newText": "前往平台",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.principles[2].body",
+      "oldLiteral": "'我們優先選擇能夠改善發現、訪問、對話或學術記錄維護的連接。'",
+      "newText": "我們優先考慮能改善學術資源檢索、取用、交流或學術記錄維護的合作關係。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.heroLede",
+      "oldLiteral": "'我們為出版建立相互連結的基礎，使每篇文章在首次發表之後仍能被發現、引用和取得。'",
+      "newText": "我們為出版建立必要的連結基礎，讓每篇文章在首次發表後仍能被找到、引用和取用。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.introParagraphs[0]",
+      "oldLiteral": "'學術論文在每個階段都需要可靠的銜接：用於引用的識別碼、用於發現的元資料，以及保障持續取得的保存副本。'",
+      "newText": "學術論文在每個階段都需要可靠銜接：用於引用的識別碼、便於檢索的元資料，以及確保內容持續可用的保存副本。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discovery",
+      "oldLiteral": "'發現與索引'",
+      "newText": "檢索與索引",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryOverline",
+      "oldLiteral": "'發現與索引'",
+      "newText": "檢索與索引",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.summary[2][0]",
+      "oldLiteral": "'發現'",
+      "newText": "檢索",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryAria",
+      "oldLiteral": "'發現與索引服務'",
+      "newText": "檢索與索引服務",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.doiSteps[1].body",
+      "oldLiteral": "'我們以結構化元資料提交標題、作者、摘要和參考文獻，以支援後續發現與引用。'",
+      "newText": "我們以結構化元資料提交標題、作者、摘要和參考文獻，以支援後續檢索與引用。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryTitle",
+      "oldLiteral": "'讓研究可被發現。'",
+      "newText": "讓研究更容易被找到。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryLede",
+      "oldLiteral": "'期刊與文章元資料可以超越出版平台，進入學術搜尋、發現與開放科學服務。'",
+      "newText": "期刊與文章的元資料可傳送至出版平台以外的學術搜尋、資源探索與開放科學服務。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.regionalBody",
+      "oldLiteral": "'更多學術知識平台為區域研究共同體拓展發現路徑。'",
+      "newText": "其他學術知識平台可拓展區域研究社群的學術資源檢索管道。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.cashlBody",
+      "oldLiteral": "'面向中國高校的人文社會科學文獻傳遞與發現服務。'",
+      "newText": "面向中國高校的全國性人文與社會科學文獻傳遞及檢索服務。",
+      "reason": "補回原文 National 的全國性含義。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.preservationBody",
+      "oldLiteral": "'分散式保存為期刊提供出版平台之外的第二個存續地點，在系統、機構或網址發生變化時幫助維護訪問。'",
+      "newText": "分散式保存讓期刊在出版平台以外另有保存副本，並在系統、機構或網址變更時協助維持內容取用。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.preservationDescriptions.zenodo",
+      "oldLiteral": "'用於存儲研究成果的開放研究倉儲。'",
+      "newText": "供存放研究成果的開放研究典藏庫。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.identifierDetails.zdb",
+      "oldLiteral": "'面向學術圖書館的連續出版物發現服務。'",
+      "newText": "為學術圖書館提供連續出版物檢索服務。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.identifierDetails.isni",
+      "oldLiteral": "'機構與貢獻者的持久名稱識別。'",
+      "newText": "為機構與貢獻者提供持久的名稱識別碼。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/legal.ts",
+      "key": "legal.eyebrow",
+      "oldLiteral": "'Panorama Scholarly Group / 法律與政策'",
+      "newText": "Panorama Scholarly Group / 法律資訊",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/legal.ts",
+      "key": "legal.publishedBy",
+      "oldLiteral": "'發布方'",
+      "newText": "發布單位",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.visit",
+      "oldLiteral": "'訪問研究院'",
+      "newText": "前往研究院",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.closingBody",
+      "oldLiteral": "'訪問獨立研究平台，了解當前項目與出版成果；也可以探索支撐學術記錄的基礎設施。'",
+      "newText": "前往獨立研究平台，瀏覽目前的計畫與出版成果；也可探索支撐學術記錄的基礎設施。",
+      "reason": "將 current 譯為目前，避免誤作 latest。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.heroLede",
+      "oldLiteral": "'Panorama Scholarly Group Ltd 已簽署《舊金山研究評估宣言》（DORA）。我們將持續完善出版實踐，在期刊指標之外，更完整地識別成果的質量、誠信、開放性與學術貢獻。'",
+      "newText": "Panorama Scholarly Group Ltd 已簽署《舊金山研究評估宣言》（DORA）。我們正持續完善出版實踐，重視期刊指標以外的成果質素、誠信、開放性與貢獻。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.railStatement",
+      "oldLiteral": "'質量不是附著在期刊上的一個數字。'",
+      "newText": "研究質素並非附加在期刊上的一個數字。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.purpose.paragraphs[0]",
+      "oldLiteral": "'研究通過多種形式傳播，包括論文、圖書、數據、軟件、方法、綜述、公共學術成果，以及對政策和實踐的貢獻。負責任的評估應當看見這種多樣性，而不應將質量簡化為發表場所的身份或排名。'",
+      "newText": "研究透過多種形式傳播，包括論文、圖書、數據、軟件、方法、綜述、公共學術成果，以及對政策與實務的貢獻。負責任的評估應看見這種多樣性，而不應把研究質素簡化為出版平台的性質或排名。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.cards[1].body",
+      "oldLiteral": "'定量信息可以提供有用的背景，但不能替代專業判斷。指標應當清晰、透明、具體、符合語境且公平。'",
+      "newText": "定量資訊可提供有用的脈絡，但不能取代專業判斷。指標應清晰、透明、具體、符合情境且公平。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.cards[2].title",
+      "oldLiteral": "'承認多元學術貢獻。'",
+      "newText": "認可多元貢獻",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.cards[2].body",
+      "oldLiteral": "'研究質量和影響可以體現為數據、軟件、方法、評審、教學、政策、實踐、社區參與及其他貢獻，而不只體現為論文。'",
+      "newText": "研究成果的質素與影響力，可體現在數據、軟件、方法、評審、教學、政策、實務、社群參與，以及出版物以外的其他貢獻。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.indicators.paragraphs[0]",
+      "oldLiteral": "'我們不將期刊影響因子、期刊排名、引用次數或類似指標，單獨作為評估單篇文章、作者或研究人員質量的替代依據。期刊層面的指標描述的是期刊層面的模式，不能決定其中每項成果的價值。'",
+      "newText": "我們不會單獨以期刊影響因子、期刊排名、引用次數或類似指標，代替對單篇文章、作者或研究人員質素的評估。期刊層級的指標描述的是期刊整體趨勢，不能決定其中每項成果的價值。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.indicators.paragraphs[1]",
+      "oldLiteral": "'在定量指標確有相關性的情況下，我們會說明其測量對象和局限，並結合成果內容及其語境進行解釋。我們不會把單一數字呈現為學術質量或影響力的完整說明。'",
+      "newText": "如定量指標與評估相關，我們會說明其衡量內容、指出其限制，並結合成果內容與脈絡加以解讀。我們不會以單一數字完整代表學術成果的質素或影響力。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.publishing.paragraphs[0]",
+      "oldLiteral": "'我們將持續提高文章層面信息、貢獻者角色、研究成果、授權信息、更正信息及其他學術價值信號的可理解性和可發現性。具體信息會根據期刊、學科和出版類型有所不同。'",
+      "newText": "我們將持續讓文章層級資訊、貢獻者角色、研究產出、授權、更正及其他反映學術價值的資訊更易理解與查找。具體資訊可能因期刊、學科及出版類型而異。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.publishing.paragraphs[1]",
+      "oldLiteral": "'我們的宣傳和編輯溝通應當說明成果本身及其貢獻。我們不會把期刊指標作為某項投稿或出版物質量、重要性或可能反響的保證。'",
+      "newText": "我們的宣傳與編輯溝通應說明成果本身及其貢獻。我們不會以期刊指標保證特定投稿或出版物的質素、重要性或可能獲得的反響。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.implementation.paragraphs[0]",
+      "oldLiteral": "'作為 DORA 機構簽署方，我們將本聲明視為持續改進的長期承諾，而不是認證，也不表示所有實踐已經完成。隨著出版項目發展，我們將審查作者指南、期刊信息、元數據、宣傳語言和編輯流程。'",
+      "newText": "作為 DORA 機構簽署方，我們將本聲明視為持續改進的長期承諾，而非認證，也不代表所有實踐都已完成。隨著出版計畫發展，我們將檢視相關作者指南、期刊資訊、元資料、宣傳用語與編輯流程。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.relatedLinks[2].body",
+      "oldLiteral": "'標識符、元數據、發現、保存與研究成果的可見性。'",
+      "newText": "識別碼、元資料、檢索、保存，以及研究成果的能見度。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflow[0].body",
+      "oldLiteral": "'出版物先明確範圍與標準，再評估每項投稿的匹配度、質量與誠信狀況。'",
+      "newText": "出版物先界定自身範圍與評選標準，再評估每份投稿的契合度、質素與誠信。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflow[2].body",
+      "oldLiteral": "'接受的成果將配備清晰的元數據、貢獻者資訊、授權資訊及相關政策連結。'",
+      "newText": "獲接納的成果將附有清晰的元資料、貢獻者資訊、授權資訊及相關聲明連結。",
+      "reason": "將「備妥成果」改為自然搭配，準確表達成果附有相關資訊。"
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.contactBody",
+      "oldLiteral": "'請先查看上方相關標準。如果不確定問題應提交給哪本期刊、哪個品牌或哪支出版團隊，我們可以協助分流。'",
+      "newText": "請先查看上方相關標準。如果不確定問題應由哪本期刊、哪個品牌或哪個出版團隊處理，我們可以協助轉交。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.client.unavailableStatus",
+      "oldLiteral": "'搜尋暫時不可用。'",
+      "newText": "搜尋暫時無法使用。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.activeJournals",
+      "oldLiteral": "'本活躍期刊'",
+      "newText": "現行期刊",
+      "reason": "刪除不必要的指示詞「本」，使複數欄目標籤自然。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.activeJournalsLabel",
+      "oldLiteral": "'本活躍期刊'",
+      "newText": "現行期刊",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.imprintsClosing",
+      "oldLiteral": "'每個品牌都為研究提供獨特的編輯歸屬，同時遵循對質量與開放性的共同承諾。'",
+      "newText": "每個品牌都為研究提供獨特的編輯定位，並共同致力於維護質素與促進開放取用。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.authorsBody",
+      "oldLiteral": "'我們歡迎學術專著、編著、研究報告與學術教材提案。出版項目從提案到出版支持有價值的學術思想，重視學術質量、全球傳播與長期影響。'",
+      "newText": "我們歡迎學術專著、編著、研究報告與學術教材的提案。從提案到出版，我們致力於支持有潛力的學術構想，並重視學術質素、全球觸及範圍與長期影響。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.visitPlatform",
+      "oldLiteral": "'訪問圖書平台'",
+      "newText": "前往圖書平台",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.accessibility.sections.boundaries",
+      "oldLiteral": "'已知邊界'",
+      "newText": "已知限制",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.terms.description",
+      "oldLiteral": "'規範訪問和使用 Panorama Scholarly Group 網站的條款。'",
+      "newText": "規範存取與使用 Panorama Scholarly Group 網站的條款。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.terms.railText",
+      "oldLiteral": "'本網站用於資訊發現與溝通。出版、投稿、授權和研究服務可能另有適用條款。'",
+      "newText": "本網站支援資訊檢索與溝通。出版、投稿、授權及研究服務可能另有適用條款。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.0",
+      "oldLiteral": "'Ridgeline 出版技術、工程與應用人工智能領域的獨立期刊，致力於建設更具人本性、可持續性與公平性的未來。'",
+      "newText": "Ridgeline 出版技術、工程與應用人工智能領域的獨立期刊，致力於打造更以人為本、可持續且公平的未來。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.16",
+      "oldLiteral": "'嚴謹研究，連結現實影響，邁向更宜居的明天。'",
+      "newText": "嚴謹研究，帶來實際影響，共創更宜居的明天。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.49",
+      "oldLiteral": "'跨學科研究'",
+      "newText": "多學科研究",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.60",
+      "oldLiteral": "'我們的期刊歡迎跨越學科邊界、同時保持範圍清晰、證據透明與編輯判斷負責的研究。'",
+      "newText": "我們的期刊歡迎跨越學科界線的研究，同時要求研究範圍明確、證據透明，並由編輯審慎判斷。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.92",
+      "oldLiteral": "'本活躍期刊'",
+      "newText": "現行期刊",
+      "reason": "刪除不必要的指示詞「本」，使複數欄目標籤自然。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.94",
+      "oldLiteral": "'獲取方式'",
+      "newText": "取用方式",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.93",
+      "oldLiteral": "'訪問期刊網站'",
+      "newText": "前往期刊網站",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.65",
+      "oldLiteral": "'問題相互連結，學術負責任。'",
+      "newText": "問題彼此連結，堅守學術責任。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.69",
+      "oldLiteral": "'本活躍期刊'",
+      "newText": "現行期刊",
+      "reason": "刪除不必要的指示詞「本」，使複數欄目標籤自然。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.83",
+      "oldLiteral": "'高質量投稿始於負責任的學術。'",
+      "newText": "優質的投稿始於負責任的學術實踐。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.84",
+      "oldLiteral": "'作者應準確報告方法與證據，披露相關利益，遵守適用倫理要求，並清晰說明研究邊界。'",
+      "newText": "作者應準確報告方法與證據、披露相關利益、遵守適用的倫理要求，並清楚說明研究限制。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.98",
+      "oldLiteral": "'獲取方式'",
+      "newText": "取用方式",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.101",
+      "oldLiteral": "'訪問期刊網站'",
+      "newText": "前往期刊網站",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.109",
+      "oldLiteral": "'訪問 Panorama'",
+      "newText": "前往 Panorama",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.75",
+      "oldLiteral": "'健康受到臨床接觸之外更多因素的影響，也受到政策、基礎設施、數據、環境、社區及介入日常生活的技術塑造。'",
+      "newText": "健康不只受臨床診療影響，也受政策、基礎設施、數據、環境、社區及介入日常生活的技術所塑造。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.90",
+      "oldLiteral": "'我們的出版項目面向方法嚴謹、關注語境，並能服務於研究最終所面向群體的學術成果。'",
+      "newText": "我們的出版計畫旨在支持方法嚴謹、關注脈絡，且對研究最終服務的社群有所助益的學術研究。",
+      "reason": "重整修飾關係，避免將「研究」誤讀為研究所，並忠實表達服務對象。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.105",
+      "oldLiteral": "'封面即將發布'",
+      "newText": "封面即將推出",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.118",
+      "oldLiteral": "'準備透明規範的稿件'",
+      "newText": "準備一份資訊透明的稿件",
+      "reason": "以「資訊透明」表達 manuscript transparency，避免「內容透明」搭配生硬。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.125",
+      "oldLiteral": "'我們支持可獲取的研究與清晰的溝通，讓證據能夠超越專業社群傳播。'",
+      "newText": "我們支持易於取得的研究成果與清晰溝通，讓證據能超越專業社群傳播。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.128",
+      "oldLiteral": "'人的實際影響'",
+      "newText": "對人們的影響",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.14",
+      "oldLiteral": "'本活躍期刊，持續增長中'",
+      "newText": "現行期刊，數量持續增加中",
+      "reason": "刪除不必要的指示詞「本」，並保留期刊數量持續增加的意思。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.15",
+      "oldLiteral": "'本活躍期刊，持續增長中'",
+      "newText": "現行期刊，數量持續增加中",
+      "reason": "刪除不必要的指示詞「本」，並保留期刊數量持續增加的意思。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.60",
+      "oldLiteral": "'本活躍期刊'",
+      "newText": "現行期刊",
+      "reason": "刪除不必要的指示詞「本」，使複數欄目標籤自然。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.84",
+      "oldLiteral": "'獲取方式'",
+      "newText": "取用方式",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.87",
+      "oldLiteral": "'訪問期刊網站'",
+      "newText": "前往期刊網站",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.91",
+      "oldLiteral": "'封面即將發布'",
+      "newText": "封面即將推出",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.90",
+      "oldLiteral": "'本活躍期刊'",
+      "newText": "現行期刊",
+      "reason": "刪除不必要的指示詞「本」，使複數欄目標籤自然。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.121",
+      "oldLiteral": "'作者應準確報告方法與證據，註明來源，披露相關利益，遵守適用倫理要求，並清晰說明研究邊界。當學術記錄無法得到可靠評估時，投稿可能被拒絕。'",
+      "newText": "作者應準確報告方法與證據、註明資料來源、披露相關利益、遵守適用的倫理要求，並清楚說明研究限制。若學術記錄無法得到可靠評估，投稿可能會被拒。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.127",
+      "oldLiteral": "'準確說明問題、方法、證據、局限與相關聲明。'",
+      "newText": "準確說明研究問題、方法、證據、限制與相關聲明。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.140",
+      "oldLiteral": "'訪問'",
+      "newText": "取用方式",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.143",
+      "oldLiteral": "'訪問期刊網站'",
+      "newText": "前往期刊網站",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.148",
+      "oldLiteral": "'封面即將發布'",
+      "newText": "封面即將推出",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.153",
+      "oldLiteral": "'我們的項目歡迎方法嚴謹、論證清晰，並關注知識在現實世界中後果的研究。'",
+      "newText": "我們的計畫歡迎方法嚴謹、論證清晰，並關注知識在現實世界中所產生後果的研究。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.29",
+      "oldLiteral": "'Threnody 支持清晰呈現研究問題、來源、方法與邊界的學術工作，同時避免將複雜的文化對象簡化為單一結論。'",
+      "newText": "Threnody 支持清楚呈現研究問題、來源、方法與限制的學術工作，同時避免將複雜的文化對象簡化為單一結論。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.61",
+      "oldLiteral": "'論斷應與證據相稱，闡釋應向讀者說明其前提與邊界。'",
+      "newText": "論斷應與證據相稱，闡釋則應向讀者交代其前提與限制。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.71",
+      "oldLiteral": "'清晰說明問題、材料、方法、貢獻與局限，使編輯與審稿人能夠評估。'",
+      "newText": "清楚說明研究問題、材料、方法、貢獻與限制，讓編輯與審稿人能夠評估。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.82",
+      "oldLiteral": "'學術成果的獲取'",
+      "newText": "學術成果的取用",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.83",
+      "oldLiteral": "'我們致力於讓研究成果易於發現和使用，同時尊重作者權利、許可要求與學科語境。'",
+      "newText": "我們致力於讓研究成果便於檢索和使用，同時尊重作者權利、許可要求與學科脈絡。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.112",
+      "oldLiteral": "'本在刊期刊'",
+      "newText": "現行期刊",
+      "reason": "刪除不必要的指示詞「本」，使複數欄目標籤自然。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.113",
+      "oldLiteral": "'各具特色的編輯共同體，以審慎學術相連。'",
+      "newText": "各具特色的編輯社群，以嚴謹學術研究相連。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.114",
+      "oldLiteral": "'每本期刊都明確自身的範圍與讀者群。它們共同支持對塑造人類世界、使其變得可理解的形式、歷史與實踐進行持續探究。'",
+      "newText": "每本期刊都界定自身的範圍與讀者群。這些期刊共同支持持續探究各種形式、歷史與實踐，了解它們如何使人類世界變得可理解。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.118",
+      "oldLiteral": "'Threnody 各期刊保有獨特的編輯身份，同時共同遵循嚴謹同行評審、負責任報告、編輯獨立與審慎維護學術記錄的要求。'",
+      "newText": "Threnody 各期刊保有獨特的編輯定位，同時共同遵循嚴謹同行評審、負責任的報告、編輯獨立與審慎維護學術記錄等要求。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.133",
+      "oldLiteral": "'作者應準確報告方法與證據，註明來源，披露相關利益，取得必要許可，遵守適用的倫理要求，並清晰說明研究邊界。'",
+      "newText": "作者應準確報告方法與證據、註明資料來源、披露相關利益、取得必要許可、遵守適用的倫理要求，並清楚說明研究限制。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.147",
+      "oldLiteral": "'Threnody 在 Panorama Scholarly Group 的出版框架內運營，同時保留每本期刊的編輯身份與責任。我們的共同標準涵蓋同行評審、研究誠信、訪問、勘誤與學術記錄的負責任維護。'",
+      "newText": "Threnody 在 Panorama Scholarly Group 的出版框架內運作，同時維護各期刊的編輯定位與問責機制。我們的共同標準涵蓋同行評審、研究誠信、內容取用、勘誤，以及對學術記錄的負責任維護。",
+      "reason": "以問責機制表達 accountability，避免「問責責任」語義重複。"
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.ridgeline.description",
+      "oldLiteral": "'面向技術、工程與應用人工智能研究的 Panorama Scholarly Group 品牌，關注更具人本性、可持續性與公平性的未來。'",
+      "newText": "Ridgeline 是 Panorama Scholarly Group 旗下專注於技術、工程與應用人工智能研究的出版品牌。",
+      "reason": "經複核，修正原譯的語義偏差或不自然搭配，使繁體中文表達忠實、清楚。"
+    }
+  ],
+  "notes": []
+}

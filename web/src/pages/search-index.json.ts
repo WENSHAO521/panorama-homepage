@@ -325,7 +325,7 @@ function buildSharedRecords(): SearchRecord[] {
       };
     });
 
-  const announcementRecords: SearchRecord[] = getAnnouncements('en').map((announcement) => ({
+  const announcementRecords: SearchRecord[] = getAnnouncements().map((announcement) => ({
     type: 'announcement',
     title: announcement.title,
     description: announcement.summary,

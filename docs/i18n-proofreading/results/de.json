@@ -1,0 +1,1204 @@
+{
+  "locale": "de",
+  "reviewedRows": 1444,
+  "corrections": [
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group verbindet Publikationen, Forschung und wissenschaftliche Infrastruktur zu einem besser vernetzten wissenschaftlichen Nachweis.'",
+      "newText": "Panorama Scholarly Group verbindet Publikationen, Forschung und wissenschaftliche Infrastruktur, um einen besser vernetzten Bestand wissenschaftlicher Veröffentlichungen zu schaffen.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.divisionsTitle",
+      "oldLiteral": "'Mehrere Wege in den wissenschaftlichen Nachweis.'",
+      "newText": "Mehrere Zugänge zum wissenschaftlichen Publikationsbestand.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitmentsIntro",
+      "oldLiteral": "'Unsere gemeinsamen Grundsätze sind praktisch. Sie leiten Entscheidungen, die Pflege des wissenschaftlichen Nachweises und unsere Zusammenarbeit mit der Wissenschaftsgemeinschaft.'",
+      "newText": "Unsere gemeinsamen Grundsätze sind praxisorientiert. Sie leiten uns bei Entscheidungen, der Pflege der wissenschaftlichen Dokumentation und der Zusammenarbeit mit der breiteren Wissenschaftsgemeinschaft.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[1].title",
+      "oldLiteral": "'Sorgfalt für den Nachweis'",
+      "newText": "Sorgfalt für die wissenschaftliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.introParagraphs[1]",
+      "oldLiteral": "'Unsere gruppenweiten Richtlinien formulieren Erwartungen an Publikationspraxis, Forschungsintegrität, Open Access und die Pflege des wissenschaftlichen Nachweises. Zeitschriften und Imprints können fach- und zielgruppenspezifische Anforderungen ergänzen.'",
+      "newText": "Unsere gruppenweiten Richtlinien formulieren Erwartungen an die Publikationspraxis, Forschungsintegrität, Open Access und die Pflege der wissenschaftlichen Dokumentation. Zeitschriften und Imprints können zusätzliche Anforderungen für ihre Fachgebiete und Zielgruppen festlegen.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[3].body",
+      "oldLiteral": "'Wenn der wissenschaftliche Nachweis Aufmerksamkeit erfordert, untersuchen wir verhältnismäßig, dokumentieren das Ergebnis und machen wesentliche Änderungen sichtbar.'",
+      "newText": "Wenn die wissenschaftliche Dokumentation überprüft werden muss, gehen wir verhältnismäßig vor, halten das Ergebnis fest und weisen wesentliche Änderungen für die Leserschaft klar aus.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.network",
+      "oldLiteral": "'Ein Netzwerk um den wissenschaftlichen Nachweis'",
+      "newText": "Ein Netzwerk rund um wissenschaftliche Veröffentlichungen",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.principles[2].body",
+      "oldLiteral": "'Wir bevorzugen Verbindungen, die Auffindbarkeit, Zugang, Dialog oder die Pflege des wissenschaftlichen Nachweises verbessern.'",
+      "newText": "Wir bevorzugen Verbindungen, die Auffindbarkeit, Zugang, Dialog oder die Pflege der wissenschaftlichen Dokumentation verbessern.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.introTitle",
+      "oldLiteral": "'Infrastruktur ist Teil des wissenschaftlichen Protokolls.'",
+      "newText": "Infrastruktur ist Teil der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.doiTitle",
+      "oldLiteral": "'Von der Annahme zum dauerhaften Nachweis.'",
+      "newText": "Von der Annahme zum dauerhaften Publikationseintrag.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.preservationTitle",
+      "oldLiteral": "'Das wissenschaftliche Protokoll verfügbar halten.'",
+      "newText": "Den wissenschaftlichen Publikationsbestand verfügbar halten.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.principlesIntro",
+      "oldLiteral": "'Das Institut arbeitet unabhängig und bleibt zugleich mit dem Gruppenverständnis von klaren Methoden, verantwortungsvoller Praxis und der Pflege des wissenschaftlichen Protokolls verbunden.'",
+      "newText": "Das Institut arbeitet unabhängig und bleibt zugleich mit dem Bekenntnis der Gruppe zu klaren Methoden, verantwortungsvoller Praxis und der Pflege des wissenschaftlichen Publikationsbestands verbunden.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.closingBody",
+      "oldLiteral": "'Besuchen Sie die unabhängige Forschungsplattform für aktuelle Programme und Publikationen oder erkunden Sie die Infrastruktur hinter dem wissenschaftlichen Protokoll.'",
+      "newText": "Besuchen Sie die unabhängige Forschungsplattform für aktuelle Programme und Publikationen oder erkunden Sie die Infrastruktur, die den wissenschaftlichen Publikationsbestand unterstützt.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.relatedIntro",
+      "oldLiteral": "'Verantwortungsvolle Forschungsbewertung ergänzt die Standards für redaktionelle Entscheidungen, Forschungsintegrität und die Pflege des wissenschaftlichen Datensatzes.'",
+      "newText": "Verantwortungsvolle Forschungsbewertung ergänzt die Standards für redaktionelle Entscheidungen, Forschungsintegrität und die Pflege des wissenschaftlichen Publikationsbestands.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.relatedLinks[1].body",
+      "oldLiteral": "'Forschungsintegrität, faire redaktionelle Praxis und Pflege des veröffentlichten Datensatzes.'",
+      "newText": "Forschungsintegrität, faire redaktionelle Praxis und die Pflege der veröffentlichten wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.heroLede",
+      "oldLiteral": "'Unsere Standards leiten redaktionelle Entscheidungen, Forschungsintegrität, Zugang und die Pflege des wissenschaftlichen Protokolls in der gesamten Panorama Scholarly Group.'",
+      "newText": "Unsere Standards leiten redaktionelle Entscheidungen, Forschungsintegrität, Zugang und die Pflege des wissenschaftlichen Publikationsbestands in der gesamten Panorama Scholarly Group.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.asideStatement",
+      "oldLiteral": "'Unabhängiges Urteil. Verantwortliche Praxis. Ein verlässliches wissenschaftliches Protokoll.'",
+      "newText": "Unabhängige Urteilsbildung. Verantwortungsvolle Praxis. Eine verlässliche wissenschaftliche Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.standards[1].description",
+      "oldLiteral": "'Ein gruppenweiter Rahmen für Forschungsintegrität, ethische Prüfung, faire Redaktion und die Korrektur des wissenschaftlichen Protokolls.'",
+      "newText": "Ein gruppenweiter Rahmen für Forschungsintegrität, ethische Prüfung, faire redaktionelle Praxis und die Korrektur der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.commitments[3].title",
+      "oldLiteral": "'Pflege des Protokolls'",
+      "newText": "Verantwortungsvolle Pflege der wissenschaftlichen Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflowTitle",
+      "oldLiteral": "'Von der Einreichung zum wissenschaftlichen Protokoll.'",
+      "newText": "Von der Einreichung zur wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflow[3].body",
+      "oldLiteral": "'Das veröffentlichte Protokoll wird korrigiert, wenn neue Informationen eine Aktualisierung oder formelle Mitteilung erfordern.'",
+      "newText": "Die veröffentlichte wissenschaftliche Dokumentation wird korrigiert, wenn neue Informationen eine Aktualisierung oder einen formellen Hinweis erfordern.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.sections.record",
+      "oldLiteral": "'Das wissenschaftliche Protokoll'",
+      "newText": "Die wissenschaftliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.railText",
+      "oldLiteral": "'Unabhängige Entscheidungen. Transparente Verfahren. Ein korrigierbares wissenschaftliches Protokoll.'",
+      "newText": "Unabhängige Entscheidungen. Transparente Verfahren. Eine wissenschaftliche Dokumentation, die sich korrigieren lässt.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.description",
+      "oldLiteral": "'Gruppenweite Richtlinie der Panorama Scholarly Group zu Forschungsintegrität, ethischer Redaktion und Pflege des wissenschaftlichen Protokolls.'",
+      "newText": "Gruppenweite Richtlinie der Panorama Scholarly Group zu Forschungsintegrität, ethischer redaktioneller Praxis und der Pflege der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.lede",
+      "oldLiteral": "'Ein gemeinsamer Rahmen für Forschungsintegrität, faire Redaktion und verantwortungsvolle Pflege der veröffentlichten Aufzeichnungen.'",
+      "newText": "Ein gruppenweiter Rahmen für Forschungsintegrität, faire redaktionelle Praxis und die verantwortungsvolle Pflege der veröffentlichten wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.railTitle",
+      "oldLiteral": "'Ein verantwortliches Protokoll'",
+      "newText": "Verantwortung für die wissenschaftliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.railText",
+      "oldLiteral": "'Integritätsbedenken werden mit dokumentierten Verfahren, fairem Prozess und klarer Pflege des veröffentlichten Protokolls behandelt.'",
+      "newText": "Wir bearbeiten Bedenken zur Integrität nach dokumentierten Verfahren und einem fairen Prozess. Dabei achten wir darauf, die veröffentlichte wissenschaftliche Dokumentation klar und nachvollziehbar zu halten.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.openAccess.lede",
+      "oldLiteral": "'Klare Zugangsbedingungen für Autoren, Leser und Nutzer des wissenschaftlichen Protokolls.'",
+      "newText": "Klare Zugangsbedingungen für Autorinnen und Autoren, Lesende und Nutzende der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.accessibility.railText",
+      "oldLiteral": "'Barrierefreiheit prägt, wie wir Inhalte strukturieren, Oberflächen formulieren und ein öffentliches wissenschaftliches Protokoll pflegen.'",
+      "newText": "Barrierefreiheit prägt, wie wir Inhalte strukturieren, Benutzeroberflächen formulieren und eine öffentliche wissenschaftliche Dokumentation pflegen.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.62",
+      "oldLiteral": "'Redaktionelle Grundsätze für ein dauerhaftes wissenschaftliches Archiv.'",
+      "newText": "Redaktionelle Grundsätze für eine dauerhaft verlässliche wissenschaftliche Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.115",
+      "oldLiteral": "'Wir erwarten transparente Wissenschaft, ethisches Handeln und eine sorgfältige Pflege des wissenschaftlichen Archivs.'",
+      "newText": "Wir erwarten transparente wissenschaftliche Arbeit, ethisches Handeln und eine sorgfältige Pflege der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.126",
+      "oldLiteral": "'Dauerhafte Aufzeichnungen'",
+      "newText": "Dauerhafte wissenschaftliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.1",
+      "oldLiteral": "'Der öffentliche Nachweis'",
+      "newText": "Öffentliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.133",
+      "oldLiteral": "'Redaktionelle Entscheidungen orientieren sich an wissenschaftlichem Wert, Profilpassung und der Integrität des Archivs.'",
+      "newText": "Redaktionelle Entscheidungen orientieren sich am wissenschaftlichen Wert, an der Passung zum Profil und an der Integrität der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.138",
+      "oldLiteral": "'Dauerhafte Archive'",
+      "newText": "Dauerhafte wissenschaftliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.156",
+      "oldLiteral": "'Verpflichtungen für ein dauerhaftes wissenschaftliches Archiv.'",
+      "newText": "Selbstverpflichtung zur dauerhaften Sicherung des wissenschaftlichen Publikationsbestands.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.38",
+      "oldLiteral": "'Jede Zeitschrift bewahrt ihr eigenes redaktionelles Profil und ihre Verantwortung und teilt zugleich die Verpflichtungen der Panorama Scholarly Group zu rigoroser Begutachtung, redaktioneller Unabhängigkeit, transparenter Veröffentlichung und verantwortungsvoller Pflege des wissenschaftlichen Archivs.'",
+      "newText": "Jede Zeitschrift bewahrt ihre redaktionelle Identität und Verantwortung und teilt zugleich die Selbstverpflichtungen der Panorama Scholarly Group zu gründlicher Begutachtung, redaktioneller Unabhängigkeit, transparenter Veröffentlichung und verantwortungsvoller Pflege der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.66",
+      "oldLiteral": "'Ein transparentes wissenschaftliches Archiv'",
+      "newText": "Eine transparente wissenschaftliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.77",
+      "oldLiteral": "'Redaktionelle Entscheidungen beruhen auf wissenschaftlichem Wert, Passung zum Profil und der Integrität des Publikationsarchivs.'",
+      "newText": "Redaktionelle Entscheidungen beruhen auf wissenschaftlichem Wert, Passung zum Profil und der Integrität der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.81",
+      "oldLiteral": "'Korrekturen, Besorgniserklärungen und Rücknahmen gehören zu einer verantwortungsvollen Pflege des Archivs, wenn die Fakten dies erfordern.'",
+      "newText": "Korrekturen, Besorgnisbekundungen und Rücknahmen gehören zu einer verantwortungsvollen Pflege der wissenschaftlichen Dokumentation, wenn diese es erfordert.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.96",
+      "oldLiteral": "'Wissenschaftliches Archiv'",
+      "newText": "Wissenschaftliche Dokumentation",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.118",
+      "oldLiteral": "'Die Zeitschriften von Threnody bewahren ihre redaktionelle Eigenständigkeit und teilen zugleich Erwartungen an rigorose Begutachtung, verantwortungsvolle Berichterstattung, redaktionelle Unabhängigkeit und sorgfältige Pflege des wissenschaftlichen Archivs.'",
+      "newText": "Die Zeitschriften von Threnody bewahren ihre eigene redaktionelle Identität und teilen zugleich die Erwartungen an gründliche Begutachtung, verantwortungsvolle Berichterstattung, redaktionelle Unabhängigkeit und sorgfältige Pflege der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.144",
+      "oldLiteral": "'Verpflichtungen für ein dauerhaftes wissenschaftliches Archiv.'",
+      "newText": "Selbstverpflichtung zur dauerhaften Sicherung des wissenschaftlichen Publikationsbestands.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.147",
+      "oldLiteral": "'Threnody arbeitet innerhalb des Publikationsrahmens der Panorama Scholarly Group und bewahrt zugleich die redaktionelle Identität und Verantwortung jeder Zeitschrift. Unsere gemeinsamen Standards umfassen Begutachtung, Forschungsintegrität, Zugang, Korrekturen und die verantwortungsvolle Pflege des wissenschaftlichen Archivs.'",
+      "newText": "Threnody arbeitet innerhalb des Publikationsrahmens der Panorama Scholarly Group und bewahrt zugleich die redaktionelle Identität und Verantwortlichkeit jeder Zeitschrift. Unsere gemeinsamen Standards umfassen Begutachtung, Forschungsintegrität, Zugang, Korrekturen und die verantwortungsvolle Pflege der wissenschaftlichen Dokumentation.",
+      "reason": "Die Übersetzung von „scholarly record“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.imprints.lede",
+      "oldLiteral": "'Fünf redaktionelle Welten, vereint durch ein gemeinsames Bekenntnis zu rigoroser, offener und global engagierter Wissenschaft.'",
+      "newText": "Fünf redaktionelle Welten, vereint durch ein gemeinsames Bekenntnis zu methodisch fundierter, offener und international ausgerichteter Wissenschaft.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.heroLede",
+      "oldLiteral": "'Klare Zuständigkeiten und nachvollziehbare Verfahren helfen, wissenschaftliche Arbeit rigoros, transparent und vertrauenswürdig zu halten.'",
+      "newText": "Klare Zuständigkeiten und nachvollziehbare Verfahren tragen dazu bei, dass wissenschaftliche Arbeit methodisch fundiert, transparent und vertrauenswürdig bleibt.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.23",
+      "oldLiteral": "'Ridgeline veröffentlicht rigorose, unabhängige Forschung an der Schnittstelle von Technologie, Ingenieurwesen und Gesellschaft. Die Herausforderungen unserer Zeit verlangen mehr als Antworten aus nur einer Disziplin.'",
+      "newText": "Ridgeline veröffentlicht methodisch fundierte, unabhängige Forschung an der Schnittstelle von Technologie, Ingenieurwesen und Gesellschaft. Die Herausforderungen unserer Zeit verlangen mehr als Antworten aus nur einer Disziplin.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.19",
+      "oldLiteral": "'Health Nexus fördert rigorose interdisziplinäre Forschung über das gesamte Spektrum von Gesundheit und Gesellschaft.'",
+      "newText": "Health Nexus fördert methodisch fundierte, interdisziplinäre Forschung zum gesamten Spektrum menschlicher Gesundheit und Gesellschaft.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.25",
+      "oldLiteral": "'Rigorose Wissenschaft'",
+      "newText": "Fundierte wissenschaftliche Arbeit",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.90",
+      "oldLiteral": "'Unser Programm gilt Forschung, die methodisch rigoros, kontextsensibel und für die Gemeinschaften nützlich ist, denen sie letztlich dient.'",
+      "newText": "Unser Programm richtet sich an Forschung, die methodisch fundiert ist, den Kontext berücksichtigt und den Gemeinschaften nützt, denen sie letztlich dient.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.0",
+      "oldLiteral": "'Verdant Science ist das Imprint der Panorama Scholarly Group für rigorose Forschung zu Nachhaltigkeit, Umweltsystemen, Ernährung, ländlicher Entwicklung und menschlichem Wohlbefinden.'",
+      "newText": "Verdant Science ist das Imprint der Panorama Scholarly Group für methodisch fundierte Forschung zu Nachhaltigkeit, Umweltsystemen, Ernährung, ländlicher Entwicklung und menschlichem Wohlbefinden.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.25",
+      "oldLiteral": "'Verdant Science veröffentlicht rigorose, lösungsorientierte Forschung, die Umweltsysteme, menschliche Gemeinschaften und das langfristige Wohlergehen des Planeten verbindet.'",
+      "newText": "Verdant Science veröffentlicht methodisch fundierte, lösungsorientierte Forschung, die Umweltsysteme, menschliche Gemeinschaften und das langfristige Wohlergehen des Planeten miteinander verbindet.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.66",
+      "oldLiteral": "'Erfahren Sie mehr über Verdant Science, das Imprint der Panorama Scholarly Group für rigorose Forschung zu Nachhaltigkeit, Umweltsystemen, Ernährung, ländlicher Entwicklung und menschlichem Wohlbefinden.'",
+      "newText": "Erfahren Sie mehr über Verdant Science, das Imprint der Panorama Scholarly Group für methodisch fundierte Forschung zu Nachhaltigkeit, Umweltsystemen, Ernährung, ländlicher Entwicklung und menschlichem Wohlbefinden.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.80",
+      "oldLiteral": "'Redaktionell rigoros. Offen für verbundene Fragen.'",
+      "newText": "Redaktionell anspruchsvoll. Offen für zusammenhängende Fragestellungen.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.0",
+      "oldLiteral": "'Charter veröffentlicht rigorose Forschung zu Recht, Public Policy, Governance und den Institutionen, die das öffentliche Leben prägen.'",
+      "newText": "Charter veröffentlicht methodisch fundierte Forschung zu Recht, Politikgestaltung, Governance und den Institutionen, die das öffentliche Leben prägen.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.19",
+      "oldLiteral": "'Charter ist das Imprint der Panorama Scholarly Group für Recht, Politik und Gesellschaft. Wir veröffentlichen rigorose, unabhängige Forschung zu den Institutionen und Beziehungen, die das öffentliche Leben prägen.'",
+      "newText": "Charter ist das Imprint der Panorama Scholarly Group für Recht, Politikgestaltung und Gesellschaft. Wir veröffentlichen methodisch fundierte, unabhängige Forschung zu den Institutionen und Beziehungen, die das öffentliche Leben prägen.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.33",
+      "oldLiteral": "'Wir begrüßen Originalforschung, Reviews und Perspektiven, die das Verständnis von Recht, Politik und Gesellschaft vertiefen. Unsere Zeitschriften stehen für rigorose Begutachtung, redaktionelle Unabhängigkeit und einen klaren Weg von starken Ideen zu relevanter öffentlicher Wissenschaft.'",
+      "newText": "Wir begrüßen Originalarbeiten, Rezensionen und Perspektiven, die das Verständnis von Recht, Politikgestaltung und Gesellschaft vertiefen. Unsere Zeitschriften stehen für gründliche Begutachtung, redaktionelle Unabhängigkeit und einen klaren Weg von starken Ideen zu relevanter Wissenschaft für die Öffentlichkeit.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.153",
+      "oldLiteral": "'Unser Programm steht Arbeiten offen, die methodisch rigoros, in ihrer Argumentation explizit und aufmerksam für die Folgen von Wissen in der Welt sind.'",
+      "newText": "Unser Programm steht Arbeiten offen, die methodisch fundiert, klar argumentiert und aufmerksam für die Folgen von Wissen in der Welt sind.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.141",
+      "oldLiteral": "'Das Imprint richtet sich an Arbeiten mit rigorosen Methoden, expliziter Argumentation und Aufmerksamkeit für die historischen und sozialen Kontexte, in denen Wissen entsteht.'",
+      "newText": "Das Imprint richtet sich an Arbeiten mit methodisch fundiertem Vorgehen, klarer Argumentation und Aufmerksamkeit für die historischen und sozialen Kontexte, in denen Wissen entsteht.",
+      "reason": "„Rigorous“ im wissenschaftlichen Kontext idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.researchTitle",
+      "oldLiteral": "'Forschung, die das öffentliche Leben verständlicher macht.'",
+      "newText": "Forschung, die Orientierung für das öffentliche Leben bietet.",
+      "reason": "Die Bedeutung von „informs“ idiomatisch wiedergegeben."
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.researchLede",
+      "oldLiteral": "'Das Panorama Research Institute unterstützt interdisziplinäre Forschung, Studien zum wissenschaftlichen Publizieren, Zeitschriftenindexierung und -bewertung, Politikanalysen sowie globale Infrastruktur für wissenschaftliche Kommunikation.'",
+      "newText": "Das Panorama Research Institute unterstützt interdisziplinäre Forschung, Studien zum wissenschaftlichen Publizieren, die Indexierung und Bewertung von Zeitschriften, Politikanalysen sowie eine globale Infrastruktur für wissenschaftliche Kommunikation.",
+      "reason": "Unnatürliche Fachkomposita aufgelöst."
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[0]",
+      "oldLiteral": "'Dieser gruppenweite Rahmen regelt die DOI-Vergabe für Zeitschrifteninhalte. Die Zeitschriften setzen ihn schrittweise für neue Veröffentlichungen über ihre öffentlich zugänglichen Richtlinien zu Beitragstypen, Prüfung und Gebühren um und benennen die einbezogenen Rubriken. Der Weg wird vor Veröffentlichung festgelegt. Eine DOI identifiziert eine Publikation; sie bestätigt weder Peer Review noch eine Indexierung.'",
+      "newText": "Dieser gruppenweite Rahmen regelt die DOI-Vergabe für Zeitschrifteninhalte. Die Zeitschriften setzen ihn für künftige Veröffentlichungen anhand ihrer veröffentlichten Richtlinien zu Beitragstypen, Begutachtung und Gebühren um. Jede Zeitschrift benennt die Rubriken, auf die sie ihn anwendet; die Berechtigung wird vor der Veröffentlichung bestätigt. Eine DOI identifiziert eine Publikation, bescheinigt aber weder ein Peer Review noch garantiert sie eine Indexierung.",
+      "reason": "Zeitliche Geltung und Begutachtungsrichtlinien präzisiert."
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[1]",
+      "oldLiteral": "'Forschungsartikel, Übersichtsarbeiten, systematische Reviews, Metaanalysen, Theorie- und Methodenbeiträge, Datenartikel, Fallstudien, Politikanalysen und weitere substanzielle extern begutachtete Beiträge erhalten normalerweise eine PSG-Verlags-DOI über Crossref. APC-Erlass, Rabatt oder Einladung ändern diesen Weg nicht. Maßgeblich sind wissenschaftliche Funktion und genehmigtes Prüfverfahren, nicht allein die Zahlung.'",
+      "newText": "Forschungsartikel, Übersichtsarbeiten, systematische Übersichtsarbeiten, Metaanalysen, theoretische und methodische Beiträge, Datenartikel, Fallstudien, Politikanalysen und andere substanzielle, extern begutachtete Beiträge erhalten normalerweise eine PSG-Verlags-DOI über Crossref. Ein Erlass oder Rabatt auf die APC sowie eine Einladung ändern daran nichts. Maßgeblich sind die wissenschaftliche Funktion und das genehmigte Begutachtungsverfahren, nicht allein die Zahlung.",
+      "reason": "Publikationstypen und Begutachtungsverfahren präzisiert."
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[3]",
+      "oldLiteral": "'Kommentare, Perspektiven, Foren, Rezensionsessays, kritische Reviews, Übersetzungen und Praxisreflexionen werden einzeln eingeordnet. Substanzielle extern begutachtete Beiträge verwenden normalerweise Crossref; genehmigte kostenfreie Inhalte mit redaktioneller Prüfung können Zenodo verwenden. Routinenachrichten, Aufrufe und Verwaltungsmitteilungen erhalten normalerweise keine DOI. Formelle Korrekturen, Besorgnisbekundungen und Rücknahmen folgen der jeweiligen Richtlinie und werden mit der betroffenen Publikation verknüpft.'",
+      "newText": "Kommentare, Perspektiven, Foren, Rezensionsessays, kritische Rezensionen, Übersetzungen und Praxisreflexionen müssen einzeln eingeordnet werden. Substanzielle, extern begutachtete Beiträge verwenden normalerweise Crossref; genehmigte kostenfreie Inhalte mit redaktioneller Prüfung können Zenodo verwenden. Reguläre Nachrichten, Aufrufe zur Einreichung von Beiträgen und Verwaltungsmitteilungen erhalten normalerweise keine DOI. Formelle Korrekturen, Besorgnisbekundungen und Rücknahmen folgen der jeweiligen Richtlinie nach der Veröffentlichung und werden mit der betroffenen Publikation verknüpft.",
+      "reason": "Fachbegriffe und unidiomatische Übertragungen korrigiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.heroLede",
+      "oldLiteral": "'Schildern Sie uns, woran Sie arbeiten; wir leiten Ihre Frage an die zuständige Stelle für Publikationen, Forschung oder die Gruppe weiter.'",
+      "newText": "Schildern Sie uns, woran Sie arbeiten. Wir leiten Ihre Frage an die zuständige Ansprechperson für Publikationen, Forschung oder allgemeine Gruppenanfragen weiter.",
+      "reason": "Die missverständliche Wendung „Stelle für die Gruppe“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.routes[0].body",
+      "oldLiteral": "'Für Fragen zu Zeitschriften, Buchprojekten, Autorenhinweisen und Publikationen.'",
+      "newText": "Für Fragen zu Zeitschriften, Buchprojekten, Hinweisen für Autorinnen und Autoren sowie zum Publizieren.",
+      "reason": "„Author guidance“ korrekt übertragen."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.routes[3].label",
+      "oldLiteral": "'Partnerschaft besprechen'",
+      "newText": "Über eine Partnerschaft sprechen",
+      "reason": "Die Handlungsaufforderung idiomatischer formuliert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[0].body",
+      "oldLiteral": "'Publikationsentscheidungen trifft die für die Arbeit verantwortliche Zeitschrift, Buchreihe oder das Imprint.'",
+      "newText": "Die redaktionellen Entscheidungen trifft die für die jeweilige Arbeit verantwortliche Zeitschrift, Buchredaktion oder das zuständige Imprint.",
+      "reason": "„Book“ nicht fälschlich als „Buchreihe“ verengt."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[3].description",
+      "oldLiteral": "'Eine wissenschaftliche Publikationsorganisation mit begutachteten Open-Access-Zeitschriften in den Sozialwissenschaften, der Kunstkritik und der digitalen Governance.'",
+      "newText": "Eine wissenschaftliche Publikationsorganisation mit begutachteten Open-Access-Zeitschriften in den Sozialwissenschaften, Künsten und der digitalen Governance.",
+      "reason": "„Arts“ nicht fälschlich als „Kunstkritik“ übersetzt."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[1].body",
+      "oldLiteral": "'Redaktionen entscheiden anhand des veröffentlichten Umfangs und der Standards ihrer Zeitschrift, Buchreihe oder ihres Imprints.'",
+      "newText": "Redaktionen treffen Publikationsentscheidungen gemäß dem angegebenen fachlichen Profil und den Standards ihrer Zeitschrift, ihres Buchprojekts oder Imprints.",
+      "reason": "„Scope“ nicht mit „Umfang“ übersetzt."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[2].body",
+      "oldLiteral": "'Richtlinien, Zuständigkeiten und Wege für Hinweise werden sichtbar gemacht, damit der Umgang mit Entscheidungen verständlich bleibt.'",
+      "newText": "Richtlinien, Zuständigkeiten und Möglichkeiten, Bedenken vorzubringen, werden transparent gemacht, damit Beteiligte nachvollziehen können, wie Entscheidungen zustande kommen.",
+      "reason": "Die unklare Wendung „Wege für Hinweise“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.responsibilities[2].body",
+      "oldLiteral": "'Leisten ehrliche Beiträge, legen relevante Interessen offen und begegnen einander professionell.'",
+      "newText": "Arbeiten redlich, legen relevante Interessen offen und begegnen einander mit professionellem Respekt.",
+      "reason": "Der im Deutschen fehlende Respektbezug ergänzt."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.heroLede",
+      "oldLiteral": "'Wir arbeiten mit Institutionen, kulturellen Gemeinschaften, Bibliotheken und Wissensdiensten zusammen, damit Forschung weiter reicht und mehr Lesern dauerhaft nützt.'",
+      "newText": "Wir arbeiten mit Institutionen, kulturellen Gemeinschaften, Bibliotheken und Wissensdienstleistern zusammen, damit sich Forschung weiter verbreitet und für mehr Menschen dauerhaft nutzbar bleibt.",
+      "reason": "„Research travel“ und „knowledge services“ natürlich übertragen."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.principlesSummary",
+      "oldLiteral": "'Zweckklar, respektvoll gegenüber Rollen und über den ersten Austausch hinaus nützlich.'",
+      "newText": "Klar im Zweck. Respektvoll im Umgang mit Rollen. Auch über den ersten Austausch hinaus nützlich.",
+      "reason": "Satzfragmente idiomatisch geglättet."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[0].description",
+      "oldLiteral": "'Eine institutionelle Partnerschaft, die den wissenschaftlichen Austausch mit kulturellen und intellektuellen Gemeinschaften in Korea unterstützt.'",
+      "newText": "Eine kulturelle und intellektuelle Partnerschaft, die den wissenschaftlichen Austausch in Korea fördert.",
+      "reason": "„Institutional“ nicht in die Beschreibung hineingetragen."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[3].description",
+      "oldLiteral": "'Eine wissenschaftliche Publikationsorganisation mit begutachteten Open-Access-Zeitschriften in den Sozialwissenschaften, der Kunstkritik und der digitalen Governance.'",
+      "newText": "Eine wissenschaftliche Publikationsorganisation mit begutachteten Open-Access-Zeitschriften in den Sozialwissenschaften, Künsten und der digitalen Governance.",
+      "reason": "„Arts“ nicht fälschlich als „Kunstkritik“ übersetzt."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryLede",
+      "oldLiteral": "'Metadaten von Zeitschriften und Artikeln können über die Publikationsplattform hinaus in wissenschaftliche Such-, Discovery- und Open-Science-Dienste gelangen.'",
+      "newText": "Metadaten von Zeitschriften und Artikeln können über die Publikationsplattform hinaus in wissenschaftliche Suchmaschinen, Rechercheangebote und Open-Science-Dienste gelangen.",
+      "reason": "„Discovery“ durch deutsche Fachbegriffe ersetzt."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.cashlBody",
+      "oldLiteral": "'Nationale Bereitstellungs- und Discovery-Plattform für geistes- und sozialwissenschaftliche Literatur an chinesischen Hochschulen.'",
+      "newText": "Nationaler Bereitstellungs- und Recherchedienst für geistes- und sozialwissenschaftliche Literatur an chinesischen Hochschulen.",
+      "reason": "„Discovery-Plattform“ und Dienstbezeichnung idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.identifierDetails.issn",
+      "oldLiteral": "'Internationale Standardnummer für fortlaufende Veröffentlichungen.'",
+      "newText": "Internationale Standardnummern für fortlaufende Veröffentlichungen.",
+      "reason": "Den Plural des englischen Fachbegriffs wiedergegeben."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.noteBody",
+      "oldLiteral": "'Indexierung, Langzeitarchivierung und Identifikatorabdeckung können sich weiterentwickeln. Die aktuellsten Angaben zu einer Zeitschrift finden Sie auf ihrer Website oder beim Publikationsteam.'",
+      "newText": "Indexierung, Langzeitarchivierung und die Verfügbarkeit von Identifikatoren können sich im Laufe der Zeit ändern. Die aktuellsten Angaben zu einer bestimmten Zeitschrift finden Sie auf ihrer Website oder beim Publikationsteam.",
+      "reason": "„Identifier coverage“ natürlich übertragen."
+    },
+    {
+      "file": "web/src/i18n/legal.ts",
+      "key": "legal.defaultRailTitle",
+      "oldLiteral": "'Ein klarer Datensatz'",
+      "newText": "Ein klarer Überblick",
+      "reason": "„Record“ im Seitenkontext nicht als „Datensatz“ missübersetzt."
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.statement",
+      "oldLiteral": "'Evidenz, Einordnung und Infrastruktur für Wissenschaft, die Wirkung entfaltet.'",
+      "newText": "Belege, Einordnung und Infrastruktur für Wissenschaft mit größerer Reichweite.",
+      "reason": "„Scholarship that travels“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeText",
+      "oldLiteral": "'Diese öffentliche Erklärung gilt für Zeitschriften, Bücher, wissenschaftliche Dienste sowie die von der Panorama Scholarly Group Ltd und ihren Imprints gepflegten redaktionellen und verlegerischen Praktiken.'",
+      "newText": "Diese öffentliche Erklärung gilt für Zeitschriften, Bücher und wissenschaftliche Dienste sowie für die redaktionellen und verlegerischen Praktiken der Panorama Scholarly Group Ltd und ihrer Imprints.",
+      "reason": "Ergänzungen entfernt, die nicht im englischen Ausgangstext stehen."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.purpose.paragraphs[0]",
+      "oldLiteral": "'Forschung wird in vielen Formen vermittelt: in Artikeln, Büchern, Daten, Software, Methoden, Reviews, öffentlicher Wissenschaft sowie Beiträgen zu Politik und Praxis. Eine verantwortungsvolle Bewertung muss diese Vielfalt berücksichtigen und Qualität darf nicht auf den Namen oder Rang eines Publikationsortes reduziert werden.'",
+      "newText": "Forschung wird in vielen Formen vermittelt: als Artikel, Bücher, Daten, Software, Methoden, Rezensionen, Wissenschaftskommunikation und Beiträge zu Politikgestaltung und Praxis. Eine verantwortungsvolle Bewertung sollte diese Vielfalt abbilden, statt die Qualität auf den Namen oder Rang des Publikationsortes zu reduzieren.",
+      "reason": "Satzverknüpfung korrigiert und „reviews“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.purpose.paragraphs[1]",
+      "oldLiteral": "'Diese gruppenweite Verpflichtung gilt für die redaktionellen und verlegerischen Praktiken der Panorama Scholarly Group und ihrer Imprints. Sie ergänzt unsere Editorial Standards und unsere Publikationsethik, ersetzt aber nicht den fachlichen Geltungsbereich oder die Entscheidungskriterien einer einzelnen Zeitschrift oder eines Buchprojekts.'",
+      "newText": "Diese gruppenweite Selbstverpflichtung gilt für die redaktionellen und verlegerischen Praktiken der Panorama Scholarly Group und ihrer Imprints. Sie ergänzt unsere Redaktionsstandards und die Richtlinie zur Publikationsethik, ersetzt aber weder das fachliche Profil noch die Entscheidungskriterien einer einzelnen Zeitschrift oder eines Buchprojekts.",
+      "reason": "Richtlinientitel vereinheitlicht und Satzbau geglättet."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.intro",
+      "oldLiteral": "'Wir nutzen DORA als praktischen Rahmen, um die Beschreibung, Bewertung und Darstellung wissenschaftlicher Arbeiten zu verbessern.'",
+      "newText": "Wir nutzen DORA als praktischen Rahmen, um die Beschreibung, Bewertung und Darstellung wissenschaftlicher Arbeiten für Autorinnen und Autoren, Herausgeber, Gutachtende, Lesende und Partner zu verbessern.",
+      "reason": "Im Deutschen ausgelassene Adressatengruppen ergänzt."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.implementation.paragraphs[1]",
+      "oldLiteral": "'Fragen zu dieser Verpflichtung können an die Panorama Scholarly Group gerichtet werden. Wir begrüßen konstruktives Feedback von Autoren, Redakteuren, Gutachtern, Bibliotheken, Forschenden und Lesern.'",
+      "newText": "Fragen zu dieser Selbstverpflichtung können an die Panorama Scholarly Group gerichtet werden. Wir begrüßen konstruktive Rückmeldungen von Autorinnen und Autoren, Herausgebern, Gutachtenden, Bibliothekarinnen und Bibliothekaren, Forschenden und Lesenden dazu, wie sich verantwortungsvolle Forschungsbewertung verständlicher und nützlicher gestalten lässt.",
+      "reason": "Bibliothekarinnen und Bibliothekare statt Bibliotheken ergänzt."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.footer",
+      "oldLiteral": "'Die Panorama Scholarly Group Ltd ist eine Organisationsunterzeichnerin der San Francisco Declaration on Research Assessment (DORA). DORA ist keine Regulierungs- oder Akkreditierungsstelle; diese Erklärung dokumentiert unser öffentliches Bekenntnis zu verantwortungsvoller Forschungsbewertung.'",
+      "newText": "Die Panorama Scholarly Group Ltd hat als Organisation die San Francisco Declaration on Research Assessment (DORA) unterzeichnet. DORA ist weder Regulierungs- noch Akkreditierungsstelle; diese Erklärung dokumentiert unsere öffentliche Selbstverpflichtung zu verantwortungsvoller Forschungsbewertung.",
+      "reason": "Die grammatisch unpassende Personenform „Unterzeichnerin“ korrigiert."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.relatedLinks[0].title",
+      "oldLiteral": "'Editorial Standards'",
+      "newText": "Redaktionsstandards",
+      "reason": "Den verlinkten Seitentitel lokalisiert."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.standards[3].action",
+      "oldLiteral": "'Barrierefreiheit lesen'",
+      "newText": "Erklärung zur Barrierefreiheit lesen",
+      "reason": "Das im Ausgangstext genannte Dokument ergänzt."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.frameworkBody",
+      "oldLiteral": "'Diese Verpflichtungen gelten für unsere Zeitschriften, Bücher und wissenschaftlichen Werke. Sie prägen Entscheidungen vor der Veröffentlichung und die Sorgfalt danach.'",
+      "newText": "Diese Verpflichtungen gelten für unsere Zeitschriften, Bücher und wissenschaftlichen Arbeiten. Sie prägen Entscheidungen vor der Veröffentlichung und die sorgfältige Betreuung, sobald eine Arbeit öffentlich zugänglich ist.",
+      "reason": "Den Bezug der nachgelagerten Sorgfalt ergänzt."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.commitments[0].body",
+      "oldLiteral": "'Redaktionelle Entscheidungen beruhen auf wissenschaftlichem Wert, Relevanz, Evidenz und dem erklärten Umfang der Publikation.'",
+      "newText": "Redaktionelle Entscheidungen beruhen auf wissenschaftlichem Wert, Relevanz, Belegen und der angegebenen fachlichen Ausrichtung der Publikation.",
+      "reason": "„Scope“ nicht mit „Umfang“ übersetzt."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflow[0].body",
+      "oldLiteral": "'Eine Publikation legt Umfang und Kriterien fest und bewertet Passung, Qualität und Integrität jeder Einreichung.'",
+      "newText": "Eine Publikation legt ihr fachliches Profil und ihre Kriterien fest und prüft anschließend Passung, Qualität und Integrität jeder Einreichung.",
+      "reason": "„Scope“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "news.publishingSources",
+      "oldLiteral": "'Publikations- und Forschungsplattformen tragen Updates bei.'",
+      "newText": "Publikations- und Forschungsplattformen, die aktuelle Mitteilungen beisteuern.",
+      "reason": "„Updates“ natürlich übertragen."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "news.publishingSourceSingular",
+      "oldLiteral": "'Publikations- und Forschungsplattform trägt Updates bei.'",
+      "newText": "Publikations- und Forschungsplattform, die aktuelle Mitteilungen beisteuert.",
+      "reason": "„Updates“ natürlich übertragen."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "news.recentUpdates",
+      "oldLiteral": "'Aktuelle Updates'",
+      "newText": "Neueste Aktualisierungen",
+      "reason": "„Updates“ lokalisiert."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "news.emptyTitle",
+      "oldLiteral": "'Neue Updates erscheinen hier.'",
+      "newText": "Neue Mitteilungen erscheinen hier.",
+      "reason": "Ankündigungsterminologie vereinheitlicht."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "news.typeLabels.update",
+      "oldLiteral": "'Update'",
+      "newText": "Aktualisierung",
+      "reason": "Das Ankündigungslabel lokalisiert."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "news.typeLabels.call for papers",
+      "oldLiteral": "'Einreichungsaufruf'",
+      "newText": "Aufruf zur Einreichung von Beiträgen",
+      "reason": "Das Ankündigungslabel idiomatisch lokalisiert."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.pathwaysTitle",
+      "oldLiteral": "'Eine Gruppe. Mehrere Wege zur Wissenschaft.'",
+      "newText": "Eine Gruppe. Mehrere Zugänge zu wissenschaftlicher Arbeit.",
+      "reason": "„Ways into scholarship“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.imprintsLede",
+      "oldLiteral": "'Fünf redaktionelle Welten, verbunden durch unser Bekenntnis zu offener, verantwortungsvoller Wissenschaft.'",
+      "newText": "Fünf redaktionelle Bereiche, vereint durch das Bekenntnis zu offener und nachvollziehbarer wissenschaftlicher Praxis.",
+      "reason": "„Accountable scholarship“ präziser übertragen."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.imprintsClosing",
+      "oldLiteral": "'Jede Marke gibt Forschung ein eigenständiges redaktionelles Zuhause – mit einem gemeinsamen Anspruch an Qualität und Zugang.'",
+      "newText": "Jede Verlagsmarke bietet Forschung ein eigenes redaktionelles Zuhause und teilt den Anspruch auf Qualität und Zugang.",
+      "reason": "„Gives a home“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.heroTitle",
+      "oldLiteral": "'Aus Forschung wird ein bleibendes Buch.'",
+      "newText": "Forschung, die als Buch Bestand hat.",
+      "reason": "Die englische Wendung idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.heroLede",
+      "oldLiteral": "'Wir entwickeln anspruchsvolle Wissenschaft über Disziplinen und Regionen hinweg zu Büchern für Leser, Lehrende und Forschende.'",
+      "newText": "Wir entwickeln methodisch fundierte Forschung zu Büchern für Lesende, Lehrende und Forschende aus allen Fachgebieten und aus aller Welt.",
+      "reason": "Objektbezug und globale Reichweite präzisiert."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.readersBody",
+      "oldLiteral": "'Entdecken Sie wissenschaftliche Bücher aus Geistes- und Sozialwissenschaften, Bildung, Kunst, Public Policy sowie KI und Zukunftsgesellschaft. Unsere Bücher unterstützen Forschung, Lehre und informierte öffentliche Debatten.'",
+      "newText": "Entdecken Sie wissenschaftliche Bücher aus den Geistes- und Sozialwissenschaften, der Bildungsforschung, den Künsten, der Politikgestaltung sowie zu KI und Zukunftsgesellschaft. Unsere Bücher unterstützen Forschung, Lehre und informierte öffentliche Debatten.",
+      "reason": "„Public policy“ lokalisiert."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.authorsBody",
+      "oldLiteral": "'Wir begrüßen Vorschläge für Monografien, Sammelbände, Forschungsberichte und wissenschaftliche Lehrbücher. Unser Programm begleitet tragfähige Ideen von der Einreichung bis zur Veröffentlichung und legt Wert auf Qualität, Reichweite und langfristige Wirkung.'",
+      "newText": "Wir begrüßen Vorschläge für wissenschaftliche Monografien, Sammelbände, Forschungsberichte und Lehrbücher. Unser Publikationsprogramm begleitet überzeugende Ideen von der Einreichung bis zur Veröffentlichung und setzt dabei auf akademische Qualität, internationale Reichweite und langfristige Wirkung.",
+      "reason": "Internationale Reichweite ergänzt."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.formats[2].description",
+      "oldLiteral": "'Evidenz und Analyse für Politik, Praxis und Gesellschaft.'",
+      "newText": "Belege und Analysen für Politikgestaltung, Praxis und Gesellschaft.",
+      "reason": "„Evidence“ und „policy“ natürlicher übertragen."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "books.formats[3].description",
+      "oldLiteral": "'Verlässliche Ressourcen für Lehre und Lernen.'",
+      "newText": "Verlässliche Lehr- und Lernmaterialien.",
+      "reason": "„Resources“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.scopeText",
+      "oldLiteral": "'Für Zeitschriften, Bücher und andere wissenschaftliche Werke der Panorama Scholarly Group und ihrer Imprints.'",
+      "newText": "Zeitschriften, Bücher und andere wissenschaftliche Arbeiten, die von der Panorama Scholarly Group und ihren Imprints veröffentlicht werden.",
+      "reason": "Die Satzfragmente grammatisch verbunden."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.railNote",
+      "oldLiteral": "'Einzelne Zeitschriften und Imprints können zusätzliche Anforderungen für Fachgebiet, Beitragstyp, Buchprojekt oder Einreichungsformat festlegen.'",
+      "newText": "Einzelne Zeitschriften und Imprints können zusätzliche Anforderungen für bestimmte Fachgebiete, Beitragstypen, Buchprojekte oder Einreichungsformate veröffentlichen.",
+      "reason": "Die Aufzählung grammatisch vervollständigt."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.sections.record",
+      "oldLiteral": "'Korrekturen, Bedenkenserklärungen und Rücknahmen'",
+      "newText": "Korrekturen, Besorgnisbekundungen und Rücknahmen",
+      "reason": "Den etablierten Fachausdruck verwendet."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.40",
+      "oldLiteral": "'Wir begrüßen Originalforschung, Reviews und Perspektiven aus aller Welt.'",
+      "newText": "Wir begrüßen Originalarbeiten, Übersichtsarbeiten und Perspektiven aus aller Welt.",
+      "reason": "Publikationstypen fachsprachlich übersetzt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.60",
+      "oldLiteral": "'Unsere Zeitschriften begrüßen Arbeiten, die Fachgrenzen überschreiten und zugleich einen klaren Umfang, transparente Evidenz und verantwortungsvolle redaktionelle Entscheidungen wahren.'",
+      "newText": "Unsere Zeitschriften begrüßen Arbeiten, die Fachgrenzen überschreiten und zugleich eine klare thematische Ausrichtung, transparente Belege und verantwortungsvolle redaktionelle Entscheidungen wahren.",
+      "reason": "„Scope“ nicht als „Umfang“ übersetzt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.76",
+      "oldLiteral": "'Evidenz für resiliente Menschen, Institutionen und Umwelten.'",
+      "newText": "Belege für widerstandsfähige Menschen, Institutionen und Umwelt.",
+      "reason": "„Resilient“ natürlich übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.2",
+      "oldLiteral": "'Wo Evidenz'",
+      "newText": "Wo Forschungserkenntnisse",
+      "reason": "Zeilenübersetzung für den vollständigen Satz abgestimmt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.3",
+      "oldLiteral": "'auf gelebte Gesundheit trifft.'",
+      "newText": "auf persönliche Erfahrungen mit Gesundheit treffen.",
+      "reason": "Die Zeilenübersetzung idiomatisch vervollständigt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.14",
+      "oldLiteral": "'Ein besser vernetztes,'",
+      "newText": "Eine stärker vernetzte,",
+      "reason": "Zeilenübersetzung grammatisch abgestimmt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.15",
+      "oldLiteral": "'gesünderes Morgen.'",
+      "newText": "gesündere Zukunft.",
+      "reason": "„Morgen“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.34",
+      "oldLiteral": "'Technologie für Wirkung am Menschen.'",
+      "newText": "Technologie, die Menschen zugutekommt.",
+      "reason": "„Human impact“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.36",
+      "oldLiteral": "'Erkenntnisse erweitern, Ergebnisse verbessern.'",
+      "newText": "Erkenntnisse erweitern, Behandlungsergebnisse verbessern.",
+      "reason": "„Outcomes“ im medizinischen Kontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.43",
+      "oldLiteral": "'für ein weiter reichendes Morgen.'",
+      "newText": "für eine offenere Zukunft.",
+      "reason": "Den fragmentarischen Satz idiomatisch vervollständigt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.44",
+      "oldLiteral": "'Wir begrüßen Originalforschung, Reviews und Perspektiven, die disziplinen- und gemeinschaftsübergreifend Verständnis und Gesundheit fördern.'",
+      "newText": "Wir begrüßen Originalarbeiten, Übersichtsarbeiten und Perspektiven, die fach- und gemeinschaftsübergreifend das Verständnis vertiefen und die Gesundheit verbessern.",
+      "reason": "Publikationstypen präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.48",
+      "oldLiteral": "'Interdisziplinäre Forschung für gesündere Leben.'",
+      "newText": "Interdisziplinäre Forschung für ein gesünderes Leben.",
+      "reason": "Unnatürliche Mehrzahlform korrigiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.53",
+      "oldLiteral": "'Krebsbiologie und Therapeutik'",
+      "newText": "Krebsbiologie und Krebstherapie",
+      "reason": "Fachgebietsbezeichnung natürlicher formuliert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.60",
+      "oldLiteral": "'Wir veröffentlichen Forschung, die klinisches Wissen mit den Bedingungen, Systemen und Technologien verbindet, durch die Gesundheit erfahren wird.'",
+      "newText": "Wir veröffentlichen Forschung, die klinisches Wissen mit den Bedingungen, Systemen und Technologien verbindet, durch die Menschen Gesundheit im Alltag erleben.",
+      "reason": "Wörtliche Wendung geglättet."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.66",
+      "oldLiteral": "'Health Nexus ist ein Imprint für Forschung, die die Gesundheitswissenschaften mit den Menschen, Institutionen und Technologien ins Gespräch bringt, die Gesundheit prägen.'",
+      "newText": "Health Nexus ist ein Imprint für Forschung, die die Gesundheitswissenschaften mit den Menschen, Institutionen und Technologien in Beziehung setzt, die Gesundheit prägen.",
+      "reason": "Unidiomatische Wendung korrigiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.74",
+      "oldLiteral": "'Gesundheit ist ein System, kein abgeschotteter Bereich.'",
+      "newText": "Gesundheit ist ein System, kein isolierter Bereich.",
+      "reason": "Die Metapher „silo“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.75",
+      "oldLiteral": "'Gesundheit wird nicht nur durch klinische Begegnungen geprägt, sondern auch durch Politik, Infrastruktur, Daten, Umwelten, Gemeinschaften und Technologien des Alltags.'",
+      "newText": "Gesundheit wird nicht nur durch klinische Versorgung geprägt, sondern auch durch Politikgestaltung, Infrastruktur, Daten, Lebensumwelten, Gemeinschaften und Technologien des Alltags.",
+      "reason": "„Policy“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.113",
+      "oldLiteral": "'Wir veröffentlichen Forschung, die Gesundheit innerhalb von Institutionen, Gemeinschaften, Technologien und Umwelten versteht.'",
+      "newText": "Wir veröffentlichen Forschung, die Gesundheit im Zusammenhang mit Institutionen, Gemeinschaften, Technologien und Lebensumwelten betrachtet.",
+      "reason": "Unnatürliche Wendung korrigiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.119",
+      "oldLiteral": "'Stellen Sie Forschungsfrage, Methoden, Evidenz, Grenzen und relevante Erklärungen klar dar.'",
+      "newText": "Stellen Sie Forschungsfrage, Methoden, Belege, Grenzen und relevante Angaben klar dar.",
+      "reason": "„Declarations“ im Einreichungskontext übersetzt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.125",
+      "oldLiteral": "'Wir unterstützen zugängliche Forschung und klare Kommunikation, damit Evidenz über Fachgemeinschaften hinaus wirken kann.'",
+      "newText": "Wir unterstützen zugängliche Forschung und klare Kommunikation, damit wissenschaftliche Erkenntnisse über Fachgemeinschaften hinaus verbreitet werden können.",
+      "reason": "Unpassende Übertragung von „travel“ korrigiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.129",
+      "oldLiteral": "'Wir begrüßen Forschung, die Menschen, Bevölkerungen und die praktischen Folgen von Wissen im Blick behält.'",
+      "newText": "Wir begrüßen Forschung, die Menschen, Bevölkerungsgruppen und die praktischen Folgen von Wissen im Blick behält.",
+      "reason": "„Populations“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.14",
+      "oldLiteral": "'aktive Zeitschriften und im Wachstum'",
+      "newText": "aktive Zeitschriften, Tendenz steigend",
+      "reason": "Fragmentarische Kennzahl idiomatisch formuliert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.15",
+      "oldLiteral": "'aktive Zeitschriften und weiter wachsend'",
+      "newText": "aktive Zeitschriften, Tendenz steigend",
+      "reason": "Fragmentarische Kennzahl idiomatisch formuliert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.31",
+      "oldLiteral": "'Wir begrüßen Originalforschung, Reviews und Perspektiven, die komplexe Fragen der Umwelt- und Lebenswissenschaften klarer, nützlicher und für betroffene Gemeinschaften zugänglicher machen.'",
+      "newText": "Wir begrüßen Originalarbeiten, Übersichtsarbeiten und Perspektiven, die komplexe Fragen der Umwelt- und Lebenswissenschaften verständlicher machen, ihren Nutzen erhöhen und sie den betroffenen Gemeinschaften näherbringen.",
+      "reason": "Publikationstypen präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.74",
+      "oldLiteral": "'Evidenz im Kontext. Wissen in Anwendung.'",
+      "newText": "Belege im Kontext. Wissen in der Anwendung.",
+      "reason": "Unvollständige Präpositionalfügung korrigiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.83",
+      "oldLiteral": "'Wir begrüßen Forschung, die komplexe Fragen der Umwelt- und Lebenswissenschaften klärt und Evidenz zwischen Disziplinen und Gemeinschaften vermittelt.'",
+      "newText": "Wir begrüßen Forschung, die komplexe Fragen der Umwelt- und Lebenswissenschaften klärt und wissenschaftliche Erkenntnisse zwischen Fachgebieten und Gemeinschaften vermittelt.",
+      "reason": "„Evidence travel“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.104",
+      "oldLiteral": "'Klarer Umfang'",
+      "newText": "Klare thematische Ausrichtung",
+      "reason": "„Scope“ nicht mit „Umfang“ übersetzt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.107",
+      "oldLiteral": "'Wir schätzen angemessene Methoden, transparente Berichterstattung und Schlussfolgerungen, die der Evidenz entsprechen.'",
+      "newText": "Wir schätzen geeignete Methoden, transparente Berichterstattung und Schlussfolgerungen, die durch die Belege gedeckt sind.",
+      "reason": "„Proportionate to the evidence“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.5",
+      "oldLiteral": "'Charter veröffentlicht Forschung, die Recht, Governance und das öffentliche Leben stärkt und eine gerechtere, offenere, evidenzbasierte Gesellschaft voranbringt.'",
+      "newText": "Charter veröffentlicht Forschung, die Recht, Governance und das öffentliche Leben stärkt und eine gerechtere, offenere und durch Belege gestützte Gesellschaft fördert.",
+      "reason": "„Evidence-informed“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.26",
+      "oldLiteral": "'Für das Charter-Programm werden weitere Zeitschriften zu Politik, Recht, Sozialforschung, Bildung und Governance entwickelt.'",
+      "newText": "Für das Charter-Programm werden weitere Zeitschriften zu Politikgestaltung, Recht, Sozialforschung, Bildung und Governance entwickelt.",
+      "reason": "„Policy“ im Fachkontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.63",
+      "oldLiteral": "'Public Policy'",
+      "newText": "Politikgestaltung",
+      "reason": "Das Fachgebiet „Public Policy“ lokalisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.78",
+      "oldLiteral": "'Wir veröffentlichen Forschung, die öffentliche Institutionen verständlicher und rechenschaftspflichtiger macht und sie besser für die Komplexität der Gegenwart rüstet.'",
+      "newText": "Wir veröffentlichen Forschung, die öffentliche Institutionen verständlicher und rechenschaftspflichtiger macht und sie besser in die Lage versetzt, der Komplexität des heutigen Lebens gerecht zu werden.",
+      "reason": "Unnatürliche Wendung korrigiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.80",
+      "oldLiteral": "'Ein sorgfältiger Weg von der Idee zur öffentlichen Wissenschaft.'",
+      "newText": "Ein klar strukturierter Weg von der Idee zur Wissenschaft für die Öffentlichkeit.",
+      "reason": "„Rigorous route“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.81",
+      "oldLiteral": "'Charter begrüßt Originalforschung, Reviews und Perspektiven, die das Verständnis von Recht, Politik, Governance und Gesellschaft vertiefen.'",
+      "newText": "Charter begrüßt Originalarbeiten, Rezensionen und Perspektiven, die das Verständnis von Recht, Politikgestaltung, Governance und Gesellschaft vertiefen.",
+      "reason": "Publikationstypen und „policy“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.83",
+      "oldLiteral": "'Ein wissenschaftliches Imprint für das öffentliche Leben.'",
+      "newText": "Ein wissenschaftliches Verlagsprogramm für das öffentliche Leben.",
+      "reason": "„Imprint“ natürlicher übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.84",
+      "oldLiteral": "'Charter ist ein Panorama-Imprint für unabhängige Forschung zu den Institutionen, Beziehungen und Ideen, die das Zusammenleben prägen.'",
+      "newText": "Charter ist ein Verlagsprogramm von Panorama für unabhängige Forschung zu den Institutionen, Beziehungen und Ideen, die das Zusammenleben prägen.",
+      "reason": "„Imprint“ natürlicher übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.97",
+      "oldLiteral": "'Öffentliche Fragen verlangen öffentliche Begründung.'",
+      "newText": "Öffentliche Fragen verlangen eine öffentliche, nachvollziehbare Begründung.",
+      "reason": "„Public reasoning“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.98",
+      "oldLiteral": "'Recht, Politik, Governance und gesellschaftliches Leben sind miteinander verbundene Systeme. Entscheidungen in einem Bereich des öffentlichen Lebens können Chancen, Autorität, Risiken und Gehör an anderer Stelle neu verteilen.'",
+      "newText": "Recht, Politikgestaltung, Governance und gesellschaftliches Leben sind miteinander verbundene Systeme. Entscheidungen in einem Bereich des öffentlichen Lebens können Chancen, Autorität, Risiken und Mitsprache an anderer Stelle neu verteilen.",
+      "reason": "„Policy“ und „voice“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.104",
+      "oldLiteral": "'Charter unterstützt Forschung mit anspruchsvollen Fragen und disziplinierten Methoden. Sie kann kritisch, konstruktiv, theoretisch, empirisch oder gemischt-methodisch sein – sofern ihre Begründung prüfbar ist.'",
+      "newText": "Charter unterstützt Forschung mit anspruchsvollen Fragestellungen und methodischer Disziplin. Sie kann kritisch, konstruktiv, theoretisch, empirisch oder methodenkombinierend sein – sofern ihre Argumentation nachvollziehbar und überprüfbar ist.",
+      "reason": "Unnatürliche Wortbildung geglättet."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.111",
+      "oldLiteral": "'Methoden, Evidenz und Interpretation sollten aufeinander abgestimmt, transparent und der Frage angemessen sein.'",
+      "newText": "Methoden, Belege und Interpretation sollten aufeinander abgestimmt, transparent und der Fragestellung angemessen sein.",
+      "reason": "„Evidence“ im Deutschen präziser übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.121",
+      "oldLiteral": "'Autoren sollten Methoden und Evidenz korrekt darstellen, Quellen anerkennen, relevante Interessen offenlegen, geltende ethische Anforderungen einhalten und die Grenzen einer Studie klar benennen. Einreichungen können abgelehnt werden, wenn der wissenschaftliche Beitrag nicht zuverlässig bewertet werden kann.'",
+      "newText": "Autorinnen und Autoren sollten Methoden und Belege korrekt darstellen, Quellen kenntlich machen, relevante Interessen offenlegen, geltende ethische Anforderungen einhalten und die Grenzen ihrer Studie klar benennen. Einreichungen können abgelehnt werden, wenn sich der wissenschaftliche Sachverhalt nicht verlässlich beurteilen lässt.",
+      "reason": "„Acknowledge sources“ und „record“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.127",
+      "oldLiteral": "'Benennen Sie Frage, Methode, Evidenz, Grenzen und relevante Erklärungen präzise.'",
+      "newText": "Benennen Sie Fragestellung, Methode, Belege, Grenzen und relevante Angaben präzise.",
+      "reason": "„Declarations“ im Einreichungskontext übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.137",
+      "oldLiteral": "'Forschung sollte ihr unmittelbares Fachgebiet überschreiten können, ohne die Präzision zu verlieren, die sie vertrauenswürdig macht.'",
+      "newText": "Forschung sollte über ihr unmittelbares Fachgebiet hinausreichen können, ohne die Präzision einzubüßen, die sie vertrauenswürdig macht.",
+      "reason": "Wörtliche Übertragung von „travel“ geglättet."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.152",
+      "oldLiteral": "'Charter ist das Imprint der Panorama Scholarly Group für Recht, Politik, Governance und Gesellschaft. Wir veröffentlichen Forschung zu den Institutionen und Beziehungen, durch die Menschen entscheiden, Autorität verteilen und zusammenleben.'",
+      "newText": "Charter ist das Imprint der Panorama Scholarly Group für Recht, Politikgestaltung, Governance und Gesellschaft. Wir veröffentlichen Forschung zu den Institutionen und Beziehungen, durch die Menschen Entscheidungen treffen, Autorität verteilen und zusammenleben.",
+      "reason": "„Policy“ und „make decisions“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.32",
+      "oldLiteral": "'Wir begrüßen Originalforschung, kritische Reviews und sorgfältig begründete Perspektiven, die geisteswissenschaftliche, künstlerische und philosophische Forschung mit klaren Fragen, geeigneten Methoden und nachvollziehbarer Evidenz voranbringen.'",
+      "newText": "Wir begrüßen Originalarbeiten, kritische Rezensionen und sorgfältig begründete Perspektiven, die geisteswissenschaftliche, künstlerische und philosophische Forschung mit klaren Fragen, geeigneten Methoden und transparent ausgewiesenen Belegen voranbringen.",
+      "reason": "Publikationstypen und „accountable evidence“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.59",
+      "oldLiteral": "'Forschung zu Hören, Klangkulturen, Mediation und den Formen, in denen kulturelle Erfahrung geteilt wird.'",
+      "newText": "Forschung zu Hören, Klangkulturen, medialer Vermittlung und den Formen, in denen kulturelle Erfahrungen geteilt werden.",
+      "reason": "„Mediation“ im Medienkontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.63",
+      "oldLiteral": "'Forschung sollte Begriffe, Praktiken und kulturelle Formen in den Geschichten und Gemeinschaften verorten, die ihnen Bedeutung geben.'",
+      "newText": "Forschung sollte Begriffe, Praktiken und kulturelle Formen in den historischen Entwicklungen und Gemeinschaften verorten, die ihnen Bedeutung geben.",
+      "reason": "„Histories“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.67",
+      "oldLiteral": "'Quellen, Methoden, Genehmigungen, Interessenkonflikte, Korrekturen und relevante Grenzen sollten sorgfältig berichtet werden.'",
+      "newText": "Quellen, Methoden, Genehmigungen, Interessenkonflikte, Korrekturen und relevante Grenzen sollten sorgfältig dokumentiert werden.",
+      "reason": "„Reported“ im Publikationskontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.85",
+      "oldLiteral": "'Texte, Archive, Geschichte, Sprachen und kulturelle Kontexte, in denen Bedeutung entsteht.'",
+      "newText": "Texte, Archive, historische Entwicklungen, Sprachen und die kulturellen Kontexte, in denen Bedeutung entsteht.",
+      "reason": "„Histories“ natürlich übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.104",
+      "oldLiteral": "'Wir unterstützen Forschung darüber, wie Menschen Bedeutung schaffen, Kultur hervorbringen, Vergangenheit erinnern und mit überlieferten Ideen und Praktiken leben.'",
+      "newText": "Wir unterstützen Forschung dazu, wie Menschen Bedeutung schaffen, Kultur hervorbringen, sich an die Vergangenheit erinnern und mit überlieferten Ideen und Praktiken leben.",
+      "reason": "Unidiomatische Verbindung „Vergangenheit erinnern“ korrigiert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.106",
+      "oldLiteral": "'Ein sorgfältiger Weg von der Forschung zur Veröffentlichung.'",
+      "newText": "Ein klar strukturierter Weg von der Forschung zur Veröffentlichung.",
+      "reason": "„Rigorous route“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.107",
+      "oldLiteral": "'Threnody begrüßt Originalforschung, kritische Reviews und sorgfältig begründete Perspektiven, die Geisteswissenschaften, Kunst und Philosophie voranbringen.'",
+      "newText": "Threnody begrüßt Originalarbeiten, kritische Rezensionen und sorgfältig begründete Perspektiven, die geisteswissenschaftliche, künstlerische und philosophische Forschung voranbringen.",
+      "reason": "Publikationstypen übersetzt."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.113",
+      "oldLiteral": "'Eigenständige Redaktionsgemeinschaften, verbunden durch sorgfältige Wissenschaft.'",
+      "newText": "Eigenständige Redaktionsgemeinschaften, verbunden durch sorgfältige wissenschaftliche Arbeit.",
+      "reason": "„Careful scholarship“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.124",
+      "oldLiteral": "'Anspruchsvolle Fragen. Disziplinierte Aussagen.'",
+      "newText": "Anspruchsvolle Fragen. Präzise Aussagen.",
+      "reason": "„Disciplined claims“ idiomatisch übertragen."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.130",
+      "oldLiteral": "'Jede Threnody-Zeitschrift hat eigene Ziele, ein eigenes Profil und eigene Einreichungsanforderungen. Die folgenden Grundsätze helfen Autoren bei der Auswahl und bei der Vorbereitung einer vollständigen, bewertbaren Einreichung.'",
+      "newText": "Jede Threnody-Zeitschrift hat eigene Ziele, ein eigenes Profil und eigene Einreichungsanforderungen. Die folgenden Grundsätze helfen Autorinnen und Autoren, sorgfältig auszuwählen und eine vollständige, prüfbare Einreichung vorzubereiten.",
+      "reason": "Einreichungshinweise natürlicher formuliert."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.133",
+      "oldLiteral": "'Autoren sollten Methoden und Evidenz korrekt darstellen, Quellen anerkennen, relevante Interessen offenlegen, erforderliche Genehmigungen einholen, geltende ethische Anforderungen einhalten und die Grenzen einer Studie klar benennen.'",
+      "newText": "Autorinnen und Autoren sollten Methoden und Belege korrekt darstellen, Quellen kenntlich machen, relevante Interessen offenlegen, erforderliche Genehmigungen einholen, geltende ethische Anforderungen einhalten und die Grenzen ihrer Studie klar benennen.",
+      "reason": "„Acknowledge sources“ präzisiert."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.ridgeline.description",
+      "oldLiteral": "'Das Imprint der Panorama Scholarly Group für Forschung zu Technologie, Ingenieurwesen und angewandter KI – für eine menschlichere, nachhaltigere und gerechtere Zukunft.'",
+      "newText": "Ridgeline ist das Imprint der Panorama Scholarly Group für Forschung zu Technologie, Ingenieurwesen und angewandter KI.",
+      "reason": "Nicht im englischen Ausgangstext enthaltene Zukunftsversprechen entfernt."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.charter.scope",
+      "oldLiteral": "'Politik, Recht & Governance'",
+      "newText": "Politikgestaltung, Recht & Governance",
+      "reason": "„Policy“ als Fachgebiet lokalisiert."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.charter.description",
+      "oldLiteral": "'Das Imprint der Panorama Scholarly Group für Forschung zu Politik, Recht und Governance.'",
+      "newText": "Charter ist das Imprint der Panorama Scholarly Group für Forschung zu Politikgestaltung, Recht und Governance.",
+      "reason": "„Policy“ im Fachkontext präzisiert."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.charter.disciplines[0]",
+      "oldLiteral": "'Öffentliche Politik'",
+      "newText": "Politikgestaltung",
+      "reason": "Die Fachbezeichnung „Public Policy“ lokalisiert."
+    }
+  ],
+  "notes": []
+}

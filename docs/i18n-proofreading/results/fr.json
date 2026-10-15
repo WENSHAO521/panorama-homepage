@@ -1,0 +1,504 @@
+{
+  "locale": "fr",
+  "reviewedRows": 1444,
+  "corrections": [
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[0]",
+      "oldLiteral": "'Ce cadre commun régit l’attribution des DOI aux contenus des revues. Chaque revue l’applique progressivement aux nouvelles publications par ses politiques publiques de types d’articles, d’évaluation et de frais, en précisant les rubriques adoptées. La voie est confirmée avant publication. Un DOI identifie une publication sans certifier l’évaluation par les pairs ni garantir l’indexation.'",
+      "newText": "Ce cadre commun régit l’attribution des DOI aux contenus des revues. Chaque revue l’applique aux nouvelles publications au moyen de ses politiques publiées relatives aux types d’articles, à l’évaluation et aux frais, en précisant les rubriques qu’elle a adoptées. L’admissibilité est confirmée avant publication. Un DOI identifie une publication sans certifier l’évaluation par les pairs ni garantir l’indexation.",
+      "reason": "Corrige la traduction de l’admissibilité confirmée."
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[1]",
+      "oldLiteral": "'Les articles de recherche, revues de littérature, revues systématiques, méta-analyses, contributions théoriques et méthodologiques, articles de données, études de cas, analyses de politiques et autres contributions substantielles évaluées par des pairs externes reçoivent normalement un DOI d’éditeur PSG via Crossref. Une exonération d’APC, une remise ou une invitation ne change pas cette voie. La fonction scientifique et la procédure approuvée priment sur le seul paiement.'",
+      "newText": "Les articles de recherche, articles de synthèse, revues systématiques, méta-analyses, articles théoriques et méthodologiques, articles de données, études de cas, analyses de politiques publiques et autres contributions substantielles évaluées par des pairs externes reçoivent normalement un DOI d’éditeur PSG via Crossref. Une exonération d’APC, une remise ou une invitation ne modifie pas cette procédure. L’attribution du DOI dépend de la fonction scientifique et du processus d’évaluation approuvé, et non du seul paiement.",
+      "reason": "Précise « review articles » et maintient le critère d’attribution fondé sur la fonction scientifique et la procédure d’évaluation."
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[5]",
+      "oldLiteral": "'La notice Zenodo comprend le fichier final, le titre, les auteurs, les ORCID disponibles, la date, le nom de la revue, le volume, le numéro, les pages ou le numéro d’article, le type, la licence et l’URL officielle. Le dépôt et la page OJS se relient mutuellement; le DOI figure sur la page et dans le fichier final. Réservez-le avant finalisation et ne le présentez comme actif qu’après publication du dépôt. Indiquez clairement évaluation éditoriale ou par des pairs externes; fournisseur de DOI et statut des APC ne remplacent pas cette information.'",
+      "newText": "La notice Zenodo comprend le fichier final, le titre, les auteurs, les ORCID, le cas échéant, la date de publication, le titre de la revue, le volume et le numéro, les pages ou le numéro d’article, le type de contenu, la licence et l’URL de l’article sur le site officiel de la revue. La notice et la page de publication OJS doivent renvoyer l’une à l’autre ; le DOI attribué figure sur la page de l’article et dans le fichier final. Réservez un DOI Zenodo avant de finaliser le fichier et ne le présentez comme actif qu’une fois le dépôt publié. Indiquez clairement s’il s’agit d’une évaluation éditoriale ou d’une évaluation externe par les pairs ; le fournisseur du DOI et le statut des APC ne permettent pas d’établir cette distinction.",
+      "reason": "Rétablit plusieurs précisions omises sur la notice Zenodo."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.divisions[1].description",
+      "oldLiteral": "'La division de recherche de PSG, opérée indépendamment à l’adresse research.panorama-sg.com.'",
+      "newText": "La division de recherche de PSG, qui mène ses activités de manière indépendante à l’adresse research.panorama-sg.com.",
+      "reason": "Remplace le calque peu naturel « opérée indépendamment »."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.connectionsIntro",
+      "oldLiteral": "'Nos relations s’étendent aux institutions, communautés culturelles, bibliothèques et services de connaissance.'",
+      "newText": "Nos relations s’étendent aux institutions, aux communautés culturelles, aux bibliothèques et aux plateformes de services d’information scientifique.",
+      "reason": "Évite le calque peu idiomatique de « knowledge-service platforms »."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[1].description",
+      "oldLiteral": "'Un lien avec un service de découverte et de littérature pour les communautés de recherche en sciences humaines et sociales.'",
+      "newText": "Un lien avec un service de découverte et de recherche documentaire pour les communautés de recherche en sciences humaines et sociales.",
+      "reason": "Rend « literature-service » par une expression documentaire idiomatique."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[2].kind",
+      "oldLiteral": "'Service de connaissance'",
+      "newText": "Service d’information scientifique",
+      "reason": "Remplace le calque « service de connaissance »."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[2].description",
+      "oldLiteral": "'Une plateforme complète de services de connaissance pour les revues, les livres et la littérature scientifique.'",
+      "newText": "Une plateforme complète de services d’information scientifique pour les revues, les livres et les travaux de recherche.",
+      "reason": "Remplace le calque « services de connaissance »."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[3].description",
+      "oldLiteral": "'Une organisation d’édition scientifique qui publie des revues en accès ouvert évaluées par les pairs dans les domaines des sciences sociales, de la critique d’art et de la gouvernance numérique.'",
+      "newText": "Une organisation d’édition scientifique qui publie des revues en accès ouvert évaluées par les pairs dans les domaines des sciences sociales, des arts et de la gouvernance numérique.",
+      "reason": "« Arts » ne signifie pas ici « critique d’art »."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.heroLede",
+      "oldLiteral": "'Des responsabilités claires et des procédures responsables aident la recherche à rester rigoureuse, transparente et digne de confiance.'",
+      "newText": "Des responsabilités clairement définies et des mécanismes de reddition de comptes contribuent à ce que les travaux scientifiques demeurent rigoureux, transparents et dignes de confiance.",
+      "reason": "Rend le sens de « accountable processes » sans le confondre avec la transparence déjà mentionnée."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.heroLede",
+      "oldLiteral": "'Nous travaillons avec des institutions, communautés culturelles, bibliothèques et services de connaissance pour que la recherche aille plus loin et reste utile à davantage de lecteurs.'",
+      "newText": "Nous travaillons avec des institutions, des communautés culturelles, des bibliothèques et des services d’information pour que la recherche circule davantage et reste utile à un plus grand nombre de lecteurs.",
+      "reason": "Remplace le calque « services de connaissance »."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[2].kind",
+      "oldLiteral": "'Service de connaissance'",
+      "newText": "Service d’information scientifique",
+      "reason": "Remplace le calque « service de connaissance »."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[2].description",
+      "oldLiteral": "'Une plateforme de services de connaissance qui facilite la découverte des revues, des livres et de la littérature scientifique.'",
+      "newText": "Une plateforme de services d’information scientifique qui facilite la découverte de revues, de livres et de publications de recherche.",
+      "reason": "Remplace le calque « services de connaissance »."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.regionalBody",
+      "oldLiteral": "'D’autres plateformes de connaissances scientifiques élargissent les voies de découverte au sein des communautés de recherche régionales.'",
+      "newText": "D’autres plateformes de ressources scientifiques élargissent les possibilités de découverte au sein des communautés régionales de recherche.",
+      "reason": "Rétablit le rôle des plateformes de savoir scientifique et rattache correctement « régionales » aux communautés de recherche."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.cjwkBody",
+      "oldLiteral": "'Plateforme complète de services de connaissances pour les revues, les livres et la littérature de recherche.'",
+      "newText": "Plateforme complète de services d’information scientifique pour les revues, les livres et la littérature de recherche.",
+      "reason": "Remplace le calque « services de connaissances »."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.identifiersLede",
+      "oldLiteral": "'Les systèmes d’enregistrement et les catalogues de bibliothèques donnent aux revues, aux organisations et aux articles un langage commun entre bibliothèques, plateformes et workflows de recherche.'",
+      "newText": "Les systèmes d’enregistrement et les catalogues de bibliothèques donnent aux revues, aux organisations et aux articles un langage commun entre bibliothèques, plateformes et processus de recherche.",
+      "reason": "Remplace l’anglicisme « workflows » par « processus »."
+    },
+    {
+      "file": "web/src/i18n/navigation.ts",
+      "key": "navigation.footerResearchInfrastructure",
+      "oldLiteral": "'Recherche & infrastructures'",
+      "newText": "Recherche et infrastructures",
+      "reason": "Remplace l’esperluette par la conjonction française."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeText",
+      "oldLiteral": "'Cette déclaration publique s’applique aux revues, aux livres, aux services savants et aux pratiques éditoriales et de publication de Panorama Scholarly Group Ltd et de ses labels.'",
+      "newText": "Cette déclaration publique s’applique aux revues, aux livres, aux services destinés à la communauté scientifique et aux pratiques éditoriales et de publication de Panorama Scholarly Group Ltd et de ses marques éditoriales.",
+      "reason": "Remplace « services savants » par une formulation naturelle."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.purpose.paragraphs[1]",
+      "oldLiteral": "'Cet engagement s’applique aux pratiques éditoriales et de publication de Panorama Scholarly Group et de ses labels. Il complète nos normes éditoriales et notre politique d’éthique de la publication, sans remplacer le champ ni les critères de décision propres à une revue ou à un projet de livre.'",
+      "newText": "Cet engagement s’applique aux pratiques éditoriales et de publication de Panorama Scholarly Group et de ses marques éditoriales. Il complète nos normes éditoriales et notre politique d’éthique de la publication, sans remplacer le champ ni les critères de décision propres à une revue ou à un projet de livre.",
+      "reason": "Harmonise la traduction de « imprints »."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.intro",
+      "oldLiteral": "'Nous utilisons DORA comme cadre pratique pour améliorer la manière dont les travaux savants sont décrits, évalués et présentés.'",
+      "newText": "Nous nous appuyons sur DORA comme cadre pratique pour améliorer la façon dont les travaux scientifiques sont décrits, évalués et présentés aux auteurs, aux éditeurs, aux évaluateurs, aux lecteurs et aux partenaires.",
+      "reason": "Rétablit les publics auxquels les travaux sont présentés."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.doraCaption",
+      "oldLiteral": "'Panorama Scholarly Group Ltd est signataire de DORA en tant qu’organisation. Ce badge DORA transparent destiné aux signataires renvoie à la déclaration officielle et aux informations destinées aux signataires.'",
+      "newText": "Panorama Scholarly Group Ltd est signataire de DORA en tant qu’organisation. Ce badge transparent attestant de notre statut de signataire de DORA renvoie à la déclaration officielle et aux ressources destinées aux signataires.",
+      "reason": "Corrige le sens de « transparent badge »."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.relatedLinks[0].body",
+      "oldLiteral": "'Jugement éditorial, évaluation par les pairs, paternité, déclarations et corrections.'",
+      "newText": "Jugement éditorial, évaluation par les pairs, attribution de la qualité d’auteur, déclarations et corrections.",
+      "reason": "« Authorship » ne signifie pas ici paternité."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.client.resultsPageSummary",
+      "oldLiteral": "'{base} Page {page} sur {pages}.'",
+      "newText": "{base}. Page {page} sur {pages}.",
+      "reason": "Rétablit le point manquant entre les phrases."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.sections.review",
+      "oldLiteral": "'Évaluation éditoriale et pairs'",
+      "newText": "Évaluation éditoriale et évaluation par les pairs",
+      "reason": "Corrige la formulation incomplète « et pairs »."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.railText",
+      "oldLiteral": "'Les questions d’intégrité sont traitées selon des procédures documentées, une procédure équitable et un souci de clarté du dossier publié.'",
+      "newText": "Les questions d’intégrité sont traitées selon des procédures documentées et dans le respect de l’équité, afin de préserver la clarté du dossier publié.",
+      "reason": "Évite la répétition de « procédure »."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.openAccess.railText",
+      "oldLiteral": "'Ouvert par conception, licencié avec précision et réutilisable avec confiance. La licence figurant sur la version de référence fait foi.'",
+      "newText": "Conçu pour être ouvert, assorti de licences précises et réutilisable en toute confiance. La licence indiquée sur la version de référence fait foi pour la réutilisation de l’œuvre.",
+      "reason": "Remplace deux calques peu naturels."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.accessibility.lede",
+      "oldLiteral": "'Nous voulons que les informations scientifiques soient utilisables par le plus grand nombre, quels que soient l’appareil, le navigateur ou la technologie d’assistance.'",
+      "newText": "Nous voulons que les informations scientifiques soient utilisables par le plus grand nombre, quel que soit l’appareil, le navigateur ou la technologie d’assistance.",
+      "reason": "Corrige l’accord dans la construction au singulier."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.23",
+      "oldLiteral": "'Ridgeline publie des recherches rigoureuses et indépendantes à l’intersection de la technologie, de l’ingénierie et de la société. Les défis auxquels nous faisons face exigent plus que des réponses issues d’une seule discipline.'",
+      "newText": "Ridgeline publie des recherches rigoureuses et indépendantes à la croisée de la technologie, de l’ingénierie et de la société. Les défis auxquels nous sommes confrontés exigent plus que des réponses relevant d’une seule discipline.",
+      "reason": "Restaure le sens complet des deux phrases, que le candidat remplaçait par un slogan sans rapport."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.49",
+      "oldLiteral": "'Recherche interdisciplinaire'",
+      "newText": "Recherche pluridisciplinaire",
+      "reason": "« Multidisciplinary » signifie pluridisciplinaire."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.60",
+      "oldLiteral": "'Nos revues accueillent les travaux qui franchissent les frontières disciplinaires tout en conservant un périmètre clair, des données transparentes et un jugement éditorial responsable.'",
+      "newText": "Nos revues accueillent les travaux qui franchissent les frontières disciplinaires tout en conservant un périmètre clair, des éléments probants présentés en toute transparence et un jugement éditorial responsable.",
+      "reason": "Remplace « données transparentes », qui ne rend pas le sens anglais."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.66",
+      "oldLiteral": "'Nous attendons des pratiques de recherche transparentes, une conduite éthique et une représentation exacte des données.'",
+      "newText": "Nous attendons des pratiques de recherche transparentes, une conduite éthique et une présentation exacte des éléments probants.",
+      "reason": "Précise le sens de « evidence »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.76",
+      "oldLiteral": "'Des données pour des personnes, institutions et environnements résilients.'",
+      "newText": "Des éléments probants au service de personnes, d’institutions et d’environnements résilients.",
+      "reason": "Précise le sens de « evidence »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.43",
+      "oldLiteral": "'pour un avenir plus ouvert.'",
+      "newText": "pour un avenir plus vaste.",
+      "reason": "« Broader » ne signifie pas ici « plus ouvert »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.53",
+      "oldLiteral": "'Biologie du cancer et thérapeutique'",
+      "newText": "Biologie du cancer et thérapies",
+      "reason": "Rend « therapeutics » par un pluriel naturel."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.57",
+      "oldLiteral": "'Health Nexus réunit des revues évaluées par les pairs qui étudient la santé sous des angles complémentaires : médecine interdisciplinaire, santé des populations, santé numérique, IA médicale, biologie du cancer et thérapeutique.'",
+      "newText": "Health Nexus réunit des revues évaluées par les pairs qui étudient la santé sous des angles complémentaires : médecine interdisciplinaire, santé des populations, santé numérique, IA médicale, biologie du cancer et thérapies.",
+      "reason": "Rend « therapeutics » par un pluriel naturel."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.63",
+      "oldLiteral": "'Health Nexus accueille les recherches originales qui approfondissent la compréhension de la médecine, de la santé publique, des sciences de la santé et des systèmes qui les relient.'",
+      "newText": "Health Nexus accueille des travaux de recherche originaux qui approfondissent la compréhension de la médecine, de la santé publique, des sciences de la santé et des systèmes qui les relient.",
+      "reason": "Rétablit le sens de la phrase sur les travaux originaux et les domaines de recherche connexes."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.72",
+      "oldLiteral": "'De nouvelles revues pourront rejoindre cette famille au fil du développement de leurs programmes, tout en conservant les mêmes exigences de rigueur, de transparence et de responsabilité scientifique.'",
+      "newText": "De nouvelles revues pourront rejoindre cette famille au fil du développement de leurs programmes éditoriaux ; les mêmes exigences de rigueur, de transparence et de responsabilité scientifique resteront en vigueur.",
+      "reason": "Rétablit le futur et clarifie le référent des exigences communes."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.84",
+      "oldLiteral": "'Les auteurs doivent présenter avec exactitude les méthodes et les données, déclarer les intérêts pertinents, respecter les exigences éthiques et expliciter les limites de l’étude.'",
+      "newText": "Les auteurs doivent présenter avec exactitude les méthodes et les éléments probants, déclarer les intérêts pertinents, respecter les exigences éthiques applicables et expliciter les limites de l’étude.",
+      "reason": "Précise le sens de « evidence »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.111",
+      "oldLiteral": "'Nous privilégions des questions claires, des méthodes appropriées et des conclusions proportionnées aux données.'",
+      "newText": "Nous privilégions des questions claires, des méthodes appropriées et des conclusions à la mesure des éléments probants disponibles.",
+      "reason": "Précise le sens de « evidence »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.119",
+      "oldLiteral": "'Présentez clairement la question, les méthodes, les données, les limites et les déclarations pertinentes.'",
+      "newText": "Présentez clairement la question de recherche, les méthodes, les éléments probants, les limites et les déclarations pertinentes.",
+      "reason": "Précise le sens de « evidence »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.125",
+      "oldLiteral": "'Nous soutenons des recherches accessibles et une communication claire afin que les données dépassent les communautés spécialisées.'",
+      "newText": "Nous soutenons des recherches accessibles et une communication claire afin que les données probantes circulent au-delà des milieux spécialisés.",
+      "reason": "Corrige l’image maladroite de données qui « dépassent » des communautés."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.24",
+      "oldLiteral": "'Rechercher aujourd’hui pour un avenir plus résilient.'",
+      "newText": "La recherche d’aujourd’hui au service d’un avenir plus résilient.",
+      "reason": "« Research » est ici un nom, pas le verbe « rechercher »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.64",
+      "oldLiteral": "'À mesure que de nouvelles revues rejoignent la marque, chacune conserve une identité éditoriale claire tout en partageant le même engagement envers la rigueur méthodologique, la transparence scientifique et une valeur publique réelle.'",
+      "newText": "À mesure que de nouvelles revues rejoignent la marque, chacune conservera une identité éditoriale claire tout en partageant le même engagement en faveur de la rigueur méthodologique, d’une production scientifique transparente et d’une réelle utilité publique.",
+      "reason": "Rétablit le futur et rend « transparent scholarship » par une production scientifique transparente."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.80",
+      "oldLiteral": "'Une exigence éditoriale. Ouverts aux questions connectées.'",
+      "newText": "Rigueur éditoriale. Ouverture aux questions transversales.",
+      "reason": "Évite l’incohérence d’accord et traduit « connected questions » de façon naturelle."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.107",
+      "oldLiteral": "'Nous privilégions des méthodes appropriées, des rapports transparents et des conclusions proportionnées aux données.'",
+      "newText": "Nous privilégions des méthodes appropriées, une présentation transparente des résultats et des conclusions à la mesure des éléments probants disponibles.",
+      "reason": "Précise « evidence » et remplace le calque « rapports transparents »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.5",
+      "oldLiteral": "'Charter publie des recherches qui renforcent le droit, la gouvernance et la vie publique, afin de faire progresser une société plus juste, ouverte et fondée sur les données.'",
+      "newText": "Charter publie des recherches qui renforcent le droit, la gouvernance et la vie publique afin de faire progresser une société plus juste, plus ouverte et éclairée par des données probantes.",
+      "reason": "Rend « evidence-informed » plus précisément."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.20",
+      "oldLiteral": "'Nous croyons que les données, la recherche ouverte et une production scientifique responsable sont essentielles à des sociétés plus justes et résilientes.'",
+      "newText": "Nous estimons que les éléments probants, la recherche ouverte et une production scientifique responsable sont essentiels à des sociétés plus justes et résilientes.",
+      "reason": "Précise le sens de « evidence »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.33",
+      "oldLiteral": "'Nous accueillons les recherches originales, synthèses et perspectives qui approfondissent la compréhension du droit, des politiques publiques et de la société. Nos revues s’engagent en faveur d’une évaluation rigoureuse, de l’indépendance éditoriale et d’un chemin clair des idées fortes vers un savoir public utile.'",
+      "newText": "Nous accueillons les recherches originales, les comptes rendus critiques et les perspectives qui approfondissent la compréhension du droit, des politiques publiques et de la société. Nos revues s’engagent en faveur d’une évaluation rigoureuse par les pairs, de l’indépendance éditoriale et d’une diffusion claire des travaux scientifiques auprès du public.",
+      "reason": "Rétablit l’évaluation par les pairs et clarifie « public scholarship »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.40",
+      "oldLiteral": "'Charter et Panorama Scholarly Group défendent ensemble la recherche indépendante, le débat éclairé et des solutions fondées sur les données pour un monde plus juste et résilient.'",
+      "newText": "Charter et Panorama Scholarly Group défendent ensemble la recherche indépendante, le débat éclairé et des solutions fondées sur des données probantes pour un monde plus juste et résilient.",
+      "reason": "Précise le sens de « evidence-based »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.83",
+      "oldLiteral": "'Une marque scientifique au service de la vie publique.'",
+      "newText": "Une marque éditoriale au service de la vie publique.",
+      "reason": "« Scholarly imprint » désigne une marque éditoriale."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.84",
+      "oldLiteral": "'Charter est une marque de Panorama consacrée aux recherches indépendantes sur les institutions, relations et idées qui façonnent la vie en commun.'",
+      "newText": "Charter est une marque éditoriale de Panorama consacrée à la recherche indépendante sur les institutions, les relations et les idées qui façonnent la vie en commun.",
+      "reason": "Harmonise la traduction de « imprint »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.109",
+      "oldLiteral": "'Nous valorisons les recherches qui définissent une question importante avant de chercher une réponse préférée.'",
+      "newText": "Nous valorisons les recherches qui définissent une question importante avant de chercher à confirmer une réponse préconçue.",
+      "reason": "« Preferred answer » signifie ici une réponse préconçue."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.135",
+      "oldLiteral": "'Nous attendons des rapports exacts, une attribution appropriée, une conduite éthique et la déclaration des intérêts pertinents.'",
+      "newText": "Nous attendons une présentation exacte des travaux, une attribution appropriée, une conduite éthique et la déclaration des intérêts pertinents.",
+      "reason": "Remplace le calque « rapports exacts »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.139",
+      "oldLiteral": "'Les corrections, rétractations, versions et le suivi post-publication font partie d’une édition responsable.'",
+      "newText": "La gestion des versions, les corrections, les rétractations et le suivi après publication font partie d’une édition responsable.",
+      "reason": "Rend « versioning » par « gestion des versions »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.0",
+      "oldLiteral": "'Threnody est la marque éditoriale de Panorama Scholarly Group consacrée à la recherche indépendante et évaluée par les pairs en humanités, arts, philosophie, son et études culturelles.'",
+      "newText": "Threnody est la marque éditoriale de Panorama Scholarly Group consacrée à la recherche indépendante évaluée par les pairs dans les domaines des humanités, des arts, de la philosophie, des études sonores et des études culturelles.",
+      "reason": "Corrige la préposition et rend « sound » et « cultural inquiry » plus naturellement."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.3",
+      "oldLiteral": "'Nous publions des recherches indépendantes et évaluées par les pairs en humanités, arts, philosophie, mémoire, culture et son.'",
+      "newText": "Nous publions des travaux de recherche indépendants évalués par les pairs dans les domaines des humanités, des arts, de la philosophie, de la mémoire, de la culture et des études sonores.",
+      "reason": "Corrige la préposition « en humanités »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.13",
+      "oldLiteral": "'Le programme de revues Threnody publie des recherches rigoureuses et évaluées par les pairs en humanités, arts, philosophie, mémoire, culture et son. Les titres présentés ici offrent un aperçu d’un programme en expansion ; chaque revue possède un périmètre éditorial défini et une communauté scientifique propre.'",
+      "newText": "Le programme de revues Threnody publie des travaux de recherche rigoureux évalués par les pairs dans les domaines des humanités, des arts, de la philosophie, de la mémoire, de la culture et des études sonores. Les titres présentés ici offrent un aperçu d’un programme en expansion ; chaque revue possède un périmètre éditorial défini et sa propre communauté scientifique.",
+      "reason": "Corrige la préposition « en humanités » et fluidifie la phrase."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.32",
+      "oldLiteral": "'Nous accueillons les recherches originales, les synthèses critiques et les perspectives solidement argumentées qui font progresser les humanités, les arts et la philosophie par des questions claires, des méthodes appropriées et des données vérifiables.'",
+      "newText": "Nous accueillons les travaux de recherche originaux, les comptes rendus critiques et les perspectives solidement argumentées qui font progresser la réflexion dans les domaines des humanités, des arts et de la philosophie grâce à des questions claires, des méthodes appropriées et des éléments probants vérifiables.",
+      "reason": "Précise « critical reviews » et corrige la préposition."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.55",
+      "oldLiteral": "'Travaux critiques et fondés sur la pratique sur la musique, la danse, la performance, la culture visuelle et l’expression matérielle.'",
+      "newText": "Travaux critiques et fondés sur la pratique consacrés à la musique, à la danse, à la performance, à la culture visuelle et à l’expression matérielle.",
+      "reason": "Supprime la répétition maladroite de « sur »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.57",
+      "oldLiteral": "'Études comparatives et historiquement informées des concepts, valeurs, traditions et formes de croyance.'",
+      "newText": "Études comparatives éclairées par l’histoire sur les concepts, les valeurs, les traditions et les formes de croyance.",
+      "reason": "Remplace le calque « historiquement informées »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.67",
+      "oldLiteral": "'Les sources, méthodes, autorisations, conflits, corrections et limites pertinentes doivent être rapportés avec soin.'",
+      "newText": "Les sources, les méthodes, les autorisations, les conflits d’intérêts, les corrections et les limites pertinentes doivent être documentés avec soin.",
+      "reason": "Précise les conflits concernés et accorde correctement l’énumération."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.97",
+      "oldLiteral": "'Un savoir indépendant'",
+      "newText": "Recherche indépendante",
+      "reason": "« Scholarship » désigne ici une activité de recherche."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.101",
+      "oldLiteral": "'Threnody réunit un ensemble croissant de revues évaluées par les pairs consacrées au son, à la musique, à la philosophie comparée, aux arts et à l’enquête culturelle. Chaque titre possède un périmètre défini, une équipe éditoriale responsable et un parcours clair pour les auteurs et les lecteurs.'",
+      "newText": "Threnody réunit un ensemble croissant de revues évaluées par les pairs consacrées au son, à la musique, à la philosophie comparée, aux arts et aux études culturelles. Chaque titre possède un périmètre défini, une équipe éditoriale responsable et un parcours clair pour les auteurs et les lecteurs.",
+      "reason": "Remplace le calque « enquête culturelle »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.104",
+      "oldLiteral": "'Nous soutenons les recherches qui étudient la manière dont les sociétés produisent du sens, créent la culture, se souviennent du passé et vivent avec des idées et pratiques héritées.'",
+      "newText": "Nous soutenons les recherches qui étudient la manière dont les personnes produisent du sens, créent des cultures, se souviennent du passé et vivent avec des idées et des pratiques héritées.",
+      "reason": "Respecte le sujet « people » au lieu de le remplacer par « sociétés »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.107",
+      "oldLiteral": "'Threnody accueille les recherches originales, synthèses critiques et perspectives solidement argumentées qui font progresser les humanités, les arts et la philosophie.'",
+      "newText": "Threnody accueille les travaux de recherche originaux, les comptes rendus critiques et les perspectives solidement argumentées qui font progresser la réflexion dans les domaines des humanités, des arts et de la philosophie.",
+      "reason": "Précise « critical reviews » et corrige la préposition."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.109",
+      "oldLiteral": "'Une marque éditoriale pour les humanités, les arts et la philosophie.'",
+      "newText": "Une marque éditoriale consacrée aux humanités, aux arts et à la philosophie.",
+      "reason": "Corrige la préposition avant « humanités »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.110",
+      "oldLiteral": "'Threnody est une marque de Panorama Scholarly Group dédiée aux recherches indépendantes sur la culture, le sens, la mémoire, les croyances, le son et les pratiques par lesquelles les sociétés comprennent leurs mondes.'",
+      "newText": "Threnody est une marque éditoriale de Panorama Scholarly Group consacrée à la recherche indépendante sur la culture, le sens, la mémoire, les croyances, le son et les pratiques par lesquelles les personnes comprennent leur monde.",
+      "reason": "Harmonise « imprint » et respecte le sujet « people »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.118",
+      "oldLiteral": "'Les revues de Threnody conservent leur identité éditoriale tout en partageant des exigences de rigueur dans l’évaluation, de transparence des rapports, d’indépendance éditoriale et de gestion attentive du registre scientifique.'",
+      "newText": "Les revues de Threnody conservent des identités éditoriales distinctes tout en partageant des exigences communes en matière d’évaluation rigoureuse par les pairs, de présentation responsable des résultats, d’indépendance éditoriale et de gestion attentive du registre scientifique.",
+      "reason": "Précise « peer review » et remplace le calque ambigu « transparence des rapports »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.121",
+      "oldLiteral": "'Interpréter, c’est travailler à partir de données.'",
+      "newText": "L’interprétation s’appuie sur des éléments probants.",
+      "reason": "Précise le sens de « evidence-based »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.133",
+      "oldLiteral": "'Les auteurs doivent présenter avec exactitude les méthodes et les données, citer leurs sources, déclarer les intérêts pertinents, obtenir les autorisations nécessaires, respecter les exigences éthiques applicables et expliciter les limites de l’étude.'",
+      "newText": "Les auteurs doivent présenter avec exactitude les méthodes et les éléments probants, citer leurs sources, déclarer les intérêts pertinents, obtenir les autorisations nécessaires, respecter les exigences éthiques applicables et expliciter les limites de l’étude.",
+      "reason": "Précise le sens de « evidence »."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.147",
+      "oldLiteral": "'Threnody s’inscrit dans le cadre éditorial de Panorama Scholarly Group tout en préservant l’identité et la responsabilité de chaque revue. Nos normes communes couvrent l’évaluation, l’intégrité de la recherche, l’accès, les corrections et la gestion responsable du registre scientifique.'",
+      "newText": "Threnody s’inscrit dans le cadre éditorial de Panorama Scholarly Group tout en préservant l’identité éditoriale et la responsabilité de chaque revue. Nos normes communes couvrent l’évaluation par les pairs, l’intégrité de la recherche, l’accès, les corrections et la gestion responsable du registre scientifique.",
+      "reason": "Précise « peer review » et uniformise les termes."
+    }
+  ],
+  "notes": []
+}

@@ -1,0 +1,637 @@
+{
+  "locale": "es",
+  "reviewedRows": 1444,
+  "corrections": [
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[0]",
+      "oldLiteral": "'Este marco del grupo regula la asignación de DOI a contenidos de revistas. Cada revista lo aplica gradualmente a nuevas publicaciones mediante sus políticas públicas sobre tipos, revisión y tarifas, e identifica las secciones adoptadas. La vía se confirma antes de publicar. Un DOI identifica una publicación; no certifica la revisión por pares ni garantiza la indexación.'",
+      "newText": "Este marco común para el grupo regula la asignación de DOI a los contenidos de las revistas. Cada revista lo aplica de forma prospectiva mediante sus políticas publicadas sobre tipos de artículos, revisión y tarifas, e indica qué secciones ha adoptado. La elegibilidad se confirma antes de la publicación. Un DOI identifica una publicación, pero no certifica la revisión por pares ni garantiza su indexación.",
+      "reason": "Se aclara que lo confirmado antes de publicar es la elegibilidad."
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[4]",
+      "oldLiteral": "'Se conservan los DOI existentes. Al depositar el mismo objeto publicado en Zenodo, debe indicarse su DOI existente en lugar de crear otro. Datos, software y suplementos citables de forma independiente pueden tener DOI propios vinculados al artículo. Las excepciones requieren autorización de la dirección o de la oficina editorial habilitada y deben mantener un registro científico claro.'",
+      "newText": "Se conservan los DOI existentes. Al depositar en Zenodo el mismo objeto ya publicado, debe incluirse su DOI existente en lugar de generar uno nuevo. Los conjuntos de datos, el software y los materiales complementarios que puedan citarse de forma independiente pueden tener DOI propios vinculados al artículo. Las excepciones requieren la aprobación del editor jefe o de la oficina editorial autorizada y deben preservar un registro académico claro.",
+      "reason": "Se restituye el sentido de un registro académico claro, sin sustituirlo por el de integridad."
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[5]",
+      "oldLiteral": "'El registro Zenodo incluye el archivo final, título, autores, ORCID disponibles, fecha, revista, volumen, número, páginas o número de artículo, tipo, licencia y URL oficial. Repositorio y página OJS se enlazan mutuamente; el DOI aparece en la página y en el archivo final. Resérvelo antes de finalizar y descríbalo como activo solo después de publicar el depósito. Indique revisión editorial o externa por pares; el proveedor de DOI y el estado de APC no sustituyen esa información.'",
+      "newText": "Los depósitos en Zenodo deben incluir el archivo final publicado, el título, los autores, los identificadores ORCID cuando estén disponibles, la fecha de publicación, el título de la revista, el volumen y el número, las páginas o el número de artículo, el tipo de contenido, la licencia y la URL oficial del artículo en la revista. El registro y la página de publicación en OJS deben enlazarse entre sí; el DOI asignado debe figurar en la página del artículo y en el archivo final. Reserve el DOI de Zenodo antes de finalizar el archivo y publique el depósito antes de indicar que el DOI está activo. Indique claramente si el contenido pasó por revisión editorial o por revisión externa por pares; el proveedor del DOI y el estado del APC no permiten distinguir entre ambos tipos de revisión.",
+      "reason": "Se recuperan detalles omitidos y se aclara la distinción entre tipos de revisión."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.routesIntro",
+      "oldLiteral": "'Estos enlaces le llevan al primer punto de contacto más útil. Si no está seguro, escriba directamente al grupo.'",
+      "newText": "Estos enlaces le llevan al punto de contacto inicial más adecuado. Si no sabe cuál elegir, envíe un correo electrónico directamente al grupo.",
+      "reason": "Se especifica que la consulta al grupo se envía por correo electrónico."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.closingTitle",
+      "oldLiteral": "'Es posible que la respuesta ya esté en el grupo.'",
+      "newText": "Quizá alguien del grupo ya tenga la respuesta.",
+      "reason": "Se sustituye el calco por una formulación natural en español."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.divisionsIntro",
+      "oldLiteral": "'Desde el primer envío hasta la descubribilidad a largo plazo, el grupo acompaña distintas etapas de la investigación.'",
+      "newText": "Desde el primer envío hasta que la investigación pueda encontrarse a largo plazo, el grupo acompaña distintas etapas de su ciclo de vida.",
+      "reason": "Se expresa con naturalidad la posibilidad de localizar la investigación a largo plazo."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.visitDivision",
+      "oldLiteral": "'Ver el área'",
+      "newText": "Visitar el área",
+      "reason": "Se corrige «visit» para mantener la acción de visita."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[0].body",
+      "oldLiteral": "'Las decisiones editoriales corresponden a la revista, el programa de libros o el sello responsable de la obra.'",
+      "newText": "Las decisiones editoriales corresponden a la revista, el libro o el sello responsable del trabajo.",
+      "reason": "Se evita traducir «book» como un programa de libros."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.connectionsIntro",
+      "oldLiteral": "'Nuestras relaciones abarcan instituciones, comunidades culturales, bibliotecas y servicios de conocimiento.'",
+      "newText": "Nuestras relaciones abarcan instituciones, comunidades culturales, bibliotecas y plataformas de servicios de conocimiento.",
+      "reason": "Se recuperan las plataformas mencionadas en el original."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[1].description",
+      "oldLiteral": "'Una conexión con servicios de descubrimiento y literatura para comunidades de investigación en humanidades y ciencias sociales.'",
+      "newText": "Un vínculo con servicios de descubrimiento y consulta bibliográfica para comunidades de investigación en humanidades y ciencias sociales.",
+      "reason": "Se aclara la referencia a servicios bibliográficos."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[3].description",
+      "oldLiteral": "'Una organización de publicación académica dedicada a revistas de acceso abierto y revisión por pares en ciencias sociales, crítica de arte y gobernanza digital.'",
+      "newText": "Una organización editorial académica dedicada a revistas de acceso abierto revisadas por pares en ciencias sociales, artes y gobernanza digital.",
+      "reason": "Se corrige «arts», que no significa «crítica de arte»."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.metaDescription",
+      "oldLiteral": "'Cómo estructura Panorama Scholarly Group la responsabilidad, la independencia editorial y la gestión responsable del trabajo académico.'",
+      "newText": "Cómo organiza Panorama Scholarly Group la rendición de cuentas, la independencia editorial y la custodia responsable del trabajo académico.",
+      "reason": "Se precisa el sentido de «accountability» y «stewardship»."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.heroLede",
+      "oldLiteral": "'Responsabilidades claras y procesos responsables ayudan a que la actividad académica siga siendo rigurosa, transparente y digna de confianza.'",
+      "newText": "La claridad de las responsabilidades y unos procesos sujetos a rendición de cuentas ayudan a que la actividad académica siga siendo rigurosa, transparente y digna de confianza.",
+      "reason": "Se distingue la rendición de cuentas de la mera responsabilidad."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.brief[2].label",
+      "oldLiteral": "'Consultas'",
+      "newText": "Inquietudes",
+      "reason": "«Concerns» se refiere aquí a inquietudes, no a consultas."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[1].body",
+      "oldLiteral": "'Los equipos editoriales toman decisiones según el alcance y los estándares declarados de su revista, programa o sello.'",
+      "newText": "Los editores y los equipos editoriales toman decisiones de publicación con arreglo al alcance y las normas declaradas de su revista, libro o sello.",
+      "reason": "Se recupera «Editors» y se traduce «book» con precisión."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[2].body",
+      "oldLiteral": "'Las políticas, responsabilidades y vías para plantear inquietudes son visibles para que el proceso de decisión se entienda.'",
+      "newText": "Las políticas, responsabilidades y vías para plantear inquietudes deben ser visibles para que quienes participan comprendan cómo se tramitan las decisiones.",
+      "reason": "Se recupera a las personas participantes y la gestión de las decisiones."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.responsibilitiesIntro",
+      "oldLiteral": "'Cada participante tiene un papel para mantener un trabajo editorial y académico justo, exacto y responsable.'",
+      "newText": "Cada participante tiene un papel en mantener el trabajo editorial y de investigación justo, preciso y sujeto a rendición de cuentas.",
+      "reason": "Se explicita la rendición de cuentas de «accountable»."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[0].description",
+      "oldLiteral": "'Una colaboración institucional que apoya el intercambio académico con comunidades culturales e intelectuales de Corea.'",
+      "newText": "Una alianza cultural e intelectual que apoya el intercambio académico en Corea.",
+      "reason": "Se ajusta la traducción a «cultural and intellectual partnership»."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[3].description",
+      "oldLiteral": "'Una organización de publicación académica dedicada a revistas de acceso abierto y revisión por pares en ciencias sociales, crítica de arte y gobernanza digital.'",
+      "newText": "Una organización editorial académica dedicada a revistas de acceso abierto revisadas por pares en ciencias sociales, artes y gobernanza digital.",
+      "reason": "Se corrige «arts», que no significa «crítica de arte»."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.closingBody",
+      "oldLiteral": "'Comparta el propósito, las personas, la audiencia y el valor esperado para que podamos derivarla correctamente.'",
+      "newText": "Comparta el propósito, las personas implicadas, el público y el valor previsto de la colaboración para que podamos encauzarla adecuadamente.",
+      "reason": "Se recupera el valor esperado de la relación y se aclara «route it»."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.introParagraphs[0]",
+      "oldLiteral": "'Un artículo necesita una transferencia duradera en cada etapa: un identificador para las citas, metadatos para su descubrimiento y copias de preservación que garanticen la continuidad.'",
+      "newText": "Cada artículo necesita un soporte duradero en todas sus etapas: un identificador que permita citarlo, metadatos que faciliten encontrarlo y copias de preservación que aseguren su disponibilidad a largo plazo.",
+      "reason": "Se reemplaza la traducción literal e impropia de «handoff»."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.doiLede",
+      "oldLiteral": "'El registro de DOI proporciona a la investigación publicada una identidad persistente y resoluble, útil aunque cambien la plataforma o la estructura de las páginas.'",
+      "newText": "El registro de DOI proporciona a la investigación publicada una identidad persistente que permite acceder al contenido incluso si cambia la plataforma o la estructura de la página.",
+      "reason": "Se explica con naturalidad que el DOI permite resolver el acceso al contenido."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryTitle",
+      "oldLiteral": "'Hacer localizable la investigación.'",
+      "newText": "Haga que la investigación sea fácil de encontrar.",
+      "reason": "Se sustituye «localizable» por una formulación más natural."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.preservationBody",
+      "oldLiteral": "'La preservación distribuida ofrece a las revistas un segundo lugar fuera de la plataforma editorial y ayuda a proteger el acceso cuando cambian los sistemas, las organizaciones o las URL.'",
+      "newText": "La preservación distribuida proporciona copias adicionales de las revistas fuera de la plataforma editorial y ayuda a proteger el acceso cuando cambian los sistemas, las organizaciones o las URL.",
+      "reason": "Se evita el calco «segundo lugar» y se explicita la función de la preservación."
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.identifierDetails.issn",
+      "oldLiteral": "'Números internacionales normalizados de publicaciones seriadas.'",
+      "newText": "Números Internacionales Normalizados de Publicaciones Seriadas.",
+      "reason": "Se usa la denominación desarrollada del estándar ISSN."
+    },
+    {
+      "file": "web/src/i18n/navigation.ts",
+      "key": "navigation.tagline",
+      "oldLiteral": "'Impulsamos el conocimiento y conectamos perspectivas.'",
+      "newText": "Impulsamos la actividad académica y conectamos perspectivas.",
+      "reason": "Se traduce «scholarship» como actividad académica, no como conocimiento."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeText",
+      "oldLiteral": "'Esta declaración pública se aplica a las revistas, los libros, los servicios académicos y las prácticas editoriales de Panorama Scholarly Group Ltd y sus sellos.'",
+      "newText": "Esta declaración pública se aplica a las revistas, los libros y los servicios académicos, así como a las prácticas editoriales de Panorama Scholarly Group Ltd.",
+      "reason": "Se elimina la atribución añadida a los sellos."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.intro",
+      "oldLiteral": "'Utilizamos DORA como marco práctico para mejorar cómo se describen, evalúan y presentan los trabajos académicos.'",
+      "newText": "Utilizamos DORA como marco práctico para mejorar cómo se describen, evalúan y presentan los trabajos académicos a autores, editores, revisores, lectores y colaboradores.",
+      "reason": "Se recupera la lista de destinatarios omitida."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.cards[2].body",
+      "oldLiteral": "'La calidad y la influencia también pueden expresarse mediante datos, software, métodos, revisión, docencia, políticas públicas, práctica y participación social.'",
+      "newText": "La calidad y la influencia de la investigación pueden manifestarse en datos, software, métodos, revisión, docencia, política, práctica, participación comunitaria y otras contribuciones, además de las publicaciones.",
+      "reason": "Se recuperan las contribuciones omitidas y se precisa «community engagement»."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.indicators.paragraphs[0]",
+      "oldLiteral": "'No utilizamos el Journal Impact Factor, las clasificaciones de revistas, el número de citas ni indicadores similares como sustitutos independientes de la calidad de un artículo, autor o investigador. Un indicador de revista describe un patrón de la revista, no el valor de cada trabajo publicado en ella.'",
+      "newText": "No utilizamos el Journal Impact Factor, las clasificaciones de revistas, el número de citas ni otros indicadores similares como medidas aisladas de la calidad de un artículo, autor o investigador. Una medida de nivel de revista describe el patrón de esa revista; no determina el valor de cada trabajo publicado en ella.",
+      "reason": "Se aclara que los indicadores no deben usarse como medidas únicas."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.publishing.paragraphs[1]",
+      "oldLiteral": "'Nuestra comunicación promocional y editorial debe describir el trabajo y su contribución. No presentaremos un indicador basado en la revista como garantía de la calidad, importancia o recepción probable de una propuesta o publicación.'",
+      "newText": "Nuestra comunicación promocional y editorial debe describir el trabajo y su contribución. No presentaremos una métrica basada en la revista como garantía de la calidad, la importancia o la recepción probable de un manuscrito enviado o de una publicación concreta.",
+      "reason": "«Submission» se refiere a un manuscrito enviado, no a una propuesta."
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.implementation.paragraphs[1]",
+      "oldLiteral": "'Las preguntas sobre este compromiso pueden dirigirse a Panorama Scholarly Group. Agradecemos los comentarios constructivos de autores, editores, revisores, bibliotecarios, investigadores y lectores.'",
+      "newText": "Las preguntas sobre este compromiso pueden dirigirse a Panorama Scholarly Group. Agradecemos los comentarios constructivos de autores, editores, revisores, bibliotecarios, investigadores y lectores sobre cómo hacer más clara y útil la evaluación responsable.",
+      "reason": "Se recupera el tema de los comentarios solicitados."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.standards[1].action",
+      "oldLiteral": "'Leer la ética de publicación'",
+      "newText": "Leer la política de ética de la publicación.",
+      "reason": "Se identifica como política el contenido enlazado."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.standards[4].description",
+      "oldLiteral": "'El compromiso público de Panorama Scholarly Group Ltd con DORA, los indicadores responsables y la diversidad de las contribuciones académicas.'",
+      "newText": "El compromiso de Panorama Scholarly Group Ltd con DORA, el uso responsable de indicadores y el reconocimiento de contribuciones académicas diversas.",
+      "reason": "Se precisan el uso responsable de indicadores y el reconocimiento de aportaciones."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.frameworkBody",
+      "oldLiteral": "'Estos compromisos se aplican a nuestras revistas, libros y trabajos académicos. Orientan las decisiones previas a la publicación y el cuidado posterior del registro público.'",
+      "newText": "Estos compromisos se aplican a nuestras revistas, libros y trabajos académicos. Orientan las decisiones previas a la publicación y la atención que prestamos a los trabajos una vez incorporados al registro público.",
+      "reason": "Se reemplaza «cuidado posterior del registro» por una formulación natural y fiel."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflowTitle",
+      "oldLiteral": "'De la propuesta al registro académico.'",
+      "newText": "Del envío al registro académico.",
+      "reason": "En este contexto, «submission» es el envío de un trabajo."
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflow[0].body",
+      "oldLiteral": "'La publicación define su alcance y criterios, y después considera la adecuación, calidad e integridad de cada propuesta.'",
+      "newText": "La publicación define su alcance y sus criterios, y después evalúa la adecuación, la calidad y la integridad de cada envío.",
+      "reason": "Se corrige «propuesta» para referirse al envío editorial."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.heroTitle",
+      "oldLiteral": "'Encuentre el trabajo que sustenta el trabajo.'",
+      "newText": "Descubra la investigación que hay detrás de cada publicación.",
+      "reason": "Se adapta el juego de palabras a una formulación natural en español."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.exploreImprints",
+      "oldLiteral": "'Explorar sellos'",
+      "newText": "Explorar los sellos editoriales",
+      "reason": "Se completa la traducción de «imprints»."
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.client.resultsPageSummary",
+      "oldLiteral": "'{base} Página {page} de {pages}.'",
+      "newText": "{base}. Página {page} de {pages}.",
+      "reason": "Se restituye el punto que separa las dos frases."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.meetImprints",
+      "oldLiteral": "'Conocer los sellos'",
+      "newText": "Conocer los sellos editoriales",
+      "reason": "Se completa la traducción de «imprints»."
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.nextTitle",
+      "oldLiteral": "'Impulsar el conocimiento, juntos.'",
+      "newText": "Impulsemos juntos la actividad académica.",
+      "reason": "Se mejora la naturalidad y se precisa «scholarship»."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.sections.appeals",
+      "oldLiteral": "'Apelaciones y preocupaciones'",
+      "newText": "Apelaciones e inquietudes",
+      "reason": "«Concerns» se refiere a inquietudes, no a preocupaciones genéricas."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.description",
+      "oldLiteral": "'Política común de Panorama Scholarly Group sobre integridad de la investigación, práctica editorial ética y gestión del registro académico.'",
+      "newText": "Política común de Panorama Scholarly Group sobre integridad de la investigación, práctica editorial ética y custodia responsable del registro académico.",
+      "reason": "Se precisa el sentido de «stewardship»."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.lede",
+      "oldLiteral": "'Un marco común para la integridad de la investigación, una práctica editorial justa y la gestión responsable del registro publicado.'",
+      "newText": "Un marco común para la integridad de la investigación, una práctica editorial justa y la custodia responsable del registro publicado.",
+      "reason": "Se precisa el sentido de «stewardship»."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.sections.responsibility",
+      "oldLiteral": "'Responsabilidad editorial y contacto'",
+      "newText": "Responsabilidad de la editorial y contacto",
+      "reason": "Se aclara que «publisher» se refiere a la entidad editorial."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.openAccess.sections.copyright",
+      "oldLiteral": "'Derechos de autor y publicación'",
+      "newText": "Derechos de autor y derechos de publicación",
+      "reason": "Se recupera el sentido de «publishing rights»."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.openAccess.sections.record",
+      "oldLiteral": "'Versión de registro y estado posterior a la publicación'",
+      "newText": "Versión oficial y estado posterior a la publicación",
+      "reason": "Se reemplaza el calco «versión de registro»."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.openAccess.railText",
+      "oldLiteral": "'Abierto por diseño, licenciado con precisión y reutilizable con confianza. La licencia de la versión de registro es la referencia autorizada.'",
+      "newText": "Abierto por diseño, con licencias precisas y reutilizable con confianza. La licencia que figura en la versión oficial es la referencia vinculante sobre los usos permitidos de esa obra.",
+      "reason": "Se aclara que la licencia determina los usos permitidos."
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.privacy.sections.sharing",
+      "oldLiteral": "'Compartición y servicios externos'",
+      "newText": "Cesión de datos y servicios externos",
+      "reason": "Se usa la terminología habitual en privacidad para «sharing»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.40",
+      "oldLiteral": "'Damos la bienvenida a investigaciones originales, revisiones y perspectivas de todo el mundo.'",
+      "newText": "Aceptamos trabajos de investigación originales, revisiones y artículos de perspectiva de todo el mundo.",
+      "reason": "Se sustituye el calco «damos la bienvenida a»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.42",
+      "oldLiteral": "'«Los sistemas mejores comienzan con mejores preguntas».'",
+      "newText": "«Los mejores sistemas comienzan con mejores preguntas».",
+      "reason": "Se mejora el orden natural de los adjetivos."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.49",
+      "oldLiteral": "'Investigación interdisciplinaria'",
+      "newText": "Investigación multidisciplinaria",
+      "reason": "«Multidisciplinary» no equivale a «interdisciplinaria»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.58",
+      "oldLiteral": "'Conocimiento entre disciplinas para el progreso real.'",
+      "newText": "Conocimiento interdisciplinario para impulsar el progreso en el mundo real.",
+      "reason": "Se reemplaza una construcción poco natural y se aclara «real-world progress»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.60",
+      "oldLiteral": "'Nuestras revistas acogen trabajos que cruzan fronteras disciplinarias y mantienen un alcance claro, evidencia transparente y un juicio editorial responsable.'",
+      "newText": "Nuestras revistas acogen trabajos que cruzan fronteras disciplinarias, presentan la evidencia con transparencia y mantienen un alcance claro y un criterio editorial responsable.",
+      "reason": "Se corrige la expresión poco natural «evidencia transparente»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.68",
+      "oldLiteral": "'Damos la bienvenida a trabajos que atraviesen campos y sean precisos sobre sus métodos y límites.'",
+      "newText": "Acogemos trabajos que trascienden los límites disciplinares y describen con precisión sus métodos y limitaciones.",
+      "reason": "Se mejora la naturalidad y se mantiene el sentido de «travels across fields»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.99",
+      "oldLiteral": "'Prevalece la indicación del artículo'",
+      "newText": "Se aplica el aviso correspondiente a cada artículo",
+      "reason": "Se traduce la aplicabilidad del aviso sin afirmar que prevalece."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.28",
+      "oldLiteral": "'Interdisciplinar hoy. Más saludable mañana.'",
+      "newText": "Investigación interdisciplinaria hoy. Un mañana más saludable.",
+      "reason": "Se completa el sujeto implícito de «interdisciplinary»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.34",
+      "oldLiteral": "'Tecnología para generar un impacto humano.'",
+      "newText": "Tecnología al servicio de las personas.",
+      "reason": "Se traduce «human impact» sin sugerir un impacto causado por las personas."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.44",
+      "oldLiteral": "'Damos la bienvenida a investigaciones originales, revisiones y perspectivas que mejoren la comprensión y la salud entre disciplinas y comunidades.'",
+      "newText": "Aceptamos trabajos originales de investigación, revisiones y artículos de perspectiva que amplíen el conocimiento y mejoren la salud en distintas disciplinas y comunidades.",
+      "reason": "Se sustituye el calco «damos la bienvenida» y se recupera «advance understanding»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.63",
+      "oldLiteral": "'Health Nexus acoge investigaciones originales que mejoren la comprensión de la medicina, la salud pública, las ciencias de la salud y los sistemas que las conectan.'",
+      "newText": "Health Nexus da cabida a investigaciones originales que amplían la comprensión de la medicina, la salud pública, las ciencias de la salud y los sistemas que las conectan.",
+      "reason": "Se sustituye el calco «acoge investigaciones» y se ajusta el verbo."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.75",
+      "oldLiteral": "'La salud no se configura solo en los encuentros clínicos. También la determinan las políticas, la infraestructura, los datos, los entornos, las comunidades y las tecnologías de la vida cotidiana.'",
+      "newText": "La salud no se configura solo en los encuentros clínicos. También la determinan las políticas, la infraestructura, los datos, los entornos, las comunidades y las tecnologías que median en la vida cotidiana.",
+      "reason": "Se recupera el sentido de «mediate everyday life»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.81",
+      "oldLiteral": "'Cada revista de Health Nexus tiene su alcance y requisitos. Estos pasos compartidos ayudan a los autores a empezar en el lugar adecuado.'",
+      "newText": "Cada revista de Health Nexus tiene su propio alcance y sus requisitos de envío. Estos pasos compartidos ayudan a los autores a empezar por el canal adecuado.",
+      "reason": "Se recuperan los requisitos de envío y se evita «lugar» en sentido literal."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.83",
+      "oldLiteral": "'Un buen envío comienza con una investigación responsable.'",
+      "newText": "Un envío sólido comienza con una investigación responsable.",
+      "reason": "Se traduce «strong» y se explicita «submission»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.88",
+      "oldLiteral": "'Un espacio para la investigación conectada sobre la salud.'",
+      "newText": "Un espacio para la investigación interdisciplinaria sobre salud.",
+      "reason": "Se hace más clara la referencia a «connected health scholarship»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.104",
+      "oldLiteral": "'Prevalece la indicación del artículo'",
+      "newText": "Se aplica el aviso correspondiente a cada artículo",
+      "reason": "Se traduce la aplicabilidad del aviso sin afirmar que prevalece."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.113",
+      "oldLiteral": "'Publicamos investigaciones que entienden la salud dentro de instituciones, comunidades, tecnologías y entornos.'",
+      "newText": "Publicamos investigaciones que estudian la salud en el contexto de las instituciones, comunidades, tecnologías y entornos.",
+      "reason": "Se sustituye el calco «entienden la salud»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.115",
+      "oldLiteral": "'Esperamos una investigación transparente, una conducta ética y un cuidado riguroso del registro académico.'",
+      "newText": "Esperamos una investigación transparente, una conducta ética y la custodia responsable del registro académico.",
+      "reason": "Se precisa el sentido de «stewardship»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.129",
+      "oldLiteral": "'Damos la bienvenida a investigaciones que tengan presentes a las personas, las poblaciones y las consecuencias prácticas del conocimiento.'",
+      "newText": "Acogemos trabajos que tengan presentes a las personas, las poblaciones y las consecuencias prácticas del conocimiento.",
+      "reason": "Se sustituye el calco «damos la bienvenida a»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.31",
+      "oldLiteral": "'Damos la bienvenida a investigaciones originales, revisiones y perspectivas que hagan más claras, útiles y abiertas a las comunidades afectadas las cuestiones complejas de las ciencias ambientales y de la vida.'",
+      "newText": "Acogemos investigaciones originales, revisiones y artículos de perspectiva que ayuden a aclarar cuestiones complejas de las ciencias ambientales y de la vida, las hagan más útiles y fomenten un diálogo más abierto con las comunidades a las que afectan.",
+      "reason": "Se conserva el sentido de promover un diálogo abierto con las comunidades afectadas."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.69",
+      "oldLiteral": "'Verdant Science pone la investigación ambiental, sobre sostenibilidad, alimentación, territorios rurales y ciencias de la vida en un diálogo más claro con el mundo que describe.'",
+      "newText": "Verdant Science pone la investigación ambiental, de sostenibilidad, alimentaria, rural y de ciencias de la vida en un diálogo más claro con el mundo que describe.",
+      "reason": "Se mantiene rural research como investigación rural, sin reducirlo al desarrollo rural."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.83",
+      "oldLiteral": "'Damos la bienvenida a investigaciones que aclaren cuestiones complejas de las ciencias ambientales y de la vida y ayuden a que la evidencia circule entre disciplinas y comunidades.'",
+      "newText": "Acogemos trabajos académicos que aclaren cuestiones complejas de las ciencias ambientales y de la vida y ayuden a que la evidencia circule entre disciplinas y comunidades.",
+      "reason": "Se sustituye el calco «damos la bienvenida a»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.90",
+      "oldLiteral": "'Prevalece la indicación del artículo'",
+      "newText": "Se aplica el aviso correspondiente a cada artículo",
+      "reason": "Se traduce la aplicabilidad del aviso sin afirmar que prevalece."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.109",
+      "oldLiteral": "'Damos la bienvenida a trabajos que conecten la experiencia disciplinaria con las personas, lugares y sistemas afectados por la investigación.'",
+      "newText": "Acogemos trabajos que conecten los conocimientos especializados de cada disciplina con las personas, los lugares y los sistemas afectados por la investigación.",
+      "reason": "«Expertise» se refiere a conocimientos especializados, no a experiencia."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.19",
+      "oldLiteral": "'Charter es el sello de Panorama Scholarly Group dedicado al derecho, las políticas y la sociedad. Publicamos investigación rigurosa e independiente sobre las instituciones y relaciones que configuran la vida pública.'",
+      "newText": "Charter es el sello de Panorama Scholarly Group dedicado al derecho, las políticas y la sociedad. Publicamos investigaciones rigurosas e independientes que profundizan la comprensión de las instituciones y relaciones que configuran la vida pública.",
+      "reason": "Se recupera que la investigación contribuye a comprender las instituciones y relaciones."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.20",
+      "oldLiteral": "'Creemos que la evidencia, la investigación abierta y el conocimiento responsable son esenciales para sociedades más justas y resilientes.'",
+      "newText": "Creemos que la evidencia, la investigación abierta y la actividad académica sujeta a rendición de cuentas son esenciales para lograr sociedades más justas y resilientes.",
+      "reason": "Se precisa «accountable scholarship»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.33",
+      "oldLiteral": "'Damos la bienvenida a investigaciones originales, revisiones y perspectivas que profundicen la comprensión del derecho, las políticas y la sociedad. Nuestras revistas se comprometen con una revisión rigurosa, la independencia editorial y un camino claro desde las buenas ideas hasta un conocimiento público significativo.'",
+      "newText": "Aceptamos trabajos originales de investigación, revisiones y artículos de perspectiva que profundicen la comprensión del derecho, las políticas y la sociedad. Nuestras revistas se comprometen con una revisión rigurosa por pares, la independencia editorial y una vía clara desde las ideas sólidas hasta una contribución significativa al debate público.",
+      "reason": "Se sustituye el calco «damos la bienvenida» y se aclara «peer review»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.78",
+      "oldLiteral": "'Publicamos investigaciones que hacen las instituciones públicas más comprensibles y responsables, y más capaces de afrontar la complejidad de la vida contemporánea.'",
+      "newText": "Publicamos investigaciones que ayudan a que las instituciones públicas sean más comprensibles, estén sujetas a mayor rendición de cuentas y puedan afrontar mejor la complejidad de la vida contemporánea.",
+      "reason": "Se distingue «accountable» de «responsible»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.81",
+      "oldLiteral": "'Charter acoge investigaciones originales, revisiones y perspectivas que profundicen la comprensión del derecho, las políticas, la gobernanza y la sociedad.'",
+      "newText": "Charter recibe trabajos originales de investigación, revisiones y artículos de perspectiva que profundizan la comprensión del derecho, las políticas, la gobernanza y la sociedad.",
+      "reason": "Se sustituye el calco «acoge investigaciones»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.146",
+      "oldLiteral": "'Prevalece la indicación del artículo'",
+      "newText": "Se aplica el aviso correspondiente a cada artículo",
+      "reason": "Se traduce la aplicabilidad del aviso sin afirmar que prevalece."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.162",
+      "oldLiteral": "'Comience por la revista más cercana a su trabajo.'",
+      "newText": "Comience por la revista más afín a su trabajo.",
+      "reason": "Se evita interpretar «closest» como cercanía física."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.25",
+      "oldLiteral": "'Prevalece la indicación del artículo'",
+      "newText": "Se aplica el aviso correspondiente a cada artículo",
+      "reason": "Se traduce la aplicabilidad del aviso sin afirmar que prevalece."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.32",
+      "oldLiteral": "'Damos la bienvenida a investigaciones originales, revisiones críticas y perspectivas cuidadosamente argumentadas que impulsen las humanidades, las artes y la filosofía mediante preguntas claras, métodos adecuados y evidencia responsable.'",
+      "newText": "Aceptamos trabajos originales de investigación, revisiones críticas y artículos de perspectiva bien argumentados que impulsen la investigación en humanidades, artes y filosofía mediante preguntas claras, métodos adecuados y evidencia transparente y verificable.",
+      "reason": "Se corrige el calco y se precisa «accountable evidence»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.82",
+      "oldLiteral": "'Acceso al conocimiento'",
+      "newText": "Acceso a la investigación",
+      "reason": "Se traduce «scholarship» como investigación en este contexto."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.83",
+      "oldLiteral": "'Trabajamos para que la investigación sea localizable y utilizable, respetando los derechos de autor, los permisos y el contexto disciplinario.'",
+      "newText": "Trabajamos para que la investigación sea fácil de encontrar y utilizar, respetando los derechos de autor, los permisos y el contexto disciplinario.",
+      "reason": "Se reemplaza «localizable» por una formulación natural."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.97",
+      "oldLiteral": "'Conocimiento independiente'",
+      "newText": "Investigación independiente",
+      "reason": "Se traduce «scholarship» como investigación en este contexto."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.107",
+      "oldLiteral": "'Threnody acoge investigaciones originales, revisiones críticas y perspectivas cuidadosamente argumentadas que impulsen las humanidades, las artes y la filosofía.'",
+      "newText": "Threnody recibe trabajos originales de investigación, revisiones críticas y artículos de perspectiva bien argumentados que impulsan la investigación en humanidades, artes y filosofía.",
+      "reason": "Se sustituye el calco «acoge investigaciones»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.113",
+      "oldLiteral": "'Comunidades editoriales distintas, conectadas por una investigación cuidadosa.'",
+      "newText": "Comunidades editoriales distintas, unidas por una investigación rigurosa.",
+      "reason": "Se mejora la naturalidad de «careful scholarship»."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.147",
+      "oldLiteral": "'Threnody opera dentro del marco editorial de Panorama Scholarly Group, preservando la identidad y la responsabilidad de cada revista. Nuestras normas compartidas abarcan la revisión por pares, la integridad de la investigación, el acceso, las correcciones y la custodia responsable del registro académico.'",
+      "newText": "Threnody opera dentro del marco editorial de Panorama Scholarly Group y preserva la identidad editorial y la rendición de cuentas de cada revista. Nuestras normas compartidas abarcan la revisión por pares, la integridad de la investigación, el acceso, las correcciones y la custodia responsable del registro académico.",
+      "reason": "Se precisa «accountability» y se armoniza el sentido de «stewardship»."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.ridgeline.description",
+      "oldLiteral": "'El sello de Panorama Scholarly Group dedicado a la investigación en tecnología, ingeniería e inteligencia artificial aplicada para un futuro más humano, sostenible y equitativo.'",
+      "newText": "El sello de Panorama Scholarly Group dedicado a la investigación en tecnología, ingeniería e IA aplicada.",
+      "reason": "Se elimina información añadida que no figura en el original."
+    }
+  ],
+  "notes": []
+}

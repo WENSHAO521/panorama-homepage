@@ -4,7 +4,7 @@ import EditorialLayout from '@/layouts/EditorialLayout.astro';
 import { getDoraSignatoryCopy } from '@/i18n/announcements';
 
 const locale = Astro.currentLocale ?? 'en';
-const copy = getDoraSignatoryCopy(locale);
+const copy = getDoraSignatoryCopy();
 const publishDate = new Date('2026-09-19T00:00:00Z');
 ---
 

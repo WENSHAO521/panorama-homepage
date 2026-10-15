@@ -57,7 +57,7 @@ const copy: Record<LocaleCode, SdgReferenceCopy> = {
     disclaimer: '本出版物の内容は国際連合の承認を受けたものではなく、国際連合、その職員または加盟国の見解を反映するものではありません。',
   },
   ko: {
-    sectionLabel: '지속 가능한 발전',
+    sectionLabel: "지속가능발전",
     title: '연구를 2030 의제와 연결합니다.',
     body: '우리 출판 프로그램의 일부 학술지는 관련 연구와 편집 커뮤니케이션에서 지속가능발전목표를 참고 틀로 활용합니다. 이 페이지는 유엔이 공개한 공식 자료로 연결되며, Panorama Scholarly Group 또는 그 출판물에 대한 유엔의 지지를 의미하지 않습니다.',
     agendaLabel: '2030 의제 읽기',

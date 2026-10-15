@@ -1,0 +1,1168 @@
+{
+  "locale": "ko",
+  "reviewedRows": 1444,
+  "corrections": [
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group은 5개 출판 브랜드와 24개 동료심사 학술지를 운영하는 독립 학술 출판·연구·인프라 기관입니다.'",
+      "newText": "Panorama Scholarly Group은 5개 출판 브랜드와 24개 동료 심사 학술지를 운영하는 독립 학술 출판·연구·인프라 기관입니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.heroOverline",
+      "oldLiteral": "'더 열린 세계를 위한 지식'",
+      "newText": "더 열린 세계를 위한 아이디어",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.heroTitleOne",
+      "oldLiteral": "'학문을 앞으로.'",
+      "newText": "학문을 발전시킵니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.imprintsTitle",
+      "oldLiteral": "'다섯 개의 임프린트'",
+      "newText": "다섯 개의 출판 브랜드",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.viewAllImprints",
+      "oldLiteral": "'모든 임프린트 보기'",
+      "newText": "모든 출판 브랜드 보기",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.featuredLede",
+      "oldLiteral": "'각 임프린트의 연구를 살펴보세요.'",
+      "newText": "각 출판 브랜드의 연구를 살펴보세요.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.journals.lede",
+      "oldLiteral": "'개의 학술지가 과학, 보건, 기술, 사회, 인문학을 아우르며 엄격한 기준과 열린 학문을 공유합니다.'",
+      "newText": "개의 발행 중인 학술지가 과학, 보건, 기술, 사회, 인문학을 아우르며 엄격한 기준과 개방적 학술 활동을 함께 추구합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.journals.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group의 다섯 임프린트에서 발행하는 학술지를 살펴보세요.'",
+      "newText": "Panorama Scholarly Group의 다섯 출판 브랜드에서 발행하는 학술지를 살펴보세요.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.journals.statText",
+      "oldLiteral": "'다섯 임프린트, 세계 연구자 공동체, 더 열린 내일.'",
+      "newText": "다섯 출판 브랜드, 세계 연구자 공동체, 더 열린 내일.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.viewImprint",
+      "oldLiteral": "'임프린트 보기'",
+      "newText": "출판 브랜드 보기",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.imprints.overline",
+      "oldLiteral": "'Panorama Scholarly Group / 편집 임프린트'",
+      "newText": "Panorama Scholarly Group / 편집 정체성",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.imprints.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group의 다섯 편집 임프린트와 각 임프린트가 아우르는 학술지를 살펴보세요.'",
+      "newText": "Panorama Scholarly Group의 다섯 출판 브랜드와 각 브랜드가 아우르는 학술지를 살펴보세요.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.imprints.editorialImprints",
+      "oldLiteral": "'편집 임프린트'",
+      "newText": "출판 브랜드",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.imprints.systemOverline",
+      "oldLiteral": "'임프린트 체계'",
+      "newText": "출판 브랜드 체계",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.imprints.systemText",
+      "oldLiteral": "'각 임프린트는 고유한 편집 성격과 학문 분야, 공동체를 지니면서도 독립적 학술을 위한 그룹의 기준을 공유합니다.'",
+      "newText": "각 출판 브랜드는 고유한 편집 정체성, 학문 분야, 공동체를 갖추면서도 독립 학술을 위한 그룹의 기준을 공유합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.exploreImprint",
+      "oldLiteral": "'임프린트 살펴보기'",
+      "newText": "출판 브랜드 살펴보기",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.factImprint",
+      "oldLiteral": "'임프린트'",
+      "newText": "출판 브랜드",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.readArticle",
+      "oldLiteral": "'기사 읽기'",
+      "newText": "논문 읽기",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[0]",
+      "oldLiteral": "'이 그룹 공통 기준은 학술지 콘텐츠의 DOI 배정에 적용됩니다. 각 학술지는 공개한 논문 유형, 심사 및 비용 정책을 통해 신규 게재물부터 단계적으로 도입하며 적용 섹션을 명시합니다. 게재 전에 해당 경로를 확정합니다. DOI는 출판물을 식별하며 동료 심사 인증이나 데이터베이스 등재를 보장하지 않습니다.'",
+      "newText": "이 그룹 공통 기준은 학술지 콘텐츠의 DOI 배정에 적용됩니다. 각 학술지는 공개한 논문 유형, 심사 및 비용 정책에 따라 향후 게재물부터 이 기준을 적용합니다. 적용하는 섹션을 각각 명시하며, 게재 전에 대상 여부를 확인합니다. DOI는 출판물을 식별하며 동료 심사 인증이나 데이터베이스 등재를 보장하지 않습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[3]",
+      "oldLiteral": "'논평, 관점, 포럼, 비평적 리뷰, 번역 및 실천 성찰은 개별적으로 분류합니다. 실질적인 외부 동료 심사 성과는 일반적으로 Crossref를 사용하고, 승인된 편집 심사 무료 콘텐츠는 Zenodo를 사용할 수 있습니다. 일반 뉴스, 논문 모집 및 행정 공지에는 보통 DOI를 배정하지 않습니다. 공식 정정, 우려 표명 및 철회는 해당 게재 후 정책에 따르며 관련 출판물과 연결합니다.'",
+      "newText": "논평, 관점, 포럼, 서평 논문, 비평적 서평, 번역, 실천 성찰은 개별적으로 분류합니다. 실질적인 외부 동료 심사 성과는 일반적으로 Crossref를 사용하고, 승인된 편집 심사 무료 콘텐츠는 Zenodo를 사용할 수 있습니다. 일반 뉴스, 논문 모집 및 행정 공지에는 보통 DOI를 배정하지 않습니다. 공식 정정, 우려 표명 및 철회는 해당 게재 후 정책에 따르며 관련 출판물과 연결합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.generalBody",
+      "oldLiteral": "'특정 저널에 관한 사항은 해당 저널 웹사이트의 연락처를 이용해 주세요.'",
+      "newText": "특정 학술지에 관한 사항은 해당 학술지 웹사이트의 연락처를 이용해 주세요.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.routes[0].title",
+      "oldLiteral": "'출판 및 저널'",
+      "newText": "출판 및 학술지",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.routes[0].body",
+      "oldLiteral": "'저널 문의, 도서 기획, 저자 안내, 출판 관련 질문을 위한 경로입니다.'",
+      "newText": "학술지 문의, 도서 기획, 저자 안내, 출판 관련 질문을 위한 경로입니다.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.closingBody",
+      "oldLiteral": "'최신 정보와 직접 링크는 저널, 기준, 학술 인프라 페이지에서 확인해 주세요.'",
+      "newText": "최신 정보와 직접 링크는 학술지, 기준, 학술 인프라 페이지에서 확인해 주세요.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "contact.browseJournals",
+      "oldLiteral": "'저널 둘러보기'",
+      "newText": "학술지 둘러보기",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.facts[0].value",
+      "oldLiteral": "'5개 편집 임프린트'",
+      "newText": "5개 출판 브랜드",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.facts[1].label",
+      "oldLiteral": "'저널'",
+      "newText": "학술지",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.facts[1].value",
+      "oldLiteral": "'활성 타이틀 24종'",
+      "newText": "발행 중인 학술지 24종",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.divisionsIntro",
+      "oldLiteral": "'첫 투고부터 장기적인 발견까지 연구의 여러 단계에 필요한 지원을 제공합니다.'",
+      "newText": "첫 투고부터 장기적인 검색과 활용까지, 그룹은 연구의 여러 단계에 필요한 지원을 제공합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.divisions[0].description",
+      "oldLiteral": "'과학, 인문학, 정책 분야를 아우르는 5개 편집 임프린트와 24개 동료심사 저널.'",
+      "newText": "과학·인문학·정책 분야의 5개 출판 브랜드와 24개 동료 심사 학술지.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[0].body",
+      "oldLiteral": "'출판 결정은 해당 작업을 맡은 저널, 도서 프로그램 또는 임프린트가 내립니다.'",
+      "newText": "출판 결정은 해당 작업을 맡은 학술지, 도서 프로그램 또는 출판 브랜드가 내립니다.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。 将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[1].description",
+      "oldLiteral": "'인문·사회과학 연구 공동체를 위한 발견 및 문헌 서비스 연결입니다.'",
+      "newText": "인문·사회과학 연구 공동체가 관련 문헌을 찾도록 돕는 검색·문헌 서비스입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[2].description",
+      "oldLiteral": "'저널, 도서, 연구 문헌을 위한 종합 학술 지식 서비스 플랫폼입니다.'",
+      "newText": "학술지, 도서, 연구 문헌을 위한 종합 학술 지식 서비스 플랫폼입니다.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[3].description",
+      "oldLiteral": "'사회과학, 예술 비평, 디지털 거버넌스 분야의 동료심사 오픈 액세스 저널을 발행하는 학술 출판기관입니다.'",
+      "newText": "사회과학·예술·디지털 거버넌스 분야의 동료 심사 오픈 액세스 학술지를 발행하는 학술 출판기관입니다.",
+      "reason": "영어에 없는 ‘예술 비평’을 삭제하고, 분야와 출판 용어를 바로잡았습니다."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[5].description",
+      "oldLiteral": "'학술 저널과 관련 연구 커뮤니케이션을 중심으로 활동하는 학술 출판기관입니다.'",
+      "newText": "학술지와 관련 연구 커뮤니케이션을 중심으로 활동하는 학술 출판기관입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.connectionsNote",
+      "oldLiteral": "'플랫폼 링크는 학술 결과물이 발견되거나 접근되는 경로를 설명하며, 소유 또는 보증을 의미하지 않습니다.'",
+      "newText": "플랫폼 링크는 학술 성과를 찾거나 이용할 수 있는 경로를 설명하며, 소유나 지지를 의미하지 않습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.closingBody",
+      "oldLiteral": "'저널, 연구 프로그램, 학술 인프라 또는 그룹 기준을 살펴보세요.'",
+      "newText": "학술지, 연구 프로그램, 학술 인프라 또는 그룹 기준을 살펴보세요.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.browseJournals",
+      "oldLiteral": "'저널 둘러보기'",
+      "newText": "학술지 둘러보기",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.introParagraphs[1]",
+      "oldLiteral": "'그룹 공통 정책은 출판 행위, 연구 진실성, 오픈 액세스, 학술 기록 관리에 대한 기대를 정합니다. 저널과 임프린트는 각 분야와 독자에 맞는 요건을 추가할 수 있습니다.'",
+      "newText": "그룹 공통 정책은 출판 행위, 연구 진실성, 오픈 액세스, 학술 기록 관리에 대한 기준을 제시합니다. 학술지와 출판 브랜드는 각 분야와 독자층에 맞는 요건을 추가할 수 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[1].body",
+      "oldLiteral": "'편집자와 편집팀은 해당 저널, 도서 프로그램 또는 임프린트가 제시한 범위와 기준에 따라 출판을 결정합니다.'",
+      "newText": "편집자와 편집팀은 해당 학술지, 도서 프로그램 또는 출판 브랜드가 제시한 범위와 기준에 따라 출판을 결정합니다.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。 将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.introParagraphs[0]",
+      "oldLiteral": "'학술 출판은 출판 플랫폼만으로 완성되지 않습니다. 저자, 편집자, 독자, 도서관, 공동체, 발견 서비스를 연결하는 관계가 필요합니다.'",
+      "newText": "학술 출판은 출판 플랫폼만으로 이루어지지 않습니다. 저자, 편집자, 독자, 도서관, 공동체와 검색 서비스를 연결하는 관계에도 달려 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.introParagraphs[1]",
+      "oldLiteral": "'이 페이지는 그룹을 둘러싼 주요 연결을 소개합니다. 플랫폼 링크는 발견 또는 접근 경로를 설명하며 소유나 보증을 의미하지 않습니다.'",
+      "newText": "이 페이지는 그룹을 둘러싼 주요 연결을 소개합니다. 플랫폼 링크는 자료를 검색하거나 이용하는 경로를 설명하며, 소유나 지지를 의미하지 않습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.networkIntro",
+      "oldLiteral": "'기관 관계와 독자가 학술 결과물을 발견하거나 접근하도록 돕는 서비스를 구분합니다.'",
+      "newText": "기관 간 관계와 독자가 학술 성과를 찾거나 이용하도록 돕는 서비스를 구분합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[1].description",
+      "oldLiteral": "'인문·사회과학 연구자가 관련 문헌을 발견하도록 돕는 학술 정보 서비스입니다.'",
+      "newText": "인문·사회과학 연구 공동체가 관련 문헌을 찾도록 돕는 검색 경로입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[2].description",
+      "oldLiteral": "'저널, 도서, 연구 문헌의 발견을 지원하는 지식 서비스 플랫폼입니다.'",
+      "newText": "학술지, 도서, 연구 문헌 전반의 검색을 지원하는 지식 서비스 플랫폼입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[3].description",
+      "oldLiteral": "'사회과학, 예술 비평, 디지털 거버넌스 분야의 동료심사 오픈 액세스 저널을 발행하는 학술 출판기관입니다.'",
+      "newText": "사회과학·예술·디지털 거버넌스 분야의 동료 심사 오픈 액세스 학술지를 발행하는 학술 출판기관입니다.",
+      "reason": "영어에 없는 ‘예술 비평’을 삭제하고, 분야와 출판 용어를 바로잡았습니다."
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[5].description",
+      "oldLiteral": "'학술 저널과 관련 연구 커뮤니케이션을 중심으로 활동하는 학술 출판기관입니다.'",
+      "newText": "학술지와 관련 연구 커뮤니케이션을 중심으로 활동하는 학술 출판기관입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.principles[2].body",
+      "oldLiteral": "'발견, 접근, 대화, 학술 기록 관리를 개선하는 연결을 우선합니다.'",
+      "newText": "검색, 접근, 대화 또는 학술 기록 관리를 개선하는 연결을 우선합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group 저널 네트워크의 색인, 보존, DOI 등록을 안내합니다.'",
+      "newText": "Panorama Scholarly Group 학술지 네트워크의 색인, 보존, DOI 등록을 안내합니다.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.heroLede",
+      "oldLiteral": "'출판을 둘러싼 연결 기반을 구축해 모든 논문이 공개 이후에도 오래 발견되고 인용되며 접근될 수 있도록 합니다.'",
+      "newText": "출판을 뒷받침하는 연결 기반을 구축해 모든 논문을 공개 후에도 오래 찾아 인용하고 이용할 수 있도록 합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.summary[2][0]",
+      "oldLiteral": "'발견'",
+      "newText": "검색",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.introParagraphs[0]",
+      "oldLiteral": "'논문은 모든 단계에서 지속 가능한 연결이 필요합니다. 인용을 위한 식별자, 발견을 위한 메타데이터, 연속성을 위한 보존 사본이 그것입니다.'",
+      "newText": "논문은 각 단계에서 안정적인 연결 고리가 필요합니다. 인용을 위한 식별자, 검색을 위한 메타데이터, 자료의 연속성을 위한 보존 사본이 그 예입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.introParagraphs[1]",
+      "oldLiteral": "'이 페이지는 이러한 층위를 한곳에 모았습니다. 지원 범위는 저널과 서비스에 따라 달라질 수 있으므로 최신 현황은 각 저널 페이지를 기준으로 확인해 주세요.'",
+      "newText": "이 페이지는 이러한 층위를 한곳에 모았습니다. 지원 범위는 학술지와 서비스마다 다를 수 있으므로 최신 현황은 각 학술지 페이지에서 확인해 주세요.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.doiTitle",
+      "oldLiteral": "'승인에서 영구 기록으로.'",
+      "newText": "게재 승인에서 영구 기록까지.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.doiLede",
+      "oldLiteral": "'DOI 등록은 플랫폼이나 페이지 구조가 바뀌어도 유효한, 지속적이고 해석 가능한 식별성을 연구에 부여합니다.'",
+      "newText": "DOI 등록은 게재된 연구에 지속적이고 실제 페이지로 연결되는 식별자를 부여합니다. 플랫폼이나 페이지 구조가 바뀌어도 그 식별자는 계속 유용합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryTitle",
+      "oldLiteral": "'연구를 발견할 수 있게 합니다.'",
+      "newText": "연구를 쉽게 찾을 수 있도록 합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.discoveryLede",
+      "oldLiteral": "'저널과 논문 메타데이터는 출판 플랫폼을 넘어 학술 검색, 발견, 오픈 사이언스 서비스로 이동할 수 있습니다.'",
+      "newText": "학술지와 논문의 메타데이터는 출판 플랫폼을 넘어 학술 검색, 정보 탐색, 오픈 사이언스 서비스로 확장될 수 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.regionalBody",
+      "oldLiteral": "'추가 학술 지식 플랫폼이 지역 연구 공동체의 발견 경로를 확장합니다.'",
+      "newText": "추가 학술 지식 플랫폼이 지역 연구 공동체의 검색 경로를 넓힙니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.cjwkBody",
+      "oldLiteral": "'저널, 도서, 연구 문헌을 위한 종합 학술 지식 서비스 플랫폼입니다.'",
+      "newText": "학술지, 도서, 연구 문헌을 위한 종합 학술 지식 서비스 플랫폼입니다.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.preservationBody",
+      "oldLiteral": "'분산 보존은 출판 플랫폼 밖에 저널의 두 번째 거점을 제공하여 시스템, 조직, URL이 바뀌어도 접근을 보호합니다.'",
+      "newText": "분산 보존은 학술지에 출판 플랫폼 밖의 별도 보존 거점을 마련해 시스템, 조직 또는 URL이 바뀌어도 접근성을 지키도록 돕습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.preservationDescriptions.pkp",
+      "oldLiteral": "'참여 저널을 위한 LOCKSS 기반 네트워크.'",
+      "newText": "참여 학술지를 위한 LOCKSS 기반 네트워크.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.identifiersLede",
+      "oldLiteral": "'등록 시스템과 도서관 목록은 도서관, 플랫폼, 연구 업무 전반에서 저널, 기관, 논문을 연결하는 공통 언어를 제공합니다.'",
+      "newText": "등록 시스템과 도서관 목록은 도서관, 플랫폼, 연구 업무 전반에서 학술지, 기관, 논문을 연결하는 공통 언어를 제공합니다.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.noteTitle",
+      "oldLiteral": "'DOI를 사용하고 저널 페이지를 확인하세요.'",
+      "newText": "DOI를 사용하고 학술지 페이지를 확인하세요.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.noteBody",
+      "oldLiteral": "'색인, 보존, 식별자 범위는 시간이 지나며 발전할 수 있습니다. 특정 저널의 최신 정보는 해당 웹사이트를 확인하거나 출판팀에 문의하세요.'",
+      "newText": "색인, 보존, 식별자 범위는 시간이 지나며 발전할 수 있습니다. 특정 학술지의 최신 정보는 해당 웹사이트를 확인하거나 출판팀에 문의하세요.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.browseJournals",
+      "oldLiteral": "'저널 둘러보기'",
+      "newText": "학술지 둘러보기",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/navigation.ts",
+      "key": "navigation.announcements",
+      "oldLiteral": "'공지사항'",
+      "newText": "공지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/navigation.ts",
+      "key": "navigation.journals",
+      "oldLiteral": "'저널'",
+      "newText": "학술지",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/navigation.ts",
+      "key": "navigation.researchAssessment",
+      "oldLiteral": "'연구평가(DORA)'",
+      "newText": "연구 평가(DORA)",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.heroTitle",
+      "oldLiteral": "'더 잘 이해하는 세계를 위한 연구.'",
+      "newText": "더 깊이 이해하는 세상을 위한 연구.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.areasIntro",
+      "oldLiteral": "'지식, 제도, 공공 생활에 관한 질문을 연구를 가능하게 하는 시스템과 연결합니다.'",
+      "newText": "지식, 제도, 공적 삶에 관한 질문을 연구를 가능하게 하는 시스템과 연결합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.areas[3].description",
+      "oldLiteral": "'색인, 평가, 발견, 연구 확산을 가능하게 하는 시스템을 연구합니다.'",
+      "newText": "색인, 평가, 정보 검색과 연구 확산을 뒷받침하는 시스템을 연구합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.principlesIntro",
+      "oldLiteral": "'연구소는 독립적으로 운영되면서도 명확한 방법, 책임 있는 실천, 학술 기록에 대한 돌봄이라는 그룹의 약속과 연결되어 있습니다.'",
+      "newText": "연구소는 독립적으로 운영되면서도 명확한 방법, 책임 있는 실천, 학술 기록의 세심한 관리라는 그룹의 약속과 연결되어 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.principles[0][2]",
+      "oldLiteral": "'좋은 연구는 검토하고 도전하며 이해할 수 있는 질문에서 시작합니다.'",
+      "newText": "좋은 연구는 검토와 비판이 가능하고 명확하게 이해되는 질문에서 시작합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/pages.ts",
+      "key": "research.closingTitle",
+      "oldLiteral": "'연구가 이끄는 곳을 따라가다.'",
+      "newText": "연구의 흐름을 따라가세요.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group Ltd는 DORA의 기관 서명 단체이며 책임 있는 연구 평가에 대한 약속을 공개합니다.'",
+      "newText": "Panorama Scholarly Group Ltd는 DORA에 기관 자격으로 서명했으며 책임 있는 연구 평가에 대한 약속을 공개합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.heroLede",
+      "oldLiteral": "'Panorama Scholarly Group Ltd는 샌프란시스코 연구 평가 선언(DORA)에 서명했습니다. 저널 지표만으로는 포착하기 어려운 연구의 질, 진실성, 개방성, 기여를 인정하는 출판 관행을 발전시킵니다.'",
+      "newText": "Panorama Scholarly Group Ltd는 샌프란시스코 연구 평가 선언(DORA)에 기관 자격으로 서명했습니다. 학술지 지표를 넘어 연구의 질, 진실성, 개방성, 기여를 인정하는 출판 관행을 발전시키고 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeLabel",
+      "oldLiteral": "'DORA 기관 서명 단체'",
+      "newText": "DORA 서명 기관",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeText",
+      "oldLiteral": "'이 공개 성명은 Panorama Scholarly Group Ltd와 각 임프린트가 운영하는 저널, 도서, 학술 서비스와 편집·출판 관행에 적용됩니다.'",
+      "newText": "이 공개 성명은 Panorama Scholarly Group Ltd가 발행하는 학술지와 도서, 제공하는 학술 서비스 및 유지·관리하는 편집 관행 전반에 적용됩니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.railStatement",
+      "oldLiteral": "'질은 저널에 붙은 하나의 숫자가 아닙니다.'",
+      "newText": "질은 학술지에 붙은 숫자로 결정되지 않습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.railMeta",
+      "oldLiteral": "'DORA 기관 서명 단체'",
+      "newText": "DORA 서명 기관",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.purpose.paragraphs[1]",
+      "oldLiteral": "'이 그룹 차원의 약속은 Panorama Scholarly Group과 각 임프린트가 유지하는 편집·출판 관행에 적용됩니다. 편집 기준 및 출판 윤리 정책을 보완하지만, 개별 저널이나 도서 프로젝트의 분야 범위와 판단 기준을 대신하지 않습니다.'",
+      "newText": "이 그룹 차원의 약속은 Panorama Scholarly Group과 각 출판 브랜드가 유지하는 편집·출판 관행에 적용됩니다. 편집 기준 및 출판 윤리 정책을 보완하지만, 개별 학술지나 도서 프로젝트의 분야 범위와 판단 기준을 대신하지 않습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.indicators.paragraphs[0]",
+      "oldLiteral": "'Journal Impact Factor, 저널 순위, 인용 수 또는 유사한 지표를 개별 논문, 저자 또는 연구자의 질을 대신하는 단독 기준으로 사용하지 않습니다. 저널 수준의 지표는 저널 전체의 경향을 설명할 뿐, 그 안에 실린 각 성과의 가치를 결정하지 않습니다.'",
+      "newText": "Journal Impact Factor, 학술지 순위, 인용 수 또는 유사한 지표를 개별 논문, 저자 또는 연구자의 질을 대신하는 단독 기준으로 사용하지 않습니다. 학술지 수준의 지표는 해당 학술지 전체의 경향을 설명할 뿐, 그 안에 실린 각 성과의 가치를 결정하지 않습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.publishing.paragraphs[0]",
+      "oldLiteral": "'논문 수준의 정보, 기여자 역할, 연구 산출물, 라이선스, 정정 및 학술적 가치를 보여 주는 정보를 더 이해하기 쉽고 발견하기 쉬운 방식으로 제공하도록 계속 개선합니다. 구체적인 정보는 저널, 분야, 출판 유형에 따라 달라질 수 있습니다.'",
+      "newText": "논문별 정보, 기여자 역할, 연구 산출물, 라이선스, 정정 및 학술적 가치를 보여 주는 기타 정보를 더 이해하기 쉽고 찾기 쉽게 제공하도록 계속 개선하겠습니다. 제공 정보는 학술지, 분야, 출판 유형에 따라 다를 수 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.publishing.paragraphs[1]",
+      "oldLiteral": "'홍보와 편집 안내에서는 성과 자체와 그 기여를 설명합니다. 저널 기반 지표를 특정 투고물이나 출판물의 질, 중요성 또는 예상 반응을 보장하는 수단으로 제시하지 않습니다.'",
+      "newText": "홍보와 편집 안내에서는 성과 자체와 그 기여를 설명합니다. 학술지 기반 지표를 특정 투고물이나 출판물의 질, 중요성 또는 예상 반응을 보장하는 수단으로 제시하지 않습니다.",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.implementation.paragraphs[0]",
+      "oldLiteral": "'DORA 기관 서명 단체로서 이 성명을 지속적인 개선을 위한 장기적 약속으로 삼습니다. 이는 인증이나 모든 관행이 이미 완성되었다는 주장이 아닙니다. 출판 프로그램이 발전함에 따라 저자 안내, 저널 정보, 메타데이터, 홍보 문구 및 편집 업무 흐름을 검토합니다.'",
+      "newText": "DORA 서명 기관으로서 이 성명은 지속적인 개선을 위한 약속이며, 인증이나 모든 관행이 이미 완성되었다는 주장은 아닙니다. 출판 프로그램이 발전함에 따라 저자 안내, 학술지 정보, 메타데이터, 홍보 문구와 편집 업무 절차를 검토하겠습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.doraLogoAlt",
+      "oldLiteral": "'DORA: 샌프란시스코 연구 평가 선언 서명 단체 배지'",
+      "newText": "샌프란시스코 연구 평가 선언(DORA) 서명 기관 배지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.doraCaption",
+      "oldLiteral": "'Panorama Scholarly Group Ltd는 DORA의 기관 서명 단체입니다. 이 투명한 DORA 서명 단체 배지는 공식 선언과 서명 단체 정보로 연결됩니다.'",
+      "newText": "Panorama Scholarly Group Ltd는 DORA에 기관 자격으로 서명했습니다. 이 투명한 DORA 서명 기관 배지는 공식 선언과 서명 기관 자료로 연결됩니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.signLinkLabel",
+      "oldLiteral": "'DORA 서명 단체 보기'",
+      "newText": "DORA 서명 기관 목록 보기",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.relatedLinks[0].body",
+      "oldLiteral": "'편집 판단, 동료심사, 저자 표시, 공개 및 정정.'",
+      "newText": "편집 판단, 동료 심사, 저자 표시, 공개 및 정정.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.footer",
+      "oldLiteral": "'Panorama Scholarly Group Ltd는 샌프란시스코 연구 평가 선언(DORA)의 기관 서명 단체입니다. DORA는 규제기관이나 인증기관이 아니며, 이 성명은 책임 있는 연구 평가에 대한 우리의 공개 약속을 기록합니다.'",
+      "newText": "Panorama Scholarly Group Ltd는 샌프란시스코 연구 평가 선언(DORA)에 기관 자격으로 서명했습니다. DORA는 규제기관이나 인증기관이 아니며, 이 성명은 책임 있는 연구 평가에 대한 공개 약속을 밝힙니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sdg.ts",
+      "key": "sdg.sectionLabel",
+      "oldLiteral": "'지속 가능한 발전'",
+      "newText": "지속가능발전",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.standards[0].description",
+      "oldLiteral": "'편집 결정, 동료심사, 저자 표시, 공개와 정정의 처리 방식을 설명합니다.'",
+      "newText": "편집 결정, 동료 심사, 저자 표시, 공개와 정정의 처리 방식을 설명합니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.contactBody",
+      "oldLiteral": "'먼저 위의 관련 기준을 확인하세요. 어느 학술지, 임프린트 또는 출판 팀에 문의해야 할지 확실하지 않다면 적절한 창구로 안내해 드립니다.'",
+      "newText": "먼저 위의 관련 기준을 확인하세요. 어느 학술지, 출판 브랜드 또는 출판 팀에 문의해야 할지 확실하지 않다면 적절한 창구로 안내해 드립니다.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group의 학술지, 학술 논문, 임프린트, 공지 및 자료를 검색합니다.'",
+      "newText": "Panorama Scholarly Group의 학술지, 학술 논문, 출판 브랜드, 공지 및 자료를 검색합니다.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.heroLede",
+      "oldLiteral": "'학술지, 학술 논문, 임프린트, 공지 및 그룹 자료를 한곳에서 검색하세요.'",
+      "newText": "학술지, 학술 논문, 출판 브랜드, 공지 및 그룹 자료를 한곳에서 검색하세요.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.exploreImprints",
+      "oldLiteral": "'임프린트 살펴보기'",
+      "newText": "출판 브랜드 살펴보기",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.client.typeLabels.imprint",
+      "oldLiteral": "'임프린트'",
+      "newText": "출판 브랜드",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.client.exploreImprints",
+      "oldLiteral": "'임프린트 살펴보기'",
+      "newText": "출판 브랜드 살펴보기",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group의 저널, 도서, 출판 브랜드와 출판 기준을 살펴보세요.'",
+      "newText": "Panorama Scholarly Group의 학술지, 도서, 출판 브랜드와 출판 기준을 살펴보세요.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.heroLede",
+      "oldLiteral": "'저널, 도서, 출판 브랜드를 통해 엄밀한 연구와 오늘날의 중요한 질문을 담아낼 분명한 편집의 장을 만듭니다.'",
+      "newText": "학술지, 도서, 출판 브랜드 전반에서 엄밀한 연구와 오늘날 중요한 질문을 담아낼 명확한 편집 기반을 마련합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.exploreJournals",
+      "oldLiteral": "'저널 둘러보기'",
+      "newText": "학술지 둘러보기",
+      "reason": "将 journal 统一译为适合学术出版语境的“학술지”。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.routes[0].title",
+      "oldLiteral": "'저널'",
+      "newText": "학술지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.routes[0].description",
+      "oldLiteral": "'다섯 편집 브랜드에서 발행하는 동료심사 저널과 각 저널 웹사이트로의 직접 경로를 제공합니다.'",
+      "newText": "다섯 출판 브랜드에서 발행하는 동료 심사 학술지를 소개하고 각 학술지 웹사이트로 바로 연결합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.routes[0].label",
+      "oldLiteral": "'저널 둘러보기'",
+      "newText": "학술지 살펴보기",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.activeJournals",
+      "oldLiteral": "'개 저널'",
+      "newText": "개 발행 중인 학술지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.imprintHeader",
+      "oldLiteral": "'브랜드'",
+      "newText": "출판 브랜드",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.activeJournalsLabel",
+      "oldLiteral": "'개 저널'",
+      "newText": "개 발행 중인 학술지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.imprintsClosing",
+      "oldLiteral": "'각 브랜드는 품질과 접근성에 대한 공동의 약속 아래 연구에 고유한 편집의 장을 제공합니다.'",
+      "newText": "각 출판 브랜드는 품질과 접근성에 대한 공통 약속을 바탕으로 연구에 고유한 편집의 장을 제공합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.sections.peer-review",
+      "oldLiteral": "'동료심사'",
+      "newText": "동료 심사",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.scopeText",
+      "oldLiteral": "'Panorama Scholarly Group과 각 임프린트가 출판하는 학술지, 도서 및 기타 학술 저작물에 적용됩니다.'",
+      "newText": "Panorama Scholarly Group과 각 출판 브랜드가 출판하는 학술지, 도서 및 기타 학술 저작물에 적용됩니다.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.railNote",
+      "oldLiteral": "'개별 학술지와 임프린트는 분야, 논문 유형, 도서 기획 또는 제출 형식에 관한 추가 요건을 둘 수 있습니다.'",
+      "newText": "개별 학술지와 출판 브랜드는 분야, 논문 유형, 도서 기획 또는 제출 형식에 관한 추가 요건을 둘 수 있습니다.",
+      "reason": "将 imprint 统一译为自然易懂的“출판 브랜드”。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.sections.review",
+      "oldLiteral": "'편집 평가와 동료심사'",
+      "newText": "편집 평가와 동료 심사",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.20",
+      "oldLiteral": "'학문을 넘나드는'",
+      "newText": "현실의 진전을 위한",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.21",
+      "oldLiteral": "'지식'",
+      "newText": "학문을 넘나드는",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.22",
+      "oldLiteral": "'현실의 진전을 위해.'",
+      "newText": "지식.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.3",
+      "oldLiteral": "'삶 속의 건강을 만납니다.'",
+      "newText": "일상의 건강 경험과 만나는 곳.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.4",
+      "oldLiteral": "'의학·공중보건·보건과학의 교차점에서 이루어지는 연구를 위한 학제 간 플랫폼입니다.'",
+      "newText": "의학·공중보건·보건과학의 교차 영역에서 학제 간 연구를 펼치는 터전입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.23",
+      "oldLiteral": "'임상 돌봄, 인구 건강, 데이터와 사회를 연결하는 연구를 출판합니다. 진정한 진전은 교차점에서 일어나기 때문입니다.'",
+      "newText": "임상 진료, 인구집단 건강, 데이터와 사회를 연결하는 연구를 출판합니다. 실질적인 진전은 여러 분야가 만나는 지점에서 이루어지기 때문입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.44",
+      "oldLiteral": "'학문과 공동체를 넘어 이해를 넓히고 건강을 개선하는 독창적 연구, 리뷰와 관점을 환영합니다.'",
+      "newText": "여러 학문 분야와 공동체를 아우르며 이해를 넓히고 건강을 개선하는 독창적 연구, 리뷰와 관점을 환영합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.50",
+      "oldLiteral": "'임상 연구, 인구 건강, 보건의료 시스템을 통합합니다.'",
+      "newText": "임상 연구, 인구집단 건강, 보건의료 시스템을 통합합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.54",
+      "oldLiteral": "'기전에서 의미 있는 치료로.'",
+      "newText": "기전에서 의미 있는 치료법으로.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.57",
+      "oldLiteral": "'Health Nexus는 학제 간 의학·인구 건강·디지털 헬스·의료 인공지능·암 생물학·치료학을 아우르며 건강을 상호보완적으로 다루는 동료심사 학술지를 모읍니다.'",
+      "newText": "Health Nexus는 학제 간 의학·인구집단 건강·디지털 헬스·의료 인공지능·암 생물학·치료법 등 상호보완적 관점에서 건강을 다루는 동료 심사 학술지를 모읍니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.75",
+      "oldLiteral": "'건강은 임상적 만남만으로 형성되지 않습니다. 정책·인프라·데이터·환경·공동체와 일상을 매개하는 기술도 건강을 형성합니다.'",
+      "newText": "건강은 임상 진료만으로 형성되지 않습니다. 정책·인프라·데이터·환경·공동체와 일상을 매개하는 기술도 건강에 영향을 줍니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.83",
+      "oldLiteral": "'강한 투고는 책임 있는 학술에서 시작됩니다.'",
+      "newText": "완성도 높은 투고는 책임 있는 학술에서 시작됩니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.127",
+      "oldLiteral": "'편집 결정, 동료심사와 출판 후 관리를 하나의 학술적 책임으로 봅니다.'",
+      "newText": "편집 결정, 동료 심사와 출판 후 관리를 하나의 학술적 책임으로 봅니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.14",
+      "oldLiteral": "'개 학술지 발행 중, 계속 확대'",
+      "newText": "개 발행 중인 학술지, 계속 늘고 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.15",
+      "oldLiteral": "'개 학술지, 계속 성장 중'",
+      "newText": "개 발행 중인 학술지, 계속 늘고 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.31",
+      "oldLiteral": "'복잡한 환경·생명과학의 질문을 더 명확하고 유용하게 만들며 영향을 받는 공동체에 더 열어 주는 독창적 연구, 리뷰와 관점을 환영합니다.'",
+      "newText": "복잡한 환경·생명과학의 질문을 더 명확하고 유용하게 다루고, 영향을 받는 공동체와 더 널리 공유할 수 있는 독창적 연구, 리뷰와 관점을 환영합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.54",
+      "oldLiteral": "'환경 시스템·식품·농촌 개발·건강·지속가능성을 아우르는 동료심사 연구를 담은 Verdant Science 학술지 프로그램을 살펴보세요.'",
+      "newText": "환경 시스템·식품·농촌 개발·건강·지속가능성을 아우르는 동료 심사 연구를 담은 Verdant Science 학술지 프로그램을 살펴보세요.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.58",
+      "oldLiteral": "'현재 4개 학술지. 더 많은 프로그램이 이어집니다.'",
+      "newText": "현재 학술지 4종을 발행하고 있으며, 프로그램은 계속 확장됩니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.60",
+      "oldLiteral": "'개 활성 학술지'",
+      "newText": "개 발행 중인 학술지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.26",
+      "oldLiteral": "'Charter 프로그램은 정책·법·사회 연구·교육·거버넌스 분야에서 더 많은 학술지를 개발하고 있습니다.'",
+      "newText": "Charter 프로그램에서는 정책·법·사회 연구·교육·거버넌스 분야의 학술지를 추가로 개발하고 있습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.33",
+      "oldLiteral": "'법·정책·사회에 대한 이해를 심화하는 독창적 연구, 리뷰와 관점을 환영합니다. 엄밀한 동료심사, 편집 독립성, 강한 아이디어를 의미 있는 공적 학술로 발전시키는 명확한 경로를 중시합니다.'",
+      "newText": "법·정책·사회에 대한 이해를 심화하는 독창적 연구, 리뷰와 관점을 환영합니다. 엄밀한 동료 심사, 편집 독립성, 우수한 연구 아이디어를 의미 있는 공적 학술 성과로 발전시키는 명확한 경로를 중시합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.52",
+      "oldLiteral": "'공공기관의 책임성·투명성·제도적 온전성에 관한 연구.'",
+      "newText": "공공기관의 책임성·투명성·건전성에 관한 연구.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.75",
+      "oldLiteral": "'Charter는 법·정책·거버넌스·제도·사회를 상호보완적 관점에서 다루는 동료심사 학술지를 모읍니다.'",
+      "newText": "Charter는 법·정책·거버넌스·제도·사회를 상호보완적 관점에서 다루는 동료 심사 학술지를 모읍니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.78",
+      "oldLiteral": "'공공 제도를 더 잘 이해하고 책임 있게 만들며 현대 생활의 복잡성에 대응하도록 하는 학술을 출판합니다.'",
+      "newText": "공공 제도를 더 쉽게 이해하고, 책임성을 높이며, 현대 생활의 복잡성에 더 잘 대응할 수 있도록 하는 학술을 출판합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.90",
+      "oldLiteral": "'개 활성 학술지'",
+      "newText": "개 발행 중인 학술지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.97",
+      "oldLiteral": "'공적 질문에는 공적 추론이 필요합니다.'",
+      "newText": "편집 결정은 학술적 가치, 범위와의 관련성, 학술 기록의 무결성을 기준으로 합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.104",
+      "oldLiteral": "'Charter는 질문에는 야심을, 방법에는 규율을 갖춘 학술을 지원합니다. 비판적·구성적·이론적·실증적·혼합방법 연구 모두 추론을 검토 가능하게 제시한다면 환영합니다.'",
+      "newText": "Charter는 대담한 질문과 엄정한 방법론을 갖춘 연구를 지원합니다. 비판적·건설적·이론적·실증적·혼합 방법 연구 모두 추론 과정을 검토할 수 있게 제시한다면 환영합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.113",
+      "oldLiteral": "'제도와 공중은 추상적이지 않습니다. 맥락과 결과를 드러내는 연구를 권장합니다.'",
+      "newText": "제도와 대중은 추상적인 개념이 아닙니다. 맥락과 결과를 분명히 드러내는 연구를 권장합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.131",
+      "oldLiteral": "'편집·동료심사 의견에 명확하고 적절하게 답하며 변경 사항을 기록하세요.'",
+      "newText": "편집·동료 심사 의견에 명확하고 적절하게 답하며 변경 사항을 기록하세요.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.133",
+      "oldLiteral": "'편집 결정은 학술적 가치, 범위 적합성, 기록의 온전성을 기준으로 합니다.'",
+      "newText": "편집 결정은 학술적 가치, 범위와의 적합성, 학술 기록의 무결성을 기준으로 합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.0",
+      "oldLiteral": "'Threnody는 인문학·예술·철학·소리·문화 연구 전반의 독립적이고 동료심사를 거친 학술을 출판하는 Panorama Scholarly Group의 브랜드입니다.'",
+      "newText": "Threnody는 인문학·예술·철학·소리·문화 연구 전반의 독립적이고 동료 심사를 거친 학술을 출판하는 Panorama Scholarly Group의 출판 브랜드입니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.3",
+      "oldLiteral": "'인문학·예술·철학·기억·문화·소리 연구 전반의 독립적이고 동료심사를 거친 학술을 출판합니다.'",
+      "newText": "인문학·예술·철학·기억·문화·소리 연구 전반의 독립적이고 동료 심사를 거친 학술을 출판합니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.13",
+      "oldLiteral": "'Threnody 학술지 프로그램은 인문학·예술·철학·기억·문화·소리 전반의 엄밀한 동료심사 연구를 출판합니다. 여기에는 성장 중인 프로그램의 일부를 소개하며, 각 학술지는 명확한 편집 범위와 고유한 학술 공동체를 갖습니다.'",
+      "newText": "Threnody 학술지 프로그램은 인문학·예술·철학·기억·문화·소리 전반의 엄밀한 동료 심사 연구를 출판합니다. 여기에는 성장 중인 프로그램의 일부를 소개하며, 각 학술지는 명확한 편집 범위와 고유한 학술 공동체를 갖습니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.32",
+      "oldLiteral": "'명확한 질문, 적절한 방법과 책임 있게 제시된 근거를 통해 인문학·예술·철학적 탐구를 발전시키는 독창적 연구, 비평적 리뷰와 정교한 관점을 환영합니다.'",
+      "newText": "명확한 질문, 적절한 방법과 책임 있게 제시한 근거를 바탕으로 인문학·예술·철학적 탐구를 발전시키는 독창적 연구, 비평적 서평과 논증이 탄탄한 관점을 환영합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.38",
+      "oldLiteral": "'각 학술지는 고유한 편집 정체성과 책임을 유지하는 동시에 엄밀한 동료심사, 편집 독립성, 투명한 출판과 학술 기록의 책임 있는 관리라는 Panorama Scholarly Group의 약속을 공유합니다.'",
+      "newText": "각 학술지는 고유한 편집 정체성과 책임을 유지하는 동시에 엄밀한 동료 심사, 편집 독립성, 투명한 출판과 학술 기록의 책임 있는 관리라는 Panorama Scholarly Group의 약속을 공유합니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.75",
+      "oldLiteral": "'편집·동료심사 의견에 정확하고 존중하는 태도로 답하며 실질적 변경 사항을 명확히 기록하세요.'",
+      "newText": "편집·동료 심사 의견에 정확하고 존중하는 태도로 답하며 실질적 변경 사항을 명확히 기록하세요.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.77",
+      "oldLiteral": "'편집 결정은 학술적 가치, 범위와의 적합성, 출판 기록의 온전성을 기준으로 합니다.'",
+      "newText": "편집 결정은 학술적 가치, 범위와의 적합성, 출판 기록의 무결성을 기준으로 합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.78",
+      "oldLiteral": "'동료심사의 진실성'",
+      "newText": "동료 심사의 진실성",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.98",
+      "oldLiteral": "'편집적 책임과 함께.'",
+      "newText": "독립 학술.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.101",
+      "oldLiteral": "'Threnody는 소리·음악·비교철학·예술·문화 연구를 아우르는 성장하는 동료심사 학술지 그룹을 운영합니다. 각 학술지는 명확한 범위, 책임 있는 편집팀과 저자·독자를 위한 분명한 경로를 갖습니다.'",
+      "newText": "Threnody는 소리·음악·비교철학·예술·문화 연구를 아우르는 성장하는 동료 심사 학술지 그룹을 운영합니다. 각 학술지는 명확한 범위, 책임 있는 편집팀과 저자·독자를 위한 분명한 경로를 갖습니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.107",
+      "oldLiteral": "'Threnody는 인문학·예술·철학적 탐구를 발전시키는 독창적 연구, 비평적 리뷰와 정교한 관점을 환영합니다.'",
+      "newText": "Threnody는 인문학·예술·철학적 탐구를 발전시키는 독창적 연구, 비평적 서평과 논증이 탄탄한 관점을 환영합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.112",
+      "oldLiteral": "'개 발행 중'",
+      "newText": "개 발행 중인 학술지",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.118",
+      "oldLiteral": "'Threnody의 각 학술지는 고유한 편집 정체성을 유지하면서 엄밀한 동료심사, 책임 있는 보고, 편집 독립성과 학술 기록의 신중한 관리라는 기준을 공유합니다.'",
+      "newText": "Threnody의 각 학술지는 고유한 편집 정체성을 유지하면서 엄밀한 동료 심사, 책임 있는 보고, 편집 독립성과 학술 기록의 신중한 관리라는 기준을 공유합니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.130",
+      "oldLiteral": "'Threnody의 각 학술지는 고유한 목적·범위·투고 요건을 갖습니다. 다음 원칙은 저자가 신중하게 학술지를 선택하고 완전하며 평가 가능한 투고를 준비하도록 돕습니다.'",
+      "newText": "Threnody의 각 학술지는 고유한 목적·범위·투고 요건을 갖습니다. 다음 원칙은 저자가 신중하게 학술지를 선택하고 완성도 높고 심사 가능한 원고를 준비하도록 돕습니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.133",
+      "oldLiteral": "'저자는 방법과 근거를 정확히 보고하고 출처를 밝히며 관련 이해관계를 공개하고 필요한 허가를 취득해야 합니다. 또한 적용되는 윤리 요건을 준수하고 연구의 한계를 분명히 밝혀야 합니다.'",
+      "newText": "저자는 방법과 근거를 정확히 보고하고 출처를 밝히며 관련 이해관계를 공개하고 필요한 허가를 받아야 합니다. 또한 적용되는 윤리 요건을 준수하고 연구의 한계를 분명히 밝혀야 합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.141",
+      "oldLiteral": "'이 브랜드는 방법이 엄밀하고 추론이 명시적이며 지식이 생산되는 역사적·사회적 맥락을 세심하게 살피는 연구를 위한 것입니다.'",
+      "newText": "이 출판 브랜드는 방법론이 엄밀하고 추론이 명확하며 지식 생산의 역사적·사회적 맥락을 세심하게 살피는 연구를 지향합니다.",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.147",
+      "oldLiteral": "'Threnody는 Panorama Scholarly Group의 출판 체계 안에서 운영되지만 각 학술지의 편집 정체성과 책임성을 보존합니다. 공유 기준은 동료심사, 연구 진실성, 접근, 정정과 학술 기록의 책임 있는 관리를 포함합니다.'",
+      "newText": "Threnody는 Panorama Scholarly Group의 출판 체계 안에서 운영되지만 각 학술지의 편집 정체성과 책임성을 보존합니다. 공유 기준은 동료 심사, 연구 진실성, 접근, 정정과 학술 기록의 책임 있는 관리를 포함합니다.",
+      "reason": "统一“동료 심사”的规范间距。"
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.ridgeline.description",
+      "oldLiteral": "'기술, 공학, 응용 인공지능 연구를 위한 Panorama Scholarly Group의 임프린트로, 더 인간적이고 지속 가능하며 공정한 미래를 지향합니다.'",
+      "newText": "Ridgeline은 기술·공학·응용 인공지능 연구를 위한 Panorama Scholarly Group의 출판 브랜드입니다.",
+      "reason": "영문에 없는 홍보 문구를 삭제하고 문장 주어와 브랜드 설명을 복원했습니다."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.health-nexus.description",
+      "oldLiteral": "'의학, 공중보건, 보건과학 연구를 위한 Panorama Scholarly Group의 임프린트입니다.'",
+      "newText": "Health Nexus는 의학·공중보건·보건과학 연구를 위한 Panorama Scholarly Group의 출판 브랜드입니다.",
+      "reason": "문장 주어를 보충하고 브랜드 용어를 통일했습니다."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.verdant-science.description",
+      "oldLiteral": "'지속가능성, 환경과학, 생명과학 연구를 위한 Panorama Scholarly Group의 임프린트입니다.'",
+      "newText": "Verdant Science는 지속가능성·환경과학·생명과학 연구를 위한 Panorama Scholarly Group의 출판 브랜드입니다.",
+      "reason": "문장 주어를 보충하고 브랜드 용어를 통일했습니다."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.charter.description",
+      "oldLiteral": "'정책, 법, 거버넌스 연구를 위한 Panorama Scholarly Group의 임프린트입니다.'",
+      "newText": "Charter는 정책·법·거버넌스 연구를 위한 Panorama Scholarly Group의 출판 브랜드입니다.",
+      "reason": "문장 주어를 보충하고 브랜드 용어를 통일했습니다."
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.threnody.description",
+      "oldLiteral": "'인문학, 예술, 철학 연구를 위한 Panorama Scholarly Group의 임프린트입니다.'",
+      "newText": "Threnody는 인문학·예술·철학 연구를 위한 Panorama Scholarly Group의 출판 브랜드입니다.",
+      "reason": "문장 주어를 보충하고 브랜드 용어를 통일했습니다."
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.53",
+      "oldLiteral": "'암 생물학과 치료학'",
+      "newText": "암 생물학과 치료 연구",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.97",
+      "oldLiteral": "'독립 학술'",
+      "newText": "세심한 편집으로 뒷받침되는",
+      "reason": "按英文原意修正语义偏差，并调整为自然、专业的韩语表达。"
+    }
+  ]
+}

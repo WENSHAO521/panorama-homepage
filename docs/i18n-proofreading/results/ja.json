@@ -1,0 +1,896 @@
+{
+  "locale": "ja",
+  "reviewedRows": 1443,
+  "corrections": [
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.journals.lede",
+      "oldLiteral": "'誌の学術誌が科学、健康、テクノロジー、社会、人文学を横断し、厳格な基準とオープンサイエンスによって結ばれています。'",
+      "newText": "誌が科学、健康、テクノロジー、社会、人文学にわたり、厳格な基準とオープンな学術活動によって結ばれています。",
+      "reason": "先頭の件数表示との重複を除き、学術出版の表現を自然に修正。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.facts[1].value",
+      "oldLiteral": "'24誌のアクティブタイトル'",
+      "newText": "24誌刊行中",
+      "reason": "不自然な直訳調の表現を簡潔な日本語に修正。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.divisions[0].description",
+      "oldLiteral": "'自然科学、人文科学、政策分野にまたがる5つの出版インプリントと24の査読誌。'",
+      "newText": "自然科学、人文学、政策分野にまたがる5つの出版ブランドと24誌の査読付き学術誌。",
+      "reason": "査読付き学術誌という意味を明確化。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.commitments[0].body",
+      "oldLiteral": "'出版の判断は、その仕事を担う学術誌、書籍プログラム、またはインプリントが行います。'",
+      "newText": "編集上の判断は、その成果を担う学術誌、書籍プログラム、またはインプリントに委ねられます。",
+      "reason": "editorial decisionsの意味に合わせて修正。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[3].description",
+      "oldLiteral": "'社会科学、芸術批評、デジタル・ガバナンス分野の査読付きオープンアクセス誌を手がける学術出版組織です。'",
+      "newText": "社会科学、芸術、デジタル・ガバナンス分野の査読付きオープンアクセス誌を手がける学術出版組織です。",
+      "reason": "artsを芸術として訳し、意味のずれを修正。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[3].description",
+      "oldLiteral": "'社会科学、芸術批評、デジタル・ガバナンス分野の査読付きオープンアクセス誌を手がける学術出版組織です。'",
+      "newText": "社会科学、芸術、デジタル・ガバナンス分野の査読付きオープンアクセス誌を手がける学術出版組織です。",
+      "reason": "artsを芸術として訳し、意味のずれを修正。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.introParagraphs[0]",
+      "oldLiteral": "'論文には各段階で持続的な受け渡しが必要です。引用のための識別子、発見のためのメタデータ、継続性を支える保存コピーがそれにあたります。'",
+      "newText": "論文には、各段階で情報を確実に引き継ぐ仕組みが必要です。引用用の識別子、検索で見つけるためのメタデータ、継続性を支える保存コピーがそれに当たります。",
+      "reason": "durable handoffの比喩を文脈に沿った自然な表現に修正。"
+    },
+    {
+      "file": "web/src/i18n/infrastructure.ts",
+      "key": "infrastructure.identifierDetails.isni",
+      "oldLiteral": "'組織と貢献者の永続的な名称識別。'",
+      "newText": "組織や貢献者の名称を恒久的に識別するための識別子。",
+      "reason": "「名称」の情報を保ちつつ、自然な日本語に修正。"
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.labels[5]",
+      "oldLiteral": "'掲載記録と審査の透明性'",
+      "newText": "掲載記録と透明性",
+      "reason": "原文にない査読の意味が加わっているため修正。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.metaDescription",
+      "oldLiteral": "'Panorama Scholarly Group LtdはDORAの組織署名者であり、責任ある研究評価への取り組みを公開しています。'",
+      "newText": "Panorama Scholarly Group LtdはDORAに組織として署名しており、責任ある研究評価への取り組みを公開しています。",
+      "reason": "署名主体と組織署名であることを明確化。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.heroLede",
+      "oldLiteral": "'Panorama Scholarly Group Ltdはサンフランシスコ研究評価宣言（DORA）に署名しています。ジャーナル指標だけでは捉えられない質、誠実性、開放性、貢献を認識する出版実践を整備します。'",
+      "newText": "Panorama Scholarly Group Ltdは、研究評価に関するサンフランシスコ宣言（DORA）に組織として署名しています。ジャーナル指標だけでは捉えられない質、誠実性、開放性、貢献を認識する出版実践を整備します。",
+      "reason": "署名主体を明示し、原文の主旨を正確に反映。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeLabel",
+      "oldLiteral": "'DORA組織署名者'",
+      "newText": "DORAに組織として署名",
+      "reason": "署名主体が組織であることを自然に明示。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.railMeta",
+      "oldLiteral": "'DORAの組織署名者'",
+      "newText": "DORAに組織として署名",
+      "reason": "署名主体が組織であることを自然に明示。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeText",
+      "oldLiteral": "'この公開声明は、Panorama Scholarly Group Ltdと各インプリントが担う学術誌、書籍、学術サービス、編集・出版実践に適用します。'",
+      "newText": "この公開声明は、Panorama Scholarly Group Ltdが維持する学術誌、書籍、学術サービス、および編集実務に適用されます。",
+      "reason": "原文にないインプリントを除き、適用範囲を正確に修正。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.principles.intro",
+      "oldLiteral": "'DORAを、学術成果の記述、評価、提示方法を改善するための実践的な枠組みとして用います。'",
+      "newText": "DORAを、学術成果を著者、編集者、査読者、読者、パートナーにどのように記述・評価・提示するかを改善するための実践的な枠組みとして用います。",
+      "reason": "原文にある対象者と行為を補い、意味を正確化。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.sections.implementation.paragraphs[0]",
+      "oldLiteral": "'DORAの組織署名者として、この声明を継続的な改善への長期的な取り組みと位置づけます。認証でも、すべての実践が完了したという主張でもありません。出版プログラムの発展に合わせ、著者向け案内、学術誌情報、メタデータ、広報表現、編集ワークフローを見直します。'",
+      "newText": "DORAに組織として署名している立場から、この声明を継続的な改善への取り組みと位置づけます。認証でも、すべての実践が完了したという主張でもありません。出版プログラムの発展に合わせ、著者向け案内、学術誌情報、メタデータ、広報表現、編集ワークフローを見直します。",
+      "reason": "組織署名者の立場と継続的改善の意味を明確化。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.doraCaption",
+      "oldLiteral": "'Panorama Scholarly Group LtdはDORAの組織署名者です。この透明なDORA署名者バッジは公式宣言と署名者向け情報にリンクしています。'",
+      "newText": "Panorama Scholarly Group LtdはDORAに組織として署名しています。このDORA署名者バッジは透明性を示し、公式宣言と署名者向け情報にリンクしています。",
+      "reason": "署名者バッジの説明を透明性の意味が伝わる日本語に修正。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.footer",
+      "oldLiteral": "'Panorama Scholarly Group Ltdはサンフランシスコ研究評価宣言（DORA）の組織署名者です。DORAは規制機関や認証機関ではなく、この声明は責任ある研究評価への公開の取り組みを示します。'",
+      "newText": "Panorama Scholarly Group Ltdは、研究評価に関するサンフランシスコ宣言（DORA）に組織として署名しています。DORAは規制機関や認証機関ではなく、この声明は責任ある研究評価への公開の取り組みを示します。",
+      "reason": "署名主体とDORAの位置づけを明確化。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.noscriptPrefix",
+      "oldLiteral": "'検索にはJavaScriptが必要です。直接'",
+      "newText": "検索にはJavaScriptが必要です。次の項目から直接ご覧ください：",
+      "reason": "後続リンクにつながる文の構成を修正。"
+    },
+    {
+      "file": "web/src/i18n/utility.ts",
+      "key": "search.client.try",
+      "oldLiteral": "'学術誌を'",
+      "newText": "次をお試しください：",
+      "reason": "後続リンクとの重複を避け、案内文を自然に修正。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.activeJournals",
+      "oldLiteral": "'誌の学術誌'",
+      "newText": "誌が刊行中",
+      "reason": "active journalsの件数表示に適した表現へ修正。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.activeJournalsLabel",
+      "oldLiteral": "'誌の学術誌'",
+      "newText": "誌が刊行中",
+      "reason": "active journalsの件数表示に適した表現へ修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.verdant-science.15",
+      "oldLiteral": "'誌の学術誌、拡大中'",
+      "newText": "誌が刊行中、さらに拡大",
+      "reason": "件数表示の重複を除き、自然な表現に修正。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.editorial.description",
+      "oldLiteral": "'責任ある透明で厳密な学術出版のためのPanorama Scholarly Group共通編集基準。'",
+      "newText": "責任ある、透明性の高い、厳密な学術出版のためのPanorama Scholarly Group共通の編集基準です。",
+      "reason": "並列する形容表現の文法を整えた。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.ethics.railText",
+      "oldLiteral": "'文書化された手続き、公正なプロセス、明確な記録管理により公正性への懸念を扱います。'",
+      "newText": "研究公正に関する懸念は、文書化された手続きと公正なプロセスに沿って扱い、公開記録の明確さを保つよう努めます。",
+      "reason": "Integrity concernsの意味を明確化。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.privacy.sections.choices",
+      "oldLiteral": "'選択と請求'",
+      "newText": "選択肢と各種の申請",
+      "reason": "requestsを「請求」とする意味のずれを修正。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.imprints.systemText",
+      "oldLiteral": "'各インプリントは独自の編集性、専門領域、研究コミュニティを持ちながら、独立した学術に対するグループ共通の基準を共有します。'",
+      "newText": "各インプリントは独自の編集方針、専門分野、研究コミュニティを持ちながら、独立した学術研究に関するグループ共通の基準を共有します。",
+      "reason": "編集方針と独立した学術研究を自然な日本語で表現。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.25",
+      "oldLiteral": "'厳密な学術'",
+      "newText": "厳密な学術研究",
+      "reason": "scholarshipの意味を補い、名詞句を整えた。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.3",
+      "oldLiteral": "'より公正な'",
+      "newText": "より公正な制度を目指す",
+      "reason": "分割された見出しを後続語と自然につながる形に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.4",
+      "oldLiteral": "'制度のために。'",
+      "newText": "研究",
+      "reason": "分割された見出しの語順を日本語として自然に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.11",
+      "oldLiteral": "'より公正な'",
+      "newText": "より公正な社会を目指す",
+      "reason": "分割された見出しを後続語と自然につながる形に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.12",
+      "oldLiteral": "'社会のために'",
+      "newText": "研究",
+      "reason": "分割された見出しの語順を日本語として自然に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.113",
+      "oldLiteral": "'制度と公共は抽象ではありません。文脈と帰結を可視化する研究を奨励します。'",
+      "newText": "制度や人々は抽象的な存在ではありません。文脈と帰結を明らかにする研究を奨励します。",
+      "reason": "publicsの意味を反映し、不自然な対比表現を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.1",
+      "oldLiteral": "'人文学'",
+      "newText": "残るもののための",
+      "reason": "分割された見出しが後続語と自然につながるよう修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.2",
+      "oldLiteral": "'残るもののために。'",
+      "newText": "人文学",
+      "reason": "分割された見出しの訳語を統一。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.97",
+      "oldLiteral": "'独立した学術'",
+      "newText": "独立した学術研究",
+      "reason": "scholarshipの意味を補い、名詞句を整えた。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.113",
+      "oldLiteral": "'異なる編集コミュニティを、丁寧な学術でつなぐ。'",
+      "newText": "異なる編集コミュニティを、丁寧な研究でつなぐ。",
+      "reason": "distinctの意味を保ち、scholarshipを文脈に沿って表現。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.124",
+      "oldLiteral": "'大きな問い。規律ある主張。'",
+      "newText": "大きな問い。節度ある主張。",
+      "reason": "disciplined claimsの意味を自然な日本語に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.132",
+      "oldLiteral": "'責任ある学術は投稿の一部です。'",
+      "newText": "責任ある研究の実践も投稿内容の一部です。",
+      "reason": "原文の意味が不明瞭な表現を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.89",
+      "oldLiteral": "'概念、価値、宗教的伝統、そして公共生活を形づくり続ける知性史。'",
+      "newText": "概念、価値、宗教的伝統、そして公共生活を形づくり続ける思想史。",
+      "reason": "intellectual historiesの意味を自然な日本語に修正。"
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.ridgeline.description",
+      "oldLiteral": "'テクノロジー、工学、応用AI研究を扱うPanorama Scholarly Groupのインプリント。より人間的で持続可能、公平な未来に向けた研究を刊行します。'",
+      "newText": "テクノロジー、工学、応用AI研究を扱うPanorama Scholarly Groupの出版ブランドです。",
+      "reason": "原文にない説明を除き、ブランド紹介の意味を整えた。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.3",
+      "oldLiteral": "'システムのために。'",
+      "newText": "システムのための",
+      "reason": "分割された見出しを日本語として自然な語順に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.4",
+      "oldLiteral": "'より人間的で持続可能かつ公正な未来に向けた、テクノロジー、工学、応用AIの研究。'",
+      "newText": "研究",
+      "reason": "分割された見出しを日本語として自然な語順に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.20",
+      "oldLiteral": "'知'",
+      "newText": "分野を越える知",
+      "reason": "分割されたコピーを自然な日本語の語順に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.21",
+      "oldLiteral": "'現実の進歩のために。'",
+      "newText": "で",
+      "reason": "分割されたコピーを後続句と自然につながる形に修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.22",
+      "oldLiteral": "'Ridgelineは、テクノロジー、工学、社会の交差点にある厳密で独立した研究を刊行します。私たちが直面する課題には、単一分野を超える答えが必要です。'",
+      "newText": "現実の進歩を支える。",
+      "reason": "分割されたコピーの文意と語順を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.39",
+      "oldLiteral": "'世界各地からの原著論文、レビュー、見解を歓迎します。'",
+      "newText": "明日を形づくりましょう。",
+      "reason": "分割されたコピーを自然な呼びかけとして修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.52",
+      "oldLiteral": "'テクノロジー、工学、社会にわたる独立した研究主導型学術誌を刊行するPanorama Scholarly Groupのブランド、Ridgelineをご紹介します。'",
+      "newText": "Ridgelineについて",
+      "reason": "見出しに対応する短い表現へ修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.91",
+      "oldLiteral": "'誌が刊行中'",
+      "newText": "Ridgelineの学術誌",
+      "reason": "一覧見出しに件数表示が割り当てられているため修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.5",
+      "oldLiteral": "'Ridgelineの学術誌を見る'",
+      "newText": "より人間的で持続可能かつ公正な未来に向けた、テクノロジー、工学、応用AIの研究。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.6",
+      "oldLiteral": "'研究を投稿する'",
+      "newText": "Ridgelineの学術誌を見る",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.7",
+      "oldLiteral": "'知'",
+      "newText": "研究を投稿する",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.8",
+      "oldLiteral": "'方法'",
+      "newText": "知",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.9",
+      "oldLiteral": "'人々'",
+      "newText": "方法",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.10",
+      "oldLiteral": "'より暮らしやすい明日'",
+      "newText": "人々",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.11",
+      "oldLiteral": "'学術誌'",
+      "newText": "より暮らしやすい明日",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.12",
+      "oldLiteral": "'広がり続ける学術誌群。'",
+      "newText": "学術誌",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.13",
+      "oldLiteral": "'テクノロジーを前へ。'",
+      "newText": "広がり続ける学術誌群。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.14",
+      "oldLiteral": "'次の時代を形づくる。'",
+      "newText": "テクノロジーを前へ。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.15",
+      "oldLiteral": "'厳密な研究。現実社会への影響。より暮らしやすい明日。'",
+      "newText": "次の時代を形づくる。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.16",
+      "oldLiteral": "'Ridgelineの全学術誌を見る'",
+      "newText": "厳密な研究。現実社会への影響。より暮らしやすい明日。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.17",
+      "oldLiteral": "'学術誌を見る'",
+      "newText": "Ridgelineの全学術誌を見る",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.18",
+      "oldLiteral": "'私たちの使命'",
+      "newText": "学術誌を見る",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.19",
+      "oldLiteral": "'分野を越える'",
+      "newText": "私たちの使命",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.23",
+      "oldLiteral": "'Ridgelineについて詳しく見る'",
+      "newText": "Ridgelineは、テクノロジー、工学、社会の交差点にある厳密で独立した研究を刊行します。私たちが直面する課題には、単一分野を超える答えが必要です。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.24",
+      "oldLiteral": "'刊行する研究'",
+      "newText": "Ridgelineについて詳しく見る",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.25",
+      "oldLiteral": "'より明るい明日のための学問。'",
+      "newText": "刊行する研究",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.26",
+      "oldLiteral": "'人工知能'",
+      "newText": "より明るい明日のための学問。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.27",
+      "oldLiteral": "'手法、応用、社会的含意。'",
+      "newText": "人工知能",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.28",
+      "oldLiteral": "'工学システム'",
+      "newText": "手法、応用、社会的含意。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.29",
+      "oldLiteral": "'設計、運用、現実社会への影響。'",
+      "newText": "工学システム",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.30",
+      "oldLiteral": "'持続可能性'",
+      "newText": "設計、運用、現実社会への影響。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.31",
+      "oldLiteral": "'人と地球のためのテクノロジー。'",
+      "newText": "持続可能性",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.32",
+      "oldLiteral": "'社会とガバナンス'",
+      "newText": "人と地球のためのテクノロジー。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.33",
+      "oldLiteral": "'政策、倫理、公平なイノベーション。'",
+      "newText": "社会とガバナンス",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.34",
+      "oldLiteral": "'学際的フロンティア'",
+      "newText": "政策、倫理、公平なイノベーション。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.35",
+      "oldLiteral": "'可能性の境界から生まれる新しい着想。'",
+      "newText": "学際的フロンティア",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.36",
+      "oldLiteral": "'著者・編集者の方へ'",
+      "newText": "可能性の境界から生まれる新しい着想。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.37",
+      "oldLiteral": "'より暮らしやすい'",
+      "newText": "著者・編集者の方へ",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.38",
+      "oldLiteral": "'明日を。'",
+      "newText": "より暮らしやすい",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.40",
+      "oldLiteral": "'著者向けガイドライン'",
+      "newText": "世界各地からの原著論文、レビュー、見解を歓迎します。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.41",
+      "oldLiteral": "'「より良いシステムは、より良い問いから始まる。」'",
+      "newText": "著者向けガイドライン",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.42",
+      "oldLiteral": "'今日の研究'",
+      "newText": "「より良いシステムは、より良い問いから始まる。」",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.43",
+      "oldLiteral": "'より暮らしやすい明日'",
+      "newText": "今日の研究",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.44",
+      "oldLiteral": "'より暮らしやすい明日のための知。'",
+      "newText": "より暮らしやすい明日",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.53",
+      "oldLiteral": "'Ridgeline / Panorama Scholarly Group'",
+      "newText": "テクノロジー、工学、社会にわたる独立した研究主導型学術誌を刊行するPanorama Scholarly Groupのブランド、Ridgelineをご紹介します。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.54",
+      "oldLiteral": "'明日を形づくるテクノロジーのための研究。'",
+      "newText": "Ridgeline / Panorama Scholarly Group",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.55",
+      "oldLiteral": "'Ridgelineは、テクノロジー、工学、応用AI、社会にわたる独立した研究主導型学術誌を刊行するPanorama Scholarly Groupのブランドです。'",
+      "newText": "明日を形づくるテクノロジーのための研究。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.56",
+      "oldLiteral": "'私たちの使命'",
+      "newText": "Ridgelineは、テクノロジー、工学、応用AI、社会にわたる独立した研究主導型学術誌を刊行するPanorama Scholarly Groupのブランドです。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.57",
+      "oldLiteral": "'現実の進歩のための分野横断的な知。'",
+      "newText": "私たちの使命",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.58",
+      "oldLiteral": "'複雑なシステムを、研究方法から着想を実践に移す帰結まで、精密に検討できる研究を刊行します。'",
+      "newText": "現実の進歩のための分野横断的な知。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.59",
+      "oldLiteral": "'明確な範囲、透明なエビデンス、責任ある編集判断を保ちながら分野の境界を越える研究を歓迎します。'",
+      "newText": "複雑なシステムを、研究方法から着想を実践に移す帰結まで、精密に検討できる研究を刊行します。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.60",
+      "oldLiteral": "'私たちの方法'",
+      "newText": "明確な範囲、透明なエビデンス、責任ある編集判断を保ちながら分野の境界を越える研究を歓迎します。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.61",
+      "oldLiteral": "'持続する学術記録のための編集原則。'",
+      "newText": "私たちの方法",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.62",
+      "oldLiteral": "'編集上の厳密さ'",
+      "newText": "持続する学術記録のための編集原則。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.63",
+      "oldLiteral": "'方法の明確さ、エビデンスの強さ、明確に定義された貢献を重視します。'",
+      "newText": "編集上の厳密さ",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.64",
+      "oldLiteral": "'責任ある学術'",
+      "newText": "方法の明確さ、エビデンスの強さ、明確に定義された貢献を重視します。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.65",
+      "oldLiteral": "'透明な研究実践、倫理的行動、エビデンスの正確な表現を求めます。'",
+      "newText": "責任ある学術",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.66",
+      "oldLiteral": "'分野横断的な関連性'",
+      "newText": "透明な研究実践、倫理的行動、エビデンスの正確な表現を求めます。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.67",
+      "oldLiteral": "'方法と限界を明確にしたまま分野を横断する研究を歓迎します。'",
+      "newText": "分野横断的な関連性",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.68",
+      "oldLiteral": "'Ridgelineが刊行する研究'",
+      "newText": "方法と限界を明確にしたまま分野を横断する研究を歓迎します。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.69",
+      "oldLiteral": "'より明るい明日のための学問。'",
+      "newText": "Ridgelineが刊行する研究",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.70",
+      "oldLiteral": "'人工知能'",
+      "newText": "より明るい明日のための学問。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.71",
+      "oldLiteral": "'手法、システム、社会的帰結。'",
+      "newText": "人工知能",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.72",
+      "oldLiteral": "'工学システム'",
+      "newText": "手法、システム、社会的帰結。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.73",
+      "oldLiteral": "'文脈の中での設計、運用、性能。'",
+      "newText": "工学システム",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.74",
+      "oldLiteral": "'持続可能性'",
+      "newText": "文脈の中での設計、運用、性能。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.75",
+      "oldLiteral": "'レジリエントな人々、制度、環境のためのエビデンス。'",
+      "newText": "持続可能性",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.76",
+      "oldLiteral": "'社会とガバナンス'",
+      "newText": "レジリエントな人々、制度、環境のためのエビデンス。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.77",
+      "oldLiteral": "'実践における政策、倫理、制度。'",
+      "newText": "社会とガバナンス",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.78",
+      "oldLiteral": "'学際的フロンティア'",
+      "newText": "実践における政策、倫理、制度。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.79",
+      "oldLiteral": "'分野が交わる境界での研究。'",
+      "newText": "学際的フロンティア",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.80",
+      "oldLiteral": "'Ridgelineプログラム'",
+      "newText": "分野が交わる境界での研究。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.81",
+      "oldLiteral": "'より良いシステムは、より良い問いから始まる。'",
+      "newText": "Ridgelineプログラム",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.82",
+      "oldLiteral": "'著者・編集者の方へ'",
+      "newText": "より良いシステムは、より良い問いから始まる。",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.83",
+      "oldLiteral": "'編集基準を読む'",
+      "newText": "著者・編集者の方へ",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.84",
+      "oldLiteral": "'Ridgelineの学術誌'",
+      "newText": "編集基準を読む",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.92",
+      "oldLiteral": "'学術誌サイトへ'",
+      "newText": "誌が刊行中",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.93",
+      "oldLiteral": "'アクセス'",
+      "newText": "学術誌サイトへ",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.94",
+      "oldLiteral": "'オープンアクセス'",
+      "newText": "アクセス",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.95",
+      "oldLiteral": "'学術誌サイトを見る'",
+      "newText": "オープンアクセス",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.96",
+      "oldLiteral": "'ライセンス'",
+      "newText": "学術誌サイトを見る",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.97",
+      "oldLiteral": "'確認中'",
+      "newText": "ライセンス",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.98",
+      "oldLiteral": "'記事ごとの表示が適用されます'",
+      "newText": "確認中",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.99",
+      "oldLiteral": "'学際'",
+      "newText": "記事ごとの表示が適用されます",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.100",
+      "oldLiteral": "'テクノロジー'",
+      "newText": "学際",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.101",
+      "oldLiteral": "'工学'",
+      "newText": "テクノロジー",
+      "reason": "隣接項目にずれている訳文の割当を修正。"
+    }
+  ],
+  "notes": []
+}

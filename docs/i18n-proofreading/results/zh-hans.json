@@ -1,0 +1,280 @@
+{
+  "locale": "zh-hans",
+  "reviewedRows": 1444,
+  "corrections": [
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.home.imprintsLede",
+      "oldLiteral": "'各具特色的编辑理念，共同致力于开放且负责任的学术出版。'",
+      "newText": "各具鲜明的编辑特色，共同致力于开放、负责任的学术研究。",
+      "reason": "editorial identities 是编辑特色或定位，原译误为编辑理念；scholarship 指学术研究，不是学术出版。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.journals.title",
+      "oldLiteral": "'五大编辑领域，共同坚守学术标准。'",
+      "newText": "五大编辑领域，共同致力于学术研究。",
+      "reason": "原文是共同致力于学术，现译成“坚守学术标准”改变了含义。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.journal",
+      "oldLiteral": "'本期刊'",
+      "newText": "期刊",
+      "reason": "原文是通用单数名词；“本期刊”增加了指示含义。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.journals",
+      "oldLiteral": "'本期刊'",
+      "newText": "期刊",
+      "reason": "中文无需标示复数；“本期刊”将通用名词误作指示语。"
+    },
+    {
+      "file": "web/src/i18n/content.ts",
+      "key": "content.common.moreJournals",
+      "oldLiteral": "'本更多期刊'",
+      "newText": "更多期刊",
+      "reason": "“本更多期刊”语序不通，改为自然表达。"
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.labels[5]",
+      "oldLiteral": "'发表记录与审查透明度'",
+      "newText": "出版记录与透明度",
+      "reason": "原文未提审查；现译额外加入“审查”。"
+    },
+    {
+      "file": "web/src/i18n/doi-policy.ts",
+      "key": "doiPolicy.paragraphs[1]",
+      "oldLiteral": "'研究论文、综述、系统综述、元分析、理论与方法论文、数据论文、案例研究、政策分析及其他经过外部同行评审的实质性学术成果，通常使用 PSG 通过 Crossref 注册的出版商 DOI。APC 减免、折扣或约稿不改变这一路径。分配依据是学术功能与批准的审查路径，而非是否付费。'",
+      "newText": "研究论文、综述、系统综述、元分析、理论与方法论文、数据论文、案例研究、政策分析及其他经过外部同行评审的实质性学术成果，通常使用 PSG 通过 Crossref 注册的出版商 DOI。APC 减免、折扣或约稿不改变这一路径。分配依据是学术功能与经批准的评审流程，而非是否付费。",
+      "reason": "学术出版语境中的 review pathway 应译为评审流程，“审查路径”术语不当。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.relationships[3].description",
+      "oldLiteral": "'一家专注于社会科学、艺术批评与数字治理领域同行评审开放获取期刊的学术出版机构。'",
+      "newText": "一家专注于出版社会科学、艺术与数字治理领域同行评审开放获取期刊的学术出版机构。",
+      "reason": "arts 指艺术，不是艺术批评；原译缩窄了领域。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "about.closingTitle",
+      "oldLiteral": "'找到让您来到这里的工作。'",
+      "newText": "找到吸引您来到这里的内容。",
+      "reason": "此处 work 指学术内容或成果，不是工作岗位；原译容易误解。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "governance.practices[3].body",
+      "oldLiteral": "'当学术记录需要处理时，我们会按比例调查、记录结果，并向读者清晰说明重大变更。'",
+      "newText": "当学术记录需要处理时，我们会采取与问题相称的方式开展调查、记录结果，并向读者清楚说明重大变更。",
+      "reason": "“按比例调查”是生硬直译；原意是以与问题相称的方式调查。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.relationships[3].description",
+      "oldLiteral": "'一家专注于社会科学、艺术批评与数字治理领域同行评审开放获取期刊的学术出版机构。'",
+      "newText": "一家专注于出版社会科学、艺术与数字治理领域同行评审开放获取期刊的学术出版机构。",
+      "reason": "arts 指艺术，不是艺术批评；原译缩窄了领域。"
+    },
+    {
+      "file": "web/src/i18n/group.ts",
+      "key": "partnerships.principlesTitle",
+      "oldLiteral": "'合作应当让工作更有可能。'",
+      "newText": "合作应当让相关工作更容易开展。",
+      "reason": "“让工作更有可能”是生硬直译，中文表达不自然。"
+    },
+    {
+      "file": "web/src/i18n/legal.ts",
+      "key": "legal.eyebrow",
+      "oldLiteral": "'Panorama Scholarly Group / 法律与政策'",
+      "newText": "Panorama Scholarly Group / 法律信息",
+      "reason": "与导航中的 Legal 译法统一；原译额外加入“政策”。"
+    },
+    {
+      "file": "web/src/i18n/navigation.ts",
+      "key": "navigation.partnerships",
+      "oldLiteral": "'合作伙伴'",
+      "newText": "合作伙伴关系",
+      "reason": "Partnerships 指合作关系，现译“合作伙伴”指合作方本身。"
+    },
+    {
+      "file": "web/src/i18n/research-assessment.ts",
+      "key": "researchAssessment.scopeText",
+      "oldLiteral": "'本公开声明适用于 Panorama Scholarly Group Ltd 及其出版品牌所维护的期刊、图书、学术服务与编辑出版实践。'",
+      "newText": "本公开声明适用于 Panorama Scholarly Group Ltd 所维护的期刊、图书、学术服务与编辑实践。",
+      "reason": "原文限定为该公司维护的出版物与实践；现译额外纳入出版品牌并改变了适用范围。"
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.standards[3].title",
+      "oldLiteral": "'无障碍声明'",
+      "newText": "无障碍",
+      "reason": "Accessibility 本身是“无障碍”，原译额外加入“声明”。"
+    },
+    {
+      "file": "web/src/i18n/standards.ts",
+      "key": "standards.workflow[1].title",
+      "oldLiteral": "'审查'",
+      "newText": "评审",
+      "reason": "此处由编辑聘请审稿人并权衡证据，属于学术评审环节，不是一般审查。"
+    },
+    {
+      "file": "web/src/i18n/sections.ts",
+      "key": "publishing.imprintsLede",
+      "oldLiteral": "'五个编辑世界，以开放、负责的学术承诺相连。'",
+      "newText": "五个编辑领域，秉持共同承诺，致力于开放、负责任的学术研究。",
+      "reason": "原译“以……学术承诺相连”搭配生硬，未清楚表达共同承诺。"
+    },
+    {
+      "file": "web/src/i18n/policies.ts",
+      "key": "policy.accessibility.title",
+      "oldLiteral": "'无障碍声明'",
+      "newText": "无障碍",
+      "reason": "原文标题为 Accessibility，不含“声明”。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.ridgeline.65",
+      "oldLiteral": "'负责任的学术'",
+      "newText": "负责任的学术实践",
+      "reason": "与同页相关表述统一为“学术实践”。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.34",
+      "oldLiteral": "'以技术创造人的影响。'",
+      "newText": "让技术惠及人类。",
+      "reason": "“创造人的影响”误解了 human impact，中文含义不清。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.65",
+      "oldLiteral": "'问题相互连接，学术负责任。'",
+      "newText": "彼此关联的问题。负责任的学术实践。",
+      "reason": "改为自然的品牌短句，并统一术语。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.72",
+      "oldLiteral": "'随着编辑项目发展，新的期刊可以加入这一期刊群，同时共同遵循严谨、透明与负责任学术的要求。'",
+      "newText": "随着各自编辑项目的发展，新期刊可以加入这一期刊群，同时继续遵循共同的严谨、透明和负责任的学术实践标准。",
+      "reason": "保留原意并统一“负责任的学术实践”术语。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.83",
+      "oldLiteral": "'高质量投稿始于负责任的学术。'",
+      "newText": "高质量投稿始于负责任的学术实践。",
+      "reason": "responsible scholarship 指负责任的学术实践，原译“负责任的学术”搭配生硬。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.118",
+      "oldLiteral": "'准备透明规范的稿件'",
+      "newText": "准备信息透明的稿件",
+      "reason": "transparent 指信息透明；“透明规范”误解了修饰关系。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.health-nexus.129",
+      "oldLiteral": "'我们欢迎始终关注人群、社会群体与知识实际后果的研究。'",
+      "newText": "我们欢迎关注个人、群体以及知识所带来实际影响的研究。",
+      "reason": "原译“人群、社会群体”重复，未区分 people 与 populations。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.0",
+      "oldLiteral": "'Charter 出版法律、公共政策、治理及塑造公共生活的制度研究领域的严谨学术成果。'",
+      "newText": "Charter 出版关于法律、公共政策、治理以及影响公共生活的各类制度的严谨研究成果。",
+      "reason": "原译“制度研究领域”结构不清，未明确列出研究对象。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.5",
+      "oldLiteral": "'Charter 出版强化法律、治理与公共生活的研究，推动建设更加公正、开放且以证据为基础的社会。'",
+      "newText": "Charter 出版有助于完善法律与治理、促进公共生活发展的研究，推动建设更加公正、开放且以证据为依据的社会。",
+      "reason": "“强化法律”是生硬直译；原意是促进法律、治理与公共生活发展。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.114",
+      "oldLiteral": "'有纪律的跨学科研究'",
+      "newText": "跨学科而不失严谨",
+      "reason": "此处 discipline 指严谨自律，不是“有纪律”的字面含义。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.115",
+      "oldLiteral": "'跨领域研究只有保留严肃审查所需的标准与术语，才能真正发挥力量。'",
+      "newText": "跨领域研究要发挥最大效力，就必须保留严谨评议所需的标准与术语。",
+      "reason": "去掉原文没有的“方法”，并准确表达 serious scrutiny。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.120",
+      "oldLiteral": "'负责任的学术是投稿不可分割的一部分。'",
+      "newText": "负责任的学术实践是投稿的一部分。",
+      "reason": "避免把 is part of 加强成“不可分割”。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.charter.134",
+      "oldLiteral": "'负责任的学术'",
+      "newText": "负责任的学术实践",
+      "reason": "统一 Responsible scholarship 的术语。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.64",
+      "oldLiteral": "'有纪律的跨学科研究'",
+      "newText": "跨学科而不失严谨",
+      "reason": "此处 discipline 指严谨自律，不是“有纪律”的字面含义。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.65",
+      "oldLiteral": "'研究可以跨越领域，但仍应保留开展有意义学术审查所需的方法、术语与标准。'",
+      "newText": "研究可以跨越领域，但仍应保留开展有意义学术评议所需的方法、术语与标准。",
+      "reason": "scholarly scrutiny 是学术评议或审视，不是行政审查。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.70",
+      "oldLiteral": "'让论证可供审查'",
+      "newText": "让论证便于评估",
+      "reason": "inspectable 指论证便于评估或审视；“审查”在此不够自然。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.113",
+      "oldLiteral": "'各具特色的编辑共同体，以审慎学术相连。'",
+      "newText": "各具特色的编辑共同体，因严谨的学术研究而彼此联结。",
+      "reason": "“以审慎学术相连”搭配生硬，未自然表达 careful scholarship。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.132",
+      "oldLiteral": "'负责任的学术是投稿不可分割的一部分。'",
+      "newText": "负责任的学术实践是投稿的一部分。",
+      "reason": "避免把 is part of 加强成“不可分割”。"
+    },
+    {
+      "file": "web/src/i18n/imprints.ts",
+      "key": "imprint.threnody.147",
+      "oldLiteral": "'Threnody 在 Panorama Scholarly Group 的出版框架内运营，同时保留每本期刊的编辑身份与责任。我们的共同标准涵盖同行评审、研究诚信、访问、勘误与学术记录的负责任维护。'",
+      "newText": "Threnody 在 Panorama Scholarly Group 的出版框架内运营，同时保留每本期刊的编辑身份与责任。我们的共同标准涵盖同行评审、研究诚信、学术成果获取、勘误与学术记录的负责任维护。",
+      "reason": "出版语境中的 access 指学术成果获取，不是网站访问。"
+    },
+    {
+      "file": "web/src/i18n/catalog.ts",
+      "key": "catalog.ridgeline.description",
+      "oldLiteral": "'面向技术、工程与应用人工智能研究的 Panorama Scholarly Group 品牌，关注更具人本性、可持续性与公平性的未来。'",
+      "newText": "Ridgeline 是 Panorama Scholarly Group 旗下专注于技术、工程与应用人工智能研究的出版品牌。",
+      "reason": "原译遗漏品牌名，并添加英文未提及的未来愿景。"
+    }
+  ],
+  "notes": []
+}
