@@ -165,9 +165,9 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
   .imprint-row__preview span,
   .imprints-directory__index,
   .imprints-directory__stats span {
-    font-size: 0.58rem;
+    font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     line-height: 1.35;
     text-transform: uppercase;
   }
@@ -213,7 +213,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     display: block;
     margin-top: 0.65rem;
     color: var(--text-muted);
-    font-size: 0.5rem;
+    font-size: var(--fs-caption);
   }
 
   .imprints-directory__index {
@@ -240,12 +240,12 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
 
   .imprints-directory__index span {
     color: var(--text-muted);
-    font-size: 0.5rem;
+    font-size: var(--fs-caption);
   }
 
   .imprints-directory__index strong {
     overflow: hidden;
-    font-size: 0.7rem;
+    font-size: var(--fs-caption);
     letter-spacing: 0.08em;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -316,7 +316,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
 
   .imprint-row__meta > span:last-child {
     max-width: 8rem;
-    font-size: 0.48rem;
+    font-size: var(--fs-caption);
     line-height: 1.45;
   }
 
@@ -363,7 +363,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     padding: 0;
     list-style: none;
     color: var(--imprint-accent);
-    font-size: 0.48rem;
+    font-size: var(--fs-caption);
   }
 
   .imprint-row__disciplines li + li::before {
@@ -385,12 +385,12 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     padding-bottom: 0.8rem;
     border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--imprint-accent) 50%, transparent);
     color: var(--text-muted);
-    font-size: 0.5rem;
+    font-size: var(--fs-caption);
   }
 
   .imprint-row__journals-header a {
     color: var(--text-link);
-    font-size: 0.6rem;
+    font-size: var(--fs-caption);
     text-decoration: none;
     white-space: nowrap;
   }
@@ -442,7 +442,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     margin-top: 0.6rem;
     overflow: hidden;
     color: var(--text-secondary);
-    font-size: 0.48rem;
+    font-size: var(--fs-caption);
     letter-spacing: 0.04em;
     line-height: 1.35;
     text-overflow: ellipsis;
@@ -469,8 +469,11 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
   }
 
   .imprint-row__more span {
-    max-width: 4.5rem;
+    max-width: 6.5rem;
     margin-top: 0.4rem;
+    font-size: var(--fs-label);
+    overflow: visible;
+    overflow-wrap: anywhere;
     white-space: normal;
   }
 
@@ -503,7 +506,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     padding-bottom: 0.45rem;
     border-bottom: var(--p-border-hairline) solid var(--text-accent);
     color: var(--text-inverse);
-    font-size: 0.68rem;
+    font-size: var(--fs-caption);
     font-weight: var(--fw-semibold);
     text-decoration: none;
   }

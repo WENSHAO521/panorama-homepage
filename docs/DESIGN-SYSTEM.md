@@ -167,6 +167,20 @@ the homepage hero originally set its headline to `--fs-display`
 producing an awkward near-one-word-per-line wrap at desktop widths.
 Fixed to `--fs-h1` with a plain-rem `max-width`. See docs/HOMEPAGE.md.
 
+### Small type floor
+
+No visible text is set below **11px for uppercase labels** or **12px for
+everything else**. Use the tokens instead of ad-hoc rem values:
+
+| Token | Size | Use |
+|---|---|---|
+| `--fs-label` | 11px (`0.6875rem`) | dense uppercase labels: eyebrows, section bars, table heads, footer group titles; keep tracking at or below `0.16em` |
+| `--fs-caption` | 12–13px (fluid) | sentence-case small text: captions, meta values, footer links and addresses, counters |
+
+Measured across 46 routes at 1280px and 400px: text elements below the
+floor went from 3,664 to 0. New CSS should reference these tokens rather than
+writing `font-size: 0.6rem`.
+
 ## Shadows
 
 Two shadow tokens only (`--p-shadow-sm`/`--shadow-raised`,

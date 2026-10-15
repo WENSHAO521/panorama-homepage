@@ -283,36 +283,36 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__hero-wallpaper { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 72% center; }
   .charter-secondary__hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, color-mix(in srgb, var(--cs-ink) 96%, transparent) 0%, color-mix(in srgb, var(--cs-ink) 88%, transparent) 44%, color-mix(in srgb, var(--cs-ink) 40%, transparent) 100%); }
   .charter-secondary__hero-inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.55fr); align-items: end; min-height: inherit; padding-block: clamp(2.5rem, 5vw, 4rem); }
-  .charter-secondary__kicker { margin: 0; color: var(--cs-gold-ink); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.35; text-transform: uppercase; }
+  .charter-secondary__kicker { margin: 0; color: var(--cs-gold-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
   .charter-secondary__hero .charter-secondary__kicker,
   .charter-secondary__dark-statement .charter-secondary__kicker { color: var(--cs-gold-light); }
   .charter-secondary__hero h1 { max-width: 11ch; margin: 1.4rem 0 1.6rem; color: var(--cs-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
   .charter-secondary__hero-lede { max-width: 40rem; margin: 0; color: color-mix(in srgb, var(--cs-paper) 88%, transparent); font-family: var(--font-display); font-size: clamp(1.05rem, 1.55vw, 1.4rem); line-height: 1.4; }
-  .charter-secondary__hero-note { align-self: end; justify-self: end; display: flex; max-width: 15rem; flex-direction: column; gap: 0.75rem; padding-inline-start: 2rem; border-inline-start: 1px solid color-mix(in srgb, var(--cs-paper) 42%, transparent); color: color-mix(in srgb, var(--cs-paper) 82%, transparent); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.3; text-transform: uppercase; }
+  .charter-secondary__hero-note { align-self: end; justify-self: end; display: flex; max-width: 15rem; flex-direction: column; gap: 0.75rem; padding-inline-start: 2rem; border-inline-start: 1px solid color-mix(in srgb, var(--cs-paper) 42%, transparent); color: color-mix(in srgb, var(--cs-paper) 82%, transparent); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.3; text-transform: uppercase; }
   .charter-secondary__hero-quote { margin-top: 2rem; color: var(--cs-paper); font-family: var(--font-display); font-size: 1.35rem; font-style: italic; font-weight: 500; letter-spacing: -0.02em; line-height: 1.18; text-transform: none; }
 
   .charter-secondary__section { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--cs-paper); }
   .charter-secondary__section--tinted { background: var(--cs-paper-deep); }
   .charter-secondary__section-bar { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block-end: 1rem; border-bottom: 1px solid var(--cs-line); }
-  .charter-secondary__section-bar > p:last-child { margin: 0; color: var(--cs-ink-soft); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+  .charter-secondary__section-bar > p:last-child { margin: 0; color: var(--cs-ink-soft); font-size: var(--fs-label); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
 
   .charter-secondary__journal-list { display: grid; }
   .charter-secondary__journal-row { display: grid; grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr); align-items: stretch; column-gap: clamp(2rem, 7vw, 8rem); padding-block: clamp(2.5rem, 5vw, 4rem); border-bottom: 1px solid var(--cs-line); }
   .charter-secondary__journal-cover-wrap { position: relative; padding-inline-start: 1.4rem; }
   .charter-secondary__journal-cover-wrap::before { position: absolute; inset: 0 auto 0 0; width: 1px; background: var(--cs-line); content: ''; }
   .charter-secondary__journal-cover { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: contain; box-shadow: 0 0.8rem 1.3rem color-mix(in srgb, var(--cs-ink) 14%, transparent); }
-  .charter-secondary__journal-number { position: absolute; top: -0.1rem; left: -0.35rem; z-index: 1; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; background: var(--cs-paper); color: var(--cs-red); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.08em; }
+  .charter-secondary__journal-number { position: absolute; top: -0.1rem; left: -0.35rem; z-index: 1; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; background: var(--cs-paper); color: var(--cs-red); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.08em; }
   .charter-secondary__journal-copy { display: flex; min-height: 100%; flex-direction: column; justify-content: center; padding-block: 0.5rem; }
-  .charter-secondary__eyebrow { margin: 0 0 0.65rem; color: var(--cs-red); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.18em; line-height: 1.4; text-transform: uppercase; }
+  .charter-secondary__eyebrow { margin: 0 0 0.65rem; color: var(--cs-red); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.4; text-transform: uppercase; }
   .charter-secondary__journal-copy h2, .charter-secondary__split-heading h2, .charter-secondary__about-grid h2 { max-width: 19ch; margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 3.7vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.96; }
   .charter-secondary__journal-copy h2 a { color: inherit; text-decoration: none; }
   .charter-secondary__journal-copy h2 a:hover { color: var(--cs-red); }
   .charter-secondary__journal-copy > p:not(.charter-secondary__eyebrow) { max-width: 40rem; margin: 1.15rem 0 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
-  .charter-secondary__cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--cs-paper-deep); color: var(--cs-ink-soft); font-size: 0.62rem; letter-spacing: 0.12em; text-align: center; text-transform: uppercase; }
+  .charter-secondary__cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--cs-paper-deep); color: var(--cs-ink-soft); font-size: var(--fs-label); letter-spacing: 0.12em; text-align: center; text-transform: uppercase; }
   .charter-secondary__link-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 2rem; }
-  .charter-secondary__text-link, .charter-secondary__quiet-link, .charter-secondary__inverse-link { display: inline-flex; align-items: center; gap: 0.45rem; border-bottom: 1px solid var(--cs-red); color: var(--cs-ink); font-size: 0.63rem; font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
+  .charter-secondary__text-link, .charter-secondary__quiet-link, .charter-secondary__inverse-link { display: inline-flex; align-items: center; gap: 0.45rem; border-bottom: 1px solid var(--cs-red); color: var(--cs-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
   .charter-secondary__text-link:hover, .charter-secondary__quiet-link:hover { color: var(--cs-red); }
-  .charter-secondary__quiet-link { border-bottom-color: var(--cs-line); color: var(--cs-ink-soft); font-size: 0.58rem; }
+  .charter-secondary__quiet-link { border-bottom-color: var(--cs-line); color: var(--cs-ink-soft); font-size: var(--fs-caption); }
 
   .charter-secondary__dark-statement { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--cs-ink); color: var(--cs-paper); }
   .charter-secondary__dark-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
@@ -327,7 +327,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__field-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .charter-secondary__field-grid article { min-height: 12rem; padding: 1.8rem 1.5rem 1.8rem 0; border-bottom: 1px solid var(--cs-line); }
   .charter-secondary__field-grid article:nth-child(3n + 2), .charter-secondary__field-grid article:nth-child(3n + 3) { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--cs-line); }
-  .charter-secondary__field-marker { color: var(--cs-red); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.15em; }
+  .charter-secondary__field-marker { color: var(--cs-red); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.15em; }
   .charter-secondary__field-grid h2 { margin: 2rem 0 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.05; }
   .charter-secondary__field-grid p { max-width: 17rem; margin: 0.75rem 0 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 0.9rem; line-height: 1.4; }
   .charter-secondary__split-heading { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 3rem; align-items: end; margin-bottom: 3rem; }
@@ -341,7 +341,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .charter-secondary__steps article { min-height: 12rem; padding: 0 1.5rem; border-inline-start: 1px solid var(--cs-line); }
   .charter-secondary__steps article:first-child { padding-inline-start: 0; border-inline-start: 0; }
-  .charter-secondary__steps span { color: var(--cs-red); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.16em; }
+  .charter-secondary__steps span { color: var(--cs-red); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.16em; }
   .charter-secondary__steps h3 { margin-top: 2rem; max-width: 14rem; }
   .charter-secondary__button { display: inline-flex; align-items: center; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--cs-red); border-radius: var(--p-radius-button); background: var(--cs-red); color: var(--cs-paper); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); letter-spacing: var(--p-action-letter-spacing); line-height: 1.2; text-decoration: none; text-transform: uppercase; transition: background-color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard), color var(--p-duration-base) var(--p-ease-standard), transform var(--p-duration-fast) var(--p-ease-decelerate); }
   .charter-secondary__button:hover,

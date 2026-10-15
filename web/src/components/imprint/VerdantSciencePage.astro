@@ -273,14 +273,14 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-hero__texture img { width: 100%; height: 100%; object-fit: cover; object-position: left center; filter: saturate(0.8) contrast(0.9); }
   .verdant-hero__inner { position: relative; display: grid; grid-template-columns: 3rem minmax(0, 0.95fr) minmax(20rem, 1.05fr); grid-template-rows: 1fr auto; column-gap: clamp(1.2rem, 3vw, 3.5rem); min-height: inherit; padding-block: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 4rem); }
 
-  .verdant-hero__index { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding-top: 0.35rem; border-inline-start: 1px solid var(--verdant-line); color: var(--verdant-ink-soft); font-family: var(--font-mono); font-size: 0.62rem; }
+  .verdant-hero__index { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; padding-top: 0.35rem; border-inline-start: 1px solid var(--verdant-line); color: var(--verdant-ink-soft); font-family: var(--font-mono); font-size: var(--fs-caption); }
   .verdant-hero__index span { position: relative; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; background: var(--verdant-paper); }
   .verdant-hero__index span::after { position: absolute; inset-inline-start: -0.58rem; width: 0.45rem; height: 0.45rem; border: 1px solid var(--verdant-green); border-radius: 50%; background: var(--verdant-paper); content: ''; }
   .verdant-hero__index .is-active { color: var(--verdant-rust); font-weight: 700; }
   .verdant-hero__index .is-active::after { border-color: var(--verdant-rust); background: var(--verdant-rust); }
 
   .verdant-hero__copy { align-self: center; max-width: 43rem; padding-block: 1rem 2rem; }
-  .verdant-kicker { margin: 0; color: var(--verdant-green); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; line-height: 1.4; text-transform: uppercase; }
+  .verdant-kicker { margin: 0; color: var(--verdant-green); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.4; text-transform: uppercase; }
   .verdant-hero h1 { max-width: 16ch; margin: 1.35rem 0 1.6rem; color: var(--verdant-ink); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
   .verdant-rule { display: block; width: 4rem; height: 2px; margin-block: 1.5rem 1.25rem; background: var(--verdant-line); }
   .verdant-rule--rust { background: var(--verdant-rust); }
@@ -293,8 +293,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-button--primary:focus-visible { background: var(--verdant-green); border-color: var(--verdant-green); }
   .verdant-hero__signature { align-self: start; justify-self: end; width: min(14rem, 80%); padding-top: 0.35rem; }
   .verdant-hero__signature img { display: block; width: 100%; height: auto; }
-  .verdant-hero__signature p { margin: 1.6rem 0 0; padding-inline-start: 1rem; border-inline-start: 1px solid var(--verdant-green); color: var(--verdant-ink-soft); font-size: 0.58rem; font-weight: 750; letter-spacing: 0.18em; line-height: 1.8; text-transform: uppercase; }
-  .verdant-hero__note { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 0.7rem 1.25rem; margin-top: 2rem; color: var(--verdant-ink-soft); font-size: 0.57rem; font-weight: 750; letter-spacing: 0.16em; text-transform: uppercase; }
+  .verdant-hero__signature p { margin: 1.6rem 0 0; padding-inline-start: 1rem; border-inline-start: 1px solid var(--verdant-green); color: var(--verdant-ink-soft); font-size: var(--fs-label); font-weight: 750; letter-spacing: 0.16em; line-height: 1.8; text-transform: uppercase; }
+  .verdant-hero__note { grid-column: 2 / -1; display: flex; flex-wrap: wrap; gap: 0.7rem 1.25rem; margin-top: 2rem; color: var(--verdant-ink-soft); font-size: var(--fs-label); font-weight: 750; letter-spacing: 0.16em; text-transform: uppercase; }
   .verdant-hero__note span + span::before { margin-right: 1.25rem; color: var(--verdant-rust); content: '/'; }
 
   .verdant-journals,
@@ -303,8 +303,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-journals { padding-block: 0.75rem clamp(2.5rem, 5vw, 4rem); }
   .verdant-section-bar { display: flex; align-items: center; gap: 1.5rem; padding-block: 0.85rem; border-bottom: 1px solid var(--verdant-line); }
   .verdant-section-bar p { margin: 0; }
-  .verdant-section-bar > p:nth-child(2) { margin-inline-start: auto; color: var(--verdant-ink-soft); font-size: 0.6rem; font-weight: 650; letter-spacing: 0.11em; text-transform: uppercase; }
-  .verdant-section-bar > a { color: var(--verdant-rust); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+  .verdant-section-bar > p:nth-child(2) { margin-inline-start: auto; color: var(--verdant-ink-soft); font-size: var(--fs-label); font-weight: 650; letter-spacing: 0.11em; text-transform: uppercase; }
+  .verdant-section-bar > a { color: var(--verdant-rust); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
   .verdant-section-bar > a:hover,
   .verdant-section-bar > a:focus-visible { color: var(--verdant-green); }
   .verdant-journals__heading { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr); gap: 3rem; align-items: end; padding-block: clamp(2.25rem, 4vw, 4rem) 2rem; }
@@ -318,13 +318,13 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-journal-card__cover:hover img,
   .verdant-journal-card__cover:focus-visible img { transform: scale(1.025); }
   .verdant-journal-card__body { display: flex; min-height: 15rem; flex-direction: column; padding-top: 1rem; }
-  .verdant-journal-card__label { margin: 0 0 0.6rem; color: var(--verdant-green); font-size: 0.57rem; font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
+  .verdant-journal-card__label { margin: 0 0 0.6rem; color: var(--verdant-green); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
   .verdant-journal-card h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.2rem, 1.65vw, 1.62rem); font-weight: 600; line-height: 1.04; }
   .verdant-journal-card h3 a { color: var(--verdant-ink); text-decoration: none; }
   .verdant-journal-card h3 a:hover,
   .verdant-journal-card h3 a:focus-visible { color: var(--verdant-rust); }
   .verdant-journal-card__summary { margin: 0.75rem 0 0; color: var(--verdant-ink-soft); font-family: var(--font-display); font-size: 0.83rem; line-height: 1.4; }
-  .verdant-text-link { align-self: flex-start; margin-top: auto; padding-top: 1.3rem; border-bottom: 1px solid currentColor; color: var(--verdant-green-dark); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
+  .verdant-text-link { align-self: flex-start; margin-top: auto; padding-top: 1.3rem; border-bottom: 1px solid currentColor; color: var(--verdant-green-dark); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.1em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
   .verdant-text-link:hover,
   .verdant-text-link:focus-visible { color: var(--verdant-rust); }
 
@@ -332,9 +332,9 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-discipline-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .verdant-discipline { min-height: 8.5rem; padding: 1.25rem 1.15rem 1.35rem; border-inline-start: 1px solid var(--verdant-line); }
   .verdant-discipline:first-child { padding-inline-start: 0; border-inline-start: 0; }
-  .verdant-discipline__number { display: block; color: var(--verdant-rust); font-family: var(--font-mono); font-size: 0.62rem; }
+  .verdant-discipline__number { display: block; color: var(--verdant-rust); font-family: var(--font-mono); font-size: var(--fs-caption); }
   .verdant-discipline h3 { margin: 1.1rem 0 0; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; line-height: 1.05; }
-  .verdant-discipline p { margin: 0.65rem 0 0; color: var(--verdant-ink-soft); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .verdant-discipline p { margin: 0.65rem 0 0; color: var(--verdant-ink-soft); font-size: var(--fs-label); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 
   .verdant-research { position: relative; isolation: isolate; overflow: hidden; background: var(--verdant-green-dark); color: var(--verdant-paper); }
   .verdant-research__texture { position: absolute; inset: 0; z-index: -1; opacity: 0.18; mix-blend-mode: screen; }
@@ -345,7 +345,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .verdant-research h2 { max-width: 20ch; margin: 1.4rem 0 0; color: var(--verdant-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
   .verdant-research__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--verdant-paper) 38%, transparent); }
   .verdant-research__body > p { max-width: 31rem; margin: 0; color: color-mix(in srgb, var(--verdant-paper) 84%, transparent); font-family: var(--font-display); font-size: clamp(1rem, 1.25vw, 1.2rem); line-height: 1.45; }
-  .verdant-research__signals { display: grid; gap: 0.6rem; margin-top: 2rem; color: var(--verdant-paper); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.17em; text-transform: uppercase; }
+  .verdant-research__signals { display: grid; gap: 0.6rem; margin-top: 2rem; color: var(--verdant-paper); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
   .verdant-research__signals span { padding-block: 0.6rem; border-bottom: 1px solid color-mix(in srgb, var(--verdant-paper) 28%, transparent); }
 
   .verdant-about { padding-block: clamp(2.5rem, 5vw, 4rem); }
@@ -403,13 +403,13 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     .verdant-hero { min-height: 48rem; }
     .verdant-hero__texture { inset: 50% -24% 0 0; opacity: 0.42; }
     .verdant-hero__inner { grid-template-columns: 1.5rem minmax(0, 1fr); gap: 1rem; padding-block: 3rem 2rem; }
-    .verdant-hero__index { gap: 0.8rem; font-size: 0.56rem; }
+    .verdant-hero__index { gap: 0.8rem; font-size: var(--fs-caption); }
     .verdant-hero__index span { width: 1.25rem; height: 1.25rem; }
     .verdant-hero__index span::after { inset-inline-start: -0.43rem; width: 0.34rem; height: 0.34rem; }
     .verdant-hero h1 { max-width: 9ch; font-size: clamp(2.2rem, 10vw, 3rem); }
     .verdant-hero__lede { max-width: 22rem; font-size: 1.05rem; }
     .verdant-hero__signature { width: 8.5rem; }
-    .verdant-hero__note { display: grid; gap: 0.5rem; font-size: 0.54rem; }
+    .verdant-hero__note { display: grid; gap: 0.5rem; font-size: var(--fs-caption); }
     .verdant-hero__note span + span::before { margin-right: 0.5rem; }
     .verdant-section-bar { align-items: flex-start; flex-wrap: wrap; gap: 0.6rem 1rem; }
     .verdant-section-bar > p:nth-child(2) { margin-inline-start: 0; }
@@ -430,7 +430,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     .verdant-discipline:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
     .verdant-discipline:nth-child(-n + 2) { border-top: 0; }
     .verdant-discipline h3 { font-size: 1.05rem; }
-    .verdant-discipline p { font-size: 0.54rem; }
+    .verdant-discipline p { font-size: var(--fs-caption); }
     .verdant-research__inner { grid-template-columns: 1fr; gap: 2rem; padding-block: 3.5rem 4rem; }
     .verdant-research__heading { padding-inline-end: 0; }
     .verdant-research h2 { font-size: 2.25rem; }

@@ -41,7 +41,7 @@ const { imprint, locale = Astro.currentLocale ?? 'en', count, countLabel } = Ast
 
   .imprint-card__logo { align-self: flex-start; }
   .imprint-card__scope { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4; }
-  .imprint-card__count { color: var(--text-primary); font-size: 0.7rem; font-weight: var(--fw-semibold); letter-spacing: 0.06em; }
+  .imprint-card__count { color: var(--text-primary); font-size: var(--fs-caption); font-weight: var(--fw-semibold); letter-spacing: 0.06em; }
   .imprint-card__link:focus-visible {
     outline: var(--p-border-strong) solid var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
