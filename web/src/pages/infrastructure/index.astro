@@ -307,29 +307,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
 </BaseLayout>
 
 <style>
-  .infra-hero {
-    background: var(--surface-inverse);
-    color: var(--text-inverse);
-    border-bottom: var(--p-border-hairline) solid var(--brand-accent);
-  }
-
-  .infra-hero .text-overline,
-  .infra-hero h1 {
-    color: var(--text-inverse);
-  }
-
-  .infra-hero .text-overline {
-    color: var(--text-accent-inverse);
-  }
-
-  .infra-hero h1 {
-    max-width: 23ch;
-    margin-top: 1rem;
-    font-size: clamp(2.65rem, 3.4vw, 3.5rem);
-    font-weight: var(--fw-regular);
-    line-height: 0.98;
-  }
-
   .infra-hero__nav {
     display: flex;
     flex-wrap: wrap;
@@ -865,7 +842,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   }
 
   @media (max-width: 900px) {
-    .infra-hero h1 { max-width: 13ch; }
     .infra-intro__grid,
     .infra-note__inner,
     .infra-section-head,
@@ -883,7 +859,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   }
 
   @media (max-width: 639px) {
-    .infra-hero h1 { max-width: 10ch; font-size: clamp(2.2rem, 10vw, 3rem); }
     .infra-intro h2,
     .infra-note h2,
     .infra-doi h2,

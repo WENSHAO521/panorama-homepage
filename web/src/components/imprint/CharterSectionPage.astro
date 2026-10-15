@@ -278,7 +278,6 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 <style>
   .charter-secondary { /* Mapped onto the Charter theme in src/styles/imprint-themes.css */ --cs-paper: var(--imprint-paper); --cs-paper-deep: var(--imprint-tint); --cs-ink: var(--imprint-deeper); --cs-ink-soft: var(--imprint-text-soft); --cs-line: var(--imprint-line); --cs-red: var(--imprint-primary); --cs-gold: var(--imprint-secondary); --cs-gold-ink: var(--imprint-secondary-ink); --cs-gold-light: var(--imprint-secondary-light); --cs-teal: var(--imprint-deep); --imprint-accent: var(--cs-red); --cs-shell: min(100% - 7rem, 1480px); overflow: hidden; background: var(--cs-paper); color: var(--cs-ink); }
   .charter-secondary__shell { width: var(--cs-shell); margin-inline: auto; }
-  .charter-secondary__lang :global(.lang-switcher__trigger) { color: var(--cs-ink); }
 
   .charter-secondary__hero { position: relative; isolation: isolate; min-height: clamp(34rem, 53vw, 49rem); overflow: hidden; background: var(--cs-ink); color: var(--cs-paper); }
   .charter-secondary__hero-wallpaper { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 72% center; }

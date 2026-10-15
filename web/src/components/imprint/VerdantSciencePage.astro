@@ -257,9 +257,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   .verdant-shell { width: var(--verdant-shell); margin-inline: auto; }
-  .verdant-header__lang :global(.lang-switcher__trigger) { color: var(--verdant-ink); }
-  .verdant-header__lang :global(.lang-switcher__trigger:hover) { color: var(--verdant-green); }
-  .verdant-header__lang :global(.lang-switcher__panel) { font-size: var(--fs-body-sm); font-weight: 400; letter-spacing: normal; white-space: normal; }
 
   .verdant-hero {
     position: relative;
@@ -378,9 +375,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   @media (max-width: 900px) {
     .verdant-page { --verdant-shell: min(100% - 3rem, 44rem); }
-    .verdant-mobile-nav__language :global(.lang-switcher__trigger) { padding-inline: 0.5rem; color: var(--verdant-ink); }
-    .verdant-mobile-nav__language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
-    .verdant-mobile-nav__language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; border: 0; color: var(--verdant-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
     .verdant-hero { min-height: 46rem; }
     .verdant-hero__texture { inset: 40% 0 0 22%; opacity: 0.45; }
     .verdant-hero__inner { grid-template-columns: 2rem minmax(0, 1fr); grid-template-rows: auto 1fr auto; gap: 1.5rem; padding-block: 3.5rem 2.5rem; }

@@ -279,7 +279,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   .charter-shell { width: var(--charter-shell); margin-inline: auto; }
-  .charter-header__lang :global(.lang-switcher__trigger) { color: var(--charter-ink); }
 
   .charter-hero { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); min-height: clamp(34rem, 53vw, 49rem); }
   .charter-hero__copy { display: grid; align-items: center; background: var(--charter-ink); color: var(--charter-paper); }
@@ -382,7 +381,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   @media (max-width: 900px) {
-    .charter-mobile-nav__language :global(.lang-switcher__trigger) { color: var(--charter-ink); }
     .charter-hero { grid-template-columns: 1fr; }
     .charter-hero__copy { min-height: 34rem; }
     .charter-hero__visual { min-height: 31rem; }

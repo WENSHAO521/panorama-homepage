@@ -98,11 +98,6 @@ const copy = getSearchCopy(locale);
     background: var(--surface-primary);
   }
 
-  .search-hero {
-    padding-block: 0;
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
   .search-tool {
     padding-block: clamp(3rem, 5vw, 4.5rem) clamp(5rem, 10vw, 9rem);
   }
@@ -407,7 +402,6 @@ const copy = getSearchCopy(locale);
   }
 
   @media (max-width: 767px) {
-    .search-hero__inner,
     .search-empty {
       grid-template-columns: 1fr;
     }

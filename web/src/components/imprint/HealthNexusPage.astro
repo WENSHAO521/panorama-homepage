@@ -271,8 +271,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   .health-nexus-shell { width: var(--hn-shell); margin-inline: auto; }
-  .health-nexus-header__lang :global(.lang-switcher__trigger) { color: var(--hn-ink); }
-  .health-nexus-header__lang :global(.lang-switcher__trigger:hover) { color: var(--hn-deep); }
 
   .health-nexus-hero {
     position: relative;
@@ -749,9 +747,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   @media (max-width: 760px) {
     .health-nexus-page { --hn-shell: min(100% - 2.5rem, 42rem); }
-    .health-nexus-mobile-nav__language :global(.lang-switcher__trigger) { padding-inline: 0.25rem; color: var(--hn-ink); }
-    .health-nexus-mobile-nav__language :global(.lang-switcher__panel) { position: static; padding: 0.75rem 0 0; border: 0; box-shadow: none; }
-    .health-nexus-mobile-nav__language :global(.lang-switcher__link) { padding: 0.65rem 0.25rem; border: 0; color: var(--hn-ink); font-size: 0.9rem; font-weight: 400; letter-spacing: normal; text-transform: none; }
     .health-nexus-hero { min-height: 0; }
     .health-nexus-hero__wallpaper { object-position: 68% center; }
     .health-nexus-hero__shade { width: 100%; background: color-mix(in srgb, var(--hn-deeper) 87%, transparent); }
