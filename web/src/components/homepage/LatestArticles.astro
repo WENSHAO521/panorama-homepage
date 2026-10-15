@@ -13,10 +13,9 @@ const articles = [...articleData.articles]
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
   .slice(0, 3);
 
-// Names arrive as "Surname, Given", so a comma would make two authors read as
-// four; separate people with semicolons. Long lists show the first three.
+// Long consortium author lists crowd out the title; show the first three.
 function formatAuthors(authors: string[]) {
-  return authors.length > 3 ? `${authors.slice(0, 3).join('; ')} et al.` : authors.join('; ');
+  return authors.length > 3 ? `${authors.slice(0, 3).join(', ')} et al.` : authors.join(', ');
 }
 
 function formatDate(value: string) {
