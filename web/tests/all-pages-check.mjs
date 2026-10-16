@@ -96,7 +96,7 @@ async function main() {
         try {
           const response = await page.goto(BASE + route, { waitUntil: 'domcontentloaded', timeout: 20000 });
           status = response?.status() ?? null;
-          await page.evaluate(() => new Promise(requestAnimationFrame));
+          await page.evaluate(async () => { await document.fonts.ready; await new Promise(requestAnimationFrame); });
           const routeLocale = route.split('/').filter(Boolean)[0];
           const expected = LOCALES.has(routeLocale) ? routeLocale : 'en';
           const canonicalRoute = expected === 'en' ? route : route.slice(`/${expected}`.length) || '/';
@@ -109,6 +109,8 @@ async function main() {
               .map((el) => {
                 const s = getComputedStyle(el);
                 const size = parseFloat(s.fontSize);
+                const rect = el.getBoundingClientRect();
+                const parentWidth = el.parentElement?.getBoundingClientRect().width ?? 0;
                 const spacing = s.letterSpacing === 'normal' ? 0 : parseFloat(s.letterSpacing);
                 const ratio = parseFloat(s.lineHeight) / size;
                 const tag = el.tagName.toLowerCase();
@@ -116,7 +118,7 @@ async function main() {
                 const minimum = lang === 'ar' ? (tag === 'h1' || tag === 'h2' ? 1.44 : 1.39)
                   : cjk ? 1.21
                   : tag === 'h1' ? 1.13 : tag === 'h2' ? 1.17 : tag === 'h3' ? 1.21 : 1.23;
-                return { tag, text: el.innerText.trim().slice(0, 80), ratio, spacing, lineBreak: s.lineBreak, hyphens: s.hyphens, minimum };
+                return { tag, text: el.innerText.trim().slice(0, 80), ratio, spacing, lineBreak: s.lineBreak, hyphens: s.hyphens, minimum, width: rect.width, parentWidth };
               });
 
             const prose = [...(main ?? doc).querySelectorAll('p,li,blockquote,figcaption')]
@@ -240,6 +242,9 @@ async function main() {
           const expectedDir = expected === 'ar' ? 'rtl' : 'ltr';
           const headingIssues = audit.headings.filter((h) => h.ratio < h.minimum || h.spacing < -0.01);
           const cjk = /^(zh-hans|zh-hant|ja|ko)$/.test(expected);
+          const narrowDoraTitles = canonicalRoute === '/standards/research-assessment/'
+            ? audit.headings.filter((h) => cjk && h.tag === 'h1' && h.parentWidth >= 240 && h.width < h.parentWidth * 0.8)
+            : [];
           const proseIssues = audit.prose.filter((p) => p.ratio < 1.3 || p.hyphens !== (cjk || expected === 'ar' ? 'none' : 'auto'));
           const languageBreakIssues = audit.headings.filter((h) => cjk && h.lineBreak !== (expected === 'ko' ? 'normal' : 'strict'));
           const issues = [];
@@ -248,6 +253,7 @@ async function main() {
           if (audit.dir !== expectedDir) issues.push(`dir=${audit.dir}, expected ${expectedDir}`);
           if (audit.overflow > 1) issues.push(`horizontal overflow ${audit.overflow}px`);
           if (headingIssues.length) issues.push(`heading rhythm/tracking ${JSON.stringify(headingIssues)}`);
+          if (narrowDoraTitles.length) issues.push(`DORA CJK title is constrained inside its column ${JSON.stringify(narrowDoraTitles)}`);
           if (proseIssues.length) issues.push(`prose spacing/wrapping ${JSON.stringify(proseIssues.slice(0, 3))}`);
           if (languageBreakIssues.length) issues.push(`CJK heading line-break ${JSON.stringify(languageBreakIssues)}`);
           if (audit.wrappedControls.length) issues.push(`controls stack vertically ${JSON.stringify(audit.wrappedControls)}`);

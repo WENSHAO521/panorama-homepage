@@ -280,6 +280,8 @@ p + p {
 :root[lang^='zh'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4),
 :root[lang^='ja'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4),
 :root[lang^='ko'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4) {
+  /* `ch` can follow Latin zero-glyphs in CJK fallback stacks and narrow headings. */
+  max-width: min(100%, 18em);
   letter-spacing: 0.02em;
   line-height: 1.22;
   hyphens: none;
