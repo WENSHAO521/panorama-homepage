@@ -4,7 +4,7 @@ import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints'
 
 const imprint = getImprintBySlug('health-nexus');
 if (!imprint) throw new Error('Health Nexus imprint data is missing.');
-const journals = getJournalsForImprint('health-nexus');
+const journals = getJournalsForImprint('health-nexus', Astro.currentLocale ?? 'en');
 ---
 
 <HealthNexusSectionPage imprint={imprint} journals={journals} section="about" />

@@ -6,6 +6,7 @@ import { localizePath } from '@/i18n/utils';
 import { getFeaturedJournals, getJournalBySlug } from '@/lib/content/journals';
 import { getAllImprints } from '@/lib/content/imprints';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import { imprintText, type ImprintSlug } from '@/i18n/imprints';
 
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
@@ -16,6 +17,9 @@ const t = getContent(locale);
 const [lead, ...others] = getFeaturedJournals();
 const also = getJournalBySlug('healthnexus') ?? others[0];
 const imprintName = (slug: string) => getAllImprints().find((i) => i.slug === slug)?.name ?? slug;
+const leadImprint = lead.imprint as ImprintSlug;
+const leadDescription = imprintText(leadImprint, locale, `journal.${lead.slug}.summary`, lead.description ?? '');
+const leadDiscipline = imprintText(leadImprint, locale, `journal.${lead.slug}.label`, lead.disciplines.join(' · '));
 const leadCover = getJournalCoverAsset(lead.cover);
 const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
 ---
@@ -48,7 +52,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
       <div class="hero__main">
         <p class="text-overline hero__eyebrow">{t('home.featuredJournal')}</p>
         <h2 class="hero__feature-title"><PhraseText text={lead.title} /></h2>
-        <p class="hero__feature-text">{lead.description}</p>
+        <p class="hero__feature-text">{leadDescription}</p>
         <a class="action-link" href={lead.journalUrl} target="_blank" rel="noopener noreferrer">
           {t('common.visitJournalWebsite')}
           <span class="visually-hidden"> — {lead.title} ({t('common.opensNewTab')})</span>
@@ -59,7 +63,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
         <dl class="hero__facts">
           <div><dt>{t('common.journal')}</dt><dd>{lead.title}</dd></div>
           <div><dt>{t('home.factImprint')}</dt><dd>{imprintName(lead.imprint)}</dd></div>
-          <div><dt>{t('home.factDisciplines')}</dt><dd>{lead.disciplines.join(' · ')}</dd></div>
+          <div><dt>{t('home.factDisciplines')}</dt><dd>{leadDiscipline}</dd></div>
           <div>
             <dt>{t('home.factAccess')}</dt>
             <dd>{[lead.openAccess ? t('common.openAccess') : null, lead.license, lead.issn ? `ISSN ${lead.issn}` : null].filter(Boolean).join(' · ')}</dd>

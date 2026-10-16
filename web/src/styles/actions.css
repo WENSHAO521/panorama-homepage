@@ -146,7 +146,6 @@ body.standalone-site [data-action="secondary"]:focus-visible {
   .about-closing__links a,
   .partnership-card > a,
   .infra-hero__nav a,
-  .infra-inline-links a,
   .search-empty__links a
 ):not([data-action]) {
   display: inline-flex !important;
@@ -209,7 +208,6 @@ body.standalone-site [data-action="secondary"]:focus-visible {
   .about-closing__links a,
   .partnership-card > a,
   .infra-hero__nav a,
-  .infra-inline-links a,
   .search-empty__links a
 ):not([data-action]):hover {
   text-decoration-color: currentColor !important;
@@ -255,7 +253,6 @@ body.standalone-site [data-action="secondary"]:focus-visible {
   .about-closing__links a,
   .partnership-card > a,
   .infra-hero__nav a,
-  .infra-inline-links a,
   .search-empty__links a
 ):not([data-action])::after {
   content: '';
@@ -307,7 +304,6 @@ body.standalone-site [data-action="secondary"]:focus-visible {
   .about-closing__links a,
   .partnership-card > a,
   .infra-hero__nav a,
-  .infra-inline-links a,
   .search-empty__links a
 ):not([data-action]):hover::after,
 :is(
@@ -349,7 +345,6 @@ body.standalone-site [data-action="secondary"]:focus-visible {
   .about-closing__links a,
   .partnership-card > a,
   .infra-hero__nav a,
-  .infra-inline-links a,
   .search-empty__links a
 ):not([data-action]):focus-visible::after {
   transform: translateX(3px);

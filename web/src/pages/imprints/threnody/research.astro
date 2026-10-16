@@ -4,7 +4,7 @@ import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints'
 
 const imprint = getImprintBySlug('threnody');
 if (!imprint) throw new Error('Threnody imprint data is missing.');
-const journals = getJournalsForImprint('threnody');
+const journals = getJournalsForImprint('threnody', Astro.currentLocale ?? 'en');
 ---
 
 <ThrenodySectionPage imprint={imprint} journals={journals} section="research" />

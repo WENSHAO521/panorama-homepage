@@ -25,6 +25,7 @@ const basePath = '/imprints/charter/';
 const pagePath = `${basePath}${section}/`;
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 const tx = (key: string, fallback: string) => imprintText('charter', locale, key, fallback);
 const labels = getNavigationLabels(locale);
 const localizedBasePath = localizePath(basePath, locale);
@@ -139,7 +140,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
           <div>
             <p class="charter-secondary__kicker">{localizedCurrent.kicker}</p>
             <h1 id="charter-secondary-title"><PhraseText text={localizedCurrent.title} /></h1>
-            <p class="charter-secondary__hero-lede">{localizedCurrent.lede}</p>
+            <p class="charter-secondary__hero-lede"><PhraseText text={localizedCurrent.lede} /></p>
           </div>
           <aside class="charter-secondary__hero-note" aria-label={tx('section.heroNoteLabel', 'Charter focus')}>
             <span>{tx('keywordEvidence', 'Evidence')}</span>
@@ -156,7 +157,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="charter-secondary__shell">
               <div class="charter-secondary__section-bar">
                 <p class="charter-secondary__kicker" id="charter-journals-list-title">{tx('section.journals.programmeKicker', 'The Charter journal programme')}</p>
-                <p>{activeJournals.length} {tx('section.journals.activeJournals', 'active journals')}</p>
+                <p>{activeJournals.length}{countJoin}{tx('section.journals.activeJournals', 'active journals')}</p>
               </div>
               <div class="charter-secondary__journal-list">
                 {activeJournals.map((journal, index) => {
@@ -246,7 +247,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="charter-secondary__shell charter-secondary__dark-grid"><div><p class="charter-secondary__kicker">{tx('section.authors.expectationsKicker', 'Shared expectations')}</p><h2 id="charter-author-standards-title"><PhraseText text={tx('section.authors.expectationsTitle', 'Responsible scholarship is part of the submission.')} /></h2></div><div><p>{tx('section.authors.expectationsBody', 'Authors should report methods and evidence accurately, acknowledge sources, disclose relevant interests, follow applicable ethical requirements, and make the limits of a study clear. Submissions may be declined when the record cannot be assessed with confidence.')}</p><div class="charter-secondary__link-row"><a class="charter-secondary__button" data-action="primary" href={localizePath('/standards/editorial/', locale)}>{tx('editorialStandards', 'Editorial standards')}</a><a class="charter-secondary__inverse-link" data-action="secondary" href={localizePath('/standards/ethics/', locale)}>{tx('publicationEthics', 'Publication ethics')}</a></div></div></div>
           </section>
           <section class="charter-secondary__section" aria-labelledby="charter-submission-title">
-            <div class="charter-secondary__shell"><div class="charter-secondary__section-bar"><p class="charter-secondary__kicker" id="charter-submission-title">{tx('section.authors.submitKicker', 'Submit to a Charter journal')}</p><p>{activeJournals.length} {tx('section.authors.destinations', 'current destinations')}</p></div><div class="charter-secondary__submission-grid">{activeJournals.map((journal) => <article><p class="charter-secondary__eyebrow">{tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' · '))}</p><h2><PhraseText text={journal.title} /></h2><a class="charter-secondary__text-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('openSubmission', 'Open submission system')}</a></article>)}</div></div>
+            <div class="charter-secondary__shell"><div class="charter-secondary__section-bar"><p class="charter-secondary__kicker" id="charter-submission-title">{tx('section.authors.submitKicker', 'Submit to a Charter journal')}</p><p>{activeJournals.length}{countJoin}{tx('section.authors.destinations', 'current destinations')}</p></div><div class="charter-secondary__submission-grid">{activeJournals.map((journal) => <article><p class="charter-secondary__eyebrow">{tx(`journal.${journal.slug}.label`, journalLabels[journal.slug] ?? journal.disciplines.join(' · '))}</p><h2><PhraseText text={journal.title} /></h2><a class="charter-secondary__text-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('openSubmission', 'Open submission system')}</a></article>)}</div></div>
           </section>
         </>
       )}
@@ -286,10 +287,10 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__kicker { margin: 0; color: var(--cs-gold-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
   .charter-secondary__hero .charter-secondary__kicker,
   .charter-secondary__dark-statement .charter-secondary__kicker { color: var(--cs-gold-light); }
-  .charter-secondary__hero h1 { max-width: 11ch; margin: 1.4rem 0 1.6rem; color: var(--cs-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
+  .charter-secondary__hero h1 { max-width: 11ch; margin: 1.4rem 0 1.6rem; color: var(--cs-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.9; }
   .charter-secondary__hero-lede { max-width: 40rem; margin: 0; color: color-mix(in srgb, var(--cs-paper) 88%, transparent); font-family: var(--font-display); font-size: clamp(1.05rem, 1.55vw, 1.4rem); line-height: 1.4; }
   .charter-secondary__hero-note { align-self: end; justify-self: end; display: flex; max-width: 15rem; flex-direction: column; gap: 0.75rem; padding-inline-start: 2rem; border-inline-start: 1px solid color-mix(in srgb, var(--cs-paper) 42%, transparent); color: color-mix(in srgb, var(--cs-paper) 82%, transparent); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.3; text-transform: uppercase; }
-  .charter-secondary__hero-quote { margin-top: 2rem; color: var(--cs-paper); font-family: var(--font-display); font-size: 1.35rem; font-style: italic; font-weight: 500; letter-spacing: -0.02em; line-height: 1.18; text-transform: none; }
+  .charter-secondary__hero-quote { margin-top: 2rem; color: var(--cs-paper); font-family: var(--font-display); font-size: 1.35rem; font-style: italic; font-weight: 500; letter-spacing: var(--ls-tight); line-height: 1.18; text-transform: none; }
 
   .charter-secondary__section { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--cs-paper); }
   .charter-secondary__section--tinted { background: var(--cs-paper-deep); }
@@ -304,7 +305,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__journal-number { position: absolute; top: -0.1rem; left: -0.35rem; z-index: 1; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; background: var(--cs-paper); color: var(--cs-red); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.08em; }
   .charter-secondary__journal-copy { display: flex; min-height: 100%; flex-direction: column; justify-content: center; padding-block: 0.5rem; }
   .charter-secondary__eyebrow { margin: 0 0 0.65rem; color: var(--cs-red); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.4; text-transform: uppercase; }
-  .charter-secondary__journal-copy h2, .charter-secondary__split-heading h2, .charter-secondary__about-grid h2 { max-width: 19ch; margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 3.7vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.96; }
+  .charter-secondary__journal-copy h2, .charter-secondary__split-heading h2, .charter-secondary__about-grid h2 { max-width: 19ch; margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 3.7vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.96; }
   .charter-secondary__journal-copy h2 a { color: inherit; text-decoration: none; }
   .charter-secondary__journal-copy h2 a:hover { color: var(--cs-red); }
   .charter-secondary__journal-copy > p:not(.charter-secondary__eyebrow) { max-width: 40rem; margin: 1.15rem 0 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
@@ -316,7 +317,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 
   .charter-secondary__dark-statement { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--cs-ink); color: var(--cs-paper); }
   .charter-secondary__dark-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
-  .charter-secondary__dark-grid h2 { max-width: 18ch; margin: 1.2rem 0 0; color: var(--cs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
+  .charter-secondary__dark-grid h2 { max-width: 18ch; margin: 1.2rem 0 0; color: var(--cs-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.94; }
   .charter-secondary__dark-grid > div:last-child { padding-inline-start: clamp(1.5rem, 3vw, 3rem); border-inline-start: 1px solid color-mix(in srgb, var(--cs-paper) 35%, transparent); }
   .charter-secondary__dark-grid > div:last-child > p { margin: 0; color: color-mix(in srgb, var(--cs-paper) 84%, transparent); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
   .charter-secondary__dark-grid > div:last-child > p + p { margin-top: 1rem; }
@@ -328,14 +329,14 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__field-grid article { min-height: 12rem; padding: 1.8rem 1.5rem 1.8rem 0; border-bottom: 1px solid var(--cs-line); }
   .charter-secondary__field-grid article:nth-child(3n + 2), .charter-secondary__field-grid article:nth-child(3n + 3) { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--cs-line); }
   .charter-secondary__field-marker { color: var(--cs-red); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.15em; }
-  .charter-secondary__field-grid h2 { margin: 2rem 0 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.05; }
+  .charter-secondary__field-grid h2 { margin: 2rem 0 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 550; letter-spacing: var(--ls-tight); line-height: 1.05; }
   .charter-secondary__field-grid p { max-width: 17rem; margin: 0.75rem 0 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 0.9rem; line-height: 1.4; }
   .charter-secondary__split-heading { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 3rem; align-items: end; margin-bottom: 3rem; }
   .charter-secondary__split-heading > p { max-width: 30rem; margin: 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.45; }
   .charter-secondary__principle-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .charter-secondary__principle-grid article { min-height: 12rem; padding: 1.5rem 1.5rem 1.5rem 0; border-top: 1px solid var(--cs-line); }
   .charter-secondary__principle-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--cs-line); }
-  .charter-secondary__principle-grid h3, .charter-secondary__steps h3 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.08; }
+  .charter-secondary__principle-grid h3, .charter-secondary__steps h3 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 550; letter-spacing: var(--ls-tight); line-height: 1.08; }
   .charter-secondary__principle-grid h3 { margin-top: 2rem; }
   .charter-secondary__principle-grid p, .charter-secondary__steps p { max-width: 17rem; margin: 0.75rem 0 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 0.87rem; line-height: 1.4; }
   .charter-secondary__steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -349,7 +350,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__submission-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .charter-secondary__submission-grid article { display: flex; min-height: 12rem; flex-direction: column; padding: 1.6rem 1.5rem 1rem 0; border-bottom: 1px solid var(--cs-line); }
   .charter-secondary__submission-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--cs-line); }
-  .charter-secondary__submission-grid h2 { max-width: 15rem; margin: 1rem 0 0; font-family: var(--font-display); font-size: 1.35rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.05; }
+  .charter-secondary__submission-grid h2 { max-width: 15rem; margin: 1rem 0 0; font-family: var(--font-display); font-size: 1.35rem; font-weight: 550; letter-spacing: var(--ls-tight); line-height: 1.05; }
   .charter-secondary__submission-grid .charter-secondary__text-link { margin-top: auto; }
   .charter-secondary__about-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; }
   .charter-secondary__about-grid h2 { max-width: 12ch; }
@@ -357,7 +358,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__prose p { max-width: 38rem; margin: 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 1.08rem; line-height: 1.5; }
   .charter-secondary__prose p + p { margin-top: 1.2rem; }
   .charter-secondary__closing-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: end; }
-  .charter-secondary__closing-grid h2 { max-width: 20ch; margin: 1.2rem 0 0; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
+  .charter-secondary__closing-grid h2 { max-width: 20ch; margin: 1.2rem 0 0; font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.94; }
 
   @media (max-width: 1000px) {
     .charter-secondary { --cs-shell: min(100% - 4rem, 1480px); }

@@ -4,7 +4,7 @@ import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints'
 
 const imprint = getImprintBySlug('charter');
 if (!imprint) throw new Error('Charter imprint data is missing.');
-const journals = getJournalsForImprint('charter');
+const journals = getJournalsForImprint('charter', Astro.currentLocale ?? 'en');
 ---
 
 <CharterSectionPage imprint={imprint} journals={journals} section="journals" />

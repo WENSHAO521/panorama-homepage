@@ -16,7 +16,7 @@ export function getStaticPaths() {
 }
 
 const { imprint } = Astro.props;
-const journals = getJournalsForImprint(imprint.slug);
+const journals = getJournalsForImprint(imprint.slug, Astro.currentLocale ?? 'en');
 const locale = Astro.currentLocale ?? 'en';
 ---
 

@@ -92,8 +92,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="health-nexus-shell health-nexus-hero__inner">
           <div class="health-nexus-hero__copy">
             <p class="health-nexus-kicker">{tx('heroKicker', 'Research for a healthier tomorrow')}</p>
-            <h1 id="health-nexus-hero-title">{tx('heroTitleOne', 'Where evidence')}<br />{tx('heroTitleTwo', 'meets lived health.')}</h1>
-            <p class="health-nexus-hero__lede">{tx('heroLede', 'An interdisciplinary home for research at the intersection of medicine, public health and the health sciences.')}</p>
+            <h1 id="health-nexus-hero-title"><PhraseText text={tx('heroTitleOne', 'Where evidence')} /><br /><PhraseText text={tx('heroTitleTwo', 'meets lived health.')} /></h1>
+            <p class="health-nexus-hero__lede"><PhraseText text={tx('heroLede', 'An interdisciplinary home for research at the intersection of medicine, public health and the health sciences.')} /></p>
             <div class="health-nexus-actions">
               <a class="health-nexus-button health-nexus-button--primary" data-action="primary" href={localizePath('/imprints/health-nexus/journals/', locale)}>{tx('exploreJournals', 'Explore the journals')}</a>
               <a class="health-nexus-link health-nexus-link--inverse" data-action="secondary" href={localizePath('/imprints/health-nexus/for-authors/', locale)}>{tx('submitResearch', 'Submit your research')}</a>
@@ -335,7 +335,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 5.2vw, 3.75rem);
     font-weight: 500;
-    letter-spacing: -0.06em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.9;
   }
 
@@ -477,7 +477,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     font-size: 1.1rem;
     font-style: italic;
     font-weight: 450;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--ls-tight);
     line-height: 1.2;
     text-transform: none;
   }
@@ -525,7 +525,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 500;
-    letter-spacing: -0.06em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.92;
     overflow-wrap: normal;
     word-break: normal;
@@ -618,7 +618,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     font-family: var(--font-display);
     font-size: clamp(1.15rem, 1.55vw, 1.55rem);
     font-weight: 550;
-    letter-spacing: -0.035em;
+    letter-spacing: var(--ls-tight);
     line-height: 1.05;
   }
 
@@ -666,7 +666,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     font-family: var(--font-display);
     font-size: clamp(2rem, 3.15vw, 2.75rem);
     font-weight: 500;
-    letter-spacing: -0.06em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.92;
   }
 
@@ -716,7 +716,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .health-nexus-field--deep .health-nexus-field__marker { border-color: var(--hn-deeper); }
   .health-nexus-field--deep .health-nexus-field__marker::before { background: var(--hn-deeper); }
 
-  .health-nexus-field h3 { max-width: 9rem; margin: 0; color: var(--hn-ink); font-family: var(--font-display); font-size: clamp(0.98rem, 1.25vw, 1.2rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
+  .health-nexus-field h3 { max-width: 9rem; margin: 0; color: var(--hn-ink); font-family: var(--font-display); font-size: clamp(0.98rem, 1.25vw, 1.2rem); font-weight: 600; letter-spacing: var(--ls-tight); line-height: 1.05; }
   .health-nexus-field p { max-width: 10rem; margin: 0.8rem 0 0; color: var(--hn-ink-soft); font-family: var(--font-display); font-size: var(--fs-caption); line-height: 1.35; }
 
   .health-nexus-authors { position: relative; isolation: isolate; overflow: hidden; background: var(--hn-paper-deep); }
@@ -731,7 +731,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   .health-nexus-authors__heading { padding-inline-end: clamp(1.5rem, 3vw, 3rem); border-inline-end: 1px solid var(--hn-line); }
-  .health-nexus-authors h2 { max-width: 20ch; margin: 1rem 0 0; color: var(--hn-ink); font-family: var(--font-display); font-size: clamp(1.8rem, 2.4vw, 2.75rem); font-weight: 500; letter-spacing: -0.055em; line-height: 0.95; }
+  .health-nexus-authors h2 { max-width: 20ch; margin: 1rem 0 0; color: var(--hn-ink); font-family: var(--font-display); font-size: clamp(1.8rem, 2.4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.95; }
   .health-nexus-authors__copy { max-width: 33rem; }
   .health-nexus-authors__copy > p { margin: 0; color: var(--hn-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
   .health-nexus-authors blockquote { margin: 0; color: var(--hn-deep); font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 2rem); font-style: italic; line-height: 1.1; }

@@ -20,6 +20,7 @@ const { imprint, journals } = Astro.props;
 const basePath = '/imprints/charter/';
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 const tx = (key: string, fallback: string) => imprintText('charter', locale, key, fallback);
 const labels = getNavigationLabels(locale);
 const localizedBasePath = localizePath(basePath, locale);
@@ -89,9 +90,9 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
           <div class="charter-hero__copy-inner">
             <p class="charter-kicker">{tx('heroKicker', 'The public record')}</p>
             <p class="charter-hero__imprint">Charter <span>/</span> {tx('imprintLine', 'A Panorama imprint')}</p>
-            <h1 id="charter-hero-title">{tx('heroTitleOne', 'Research for')}<br />{tx('heroTitleTwo', 'fairer systems.')}</h1>
+            <h1 id="charter-hero-title"><PhraseText text={tx('heroTitleOne', 'Research for')} /><br /><PhraseText text={tx('heroTitleTwo', 'fairer systems.')} /></h1>
             <span class="charter-rule charter-rule--red" aria-hidden="true"></span>
-            <p class="charter-hero__lede">{tx('heroLede', 'Charter publishes research that strengthens law, governance, and public life, advancing a more just, open, and evidence-informed society.')}</p>
+            <p class="charter-hero__lede"><PhraseText text={tx('heroLede', 'Charter publishes research that strengthens law, governance, and public life, advancing a more just, open, and evidence-informed society.')} /></p>
             <div class="charter-actions">
               <a class="charter-button charter-button--red" data-action="primary" href={localizePath(`${basePath}journals/`, locale)}>{tx('exploreJournals', 'Explore our journals')}</a>
               <a class="charter-text-link charter-text-link--inverse" data-action="secondary" href={localizePath(`${basePath}about/`, locale)}>{tx('aboutCharter', 'About Charter')}</a>
@@ -136,7 +137,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="charter-shell">
           <div class="charter-section-bar">
             <p class="charter-kicker">{tx('journalsKicker', 'Our journal programme')}</p>
-            <p>{activeJournals.length} {tx('journalsCount', 'active journals and growing')}</p>
+            <p>{activeJournals.length}{countJoin}{tx('section.journals.activeJournals', 'active journals')}</p>
             <a href={localizePath(`${basePath}journals/`, locale)}>{tx('browseJournals', 'Browse all journals')}</a>
           </div>
 
@@ -288,7 +289,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-manifesto .charter-kicker { color: var(--charter-gold-light); }
   .charter-hero__imprint { margin: 1.35rem 0 0; color: color-mix(in srgb, var(--charter-paper) 70%, transparent); font-size: var(--fs-label); font-weight: 750; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
   .charter-hero__imprint span, .charter-hero__keywords span { margin-inline: 0.45rem; color: var(--charter-gold-light); }
-  .charter-hero h1 { max-width: 10ch; margin: 1rem 0 1.5rem; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.89; }
+  .charter-hero h1 { max-width: 10ch; margin: 1rem 0 1.5rem; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.89; }
   .charter-rule { display: block; width: 2.6rem; height: 2px; }
   .charter-rule--red { background: var(--charter-red-bright); }
   .charter-hero__lede { max-width: 28rem; margin: 1.45rem 0 0; color: color-mix(in srgb, var(--charter-paper) 86%, transparent); font-family: var(--font-display); font-size: clamp(1.02rem, 1.25vw, 1.23rem); line-height: 1.35; }
@@ -310,7 +311,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   .charter-purpose { border-bottom: 1px solid var(--charter-line); background: var(--charter-paper); }
   .charter-purpose__inner { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 1.05fr); gap: clamp(2.5rem, 8vw, 8rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
-  .charter-purpose h2 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
+  .charter-purpose h2 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.91; }
   .charter-purpose__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 2px solid var(--charter-red); }
   .charter-purpose__body p { max-width: 42rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: clamp(1rem, 1.25vw, 1.2rem); line-height: 1.38; }
   .charter-purpose__body p + p { margin-top: 1rem; }
@@ -322,7 +323,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-section-bar > a { color: var(--charter-red); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.12em; text-decoration: none; text-transform: uppercase; }
   .charter-section-bar > a:hover, .charter-text-link:hover { color: var(--charter-ink); }
   .charter-journals__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.52fr); gap: 3rem; align-items: end; padding-block: clamp(2rem, 4vw, 3.5rem) 2rem; }
-  .charter-journals__heading h2 { max-width: 12ch; margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
+  .charter-journals__heading h2 { max-width: 12ch; margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.9; }
   .charter-journals__heading p { max-width: 28rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
   .charter-journal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--charter-line); border-bottom: 1px solid var(--charter-line); }
   .charter-journal-card { display: flex; flex-direction: column; min-width: 0; padding: 1.2rem clamp(0.8rem, 1.5vw, 1.5rem) 1.65rem; border-inline-start: 1px solid var(--charter-line); }
@@ -331,7 +332,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-journal-card__cover-link:hover, .charter-journal-card__cover-link:focus-visible { transform: translateY(-0.3rem); }
   .charter-journal-card__cover { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: contain; box-shadow: 0 0.7rem 1.3rem color-mix(in srgb, var(--charter-ink) 14%, transparent); }
   .charter-journal-card__label { min-height: 2.2em; margin: 0 0 0.45rem; color: var(--charter-red); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.15em; line-height: 1.45; text-transform: uppercase; }
-  .charter-journal-card h3 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(1.15rem, 1.65vw, 1.55rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; }
+  .charter-journal-card h3 { margin: 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(1.15rem, 1.65vw, 1.55rem); font-weight: 600; letter-spacing: var(--ls-tight); line-height: 1.02; }
   .charter-journal-card h3 a { color: inherit; text-decoration: none; }
   .charter-journal-card h3 a:hover { color: var(--charter-red); }
   .charter-journal-card__summary { margin: 0.8rem 0 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 0.82rem; line-height: 1.35; }
@@ -353,14 +354,14 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-field:nth-child(n + 6) { border-top: 1px solid var(--charter-line); }
   .charter-field:hover { background: var(--charter-ink); color: var(--charter-paper); }
   .charter-field__number { display: block; margin-bottom: 1.1rem; color: var(--charter-red); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.12em; }
-  .charter-field h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.05rem, 1.4vw, 1.35rem); font-weight: 600; letter-spacing: -0.035em; line-height: 1.05; }
+  .charter-field h3 { margin: 0; font-family: var(--font-display); font-size: clamp(1.05rem, 1.4vw, 1.35rem); font-weight: 600; letter-spacing: var(--ls-tight); line-height: 1.05; }
   .charter-field > span:last-child { display: block; margin-top: 0.8rem; color: currentColor; font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.12em; line-height: 1.4; text-transform: uppercase; }
   .charter-field b { color: var(--charter-red); font-weight: 800; }
 
   .charter-authors { background: var(--charter-paper-deep); }
   .charter-authors__inner { display: grid; grid-template-columns: minmax(16rem, 0.95fr) minmax(18rem, 1fr) minmax(12rem, 0.55fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
   .charter-authors__heading { padding-inline-end: clamp(1.5rem, 3vw, 3rem); border-inline-end: 1px solid var(--charter-line); }
-  .charter-authors h2 { max-width: 20ch; margin: 1rem 0 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 3.75vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.91; }
+  .charter-authors h2 { max-width: 20ch; margin: 1rem 0 0; color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(2rem, 3.75vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.91; }
   .charter-authors__copy > p { max-width: 34rem; margin: 0; color: var(--charter-ink-soft); font-family: var(--font-display); font-size: 1rem; line-height: 1.42; }
   .charter-authors__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.5rem; }
   .charter-authors blockquote { margin: 0; padding-inline-start: clamp(1.3rem, 2.4vw, 2.4rem); border-inline-start: 2px solid var(--charter-red); color: var(--charter-ink); font-family: var(--font-display); font-size: clamp(1.4rem, 2.1vw, 2.15rem); font-style: italic; line-height: 1.05; }
@@ -369,7 +370,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .charter-manifesto__wallpaper { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: right center; opacity: 0.22; filter: grayscale(0.5) contrast(0.85); mix-blend-mode: screen; }
   .charter-manifesto__shade { position: absolute; inset: 0; z-index: -1; background: color-mix(in srgb, var(--charter-ink) 82%, transparent); }
   .charter-manifesto__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; min-height: clamp(18rem, 24vw, 24rem); padding-block: clamp(2.5rem, 5vw, 4rem); }
-  .charter-manifesto h2 { max-width: 10ch; margin: 1rem 0 0; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.9; }
+  .charter-manifesto h2 { max-width: 10ch; margin: 1rem 0 0; color: var(--charter-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.9; }
   .charter-manifesto__body { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid color-mix(in srgb, var(--charter-paper) 42%, transparent); }
   .charter-manifesto__body > p { max-width: 31rem; margin: 0; color: color-mix(in srgb, var(--charter-paper) 88%, transparent); font-family: var(--font-display); font-size: 1rem; line-height: 1.4; }
   .charter-signals { display: grid; gap: 0.65rem; margin-top: 1.6rem; color: var(--charter-gold-light); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.15em; line-height: 1.4; text-transform: uppercase; }

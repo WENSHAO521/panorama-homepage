@@ -96,6 +96,7 @@ async function main() {
 
   const searchPage = document.querySelector<HTMLElement>('[data-search-locale]');
   const locale = searchPage?.dataset.searchLocale ?? (document.documentElement.lang.toLowerCase() || 'en');
+  const collator = new Intl.Collator(locale);
   let copy = FALLBACK_COPY;
   const rawCopy = searchPage?.dataset.searchCopy;
   if (rawCopy) {
@@ -252,7 +253,11 @@ async function main() {
     const ranked = records
       .map((record) => ({ record, s: score(record, trimmed) }))
       .filter((r) => r.s > 0)
-      .sort((a, b) => b.s - a.s || a.record.title.localeCompare(b.record.title));
+      .sort((a, b) =>
+        b.s - a.s ||
+        collator.compare(a.record.title, b.record.title) ||
+        a.record.url.localeCompare(b.record.url, 'en'),
+      );
 
     if (ranked.length === 0) renderNoResults(trimmed);
     else renderResults(ranked, trimmed, requestedPage);

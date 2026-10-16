@@ -4,13 +4,14 @@ import { localizePath } from '@/i18n/utils';
 
 interface Props { imprint: Imprint; locale?: string; count?: number; countLabel?: string }
 const { imprint, locale = Astro.currentLocale ?? 'en', count, countLabel } = Astro.props;
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 ---
 
 <li class={`imprint-card imprint-card--${imprint.slug}`}>
   <a href={localizePath(`/imprints/${imprint.slug}/`, locale)} class="imprint-card__link">
     <img class="imprint-card__logo" src={imprint.logo} alt={imprint.name} loading="lazy" />
     <span class="imprint-card__scope">{imprint.scope}</span>
-    {count !== undefined && <span class="imprint-card__count">{count} {countLabel}</span>}
+    {count !== undefined && <span class="imprint-card__count">{count}{countJoin}{countLabel}</span>}
   </a>
 </li>
 

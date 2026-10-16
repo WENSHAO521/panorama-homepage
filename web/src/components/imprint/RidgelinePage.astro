@@ -85,8 +85,8 @@ const footerNav = [
         <div class="ridgeline-shell ridgeline-hero__inner">
           <div class="ridgeline-hero__copy">
             <p class="ridgeline-kicker">{tx('heroKicker', 'Ridgeline / Panorama Scholarly Group')}</p>
-            <h1 id="ridgeline-hero-title">{tx('heroTitleOne', 'Research for')}<br />{tx('heroTitleTwo', 'the systems')}<br />{tx('heroTitleThree', 'we are building.')}</h1>
-            <p class="ridgeline-hero__lede">{tx('heroLede', 'Technology, engineering and applied AI research for a more human, sustainable and equitable future.')}</p>
+            <h1 id="ridgeline-hero-title"><PhraseText text={tx('heroTitleOne', 'Research for')} /><br /><PhraseText text={tx('heroTitleTwo', 'the systems')} /><br /><PhraseText text={tx('heroTitleThree', 'we are building.')} /></h1>
+            <p class="ridgeline-hero__lede"><PhraseText text={tx('heroLede', 'Technology, engineering and applied AI research for a more human, sustainable and equitable future.')} /></p>
             <div class="ridgeline-actions">
               <a class="ridgeline-button ridgeline-button--primary" data-action="primary" href="#journals">{tx('exploreJournals', 'Explore Ridgeline journals')}</a>
               <a class="ridgeline-text-link ridgeline-text-link--hero" data-action="secondary" href="#authors">{tx('submitResearch', 'Submit your research')}</a>
@@ -340,7 +340,7 @@ const footerNav = [
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 5.6vw, 3.75rem);
     font-weight: 500;
-    letter-spacing: -0.055em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.92;
     overflow-wrap: normal;
     word-break: normal;
@@ -495,7 +495,7 @@ const footerNav = [
     font-family: var(--font-display);
     font-size: clamp(2rem, 2.8vw, 2.75rem);
     font-weight: 500;
-    letter-spacing: -0.045em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.98;
   }
 
@@ -630,7 +630,7 @@ const footerNav = [
     font-family: var(--font-display);
     font-size: clamp(2rem, 3.2vw, 2.75rem);
     font-weight: 500;
-    letter-spacing: -0.055em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.98;
   }
 
@@ -716,7 +716,7 @@ const footerNav = [
     font-family: var(--font-display);
     font-size: clamp(2rem, 3.6vw, 2.75rem);
     font-weight: 500;
-    letter-spacing: -0.055em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.96;
   }
 

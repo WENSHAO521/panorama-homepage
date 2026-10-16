@@ -65,8 +65,8 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
           <div class="threnody-archive-hero__copy-inner">
             <Image class="threnody-archive-mark" src={imprint.logoLight ?? imprint.logo!} alt="Threnody" width={220} height={60} loading="eager" />
             <span class="threnody-archive-rule" aria-hidden="true"></span>
-            <h1 id="threnody-archive-hero-title">{tx('heroTitleOne', 'Humanities')}<br />{tx('heroTitleTwo', 'for what endures.')}</h1>
-            <p class="threnody-archive-hero__lede">{tx('heroLede', 'We publish independent, peer-reviewed scholarship across the humanities, arts, philosophy, memory, culture, and sound.')}</p>
+            <h1 id="threnody-archive-hero-title"><PhraseText text={tx('heroTitleOne', 'Humanities')} /><br /><PhraseText text={tx('heroTitleTwo', 'for what endures.')} /></h1>
+            <p class="threnody-archive-hero__lede"><PhraseText text={tx('heroLede', 'We publish independent, peer-reviewed scholarship across the humanities, arts, philosophy, memory, culture, and sound.')} /></p>
             <div class="threnody-archive-actions">
               <a class="threnody-archive-button" data-action="primary" href={localizePath(`${basePath}journals/`, locale)}>{tx('exploreJournals', 'Explore the journal programme')}</a>
               <a class="threnody-archive-text-link" data-action="secondary" href={localizePath(`${basePath}for-authors/`, locale)}>{tx('forAuthors', 'For authors')}</a>
@@ -262,7 +262,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 5.5vw, 3.75rem);
     font-weight: 500;
-    letter-spacing: -0.07em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.88;
   }
 
@@ -349,7 +349,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
   .threnody-archive-section-bar p:last-child { color: var(--th-muted); font-size: var(--fs-caption); letter-spacing: 0.14em; text-align: right; }
 
   .threnody-archive-journals__intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(13rem, 0.55fr); gap: clamp(2rem, 8vw, 9rem); align-items: start; padding-block: 1.6rem 2.8rem; }
-  .threnody-archive-journals__intro h2 { max-width: 20ch; margin: 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.075em; line-height: 0.9; }
+  .threnody-archive-journals__intro h2 { max-width: 20ch; margin: 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.9; }
   .threnody-archive-journals__intro > div > p { max-width: 39rem; margin: 1.5rem 0 0; color: var(--th-muted); font-family: var(--font-display); font-size: clamp(1rem, 1.2vw, 1.15rem); line-height: 1.45; }
   .threnody-archive-journals__signals { margin: 0.8rem 0 0; color: var(--th-plum); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 2.2; text-transform: uppercase; }
 
@@ -360,7 +360,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
   .threnody-archive-journal-card__cover:focus-visible { transform: translateY(-0.35rem); }
   .threnody-archive-journal-card__cover img { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: contain; }
   .threnody-archive-journal-card__label { margin: 0 0 0.5rem; color: var(--th-copper); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.35; text-transform: uppercase; }
-  .threnody-archive-journal-card h3 { min-height: 2.35em; margin: 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(1.05rem, 1.35vw, 1.35rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
+  .threnody-archive-journal-card h3 { min-height: 2.35em; margin: 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(1.05rem, 1.35vw, 1.35rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 1.05; }
   .threnody-archive-journal-card h3 a { color: inherit; text-decoration: none; }
   .threnody-archive-journal-card h3 a:hover,
   .threnody-archive-journal-card h3 a:focus-visible { color: var(--th-plum); }
@@ -372,7 +372,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
   .threnody-archive-research__intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.65fr); gap: clamp(2rem, 8vw, 9rem); align-items: end; padding-bottom: 2.2rem; border-bottom: 1px solid color-mix(in srgb, var(--th-ivory) 25%, transparent); }
   .threnody-archive-kicker { margin: 0; color: var(--th-copper-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
   .threnody-archive-research .threnody-archive-kicker { color: var(--th-copper-light); }
-  .threnody-archive-research h2 { max-width: 18ch; margin: 1rem 0 0; color: var(--th-ivory); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.9; }
+  .threnody-archive-research h2 { max-width: 18ch; margin: 1rem 0 0; color: var(--th-ivory); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.9; }
   .threnody-archive-research__intro > p { max-width: 25rem; margin: 0; color: color-mix(in srgb, var(--th-ivory) 75%, transparent); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
   .threnody-archive-fields { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .threnody-archive-fields article { min-height: 10rem; padding: 1.5rem 1.1rem 0 0; border-inline-end: 1px solid color-mix(in srgb, var(--th-ivory) 23%, transparent); }
@@ -385,7 +385,7 @@ const pageDescription = tx('pageDescription', 'Threnody is Panorama Scholarly Gr
   .threnody-archive-authors { background: var(--th-paper); }
   .threnody-archive-authors__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(2rem, 8vw, 9rem); align-items: center; padding-block: clamp(2.5rem, 5vw, 4rem); }
   .threnody-archive-authors h2,
-  .threnody-archive-about h2 { max-width: 20ch; margin: 1rem 0 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.07em; line-height: 0.92; }
+  .threnody-archive-about h2 { max-width: 20ch; margin: 1rem 0 0; color: var(--th-ink); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.92; }
   .threnody-archive-authors__copy { padding-inline-start: clamp(1.5rem, 4vw, 4rem); border-inline-start: 1px solid var(--th-copper); }
   .threnody-archive-authors__copy > p,
   .threnody-archive-about__inner > div:last-child p { max-width: 31rem; margin: 0; color: var(--th-muted); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.5; }

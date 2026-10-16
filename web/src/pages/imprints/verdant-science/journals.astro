@@ -4,7 +4,7 @@ import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints'
 
 const imprint = getImprintBySlug('verdant-science');
 if (!imprint) throw new Error('Verdant Science imprint data is missing.');
-const journals = getJournalsForImprint('verdant-science');
+const journals = getJournalsForImprint('verdant-science', Astro.currentLocale ?? 'en');
 ---
 
 <VerdantScienceSectionPage imprint={imprint} journals={journals} section="journals" />

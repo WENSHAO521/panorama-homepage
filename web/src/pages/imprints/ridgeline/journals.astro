@@ -12,9 +12,10 @@ import { imprintText } from '@/i18n/imprints';
 import { localizePath } from '@/i18n/utils';
 
 const imprint = getImprintBySlug('ridgeline');
-const journals = getJournalsForImprint('ridgeline').filter((journal) => journal.status === 'active');
+const journals = getJournalsForImprint('ridgeline', Astro.currentLocale ?? 'en').filter((journal) => journal.status === 'active');
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 const tx = (key: string, fallback: string) => imprintText('ridgeline', locale, key, fallback);
 const pageDescription = tx('section.journals.pageDescription', 'Explore the Ridgeline journal family across technology, engineering, applied AI, and interdisciplinary systems research.');
 const labels = getNavigationLabels(locale);
@@ -58,7 +59,7 @@ const disciplineKeys: Record<string, string> = {
         <div class="ridgeline-directory__shell">
           <div class="ridgeline-directory__section-bar">
             <p class="ridgeline-directory__kicker" id="ridgeline-directory-list-title">{tx('section.journals.directoryKicker', 'Ridgeline journals')}</p>
-            <p>{journals.length} {tx('section.journals.activeJournals', 'active journals')}</p>
+            <p>{journals.length}{countJoin}{tx('section.journals.activeJournals', 'active journals')}</p>
           </div>
 
           <div class="ridgeline-directory__grid">
@@ -152,7 +153,7 @@ const disciplineKeys: Record<string, string> = {
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 5.6vw, 3.75rem);
     font-weight: 500;
-    letter-spacing: -0.055em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.94;
   }
 
@@ -294,7 +295,7 @@ const disciplineKeys: Record<string, string> = {
   @media (max-width: 639px) {
     .ridgeline-directory__shell { width: calc(100% - 2rem); }
     .ridgeline-directory__intro { padding-block: 4.5rem 3.5rem; }
-    .ridgeline-directory h1 { font-size: 3rem; }
+    .ridgeline-directory h1 { font-size: clamp(2rem, 9vw, 3rem); }
     .ridgeline-directory__section-bar { align-items: flex-start; flex-direction: column; gap: 0.6rem; }
     .ridgeline-directory__grid { gap: 0; }
     .ridgeline-directory__card { grid-template-columns: 1fr; padding-inline: 0; border-inline-start: 0; }

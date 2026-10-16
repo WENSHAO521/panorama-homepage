@@ -1,4 +1,5 @@
 import announcementData from './announcements.json';
+import { getGroupAnnouncementCopy } from '@/i18n/announcements';
 
 export interface Announcement {
   id: string;
@@ -14,7 +15,11 @@ export interface Announcement {
 
 const announcements = announcementData.announcements as Announcement[];
 
-/** Keep announcement content canonical; page labels are localized in the news copy. */
-export function getAnnouncements(): Announcement[] {
-  return announcements;
+/** External announcements stay canonical; group-authored fallback copy follows the page locale. */
+export function getAnnouncements(locale = 'en'): Announcement[] {
+  return announcements.map((announcement) => {
+    if (!announcement.fallback) return announcement;
+    const copy = getGroupAnnouncementCopy(announcement.id, locale);
+    return copy ? { ...announcement, ...copy } : announcement;
+  });
 }

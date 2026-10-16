@@ -29,7 +29,7 @@ const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
 
       <ul class="imprint-grid" role="list">
         {imprints.map((imprint) => (
-          <ImprintCard imprint={imprint} locale={locale} count={getJournalsForImprint(imprint.slug).length} countLabel={t('common.journals')} />
+          <ImprintCard imprint={imprint} locale={locale} count={getJournalsForImprint(imprint.slug, locale).length} countLabel={t('common.journals')} />
         ))}
       </ul>
     </div>

@@ -6,18 +6,20 @@ import { getAllImprints, getJournalsForImprint } from '@/lib/content/imprints';
 import { getActiveJournals } from '@/lib/content/journals';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import { getContent } from '@/i18n/content';
+import { imprintText, type ImprintSlug } from '@/i18n/imprints';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const t = getContent(locale);
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 
 const activeJournals = getActiveJournals();
 const imprintGroups = getLocalizedImprints(getAllImprints(), locale)
   .map((imprint) => ({
     imprint,
-    journals: getJournalsForImprint(imprint.slug),
+    journals: getJournalsForImprint(imprint.slug, locale),
   }))
   .filter(({ journals }) => journals.length > 0);
 
@@ -41,11 +43,11 @@ function compactDescription(description?: string) {
     <GroupHero
       eyebrow={t('journals.overline')}
       title={t('journals.title')}
-      lede={`${activeJournals.length}${['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '}${t('journals.lede')}`}
+      lede={`${activeJournals.length}${countJoin}${t('journals.lede')}`}
       titleId="journals-title"
       variant="catalogue"
     >
-      <div slot="aside" class="group-hero__metric" aria-label={`${activeJournals.length} ${t('journals.active')}`}>
+      <div slot="aside" class="group-hero__metric" aria-label={locale === 'ko' ? `${activeJournals.length}개 ${t('journals.active')}` : `${activeJournals.length} ${t('journals.active')}`}>
         <strong>{activeJournals.length}</strong>
         <span>{t('journals.active')}</span>
         <p>{t('journals.statText')}</p>
@@ -74,6 +76,9 @@ function compactDescription(description?: string) {
           <ul class="journal-directory__journal-grid" role="list">
             {journals.map((journal) => {
               const coverAsset = getJournalCoverAsset(journal.cover);
+              const imprint = journal.imprint as ImprintSlug;
+              const discipline = imprintText(imprint, locale, `journal.${journal.slug}.label`, journal.disciplines.join(' · '));
+              const description = imprintText(imprint, locale, `journal.${journal.slug}.summary`, compactDescription(journal.description));
               return (
                 <li class="journal-directory__journal">
                   <a
@@ -107,13 +112,13 @@ function compactDescription(description?: string) {
                   </a>
 
                   <div class="journal-directory__journal-body">
-                    <p class="journal-directory__discipline">{journal.disciplines.join(' · ')}</p>
+                    <p class="journal-directory__discipline">{discipline}</p>
                     <h3>
                       <a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">
                         {journal.title}
                       </a>
                     </h3>
-                    <p class="journal-directory__description">{compactDescription(journal.description)}</p>
+                    <p class="journal-directory__description">{description}</p>
                     <a class="journal-directory__visit" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">
                       {t('common.visitJournalWebsite')}
                     </a>

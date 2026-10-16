@@ -3,6 +3,8 @@ import HeaderTools from '@/components/navigation/HeaderTools.astro';
 import LanguageSwitcher from '@/components/navigation/LanguageSwitcher.astro';
 import Logo from '@/components/ui/Logo.astro';
 import type { Imprint } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { getUiStrings } from '@/i18n/locales';
 import { localizePath } from '@/i18n/utils';
 
 interface NavLink {
@@ -29,8 +31,10 @@ const {
 
 const mobileNavId = `imprint-mobile-nav-${imprint.slug}`;
 const brandHome = localizePath(`/imprints/${imprint.slug}/`, locale);
-const searchLabel = locale === 'zh-hans' ? '搜索' : locale === 'zh-hant' ? '搜尋' : 'Search';
-const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ? '開啟導航' : 'Open navigation';
+const labels = getNavigationLabels(locale);
+const ui = getUiStrings(locale);
+const searchLabel = ui.search;
+const menuLabel = ui.menu;
 ---
 
 <header class:list={['imprint-header', `imprint-header--${theme}`]} data-imprint-header={imprint.slug}>
@@ -38,7 +42,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
     <div class="imprint-header__brands">
       <Logo href={localizePath('/', locale)} inverse={theme === 'dark'} />
       <span class="imprint-header__divider" aria-hidden="true"></span>
-      <a class="imprint-header__brand" href={brandHome} aria-label={`${imprint.name} home`}>
+      <a class="imprint-header__brand" href={brandHome} aria-label={`${imprint.name} — ${labels.home}`}>
         <img
           src={theme === 'dark' ? imprint.logoLight : imprint.logo}
           alt={imprint.name}
@@ -48,7 +52,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
       </a>
     </div>
 
-    <nav class="imprint-header__nav" aria-label={`${imprint.name} navigation`}>
+    <nav class="imprint-header__nav" aria-label={`${imprint.name} — ${ui.menu}`}>
       {links.map((link) => (
         <a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
       ))}
@@ -64,7 +68,7 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
     </div>
   </div>
 
-  <nav id={mobileNavId} class="imprint-header__mobile-nav" aria-label={`${imprint.name} mobile navigation`} hidden>
+  <nav id={mobileNavId} class="imprint-header__mobile-nav" aria-label={`${imprint.name} — ${ui.menu}`} hidden>
     {links.map((link) => (
       <a href={link.href} aria-current={link.current ? 'page' : undefined}>{link.label}</a>
     ))}
@@ -193,19 +197,8 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
   .imprint-header__menu,
   .imprint-header__mobile-nav { display: none; }
 
-  @media (max-width: 900px) {
-    .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-tablet))), 44rem); }
-    .imprint-header__inner { gap: 1rem; }
-    .imprint-header__nav { gap: 1rem; }
-    .imprint-header__nav a { font-size: var(--fs-caption); }
-  }
-
-  @media (max-width: 639px) {
-    .imprint-shell { width: calc(100% - (2 * var(--p-gutter-mobile))); }
-    .imprint-header__inner { min-height: 4.3rem; }
-    .imprint-header__brand { max-width: 8rem; }
+  @media (max-width: 1080px) {
     .imprint-header__nav { display: none; }
-    .imprint-header__tools { margin-inline-start: auto; }
     .imprint-header__menu {
       display: grid;
       gap: 0.32rem;
@@ -239,5 +232,21 @@ const menuLabel = locale === 'zh-hans' ? '打开导航' : locale === 'zh-hant' ?
     .imprint-header__mobile-language :global(.lang-switcher__trigger:focus-visible) { color: var(--imprint-header-hover); }
     .imprint-header__mobile-language :global(.lang-switcher__panel) { position: static; width: auto; max-width: none; max-height: none; overflow: visible; padding: 0.75rem 0 0; border: 0; box-shadow: none; background: transparent; }
     .imprint-header__mobile-language :global(.lang-switcher__link) { padding: 0.65rem 0.5rem; }
+  }
+
+  @media (max-width: 900px) {
+    .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-tablet))), 44rem); }
+    .imprint-header__inner { gap: 1rem; }
+    .imprint-header__nav { gap: 1rem; }
+    .imprint-header__nav a { font-size: var(--fs-caption); }
+  }
+
+  @media (max-width: 639px) {
+    .imprint-shell { width: calc(100% - (2 * var(--p-gutter-mobile))); }
+    .imprint-header__inner { min-height: 4.3rem; }
+    .imprint-header__brands { gap: 0.6rem; }
+    .imprint-header__brand { max-width: 6rem; }
+    .imprint-header__tools { margin-inline-start: auto; }
+    .imprint-header__tools :global(.header-tools) { display: none; }
   }
 </style>

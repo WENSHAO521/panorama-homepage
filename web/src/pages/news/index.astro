@@ -8,7 +8,7 @@ import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getNewsCopy(locale);
-const posts = getAnnouncements()
+const posts = getAnnouncements(locale)
   .sort((a, b) => b.date.localeCompare(a.date))
   .slice(0, 10);
 

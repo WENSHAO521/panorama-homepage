@@ -13,12 +13,13 @@ import GroupHero from '@/components/group/GroupHero.astro';
 import SectionHead from '@/components/homepage/SectionHead.astro';
 
 const locale = Astro.currentLocale ?? 'en';
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 const copy = getPublishingCopy(locale);
 const activeJournals = getActiveJournals();
 const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprint, index) => ({
   imprint,
   index: String(index + 1).padStart(2, '0'),
-  journals: getJournalsForImprint(imprint.slug),
+  journals: getJournalsForImprint(imprint.slug, locale),
 }));
 
 const programmeRoutes = copy.routes.map((route, index) => ({
@@ -138,7 +139,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
           ))}
         </div>
 
-        <p class="publishing-imprints__footer"><strong>{activeJournals.length}</strong> {copy.activeJournals} — {copy.imprintsClosing}</p>
+        <p class="publishing-imprints__footer"><strong>{activeJournals.length}</strong>{countJoin}{copy.activeJournals} — {copy.imprintsClosing}</p>
       </div>
     </section>
 

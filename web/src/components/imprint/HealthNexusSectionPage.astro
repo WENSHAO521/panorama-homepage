@@ -25,6 +25,7 @@ const basePath = '/imprints/health-nexus/';
 const pagePath = `${basePath}${section}/`;
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 const tx = (key: string, fallback: string) => imprintText('health-nexus', locale, key, fallback);
 const labels = getNavigationLabels(locale);
 const localizedBasePath = localizePath(basePath, locale);
@@ -129,7 +130,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
           <div>
             <p class="health-nexus-secondary__kicker">{localizedCurrent.kicker}</p>
             <h1 id="health-nexus-secondary-title"><PhraseText text={localizedCurrent.title} /></h1>
-            <p class="health-nexus-secondary__hero-lede">{localizedCurrent.lede}</p>
+            <p class="health-nexus-secondary__hero-lede"><PhraseText text={localizedCurrent.lede} /></p>
           </div>
           <aside class="health-nexus-secondary__hero-note" aria-label={tx('section.heroNoteLabel', 'Health Nexus focus')}>
             <span>{tx('principleDiscovery', 'Discovery')}</span>
@@ -146,7 +147,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell">
               <div class="health-nexus-secondary__section-bar">
                 <p class="health-nexus-secondary__kicker" id="health-nexus-journals-list-title">{tx('section.journals.programmeKicker', 'Health Nexus journals')}</p>
-                <p>{activeJournals.length} {tx('section.journals.activeJournals', activeJournals.length === 1 ? 'active journal' : 'active journals')}</p>
+                <p>{activeJournals.length}{countJoin}{tx('section.journals.activeJournals', activeJournals.length === 1 ? 'active journal' : 'active journals')}</p>
               </div>
               <div class="health-nexus-secondary__journal-list">
                 {activeJournals.map((journal, index) => {
@@ -280,7 +281,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
             <div class="health-nexus-secondary__shell">
               <div class="health-nexus-secondary__section-bar">
                 <p class="health-nexus-secondary__kicker" id="health-nexus-submit-title">{tx('section.authors.submitKicker', 'Submit to a journal')}</p>
-                <p>{activeJournals.length} {tx('section.authors.destinations', 'current destinations')}</p>
+                <p>{activeJournals.length}{countJoin}{tx('section.authors.destinations', 'current destinations')}</p>
               </div>
               <div class="health-nexus-secondary__submission-grid">
                 {activeJournals.map((journal) => (
@@ -371,10 +372,10 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__hero-wallpaper { position: absolute; inset: 0 0 0 48%; z-index: -2; width: 52%; height: 100%; object-fit: cover; object-position: center; opacity: 0.78; }
   .health-nexus-secondary__hero-shade { position: absolute; inset: 0 52% 0 0; z-index: -1; background: color-mix(in srgb, var(--hn-secondary-deeper) 94%, transparent); }
   .health-nexus-secondary__hero-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr); align-items: end; min-height: inherit; padding-block: clamp(2.5rem, 5vw, 4rem); }
-  .health-nexus-secondary__hero h1 { max-width: 11ch; margin: 1.4rem 0 1.6rem; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: -0.065em; line-height: 0.92; }
+  .health-nexus-secondary__hero h1 { max-width: 11ch; margin: 1.4rem 0 1.6rem; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: clamp(2.4rem, 5.6vw, 3.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.92; }
   .health-nexus-secondary__hero-lede { max-width: 35rem; margin: 0; color: color-mix(in srgb, var(--hn-secondary-paper) 86%, transparent); font-family: var(--font-display); font-size: clamp(1.05rem, 1.55vw, 1.4rem); line-height: 1.4; }
   .health-nexus-secondary__hero-note { align-self: end; justify-self: end; display: flex; max-width: 15rem; flex-direction: column; gap: 0.75rem; padding-inline-start: 2rem; border-inline-start: 1px solid color-mix(in srgb, var(--hn-secondary-paper) 42%, transparent); color: color-mix(in srgb, var(--hn-secondary-paper) 82%, transparent); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.3; text-transform: uppercase; }
-  .health-nexus-secondary__hero-note-quote { margin-top: 2rem; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: 1.35rem; font-style: italic; font-weight: 500; letter-spacing: -0.02em; line-height: 1.18; text-transform: none; }
+  .health-nexus-secondary__hero-note-quote { margin-top: 2rem; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: 1.35rem; font-style: italic; font-weight: 500; letter-spacing: var(--ls-tight); line-height: 1.18; text-transform: none; }
 
   .health-nexus-secondary__section { padding-block: clamp(2.5rem, 5vw, 4rem); background: var(--hn-secondary-paper); }
   .health-nexus-secondary__section--tinted { background: var(--hn-secondary-paper-deep); }
@@ -388,7 +389,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__journal-number { position: absolute; top: -0.1rem; left: -0.35rem; z-index: 1; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; background: var(--hn-secondary-paper); color: var(--hn-secondary-deep); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.08em; }
   .health-nexus-secondary__journal-copy { display: flex; min-height: 100%; flex-direction: column; justify-content: center; padding-block: 0.5rem; }
   .health-nexus-secondary__eyebrow { margin: 0 0 0.65rem; color: var(--hn-secondary-deep); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.16em; line-height: 1.4; text-transform: uppercase; }
-  .health-nexus-secondary__journal-copy h2, .health-nexus-secondary__split-heading h2, .health-nexus-secondary__about-grid h2 { max-width: 19ch; margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 3.7vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.96; }
+  .health-nexus-secondary__journal-copy h2, .health-nexus-secondary__split-heading h2, .health-nexus-secondary__about-grid h2 { max-width: 19ch; margin: 0; font-family: var(--font-display); font-size: clamp(2rem, 3.7vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.96; }
   .health-nexus-secondary__journal-copy h2 a { color: inherit; text-decoration: none; }
   .health-nexus-secondary__journal-copy h2 a:hover, .health-nexus-secondary__journal-copy h2 a:focus-visible { color: var(--hn-secondary-deep); }
   .health-nexus-secondary__journal-copy > p:not(.health-nexus-secondary__eyebrow) { max-width: 35rem; margin: 1.15rem 0 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
@@ -398,7 +399,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
 
   .health-nexus-secondary__closing-band, .health-nexus-secondary__dark-statement { background: var(--hn-secondary-deeper); color: var(--hn-secondary-paper); }
   .health-nexus-secondary__closing-inner { display: grid; grid-template-columns: 1fr 0.8fr; gap: 4rem; align-items: end; padding-block: clamp(2.5rem, 5vw, 4rem); }
-  .health-nexus-secondary__closing-inner h2, .health-nexus-secondary__dark-grid h2 { max-width: 20ch; margin: 1.2rem 0 0; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: -0.06em; line-height: 0.94; }
+  .health-nexus-secondary__closing-inner h2, .health-nexus-secondary__dark-grid h2 { max-width: 20ch; margin: 1.2rem 0 0; color: var(--hn-secondary-paper); font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 500; letter-spacing: var(--ls-tight); line-height: 0.94; }
   .health-nexus-secondary__closing-inner > p, .health-nexus-secondary__dark-grid > div:last-child > p { margin: 0; color: color-mix(in srgb, var(--hn-secondary-paper) 84%, transparent); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
   .health-nexus-secondary__dark-statement { padding-block: clamp(2.5rem, 5vw, 4rem); }
   .health-nexus-secondary__dark-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
@@ -411,7 +412,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__field-grid article { min-height: 12rem; padding: 1.8rem 1.5rem 1.8rem 0; border-bottom: 1px solid var(--hn-secondary-line); }
   .health-nexus-secondary__field-grid article:nth-child(3n + 2), .health-nexus-secondary__field-grid article:nth-child(3n + 3) { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
   .health-nexus-secondary__field-marker { color: var(--hn-secondary-deep); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.15em; }
-  .health-nexus-secondary__field-grid h2 { margin: 2rem 0 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.05; }
+  .health-nexus-secondary__field-grid h2 { margin: 2rem 0 0; font-family: var(--font-display); font-size: 1.55rem; font-weight: 550; letter-spacing: var(--ls-tight); line-height: 1.05; }
   .health-nexus-secondary__field-grid p { max-width: 16rem; margin: 0.75rem 0 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 0.9rem; line-height: 1.4; }
   .health-nexus-secondary__split-heading { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 3rem; align-items: end; margin-bottom: 3rem; }
   .health-nexus-secondary__split-heading h2 { max-width: 20ch; }
@@ -419,7 +420,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__commitment-grid, .health-nexus-secondary__principle-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .health-nexus-secondary__commitment-grid article, .health-nexus-secondary__principle-grid article { min-height: 10rem; padding: 1.5rem 1.5rem 1.5rem 0; border-top: 1px solid var(--hn-secondary-line); }
   .health-nexus-secondary__commitment-grid article + article, .health-nexus-secondary__principle-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
-  .health-nexus-secondary__commitment-grid h3, .health-nexus-secondary__principle-grid h3, .health-nexus-secondary__steps h3 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 550; letter-spacing: -0.035em; }
+  .health-nexus-secondary__commitment-grid h3, .health-nexus-secondary__principle-grid h3, .health-nexus-secondary__steps h3 { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 550; letter-spacing: var(--ls-tight); }
   .health-nexus-secondary__commitment-grid p, .health-nexus-secondary__principle-grid p, .health-nexus-secondary__steps p { max-width: 17rem; margin: 0.75rem 0 0; color: var(--hn-secondary-ink-soft); font-family: var(--font-display); font-size: 0.87rem; line-height: 1.4; }
   .health-nexus-secondary__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .health-nexus-secondary__steps article { min-height: 12rem; padding: 0 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
@@ -433,7 +434,7 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .health-nexus-secondary__submission-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .health-nexus-secondary__submission-grid article { display: flex; min-height: 12rem; flex-direction: column; padding: 1.6rem 1.5rem 1rem 0; border-bottom: 1px solid var(--hn-secondary-line); }
   .health-nexus-secondary__submission-grid article + article { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--hn-secondary-line); }
-  .health-nexus-secondary__submission-grid h2 { max-width: 15rem; margin: 1rem 0 0; font-family: var(--font-display); font-size: 1.4rem; font-weight: 550; letter-spacing: -0.035em; line-height: 1.05; }
+  .health-nexus-secondary__submission-grid h2 { max-width: 15rem; margin: 1rem 0 0; font-family: var(--font-display); font-size: 1.4rem; font-weight: 550; letter-spacing: var(--ls-tight); line-height: 1.05; }
   .health-nexus-secondary__submission-grid .health-nexus-secondary__text-link { margin-top: auto; }
   .health-nexus-secondary__about-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 1.05fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; }
   .health-nexus-secondary__about-grid h2 { max-width: 12ch; }

@@ -1,13 +1,12 @@
 // Shared plumbing for tests/browser-check.mjs and tests/interaction-check.mjs
-// -- starts `astro preview`, launches Chromium (with the same cached-build
-// fallback both scripts need; see browser-check.mjs's original comment for
-// why the fallback exists), and tears both down.
+// -- starts a built-site preview, launches Chromium (with the same cached
+// fallback both scripts need), and tears down what it started.
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
 
-export const PORT = 4321;
-export const BASE = `http://localhost:${PORT}`;
+export const PORT = Number(process.env.PREVIEW_TEST_PORT ?? 4321);
+export const BASE = process.env.PREVIEW_TEST_BASE ?? `http://127.0.0.1:${PORT}`;
 
 function findCachedChromeExe() {
   const base = process.env.LOCALAPPDATA + '\\ms-playwright';
@@ -38,20 +37,25 @@ function waitForServer(url, timeoutMs = 20000) {
 }
 
 export async function setup() {
-  const server = spawn('npx', ['astro', 'preview', '--port', String(PORT)], {
-    cwd: process.cwd(),
-    shell: true,
-    stdio: 'pipe',
-  });
+  const server = process.env.PREVIEW_TEST_BASE ? null : process.env.PREVIEW_DIST_DIR
+    ? spawn(process.execPath, ['tests/static-server.mjs', process.env.PREVIEW_DIST_DIR, String(PORT)], {
+        cwd: process.cwd(),
+        stdio: 'pipe',
+      })
+    : spawn('npx', ['astro', 'preview', '--port', String(PORT)], {
+      cwd: process.cwd(),
+      shell: true,
+      stdio: 'pipe',
+    });
   let serverOutput = '';
-  server.stdout.on('data', (d) => (serverOutput += d.toString()));
-  server.stderr.on('data', (d) => (serverOutput += d.toString()));
+  server?.stdout.on('data', (d) => (serverOutput += d.toString()));
+  server?.stderr.on('data', (d) => (serverOutput += d.toString()));
 
   try {
     await waitForServer(BASE + '/');
   } catch (err) {
     console.error('Preview server failed to start:\n' + serverOutput);
-    server.kill();
+    server?.kill();
     process.exit(1);
   }
 
@@ -64,7 +68,7 @@ export async function setup() {
     if (!fallbackExe) {
       console.error('No Playwright-managed Chromium available and no cached fallback found.');
       console.error(String(err));
-      server.kill();
+      server?.kill();
       process.exit(1);
     }
     usedFallback = fallbackExe;
@@ -76,5 +80,5 @@ export async function setup() {
 
 export async function teardown({ server, browser }) {
   await browser.close();
-  server.kill();
+  server?.kill();
 }

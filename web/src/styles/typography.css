@@ -91,12 +91,10 @@ h5, h6 {
 /* Balanced headings avoid a lone word on the last line; paragraphs avoid orphans. */
 h1, h2, h3, h4 { text-wrap: balance; }
 
-/* CJK headlines: break only at the <wbr> hints from PhraseText (word and clause
-   boundaries), never inside a word. Korean has spaces, so keep-all suffices. */
-:is(h1, h2, h3):lang(zh),
-:is(h1, h2, h3):lang(ja),
-:is(h1, h2, h3):lang(ko) {
-  word-break: keep-all;
+/* Keep CJK punctuation attached while allowing natural script line breaks. */
+:is(h1, h2, h3, h4):lang(zh),
+:is(h1, h2, h3, h4):lang(ja) {
+  word-break: normal;
   line-break: strict;
 }
 
@@ -111,10 +109,16 @@ h1, h2, h3, h4 { text-wrap: balance; }
   word-break: auto-phrase;
 }
 
+:is(h1, h2, h3, h4):lang(ko) {
+  word-break: keep-all;
+  line-break: normal;
+}
+
 /* One clause = one unit; it only wraps internally when it is wider than the line. */
 .phrase {
   display: inline-block;
   max-width: 100%;
+  word-break: keep-all;
 }
 p, li, figcaption, blockquote { text-wrap: pretty; }
 
@@ -160,14 +164,31 @@ p + p {
   faces rather than letting the browser fall through to a default
   serif/sans that won't match x-height or weight.
 */
-:root[lang^='zh'] body,
-:root[lang^='ja'] body,
-:root[lang^='ko'] body,
-[lang^='zh'] body,
-[lang^='ja'] body,
-[lang^='ko'] body {
-  --font-body: 'Inter', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans JP', 'Noto Sans KR', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --font-display: 'Noto Serif SC', 'Noto Serif TC', 'Noto Serif JP', 'Noto Serif KR', 'Source Serif 4', serif;
+:root:lang(zh-Hans) body {
+  --font-body: 'Inter Variable', 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-display: 'Noto Serif SC', 'Source Serif 4', 'Songti SC', 'SimSun', serif;
+}
+
+:root:lang(zh-Hant) body {
+  --font-body: 'Inter Variable', 'Inter', 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-display: 'Noto Serif TC', 'Source Serif 4', 'Songti TC', 'PMingLiU', serif;
+}
+
+:root:lang(ja) body {
+  --font-body: 'Inter Variable', 'Inter', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-display: 'Noto Serif JP', 'Source Serif 4', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+}
+
+:root:lang(ko) body {
+  --font-body: 'Inter Variable', 'Inter', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-display: 'Noto Serif KR', 'Source Serif 4', 'Batang', serif;
+}
+
+:root[lang^='zh'],
+:root[lang^='ja'],
+:root[lang^='ko'],
+:root[dir='rtl'] {
+  --ls-tight: var(--ls-normal);
 }
 
 :root[lang^='zh'] h1, :root[lang^='zh'] h2, :root[lang^='zh'] h3, :root[lang^='zh'] h4,
@@ -190,4 +211,124 @@ p + p {
 :root[lang='de'] body {
   /* German compound nouns run long — reading measure stays character-based
      (ch unit) rather than a fixed px width so it adapts automatically. */
+}
+
+/* Brand display headings were tuned tightly for Latin. Keep the same scale,
+   but give every locale enough line space and remove the compressed tracking. */
+:root [data-imprint-theme] :is(h1, h2, h3, h4),
+:root .imprints-directory :is(h1, h2, h3, h4) {
+  letter-spacing: var(--ls-normal);
+  line-height: 1.08;
+  hyphens: auto;
+  text-wrap: balance;
+}
+
+:root[lang^='zh'] [data-imprint-theme] :is(h1, h2, h3, h4),
+:root[lang^='ja'] [data-imprint-theme] :is(h1, h2, h3, h4),
+:root[lang^='ko'] [data-imprint-theme] :is(h1, h2, h3, h4),
+:root[lang^='zh'] .imprints-directory :is(h1, h2, h3, h4),
+:root[lang^='ja'] .imprints-directory :is(h1, h2, h3, h4),
+:root[lang^='ko'] .imprints-directory :is(h1, h2, h3, h4) {
+  max-width: min(100%, 18em);
+  letter-spacing: 0.02em;
+  line-height: 1.22;
+}
+
+:root[lang^='zh'] [data-imprint-theme] :is(h1, h2, h3, h4),
+:root[lang^='ja'] [data-imprint-theme] :is(h1, h2, h3, h4),
+:root[lang^='zh'] .imprints-directory :is(h1, h2, h3, h4),
+:root[lang^='ja'] .imprints-directory :is(h1, h2, h3, h4) {
+  word-break: normal;
+  line-break: strict;
+}
+
+:root[lang^='ko'] [data-imprint-theme] :is(h1, h2, h3, h4),
+:root[lang^='ko'] .imprints-directory :is(h1, h2, h3, h4) {
+  word-break: keep-all;
+  line-break: normal;
+}
+
+:root[lang^='ko'] [data-imprint-theme] main :is(p, li),
+:root[lang^='ko'] .imprints-directory :is(p, li) {
+  word-break: keep-all;
+  line-break: normal;
+}
+
+:root[dir='rtl'] [data-imprint-theme] :is(h1, h2, h3, h4) {
+  max-width: min(100%, 20em);
+  line-height: 1.32;
+}
+
+/* Give every localized page a legible heading rhythm and language-aware wraps. */
+:root[lang] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4) {
+  letter-spacing: 0;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+:root[lang] body:is(.group-site, .standalone-site) h1 { line-height: 1.14; }
+:root[lang] body:is(.group-site, .standalone-site) h2 { line-height: 1.18; }
+:root[lang] body:is(.group-site, .standalone-site) h3 { line-height: 1.22; }
+:root[lang] body:is(.group-site, .standalone-site) h4 { line-height: 1.24; }
+
+:root[lang] body:is(.group-site, .standalone-site) main :is(p, li, blockquote, figcaption):not(.text-overline, .text-caption, [class*='kicker'], [class*='eyebrow'], [class*='label'], [class*='meta']) {
+  letter-spacing: normal;
+  line-height: var(--lh-body);
+  hyphens: auto;
+}
+
+:root[lang^='zh'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4),
+:root[lang^='ja'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4),
+:root[lang^='ko'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4) {
+  letter-spacing: 0.02em;
+  line-height: 1.22;
+  hyphens: none;
+}
+
+:root[lang^='zh'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4),
+:root[lang^='ja'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4) {
+  word-break: normal;
+  line-break: strict;
+}
+
+:root[lang^='ko'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4) {
+  word-break: keep-all;
+  line-break: normal;
+}
+
+:root[lang^='zh'] body:is(.group-site, .standalone-site) main :is(p, li, blockquote, figcaption):not(.text-overline, .text-caption, [class*='kicker'], [class*='eyebrow'], [class*='label'], [class*='meta']) {
+  word-break: normal;
+  line-break: strict;
+  hyphens: none;
+}
+
+:root[lang^='ja'] body:is(.group-site, .standalone-site) main :is(p, li, blockquote, figcaption):not(.text-overline, .text-caption, [class*='kicker'], [class*='eyebrow'], [class*='label'], [class*='meta']) {
+  word-break: auto-phrase;
+  line-break: strict;
+  hyphens: none;
+}
+
+:root[lang^='ko'] body:is(.group-site, .standalone-site) main :is(p, li, blockquote, figcaption):not(.text-overline, .text-caption, [class*='kicker'], [class*='eyebrow'], [class*='label'], [class*='meta']) {
+  word-break: keep-all;
+  line-break: normal;
+  hyphens: none;
+}
+
+:root[lang='ar'] body:is(.group-site, .standalone-site) :is(h1, h2) {
+  letter-spacing: normal;
+  line-height: 1.45;
+  hyphens: none;
+}
+
+:root[lang='ar'] body:is(.group-site, .standalone-site) :is(h3, h4) {
+  letter-spacing: normal;
+  line-height: 1.4;
+  hyphens: none;
+}
+
+:root[lang='ar'] body:is(.group-site, .standalone-site) main :is(p, li, blockquote, figcaption):not(.text-overline, .text-caption, [class*='kicker'], [class*='eyebrow'], [class*='label'], [class*='meta']) {
+  line-height: 1.8;
+  hyphens: none;
+  word-break: normal;
+  line-break: normal;
 }

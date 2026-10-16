@@ -12,9 +12,10 @@ import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const t = getContent(locale);
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 
 const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprint, index) => {
-  const journals = getJournalsForImprint(imprint.slug);
+  const journals = getJournalsForImprint(imprint.slug, locale);
 
   return {
     imprint,
@@ -100,7 +101,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
 
             <div class="imprint-row__journals">
               <div class="imprint-row__journals-header">
-                <span>{journals.length} {journals.length === 1 ? t('common.journal') : t('common.journals')}</span>
+                <span>{journals.length}{countJoin}{journals.length === 1 ? t('common.journal') : t('common.journals')}</span>
                 <a href={localizePath(`/imprints/${imprint.slug}/`, locale)}>{t('common.exploreImprint')}</a>
               </div>
 
@@ -183,7 +184,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
   .imprints-directory h3 {
     font-family: var(--font-display);
     font-weight: var(--fw-regular);
-    letter-spacing: -0.045em;
+    letter-spacing: var(--ls-tight);
   }
 
   .imprints-directory h1 {
@@ -206,7 +207,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     font-family: var(--font-display);
     font-size: clamp(3rem, 5vw, 4.6rem);
     font-weight: var(--fw-regular);
-    letter-spacing: -0.06em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.9;
   }
 
@@ -311,7 +312,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     font-family: var(--font-display);
     font-size: 2.1rem;
     font-weight: var(--fw-regular);
-    letter-spacing: -0.06em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.9;
   }
 
@@ -465,7 +466,7 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     font-family: var(--font-display);
     font-size: 1.8rem;
     font-weight: var(--fw-regular);
-    letter-spacing: -0.05em;
+    letter-spacing: var(--ls-tight);
     line-height: 0.95;
   }
 

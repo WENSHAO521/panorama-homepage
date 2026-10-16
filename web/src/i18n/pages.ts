@@ -143,11 +143,11 @@ const research: Record<LocaleCode, ResearchPageCopy> = {
     independentOverline: '독립 연구 프로그램', statement: '확장되는 학문을 위한 증거, 해석, 인프라.',
     facts: ['위치', 'Panorama Scholarly Group 연구 부문', '연결', '출판·정책·학술 인프라', '플랫폼', '독립 연구 웹사이트'],
     areasOverline: '연구소의 연구 영역', areasTitle: '분명한 공공 목적을 가진 연구.',
-    areasIntro: "지식, 제도, 공적 삶에 관한 질문을 연구를 가능하게 하는 시스템과 연결합니다.",
+    areasIntro: "지식·제도·공공 영역에 관한 질문을 연구를 가능하게 하는 시스템과 연결합니다.",
     areas: [
       { title: '학제 간 연구', description: '학문 경계를 넘나들며 하나 이상의 관점이 필요한 질문을 다룹니다.' },
       { title: '학술 출판 연구', description: '신뢰할 수 있는 학문을 뒷받침하는 학술지, 편집 체계, 관행을 연구합니다.' },
-      { title: '정책 분석', description: '공공 생활을 형성하는 제도와 의사결정을 위한 증거와 해석을 제공합니다.' },
+      { title: '정책 분석', description: '공공 영역을 형성하는 제도와 의사결정을 뒷받침하는 근거와 해석을 제공합니다.' },
       { title: '학술 커뮤니케이션 인프라', description: "색인, 평가, 정보 검색과 연구 확산을 뒷받침하는 시스템을 연구합니다." },
     ],
     principlesOverline: '일하는 방식', principlesTitle: '독립적 탐구. 공유하는 기준.',
