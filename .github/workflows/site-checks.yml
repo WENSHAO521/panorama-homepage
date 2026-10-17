@@ -1,0 +1,61 @@
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: site-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install site dependencies
+        run: npm ci
+
+      - name: Type-check and build
+        run: npm run build
+
+      - name: Check legacy redirects
+        run: npm run test:redirects
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Responsive browser check
+        run: npm run test:browser
+
+      - name: Interaction check
+        run: npm run test:interaction
+
+      - name: All-pages check
+        run: npm run test:all-pages
+
+      - name: Upload all-pages report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-pages-report
+          path: web/dist/_all-pages-report.json
+          if-no-files-found: ignore
