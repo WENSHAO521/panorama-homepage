@@ -20,6 +20,10 @@ jobs:
     defaults:
       run:
         working-directory: web
+    env:
+      # astro preview binds to localhost (IPv6 on the runner) while the
+      # checks fetch 127.0.0.1, so serve dist with the repo's static server.
+      PREVIEW_DIST_DIR: dist
     steps:
       - name: Check out the site
         uses: actions/checkout@v4
