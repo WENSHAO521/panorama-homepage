@@ -61,7 +61,7 @@ const websiteUiUpdateCopy: Record<LocaleCode, WebsiteUiUpdateCopy> = {
       '改善響應式版面，提升不同螢幕尺寸下的使用體驗。',
       '以更一致的方式呈現重要操作、公告和學術資源。',
     ],
-    closing: '隨着 Panorama Scholarly Group 的出版與研究網絡持續發展，我們會繼續檢視並改善網站。',
+    closing: '隨著 Panorama Scholarly Group 的出版與研究網絡持續發展，我們會繼續檢視並改善網站。',
   },
   ja: {
     title: 'Panorama Scholarly Groupのウェブサイトを刷新',
@@ -120,7 +120,7 @@ const websiteUiUpdateCopy: Record<LocaleCode, WebsiteUiUpdateCopy> = {
     intro: 'Le 15 septembre 2026, Panorama Scholarly Group a achevé une refonte complète de l’interface de son site.',
     paragraphs: [
       'Cette refonte harmonise l’identité visuelle et la navigation du site du groupe et de ses marques éditoriales. Elle clarifie aussi les liens entre édition, recherche, infrastructures, normes et services scientifiques du groupe.',
-      'Les mises en page adaptatives et la présentation des actions et informations clés ont également été améliorées. Auteurs, éditeurs, chercheurs et lecteurs peuvent ainsi parcourir le site plus clairement sur différents appareils.',
+      'Les mises en page adaptatives et la présentation des actions et informations clés ont également été améliorées. Auteurs, rédacteurs, chercheurs et lecteurs peuvent ainsi parcourir le site plus clairement sur différents appareils.',
     ],
     changesTitle: 'La refonte comprend',
     changes: [
@@ -253,13 +253,13 @@ const doraSignatoryCopy: Record<LocaleCode, DoraSignatoryCopy> = {
     intro: 'Panorama Scholarly Group Ltd 欣然宣布，已簽署《舊金山研究評估宣言》（DORA）。',
     paragraphs: [
       '作為機構簽署方，我們支持負責任的科研評估。在參考適切的定性與定量證據之餘，我們亦會考量學術成果的質素、重要性、開放性、誠信及更廣泛的貢獻。',
-      '這項承諾將指引集團持續完善編輯指引、期刊資訊、詮釋資料及對外溝通。簽署宣言並不構成認證，也不保證任何特定的編輯或研究結果；它記錄的是我們持續改進的公開承諾。',
+      '這項承諾將指引集團持續完善編輯指引、期刊資訊、元資料及對外溝通。簽署宣言並不構成認證，也不保證任何特定的編輯或研究結果；它記錄的是我們持續改進的公開承諾。',
     ],
     changesTitle: '我們的承諾包括',
     changes: [
       '肯定作者、編輯、審稿人及研究社群所作出的多元貢獻。',
       '負責任、透明並因應情境使用指標，不以指標取代專業判斷。',
-      '隨着出版計劃發展，持續檢視相關政策、指引、工作流程及對外溝通。',
+      '隨著出版計劃發展，持續檢視相關政策、指引、工作流程及對外溝通。',
       '公開這項承諾，並定期檢視其落實情況。',
     ],
     resourcesTitle: '相關資源',
@@ -349,7 +349,7 @@ const doraSignatoryCopy: Record<LocaleCode, DoraSignatoryCopy> = {
     ],
     changesTitle: 'Notre engagement consiste notamment à',
     changes: [
-      'Reconnaître la diversité des contributions des auteurs, éditeurs, évaluateurs et communautés de recherche.',
+      'Reconnaître la diversité des contributions des auteurs, rédacteurs, évaluateurs et communautés de recherche.',
       'Utiliser les indicateurs de manière responsable, transparente et contextualisée, sans les substituer au jugement expert.',
       'Réexaminer les politiques, consignes, processus et communications concernés au fil du développement de notre programme éditorial.',
       'Rendre cet engagement visible et suivre sa mise en œuvre dans la durée.',
@@ -398,7 +398,7 @@ const doraSignatoryCopy: Record<LocaleCode, DoraSignatoryCopy> = {
       'Признание разнообразного вклада авторов, редакторов, рецензентов и исследовательских сообществ.',
       'Ответственное, прозрачное и контекстное применение показателей, которые не заменяют экспертную оценку.',
       'Пересмотр соответствующих политик, рекомендаций, рабочих процессов и публичных сообщений по мере развития издательской программы.',
-      'Открытое информирование об этом обязательстве и регулярную оценку его выполнения.',
+      'Открытое информирование об этом обязательстве и регулярная оценка его выполнения.',
     ],
     resourcesTitle: 'Связанные ресурсы',
     resources: [

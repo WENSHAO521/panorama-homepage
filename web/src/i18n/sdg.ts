@@ -33,7 +33,7 @@ const copy: Record<LocaleCode, SdgReferenceCopy> = {
     agendaLabel: '阅读《2030年议程》',
     siteLabel: '访问联合国可持续发展目标网站',
     guidelinesLabel: '查看可持续发展目标标识使用指南',
-    imageAlt: '供非联合国实体使用的不含联合国徽的可持续发展目标标识',
+    imageAlt: '供非联合国实体使用、不含联合国会徽的可持续发展目标标识',
     disclaimer: '本出版物内容未经联合国批准，不代表联合国、其官员或会员国的观点。',
   },
   'zh-hant': {
