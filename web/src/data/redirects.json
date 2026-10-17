@@ -1,12 +1,12 @@
 {
   "generatedBy": "scripts/build_redirects.py",
   "generatedFor": "Version 1 -- Greenfield Static Rebuild Foundation",
-  "schemaNotes": "type 301 = confirmed permanent redirect to a route in the new IA; 410 = confirmed gone, no successor; review = destination not yet decided, needs a product/IA call before Round 14 (Migration/Redirects) wires these into the actual Cloudflare redirect rules. This file is an AUDIT, not yet live redirect configuration -- see docs/MIGRATION.md.",
+  "schemaNotes": "type 301 = confirmed permanent redirect to a route in the new IA; 410 = confirmed gone, no successor; review = tentative destination, served as a 302 until confirmed. web/public/_redirects is generated from these rules -- see docs/MIGRATION.md.",
   "counts": {
     "total": 118,
-    "301": 69,
+    "301": 73,
     "410": 0,
-    "review": 49
+    "review": 45
   },
   "rules": [
     {
@@ -29,13 +29,13 @@
     },
     {
       "from": "/ar/editorial-board-application.html",
-      "to": null,
+      "to": "/ar/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
     {
       "from": "/ar/for-authors.html",
-      "to": null,
+      "to": "/ar/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -77,8 +77,8 @@
     },
     {
       "from": "/charter-for-authors.html",
-      "to": "/imprints/charter/",
-      "type": "review",
+      "to": "/imprints/charter/for-authors/",
+      "type": 301,
       "notes": null
     },
     {
@@ -113,13 +113,13 @@
     },
     {
       "from": "/de/editorial-board-application.html",
-      "to": null,
+      "to": "/de/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
     {
       "from": "/de/for-authors.html",
-      "to": null,
+      "to": "/de/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -155,7 +155,7 @@
     },
     {
       "from": "/editorial-board-application.html",
-      "to": null,
+      "to": "/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
@@ -173,13 +173,13 @@
     },
     {
       "from": "/es/editorial-board-application.html",
-      "to": null,
+      "to": "/es/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
     {
       "from": "/es/for-authors.html",
-      "to": null,
+      "to": "/es/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -215,7 +215,7 @@
     },
     {
       "from": "/for-authors.html",
-      "to": null,
+      "to": "/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -233,13 +233,13 @@
     },
     {
       "from": "/fr/editorial-board-application.html",
-      "to": null,
+      "to": "/fr/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
     {
       "from": "/fr/for-authors.html",
-      "to": null,
+      "to": "/fr/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -281,8 +281,8 @@
     },
     {
       "from": "/health-nexus-for-authors.html",
-      "to": "/imprints/health-nexus/",
-      "type": "review",
+      "to": "/imprints/health-nexus/for-authors/",
+      "type": 301,
       "notes": null
     },
     {
@@ -323,13 +323,13 @@
     },
     {
       "from": "/ja/editorial-board-application.html",
-      "to": null,
+      "to": "/ja/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
     {
       "from": "/ja/for-authors.html",
-      "to": null,
+      "to": "/ja/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -377,13 +377,13 @@
     },
     {
       "from": "/ko/editorial-board-application.html",
-      "to": null,
+      "to": "/ko/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
     {
       "from": "/ko/for-authors.html",
-      "to": null,
+      "to": "/ko/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -437,13 +437,13 @@
     },
     {
       "from": "/ridgeline-about.html",
-      "to": "/imprints/ridgeline/",
-      "type": "review",
+      "to": "/imprints/ridgeline/about/",
+      "type": 301,
       "notes": null
     },
     {
       "from": "/ridgeline-afs.html",
-      "to": "/imprints/ridgeline/journals/",
+      "to": "https://journals.panorama-sg.com/afs",
       "type": 301,
       "notes": null
     },
@@ -467,19 +467,19 @@
     },
     {
       "from": "/ridgeline-jesa.html",
-      "to": "/imprints/ridgeline/journals/",
+      "to": "https://journals.panorama-sg.com/jesa",
       "type": 301,
       "notes": null
     },
     {
       "from": "/ridgeline-journals.html",
-      "to": "/imprints/ridgeline/",
+      "to": "/imprints/ridgeline/journals/",
       "type": 301,
       "notes": null
     },
     {
       "from": "/ridgeline-pfr.html",
-      "to": "/imprints/ridgeline/journals/",
+      "to": "https://journals.panorama-sg.com/pfr",
       "type": 301,
       "notes": null
     },
@@ -521,13 +521,13 @@
     },
     {
       "from": "/ru/editorial-board-application.html",
-      "to": null,
+      "to": "/ru/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired."
     },
     {
       "from": "/ru/for-authors.html",
-      "to": null,
+      "to": "/ru/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision."
     },
@@ -569,8 +569,8 @@
     },
     {
       "from": "/threnody-for-authors.html",
-      "to": "/imprints/threnody/",
-      "type": "review",
+      "to": "/imprints/threnody/for-authors/",
+      "type": 301,
       "notes": null
     },
     {
@@ -623,13 +623,13 @@
     },
     {
       "from": "/zh-cn/editorial-board-application.html",
-      "to": null,
+      "to": "/zh-hans/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired. Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
     },
     {
       "from": "/zh-cn/for-authors.html",
-      "to": null,
+      "to": "/zh-hans/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision. Legacy locale directory 'zh-cn/' remapped to 'zh-hans' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
     },
@@ -677,13 +677,13 @@
     },
     {
       "from": "/zh/editorial-board-application.html",
-      "to": null,
+      "to": "/zh-hant/about/contact/",
       "type": "review",
       "notes": "No equivalent route planned yet -- decide whether this becomes a form, an external OJS/editorial-system link, or is retired. Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
     },
     {
       "from": "/zh/for-authors.html",
-      "to": null,
+      "to": "/zh-hant/standards/editorial/",
       "type": "review",
       "notes": "General 'for authors' guidance; likely folds into /standards/editorial/ or a per-imprint page. Needs an IA decision. Legacy locale directory 'zh/' remapped to 'zh-hant' -- legacy used bare 'zh' for Traditional and 'zh-cn' for Simplified, which this rebuild's i18n/config.ts makes explicit as zh-hant/zh-hans."
     },
