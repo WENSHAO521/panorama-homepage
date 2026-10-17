@@ -110,6 +110,10 @@ const primaryNav = getPrimaryNav(locale);
 
   @media (min-width: 1024px) and (max-width: 1100px) {
     .desktop-nav__list { gap: 0; }
+    /* German labels leave no slack at 1024px; a newer Chromium's text
+       metrics tipped the header 2px past the viewport. */
+    :global(html:lang(de)) .desktop-nav__link,
+    :global(html:lang(de)) .desktop-nav__trigger { padding-inline: 0.375rem; }
   }
 
   /* Visibility comes ONLY from the [open] attribute -- never a class --
