@@ -96,10 +96,8 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
   .hero__eyebrow { color: var(--text-accent); }
 
   .hero__intro {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
+    display: grid;
+    justify-items: start;
     gap: 1.75rem 2rem;
     padding-block: clamp(1.75rem, 4vw, 2.75rem) clamp(1.5rem, 3vw, 2.1rem);
   }
