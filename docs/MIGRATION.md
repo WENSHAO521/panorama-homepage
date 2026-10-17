@@ -1,40 +1,27 @@
 # Migration
 
 Version 1 explicitly does **not** migrate bulk content (project brief
-§31). This document records how legacy page URLs are redirected to the
-new site and which destinations still need an IA decision.
+§31). This document records what the redirect audit found and what a
+later round (Round 14, per `docs/rebuild/ROADMAP.md`) still needs to
+decide before any of it goes live.
 
 ## What exists today
 
 [`scripts/build_redirects.py`](../scripts/build_redirects.py)
-enumerates all 119 legacy page URLs from git history, classifies each
-into `web/src/data/redirects.json`, and generates the live Cloudflare
-Pages rules in `web/public/_redirects` from it:
+enumerates all 119 legacy page URLs from git history and classifies
+each into `web/src/data/redirects.json`:
 
-| Type | Count | Served as | Meaning |
-|---|---|---|---|
-| `301` | 73 | 301 | Clear mapping to a route in the new IA |
-| `410` | 0 | — | None yet formally retired — see below |
-| `review` | 45 | 302 | Tentative destination, not yet confirmed |
-| **Total** | **118** | | (`404.html` excluded — not a redirect target) |
+| Type | Count | Meaning |
+|---|---|---|
+| `301` | 69 | Clear mapping to a route in the new IA |
+| `410` | 0 | None yet formally retired — see below |
+| `review` | 49 | Destination not yet decided |
+| **Total** | **118** | (`404.html` excluded — not a redirect target) |
 
-Each rule is emitted for both `foo.html` and the extensionless `/foo`
-that Cloudflare Pages also served. Legacy `index.html` rules are skipped
-where Pages already serves the same directory, and `/zh/*` and
-`/zh-cn/*` catch-alls send anything else to `/zh-hant/` and
-`/zh-hans/`. `review` rules are 302s so browsers don't cache a
-destination that may still change; promote one to `301` in the script
-once it is confirmed and regenerate.
-
-Never edit `_redirects` by hand. After changing the script:
-
-```
-python scripts/build_redirects.py
-cd web && npm run build && npm run test:redirects
-```
-
-`test:redirects` fails if any rule points at a page missing from
-`dist/` or shadows a built page; CI runs it on every push.
+This is an **audit artifact**, not live redirect configuration. No
+`_redirects` file, Cloudflare Pages redirect rule, or `astro.config.mjs`
+redirect entry has been created from it yet — per project brief §29
+("do not implement all redirects yet").
 
 ## Why 0 are marked `410`
 
@@ -49,30 +36,30 @@ indexed URL, which the brief explicitly prohibits (§29).
 
 ## What's classified `review` and why
 
-Each has a tentative destination so no legacy URL 404s, served as a 302:
-
-- **`for-authors.html`** (English + 9 locales) → `/standards/editorial/`.
-  Could instead become its own route or link out to OJS.
-- **`editorial-board-application.html`** (English + 9 locales) →
-  `/about/contact/`. Could become a form, an OJS link, or be retired.
-- **`indexing.html`** (English + 9 locales) → `/infrastructure/`; confirm it covers
-  what the legacy indexing page listed.
-- **14 imprint sub-pages** (`*-editorial`, `*-policies`, `*-contact`,
-  `*-submit`, and `*-for-authors` for Ridgeline and Verdant Science) →
-  their parent `/imprints/<slug>/`, since no matching sub-route exists.
-- `ridgeline-updates.html` → `/news/`; an imprint-scoped news filter
-  would be the alternative.
+- **9 locale × `for-authors.html` / `editorial-board-application.html`
+  / `indexing.html`** (27 of the 49) — same 3 base templates whose
+  English destination is itself undecided (see below), multiplied
+  across all 9 non-English locales.
+- **English `for-authors.html` / `editorial-board-application.html`
+  / `indexing.html`** (3) — no equivalent route exists yet in the new
+  IA; each needs an IA decision (fold into `/standards/editorial/`?
+  become its own route? link out to OJS?).
+- **19 imprint sub-pages** (`*-about`, `*-editorial`,
+  `*-for-authors`, `*-policies`, `*-contact`, `*-submit` per imprint,
+  where they exist) — all tentatively point at their parent
+  `/imprints/<slug>/` page, but whether each becomes a real section of
+  that page or its own route is a Round 6 IA decision, not resolved
+  here.
+- `ridgeline-updates.html` — tentatively `/news/`, but whether
+  imprint-specific updates fold into the general news feed or need
+  their own filtered view is undecided.
 
 ## What's classified `301` with confidence
 
-- All 5 imprint index pages → `/imprints/<slug>/`, and imprint
-  sub-pages whose route now exists: `ridgeline-about.html` →
-  `/imprints/ridgeline/about/`, `ridgeline-journals.html` →
-  `/imprints/ridgeline/journals/`, and `*-for-authors.html` →
-  `/imprints/<slug>/for-authors/` for Charter, Health Nexus and Threnody.
-- The 3 Ridgeline journal pages (`ridgeline-afs.html` etc.) → the
-  journal's own OJS site (`https://journals.panorama-sg.com/<slug>`),
-  since the new site has no per-journal pages.
+- All 5 imprint index pages → `/imprints/<slug>/`.
+- The 3 Ridgeline journal pages that map 1:1 to a specific journal
+  (`ridgeline-afs.html` → `/journals/afs/`, etc.) and
+  `ridgeline-journals.html` → `/imprints/ridgeline/`.
 - `index.html` → `/`, `about.html` → `/about/`, `contact.html` →
   `/about/contact/`, `privacy-policy.html` → `/privacy/`,
   `publication-ethics.html` → `/standards/ethics/`,
@@ -87,10 +74,22 @@ to `/zh-hans/...` — not a 1:1 string rename — because the legacy
 scheme's bare `zh` (Traditional) vs. `zh-cn` (Simplified) pairing is
 ambiguous without prior knowledge. See docs/I18N.md.
 
-## Still to decide
+## What Round 14 still needs to do
 
-1. Confirm or change each `review` destination above, then promote it
-   to `301` (or `410`) in the script.
-2. Decide the legacy repository's own fate (still present in git
-   history) — whether to keep a `legacy-reference` tag/branch or let
-   git history alone serve that purpose.
+1. Resolve the 49 `review` rules into either `301` or `410` (an IA
+   decision, not a technical one).
+2. Decide the actual redirect **mechanism** — Cloudflare Pages
+   `_redirects` file (simple, static, recommended given the static
+   Astro output) vs. `astro.config.mjs` `redirects` config (works at
+   build time, produces real HTML meta-refresh/301 pages) vs. a
+   Cloudflare dashboard rule set (not version-controlled — avoid, per
+   "GitHub is the source of truth", project brief §2).
+3. Re-verify each `301` target actually exists and returns 200 before
+   cutover (some, like `/standards/editorial/`, are still placeholder
+   content pages today — verified to resolve, not verified to be
+   *finished* content).
+4. Decide the legacy repository's own fate (still present in git
+   history; the working tree already reflects the "images/logos only"
+   state per explicit instruction) — whether to keep it as a
+   `legacy-reference` tag/branch or let git history alone serve that
+   purpose.
