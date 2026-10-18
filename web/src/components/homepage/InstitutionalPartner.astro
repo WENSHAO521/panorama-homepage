@@ -27,6 +27,7 @@ const partnerLogos = [
   {
     name: 'Changjiang Wenku',
     logo: cjwkLogo,
+    inverse: true,
     href: 'https://www.cjwk.cn',
   },
   {
@@ -37,6 +38,7 @@ const partnerLogos = [
   {
     name: 'Shiharr Publishing',
     logo: shiharrLogo,
+    inverse: true,
     href: 'https://www.shiharr.cn/',
   },
   {
@@ -59,7 +61,7 @@ const partnerLogos = [
           <div class="institutional-partner__group">
             {partnerLogos.map((partner) => partner.href ? (
               <a
-                class="institutional-partner__logo"
+                class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse }]}
                 href={partner.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,7 +76,7 @@ const partnerLogos = [
                 />
               </a>
             ) : (
-              <div class="institutional-partner__logo">
+              <div class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse }]}>
                 <Image
                   src={partner.logo}
                   alt={partner.name}
@@ -88,7 +90,7 @@ const partnerLogos = [
 
           <div class="institutional-partner__group institutional-partner__group--duplicate" aria-hidden="true">
             {partnerLogos.map((partner) => (
-              <div class="institutional-partner__logo">
+              <div class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse }]}>
                 <Image
                   src={partner.logo}
                   alt=""
@@ -181,6 +183,13 @@ const partnerLogos = [
   a.institutional-partner__logo:hover,
   a.institutional-partner__logo:focus-visible {
     transform: translateY(-1px);
+  }
+
+  /* Two marks are drawn in white for dark backgrounds and vanish on paper;
+     they sit on an ink tile instead. */
+  .institutional-partner__logo--inverse {
+    background: var(--surface-inverse);
+    border-radius: var(--p-radius-button);
   }
 
   .institutional-partner__marquee:hover .institutional-partner__track,

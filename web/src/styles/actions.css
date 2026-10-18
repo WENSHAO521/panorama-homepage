@@ -16,6 +16,13 @@
 /* Shared arrow glyph, drawn with a mask so it follows currentColor. */
 :root {
   --p-action-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 10' fill='none' stroke='black' stroke-width='1.4'%3E%3Cpath d='M0 5h12M8 1l4 4-4 4'/%3E%3C/svg%3E");
+  --p-action-nudge: 3px;
+}
+
+/* Right-to-left pages point the arrow, and its hover nudge, the other way. */
+:root[dir='rtl'] {
+  --p-action-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 10' fill='none' stroke='black' stroke-width='1.4'%3E%3Cpath d='M14 5H2M6 1L2 5l4 4'/%3E%3C/svg%3E");
+  --p-action-nudge: -3px;
 }
 
 /* ── Tier 1 + 2: buttons ─────────────────────────────────────────────── */
@@ -71,7 +78,7 @@ body.group-site [data-action="primary"]:hover::after,
 body.group-site [data-action="primary"]:focus-visible::after,
 body.standalone-site [data-action="primary"]:hover::after,
 body.standalone-site [data-action="primary"]:focus-visible::after {
-  transform: translateX(3px);
+  transform: translateX(var(--p-action-nudge));
 }
 
 body.group-site [data-action="primary"]:active,
@@ -347,5 +354,5 @@ body.standalone-site [data-action="secondary"]:focus-visible {
   .infra-hero__nav a,
   .search-empty__links a
 ):not([data-action]):focus-visible::after {
-  transform: translateX(3px);
+  transform: translateX(var(--p-action-nudge));
 }
