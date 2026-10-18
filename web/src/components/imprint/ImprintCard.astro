@@ -48,7 +48,7 @@ const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '
     align-items: flex-end;
     height: calc(var(--logo-base) * 1.22);
   }
-  .imprint-card__scope { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4; }
+  .imprint-card__scope { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4; hyphens: auto; overflow-wrap: break-word; }
   .imprint-card__count { color: var(--text-primary); font-size: var(--fs-caption); font-weight: var(--fw-semibold); letter-spacing: 0.06em; margin-top: auto; }
   .imprint-card__link:focus-visible {
     outline: var(--p-border-strong) solid var(--focus-ring);

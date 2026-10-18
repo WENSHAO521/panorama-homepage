@@ -106,7 +106,14 @@ function isExternal(value: string) {
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-  .home-announcements__meta span { color: var(--text-accent); }
+  /* The category reads as a tag, the date as plain metadata. */
+  .home-announcements__meta span {
+    padding: 0.15rem 0.55rem;
+    color: var(--text-accent);
+    background: color-mix(in srgb, var(--text-accent) 9%, transparent);
+    border-radius: var(--p-radius-pill);
+    letter-spacing: 0.08em;
+  }
 
   .home-announcements__source {
     margin: 0;

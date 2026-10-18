@@ -94,7 +94,11 @@ const wall = getAllImprints().flatMap((imprint) => {
           <div><dt>{t('home.factDisciplines')}</dt><dd>{leadDiscipline}</dd></div>
           <div>
             <dt>{t('home.factAccess')}</dt>
-            <dd>{[lead.openAccess ? t('common.openAccess') : null, lead.license, lead.issn ? `ISSN ${lead.issn}` : null].filter(Boolean).join(' · ')}</dd>
+            <dd>
+              {[lead.openAccess ? t('common.openAccess') : null, lead.license, lead.issn ? `ISSN ${lead.issn}` : null]
+                .filter(Boolean)
+                .map((part, i) => <>{i > 0 && ' · '}<bdi>{part}</bdi></>)}
+            </dd>
           </div>
         </dl>
 
@@ -286,6 +290,7 @@ const wall = getAllImprints().flatMap((imprint) => {
     text-transform: uppercase;
   }
   .hero__facts dd { margin: 0; font-family: var(--font-display); font-size: 0.9rem; }
+  .hero__facts dd bdi { white-space: nowrap; }
 
   .hero__also {
     display: grid;

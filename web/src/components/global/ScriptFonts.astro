@@ -1,0 +1,11 @@
+---
+// Links the locale's self-hosted heading faces (pages/fonts/[locale].css.ts).
+// Latin locales use Inter and Source Serif 4 only, so they get nothing here.
+import { scriptFontLocales } from './scriptFontLocales';
+
+interface Props { locale: string }
+const { locale } = Astro.props;
+const hasFonts = (scriptFontLocales as readonly string[]).includes(locale);
+---
+
+{hasFonts && <link rel="stylesheet" href={`/fonts/${locale}.css`} />}

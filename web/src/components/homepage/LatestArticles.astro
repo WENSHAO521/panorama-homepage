@@ -12,7 +12,7 @@ const t = getContent(locale);
 const [lead, ...rest] = [...articleData.articles]
   .filter((article) => !isRetractedArticle(article))
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-  .slice(0, 3);
+  .slice(0, 4);
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' })
@@ -31,8 +31,8 @@ function formatAuthors(authors: string[]) {
 
     {lead && (
       <div class="home-articles__grid">
-        <!-- Lead + two: the newest article gets room for its summary; the next
-             two stay compact, so three identical text cards never sit side by side. -->
+        <!-- Lead + three: the newest article gets room for its summary; the next
+             three stay compact, so three identical text cards never sit side by side. -->
         <article class="home-articles__lead">
           <a href={lead.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={lead.title + ' (opens in a new tab)'}>
             <p class="home-articles__meta"><span>{lead.journal}</span><time datetime={lead.publishedAt}>{formatDate(lead.publishedAt)}</time></p>
@@ -104,7 +104,7 @@ function formatAuthors(authors: string[]) {
     letter-spacing: -0.015em;
     text-wrap: balance;
   }
-  .home-articles__lead-title { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.12; }
+  .home-articles__lead-title { font-size: clamp(1.5rem, 2.4vw, 1.75rem); line-height: 1.15; }
   .home-articles__title { font-size: 1.25rem; line-height: 1.2; }
 
   .home-articles__link:hover :is(.home-articles__lead-title, .home-articles__title) {

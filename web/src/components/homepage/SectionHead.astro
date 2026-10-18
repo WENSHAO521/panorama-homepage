@@ -34,6 +34,7 @@ const { id, title, lede, href, linkLabel, locale = Astro.currentLocale ?? 'en' }
     margin-bottom: clamp(1.5rem, 3vw, 2rem);
     border-bottom: var(--p-border-hairline) solid var(--border-subtle);
   }
+  .section-head__text { flex: 1 1 32rem; min-width: 0; }
   .section-head__title {
     margin: 0;
     font-size: clamp(1.75rem, 3vw, 2.25rem);
@@ -42,7 +43,7 @@ const { id, title, lede, href, linkLabel, locale = Astro.currentLocale ?? 'en' }
     line-height: 1.12;
   }
   .section-head__lede {
-    max-width: 48ch;
+    max-width: 40rem;
     margin: 0.5rem 0 0;
     color: var(--text-secondary);
     font-family: var(--font-display);
