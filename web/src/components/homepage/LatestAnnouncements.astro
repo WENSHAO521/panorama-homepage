@@ -166,7 +166,7 @@ function isExternal(value: string) {
     transition: transform var(--p-duration-base) var(--p-ease-standard);
   }
   .home-announcements__item:hover .home-announcements__cta { text-decoration-color: currentColor; }
-  .home-announcements__item:hover .home-announcements__cta::after { transform: translateX(3px); }
+  .home-announcements__item:hover .home-announcements__cta::after { transform: translateX(var(--p-action-nudge)); }
 
   @media (min-width: 900px) {
     .home-announcements__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }

@@ -159,7 +159,7 @@ function formatAuthors(authors: string[]) {
     transition: transform var(--p-duration-base) var(--p-ease-standard);
   }
   .home-articles__link:hover .home-articles__cta { text-decoration-color: currentColor; }
-  .home-articles__link:hover .home-articles__cta::after { transform: translateX(3px); }
+  .home-articles__link:hover .home-articles__cta::after { transform: translateX(var(--p-action-nudge)); }
 
   .home-articles__list {
     display: grid;

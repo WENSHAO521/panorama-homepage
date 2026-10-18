@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
-import { getFeaturedJournals, getJournalBySlug } from '@/lib/content/journals';
+import { getActiveJournals, getFeaturedJournals, getJournalBySlug } from '@/lib/content/journals';
 import { getAllImprints } from '@/lib/content/imprints';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import { imprintText, type ImprintSlug } from '@/i18n/imprints';
@@ -22,6 +22,15 @@ const leadDescription = imprintText(leadImprint, locale, `journal.${lead.slug}.s
 const leadDiscipline = imprintText(leadImprint, locale, `journal.${lead.slug}.label`, lead.disciplines.join(' · '));
 const leadCover = getJournalCoverAsset(lead.cover);
 const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
+
+// Cover wall: one journal per imprint, in imprint order, skipping the two
+// titles the feature band directly below already shows.
+const activeJournals = getActiveJournals();
+const shown = new Set([lead.slug, also?.slug]);
+const wall = getAllImprints().flatMap((imprint) => {
+  const journal = activeJournals.find((j) => j.imprint === imprint.slug && !shown.has(j.slug) && getJournalCoverAsset(j.cover));
+  return journal ? [{ journal, cover: getJournalCoverAsset(journal.cover)! }] : [];
+});
 ---
 
 <section class="hero" aria-labelledby="hero-title">
@@ -40,6 +49,25 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
         </button>
       </form>
       <a class="action-link" href={localizePath('/journals/', locale)}>{t('common.browseJournals')}</a>
+    </div>
+
+    <div class="hero__wall">
+      <ul class="hero__wall-list" role="list">
+        {wall.map(({ journal, cover }) => (
+          <li>
+            <a class="hero__wall-cover" href={journal.journalUrl} target="_blank" rel="noopener noreferrer">
+              <Image src={cover} alt="" width={280} height={396} widths={[140, 280]} sizes="(min-width: 1280px) 8.5rem, (min-width: 640px) 7rem, 18vw" loading="eager" />
+              <span class="visually-hidden">{journal.title} ({t('common.opensNewTab')})</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="hero__wall-meta">
+        <strong>{activeJournals.length}</strong>
+        <span>{t('journals.active')}</span>
+        <span aria-hidden="true">·</span>
+        <span>{t('common.openAccess')}</span>
+      </p>
     </div>
   </div>
 
@@ -155,9 +183,57 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
     cursor: pointer;
   }
   .hero__form button:hover { color: var(--interactive-default); }
+  .hero__form button svg:dir(rtl) { transform: scaleX(-1); }
   .hero__form button:focus-visible {
     outline: var(--p-border-strong) solid var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
+  }
+
+  .hero__wall { display: grid; gap: 1rem; width: 100%; max-width: 36rem; }
+
+  .hero__wall-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.6rem;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hero__wall-list li:nth-child(even) { margin-top: 0.75rem; }
+
+  .hero__wall-cover {
+    position: relative;
+    display: block;
+    background: var(--border-subtle);
+    box-shadow: 0 1px 2px rgb(43 39 36 / 0.1), 0 10px 24px -12px rgb(43 39 36 / 0.28);
+    transition: transform var(--p-duration-slow) var(--p-ease-decelerate);
+  }
+  .hero__wall-cover :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: cover; }
+  .hero__wall-cover:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  .hero__wall-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.5rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: var(--fs-caption);
+  }
+  .hero__wall-meta strong {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: var(--fw-regular);
+    line-height: 1;
+  }
+
+  @media (hover: hover) {
+    .hero__wall-cover:hover { transform: translateY(-0.3rem); }
   }
 
   .hero__feature { background: var(--surface-secondary); }
@@ -219,6 +295,7 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
     padding-top: 1.4rem;
     border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
   }
+  .hero__also .action-link { white-space: nowrap; }
   .hero__also-title {
     margin: 0.4rem 0 0.7rem;
     font-size: 1.3rem;
@@ -233,22 +310,38 @@ const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
     .hero__also { padding-top: 0; border-top: 0; }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
+    .hero__intro {
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .hero__wall { grid-column: 2; grid-row: 1 / span 2; justify-items: end; max-width: none; }
+    .hero__wall-list { grid-template-columns: repeat(5, clamp(6rem, 9vw, 8.5rem)); gap: 0; }
+    .hero__wall-list li + li { margin-inline-start: -1.4rem; }
+    .hero__wall-list li:nth-child(even) { margin-top: 1.75rem; }
+    .hero__wall-list li:hover { position: relative; z-index: 1; }
     .hero__feature-grid { grid-template-columns: 15.6rem minmax(0, 1fr) 20rem; column-gap: 3rem; align-items: center; }
     .hero__rail {
       grid-column: auto;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      padding: 0 0 0 2rem;
+      padding: 0;
+      padding-inline-start: 2rem;
       border-top: 0;
       border-inline-start: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
     }
-    .hero__also { padding-top: 1.4rem; border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
+    .hero__also { grid-template-columns: 5rem minmax(0, 1fr); padding-top: 1.4rem; border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .hero__intro > div, .hero__main { animation: hero-in 700ms var(--p-ease-decelerate) both; }
+    .hero__intro > div:not(.hero__wall), .hero__main { animation: hero-in 700ms var(--p-ease-decelerate) both; }
     .hero__intro > .hero__search { animation-delay: 90ms; }
+    .hero__wall-cover { animation: hero-in 700ms var(--p-ease-decelerate) backwards; }
+    .hero__wall-list li:nth-child(2) .hero__wall-cover { animation-delay: 70ms; }
+    .hero__wall-list li:nth-child(3) .hero__wall-cover { animation-delay: 140ms; }
+    .hero__wall-list li:nth-child(4) .hero__wall-cover { animation-delay: 210ms; }
+    .hero__wall-list li:nth-child(5) .hero__wall-cover { animation-delay: 280ms; }
   }
   @keyframes hero-in {
     from { opacity: 0; transform: translateY(0.75rem); }

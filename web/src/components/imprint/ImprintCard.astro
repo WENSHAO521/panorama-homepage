@@ -9,7 +9,7 @@ const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '
 
 <li class={`imprint-card imprint-card--${imprint.slug}`}>
   <a href={localizePath(`/imprints/${imprint.slug}/`, locale)} class="imprint-card__link">
-    <img class="imprint-card__logo" src={imprint.logo} alt={imprint.name} loading="lazy" />
+    <span class="imprint-card__mark"><img class="imprint-card__logo" src={imprint.logo} alt={imprint.name} loading="lazy" /></span>
     <span class="imprint-card__scope">{imprint.scope}</span>
     {count !== undefined && <span class="imprint-card__count">{count}{countJoin}{countLabel}</span>}
   </a>
@@ -40,9 +40,16 @@ const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '
   }
   .imprint-card__link:hover { transform: translateY(-0.2rem); }
 
-  .imprint-card__logo { align-self: flex-start; }
+  /* The marks are scaled to different heights (below), so they sit in a box
+     sized for the tallest one and share its bottom edge; the scope line and
+     count then start at the same height in every card. */
+  .imprint-card__mark {
+    display: flex;
+    align-items: flex-end;
+    height: calc(var(--logo-base) * 1.22);
+  }
   .imprint-card__scope { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4; }
-  .imprint-card__count { color: var(--text-primary); font-size: var(--fs-caption); font-weight: var(--fw-semibold); letter-spacing: 0.06em; }
+  .imprint-card__count { color: var(--text-primary); font-size: var(--fs-caption); font-weight: var(--fw-semibold); letter-spacing: 0.06em; margin-top: auto; }
   .imprint-card__link:focus-visible {
     outline: var(--p-border-strong) solid var(--focus-ring);
     outline-offset: var(--focus-ring-offset);
