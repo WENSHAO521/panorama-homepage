@@ -11,6 +11,7 @@ import { getUiStrings } from '@/i18n/locales';
 import SkipLink from '@/components/ui/SkipLink.astro';
 import Header from '@/components/global/Header.astro';
 import Footer from '@/components/global/Footer.astro';
+import ScriptFonts from '@/components/global/ScriptFonts.astro';
 import '@fontsource-variable/inter/wght.css';
 import '@fontsource-variable/source-serif-4/wght.css';
 import '@/styles/reset.css';
@@ -58,6 +59,7 @@ const englishPath = localizePath(path, 'en');
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{titleTemplate}</title>
+  <ScriptFonts locale={current.code} />
   <meta name="description" content={description} />
   <meta name="robots" content={robots} />
   <link rel="canonical" href={`${siteUrl}${canonicalPath}`} />

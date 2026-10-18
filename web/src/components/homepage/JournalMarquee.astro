@@ -70,7 +70,28 @@ const journals = [
     </li>
   ))}
 </ul>
+<p class="journal-marquee__count" aria-hidden="true"><span data-marquee-current>1</span> / {journals.length}</p>
 </div>
+
+<script>
+  // Phone strip only: show which cover is first in view ("2 / 5").
+  document.querySelectorAll<HTMLElement>('.journal-marquee__track').forEach((track) => {
+    const current = track.parentElement?.querySelector('[data-marquee-current]');
+    const items = [...track.children] as HTMLElement[];
+    if (!current || !items.length) return;
+    const update = () => {
+      const start = track.getBoundingClientRect();
+      const rtl = getComputedStyle(track).direction === 'rtl';
+      const index = items.findIndex((item) => {
+        const box = item.getBoundingClientRect();
+        return rtl ? box.right <= start.right + 8 : box.left >= start.left - 8;
+      });
+      const atEnd = Math.abs(track.scrollLeft) + track.clientWidth >= track.scrollWidth - 2;
+      current.textContent = String(atEnd ? items.length : Math.max(index, 0) + 1);
+    };
+    track.addEventListener('scroll', update, { passive: true });
+  });
+</script>
 
 <style>
   .journal-marquee__track {
@@ -83,6 +104,7 @@ const journals = [
   }
 
   .journal-marquee__item { min-width: 0; }
+  .journal-marquee__count { display: none; }
 
   .journal-marquee__link {
     display: block;
@@ -150,6 +172,14 @@ const journals = [
     }
     .journal-marquee__track::-webkit-scrollbar { display: none; }
     .journal-marquee__item { scroll-snap-align: start; }
+    .journal-marquee__count {
+      display: block;
+      margin-top: 1rem;
+      color: var(--text-muted);
+      font-size: var(--fs-caption);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.08em;
+    }
   }
 
   @media (min-width: 640px) and (max-width: 767px) {

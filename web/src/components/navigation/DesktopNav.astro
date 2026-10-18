@@ -6,6 +6,7 @@
 // web/src/scripts/nav-behavior.ts for the small amount of JS added on
 // top (exclusive open, Escape, click-outside).
 import { getPrimaryNav } from '@/data/navigation';
+import type { NavItem } from '@/types';
 import MegaMenu from './MegaMenu.astro';
 
 interface Props {
@@ -14,12 +15,16 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 const primaryNav = getPrimaryNav(locale);
+// The section the visitor is in gets the same 2px rule an open menu shows.
+const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const isCurrent = (item: NavItem): boolean =>
+  (!!item.path && !/^https?:/.test(item.path) && pathname.startsWith(item.path)) || !!item.children?.some(isCurrent);
 ---
 
 <nav class="desktop-nav" aria-label="Primary">
   <ul class="desktop-nav__list">
     {primaryNav.map((item) => (
-      <li class="desktop-nav__item">
+      <li class="desktop-nav__item" data-current={isCurrent(item) ? '' : undefined}>
         {item.children ? (
           <details class="js-dismissible desktop-nav__dropdown">
             <summary class="desktop-nav__trigger">{item.label}</summary>
@@ -28,7 +33,7 @@ const primaryNav = getPrimaryNav(locale);
             </div>
           </details>
         ) : (
-          <a class="desktop-nav__link" href={item.path}>{item.label}</a>
+          <a class="desktop-nav__link" href={item.path} aria-current={pathname === item.path ? 'page' : undefined}>{item.label}</a>
         )}
       </li>
     ))}
@@ -84,8 +89,10 @@ const primaryNav = getPrimaryNav(locale);
 
   /* Open state: the label turns brand colour and a 2px rule sits under it,
      tying the trigger to its panel. No filled pill. */
-  .desktop-nav__trigger { position: relative; }
-  .desktop-nav__trigger::after {
+  .desktop-nav__trigger,
+  .desktop-nav__link { position: relative; }
+  .desktop-nav__trigger::after,
+  .desktop-nav__link::after {
     content: '';
     position: absolute;
     inset-inline: var(--p-space-2);
@@ -99,7 +106,9 @@ const primaryNav = getPrimaryNav(locale);
   .desktop-nav__dropdown[open] > .desktop-nav__trigger {
     color: var(--brand-primary);
   }
-  .desktop-nav__dropdown[open] > .desktop-nav__trigger::after {
+  .desktop-nav__dropdown[open] > .desktop-nav__trigger::after,
+  .desktop-nav__item[data-current] .desktop-nav__trigger::after,
+  .desktop-nav__item[data-current] > .desktop-nav__link::after {
     transform: scaleX(1);
   }
   .desktop-nav__trigger:focus-visible,

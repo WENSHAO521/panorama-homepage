@@ -96,7 +96,7 @@ function compactDescription(description?: string) {
                         width={160}
                         height={220}
                         widths={[160, 320]}
-                        sizes="(max-width: 639px) 8rem, (max-width: 1023px) 7rem, 6.5rem"
+                        sizes="(max-width: 767px) 6rem, 7.5rem"
                         loading="lazy"
                       />
                     ) : journal.cover ? (
@@ -165,7 +165,7 @@ function compactDescription(description?: string) {
   }
 
   .journal-directory__imprint + .journal-directory__imprint {
-    margin-top: clamp(3.5rem, 7vw, 6rem);
+    margin-top: clamp(3rem, 5vw, 5rem);
   }
 
   .journal-directory__imprint-header {
@@ -228,12 +228,13 @@ function compactDescription(description?: string) {
     grid-template-columns: 6rem minmax(0, 1fr);
     align-items: start;
     gap: 1rem;
+    --cover-width: 6rem;
     min-width: 0;
   }
 
   .journal-directory__cover-link {
     display: block;
-    width: 6rem;
+    width: var(--cover-width);
     background: var(--surface-secondary);
     box-shadow: var(--p-shadow-sm);
     transition: transform var(--p-duration-base) var(--p-ease-standard), box-shadow var(--p-duration-base) var(--p-ease-standard);
@@ -303,10 +304,10 @@ function compactDescription(description?: string) {
   }
 
   @media (min-width: 768px) {
-
     .journal-directory__journal-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    .journal-directory__journal { --cover-width: 7.5rem; grid-template-columns: var(--cover-width) minmax(0, 1fr); gap: 1.25rem; }
   }
 
   @media (min-width: 1100px) {

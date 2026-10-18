@@ -22,7 +22,6 @@ import { localizePath } from '@/i18n/utils';
 const imprints = imprintsData as Imprint[];
 
 export const primaryNav: NavItem[] = [
-  { label: 'Home', path: '/' },
   {
     label: 'Publishing',
     path: '/publishing/',

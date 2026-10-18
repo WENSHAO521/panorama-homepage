@@ -174,14 +174,22 @@ const year = new Date().getFullYear();
     gap: 2.25rem 1.5rem;
   }
 
+  /* Same eyebrow as the office labels: interface face, not the h2 serif. */
   .site-footer__group-title {
     margin: 0;
     color: var(--text-muted);
+    font-family: var(--font-body);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.16em;
     line-height: 1.3;
     text-transform: uppercase;
+  }
+
+  /* Wide tracking is a Latin capitals device; CJK and Arabic labels keep
+     their natural spacing. */
+  :global(:root:is([lang^='zh'], [lang^='ja'], [lang^='ko'], [dir='rtl'])) :is(.site-footer__group-title, .site-footer__office-label) {
+    letter-spacing: 0.04em;
   }
 
   .site-footer__group-list {

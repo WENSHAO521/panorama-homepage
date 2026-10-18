@@ -200,7 +200,7 @@ p + p {
 :root[lang='ar'] body,
 :root[dir='rtl'] body {
   --font-body: 'Noto Sans Arabic', 'Cairo', 'Inter', Tahoma, sans-serif;
-  --font-display: 'Noto Serif Arabic', 'Noto Sans Arabic', serif;
+  --font-display: 'Noto Naskh Arabic', 'Noto Serif Arabic', 'Noto Sans Arabic', serif;
   line-height: 1.85; /* Arabic script needs extra leading for diacritics/ascenders */
 }
 
