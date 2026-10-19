@@ -1,8 +1,24 @@
 {
-  "generatedAt": "2026-10-12T09:12:32.358Z",
+  "generatedAt": "2026-10-19T07:46:03.981Z",
   "source": "Journal-specific OAI-PMH feeds (oai_dc)",
   "maxItems": null,
   "articles": [
+    {
+      "id": "10.63802/jesa.V2.2026.351",
+      "doi": "10.63802/jesa.V2.2026.351",
+      "title": "A Lightweight Traffic Sign Recognition Network for Autonomous Driving: Integrating Dual-Branch Attention and Weather-Robust Augmentation",
+      "authors": [
+        "Ting Wang",
+        "Zhihao Weng"
+      ],
+      "journal": "Journal of Engineering Systems & Applications",
+      "journalSlug": "jesa",
+      "journalUrl": "https://journals.panorama-sg.com/jesa",
+      "publishedAt": "2026-10-18",
+      "url": "https://journals.panorama-sg.com/jesa/article/view/351",
+      "journalArticleUrl": "https://journals.panorama-sg.com/jesa/article/view/351",
+      "summary": "Traffic sign recognition is a key perception task in autonomous driving and advanced driver-assistance systems, where accuracy and real-time performance directly affect road safety. In real-world scenes, fog, rain, and low illumination reduce image contrast and introduce noise,…"
+    },
     {
       "id": "10.63802/cropt.2026.363",
       "doi": "10.63802/cropt.2026.363",
