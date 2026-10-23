@@ -17,22 +17,74 @@ import { externalSystems } from '@/data/site';
 import imprintsData from '@/data/imprints.json';
 import type { Imprint } from '@/types';
 import { getNavigationLabels } from '@/i18n/navigation';
+import { getInfrastructureCopy } from '@/i18n/infrastructure';
 import { localizePath } from '@/i18n/utils';
 
 const imprints = imprintsData as Imprint[];
+
+// Section children shared by the header menu, the page sub-nav strip
+// (SectionSubnav.astro) and the footer, so the three never list different
+// pages. The first entry of each list is the section landing page; the menu
+// leaves it out because the mega panel already links it as its overview row.
+export type SectionKey = 'publishing' | 'infrastructure' | 'standards' | 'about';
+
+export const sectionNav: Record<SectionKey, { label: string; items: NavItem[] }> = {
+  publishing: {
+    label: 'Publishing',
+    items: [
+      { label: 'Overview', path: '/publishing/' },
+      { label: 'Journals', path: '/journals/', description: '24 journals across five imprints' },
+      { label: 'Imprints', path: '/imprints/', description: 'Five editorial identities, one group' },
+    ],
+  },
+  // On-page anchors: Infrastructure is one long page, so its strip jumps
+  // between sections instead of between pages.
+  infrastructure: {
+    label: 'Infrastructure',
+    items: [
+      { label: 'DOI registration', path: '/infrastructure/#doi', description: 'Crossref registration under prefix 10.63802' },
+      { label: 'Discovery and indexing', path: '/infrastructure/#discovery', description: 'Indexes and discovery services that list our journals' },
+      { label: 'Preservation', path: '/infrastructure/#preservation', description: 'CLOCKSS, LOCKSS, and PKP preservation networks' },
+      { label: 'Identifiers', path: '/infrastructure/#identifiers', description: 'ISSN, ISNI, and national library records' },
+    ],
+  },
+  standards: {
+    label: 'Standards',
+    items: [
+      { label: 'Overview', path: '/standards/' },
+      { label: 'Editorial Standards', path: '/standards/editorial/', description: 'Editorial judgment, peer review, and the scholarly record' },
+      { label: 'Publication Ethics', path: '/standards/ethics/', description: 'Research integrity, concerns, and ethical practice' },
+      { label: 'Open Access', path: '/standards/open-access/', description: 'Access, licensing, and reuse of scholarly work' },
+      { label: 'Research Assessment', path: '/standards/research-assessment/', description: 'DORA, responsible metrics, and scholarly contribution' },
+      { label: 'DOI Allocation', path: '/standards/doi-policy/', description: 'When and how articles and datasets receive a DOI' },
+      { label: 'Accessibility', path: '/accessibility/', description: 'Accessible public information and digital publishing' },
+    ],
+  },
+  about: {
+    label: 'About',
+    items: [
+      { label: 'About the Group', path: '/about/' },
+      { label: 'Governance', path: '/about/governance/', description: 'Accountability that protects independent work' },
+      { label: 'Partnerships', path: '/about/partnerships/', description: 'Relationships that extend scholarly reach' },
+      { label: 'Contact', path: '/about/contact/', description: 'Find the right team for your question' },
+    ],
+  },
+};
+
+const sectionChildren = (key: SectionKey) => sectionNav[key].items.slice(key === 'infrastructure' ? 0 : 1);
+
+const independentPlatforms: NavItem[] = [
+  { label: 'POSI', path: externalSystems.posi, external: true, description: 'Open indexing, lifecycle ratings, and citation analytics' },
+  { label: 'Profiles', path: externalSystems.profiles, external: true, description: 'Public profiles for editors, reviewers, and contributors' },
+  { label: 'Credentials', path: externalSystems.credentials, external: true, description: 'Verification for editorial and reviewer credentials' },
+];
 
 export const primaryNav: NavItem[] = [
   {
     label: 'Publishing',
     path: '/publishing/',
     children: [
-      {
-        label: 'Explore',
-        children: [
-          { label: 'Journals', path: '/journals/', description: '24 journals across five imprints' },
-          { label: 'Imprints', path: '/imprints/', description: 'Five editorial identities, one group' },
-        ],
-      },
+      { label: 'Explore', children: sectionChildren('publishing') },
       {
         label: 'Imprints',
         children: imprints.map((imprint) => ({
@@ -54,32 +106,21 @@ export const primaryNav: NavItem[] = [
     label: 'Infrastructure',
     path: '/infrastructure/',
     children: [
-      { label: 'POSI', path: externalSystems.posi, external: true, description: 'Open indexing, lifecycle ratings, and citation analytics' },
-      { label: 'Profiles', path: externalSystems.profiles, external: true, description: 'Public profiles for editors, reviewers, and contributors' },
-      { label: 'Credentials', path: externalSystems.credentials, external: true, description: 'Verification for editorial and reviewer credentials' },
+      { label: 'On this site', children: sectionChildren('infrastructure') },
+      { label: 'Independent platforms', children: independentPlatforms },
     ],
   },
   { label: 'Books', path: '/books/' },
   {
     label: 'Standards',
     path: '/standards/',
-    children: [
-      { label: 'Editorial Standards', path: '/standards/editorial/', description: 'Editorial judgment, peer review, and the scholarly record' },
-      { label: 'Publication Ethics', path: '/standards/ethics/', description: 'Research integrity, concerns, and ethical practice' },
-      { label: 'Open Access Policy', path: '/standards/open-access/', description: 'Access, licensing, and reuse of scholarly work' },
-      { label: 'Research Assessment', path: '/standards/research-assessment/', description: 'DORA, responsible metrics, and scholarly contribution' },
-      { label: 'Accessibility', path: '/accessibility/', description: 'Accessible public information and digital publishing' },
-    ],
+    children: sectionChildren('standards'),
   },
   { label: 'Announcements', path: '/news/' },
   {
     label: 'About',
     path: '/about/',
-    children: [
-      { label: 'Governance', path: '/about/governance/', description: 'Accountability that protects independent work' },
-      { label: 'Partnerships', path: '/about/partnerships/', description: 'Relationships that extend scholarly reach' },
-      { label: 'Contact', path: '/about/contact/', description: 'Find the right team for your question' },
-    ],
+    children: sectionChildren('about'),
   },
 ];
 
@@ -96,40 +137,23 @@ export interface FooterGroup {
 export const footerGroups: FooterGroup[] = [
   {
     title: 'Publishing',
-    items: [
-      { label: 'Journals', path: '/journals/' },
-      { label: 'Books', path: '/books/' },
-      { label: 'Imprints', path: '/imprints/' },
-    ],
+    items: [...sectionNav.publishing.items, { label: 'Books', path: '/books/' }],
   },
   {
     title: 'Research & infrastructure',
     items: [
       { label: 'Research Institute', path: '/research/' },
       { label: 'Infrastructure', path: '/infrastructure/' },
-      { label: 'POSI', path: externalSystems.posi, external: true },
-      { label: 'Profiles', path: externalSystems.profiles, external: true },
+      ...independentPlatforms.map(({ description, ...item }) => item),
     ],
   },
   {
     title: 'Standards',
-    items: [
-      { label: 'Overview', path: '/standards/' },
-      { label: 'Editorial Standards', path: '/standards/editorial/' },
-      { label: 'Publication Ethics', path: '/standards/ethics/' },
-      { label: 'Open Access', path: '/standards/open-access/' },
-      { label: 'Research Assessment', path: '/standards/research-assessment/' },
-    ],
+    items: sectionNav.standards.items,
   },
   {
     title: 'Group',
-    items: [
-      { label: 'About', path: '/about/' },
-      { label: 'Governance', path: '/about/governance/' },
-      { label: 'Partnerships', path: '/about/partnerships/' },
-      { label: 'Contact', path: '/about/contact/' },
-      { label: 'Announcements', path: '/news/' },
-    ],
+    items: [...sectionNav.about.items, { label: 'Announcements', path: '/news/' }],
   },
 ];
 
@@ -137,7 +161,7 @@ export const footerGroups: FooterGroup[] = [
 // the main destinations without becoming a five-column wall of links. The
 // platform row below provides the visual route to the same scholarly systems.
 // Credentials has no approved logo asset (see docs/ASSET-AUDIT.md), so it
-// remains available from the header's Infrastructure menu only.
+// appears in the footer as a text link only.
 export const footerPlatformLogos: { label: string; path: string; logo: string; wide?: boolean }[] = [
   { label: 'Research Institute', path: externalSystems.research, logo: '/brand/psg/platforms/research-institute-logo.svg' },
   { label: 'POSI', path: externalSystems.posi, logo: '/brand/psg/platforms/posi-logo.svg', wide: true },
@@ -152,6 +176,7 @@ export const legalNav: NavItem[] = [
 
 function localizeItem(item: NavItem, locale: string): NavItem {
   const labels = getNavigationLabels(locale);
+  const infrastructure = getInfrastructureCopy(locale);
   const labelMap: Record<string, string> = {
     Home: labels.home,
     Publishing: labels.publishing,
@@ -179,6 +204,13 @@ function localizeItem(item: NavItem, locale: string): NavItem {
     'Research Institute': labels.researchInstitute,
     Profiles: labels.profiles,
     Credentials: labels.credentials,
+    'DOI Allocation': labels.doiAllocation,
+    'On this site': labels.onThisSite,
+    'Independent platforms': labels.independentPlatforms,
+    'DOI registration': infrastructure.doi,
+    'Discovery and indexing': infrastructure.discovery,
+    Preservation: infrastructure.preservation,
+    Identifiers: infrastructure.identifiers,
   };
 
   return {
@@ -194,6 +226,14 @@ function localizeItem(item: NavItem, locale: string): NavItem {
 
 export function getPrimaryNav(locale = 'en'): NavItem[] {
   return primaryNav.map((item) => localizeItem(item, locale));
+}
+
+export function getSectionNav(key: SectionKey, locale = 'en'): { label: string; items: NavItem[] } {
+  const section = sectionNav[key];
+  return {
+    label: localizeItem({ label: section.label }, locale).label,
+    items: section.items.map((item) => localizeItem(item, locale)),
+  };
 }
 
 export function getUtilityNav(locale = 'en'): NavItem[] {

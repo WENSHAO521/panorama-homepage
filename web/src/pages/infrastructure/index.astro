@@ -9,6 +9,7 @@ import { getIndexLogoAsset } from '@/lib/assets/indexLogos';
 import { getInfrastructureCopy } from '@/i18n/infrastructure';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 import { getDoiPolicyCopy } from '@/i18n/doi-policy';
 
 const locale = Astro.currentLocale ?? 'en';
@@ -48,6 +49,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
   path="/infrastructure/"
   locale={locale}
 >
+  <SectionSubnav section="infrastructure" locale={locale} />
   <GroupHero eyebrow={copy.heroOverline} title={copy.heroTitle} lede={copy.heroLede} titleId="infrastructure-title">
     <div slot="aside" class="infra-hero__aside-content group-hero__aside-content">
       <p class="text-overline">{copy.summaryOverline}</p>
@@ -56,11 +58,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
           <div><dt>{label}</dt><dd>{value}</dd></div>
         ))}
       </dl>
-      <nav class="infra-hero__nav" aria-label={copy.onThisPage}>
-        <a href="#doi">{copy.doi}</a>
-        <a href="#discovery">{copy.discovery}</a>
-        <a href="#preservation">{copy.preservation}</a>
-      </nav>
     </div>
   </GroupHero>
 
@@ -226,7 +223,7 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
     </div>
   </section>
 
-  <section class="infra-identifiers row" aria-labelledby="identifiers-title">
+  <section id="identifiers" class="infra-identifiers row" aria-labelledby="identifiers-title">
     <div class="container-wide">
       <div class="infra-section-head">
         <div class="section-heading">
@@ -307,25 +304,6 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
 </BaseLayout>
 
 <style>
-  .infra-hero__nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem 1.4rem;
-    margin-top: 2.25rem;
-  }
-
-  .infra-hero__nav a {
-    flex: none;
-    color: var(--text-link);
-    font-size: var(--fs-label);
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .infra-hero__nav a::after,
   .infra-inline-links a::after {
     display: block;
     width: 100%;
@@ -335,9 +313,9 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
     content: '';
   }
 
-  .infra-hero__nav a:hover,
-  .infra-hero__nav a:focus-visible {
-    color: var(--text-link-hover);
+  /* Sub-nav anchors land below the sticky header. */
+  section[id] {
+    scroll-margin-top: 5rem;
   }
 
   .row {

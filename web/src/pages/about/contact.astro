@@ -1,7 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import AboutSubnav from '@/components/about/AboutSubnav.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 import Button from '@/components/ui/Button.astro';
 import { externalSystems, getOfficeDirectory, site } from '@/data/site';
 import { getContactCopy } from '@/i18n/group';
@@ -26,7 +26,7 @@ const routes = copy.routes.map((route, index) => ({
   locale={locale}
 >
   <div class="contact-page">
-    <AboutSubnav currentPath={localizePath('/about/contact/', locale)} locale={locale} />
+    <SectionSubnav section="about" locale={locale} />
 
     <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="contact-title" variant="compact">
       <div slot="actions">

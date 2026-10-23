@@ -1,7 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import AboutSubnav from '@/components/about/AboutSubnav.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 import Button from '@/components/ui/Button.astro';
 import { getGovernanceCopy } from '@/i18n/group';
 import { localizePath } from '@/i18n/utils';
@@ -9,7 +9,6 @@ import GroupHero from '@/components/group/GroupHero.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getGovernanceCopy(locale);
-const localizedBasePath = localizePath('/about/governance/', locale);
 ---
 
 <BaseLayout
@@ -19,7 +18,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
   locale={locale}
 >
   <div class="governance-page">
-    <AboutSubnav currentPath={localizedBasePath} locale={locale} />
+    <SectionSubnav section="about" locale={locale} />
 
     <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="governance-title">
       <div slot="aside" class="governance-hero__aside-content group-hero__aside-content" aria-label={copy.briefLabel}>
