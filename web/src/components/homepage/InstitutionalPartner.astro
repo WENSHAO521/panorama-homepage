@@ -22,6 +22,7 @@ const partnerLogos = [
   {
     name: 'China Academic Social Sciences and Humanities Library',
     logo: cashlLogo,
+    wide: true,
     href: 'https://www.cashl.edu.cn/',
   },
   {
@@ -61,7 +62,7 @@ const partnerLogos = [
           <div class="institutional-partner__group">
             {partnerLogos.map((partner) => partner.href ? (
               <a
-                class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse }]}
+                class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse, "institutional-partner__logo--wide": partner.wide }]}
                 href={partner.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -76,7 +77,7 @@ const partnerLogos = [
                 />
               </a>
             ) : (
-              <div class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse }]}>
+              <div class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse, "institutional-partner__logo--wide": partner.wide }]}>
                 <Image
                   src={partner.logo}
                   alt={partner.name}
@@ -90,7 +91,7 @@ const partnerLogos = [
 
           <div class="institutional-partner__group institutional-partner__group--duplicate" aria-hidden="true">
             {partnerLogos.map((partner) => (
-              <div class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse }]}>
+              <div class:list={["institutional-partner__logo", { "institutional-partner__logo--inverse": partner.inverse, "institutional-partner__logo--wide": partner.wide }]}>
                 <Image
                   src={partner.logo}
                   alt=""
@@ -110,9 +111,11 @@ const partnerLogos = [
 </section>
 
 <style>
+  /* Ink band that runs straight into the ink footer below. */
   .institutional-partner {
-    background: var(--surface-secondary);
-    border-block: var(--p-border-hairline) solid var(--border-subtle);
+    --focus-ring: var(--text-inverse);
+    background: var(--surface-inverse);
+    color: var(--text-inverse);
   }
 
   .institutional-partner__inner {
@@ -125,7 +128,7 @@ const partnerLogos = [
 
   .institutional-partner__intro h2 {
     margin: 0.4rem 0 0;
-    color: var(--text-primary);
+    color: var(--text-inverse);
     font-family: var(--font-display);
     font-size: clamp(1.35rem, 2vw, 1.75rem);
     font-weight: var(--fw-regular);
@@ -144,8 +147,8 @@ const partnerLogos = [
 
   .institutional-partner__viewport {
     overflow: hidden;
-    mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, black 4%, black 96%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
   }
 
   .institutional-partner__track {
@@ -180,46 +183,50 @@ const partnerLogos = [
     transition: opacity 180ms ease, transform 180ms ease;
   }
 
+  /* Wordmark-only logos (long and thin) get a wider slot so they are not
+     scaled down to an unreadable height. */
+  .institutional-partner__logo--wide { flex-basis: 14rem; width: 14rem; }
+
   a.institutional-partner__logo:hover,
   a.institutional-partner__logo:focus-visible {
     transform: translateY(-1px);
   }
 
-  /* Two marks are drawn in white for dark backgrounds and vanish on paper;
-     they sit on an ink tile instead. */
-  .institutional-partner__logo--inverse {
-    background: var(--surface-inverse);
-    border-radius: var(--p-radius-button);
-  }
 
   .institutional-partner__marquee:hover .institutional-partner__track,
   .institutional-partner__marquee:focus-within .institutional-partner__track {
     animation-play-state: paused;
   }
 
-  /* Source logos differ in colour and contrast (one is pale grey). A shared
-     monochrome treatment makes them read as one row; linked logos return
-     to full colour on hover/focus. */
+  /* Source logos differ in colour and contrast. On the ink band the marks
+     drawn for paper are flattened to a light silhouette; the two drawn for
+     dark backgrounds (--inverse) are only desaturated and return to full
+     colour on hover/focus. */
   .institutional-partner__logo img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: grayscale(1) contrast(1.15);
-    opacity: 0.8;
+    filter: brightness(0) invert(1);
+    opacity: 0.72;
     transition: filter var(--p-duration-base) var(--p-ease-standard), opacity var(--p-duration-base) var(--p-ease-standard);
   }
 
+  .institutional-partner__logo--inverse img { filter: grayscale(1); opacity: 0.82; }
+
   a.institutional-partner__logo:hover img,
   a.institutional-partner__logo:focus-visible img {
-    filter: none;
     opacity: 1;
+  }
+  a.institutional-partner__logo--inverse:hover img,
+  a.institutional-partner__logo--inverse:focus-visible img {
+    filter: none;
   }
 
   .institutional-partner__link {
     justify-self: end;
     border-bottom: var(--p-border-hairline) solid var(--brand-accent);
-    color: var(--text-primary);
+    color: var(--text-inverse);
     font-size: 0.875rem;
     font-weight: var(--fw-semibold);
     line-height: 1.8;
@@ -229,7 +236,7 @@ const partnerLogos = [
 
   .institutional-partner__link:hover,
   .institutional-partner__link:focus-visible {
-    color: var(--interactive-default);
+    color: var(--text-accent-inverse);
   }
 
   @keyframes institutional-partner-marquee {
@@ -286,5 +293,6 @@ const partnerLogos = [
 
     .institutional-partner__marquee { width: 100%; }
     .institutional-partner__logo { flex-basis: 8rem; width: 8rem; height: 4.75rem; }
+    .institutional-partner__logo--wide { flex-basis: 11rem; width: 11rem; }
   }
 </style>

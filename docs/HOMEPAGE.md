@@ -152,3 +152,19 @@ right, hairline below), the same hairline-separated columns, and the shared
 `.action-link` / primary button. Articles are a lead plus two compact items;
 announcements are three across (the same shelf rhythm as the featured
 journals). Bands alternate paper / tint down the page.
+
+## October 2026 visual refresh
+
+- The separate featured-journal band under the hero was removed. The
+  curated lead journal (the `featured` flag above) now sits in the middle
+  of the hero's fanned cover wall, with Health Nexus and one title from
+  each remaining imprint around it.
+- Imprints are tinted cards (`data-imprint-theme` on each card supplies
+  the tint) with up to three covers fanned at the foot.
+- The research band is the homepage's one `row--inverse` section, and the
+  partner band and the global footer are ink as well, so the page has one
+  dark field in the middle and closes on dark.
+- Selected articles show the cover of the article's journal
+  (`journalSlug` → `getJournalBySlug`).
+- Announcement types: routine updates are a plain label; only a call for
+  papers keeps the accent tag.

@@ -5,6 +5,7 @@ import imprintsData from '@/data/imprints.json';
 import type { Imprint } from '@/types';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { getJournalsForImprint } from '@/lib/content/imprints';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import { getContent } from '@/i18n/content';
 import { localizePath } from '@/i18n/utils';
 
@@ -12,11 +13,16 @@ interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
 
-const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
+const imprints = getLocalizedImprints(imprintsData as Imprint[], locale).map((imprint) => {
+  const journals = getJournalsForImprint(imprint.slug, locale);
+  // Up to three covers per card, fanned at the foot of the tile.
+  const covers = journals.flatMap((j) => { const c = getJournalCoverAsset(j.cover); return c ? [c] : []; }).slice(0, 3);
+  return { imprint, count: journals.length, covers };
+});
 ---
 
-<!-- A brand strip in the manner of a publisher's "Our brands" row: hairline,
-     small label, one line of logos at a shared optical height. Deliberately
+<!-- One tinted card per imprint: wordmark, scope, and a fan of its covers.
+     Deliberately
      not a .row, so the group-wide section padding (up to 7rem each side)
      doesn't turn a single line of logos into a tall empty band. -->
 <section class="imprint-section" aria-labelledby="imprint-section-title">
@@ -28,8 +34,8 @@ const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
       </div>
 
       <ul class="imprint-grid" role="list">
-        {imprints.map((imprint) => (
-          <ImprintCard imprint={imprint} locale={locale} count={getJournalsForImprint(imprint.slug, locale).length} countLabel={t('common.journals')} />
+        {imprints.map(({ imprint, count, covers }) => (
+          <ImprintCard imprint={imprint} locale={locale} count={count} countLabel={t('common.journals')} covers={covers} />
         ))}
       </ul>
     </div>
@@ -39,12 +45,7 @@ const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
 <style>
   .imprint-section {
     background: var(--surface-primary);
-    padding-block: clamp(2rem, 4vw, 3rem);
-  }
-
-  .imprint-section__inner {
-    padding-top: 1.25rem;
-    border-top: var(--p-border-hairline) solid var(--border-strong);
+    padding-block: clamp(2.5rem, 5vw, 4rem);
   }
 
   .imprint-section__header {
@@ -58,11 +59,11 @@ const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
   .imprint-section__title {
     margin: 0;
     color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 1.125rem;
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0;
-    line-height: 1.3;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
   }
 
   .imprint-section__link {
@@ -78,13 +79,13 @@ const imprints = getLocalizedImprints(imprintsData as Imprint[], locale);
 
   .imprint-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem 1.5rem;
+    gap: 1rem;
     list-style: none;
-    margin: 1.5rem 0 0;
+    margin: 1.75rem 0 0;
     padding: 0;
   }
 
+  .imprint-grid { grid-template-columns: minmax(0, 1fr); }
   @media (min-width: 640px) { .imprint-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (min-width: 1024px) { .imprint-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 2rem; } }
+  @media (min-width: 1200px) { .imprint-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
 </style>
