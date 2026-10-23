@@ -23,7 +23,7 @@ const year = new Date().getFullYear();
   <div class="container-wide">
     <div class="site-footer__top">
       <div class="site-footer__identity">
-        <Logo href={localizePath('/', locale)} />
+        <Logo href={localizePath('/', locale)} inverse />
         <p class="site-footer__tagline">{labels.tagline}</p>
       <div class="site-footer__offices">
         <div class="site-footer__office-grid">
@@ -95,9 +95,13 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
+  /* Ink footer: closes every page on the same dark field as the homepage
+     partner band directly above it. */
   .site-footer {
-    background: var(--surface-secondary);
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-inverse);
+    color: var(--text-inverse-muted);
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
+    --focus-ring: var(--text-inverse);
     padding-block: clamp(2.5rem, 5vw, 4.5rem) 1.15rem;
   }
 
@@ -114,7 +118,6 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__identity :global(.logo__name) {
-    color: var(--logo-name);
     font-size: 1.45rem;
   }
 
@@ -124,7 +127,7 @@ const year = new Date().getFullYear();
 
   .site-footer__tagline {
     margin: 0;
-    color: var(--text-secondary);
+    color: var(--text-inverse-muted-strong);
     font-family: var(--font-display);
     font-size: 0.85rem;
     line-height: 1.45;
@@ -135,7 +138,7 @@ const year = new Date().getFullYear();
     gap: 1rem;
     margin-top: 0.1rem;
     padding-top: 1.1rem;
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
   }
 
   .site-footer__office-grid {
@@ -151,7 +154,7 @@ const year = new Date().getFullYear();
 
   .site-footer__office-label {
     margin: 0;
-    color: var(--text-muted);
+    color: var(--text-accent-inverse);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.14em;
@@ -161,7 +164,7 @@ const year = new Date().getFullYear();
 
   .site-footer__office-address {
     margin: 0;
-    color: var(--text-secondary);
+    color: var(--text-inverse-muted);
     font-family: var(--font-display);
     font-size: var(--fs-caption);
     font-style: normal;
@@ -177,7 +180,7 @@ const year = new Date().getFullYear();
   /* Same eyebrow as the office labels: interface face, not the h2 serif. */
   .site-footer__group-title {
     margin: 0;
-    color: var(--text-muted);
+    color: var(--text-accent-inverse);
     font-family: var(--font-body);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
@@ -200,7 +203,7 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__link {
-    color: var(--text-secondary);
+    color: var(--text-inverse-muted-strong);
     font-size: var(--fs-caption);
     text-decoration: none;
     transition: color var(--p-duration-base) var(--p-ease-standard);
@@ -208,7 +211,7 @@ const year = new Date().getFullYear();
 
   .site-footer__link:hover,
   .site-footer__legal a:hover {
-    color: var(--interactive-default);
+    color: var(--text-inverse);
   }
 
   .site-footer__platforms {
@@ -216,12 +219,12 @@ const year = new Date().getFullYear();
     gap: 1.25rem;
     margin-top: clamp(2rem, 3vw, 3rem);
     padding-block: 1.25rem;
-    border-block: var(--p-border-hairline) solid var(--border-subtle);
+    border-block: var(--p-border-hairline) solid var(--border-inverse);
   }
 
   .site-footer__platform-intro p {
     margin: 0.45rem 0 0;
-    color: var(--text-muted);
+    color: var(--text-inverse-muted);
     font-family: var(--font-display);
     font-size: var(--fs-caption);
     line-height: 1.4;
@@ -254,6 +257,8 @@ const year = new Date().getFullYear();
     height: 2.7rem;
     object-fit: contain;
     object-position: left center;
+    /* The platform marks are drawn for paper; render them as light marks. */
+    filter: brightness(0) invert(1);
   }
 
   .site-footer__platform--wide img {
@@ -262,7 +267,7 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__rule {
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
   }
 
   .site-footer__legal {
@@ -272,7 +277,7 @@ const year = new Date().getFullYear();
     justify-content: space-between;
     gap: 0.75rem 1.5rem;
     padding-top: 1rem;
-    color: var(--text-muted);
+    color: var(--text-inverse-muted);
   }
 
   .site-footer__legal p { line-height: 1.2; }
@@ -286,7 +291,7 @@ const year = new Date().getFullYear();
   }
 
   .site-footer__legal a {
-    color: var(--text-muted);
+    color: var(--text-inverse-muted);
     text-decoration: none;
     transition: color var(--p-duration-base) var(--p-ease-standard);
   }

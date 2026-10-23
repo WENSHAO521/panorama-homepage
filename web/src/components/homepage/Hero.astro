@@ -6,31 +6,28 @@ import { localizePath } from '@/i18n/utils';
 import { getActiveJournals, getFeaturedJournals, getJournalBySlug } from '@/lib/content/journals';
 import { getAllImprints } from '@/lib/content/imprints';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
-import { imprintText, type ImprintSlug } from '@/i18n/imprints';
 
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
 const t = getContent(locale);
 
-// The lead and the "also of interest" slot come from the curated featured
-// flag (docs/HOMEPAGE.md §Featured journal selection), so no title is hand-picked here.
+// Cover wall: the curated lead journal (featured flag, docs/HOMEPAGE.md
+// §Featured journal selection) sits in the middle of the fan; the other four
+// are Health Nexus and one title from each remaining imprint, in imprint order.
 const [lead, ...others] = getFeaturedJournals();
 const also = getJournalBySlug('healthnexus') ?? others[0];
-const imprintName = (slug: string) => getAllImprints().find((i) => i.slug === slug)?.name ?? slug;
-const leadImprint = lead.imprint as ImprintSlug;
-const leadDescription = imprintText(leadImprint, locale, `journal.${lead.slug}.summary`, lead.description ?? '');
-const leadDiscipline = imprintText(leadImprint, locale, `journal.${lead.slug}.label`, lead.disciplines.join(' · '));
-const leadCover = getJournalCoverAsset(lead.cover);
-const alsoCover = also ? getJournalCoverAsset(also.cover) : undefined;
-
-// Cover wall: one journal per imprint, in imprint order, skipping the two
-// titles the feature band directly below already shows.
 const activeJournals = getActiveJournals();
-const shown = new Set([lead.slug, also?.slug]);
-const wall = getAllImprints().flatMap((imprint) => {
-  const journal = activeJournals.find((j) => j.imprint === imprint.slug && !shown.has(j.slug) && getJournalCoverAsset(j.cover));
-  return journal ? [{ journal, cover: getJournalCoverAsset(journal.cover)! }] : [];
+const shownImprints = new Set([lead.imprint, also?.imprint]);
+const rest = getAllImprints().flatMap((imprint) => {
+  if (shownImprints.has(imprint.slug)) return [];
+  const journal = activeJournals.find((j) => j.imprint === imprint.slug && getJournalCoverAsset(j.cover));
+  return journal ? [journal] : [];
 });
+const ordered = [also, rest[0], lead, ...rest.slice(1)].filter((j): j is NonNullable<typeof j> => Boolean(j));
+const wall = ordered.flatMap((journal) => {
+  const cover = getJournalCoverAsset(journal.cover);
+  return cover ? [{ journal, cover }] : [];
+}).slice(0, 5);
 ---
 
 <section class="hero" aria-labelledby="hero-title">
@@ -71,55 +68,6 @@ const wall = getAllImprints().flatMap((imprint) => {
     </div>
   </div>
 
-  <div class="hero__feature">
-    <div class="container-wide hero__feature-grid">
-      <a class="hero__cover hero__cover--lead" href={lead.journalUrl} target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-        {leadCover && <Image src={leadCover} alt="" width={495} height={700} widths={[250, 500]} sizes="(max-width: 639px) 62vw, 15.6rem" loading="eager" fetchpriority="high" />}
-      </a>
-
-      <div class="hero__main">
-        <p class="text-overline hero__eyebrow">{t('home.featuredJournal')}</p>
-        <h2 class="hero__feature-title"><PhraseText text={lead.title} /></h2>
-        <p class="hero__feature-text">{leadDescription}</p>
-        <a class="action-link" href={lead.journalUrl} target="_blank" rel="noopener noreferrer">
-          {t('common.visitJournalWebsite')}
-          <span class="visually-hidden"> — {lead.title} ({t('common.opensNewTab')})</span>
-        </a>
-      </div>
-
-      <aside class="hero__rail">
-        <dl class="hero__facts">
-          <div><dt>{t('common.journal')}</dt><dd>{lead.title}</dd></div>
-          <div><dt>{t('home.factImprint')}</dt><dd>{imprintName(lead.imprint)}</dd></div>
-          <div><dt>{t('home.factDisciplines')}</dt><dd>{leadDiscipline}</dd></div>
-          <div>
-            <dt>{t('home.factAccess')}</dt>
-            <dd>
-              {[lead.openAccess ? t('common.openAccess') : null, lead.license, lead.issn ? `ISSN ${lead.issn}` : null]
-                .filter(Boolean)
-                .map((part, i) => <>{i > 0 && ' · '}<bdi>{part}</bdi></>)}
-            </dd>
-          </div>
-        </dl>
-
-        {also && (
-          <div class="hero__also">
-            <a class="hero__cover hero__cover--also" href={also.journalUrl} target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              {alsoCover && <Image src={alsoCover} alt="" width={200} height={283} widths={[100, 200]} sizes="6rem" loading="lazy" />}
-            </a>
-            <div>
-              <p class="text-overline hero__eyebrow">{t('home.alsoOfInterest')}</p>
-              <h3 class="hero__also-title"><PhraseText text={also.title} /></h3>
-              <a class="action-link" href={also.journalUrl} target="_blank" rel="noopener noreferrer">
-                {t('common.visitJournalWebsite')}
-                <span class="visually-hidden"> — {also.title} ({t('common.opensNewTab')})</span>
-              </a>
-            </div>
-          </div>
-        )}
-      </aside>
-    </div>
-  </div>
 </section>
 
 <style>
@@ -131,16 +79,16 @@ const wall = getAllImprints().flatMap((imprint) => {
     display: grid;
     justify-items: start;
     gap: 1.75rem 2rem;
-    padding-block: clamp(1.75rem, 4vw, 2.75rem) clamp(1.5rem, 3vw, 2.1rem);
+    padding-block: clamp(2.25rem, 6vw, 4.75rem) clamp(2rem, 4vw, 3.5rem);
   }
 
   .hero__title {
     max-width: 15ch;
     margin-top: 0.9rem;
-    font-size: clamp(2.4rem, 5.6vw, 3.75rem);
+    font-size: clamp(2.6rem, 5.4vw, 4.25rem);
     font-weight: var(--fw-regular);
-    line-height: 1.04;
-    letter-spacing: -0.022em;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
     text-wrap: balance;
   }
 
@@ -156,11 +104,12 @@ const wall = getAllImprints().flatMap((imprint) => {
     align-items: center;
     gap: 0.65rem;
     width: 100%;
-    height: 2.9rem;
-    padding-inline: 0.9rem;
+    height: 3.4rem;
+    padding-inline: 1rem 0.6rem;
     color: var(--text-secondary);
     background: var(--surface-raised);
-    border: var(--p-border-hairline) solid var(--border-subtle);
+    border: var(--p-border-hairline) solid var(--border-strong);
+    border-radius: var(--p-radius-button);
     transition: border-color var(--p-duration-base) var(--p-ease-standard);
   }
   .hero__form:focus-within { border-color: var(--interactive-default); }
@@ -170,7 +119,7 @@ const wall = getAllImprints().flatMap((imprint) => {
     height: 100%;
     color: var(--text-primary);
     font: inherit;
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     background: none;
     border: 0;
     outline: none;
@@ -195,22 +144,31 @@ const wall = getAllImprints().flatMap((imprint) => {
 
   .hero__wall { display: grid; gap: 1rem; width: 100%; max-width: 36rem; }
 
+  /* The five covers overlap like a fanned stack: the middle one is largest and
+     on top, the outer ones tilt away from it. */
   .hero__wall-list {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.6rem;
-    align-items: start;
+    gap: 0;
+    align-items: end;
     margin: 0;
-    padding: 0;
+    padding: 0.75rem 0.5rem 0;
     list-style: none;
   }
-  .hero__wall-list li:nth-child(even) { margin-top: 0.75rem; }
+  .hero__wall-list li { position: relative; }
+  .hero__wall-list li + li { margin-inline-start: -8%; }
+  .hero__wall-list li:nth-child(1) { z-index: 1; transform: translateY(-1.1rem) rotate(-3deg); }
+  .hero__wall-list li:nth-child(2) { z-index: 2; transform: translateY(-0.35rem) rotate(-1.2deg); }
+  .hero__wall-list li:nth-child(3) { z-index: 4; transform: scale(1.14); transform-origin: bottom center; }
+  .hero__wall-list li:nth-child(4) { z-index: 2; transform: translateY(-0.35rem) rotate(1.2deg); }
+  .hero__wall-list li:nth-child(5) { z-index: 1; transform: translateY(-1.1rem) rotate(3deg); }
+  .hero__wall-list li:hover { z-index: 5; }
 
   .hero__wall-cover {
     position: relative;
     display: block;
     background: var(--border-subtle);
-    box-shadow: 0 1px 2px rgb(43 39 36 / 0.1), 0 10px 24px -12px rgb(43 39 36 / 0.28);
+    box-shadow: 0 2px 4px rgb(31 27 25 / 0.12), 0 24px 40px -18px rgb(31 27 25 / 0.5);
     transition: transform var(--p-duration-slow) var(--p-ease-decelerate);
   }
   .hero__wall-cover :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: cover; }
@@ -224,95 +182,20 @@ const wall = getAllImprints().flatMap((imprint) => {
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0.25rem 0.5rem;
-    margin: 0;
+    margin: 1rem 0 0;
     color: var(--text-secondary);
     font-size: var(--fs-caption);
   }
   .hero__wall-meta strong {
     color: var(--text-primary);
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 2.4rem;
     font-weight: var(--fw-regular);
     line-height: 1;
   }
 
   @media (hover: hover) {
     .hero__wall-cover:hover { transform: translateY(-0.3rem); }
-  }
-
-  .hero__feature { background: var(--surface-secondary); }
-
-  .hero__feature-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
-    padding-block: clamp(1.75rem, 4vw, 2.75rem);
-  }
-
-  .hero__cover { display: block; background: var(--border-subtle); box-shadow: 0 1px 2px rgb(43 39 36 / 0.1), 0 10px 24px -12px rgb(43 39 36 / 0.28); }
-  .hero__cover :global(img) { display: block; width: 100%; height: auto; }
-  .hero__cover--lead { width: min(62%, 15.6rem); transition: transform 400ms var(--p-ease-decelerate); }
-  .hero__cover--lead:hover { transform: translateY(-0.25rem); }
-
-  .hero__feature-title {
-    margin: 0.9rem 0 1rem;
-    font-size: clamp(1.9rem, 3.6vw, 2.75rem);
-    font-weight: var(--fw-regular);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-
-  .hero__feature-text {
-    max-width: 44ch;
-    margin: 0 0 1.35rem;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: 1.02rem;
-    line-height: 1.55;
-  }
-
-  .hero__rail {
-    display: grid;
-    gap: 1.5rem;
-    align-content: center;
-    padding-top: 1.5rem;
-    border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
-  }
-
-  .hero__facts { display: grid; gap: 0.8rem; margin: 0; }
-  .hero__facts div { display: grid; gap: 0.1rem; }
-  .hero__facts dt {
-    color: var(--text-secondary);
-    font-size: var(--fs-label);
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-  .hero__facts dd { margin: 0; font-family: var(--font-display); font-size: 0.9rem; }
-  .hero__facts dd bdi { white-space: nowrap; }
-
-  .hero__also {
-    display: grid;
-    grid-template-columns: 6rem minmax(0, 1fr);
-    gap: 1.1rem;
-    align-items: start;
-    padding-top: 1.4rem;
-    border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
-  }
-  .hero__also .action-link { white-space: nowrap; }
-  .hero__also-title {
-    margin: 0.4rem 0 0.7rem;
-    font-size: 1.3rem;
-    font-weight: var(--fw-regular);
-    line-height: 1.14;
-  }
-
-  @media (min-width: 640px) {
-    .hero__feature-grid { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 2.5rem; }
-    .hero__cover--lead { width: 100%; }
-    .hero__rail { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; gap: 2rem; padding-top: 1.75rem; }
-    .hero__also { padding-top: 0; border-top: 0; }
   }
 
   @media (min-width: 1280px) {
@@ -322,25 +205,12 @@ const wall = getAllImprints().flatMap((imprint) => {
       align-items: center;
     }
     .hero__wall { grid-column: 2; grid-row: 1 / span 2; justify-items: end; max-width: none; }
-    .hero__wall-list { grid-template-columns: repeat(5, clamp(6rem, 9vw, 8.5rem)); gap: 0; }
-    .hero__wall-list li + li { margin-inline-start: -1.4rem; }
-    .hero__wall-list li:nth-child(even) { margin-top: 1.75rem; }
-    .hero__wall-list li:hover { position: relative; z-index: 1; }
-    .hero__feature-grid { grid-template-columns: 15.6rem minmax(0, 1fr) 20rem; column-gap: 3rem; align-items: center; }
-    .hero__rail {
-      grid-column: auto;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 0;
-      padding-inline-start: 2rem;
-      border-top: 0;
-      border-inline-start: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent);
-    }
-    .hero__also { grid-template-columns: 5rem minmax(0, 1fr); padding-top: 1.4rem; border-top: var(--p-border-hairline) solid color-mix(in srgb, var(--text-primary) 18%, transparent); }
+    .hero__wall-list { grid-template-columns: repeat(5, clamp(6rem, 8vw, 8.25rem)); padding-inline-end: 1rem; }
+    .hero__wall-list li + li { margin-inline-start: -1.5rem; }
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .hero__intro > div:not(.hero__wall), .hero__main { animation: hero-in 700ms var(--p-ease-decelerate) both; }
+    .hero__intro > div:not(.hero__wall) { animation: hero-in 700ms var(--p-ease-decelerate) both; }
     .hero__intro > .hero__search { animation-delay: 90ms; }
     .hero__wall-cover { animation: hero-in 700ms var(--p-ease-decelerate) backwards; }
     .hero__wall-list li:nth-child(2) .hero__wall-cover { animation-delay: 70ms; }

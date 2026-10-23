@@ -4,6 +4,9 @@ import SectionHead from './SectionHead.astro';
 import articleData from '@/data/articles.json';
 import { isRetractedArticle } from '@/lib/articleFilter.mjs';
 import { getContent } from '@/i18n/content';
+import { Image } from 'astro:assets';
+import { getJournalBySlug } from '@/lib/content/journals';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 
 interface Props { locale?: string }
 const { locale = Astro.currentLocale ?? 'en' } = Astro.props;
@@ -12,7 +15,8 @@ const t = getContent(locale);
 const [lead, ...rest] = [...articleData.articles]
   .filter((article) => !isRetractedArticle(article))
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-  .slice(0, 4);
+  .slice(0, 4)
+  .map((article) => ({ ...article, cover: getJournalCoverAsset(getJournalBySlug(article.journalSlug)?.cover) }));
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: '2-digit', timeZone: 'UTC' })
@@ -34,7 +38,8 @@ function formatAuthors(authors: string[]) {
         <!-- Lead + three: the newest article gets room for its summary; the next
              three stay compact, so three identical text cards never sit side by side. -->
         <article class="home-articles__lead">
-          <a href={lead.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={lead.title + ' (opens in a new tab)'}>
+          <a href={lead.url} class:list={['home-articles__link', { 'home-articles__link--cover': lead.cover }]} target="_blank" rel="noopener noreferrer" aria-label={lead.title + ' (opens in a new tab)'}>
+            {lead.cover && <Image class="home-articles__cover" src={lead.cover} alt="" widths={[160, 320]} sizes="9rem" loading="lazy" />}
             <p class="home-articles__meta"><span>{lead.journal}</span><time datetime={lead.publishedAt}>{formatDate(lead.publishedAt)}</time></p>
             <h3 class="home-articles__lead-title"><PhraseText text={lead.title} /></h3>
             <p class="home-articles__summary">{lead.summary}</p>
@@ -46,7 +51,8 @@ function formatAuthors(authors: string[]) {
         <ul class="home-articles__list" role="list">
           {rest.map((article) => (
             <li>
-              <a href={article.url} class="home-articles__link" target="_blank" rel="noopener noreferrer" aria-label={article.title + ' (opens in a new tab)'}>
+              <a href={article.url} class:list={['home-articles__link', { 'home-articles__link--cover': article.cover }]} target="_blank" rel="noopener noreferrer" aria-label={article.title + ' (opens in a new tab)'}>
+                {article.cover && <Image class="home-articles__cover" src={article.cover} alt="" widths={[80, 160]} sizes="3.75rem" loading="lazy" />}
                 <p class="home-articles__meta"><span>{article.journal}</span><time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time></p>
                 <h3 class="home-articles__title"><PhraseText text={article.title} /></h3>
                 <p class="home-articles__authors">{formatAuthors(article.authors)}</p>
@@ -77,6 +83,24 @@ function formatAuthors(authors: string[]) {
     align-content: start;
     color: inherit;
     text-decoration: none;
+  }
+  /* The journal's cover sits in its own column beside the text. */
+  .home-articles__link--cover {
+    grid-template-columns: 3.75rem minmax(0, 1fr);
+    column-gap: 1.1rem;
+  }
+  .home-articles__link--cover > :not(.home-articles__cover) { grid-column: 2; }
+  .home-articles__cover {
+    grid-column: 1;
+    grid-row: 1 / span 6;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 495 / 700;
+    object-fit: cover;
+    box-shadow: 0 1px 2px rgb(43 39 36 / 0.1), 0 8px 16px -8px rgb(43 39 36 / 0.35);
+  }
+  @media (min-width: 640px) {
+    .home-articles__lead .home-articles__link--cover { grid-template-columns: 9rem minmax(0, 1fr); column-gap: 1.75rem; }
   }
   .home-articles__link:focus-visible {
     outline: var(--p-border-strong) solid var(--focus-ring);

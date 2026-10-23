@@ -51,7 +51,7 @@ function isExternal(value: string) {
           >
             <p class="home-announcements__meta">
               <time datetime={announcement.date}>{formatDate(announcement.date)}</time>
-              <span>{newsCopy.typeLabels[announcement.type.toLowerCase() as keyof typeof newsCopy.typeLabels] ?? announcement.type}</span>
+              <span class:list={['home-announcements__type', { 'home-announcements__type--cfp': announcement.type.toLowerCase() === 'call for papers' }]}>{newsCopy.typeLabels[announcement.type.toLowerCase() as keyof typeof newsCopy.typeLabels] ?? announcement.type}</span>
             </p>
             <p class="home-announcements__source">{announcement.sourceLabel}</p>
             <h3 class="home-announcements__title"><PhraseText text={announcement.title} /></h3>
@@ -106,13 +106,14 @@ function isExternal(value: string) {
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
-  /* The category reads as a tag, the date as plain metadata. */
-  .home-announcements__meta span {
+  /* Routine updates carry a quiet text label; only a call for papers, which
+     asks readers to act, is set as an accent tag. */
+  .home-announcements__type { color: var(--text-muted); letter-spacing: 0.08em; }
+  .home-announcements__type--cfp {
     padding: 0.15rem 0.55rem;
     color: var(--text-accent);
     background: color-mix(in srgb, var(--text-accent) 9%, transparent);
     border-radius: var(--p-radius-pill);
-    letter-spacing: 0.08em;
   }
 
   .home-announcements__source {

@@ -48,7 +48,7 @@ const pins = getOfficeDirectory(locale).map((office) => {
 });
 ---
 
-<section class="row research-infra" aria-labelledby="research-infra-title">
+<section class="row row--inverse research-infra" aria-labelledby="research-infra-title">
   <div class="container-wide research-infra__grid">
     <div class="research-infra__copy">
       <p class="text-overline">{t('home.researchOverline')}</p>
@@ -87,11 +87,14 @@ const pins = getOfficeDirectory(locale).map((office) => {
 </section>
 
 <style>
+  /* The homepage's one dark band: it breaks up the run of paper rows
+     between the hero and the journal sections. */
   .research-infra {
-    background: var(--surface-feature);
-    color: var(--text-primary);
-    border-block: var(--p-border-hairline) solid var(--border-subtle);
-    padding-block: clamp(2.5rem, 5vw, 4rem);
+    --map-field: var(--surface-inverse);
+    --focus-ring: var(--text-inverse);
+    background: var(--map-field);
+    color: var(--text-inverse);
+    padding-block: clamp(3rem, 6vw, 5rem);
   }
 
   .research-infra__grid {
@@ -104,7 +107,7 @@ const pins = getOfficeDirectory(locale).map((office) => {
   .research-infra__title {
     max-width: 20ch;
     margin-top: 0.75rem;
-    color: var(--text-primary);
+    color: var(--text-inverse);
     font-size: clamp(1.9rem, 3.6vw, 2.75rem);
     font-weight: var(--fw-regular);
     letter-spacing: -0.02em;
@@ -114,7 +117,7 @@ const pins = getOfficeDirectory(locale).map((office) => {
   .research-infra__lede {
     max-width: 32rem;
     margin-top: 1rem;
-    color: var(--text-secondary);
+    color: var(--text-inverse-muted-strong);
     font-family: var(--font-display);
     font-size: 1.0625rem;
     line-height: 1.55;
@@ -127,6 +130,8 @@ const pins = getOfficeDirectory(locale).map((office) => {
     gap: 0.9rem 1.5rem;
     margin-top: 1.5rem;
   }
+  .research-infra__actions .action-link { color: var(--text-accent-inverse); }
+  .research-infra__actions .action-link:hover { color: var(--text-inverse); }
 
   .research-infra__figure {
     position: relative;
@@ -145,28 +150,28 @@ const pins = getOfficeDirectory(locale).map((office) => {
 
   .research-map__graticule {
     fill: none;
-    stroke: var(--border-subtle);
+    stroke: var(--border-inverse);
     stroke-width: 0.6;
-    opacity: 0.9;
+    opacity: 0.5;
   }
 
   .research-map__land {
-    fill: color-mix(in srgb, var(--text-primary) 17%, var(--surface-feature));
+    fill: color-mix(in srgb, var(--text-inverse) 16%, var(--map-field));
   }
 
   .research-map__borders {
     fill: none;
-    stroke: var(--surface-feature);
+    stroke: var(--map-field);
     stroke-width: 0.6;
     stroke-linejoin: round;
   }
 
   .research-map__leader {
     fill: none;
-    stroke: var(--text-accent);
+    stroke: var(--text-accent-inverse);
     stroke-width: 0.9;
   }
-  .research-map__halo { fill: var(--text-accent); opacity: 0.2; }
+  .research-map__halo { fill: var(--text-accent-inverse); opacity: 0.25; }
 
   /* The two office markers pulse twice when the band first loads, then rest. */
   @keyframes research-map-pulse {
@@ -180,14 +185,14 @@ const pins = getOfficeDirectory(locale).map((office) => {
       animation: research-map-pulse 2.4s ease-out 1s 2 backwards;
     }
   }
-  .research-map__dot { fill: var(--text-accent); stroke: var(--surface-feature); stroke-width: 1.2; }
+  .research-map__dot { fill: var(--text-accent-inverse); stroke: var(--map-field); stroke-width: 1.2; }
 
   /* Labels are HTML, not SVG text, so they keep their size on small screens. */
   .research-map__label {
     position: absolute;
     transform: translate(-100%, -50%);
     padding-inline-end: 0.4rem;
-    color: var(--text-primary);
+    color: var(--text-accent-inverse);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
     letter-spacing: 0.12em;
