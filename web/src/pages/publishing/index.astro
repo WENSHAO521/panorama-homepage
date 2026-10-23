@@ -11,6 +11,7 @@ import { getPublishingCopy } from '@/i18n/sections';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 import SectionHead from '@/components/homepage/SectionHead.astro';
 
 const locale = Astro.currentLocale ?? 'en';
@@ -44,6 +45,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   path="/publishing/"
   locale={locale}
 >
+  <SectionSubnav section="publishing" locale={locale} />
   <div class="publishing-page">
     <GroupHero
       eyebrow={copy.overline}
@@ -70,7 +72,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       </div>
     </GroupHero>
 
-    <section class="publishing-pathways" aria-labelledby="pathways-title">
+    <section class="publishing-pathways row--inverse ink-scope" aria-labelledby="pathways-title">
       <div class="container-wide">
         <p class="text-overline publishing-section__overline">{copy.pathwaysOverline}</p>
         <SectionHead id="pathways-title" title={copy.pathwaysTitle} locale={locale} />

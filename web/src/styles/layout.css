@@ -70,6 +70,23 @@
 .row--roomy   { padding-block: var(--p-space-9); }
 .row--inverse { background: var(--surface-inverse); color: var(--text-inverse); }
 
+/* Opt-in for an ink band built from ordinary light-surface markup: remaps the
+   semantic text, link and border tokens so the section and the components in
+   it (SectionHead, .action-link, Button) need no inverse rules of their own. */
+.row--inverse.ink-scope {
+  --text-primary: var(--text-inverse);
+  --text-secondary: var(--text-inverse-muted-strong);
+  --text-muted: var(--text-inverse-muted);
+  --text-accent: var(--text-accent-inverse);
+  --text-link: var(--text-accent-inverse);
+  --text-link-hover: var(--text-inverse);
+  --interactive-default: var(--text-accent-inverse);
+  --interactive-hover: var(--text-inverse);
+  --border-subtle: var(--border-inverse);
+  --border-strong: color-mix(in srgb, var(--p-paper-50) 34%, transparent);
+  --focus-ring: var(--text-inverse);
+}
+
 /* Thin divider between editorial rows, used instead of card shadows to
    separate content. */
 .divider {

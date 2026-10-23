@@ -2,8 +2,16 @@
 
 ## Data
 
-Single source of truth: `web/src/data/navigation.ts`. Three exports:
+Single source of truth: `web/src/data/navigation.ts`. Main exports:
 
+- `sectionNav` — the child pages of each section that has them
+  (`publishing`, `infrastructure`, `standards`, `about`). One list feeds
+  three places, so they can never disagree: the header mega menu, the
+  sub-nav strip under the header (`components/navigation/SectionSubnav.astro`),
+  and the footer. The first entry is the section landing page; the menu
+  skips it because its overview row already links there. Infrastructure is
+  one long page, so its list is on-page anchors (`#doi`, `#discovery`,
+  `#preservation`, `#identifiers`).
 - `primaryNav` — the 8 header items. Four (`Publishing`,
   `Infrastructure`, `Standards`, `About`) carry `children` and become
   mega-menu dropdowns; `Research`, `Books`, and `News` stay plain links.
@@ -11,12 +19,13 @@ Single source of truth: `web/src/data/navigation.ts`. Three exports:
   dropdown) or an array of grouping nodes that each have their own
   `children` (a multi-column mega menu) — `MegaMenu.astro` and
   `MobileMenu.astro` both detect which shape they were given at
-  render time (see either file's frontmatter).
-- `footerGroups` — 5 titled groups for the footer. Deliberately
-  **separate** from `primaryNav`, not derived from it: the footer's
-  groupings and labels are optimized for footer scanning, while the
-  header's Books/News have no footer sub-items. A shared tree would
-  compromise one of the two navigation contexts.
+  render time (see either file's frontmatter). Infrastructure has two
+  columns: "On this site" (the anchors) and "Independent platforms"
+  (POSI, Profiles, Credentials).
+- `footerGroups` — titled groups for the footer. Their section columns
+  reuse `sectionNav`; the footer only adds what the header keeps
+  elsewhere (Books under Publishing, Announcements under Group, the
+  research and platform links).
 - `legalNav` — Privacy/Terms/Accessibility, used only in the footer's
   legal line.
 

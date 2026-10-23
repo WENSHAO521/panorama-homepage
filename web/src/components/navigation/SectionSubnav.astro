@@ -1,0 +1,107 @@
+---
+// The sub-nav strip under the header for sections with child pages. Its list
+// comes from sectionNav (data/navigation.ts), the same source as the header
+// menu and the footer.
+import { getSectionNav, type SectionKey } from '@/data/navigation';
+import { localizePath } from '@/i18n/utils';
+
+interface Props {
+  section: SectionKey;
+  locale?: string;
+}
+
+const { section, locale = Astro.currentLocale ?? 'en' } = Astro.props;
+const { label, items } = getSectionNav(section, locale);
+// Localized pages can be served from the canonical route, so compare in the
+// page's locale rather than trusting the raw URL prefix.
+const pathname = localizePath(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`, locale);
+---
+
+<nav class="section-subnav" aria-label={label}>
+  <div class="container-wide section-subnav__inner">
+    <p class="section-subnav__label text-overline">{label}</p>
+    <ul class="section-subnav__list" role="list">
+      {items.map((item) => {
+        const current = item.path === pathname;
+        return (
+          <li>
+            <a
+              class:list={['section-subnav__link', current && 'section-subnav__link--current']}
+              href={item.path}
+              aria-current={current ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .section-subnav {
+    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
+    background: var(--surface-primary);
+  }
+
+  .section-subnav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 3.75rem;
+  }
+
+  .section-subnav__label {
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--interactive-default);
+  }
+
+  .section-subnav__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .section-subnav__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.4rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--p-radius-button);
+    color: var(--text-secondary);
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-medium);
+    text-decoration: none;
+    transition: background-color var(--p-duration-base) var(--p-ease-standard),
+      color var(--p-duration-base) var(--p-ease-standard);
+  }
+
+  .section-subnav__link:hover,
+  .section-subnav__link:focus-visible,
+  .section-subnav__link--current {
+    background: var(--surface-secondary);
+    color: var(--interactive-default);
+  }
+
+  @media (max-width: 639px) {
+    .section-subnav__inner {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding-block: 0.9rem;
+    }
+
+    .section-subnav__list {
+      justify-content: flex-start;
+      margin-inline: -0.75rem;
+    }
+  }
+</style>

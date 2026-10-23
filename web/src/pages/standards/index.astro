@@ -6,6 +6,7 @@ import { localizePath } from '@/i18n/utils';
 import { getStandardsCopy } from '@/i18n/standards';
 import { getSdgReferenceCopy, sdgAgendaUrl, sdgGuidelinesUrl, sdgSiteUrl } from '@/i18n/sdg';
 import GroupHero from '@/components/group/GroupHero.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getStandardsCopy(locale);
@@ -17,6 +18,7 @@ const sdgCopy = getSdgReferenceCopy(locale);
   description={copy.metaDescription}
   path="/standards/"
 >
+  <SectionSubnav section="standards" locale={locale} />
   <article class="standards-page">
     <GroupHero
       eyebrow={copy.heroEyebrow}
@@ -42,17 +44,6 @@ const sdgCopy = getSdgReferenceCopy(locale);
       </div>
     </GroupHero>
 
-    <nav class="standards-nav" aria-label="Standards navigation">
-      <div class="container-wide standards-nav__inner">
-        <p class="standards-nav__label">{copy.navLabel}</p>
-        <ul class="standards-nav__list" role="list">
-            <li><a href={localizePath('/standards/', locale)} aria-current="page">{copy.navOverview}</a></li>
-            {copy.standards.map((standard) => (
-            <li><a href={localizePath(standard.href, locale)}>{standard.title}</a></li>
-          ))}
-        </ul>
-      </div>
-    </nav>
 
     <section id="standards-framework" class="standards-framework" aria-labelledby="framework-title">
       <div class="container-wide">
@@ -121,7 +112,7 @@ const sdgCopy = getSdgReferenceCopy(locale);
       </div>
     </section>
 
-    <section class="standards-workflow" aria-labelledby="workflow-title">
+    <section class="standards-workflow row--inverse ink-scope" aria-labelledby="workflow-title">
       <div class="container-wide">
         <div class="standards-section-intro">
           <h2 id="workflow-title"><PhraseText text={copy.workflowTitle} /></h2>
@@ -173,8 +164,7 @@ const sdgCopy = getSdgReferenceCopy(locale);
     text-underline-offset: 0.35em;
   }
 
-  .standards-hero__note-label,
-  .standards-nav__label {
+  .standards-hero__note-label {
     margin: 0;
     color: var(--text-accent);
     font-size: var(--fs-label);
@@ -204,39 +194,6 @@ const sdgCopy = getSdgReferenceCopy(locale);
     color: var(--text-muted);
     font-size: 0.8rem;
     line-height: 1.55;
-  }
-
-  .standards-nav {
-    border-bottom: var(--p-border-hairline) solid var(--border-subtle);
-    background: var(--surface-secondary);
-  }
-
-  .standards-nav__inner {
-    display: grid;
-    gap: 0.85rem 2rem;
-    padding-block: 1.15rem;
-  }
-
-  .standards-nav__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.45rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .standards-nav__list a {
-    color: var(--text-secondary);
-    font-size: 0.76rem;
-    text-decoration: none;
-    text-underline-offset: 0.3em;
-  }
-
-  .standards-nav__list a:hover,
-  .standards-nav__list a[aria-current='page'] {
-    color: var(--text-primary);
-    text-decoration: underline;
   }
 
   .standards-framework,
@@ -512,12 +469,6 @@ const sdgCopy = getSdgReferenceCopy(locale);
     justify-self: end;
   }
 
-  @media (min-width: 768px) {
-    .standards-nav__inner {
-      grid-template-columns: auto minmax(0, 1fr);
-      align-items: center;
-    }
-  }
 
   @media (max-width: 1023px) {
     .standards-list__item {
@@ -531,11 +482,6 @@ const sdgCopy = getSdgReferenceCopy(locale);
       grid-template-columns: 1fr;
     }
 
-    .standards-nav__list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.65rem 1rem;
-    }
 
     .standards-commitments {
       grid-template-columns: 1fr;

@@ -26,6 +26,8 @@ const posts = shown.flatMap((entry) => entry.items);
 
 const [{ post: featured } = { post: undefined }, ...recent] = shown;
 const isCallForPapers = (post: Announcement) => post.type.toLowerCase() === 'call for papers';
+// The ink band gathers the latest calls for papers from the whole archive.
+const calls = sorted.filter(isCallForPapers).slice(0, 3);
 const sourceCount = new Set(posts.map((post) => post.source)).size;
 const countNoSpace = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale);
 const countJoin = countNoSpace ? '' : ' ';
@@ -110,6 +112,32 @@ function isExternal(value: string) {
             </article>
           </div>
         </section>
+
+        {calls.length > 0 && (
+          <section class="news-calls row row--inverse ink-scope" aria-labelledby="news-calls-title">
+            <div class="container-wide">
+              <div class="news-calls__head">
+                <h2 id="news-calls-title">{copy.typeLabels['call for papers']}</h2>
+                <a class="action-link" href={localizePath('/journals/', locale)}>{t('common.viewAllJournals')}</a>
+              </div>
+              <ul class="news-calls__list" role="list">
+                {calls.map((call) => (
+                  <li>
+                    <a
+                      href={announcementHref(call.href)}
+                      target={isExternal(call.href) ? '_blank' : undefined}
+                      rel={isExternal(call.href) ? 'noopener noreferrer' : undefined}
+                    >
+                      <span class="news-calls__source">{displaySource(call.sourceLabel)}</span>
+                      <strong><PhraseText text={call.title} /></strong>
+                      <time datetime={call.date}>{formatDate(call.date)}</time>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
 
         <section class="news-archive row" aria-labelledby="recent-updates-title">
           <div class="container-wide">
@@ -223,6 +251,72 @@ function isExternal(value: string) {
 
   .news-feature {
     padding-block: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .news-calls {
+    padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .news-calls__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+  }
+
+  .news-calls__head h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .news-calls__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem clamp(1.5rem, 3vw, 2.75rem);
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .news-calls__list a {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding-top: 1rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .news-calls__source,
+  .news-calls__list time {
+    color: var(--text-muted);
+    font-size: var(--fs-caption);
+    line-height: 1.45;
+  }
+
+  .news-calls__list strong {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.3;
+  }
+
+  .news-calls__list time {
+    margin-top: auto;
+  }
+
+  .news-calls__list a:hover strong,
+  .news-calls__list a:focus-visible strong {
+    color: var(--text-accent);
+  }
+
+  @media (max-width: 767px) {
+    .news-calls__list {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   .news-section-label {

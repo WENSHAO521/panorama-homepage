@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 import { getLegalChromeCopy } from '@/i18n/legal';
 import { getNavigationLabels } from '@/i18n/navigation';
 import { getPolicyCopy } from '@/i18n/policies';
@@ -36,6 +37,7 @@ const disclosures = body.disclosures ?? [];
   path="/standards/editorial/"
   locale={locale}
 >
+  <SectionSubnav section="standards" locale={locale} />
   <article class="editorial-policy">
     <header class="policy-hero">
       <div class="container-wide policy-hero__grid">

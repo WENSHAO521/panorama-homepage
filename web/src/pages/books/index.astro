@@ -71,7 +71,7 @@ const t = getContent(locale);
       </div>
     </section>
 
-    <section class="books-programme row" aria-labelledby="programme-title">
+    <section class="books-programme row row--inverse ink-scope" aria-labelledby="programme-title">
       <div class="container-wide">
         <div class="books-programme__head">
           <div>
@@ -93,13 +93,13 @@ const t = getContent(locale);
       </div>
     </section>
 
-    <section class="books-cta row row--inverse" aria-labelledby="books-cta-title">
+    <section class="books-cta row" aria-labelledby="books-cta-title">
       <div class="container-wide books-cta__inner">
         <div>
           <p class="text-overline">{copy.overline}</p>
           <h2 id="books-cta-title"><PhraseText text={copy.ctaTitle} /></h2>
         </div>
-        <a class="books-link books-link--inverse" href={bookPlatform} target="_blank" rel="noopener noreferrer">
+        <a class="books-link" href={bookPlatform} target="_blank" rel="noopener noreferrer">
           {copy.exploreBooks}
           <span class="visually-hidden"> ({t('common.opensNewTab')})</span>
         </a>
@@ -270,10 +270,6 @@ const t = getContent(locale);
     margin-top: auto;
   }
 
-  .books-programme {
-    background: var(--surface-primary);
-  }
-
   .books-programme__head {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
@@ -302,18 +298,14 @@ const t = getContent(locale);
   .books-format-list {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2rem clamp(1.25rem, 2.5vw, 2.25rem);
     margin: 3rem 0 0;
     padding: 0;
-    border-top: var(--p-border-hairline) solid var(--border-strong);
-    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
     list-style: none;
   }
 
   .books-format-list li {
-    min-height: 9.25rem;
-    padding: 1rem 1rem 1.15rem;
-    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
-    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+    min-width: 0;
   }
 
   .books-format-list h3 {
@@ -334,6 +326,7 @@ const t = getContent(locale);
 
   .books-cta {
     border-bottom: 0;
+    background: var(--surface-secondary);
   }
 
   .books-cta__inner {
@@ -344,23 +337,12 @@ const t = getContent(locale);
   }
 
   .books-cta .text-overline {
-    color: var(--text-accent-inverse);
+    color: var(--text-accent);
   }
 
   .books-cta h2 {
     max-width: 18ch;
     margin-top: 0.7rem;
-    color: var(--text-inverse);
-  }
-
-  .books-link--inverse {
-    border-bottom-color: var(--brand-accent);
-    color: var(--text-inverse);
-  }
-
-  .books-link--inverse:hover {
-    border-bottom-color: var(--text-inverse);
-    color: var(--text-inverse);
   }
 
   .books-button:focus-visible,
@@ -430,19 +412,11 @@ const t = getContent(locale);
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .books-format-list li {
-      min-height: 10rem;
-      padding-inline: 0.8rem;
-    }
   }
 
   @media (max-width: 430px) {
     .books-format-list {
       grid-template-columns: minmax(0, 1fr);
-    }
-
-    .books-format-list li {
-      min-height: 0;
     }
   }
 </style>

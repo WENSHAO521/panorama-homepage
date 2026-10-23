@@ -10,6 +10,7 @@ import { imprintText, type ImprintSlug } from '@/i18n/imprints';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 
 const locale = Astro.currentLocale ?? 'en';
 const t = getContent(locale);
@@ -39,6 +40,7 @@ function compactDescription(description?: string) {
   path="/journals/"
   locale={locale}
 >
+  <SectionSubnav section="publishing" locale={locale} />
   <div class="journal-directory">
     <GroupHero
       eyebrow={t('journals.overline')}

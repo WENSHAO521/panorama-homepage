@@ -2,7 +2,7 @@
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import AboutSubnav from '@/components/about/AboutSubnav.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 import Button from '@/components/ui/Button.astro';
 import { corporateStructure } from '@/data/site';
 import { getAboutCopy } from '@/i18n/group';
@@ -45,7 +45,6 @@ const relationshipLogos = [
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getAboutCopy(locale);
-const localizedBasePath = localizePath('/about/', locale);
 ---
 
 <BaseLayout
@@ -55,7 +54,7 @@ const localizedBasePath = localizePath('/about/', locale);
   locale={locale}
 >
   <div class="about-page">
-    <AboutSubnav currentPath={localizedBasePath} locale={locale} />
+    <SectionSubnav section="about" locale={locale} />
 
     <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="about-title">
       <div slot="actions">
