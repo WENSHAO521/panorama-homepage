@@ -285,6 +285,11 @@ const localizedPageDescription = isJournals
   /* Keep the lede clear of the wallpaper, which starts at 45% of the hero. */
   @media (min-width: 901px) {
     .verdant-section-hero__lede { max-width: min(37rem, max(18rem, calc(45vw - 12rem))); }
+    /* Same for the heading: CJK headings use an em cap (typography.css) that overrides the 14ch above. */
+    .verdant-section-hero__copy { max-width: calc(45vw - max(3.5rem, 50vw - 740px) - 3rem); }
+  }
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .verdant-section-hero__copy { max-width: calc(45vw - max(2rem, 50vw - 560px) - 3rem); }
   }
   @media (min-width: 1760px) {
     .verdant-section-hero__lede { max-width: 31rem; }
