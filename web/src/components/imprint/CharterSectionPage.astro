@@ -309,6 +309,14 @@ const activeJournals = journals.filter((journal) => journal.status === 'active')
   .charter-secondary__journal-copy h2 a { color: inherit; text-decoration: none; }
   .charter-secondary__journal-copy h2 a:hover { color: var(--cs-red); }
   .charter-secondary__journal-copy > p:not(.charter-secondary__eyebrow) { max-width: 40rem; margin: 1.15rem 0 0; color: var(--cs-ink-soft); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.45; }
+  /* Eight journals as single rows ran past 4,000px; on wide screens they pair up. */
+  @media (min-width: 1024px) {
+    .charter-secondary__journal-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 4vw, 4rem); }
+    .charter-secondary__journal-row { grid-template-columns: minmax(7rem, 9.5rem) minmax(0, 1fr); column-gap: 1.75rem; padding-block: 2.25rem; }
+    .charter-secondary__journal-number { display: none; }
+    .charter-secondary__journal-copy h2 { font-size: clamp(1.5rem, 2vw, 1.85rem); line-height: 1.08; }
+    .charter-secondary__journal-copy > p:not(.charter-secondary__eyebrow) { font-size: 1rem; }
+  }
   .charter-secondary__cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--cs-paper-deep); color: var(--cs-ink-soft); font-size: var(--fs-label); letter-spacing: 0.12em; text-align: center; text-transform: uppercase; }
   .charter-secondary__link-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--p-action-row-gap); margin-top: 2rem; }
   .charter-secondary__text-link, .charter-secondary__quiet-link, .charter-secondary__inverse-link { display: inline-flex; align-items: center; gap: 0.45rem; border-bottom: 1px solid var(--cs-red); color: var(--cs-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }

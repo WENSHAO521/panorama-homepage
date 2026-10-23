@@ -663,6 +663,18 @@ const copy: Record<string, Partial<Record<LocaleCode, string>>> = {
     ru: 'Редакционные импринты',
     ar: 'العلامات التحريرية',
   },
+  'imprints.alsoFromGroup': {
+    en: 'Also from Panorama Scholarly Group',
+    'zh-hans': 'Panorama Scholarly Group 旗下其他品牌',
+    'zh-hant': 'Panorama Scholarly Group 旗下其他品牌',
+    ja: 'Panorama Scholarly Groupのほかのインプリント',
+    ko: 'Panorama Scholarly Group의 다른 출판 브랜드',
+    de: 'Weitere Imprints der Panorama Scholarly Group',
+    fr: 'Les autres marques de Panorama Scholarly Group',
+    es: 'Otros sellos de Panorama Scholarly Group',
+    ru: 'Другие импринты Panorama Scholarly Group',
+    ar: 'علامات أخرى من Panorama Scholarly Group',
+  },
   'imprints.systemOverline': {
     en: 'The imprint system',
     'zh-hans': '品牌体系',

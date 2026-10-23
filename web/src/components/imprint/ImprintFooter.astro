@@ -5,6 +5,10 @@ import { getNavigationLabels } from '@/i18n/navigation';
 import { localizePath } from '@/i18n/utils';
 import type { Imprint } from '@/types';
 import { getDoiPolicyCopy } from '@/i18n/doi-policy';
+import { getAllImprints } from '@/lib/content/imprints';
+import { getLocalizedImprints } from '@/i18n/catalog';
+import { getContent } from '@/i18n/content';
+import { imprintText, type ImprintSlug } from '@/i18n/imprints';
 
 interface NavLink {
   label: string;
@@ -30,9 +34,41 @@ const {
 const labels = getNavigationLabels(locale);
 const legalNav = getLegalNav(locale);
 const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independent scholarship.`;
+const t = getContent(locale);
+
+// The other four imprints, each carried by its own wallpaper and hero line,
+// so a reader can move between imprints without going back to the group site.
+const titleJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
+const family = getLocalizedImprints(getAllImprints(), locale)
+  .filter((other) => other.slug !== imprint.slug)
+  .map((other) => {
+    const slug = other.slug as ImprintSlug;
+    const line = ['heroTitleOne', 'heroTitleTwo', 'heroTitleThree']
+      .map((key) => imprintText(slug, locale, key, ''))
+      .filter(Boolean)
+      .join(titleJoin);
+    return { ...other, line };
+  });
 ---
 
 <footer class:list={['imprint-footer', `imprint-footer--${theme}`]}>
+  <section class="imprint-shell imprint-footer__family" aria-labelledby={`imprint-family-${imprint.slug}`}>
+    <div class="imprint-footer__family-bar">
+      <p id={`imprint-family-${imprint.slug}`}>{t('imprints.alsoFromGroup')}</p>
+      <a href={localizePath('/imprints/', locale)}>{t('common.viewAllImprints')}</a>
+    </div>
+    <ul class="imprint-footer__family-grid" role="list">
+      {family.map((other) => (
+        <li style={`--family-accent: ${other.accent}; --family-art: url('/images/publishing/cards/${other.slug}.webp');`}>
+          <a href={localizePath(`/imprints/${other.slug}/`, locale)}>
+            <img src={other.logoLight} alt={other.name} width="160" height="32" loading="lazy" />
+            <span>{other.line}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
   <div class="imprint-shell imprint-footer__top">
     <div class="imprint-footer__identity">
       <Logo href={localizePath('/', locale)} inverse={theme === 'dark'} />
@@ -85,6 +121,33 @@ const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independ
     padding-block: clamp(3rem, 6vw, 5.5rem);
   }
 
+  .imprint-footer__family { padding-block: clamp(2.5rem, 4vw, 3.5rem) 0; }
+  .imprint-footer__family-bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; margin-bottom: 1.25rem; }
+  .imprint-footer__family-bar p { margin: 0; color: var(--imprint-footer-muted); font-size: var(--fs-label); font-weight: var(--fw-semibold); letter-spacing: 0.16em; text-transform: uppercase; }
+  .imprint-footer__family-bar a { color: var(--imprint-footer-ink); font-size: var(--fs-caption); text-decoration: underline; text-decoration-color: var(--imprint-footer-line); text-underline-offset: 0.3em; }
+  .imprint-footer__family-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
+  .imprint-footer__family-grid a {
+    position: relative;
+    display: grid;
+    align-content: end;
+    gap: 0.6rem;
+    min-height: 9rem;
+    padding: 1.1rem;
+    overflow: hidden;
+    border-radius: var(--p-radius-button);
+    background: var(--family-accent) var(--family-art) center / cover no-repeat;
+    color: var(--p-paper-50);
+    text-decoration: none;
+    isolation: isolate;
+  }
+  .imprint-footer__family-grid a::before { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--family-accent) 92%, #000) 78%); content: ''; }
+  .imprint-footer__family-grid img { display: block; width: auto; max-width: 9rem; height: 1.35rem; object-fit: contain; object-position: left center; }
+  .imprint-footer__family-grid span { font-family: var(--font-display); font-size: 1rem; line-height: 1.25; }
+  .imprint-footer__family-grid a:hover,
+  .imprint-footer__family-grid a:focus-visible { outline: 1px solid var(--imprint-footer-ink); outline-offset: 2px; }
+
+  .imprint-footer__family + .imprint-footer__top { margin-top: clamp(2.5rem, 4vw, 3.5rem); border-top: 1px solid var(--imprint-footer-line); }
+
   .imprint-footer__identity { display: grid; align-content: start; justify-items: start; gap: 1.2rem; max-width: 23rem; }
   .imprint-footer__brand { display: inline-flex; max-width: 10rem; color: inherit; text-decoration: none; }
   .imprint-footer__brand img { display: block; width: 100%; height: auto; max-height: 2.3rem; object-fit: contain; object-position: left center; }
@@ -105,6 +168,7 @@ const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independ
   @media (max-width: 900px) {
     .imprint-shell { width: min(calc(100% - (2 * var(--p-gutter-tablet))), 44rem); }
     .imprint-footer__top { grid-template-columns: 1fr; }
+    .imprint-footer__family-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   @media (max-width: 639px) {
@@ -112,5 +176,7 @@ const resolvedTagline = tagline ?? `${imprint.name} publishes rigorous, independ
     .imprint-footer__top { gap: 2.5rem; padding-block: 3rem; }
     .imprint-footer__nav { grid-template-columns: 1fr 1fr; }
     .imprint-footer__bottom { align-items: flex-start; flex-direction: column; }
+    .imprint-footer__family-grid a { min-height: 7.5rem; padding: 0.9rem; }
+    .imprint-footer__family-grid span { font-size: 0.9rem; }
   }
 </style>
