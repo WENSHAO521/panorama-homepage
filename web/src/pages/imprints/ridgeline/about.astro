@@ -1,4 +1,5 @@
 ---
+import { getImprintNavigation } from '@/lib/content/imprint-routes';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -6,7 +7,6 @@ import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
 import ridgelineWallpaper from '@/assets/ridgeline-wallpaper-4k.jpg';
 import { getImprintBySlug } from '@/lib/content/imprints';
-import { getNavigationLabels } from '@/i18n/navigation';
 import { imprintText } from '@/i18n/imprints';
 import { localizePath } from '@/i18n/utils';
 
@@ -20,17 +20,8 @@ const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'en';
 const tx = (key: string, fallback: string) => imprintText('ridgeline', locale, key, fallback);
 const pageDescription = tx('section.about.pageDescription', 'Learn about Ridgeline, Panorama Scholarly Group’s imprint for independent, research-led journals across technology, engineering and society.');
-const labels = getNavigationLabels(locale);
-const localizedBasePath = localizePath('/imprints/ridgeline/', locale);
 const localizedJournalsPath = localizePath('/imprints/ridgeline/journals/', locale);
-const localizedAboutPath = localizePath('/imprints/ridgeline/about/', locale);
-const imprintNav = [
-  { label: labels.home, href: localizedBasePath },
-  { label: labels.journals, href: localizedJournalsPath },
-  { label: labels.research, href: `${localizedBasePath}#purpose` },
-  { label: labels.forAuthors, href: `${localizedBasePath}#authors` },
-  { label: labels.about, href: localizedAboutPath, current: true },
-];
+const imprintNav = getImprintNavigation('ridgeline', locale).map(({ key, label, href }) => ({ label, href, current: key === 'about' }));
 const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 const researchAreas = [
   { key: 'ai', title: 'Artificial Intelligence', body: 'Methods, systems and social consequences.' },
@@ -154,7 +145,7 @@ const researchAreas = [
           </div>
           <div class="ridgeline-about-cta__actions">
             <a class="ridgeline-button ridgeline-button--light" data-action="primary" href={localizedJournalsPath}>{tx('exploreJournals', 'Explore our journals')}</a>
-            <a class="ridgeline-text-link ridgeline-text-link--inverse" data-action="secondary" href={`${localizedBasePath}#authors`}>{tx('forAuthors', 'For authors and editors')}</a>
+            <a class="ridgeline-text-link ridgeline-text-link--inverse" data-action="secondary" href={localizePath('/imprints/ridgeline/for-authors/', locale)}>{tx('forAuthors', 'For authors and editors')}</a>
           </div>
         </div>
       </section>

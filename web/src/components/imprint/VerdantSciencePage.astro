@@ -1,4 +1,5 @@
 ---
+import { getImprintNavigation } from '@/lib/content/imprint-routes';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -6,7 +7,6 @@ import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
 import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import type { Imprint, Journal } from '@/types';
-import { getNavigationLabels } from '@/i18n/navigation';
 import { localizePath } from '@/i18n/utils';
 import { imprintText } from '@/i18n/imprints';
 
@@ -55,18 +55,7 @@ const locale = Astro.currentLocale ?? 'en';
 const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 const tx = (key: string, fallback: string) => imprintText('verdant-science', locale, key, fallback);
 const pageDescription = tx('pageDescription', 'Verdant Science is Panorama Scholarly Group’s imprint for rigorous research across sustainability, environmental systems, food, rural development, and human wellbeing.');
-const labels = getNavigationLabels(locale);
-const localizedBasePath = localizePath(basePath, locale);
-const researchPath = `${localizedBasePath}#research`;
-const authorsPath = `${localizedBasePath}#about`;
-const aboutPath = localizePath(`${basePath}about/`, locale);
-const imprintNav = [
-  { label: labels.home, href: localizedBasePath, current: true },
-  { label: labels.journals, href: localizePath(`${basePath}journals/`, locale) },
-  { label: labels.research, href: researchPath },
-  { label: labels.forAuthors, href: authorsPath },
-  { label: labels.about, href: aboutPath },
-];
+const imprintNav = getImprintNavigation('verdant-science', locale).map(({ key, label, href }) => ({ label, href, current: key === 'home' }));
 const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 ---
 

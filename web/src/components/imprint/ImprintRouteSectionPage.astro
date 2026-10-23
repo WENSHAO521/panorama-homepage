@@ -1,0 +1,293 @@
+---
+/*
+  Research and For-authors pages for the imprints whose landing pages
+  predate a section-page component (Ridgeline, Verdant Science). Everything
+  is drawn from the imprint theme tokens and the imprint's existing copy, so
+  the pages sit beside each brand's own journals and about pages.
+*/
+import PhraseText from '@/components/ui/PhraseText.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ImprintFooter from '@/components/imprint/ImprintFooter.astro';
+import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
+import type { Imprint, Journal } from '@/types';
+import { getNavigationLabels } from '@/i18n/navigation';
+import { imprintText } from '@/i18n/imprints';
+import { localizePath } from '@/i18n/utils';
+import { getImprintNavigation, routeSectionContent, type RouteImprint } from '@/lib/content/imprint-routes';
+
+type Section = 'research' | 'for-authors';
+
+interface Props {
+  imprint: Imprint;
+  journals: Journal[];
+  section: Section;
+}
+
+const { imprint, journals, section } = Astro.props;
+const slug = imprint.slug as RouteImprint;
+const locale = Astro.currentLocale ?? 'en';
+const currentPath = Astro.url.pathname;
+const labels = getNavigationLabels(locale);
+const tx = (key: string, fallback: string) => imprintText(slug, locale, key, fallback);
+const titleJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
+const countJoin = titleJoin;
+const content = routeSectionContent[slug];
+const basePath = `/imprints/${slug}/`;
+const pagePath = `${basePath}${section}/`;
+const isResearch = section === 'research';
+
+const navigation = getImprintNavigation(slug, locale);
+const imprintNav = navigation.map(({ label, href, key }) => ({ label, href, current: key === section }));
+const footerNav = navigation.map(({ label, href }) => ({ label, href }));
+
+const join = (keys: [string, string][]) => keys.map(([key, fallback]) => tx(key, fallback)).join(titleJoin);
+const hero = isResearch ? content.research : content.authors;
+const heroTitle = join(hero.title);
+const heroLede = tx(hero.lede[0], hero.lede[1]);
+const kicker = `${imprint.name} / ${isResearch ? labels.research : labels.forAuthors}`;
+
+const activeJournals = journals.filter((journal) => journal.status === 'active');
+const journalBySlug = new Map(activeJournals.map((journal) => [journal.slug, journal]));
+const areas = content.areas.map((area) => ({
+  ...area,
+  journals: area.journals.map((journalSlug) => journalBySlug.get(journalSlug)).filter((journal): journal is Journal => Boolean(journal)),
+}));
+
+const steps = ['choose', 'prepare', 'submit'];
+const stepFallbacks: Record<string, [string, string]> = {
+  choose: ['Choose the right journal', 'Review each journal’s aims, scope and published work before preparing a submission.'],
+  prepare: ['Prepare a transparent manuscript', 'Present the research question, methods, evidence, limitations and relevant declarations clearly.'],
+  submit: ['Submit through the journal', 'Use the journal’s official submission system and follow its current author instructions.'],
+};
+
+const pageTitle = `${isResearch ? labels.research : labels.forAuthors} | ${imprint.name}`;
+const description = `${heroTitle} ${heroLede}`;
+---
+
+<BaseLayout title={pageTitle} description={description} path={pagePath} locale={locale} showChrome={false}>
+  <div class="route-page" data-imprint-theme={slug}>
+    <ImprintHeader imprint={imprint} links={imprintNav} locale={locale} currentPath={currentPath} />
+
+    <main>
+      <section class="route-hero" aria-labelledby="route-hero-title">
+        <div class="route-shell route-hero__inner">
+          <div class="route-hero__copy">
+            <p class="route-kicker">{kicker}</p>
+            <h1 id="route-hero-title"><PhraseText text={heroTitle} /></h1>
+            <p class="route-hero__lede"><PhraseText text={heroLede} /></p>
+            <div class="route-actions">
+              {isResearch ? (
+                <a class="route-button route-button--primary" data-action="primary" href={localizePath(`${basePath}journals/`, locale)}>{tx(content.exploreKey, 'Explore our journals')}</a>
+              ) : (
+                <a class="route-button route-button--primary" data-action="primary" href="#submit">{tx(content.submitKey, 'Submit a manuscript')}</a>
+              )}
+            </div>
+          </div>
+          <div class="route-hero__art" style={`--route-art: url('${content.wallpaper}')`} aria-hidden="true"></div>
+        </div>
+      </section>
+
+      {isResearch && (
+        <section class="route-areas" aria-labelledby="route-areas-title">
+          <div class="route-shell">
+            <div class="route-bar">
+              <p class="route-kicker" id="route-areas-title">{tx(content.areasKicker[0], content.areasKicker[1])}</p>
+              <p>{tx(content.areasMeta[0], content.areasMeta[1])}</p>
+            </div>
+            <div class="route-areas__grid">
+              {areas.map((area) => (
+                <article class="route-area">
+                  <h2><PhraseText text={tx(area.titleKey, area.title)} /></h2>
+                  <p>{tx(area.bodyKey, area.body)}</p>
+                  {area.journals.length > 0 && (
+                    <div class="route-area__journals">
+                      <span>{tx('section.research.publishedIn', 'Published in')}</span>
+                      <ul role="list">
+                        {area.journals.map((journal) => (
+                          <li><a href={journal.journalUrl} target="_blank" rel="noopener noreferrer">{journal.title}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {!isResearch && (
+        <>
+          <section class="route-process" aria-labelledby="route-process-title">
+            <div class="route-shell">
+              <div class="route-process__heading">
+                <div>
+                  <p class="route-kicker">{tx('section.authors.beforeKicker', 'Before you submit')}</p>
+                  <h2 id="route-process-title"><PhraseText text={tx('section.authors.processTitle', 'A clear route from research to publication.')} /></h2>
+                </div>
+                <p>{tx('section.authors.processBody', `Every ${imprint.name} journal has its own scope and submission requirements. These shared steps help authors begin in the right place.`)}</p>
+              </div>
+              <ol class="route-steps" role="list">
+                {steps.map((step, index) => (
+                  <li>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <h3><PhraseText text={tx(`section.step.${step}.title`, stepFallbacks[step][0])} /></h3>
+                    <p>{tx(`section.step.${step}.body`, stepFallbacks[step][1])}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          <section class="route-standards" aria-labelledby="route-standards-title">
+            <div class="route-shell route-standards__inner">
+              <div>
+                <p class="route-kicker">{tx('section.authors.standardsKicker', 'Shared standards')}</p>
+                <h2 id="route-standards-title"><PhraseText text={tx('section.authors.standardsTitle', 'Strong submissions begin with responsible scholarship.')} /></h2>
+              </div>
+              <div>
+                <p>{tx('section.authors.standardsBody', 'Authors should report methods and evidence accurately, disclose relevant interests, follow applicable ethical requirements and make the limits of a study clear.')}</p>
+                <ul class="route-standards__links" role="list">
+                  <li><a href={localizePath('/standards/editorial/', locale)}>{labels.editorialStandards}</a></li>
+                  <li><a href={localizePath('/standards/ethics/', locale)}>{labels.publicationEthics}</a></li>
+                  <li><a href={localizePath('/standards/open-access/', locale)}>{labels.openAccess}</a></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section id="submit" class="route-submit" aria-labelledby="route-submit-title">
+            <div class="route-shell">
+              <div class="route-bar">
+                <p class="route-kicker" id="route-submit-title">{tx('section.authors.submitKicker', 'Submit to a journal')}</p>
+                <p>{activeJournals.length}{countJoin}{tx('section.authors.destinations', 'current destinations')}</p>
+              </div>
+              <ul class="route-submit__list" role="list">
+                {activeJournals.map((journal) => (
+                  <li>
+                    <div>
+                      <h3>{journal.title}</h3>
+                      {journal.issn && <p>ISSN {journal.issn}</p>}
+                    </div>
+                    <a class="route-text-link" href={journal.submissionUrl ?? journal.journalUrl} target="_blank" rel="noopener noreferrer">{tx('openSubmission', 'Open submission system')}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        </>
+      )}
+    </main>
+
+    <ImprintFooter imprint={imprint} links={footerNav} locale={locale} theme="dark" tagline={tx('footerTagline', content.footerTagline)} />
+  </div>
+</BaseLayout>
+
+<style>
+  .route-page {
+    --route-shell: min(100% - 7rem, 1480px);
+    background: var(--imprint-paper);
+    color: var(--imprint-text);
+  }
+
+  .route-shell { width: var(--route-shell); margin-inline: auto; }
+
+  .route-kicker {
+    margin: 0;
+    color: var(--imprint-primary);
+    font-size: var(--fs-label);
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .route-page h1,
+  .route-page h2,
+  .route-page h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: var(--ls-tight); }
+
+  .route-hero { position: relative; border-bottom: 1px solid var(--imprint-line); }
+  .route-hero__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: clamp(2rem, 5vw, 5rem); }
+  .route-hero__copy { display: grid; align-content: center; gap: 1.4rem; padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+  .route-hero h1 { max-width: 15ch; margin: 0; color: var(--imprint-text); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 0.98; }
+  .route-hero__lede { max-width: 34rem; margin: 0; color: var(--imprint-text-soft); font-family: var(--font-display); font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.45; }
+  /* The artwork bleeds to the viewport edge from the middle of the hero. */
+  .route-hero__art { position: absolute; inset-block: 0; inset-inline: 50% 0; background: var(--imprint-tint) var(--route-art) center / cover no-repeat; }
+
+  .route-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.6rem; }
+  .route-button { display: inline-flex; align-items: center; min-height: var(--p-action-height); padding: var(--p-action-pad-y) var(--p-action-pad-x); border: 1px solid var(--imprint-primary); border-radius: var(--p-radius-button); font-size: var(--p-action-font-size); font-weight: var(--p-action-font-weight); text-decoration: none; transition: background-color var(--p-duration-base) var(--p-ease-standard); }
+  .route-button--primary { background: var(--imprint-primary); color: var(--imprint-on-primary); }
+  .route-button--primary:hover,
+  .route-button--primary:focus-visible { background: var(--imprint-primary-hover); }
+
+  .route-bar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--imprint-line); }
+  .route-bar > p:not(.route-kicker) { margin: 0; color: var(--imprint-text-soft); font-size: var(--fs-label); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  .route-areas { padding-block: clamp(3rem, 6vw, 5rem); }
+  .route-areas__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); border-inline-start: 1px solid var(--imprint-line); }
+  .route-area { display: grid; align-content: start; gap: 0.8rem; padding: 1.75rem 1.5rem 2rem; border-inline-end: 1px solid var(--imprint-line); border-bottom: 1px solid var(--imprint-line); }
+  .route-area h2 { margin: 0; font-size: clamp(1.35rem, 1.8vw, 1.6rem); line-height: 1.12; }
+  .route-area > p { margin: 0; color: var(--imprint-text-soft); font-family: var(--font-display); line-height: 1.5; }
+  .route-area__journals { display: grid; gap: 0.4rem; margin-top: 0.6rem; padding-top: 0.9rem; border-top: 1px solid var(--imprint-line); }
+  .route-area__journals span { color: var(--imprint-primary); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+  .route-area__journals ul { display: grid; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
+  .route-area__journals a { color: var(--imprint-text); font-size: var(--fs-caption); text-decoration: underline; text-decoration-color: var(--imprint-line); text-underline-offset: 0.25em; }
+  .route-area__journals a:hover,
+  .route-area__journals a:focus-visible { color: var(--imprint-primary); text-decoration-color: currentColor; }
+
+  .route-process { padding-block: clamp(3.5rem, 7vw, 6rem); }
+  .route-process__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 2rem clamp(2rem, 6vw, 6rem); align-items: end; }
+  .route-process__heading h2 { max-width: 16ch; margin: 1rem 0 0; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.02; }
+  .route-process__heading > p { max-width: 34rem; margin: 0; color: var(--imprint-text-soft); font-family: var(--font-display); font-size: 1.08rem; line-height: 1.5; }
+  .route-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: clamp(2.5rem, 5vw, 3.5rem) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--imprint-line); }
+  .route-steps li { display: grid; align-content: start; gap: 0.7rem; padding: 1.6rem 1.5rem 0 0; }
+  .route-steps li + li { padding-inline-start: 1.5rem; border-inline-start: 1px solid var(--imprint-line); }
+  .route-steps span { color: var(--imprint-primary); font-size: var(--fs-caption); font-weight: 800; letter-spacing: 0.12em; font-variant-numeric: tabular-nums; }
+  .route-steps h3 { margin: 0; font-size: 1.4rem; line-height: 1.15; }
+  .route-steps p { margin: 0; color: var(--imprint-text-soft); font-family: var(--font-display); line-height: 1.5; }
+
+  .route-standards { padding-block: clamp(3.5rem, 6vw, 5rem); background: var(--imprint-deep); color: var(--imprint-on-deep); }
+  .route-standards .route-kicker { color: var(--imprint-accent-light); }
+  .route-standards__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: 2rem clamp(2rem, 6vw, 6rem); align-items: end; }
+  .route-standards h2 { max-width: 16ch; margin: 1rem 0 0; color: var(--imprint-on-deep); font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.04; }
+  .route-standards p { margin: 0; color: color-mix(in srgb, var(--imprint-on-deep) 82%, transparent); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.5; }
+  .route-standards__links { display: grid; margin: 1.5rem 0 0; padding: 0; list-style: none; border-top: 1px solid color-mix(in srgb, var(--imprint-on-deep) 22%, transparent); }
+  .route-standards__links a { display: flex; justify-content: space-between; padding-block: 0.8rem; border-bottom: 1px solid color-mix(in srgb, var(--imprint-on-deep) 22%, transparent); color: var(--imprint-on-deep); font-size: var(--fs-label); font-weight: 750; letter-spacing: 0.14em; text-decoration: none; text-transform: uppercase; }
+  .route-standards__links a::after { content: '→'; }
+  .route-standards__links a:hover,
+  .route-standards__links a:focus-visible { color: var(--imprint-accent-light); }
+
+  .route-submit { padding-block: clamp(3.5rem, 6vw, 5rem); }
+  .route-submit__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 4vw, 4rem); margin: 0; padding: 0; list-style: none; }
+  .route-submit__list li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; padding-block: 1.4rem; border-bottom: 1px solid var(--imprint-line); }
+  .route-submit__list li > div { min-width: 0; }
+  .route-submit__list h3 { margin: 0; font-size: 1.3rem; line-height: 1.15; }
+  .route-submit__list p { margin: 0.35rem 0 0; color: var(--imprint-text-soft); font-size: var(--fs-caption); font-variant-numeric: tabular-nums; }
+  .route-text-link { color: var(--imprint-text); font-size: var(--fs-caption); font-weight: 650; text-decoration: underline; text-decoration-color: var(--imprint-primary); text-underline-offset: 0.3em; white-space: nowrap; }
+  .route-text-link::after { content: ' →'; }
+  .route-text-link:hover,
+  .route-text-link:focus-visible { color: var(--imprint-primary); }
+
+  @media (max-width: 1200px) {
+    .route-page { --route-shell: min(100% - 4rem, 1120px); }
+  }
+
+  @media (max-width: 900px) {
+    .route-page { --route-shell: min(calc(100% - (2 * var(--p-gutter-tablet))), 44rem); }
+    .route-hero__inner,
+    .route-process__heading,
+    .route-standards__inner { grid-template-columns: 1fr; }
+    .route-hero__copy { padding-block: 3rem 0; }
+    .route-hero__art { position: static; min-height: 14rem; margin-bottom: 2.5rem; border-radius: var(--p-radius-button); }
+    .route-steps { grid-template-columns: 1fr; }
+    .route-steps li,
+    .route-steps li + li { padding: 1.4rem 0; border-inline-start: 0; border-bottom: 1px solid var(--imprint-line); }
+    .route-submit__list { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 639px) {
+    .route-page { --route-shell: calc(100% - (2 * var(--p-gutter-mobile))); }
+    .route-hero h1 { font-size: clamp(2.2rem, 10vw, 2.8rem); }
+    .route-areas__grid { grid-template-columns: 1fr; }
+  }
+</style>

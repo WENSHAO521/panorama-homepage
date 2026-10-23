@@ -1,4 +1,5 @@
 ---
+import { getImprintNavigation } from '@/lib/content/imprint-routes';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -7,7 +8,6 @@ import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
 import ridgelineWallpaper from '@/assets/ridgeline-wallpaper-4k.jpg';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import type { Imprint, Journal } from '@/types';
-import { getNavigationLabels } from '@/i18n/navigation';
 import { localizePath } from '@/i18n/utils';
 import { imprintText } from '@/i18n/imprints';
 
@@ -38,22 +38,8 @@ const researchAreas = [
 ];
 
 const pageDescription = tx('pageDescription', 'Ridgeline publishes independent journals in technology, engineering, and applied AI for a more human, sustainable, and equitable future.');
-const labels = getNavigationLabels(locale);
-const localizedBasePath = localizePath('/imprints/ridgeline/', locale);
-const imprintNav = [
-  { label: labels.home, href: localizedBasePath, current: true },
-  { label: labels.journals, href: ridgelineJournalsPath },
-  { label: labels.research, href: '#purpose' },
-  { label: labels.forAuthors, href: '#authors' },
-  { label: labels.about, href: localizePath('/imprints/ridgeline/about/', locale) },
-];
-const footerNav = [
-  { label: labels.home, href: localizedBasePath },
-  { label: labels.journals, href: localizePath('/imprints/ridgeline/journals/', locale) },
-  { label: labels.research, href: '#purpose' },
-  { label: labels.forAuthors, href: '#authors' },
-  { label: labels.about, href: localizePath('/imprints/ridgeline/about/', locale) },
-];
+const imprintNav = getImprintNavigation('ridgeline', locale).map(({ key, label, href }) => ({ label, href, current: key === 'home' }));
+const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 ---
 
 <BaseLayout

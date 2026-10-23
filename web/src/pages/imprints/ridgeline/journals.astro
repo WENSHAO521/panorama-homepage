@@ -1,4 +1,5 @@
 ---
+import { getImprintNavigation } from '@/lib/content/imprint-routes';
 import PhraseText from '@/components/ui/PhraseText.astro';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
@@ -7,9 +8,7 @@ import ImprintHeader from '@/components/imprint/ImprintHeader.astro';
 import JournalRightsMeta from '@/components/journal/JournalRightsMeta.astro';
 import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
-import { getNavigationLabels } from '@/i18n/navigation';
 import { imprintText } from '@/i18n/imprints';
-import { localizePath } from '@/i18n/utils';
 
 const imprint = getImprintBySlug('ridgeline');
 const journals = getJournalsForImprint('ridgeline', Astro.currentLocale ?? 'en').filter((journal) => journal.status === 'active');
@@ -18,16 +17,7 @@ const locale = Astro.currentLocale ?? 'en';
 const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 const tx = (key: string, fallback: string) => imprintText('ridgeline', locale, key, fallback);
 const pageDescription = tx('section.journals.pageDescription', 'Explore the Ridgeline journal family across technology, engineering, applied AI, and interdisciplinary systems research.');
-const labels = getNavigationLabels(locale);
-const localizedBasePath = localizePath('/imprints/ridgeline/', locale);
-const localizedAboutPath = localizePath('/imprints/ridgeline/about/', locale);
-const imprintNav = [
-  { label: labels.home, href: localizedBasePath },
-  { label: labels.journals, href: '#journals', current: true },
-  { label: labels.research, href: `${localizedBasePath}#purpose` },
-  { label: labels.forAuthors, href: `${localizedBasePath}#authors` },
-  { label: labels.about, href: localizedAboutPath },
-];
+const imprintNav = getImprintNavigation('ridgeline', locale).map(({ key, label, href }) => ({ label, href, current: key === 'journals' }));
 const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 const disciplineKeys: Record<string, string> = {
   Multidisciplinary: 'multidisciplinary',
