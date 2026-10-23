@@ -36,14 +36,6 @@ const routes = copy.routes.map((route, index) => ({
       <div slot="aside" class="contact-hero__aside-content" aria-label={copy.generalOverline}>
         <p class="text-overline">{copy.generalOverline}</p>
         <p>{copy.generalBody}</p>
-        <div class="contact-office-list">
-          {offices.map((office) => (
-            <div class="contact-office">
-              <p class="contact-office__label">{office.label}</p>
-              <address>{office.streetAddress}</address>
-            </div>
-          ))}
-        </div>
       </div>
     </GroupHero>
 
@@ -58,9 +50,9 @@ const routes = copy.routes.map((route, index) => ({
         </header>
 
         <div class="contact-route-list">
-          {routes.map((route, index) => (
+          {routes.map((route) => (
             <a class="contact-route" href={route.href} target={route.external ? '_blank' : undefined} rel={route.external ? 'noopener noreferrer' : undefined}>
-              <span class="contact-route__number">{String(index + 1).padStart(2, '0')}</span>
+              <span class="contact-route__mark" aria-hidden="true"></span>
               <span class="contact-route__body">
                 <strong>{route.title}</strong>
                 <span>{route.body}</span>
@@ -224,11 +216,11 @@ const routes = copy.routes.map((route, index) => ({
     padding-inline: 0.6rem;
   }
 
-  .contact-route__number {
-    color: var(--text-accent);
-    font-family: var(--font-display);
-    font-size: 1.7rem;
-    line-height: 1;
+  /* Routes are alternatives, not steps, so a gold mark replaces 01–04. */
+  .contact-route__mark {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--brand-accent);
   }
 
   .contact-route__body { display: grid; gap: 0.3rem; }

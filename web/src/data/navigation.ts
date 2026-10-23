@@ -19,6 +19,8 @@ import type { Imprint } from '@/types';
 import { getNavigationLabels } from '@/i18n/navigation';
 import { getInfrastructureCopy } from '@/i18n/infrastructure';
 import { localizePath } from '@/i18n/utils';
+import { getJournalsForImprint } from '@/lib/content/imprints';
+import { getFeaturedJournals } from '@/lib/content/journals';
 
 const imprints = imprintsData as Imprint[];
 
@@ -90,6 +92,8 @@ export const primaryNav: NavItem[] = [
         children: imprints.map((imprint) => ({
           label: imprint.name,
           path: `/imprints/${imprint.slug}/`,
+          accent: imprint.accent,
+          count: getJournalsForImprint(imprint.slug).length,
           description: {
             ridgeline: 'Technology, engineering, and applied AI',
             'health-nexus': 'Medicine, health, and population wellbeing',
@@ -98,6 +102,16 @@ export const primaryNav: NavItem[] = [
             threnody: 'Humanities, arts, and philosophy',
           }[imprint.slug],
         })),
+      },
+      // A small cover wall leading to the journal directory, echoing the
+      // homepage imprint cards. One featured cover per imprint, first three.
+      {
+        label: 'All journals',
+        path: '/journals/',
+        covers: imprints
+          .map((imprint) => getFeaturedJournals().find((journal) => journal.imprint === imprint.slug)?.cover)
+          .filter((cover): cover is string => Boolean(cover))
+          .slice(0, 3),
       },
     ],
   },

@@ -7,6 +7,7 @@ import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
 import { getContent } from '@/i18n/content';
 import type { Announcement } from '@/data/announcements';
+import { getNavigationLabels } from '@/i18n/navigation';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getNewsCopy(locale);
@@ -28,6 +29,16 @@ const [{ post: featured } = { post: undefined }, ...recent] = shown;
 const isCallForPapers = (post: Announcement) => post.type.toLowerCase() === 'call for papers';
 // The ink band gathers the latest calls for papers from the whole archive.
 const calls = sorted.filter(isCallForPapers).slice(0, 3);
+const navLabels = getNavigationLabels(locale);
+// Archive filters. Each matches on type (calls) or on the announcement source,
+// and only filters with at least one matching entry are offered.
+const filters = [
+  { key: 'all', label: copy.filterAll },
+  { key: 'cfp', label: copy.typeLabels['call for papers'] },
+  { key: 'group', label: navLabels.footerGroup },
+  { key: 'journals', label: navLabels.journals },
+  { key: 'research', label: navLabels.researchInstitute },
+].filter(({ key }) => key === 'all' || recent.some(({ post }) => key === 'cfp' ? isCallForPapers(post) : post.source === key));
 const sourceCount = new Set(posts.map((post) => post.source)).size;
 const countNoSpace = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale);
 const countJoin = countNoSpace ? '' : ' ';
@@ -149,9 +160,16 @@ function isExternal(value: string) {
               <p>{copy.archiveText}</p>
             </div>
 
+            {/* Shown by the script below; without it every entry stays listed. */}
+            <div class="news-filters" role="group" aria-label={copy.filterLabel} data-news-filters hidden>
+              {filters.map(({ key, label }) => (
+                <button type="button" class="news-filters__button" data-filter={key} aria-pressed={key === 'all' ? 'true' : 'false'}>{label}</button>
+              ))}
+            </div>
+
             <ol class="news-archive__list">
               {recent.map(({ post, items }, index) => (
-                <li>
+                <li data-source={post.source} data-cfp={isCallForPapers(post) ? '' : undefined}>
                   {items.length === 1 ? (
                     <a
                       class="news-archive__row"
@@ -218,6 +236,24 @@ function isExternal(value: string) {
     )}
   </div>
 </BaseLayout>
+
+<script>
+  const bar = document.querySelector<HTMLElement>('[data-news-filters]');
+  if (bar) {
+    const rows = [...document.querySelectorAll<HTMLElement>('.news-archive__list > li')];
+    const buttons = [...bar.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    bar.hidden = false;
+    bar.addEventListener('click', (event) => {
+      const button = (event.target as Element).closest<HTMLButtonElement>('[data-filter]');
+      if (!button) return;
+      const key = button.dataset.filter;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      rows.forEach((row) => {
+        row.hidden = key !== 'all' && (key === 'cfp' ? !row.hasAttribute('data-cfp') : row.dataset.source !== key);
+      });
+    });
+  }
+</script>
 
 <style>
   .news-page {
@@ -317,6 +353,46 @@ function isExternal(value: string) {
     .news-calls__list {
       grid-template-columns: minmax(0, 1fr);
     }
+  }
+
+  .news-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .news-filters[hidden] {
+    display: none;
+  }
+
+  .news-filters__button {
+    min-height: 2.4rem;
+    padding: 0.45rem 0.95rem;
+    border: var(--p-border-hairline) solid var(--border-strong);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-medium);
+    cursor: pointer;
+  }
+
+  .news-filters__button:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+  }
+
+  .news-filters__button[aria-pressed='true'] {
+    border-color: var(--text-primary);
+    background: var(--text-primary);
+    color: var(--surface-primary);
+  }
+
+  .news-filters__button:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: 2px;
   }
 
   .news-section-label {

@@ -28,7 +28,7 @@ const t = getUiStrings(currentLocale);
 const primaryNav = getPrimaryNav(currentLocale);
 
 function flattenChildren(item: NavItem): NavItem[] {
-  const isMultiColumn = (item.children ?? []).every((c) => c.children && c.children.length > 0);
+  const isMultiColumn = (item.children ?? []).some((c) => (c.children && c.children.length > 0) || c.covers);
   return isMultiColumn ? item.children!.flatMap((col) => col.children ?? []) : item.children ?? [];
 }
 ---

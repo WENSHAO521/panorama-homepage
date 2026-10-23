@@ -70,6 +70,8 @@ export interface NewsPageCopy {
   emptyTitle: string;
   emptyText: string;
   typeLabels: { update: string; 'call for papers': string };
+  filterLabel: string;
+  filterAll: string;
 }
 
 const searchClient = (
@@ -148,6 +150,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: 'New updates will appear here.',
       emptyText: 'There are no group announcements available at the moment. Please return soon for the latest notices.',
       typeLabels: { update: 'Update', 'call for papers': 'Call for papers' },
+      filterLabel: 'Filter announcements',
+      filterAll: 'All',
     },
   },
   'zh-hans': {
@@ -220,6 +224,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: '新的动态将在这里发布。',
       emptyText: '目前暂无集团公告，请稍后回来查看最新通知。',
       typeLabels: { update: '更新', 'call for papers': '征稿' },
+      filterLabel: '筛选公告',
+      filterAll: '全部',
     },
   },
   'zh-hant': {
@@ -292,6 +298,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: '新的動態將在這裡發布。',
       emptyText: '目前沒有集團公告，請稍後回來查看最新通知。',
       typeLabels: { update: '更新', 'call for papers': '徵稿' },
+      filterLabel: '篩選公告',
+      filterAll: '全部',
     },
   },
   ja: {
@@ -364,6 +372,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: '新しい情報はここに掲載します。',
       emptyText: '現在、グループからの告知はありません。最新情報は後ほどご確認ください。',
       typeLabels: { update: '更新', 'call for papers': '論文募集' },
+      filterLabel: 'お知らせを絞り込む',
+      filterAll: 'すべて',
     },
   },
   ko: {
@@ -436,6 +446,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: '새로운 소식이 이곳에 게시됩니다.',
       emptyText: '현재 그룹 공지가 없습니다. 최신 소식을 확인하려면 다시 방문해 주세요.',
       typeLabels: { update: '업데이트', 'call for papers': '논문 모집' },
+      filterLabel: '공지 필터',
+      filterAll: '전체',
     },
   },
   de: {
@@ -508,6 +520,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: "Neue Mitteilungen erscheinen hier.",
       emptyText: 'Derzeit liegen keine Mitteilungen der Gruppe vor. Bitte schauen Sie später wieder vorbei.',
       typeLabels: { update: 'Update', 'call for papers': "Aufruf zur Einreichung von Beiträgen" },
+      filterLabel: 'Mitteilungen filtern',
+      filterAll: 'Alle',
     },
   },
   fr: {
@@ -580,6 +594,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: 'Les nouvelles mises à jour apparaîtront ici.',
       emptyText: 'Aucune annonce du groupe n’est disponible pour le moment. Revenez bientôt pour les dernières informations.',
       typeLabels: { update: 'Mise à jour', 'call for papers': 'Appel à contributions' },
+      filterLabel: 'Filtrer les annonces',
+      filterAll: 'Toutes',
     },
   },
   es: {
@@ -652,6 +668,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: 'Las nuevas actualizaciones aparecerán aquí.',
       emptyText: 'No hay anuncios del grupo disponibles en este momento. Vuelva pronto para consultar las últimas novedades.',
       typeLabels: { update: 'Actualización', 'call for papers': 'Convocatoria de artículos' },
+      filterLabel: 'Filtrar anuncios',
+      filterAll: 'Todos',
     },
   },
   ru: {
@@ -724,6 +742,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: 'Здесь появятся новые объявления.',
       emptyText: 'Сейчас объявлений группы нет. Вернитесь позже, чтобы узнать последние новости.',
       typeLabels: { update: 'Обновление', 'call for papers': "Приглашение к подаче статей" },
+      filterLabel: 'Фильтр объявлений',
+      filterAll: 'Все',
     },
   },
   ar: {
@@ -796,6 +816,8 @@ const copy: Record<LocaleCode, { search: SearchPageCopy; news: NewsPageCopy }> =
       emptyTitle: 'ستظهر التحديثات الجديدة هنا.',
       emptyText: 'لا تتوفر إعلانات للمجموعة حاليًا. يرجى العودة قريبًا للاطلاع على أحدث الإشعارات.',
       typeLabels: { update: 'تحديث', 'call for papers': 'دعوة لتقديم الأبحاث' },
+      filterLabel: 'تصفية الإعلانات',
+      filterAll: 'الكل',
     },
   },
 };

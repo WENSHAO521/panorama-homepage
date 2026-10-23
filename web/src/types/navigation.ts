@@ -10,6 +10,12 @@ export interface NavItem {
    * renders each child as its own mega-menu column (see MegaMenu.astro).
    */
   children?: NavItem[];
+  /** Imprint colour for a mega-menu row (the Publishing menu's imprint list). */
+  accent?: string;
+  /** Number of active journals, shown beside an imprint row. */
+  count?: number;
+  /** Journal cover paths for a mega-menu cover column (a column with no children). */
+  covers?: string[];
 }
 
 export interface RedirectRule {

@@ -5,12 +5,20 @@
 //   - children are themselves grouping nodes with their own `children`
 //     -> each renders as its own labelled column (Publishing: "Explore" + "Imprints")
 //   - children are plain leaf links -> single unlabelled column (Research, Infrastructure, About)
+//   - a column with `covers` and no children renders as a small cover
+//     wall linking to its `path` (Publishing: the journal directory)
+import { Image } from 'astro:assets';
 import type { NavItem } from '@/types';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
+import { getContent } from '@/i18n/content';
 
 interface Props { item: NavItem }
 const { item } = Astro.props;
+const locale = Astro.currentLocale ?? 'en';
+const t = getContent(locale);
+const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' ';
 
-const isMultiColumn = (item.children ?? []).every((c) => c.children && c.children.length > 0);
+const isMultiColumn = (item.children ?? []).some((c) => (c.children && c.children.length > 0) || c.covers);
 const columns: NavItem[] = isMultiColumn ? item.children! : [{ label: item.label, children: item.children }];
 ---
 
@@ -22,7 +30,17 @@ const columns: NavItem[] = isMultiColumn ? item.children! : [{ label: item.label
     </a>
   )}
   <div class="mega-panel__columns">
-    {columns.map((col) => (
+    {columns.map((col) => col.covers ? (
+      <a class="mega-panel__covers" href={col.path}>
+        <span class="mega-panel__cover-stack" aria-hidden="true">
+          {col.covers.map((cover) => {
+            const asset = getJournalCoverAsset(cover);
+            return asset && <Image src={asset} alt="" widths={[96, 192]} sizes="5.5rem" loading="lazy" />;
+          })}
+        </span>
+        <span class="mega-panel__covers-label">{t('common.viewAllJournals')}</span>
+      </a>
+    ) : (
       <div class="mega-panel__column">
         {isMultiColumn && <p class="mega-panel__column-title">{col.label}</p>}
         <ul class="mega-panel__list">
@@ -34,11 +52,13 @@ const columns: NavItem[] = isMultiColumn ? item.children! : [{ label: item.label
                    visual marker, matching the sitewide decision recorded there. -->
               <a
                 href={link.path}
-                class="mega-panel__link"
+                class:list={['mega-panel__link', link.accent && 'mega-panel__link--imprint']}
+                style={link.accent ? `--row-accent: ${link.accent}` : undefined}
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
               >
                 <span class="mega-panel__label">{link.label}</span>
+                {link.count !== undefined && <span class="mega-panel__count">{link.count}{countJoin}{t('common.journals')}</span>}
                 {link.description && <span class="mega-panel__desc">{link.description}</span>}
                 <svg class="mega-panel__arrow" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" focusable="false"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 {link.external && <span class="visually-hidden"> (opens in a new tab)</span>}
@@ -127,6 +147,74 @@ const columns: NavItem[] = isMultiColumn ? item.children! : [{ label: item.label
   .mega-panel__link:focus-visible .mega-panel__label {
     color: var(--interactive-default);
   }
+
+  /* Imprint rows: a colour bar and the name in the imprint's own hue. */
+  .mega-panel__link--imprint {
+    grid-template-columns: 3px minmax(0, 1fr) auto;
+    align-items: center;
+  }
+  .mega-panel__link--imprint::before {
+    grid-row: 1 / span 2;
+    align-self: stretch;
+    border-radius: 2px;
+    background: var(--row-accent);
+    content: '';
+  }
+  .mega-panel__link--imprint .mega-panel__label,
+  .mega-panel__link--imprint:hover .mega-panel__label,
+  .mega-panel__link--imprint:focus-visible .mega-panel__label {
+    grid-column: 2;
+    color: var(--row-accent);
+  }
+  .mega-panel__link--imprint .mega-panel__desc { grid-column: 2; }
+  .mega-panel__count {
+    grid-column: 3;
+    grid-row: 1;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .mega-panel__link--imprint .mega-panel__arrow { display: none; }
+
+  .mega-panel__covers {
+    display: flex;
+    align-self: start;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0.6rem 0 0.25rem;
+    padding: 1rem;
+    border-radius: var(--p-radius-card, 6px);
+    background: var(--surface-secondary);
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    font-weight: var(--fw-semibold);
+    text-decoration: none;
+  }
+  .mega-panel__covers:hover,
+  .mega-panel__covers:focus-visible { color: var(--interactive-default); }
+  .mega-panel__covers:focus-visible {
+    outline: var(--p-border-strong) solid var(--focus-ring);
+    outline-offset: -2px;
+  }
+  .mega-panel__cover-stack {
+    display: flex;
+    justify-content: center;
+    padding-block: 0.5rem 0.25rem;
+  }
+  .mega-panel__cover-stack :global(img) {
+    width: 31%;
+    height: auto;
+    aspect-ratio: 2480 / 3508;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 8px 18px -10px rgb(0 0 0 / 0.55);
+  }
+  .mega-panel__cover-stack :global(img:nth-child(1)) { transform: rotate(-6deg) translateX(14%); }
+  .mega-panel__cover-stack :global(img:nth-child(2)) { position: relative; z-index: 1; transform: translateY(-6%); }
+  .mega-panel__cover-stack :global(img:nth-child(3)) { transform: rotate(6deg) translateX(-14%); }
+  .mega-panel__covers-label::after { content: ' →'; }
+  :global([dir='rtl']) .mega-panel__covers-label::after { content: ' ←'; }
 
   .mega-panel__desc {
     grid-column: 1;
