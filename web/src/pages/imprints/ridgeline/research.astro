@@ -1,0 +1,10 @@
+---
+import ImprintRouteSectionPage from '@/components/imprint/ImprintRouteSectionPage.astro';
+import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
+
+const imprint = getImprintBySlug('ridgeline');
+if (!imprint) throw new Error('Imprint data for ridgeline is missing.');
+const journals = getJournalsForImprint('ridgeline', Astro.currentLocale ?? 'en');
+---
+
+<ImprintRouteSectionPage imprint={imprint} journals={journals} section="research" />

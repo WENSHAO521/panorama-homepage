@@ -1,0 +1,10 @@
+---
+import ImprintRouteSectionPage from '@/components/imprint/ImprintRouteSectionPage.astro';
+import { getImprintBySlug, getJournalsForImprint } from '@/lib/content/imprints';
+
+const imprint = getImprintBySlug('verdant-science');
+if (!imprint) throw new Error('Imprint data for verdant-science is missing.');
+const journals = getJournalsForImprint('verdant-science', Astro.currentLocale ?? 'en');
+---
+
+<ImprintRouteSectionPage imprint={imprint} journals={journals} section="for-authors" />
