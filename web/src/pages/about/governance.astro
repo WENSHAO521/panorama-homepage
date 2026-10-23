@@ -22,7 +22,7 @@ const localizedBasePath = localizePath('/about/governance/', locale);
     <AboutSubnav currentPath={localizedBasePath} locale={locale} />
 
     <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="governance-title">
-      <div slot="aside" class="governance-hero__aside-content" aria-label={copy.briefLabel}>
+      <div slot="aside" class="governance-hero__aside-content group-hero__aside-content" aria-label={copy.briefLabel}>
         <p class="text-overline">{copy.briefLabel}</p>
         <dl>
           {copy.brief.map((item) => <div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
@@ -196,7 +196,8 @@ const localizedBasePath = localizePath('/about/governance/', locale);
 
   .governance-practice-list li:nth-child(2n) { border-inline-end: 0; }
   .governance-practice-list li:nth-child(n + 3) { border-bottom: 0; }
-  .governance-practice-list li:first-child { padding-inline-start: 0; }
+  /* Left column (1st and 3rd) starts flush with the heading so all four numerals align. */
+  .governance-practice-list li:nth-child(2n + 1) { padding-inline-start: 0; }
 
   .governance-practice-list span,
   .governance-responsibility-list span {

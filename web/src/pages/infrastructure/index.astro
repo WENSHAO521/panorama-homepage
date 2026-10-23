@@ -826,7 +826,8 @@ const libraryPartner = getPartners(['hong-kong-library'])[0];
     align-items: end;
   }
 
-  .infra-note h2 { max-width: 10ch; }
+  /* Two short sentences: wide enough that each sits on one line, not one word per line. */
+  .infra-note h2 { max-width: 22ch; text-wrap: balance; }
 
   .infra-note__copy > p {
     max-width: 33rem;

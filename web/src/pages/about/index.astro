@@ -25,6 +25,7 @@ const relationshipLogos = [
   },
   {
     logo: cjwkLogo,
+    inverse: true,
     href: 'https://www.cjwk.cn',
   },
   {
@@ -33,6 +34,7 @@ const relationshipLogos = [
   },
   {
     logo: shiharrLogo,
+    inverse: true,
     href: 'https://www.shiharr.cn/',
   },
   {
@@ -141,7 +143,7 @@ const localizedBasePath = localizePath('/about/', locale);
         <div class="about-connection-list">
           {copy.relationships.map((relationship, index) => (
             <article class="about-connection">
-              <div class="about-connection__mark">
+              <div class:list={["about-connection__mark", { "about-connection__mark--inverse": relationshipLogos[index].inverse }]}>
                 <Image
                   src={relationshipLogos[index].logo}
                   alt={relationship.alt}
@@ -390,6 +392,15 @@ const localizedBasePath = localizePath('/about/', locale);
     height: 6rem;
     align-items: center;
   }
+
+  /* Two marks are drawn in white for dark backgrounds; on paper they sit on
+     an ink tile so they stay legible. */
+  .about-connection__mark--inverse {
+    padding: 0.75rem 1rem;
+    background: var(--surface-inverse);
+    border-radius: var(--p-radius-button);
+  }
+  .about-connection__mark--inverse img { object-position: center; }
 
   .about-connection__mark img {
     display: block;
