@@ -222,6 +222,7 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
       imprint={imprint}
       links={footerNav}
       locale={locale}
+      theme="dark"
       tagline={tx('footerTagline', 'Humanities for what endures.')}
     />
   </div>
@@ -268,6 +269,15 @@ const description = `${localizedCurrent.title} ${localizedCurrent.lede}`;
   .threnody-section-journal-copy h2 a { color: inherit; text-decoration: none; }
   .threnody-section-journal-copy h2 a:hover, .threnody-section-journal-copy h2 a:focus-visible { color: var(--th-s-copper); }
   .threnody-section-journal-copy > p:not(.threnody-section-eyebrow) { max-width: 39rem; margin: 1.2rem 0 0; color: var(--th-s-muted); font-family: var(--font-display); font-size: 1.08rem; line-height: 1.48; }
+  /* Six journals as single rows made a very long page; on wide screens they pair up. */
+  @media (min-width: 1024px) {
+    .threnody-section-journal-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 4vw, 4rem); }
+    .threnody-section-journal-row { grid-template-columns: minmax(7rem, 9.5rem) minmax(0, 1fr); gap: 1.75rem; align-items: start; padding-block: 2.25rem; }
+    .threnody-section-journal-number { display: none; }
+    .threnody-section-journal-copy { justify-content: flex-start; }
+    .threnody-section-journal-copy h2 { font-size: clamp(1.5rem, 2vw, 1.85rem); line-height: 1.05; }
+    .threnody-section-journal-copy > p:not(.threnody-section-eyebrow) { font-size: 1rem; }
+  }
   .threnody-section-cover-placeholder { display: grid; aspect-ratio: 495 / 700; place-items: center; background: var(--th-s-paper-deep); color: var(--th-s-muted); font-size: var(--fs-label); letter-spacing: 0.12em; text-transform: uppercase; }
   .threnody-section-text-link, .threnody-section-inverse-link { display: inline-flex; align-items: center; gap: 0.5rem; align-self: flex-start; margin-top: 2rem; border-bottom: 1px solid var(--th-s-copper); color: var(--th-s-ink); font-size: var(--fs-label); font-weight: 800; letter-spacing: 0.14em; line-height: 1.8; text-decoration: none; text-transform: uppercase; }
   .threnody-section-text-link:hover, .threnody-section-text-link:focus-visible { color: var(--th-s-copper); }

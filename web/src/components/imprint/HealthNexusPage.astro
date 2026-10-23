@@ -454,7 +454,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     display: grid;
     gap: 0.55rem;
     width: 9.5rem;
-    color: var(--hn-paper);
+    /* The wallpaper is pale on this side, so the note reads in ink. */
+    color: var(--hn-ink);
     font-size: var(--fs-label);
     font-weight: 750;
     letter-spacing: 0.16em;
@@ -466,13 +467,13 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     width: 2.2rem;
     height: 1px;
     margin-top: 0.8rem;
-    background: var(--hn-cyan-light);
+    background: var(--hn-cyan);
     content: '';
   }
 
   .health-nexus-hero__quote {
     margin-top: 4rem;
-    color: var(--hn-paper);
+    color: var(--hn-deep);
     font-family: var(--font-display);
     font-size: 1.1rem;
     font-style: italic;

@@ -123,16 +123,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         </div>
       </section>
 
-      <section class="charter-purpose" aria-labelledby="charter-purpose-title">
-        <div class="charter-shell charter-purpose__inner">
-          <h2 id="charter-purpose-title">{tx('purposeTitleOne', 'Stronger institutions.')}<br />{tx('purposeTitleTwo', 'Brighter futures.')}</h2>
-          <div class="charter-purpose__body">
-            <p>{tx('purposeBodyOne', 'Charter is the law, policy, and society imprint of Panorama Scholarly Group. We publish rigorous, independent research that advances understanding of the institutions and relationships shaping public life.')}</p>
-            <p>{tx('purposeBodyTwo', 'We believe evidence, open inquiry, and accountable scholarship are essential to fairer and more resilient societies.')}</p>
-          </div>
-        </div>
-      </section>
-
       <section id="journals" class="charter-journals" aria-labelledby="charter-journals-title">
         <div class="charter-shell">
           <div class="charter-section-bar">
@@ -186,6 +176,42 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         </div>
       </section>
 
+      <section class="charter-manifesto" aria-labelledby="charter-manifesto-title">
+        <Image
+          class="charter-manifesto__wallpaper"
+          src={wallpaper}
+          alt=""
+          widths={[640, 960, 1440, 1920]} format="webp" quality={68}
+          sizes="100vw"
+          loading="lazy"
+        />
+        <div class="charter-manifesto__shade" aria-hidden="true"></div>
+        <div class="charter-shell charter-manifesto__inner">
+          <div>
+            <p class="charter-kicker">{tx('manifestoKicker', 'Charter by Panorama')}</p>
+            <h2 id="charter-manifesto-title"><PhraseText text={tx('manifestoTitle', 'Knowledge in the public interest.')} /></h2>
+          </div>
+          <div class="charter-manifesto__body">
+            <p>{tx('manifestoBody', 'Charter and Panorama Scholarly Group work together to champion independent research, informed debate, and evidence-based solutions for a more just and resilient world.')}</p>
+            <div class="charter-signals">
+              <span>{tx('signalRights', 'People and rights')}</span>
+              <span>{tx('signalAccountability', 'Institutions and accountability')}</span>
+              <span>{tx('signalOpportunity', 'Society and opportunity')}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="charter-purpose" aria-labelledby="charter-purpose-title">
+        <div class="charter-shell charter-purpose__inner">
+          <h2 id="charter-purpose-title">{tx('purposeTitleOne', 'Stronger institutions.')}<br />{tx('purposeTitleTwo', 'Brighter futures.')}</h2>
+          <div class="charter-purpose__body">
+            <p>{tx('purposeBodyOne', 'Charter is the law, policy, and society imprint of Panorama Scholarly Group. We publish rigorous, independent research that advances understanding of the institutions and relationships shaping public life.')}</p>
+            <p>{tx('purposeBodyTwo', 'We believe evidence, open inquiry, and accountable scholarship are essential to fairer and more resilient societies.')}</p>
+          </div>
+        </div>
+      </section>
+
       <section class="charter-fields" aria-labelledby="charter-fields-title">
         <div class="charter-shell">
           <div class="charter-section-bar">
@@ -219,32 +245,6 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
             </div>
           </div>
           <blockquote>{tx('authorQuoteOne', 'Independent research')}<br />{tx('authorQuoteTwo', 'for a fairer society.')}</blockquote>
-        </div>
-      </section>
-
-      <section class="charter-manifesto" aria-labelledby="charter-manifesto-title">
-        <Image
-          class="charter-manifesto__wallpaper"
-          src={wallpaper}
-          alt=""
-          widths={[640, 960, 1440, 1920]} format="webp" quality={68}
-          sizes="100vw"
-          loading="lazy"
-        />
-        <div class="charter-manifesto__shade" aria-hidden="true"></div>
-        <div class="charter-shell charter-manifesto__inner">
-          <div>
-            <p class="charter-kicker">{tx('manifestoKicker', 'Charter by Panorama')}</p>
-            <h2 id="charter-manifesto-title"><PhraseText text={tx('manifestoTitle', 'Knowledge in the public interest.')} /></h2>
-          </div>
-          <div class="charter-manifesto__body">
-            <p>{tx('manifestoBody', 'Charter and Panorama Scholarly Group work together to champion independent research, informed debate, and evidence-based solutions for a more just and resilient world.')}</p>
-            <div class="charter-signals">
-              <span>{tx('signalRights', 'People and rights')}</span>
-              <span>{tx('signalAccountability', 'Institutions and accountability')}</span>
-              <span>{tx('signalOpportunity', 'Society and opportunity')}</span>
-            </div>
-          </div>
         </div>
       </section>
     </main>

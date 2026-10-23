@@ -223,6 +223,16 @@ p + p {
   text-wrap: balance;
 }
 
+/* On phones the per-page `ch` caps leave imprint headings narrower than
+   their longest word, so words split mid-way ("Knowledg / e"). Let them use
+   the full column. !important because each imprint sets its cap in its own
+   scoped (and differently specific) rule. */
+@media (max-width: 639px) {
+  :root [data-imprint-theme] :is(h1, h2, h3) {
+    max-width: none !important;
+  }
+}
+
 :root[lang^='zh'] [data-imprint-theme] :is(h1, h2, h3, h4),
 :root[lang^='ja'] [data-imprint-theme] :is(h1, h2, h3, h4),
 :root[lang^='ko'] [data-imprint-theme] :is(h1, h2, h3, h4),
