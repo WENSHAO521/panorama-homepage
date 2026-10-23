@@ -344,3 +344,31 @@ p + p {
   word-break: normal;
   line-break: normal;
 }
+
+/*
+  CJK detail pass
+  ───────────────
+  - The CJK heading faces ship no italic, so an italic quote is drawn as a
+    slanted fake oblique. Quotes stand upright instead (Chinese and Japanese
+    don't use italics).
+  - 11px all-caps labels with 0.16em tracking were tuned for Latin. In CJK
+    the strokes clog at that size and the tracking just gaps the characters,
+    so labels go to 12px with light tracking, and get a little room above
+    the heading they introduce (CJK glyphs fill the whole em box, so a gap
+    that looks right above Latin capitals looks cramped above Chinese).
+*/
+:root:is([lang^='zh'], [lang^='ja'], [lang^='ko']) {
+  --fs-label: 0.75rem;
+}
+
+:root:is([lang^='zh'], [lang^='ja'], [lang^='ko']) main :is(blockquote, [class*='quote'], [class*='hero__note'] p) {
+  font-style: normal;
+}
+
+:root:is([lang^='zh'], [lang^='ja'], [lang^='ko']) main :is([class*='kicker'], [class*='eyebrow'], [class*='__label'], .text-overline) {
+  letter-spacing: 0.04em;
+}
+
+:root:is([lang^='zh'], [lang^='ja'], [lang^='ko']) [data-imprint-theme] main :is([class*='kicker'], [class*='eyebrow']):has(+ :is(h1, h2, h3)) {
+  margin-block-end: 0.5rem;
+}
