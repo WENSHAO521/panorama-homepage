@@ -1,6 +1,7 @@
 ---
 import PhraseText from '@/components/ui/PhraseText.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
 import { getResearchAssessmentCopy, declarationUrl, signersUrl, badgesUrl } from '@/i18n/research-assessment';
 import { localizePath } from '@/i18n/utils';
 
@@ -33,6 +34,7 @@ const relatedLinks = copy.relatedLinks.map((link, index) => ({
   path="/standards/research-assessment/"
   locale={locale}
 >
+  <SectionSubnav section="standards" locale={locale} />
   <article class="research-assessment">
     <header class="dora-hero">
       <div class="container-wide dora-hero__grid">

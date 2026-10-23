@@ -4,6 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/data/site';
 import { localizePath } from '@/i18n/utils';
 import { getLegalChromeCopy } from '@/i18n/legal';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
+import { getSectionNav, type SectionKey } from '@/data/navigation';
 
 interface SectionLink {
   id: string;
@@ -27,6 +29,8 @@ interface Props {
   eyebrow?: string;
   railTitle?: string;
   railText?: string;
+  /** Show that section's sub-nav strip above the hero (the standards policies). */
+  section?: SectionKey;
 }
 
 const {
@@ -45,9 +49,12 @@ const {
   eyebrow = 'Panorama Scholarly Group / Legal',
   railTitle = 'A clear record',
   railText = 'These pages explain the standards and responsibilities that accompany the group’s public website.',
+  section,
 } = Astro.props;
 const locale = requestedLocale ?? Astro.currentLocale ?? 'en';
 const ui = getLegalChromeCopy(locale);
+// Policies inside a section carry that section's name rather than the generic legal eyebrow.
+const localizedEyebrow = eyebrow !== 'Panorama Scholarly Group / Legal' ? eyebrow : section ? getSectionNav(section, locale).label : ui.eyebrow;
 const localizedUpdated = updated === '14 September 2026' ? ui.updatedDate : updated;
 const localizedRailTitle = railTitle === 'A clear record' ? ui.defaultRailTitle : railTitle;
 const localizedRailText = railText === 'These pages explain the standards and responsibilities that accompany the group’s public website.' ? ui.defaultRailText : railText;
@@ -62,11 +69,12 @@ const localizedHref = (href: string) => href.startsWith('/') ? localizePath(href
 ---
 
 <BaseLayout title={title} description={description} path={path} locale={locale}>
+  {section && <SectionSubnav section={section} locale={locale} />}
   <div class="legal-page">
     <header class="legal-hero">
       <div class="container-wide legal-hero__inner">
         <div class="legal-hero__copy">
-          <p class="text-overline">{eyebrow === 'Panorama Scholarly Group / Legal' ? ui.eyebrow : eyebrow}</p>
+          <p class="text-overline">{localizedEyebrow}</p>
           <h1><PhraseText text={title} /></h1>
           <p class="legal-hero__lede">{lede}</p>
         </div>
