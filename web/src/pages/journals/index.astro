@@ -191,11 +191,15 @@ function compactDescription(description?: string) {
     font-size: var(--fs-caption);
   }
 
+  /* Gold hairline with a short lead in the imprint's colour. */
   .journal-directory__imprint-rule {
     align-self: center;
-    border-top: var(--p-border-strong) solid var(--directory-accent);
-    opacity: 0.85;
+    height: 3px;
+    background:
+      linear-gradient(var(--directory-accent), var(--directory-accent)) left center / 2.5rem 3px no-repeat,
+      linear-gradient(var(--brand-accent), var(--brand-accent)) center / 100% 1px no-repeat;
   }
+  :global(:root[dir='rtl']) .journal-directory__imprint-rule { background-position: right center, center; }
 
   .journal-directory__imprint-link,
   .journal-directory__visit {

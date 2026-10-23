@@ -5,14 +5,27 @@ import { getAnnouncements } from '@/data/announcements';
 import { getNewsCopy } from '@/i18n/utility';
 import { localizePath } from '@/i18n/utils';
 import GroupHero from '@/components/group/GroupHero.astro';
+import { getContent } from '@/i18n/content';
+import type { Announcement } from '@/data/announcements';
 
 const locale = Astro.currentLocale ?? 'en';
 const copy = getNewsCopy(locale);
-const posts = getAnnouncements(locale)
-  .sort((a, b) => b.date.localeCompare(a.date))
-  .slice(0, 10);
+const t = getContent(locale);
 
-const [featured, ...recent] = posts;
+// Same-day notices with the same title and type (e.g. several journals
+// announcing a website update) are listed once, with each source linked.
+const sorted = getAnnouncements(locale).sort((a, b) => b.date.localeCompare(a.date));
+const entries: { post: Announcement; items: Announcement[] }[] = [];
+for (const post of sorted) {
+  const last = entries.at(-1);
+  if (last && last.post.date === post.date && last.post.title === post.title && last.post.type === post.type) last.items.push(post);
+  else entries.push({ post, items: [post] });
+}
+const shown = entries.slice(0, 10);
+const posts = shown.flatMap((entry) => entry.items);
+
+const [{ post: featured } = { post: undefined }, ...recent] = shown;
+const isCallForPapers = (post: Announcement) => post.type.toLowerCase() === 'call for papers';
 const sourceCount = new Set(posts.map((post) => post.source)).size;
 const countNoSpace = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale);
 const countJoin = countNoSpace ? '' : ' ';
@@ -52,7 +65,7 @@ function isExternal(value: string) {
       <div slot="aside" class="news-hero__aside-content" aria-label={copy.overviewLabel}>
         <p class="text-overline">{copy.acrossGroup}</p>
         <div class="news-hero__stat">
-          <strong>{String(posts.length).padStart(2, '0')}</strong>
+          <strong>{String(shown.length).padStart(2, '0')}</strong>
           <span>{copy.latestAnnouncements}</span>
         </div>
         <p>{sourceSummary}</p>
@@ -65,13 +78,13 @@ function isExternal(value: string) {
           <div class="container-wide">
             <div class="news-section-label">
               <p class="text-overline">{copy.latestAnnouncement}</p>
-              <span>01 / {String(posts.length).padStart(2, '0')}</span>
+              <span>01 / {String(shown.length).padStart(2, '0')}</span>
             </div>
 
             <article class="news-feature__item">
               <div class="news-feature__source">
                 <span>{displaySource(featured.sourceLabel)}</span>
-                <span>{copy.typeLabels[featured.type.toLowerCase() as keyof typeof copy.typeLabels] ?? featured.type}</span>
+                <span class:list={['news-type', { 'news-type--cfp': isCallForPapers(featured) }]}>{copy.typeLabels[featured.type.toLowerCase() as keyof typeof copy.typeLabels] ?? featured.type}</span>
                 <time datetime={featured.date}>{formatDate(featured.date)}</time>
               </div>
 
@@ -109,28 +122,57 @@ function isExternal(value: string) {
             </div>
 
             <ol class="news-archive__list">
-              {recent.map((post, index) => (
+              {recent.map(({ post, items }, index) => (
                 <li>
-                  <a
-                    href={announcementHref(post.href)}
-                    target={isExternal(post.href) ? '_blank' : undefined}
-                    rel={isExternal(post.href) ? 'noopener noreferrer' : undefined}
-                    aria-label={post.title}
-                  >
-                    <span class="news-archive__number" aria-hidden="true">
-                      {String(index + 2).padStart(2, '0')}
-                    </span>
-                    <span class="news-archive__meta">
-                      <span>{displaySource(post.sourceLabel)}</span>
-                      <span>{copy.typeLabels[post.type.toLowerCase() as keyof typeof copy.typeLabels] ?? post.type}</span>
-                      <time datetime={post.date}>{formatDate(post.date)}</time>
-                    </span>
-                    <span class="news-archive__body">
-                      <span class="news-archive__title">{post.title}</span>
-                      <span class="news-archive__summary">{post.summary}</span>
-                    </span>
-                    <span class="news-archive__action">{copy.readAnnouncement}</span>
-                  </a>
+                  {items.length === 1 ? (
+                    <a
+                      class="news-archive__row"
+                      href={announcementHref(post.href)}
+                      target={isExternal(post.href) ? '_blank' : undefined}
+                      rel={isExternal(post.href) ? 'noopener noreferrer' : undefined}
+                      aria-label={post.title}
+                    >
+                      <span class="news-archive__number" aria-hidden="true">
+                        {String(index + 2).padStart(2, '0')}
+                      </span>
+                      <span class="news-archive__meta">
+                        <span>{displaySource(post.sourceLabel)}</span>
+                        <span class:list={['news-type', { 'news-type--cfp': isCallForPapers(post) }]}>{copy.typeLabels[post.type.toLowerCase() as keyof typeof copy.typeLabels] ?? post.type}</span>
+                        <time datetime={post.date}>{formatDate(post.date)}</time>
+                      </span>
+                      <span class="news-archive__body">
+                        <span class="news-archive__title">{post.title}</span>
+                        <span class="news-archive__summary">{post.summary}</span>
+                      </span>
+                      <span class="news-archive__action">{copy.readAnnouncement}</span>
+                    </a>
+                  ) : (
+                    <div class="news-archive__row news-archive__row--group">
+                      <span class="news-archive__number" aria-hidden="true">
+                        {String(index + 2).padStart(2, '0')}
+                      </span>
+                      <span class="news-archive__meta">
+                        <span>{items.length}{countJoin}{t('common.journals')}</span>
+                        <span class:list={['news-type', { 'news-type--cfp': isCallForPapers(post) }]}>{copy.typeLabels[post.type.toLowerCase() as keyof typeof copy.typeLabels] ?? post.type}</span>
+                        <time datetime={post.date}>{formatDate(post.date)}</time>
+                      </span>
+                      <span class="news-archive__body">
+                        <span class="news-archive__title">{post.title}</span>
+                        <span class="news-archive__summary">{post.summary}</span>
+                        <span class="news-archive__sources">
+                          {items.map((item) => (
+                            <a
+                              href={announcementHref(item.href)}
+                              target={isExternal(item.href) ? '_blank' : undefined}
+                              rel={isExternal(item.href) ? 'noopener noreferrer' : undefined}
+                            >{displaySource(item.sourceLabel)}</a>
+                          ))}
+                        </span>
+                      </span>
+                      {/* Keeps the fourth grid column as wide as on single entries. */}
+                      <span class="news-archive__action news-archive__action--spacer" aria-hidden="true">{copy.readAnnouncement}</span>
+                    </div>
+                  )}
                 </li>
               ))}
             </ol>
@@ -228,10 +270,6 @@ function isExternal(value: string) {
     gap: 0.5rem;
   }
 
-  .news-feature__source span:nth-child(2) {
-    color: var(--text-accent);
-  }
-
   .news-feature__source time {
     margin-top: 0.35rem;
   }
@@ -264,8 +302,8 @@ function isExternal(value: string) {
 
   .news-feature__body > a:hover,
   .news-feature__body > a:focus-visible,
-  .news-archive a:hover .news-archive__title,
-  .news-archive a:focus-visible .news-archive__title {
+  a.news-archive__row:hover .news-archive__title,
+  a.news-archive__row:focus-visible .news-archive__title {
     color: var(--interactive-default);
   }
 
@@ -332,7 +370,7 @@ function isExternal(value: string) {
     border-bottom: var(--p-border-hairline) solid var(--border-strong);
   }
 
-  .news-archive__list a {
+  .news-archive__row {
     display: grid;
     grid-template-columns: 2.5rem minmax(10rem, 0.7fr) minmax(0, 1.65fr) auto;
     gap: clamp(1rem, 3vw, 3rem);
@@ -345,8 +383,8 @@ function isExternal(value: string) {
     transition: background-color var(--p-duration-base) var(--p-ease-standard);
   }
 
-  .news-archive__list a:hover,
-  .news-archive__list a:focus-visible {
+  a.news-archive__row:hover,
+  a.news-archive__row:focus-visible {
     background: var(--surface-primary);
   }
 
@@ -369,9 +407,29 @@ function isExternal(value: string) {
     text-transform: uppercase;
   }
 
-  .news-archive__meta span:nth-child(2) {
-    color: var(--text-accent);
+  /* Type labels stay quiet; only a call for papers, which asks readers to
+     act, keeps the accent colour. */
+  .news-type { color: var(--text-muted); }
+  .news-archive__action--spacer { visibility: hidden; }
+  .news-type--cfp { color: var(--text-accent); }
+
+  .news-archive__sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
   }
+  .news-archive__sources a {
+    padding: 0.2rem 0.65rem;
+    color: var(--text-secondary);
+    font-size: var(--fs-caption);
+    text-decoration: none;
+    border: var(--p-border-hairline) solid var(--border-strong);
+    border-radius: var(--p-radius-pill);
+    transition: color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard);
+  }
+  .news-archive__sources a:hover,
+  .news-archive__sources a:focus-visible { color: var(--text-link); border-color: currentColor; }
 
   .news-archive__meta time {
     margin-top: 0.2rem;
@@ -439,7 +497,7 @@ function isExternal(value: string) {
       margin-top: -0.5rem;
     }
 
-    .news-archive__list a {
+    .news-archive__row {
       grid-template-columns: 2rem minmax(8rem, 0.7fr) minmax(0, 1.5fr);
     }
 
@@ -468,7 +526,7 @@ function isExternal(value: string) {
       margin-top: 0.25rem;
     }
 
-    .news-archive__list a {
+    .news-archive__row {
       display: block;
       padding-block: 1.35rem 1.5rem;
     }
@@ -492,5 +550,9 @@ function isExternal(value: string) {
       display: block;
       margin-top: 1rem;
     }
+  }
+
+  @media (max-width: 767px) {
+    .news-archive__action--spacer { display: none; }
   }
 </style>

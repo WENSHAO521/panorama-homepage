@@ -55,10 +55,11 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     </GroupHero>
 
     <nav class="container-wide imprints-directory__index" aria-label={t('imprints.editorialImprints')}>
-      {imprintGroups.map(({ imprint, index }) => (
-        <a href={`#imprint-${imprint.slug}`}>
+      {imprintGroups.map(({ imprint, journals, index }) => (
+        <a href={`#imprint-${imprint.slug}`} style={`--chip-accent: ${imprint.accent};`}>
           <span>{index}</span>
           <strong>{imprint.name}</strong>
+          <small>{journals.length}{countJoin}{journals.length === 1 ? t('common.journal') : t('common.journals')}</small>
         </a>
       ))}
     </nav>
@@ -218,48 +219,54 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
     font-size: var(--fs-caption);
   }
 
+  /* Jump chips: one per imprint, topped with its colour, sitting directly
+     under the hero. */
   .imprints-directory__index {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    margin-top: 0;
-    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    gap: 0.75rem;
+    padding-top: 0.5rem;
   }
 
   .imprints-directory__index a {
-    display: flex;
+    display: grid;
     min-width: 0;
-    flex-direction: column;
-    gap: 0.45rem;
-    padding: 1rem 1rem 1.2rem 0;
+    gap: 0.35rem;
+    padding: 0.85rem 1rem 1rem;
     color: var(--text-primary);
     text-decoration: none;
+    background: var(--surface-raised);
+    border-top: 3px solid var(--chip-accent);
+    border-radius: 0 0 var(--p-radius-button) var(--p-radius-button);
+    transition: transform var(--p-duration-base) var(--p-ease-standard);
   }
 
-  .imprints-directory__index a + a {
-    padding-inline-start: 1rem;
-    border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
-  }
-
-  .imprints-directory__index span {
+  .imprints-directory__index span,
+  .imprints-directory__index small {
     color: var(--text-muted);
     font-size: var(--fs-caption);
+    letter-spacing: 0.04em;
+    text-transform: none;
   }
+  .imprints-directory__index span { font-variant-numeric: tabular-nums; }
 
   .imprints-directory__index strong {
     overflow: hidden;
-    font-size: var(--fs-caption);
-    letter-spacing: 0.08em;
+    color: var(--chip-accent);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0;
     text-overflow: ellipsis;
+    text-transform: none;
     white-space: nowrap;
   }
 
   .imprints-directory__index a:hover,
-  .imprints-directory__index a:focus-visible {
-    color: var(--text-link);
-  }
+  .imprints-directory__index a:focus-visible { transform: translateY(-2px); }
 
   .imprints-directory__system {
-    padding-block: clamp(4.5rem, 8vw, 7rem) clamp(5rem, 9vw, 8rem);
+    padding-block: clamp(3rem, 5vw, 4.5rem) clamp(5rem, 9vw, 8rem);
   }
 
   .imprints-directory__section-heading {
@@ -549,14 +556,6 @@ const totalJournals = imprintGroups.reduce((total, group) => total + group.journ
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .imprints-directory__index a:nth-child(odd) {
-      padding-inline-start: 0;
-      border-inline-start: 0;
-    }
-
-    .imprints-directory__index a:nth-child(n + 3) {
-      border-top: var(--p-border-hairline) solid var(--border-subtle);
-    }
 
     .imprint-row__meta {
       flex-direction: row;

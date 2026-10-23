@@ -5,7 +5,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { externalSystems } from '@/data/site';
 import { getAllImprints, getJournalsForImprint } from '@/lib/content/imprints';
-import { getActiveJournals } from '@/lib/content/journals';
+import { getActiveJournals, getFeaturedJournals } from '@/lib/content/journals';
+import { getJournalCoverAsset } from '@/lib/assets/journalCovers';
 import { getPublishingCopy } from '@/i18n/sections';
 import { getLocalizedImprints } from '@/i18n/catalog';
 import { localizePath } from '@/i18n/utils';
@@ -21,6 +22,13 @@ const imprintGroups = getLocalizedImprints(getAllImprints(), locale).map((imprin
   index: String(index + 1).padStart(2, '0'),
   journals: getJournalsForImprint(imprint.slug, locale),
 }));
+
+// Hero fan: the curated featured title of four imprints (Charter's sits on
+// the homepage wall), shown as overlapping covers.
+const heroCovers = getFeaturedJournals()
+  .filter((j) => j.imprint !== 'charter')
+  .flatMap((j) => { const cover = getJournalCoverAsset(j.cover); return cover ? [{ journal: j, cover }] : []; })
+  .slice(0, 4);
 
 const programmeRoutes = copy.routes.map((route, index) => ({
   number: String(index + 1).padStart(2, '0'),
@@ -50,13 +58,11 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       </div>
 
       <div slot="aside" class="group-hero__visual publishing-hero__visual" aria-label={copy.visualAria}>
-        <svg class="publishing-hero__orbits" viewBox="0 0 620 620" aria-hidden="true" focusable="false" overflow="visible">
-          <circle class="publishing-hero__orbit publishing-hero__orbit--blue" cx="310" cy="310" r="264" pathLength="100" stroke-dasharray="18 82" stroke-dashoffset="3" />
-          <circle class="publishing-hero__orbit publishing-hero__orbit--sage" cx="310" cy="310" r="232" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="-18" transform="rotate(-8 310 310)" />
-          <circle class="publishing-hero__orbit publishing-hero__orbit--terra" cx="310" cy="310" r="198" pathLength="100" stroke-dasharray="17 83" stroke-dashoffset="-38" transform="rotate(6 310 310)" />
-          <circle class="publishing-hero__orbit publishing-hero__orbit--gold" cx="310" cy="310" r="164" pathLength="100" stroke-dasharray="16 84" stroke-dashoffset="-57" transform="rotate(-5 310 310)" />
-          <circle class="publishing-hero__orbit publishing-hero__orbit--plum" cx="310" cy="310" r="285" pathLength="100" stroke-dasharray="15 85" stroke-dashoffset="-78" transform="rotate(8 310 310)" />
-        </svg>
+        <ul class="publishing-hero__fan" role="list" aria-hidden="true">
+          {heroCovers.map(({ cover }) => (
+            <li><Image src={cover} alt="" widths={[200, 360]} sizes="(min-width: 768px) 13rem, 40vw" loading="eager" /></li>
+          ))}
+        </ul>
         <div class="publishing-hero__note">
           <span class="publishing-hero__note-rule" aria-hidden="true"></span>
           <p>{copy.visualLineOne}<br />{copy.visualLineTwo}</p>
@@ -170,46 +176,36 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     min-height: clamp(20rem, 34vw, 31rem);
   }
 
-  .publishing-hero__orbits {
+  /* Four covers fanned like a hand of cards, the third on top. */
+  .publishing-hero__fan {
     position: absolute;
-    inset: 50% auto auto 50%;
-    width: min(100%, 32rem);
-    height: auto;
-    transform: translate(-50%, -50%) rotate(-10deg);
-    overflow: visible;
+    inset: 4% 0 24% 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-
-  .publishing-hero__orbit {
-    fill: none;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    vector-effect: non-scaling-stroke;
-    opacity: 0.9;
+  .publishing-hero__fan li {
+    position: absolute;
+    top: 6%;
+    width: 38%;
+    max-width: 12.5rem;
+    box-shadow: 0 2px 4px rgb(31 27 25 / 0.12), 0 24px 40px -18px rgb(31 27 25 / 0.5);
   }
+  .publishing-hero__fan :global(img) { display: block; width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: cover; }
+  .publishing-hero__fan li:nth-child(1) { inset-inline-start: 0; top: 14%; transform: rotate(-9deg); z-index: 1; }
+  .publishing-hero__fan li:nth-child(2) { inset-inline-start: 21%; transform: rotate(-3deg); z-index: 2; }
+  .publishing-hero__fan li:nth-child(3) { inset-inline-start: 42%; top: 10%; transform: rotate(4deg); z-index: 3; }
+  .publishing-hero__fan li:nth-child(4) { inset-inline-start: 62%; top: 18%; transform: rotate(10deg); z-index: 2; }
 
-  /* Five rings = five imprints, innermost to outermost. The class names are
-     historical (blue / sage / terra / gold / plum); each now carries an
-     imprint colour from the shared tokens. */
-  .publishing-hero__orbit--gold { stroke: var(--imprint-health-nexus); }
-  .publishing-hero__orbit--terra { stroke: var(--imprint-charter); }
-  .publishing-hero__orbit--sage { stroke: var(--imprint-verdant-science); }
-  .publishing-hero__orbit--blue { stroke: var(--imprint-ridgeline); }
-  .publishing-hero__orbit--plum { stroke: var(--imprint-threnody); }
-
-  /* The rings fade in one after another, once. Opacity only: the circles carry
-     their rotation in an SVG transform attribute, which a CSS transform would
-     override. */
-  @keyframes publishing-orbit-in {
-    from { opacity: 0; }
-    to { opacity: 0.9; }
-  }
   @media (prefers-reduced-motion: no-preference) {
-    .publishing-hero__orbit { animation: publishing-orbit-in 900ms var(--p-ease-decelerate) backwards; }
-    .publishing-hero__orbit--gold { animation-delay: 200ms; }
-    .publishing-hero__orbit--terra { animation-delay: 360ms; }
-    .publishing-hero__orbit--sage { animation-delay: 520ms; }
-    .publishing-hero__orbit--blue { animation-delay: 680ms; }
-    .publishing-hero__orbit--plum { animation-delay: 840ms; }
+    .publishing-hero__fan li { animation: publishing-fan-in 700ms var(--p-ease-decelerate) backwards; }
+    .publishing-hero__fan li:nth-child(2) { animation-delay: 80ms; }
+    .publishing-hero__fan li:nth-child(3) { animation-delay: 160ms; }
+    .publishing-hero__fan li:nth-child(4) { animation-delay: 240ms; }
+  }
+  @keyframes publishing-fan-in {
+    from { opacity: 0; translate: 0 0.75rem; }
+    to { opacity: 1; translate: 0 0; }
   }
 
   .publishing-hero__note {
@@ -494,7 +490,6 @@ const programmeRoutes = copy.routes.map((route, index) => ({
       margin-top: 0.5rem;
     }
 
-    .publishing-hero__orbits { width: min(100%, 22rem); }
 
     .publishing-hero__note { bottom: 0; }
 
