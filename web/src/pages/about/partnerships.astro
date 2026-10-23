@@ -120,9 +120,9 @@ const copy = getPartnershipsCopy(locale);
         </header>
 
         <div class="partnerships-principle-list">
-          {copy.principles.map((principle, index) => (
+          {copy.principles.map((principle) => (
             <article>
-              <span>{String(index + 1).padStart(2, '0')}</span>
+              <span aria-hidden="true"></span>
               <h3><PhraseText text={principle.title} /></h3>
               <p>{principle.body}</p>
             </article>
@@ -318,10 +318,12 @@ const copy = getPartnershipsCopy(locale);
   .partnerships-principle-list article:first-child { padding-inline-start: 0; }
   .partnerships-principle-list article:last-child { border-inline-end: 0; }
 
+  /* Principles, not steps: a short gold rule instead of 01–03. */
   .partnerships-principle-list span {
-    color: var(--text-accent-inverse);
-    font-family: var(--font-display);
-    font-size: 1.7rem;
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--brand-accent);
   }
 
   .partnerships-principle-list h3 {

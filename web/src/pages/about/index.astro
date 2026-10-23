@@ -95,7 +95,7 @@ const copy = getAboutCopy(locale);
         <ol class="about-division-list">
           {corporateStructure.divisions.map((division, index) => (
             <li>
-              <span class="about-division-list__number">{String(index + 1).padStart(2, '0')}</span>
+              <span class="about-division-list__mark" aria-hidden="true"></span>
               <div>
                 <h3><PhraseText text={copy.divisions[index].name} /></h3>
                 <p>{copy.divisions[index].description}</p>
@@ -273,11 +273,11 @@ const copy = getAboutCopy(locale);
     border-bottom: var(--p-border-hairline) solid var(--border-strong);
   }
 
-  .about-division-list__number {
-    color: var(--text-accent);
-    font-family: var(--font-display);
-    font-size: 1.7rem;
-    line-height: 1;
+  /* The divisions are parallel, not ranked, so a gold mark replaces 01–04. */
+  .about-division-list__mark {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--brand-accent);
   }
 
   .about-division-list h3 {

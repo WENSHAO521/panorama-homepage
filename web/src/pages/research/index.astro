@@ -55,13 +55,10 @@ const copy = getResearchCopy(locale);
         </header>
 
         <ul class="research-area-list" role="list">
-          {copy.areas.map((area, index) => (
+          {copy.areas.map((area) => (
             <li>
-              <span class="research-area-list__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <div>
-                <h3><PhraseText text={area.title} /></h3>
-                <p>{area.description}</p>
-              </div>
+              <h3><PhraseText text={area.title} /></h3>
+              <p>{area.description}</p>
             </li>
           ))}
         </ul>
@@ -205,29 +202,22 @@ const copy = getResearchCopy(locale);
     list-style: none;
   }
 
+  /* Research areas are parallel, not a sequence: hairline rows, no numbers. */
   .research-area-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-top: var(--p-border-hairline) solid var(--border-strong);
-    border-inline-start: var(--p-border-hairline) solid var(--border-strong);
+    gap: 0 clamp(2rem, 5vw, 5rem);
   }
 
   .research-area-list li {
-    display: grid;
-    grid-template-columns: 3rem minmax(0, 1fr);
-    gap: 1.35rem;
-    min-height: 12rem;
-    padding: 1.35rem;
-    border-inline-end: var(--p-border-hairline) solid var(--border-strong);
-    border-bottom: var(--p-border-hairline) solid var(--border-strong);
+    padding-block: 1.35rem 1.75rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
   }
 
-  .research-area-list__number,
   .research-principle-list > li > span {
     font-family: var(--font-display);
     font-size: 1.25rem;
   }
 
-  .research-area-list__number { color: var(--text-accent); }
   .research-principle-list > li > span { color: var(--text-accent-inverse); }
 
   .research-area-list h3,
