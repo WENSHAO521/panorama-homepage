@@ -11,6 +11,7 @@ import { locales, type LocaleCode } from '@/i18n/config';
 import { getLocalizedImprint } from '@/i18n/catalog';
 import { getImprintCopyStrings, type ImprintSlug } from '@/i18n/imprints';
 import { getAboutCopy, getContactCopy, getGovernanceCopy, getPartnershipsCopy } from '@/i18n/group';
+import { getLogoGuidelinesCopy } from '@/i18n/brand';
 import { getResearchCopy } from '@/i18n/pages';
 import { getInfrastructureCopy } from '@/i18n/infrastructure';
 import { getDoiPolicyCopy } from '@/i18n/doi-policy';
@@ -152,6 +153,7 @@ const localizedPagePaths = new Set([
   '/about/',
   '/about/governance/',
   '/about/partnerships/',
+  '/about/logo/',
   '/about/contact/',
   '/journals/',
   '/imprints/',
@@ -165,6 +167,7 @@ const corePages: SearchRecord[] = [
   { type: 'page', title: 'About the Group', description: 'Panorama Scholarly Group brings publishing, research, and scholarly infrastructure together to support a more connected scholarly record.', url: '/about/', keywords: ['about', 'organisation', 'group'] },
   { type: 'page', title: 'Governance', description: 'How Panorama Scholarly Group structures accountability, editorial independence, and responsible stewardship of scholarly work.', url: '/about/governance/', keywords: ['governance', 'structure', 'accountability'] },
   { type: 'page', title: 'Partnerships', description: 'Institutional, library, and scholarly-service relationships that extend the reach of Panorama Scholarly Group publications.', url: '/about/partnerships/', keywords: ['partnerships', 'collaboration', 'libraries'] },
+  { type: 'page', title: 'Logo guidelines', description: 'How to use the Panorama Scholarly Group wordmark and imprint logos: versions, clear space, minimum size, colours, and downloads.', url: '/about/logo/', keywords: ['logo', 'wordmark', 'brand', 'brand guidelines', 'download'] },
   { type: 'page', title: 'Contact', description: 'Contact Panorama Scholarly Group about publishing, research, infrastructure, and partnerships.', url: '/about/contact/', keywords: ['contact', 'email', 'address'] },
   { type: 'page', title: 'Standards', description: "Panorama Scholarly Group's editorial, ethics, and open-access standards.", url: '/standards/', keywords: ['standards', 'policy'] },
   { type: 'page', title: 'Editorial Standards', description: "Panorama Scholarly Group's editorial standards.", url: '/standards/editorial/', keywords: ['editorial', 'peer review', 'standards'] },
@@ -226,6 +229,7 @@ function buildLocalizedRecords(locale: LocaleCode): SearchRecord[] {
   const governance = getGovernanceCopy(locale);
   const partnerships = getPartnershipsCopy(locale);
   const contact = getContactCopy(locale);
+  const logoGuidelines = getLogoGuidelinesCopy(locale);
   const localizedImprints = getAllImprints().map((imprint) => getLocalizedImprint(imprint, locale));
 
   const pageRecords = [
@@ -238,6 +242,7 @@ function buildLocalizedRecords(locale: LocaleCode): SearchRecord[] {
     makePageRecord(locale, '/about/', about.title, about.metaDescription, ['about', 'group', 'organisation', 'mission'], [about, corporateStructure, site]),
     makePageRecord(locale, '/about/governance/', governance.title, governance.metaDescription, ['governance', 'accountability', 'editorial independence'], [governance, corporateStructure]),
     makePageRecord(locale, '/about/partnerships/', partnerships.title, partnerships.metaDescription, ['partnerships', 'libraries', 'institutions'], [partnerships, partnerData]),
+    makePageRecord(locale, '/about/logo/', logoGuidelines.title, logoGuidelines.metaDescription, ['logo', 'wordmark', 'brand', 'download'], [logoGuidelines]),
     makePageRecord(locale, '/about/contact/', contact.title, contact.metaDescription, ['contact', 'email', 'office', 'address'], [contact, getOfficeDirectory(locale), site.email, site.legalName]),
     makePageRecord(locale, '/journals/', t('journals.title', 'Our journals'), t('journals.metaDescription', 'Explore the journals of Panorama Scholarly Group.'), ['journals', 'articles', 'periodicals', 'research'], [t('journals.overline'), t('journals.lede'), getAllJournals()]),
     makePageRecord(locale, '/imprints/', t('imprints.editorialImprints', 'Editorial imprints'), t('imprints.metaDescription', 'Explore the editorial imprints of Panorama Scholarly Group.'), ['imprints', 'brands', 'editorial identities'], [t('imprints.titleOne'), t('imprints.titleTwo'), t('imprints.lede'), localizedImprints]),

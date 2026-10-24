@@ -1,0 +1,661 @@
+---
+import PhraseText from '@/components/ui/PhraseText.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionSubnav from '@/components/navigation/SectionSubnav.astro';
+import Button from '@/components/ui/Button.astro';
+import GroupHero from '@/components/group/GroupHero.astro';
+import imprintsData from '@/data/imprints.json';
+import type { Imprint } from '@/types';
+import { getLogoGuidelinesCopy } from '@/i18n/brand';
+import { localizePath } from '@/i18n/utils';
+
+const locale = Astro.currentLocale ?? 'en';
+const copy = getLogoGuidelinesCopy(locale);
+const imprints = imprintsData as Imprint[];
+
+// Outlined files built by scripts/brand/build-wordmark.py from the same fonts
+// and settings as components/ui/Logo.astro.
+const wordmarkDir = '/brand/psg/wordmark';
+const versions = [
+  { slug: 'panorama-wordmark', tone: 'paper' },
+  { slug: 'panorama-wordmark-inverse', tone: 'ink' },
+  { slug: 'panorama-wordmark-black', tone: 'white' },
+].map((version, index) => ({ ...version, ...copy.versions[index] }));
+
+
+// Colours from styles/tokens.css (SEMANTIC: LOGO).
+const swatches = [
+  { hex: '#244344', name: copy.swatches[0] },
+  { hex: '#727171', name: copy.swatches[1] },
+  { hex: '#1C1C1C', name: copy.swatches[2] },
+  { hex: '#F6F1E8', name: copy.swatches[3] },
+];
+
+const misuses = ['stretch', 'recolour', 'rotate', 'effects', 'busy', 'retype'].map((kind, index) => ({ kind, caption: copy.donts[index] }));
+---
+
+<BaseLayout
+  title={copy.title}
+  description={copy.metaDescription}
+  path="/about/logo/"
+  locale={locale}
+>
+  <div class="logo-page">
+    <SectionSubnav section="about" locale={locale} />
+
+    <GroupHero eyebrow={copy.overline} title={copy.heroTitle} lede={copy.heroLede} titleId="logo-title">
+      <div slot="aside" class="group-hero__aside-content" aria-label={copy.briefLabel}>
+        <p class="text-overline">{copy.briefLabel}</p>
+        <dl>
+          {copy.brief.map((item) => <div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
+        </dl>
+      </div>
+    </GroupHero>
+
+    <section id="versions" class="logo-section row" aria-labelledby="versions-title">
+      <div class="container-wide">
+        <header class="logo-section-head">
+          <div>
+            <p class="text-overline">{copy.versionsOverline}</p>
+            <h2 id="versions-title"><PhraseText text={copy.versionsTitle} /></h2>
+          </div>
+          <p>{copy.versionsIntro}</p>
+        </header>
+
+        <ul class="logo-versions" role="list">
+          {versions.map((version) => (
+            <li class="logo-version">
+              <div class:list={['logo-tile', `logo-tile--${version.tone}`]}>
+                <img src={`${wordmarkDir}/${version.slug}.svg`} alt="Panorama Scholarly Group" width="618" height="148" />
+              </div>
+              <h3>{version.name}</h3>
+              <p>{version.use}</p>
+              <p class="logo-downloads">
+                <span>{copy.download}</span>
+                <a href={`${wordmarkDir}/${version.slug}.svg`} download>SVG</a>
+                <a href={`${wordmarkDir}/${version.slug}.png`} download>PNG</a>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="logo-section row" aria-labelledby="space-title">
+      <div class="container-wide logo-space">
+        <div class="logo-space__copy">
+          <p class="text-overline">{copy.spaceOverline}</p>
+          <h2 id="space-title"><PhraseText text={copy.spaceTitle} /></h2>
+          <p>{copy.clearSpace}</p>
+          <div class="logo-minimum">
+            <p class="text-overline">{copy.minimumSizeLabel}</p>
+            <dl>
+              <div><dt>{copy.onScreen}</dt><dd>96 px</dd></div>
+              <div><dt>{copy.inPrint}</dt><dd>25 mm</dd></div>
+            </dl>
+            <p>{copy.minimumSize}</p>
+          </div>
+        </div>
+
+        <figure class="logo-clearspace" aria-hidden="true">
+          <div class="logo-clearspace__zone">
+            <span class="logo-clearspace__x logo-clearspace__x--top">X</span>
+            <span class="logo-clearspace__x logo-clearspace__x--start">X</span>
+            <div class="logo-clearspace__mark">
+              <img src={`${wordmarkDir}/panorama-wordmark.svg`} alt="" width="618" height="148" />
+              <span class="logo-clearspace__cap"></span>
+            </div>
+          </div>
+          <figcaption>{copy.clearSpaceCaption}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="logo-section logo-colour row row--inverse" aria-labelledby="colour-title">
+      <div class="container-wide">
+        <header class="logo-section-head logo-section-head--inverse">
+          <div>
+            <p class="text-overline">{copy.colourOverline}</p>
+            <h2 id="colour-title"><PhraseText text={copy.colourTitle} /></h2>
+          </div>
+          <p>{copy.colourIntro}</p>
+        </header>
+
+        <ul class="logo-swatches" role="list">
+          {swatches.map((swatch) => (
+            <li>
+              <span class="logo-swatch" style={`background: ${swatch.hex}`}></span>
+              <strong>{swatch.name}</strong>
+              <code>{swatch.hex}</code>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="logo-section row" aria-labelledby="usage-title">
+      <div class="container-wide">
+        <header class="logo-section-head">
+          <div>
+            <p class="text-overline">{copy.usageOverline}</p>
+            <h2 id="usage-title"><PhraseText text={copy.usageTitle} /></h2>
+          </div>
+          <p>{copy.usageIntro}</p>
+        </header>
+
+        <div class="logo-usage">
+          <div class="logo-dos">
+            <p class="logo-verdict logo-verdict--do">{copy.doLabel}</p>
+            <div class="logo-tile logo-tile--paper">
+              <img src={`${wordmarkDir}/panorama-wordmark.svg`} alt="" width="618" height="148" />
+            </div>
+            <ul role="list">
+              {copy.dos.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+
+          <div class="logo-donts">
+            <p class="logo-verdict logo-verdict--dont">{copy.dontLabel}</p>
+            <ul class="logo-misuses" role="list">
+              {misuses.map((misuse) => (
+                <li>
+                  <div class:list={['logo-tile', 'logo-tile--paper', `logo-misuse--${misuse.kind}`]} aria-hidden="true">
+                    {misuse.kind === 'retype'
+                      ? <span class="logo-misuse__retyped">Panorama Scholarly Group</span>
+                      : <img src={`${wordmarkDir}/panorama-wordmark${misuse.kind === 'busy' ? '-black' : ''}.svg`} alt="" width="618" height="148" />}
+                  </div>
+                  <p>{misuse.caption}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logo-section row" aria-labelledby="imprints-title">
+      <div class="container-wide">
+        <header class="logo-section-head">
+          <div>
+            <p class="text-overline">{copy.imprintsOverline}</p>
+            <h2 id="imprints-title"><PhraseText text={copy.imprintsTitle} /></h2>
+          </div>
+          <p>{copy.imprintsIntro}</p>
+        </header>
+
+        <ul class="logo-imprints" role="list">
+          {imprints.map((imprint) => (
+            <li style={`--imprint-accent: ${imprint.accent}`}>
+              <h3>{imprint.name}</h3>
+              <div class="logo-imprint__pair">
+                <a class="logo-tile logo-tile--paper" href={imprint.logo} download aria-label={`${imprint.name}, ${copy.onLight}, SVG`}>
+                  <img src={imprint.logo} alt="" loading="lazy" />
+                </a>
+                <a class="logo-tile logo-tile--ink" href={imprint.logoLight} download aria-label={`${imprint.name}, ${copy.onDark}, SVG`}>
+                  <img src={imprint.logoLight} alt="" loading="lazy" />
+                </a>
+              </div>
+              <p class="logo-downloads">
+                <span>{copy.download}</span>
+                <a href={imprint.logo} download>{copy.onLight}</a>
+                <a href={imprint.logoLight} download>{copy.onDark}</a>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section class="logo-section logo-closing" aria-labelledby="logo-closing-title">
+      <div class="container-wide logo-closing__inner">
+        <div>
+          <p class="text-overline">{copy.closingOverline}</p>
+          <h2 id="logo-closing-title"><PhraseText text={copy.closingTitle} /></h2>
+        </div>
+        <div class="logo-closing__copy">
+          <p>{copy.closingBody}</p>
+          <p class="logo-terms__label text-overline">{copy.termsLabel}</p>
+          <ol class="logo-terms" role="list">
+            {copy.terms.map((term) => <li>{term}</li>)}
+          </ol>
+          <div class="logo-closing__actions">
+            <Button href={localizePath('/about/contact/', locale)} variant="primary">{copy.contact}</Button>
+            <Button href={localizePath('/about/partnerships/', locale)} variant="secondary">{copy.partnerships}</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .logo-page { background: var(--surface-primary); }
+
+  .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
+
+  .logo-section { padding-block: clamp(4rem, 8vw, 7rem); }
+
+  .logo-section h2 {
+    max-width: 20ch;
+    margin-top: 0.7rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: var(--fw-regular);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .logo-section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    align-items: end;
+    margin-bottom: 3.25rem;
+  }
+
+  .logo-section-head > p,
+  .logo-space__copy > p,
+  .logo-closing__copy > p {
+    max-width: 32rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .logo-section-head--inverse h2 { color: var(--text-inverse); }
+  .logo-section-head--inverse > p { color: var(--text-inverse-muted); }
+
+  /* Tiles that hold a logo specimen. */
+  .logo-tile {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    padding: 12%;
+    border: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .logo-tile img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  }
+
+  .logo-tile--paper { background: var(--p-paper-50, #FBF8F2); }
+  .logo-tile--white { background: #FFFFFF; }
+  .logo-tile--ink { background: var(--surface-inverse); border-color: var(--surface-inverse); }
+
+  .logo-versions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.5vw, 2rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .logo-version h3,
+  .logo-imprints h3 {
+    margin-top: 1.1rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: var(--fw-regular);
+  }
+
+  .logo-version > p:not(.logo-downloads) {
+    max-width: 24rem;
+    margin-top: 0.45rem;
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .logo-downloads {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 1rem;
+    margin-top: 0.9rem;
+    font-size: var(--fs-body-sm);
+  }
+
+  .logo-downloads span {
+    color: var(--text-muted);
+    font-size: var(--fs-label);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .logo-downloads a {
+    color: var(--text-link);
+    font-weight: var(--fw-semibold);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+
+  /* Clear space and minimum size. */
+  .logo-space {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: center;
+  }
+
+  .logo-space__copy > p { margin-top: 1.25rem; }
+  .logo-space__copy > .text-overline { margin-top: 0; color: var(--text-accent); }
+
+  .logo-minimum {
+    margin-top: 2.25rem;
+    padding-top: 1.1rem;
+    border-top: var(--p-border-hairline) solid var(--border-strong);
+  }
+
+  .logo-minimum dl {
+    display: flex;
+    gap: 2.5rem;
+    margin: 0.8rem 0 0;
+  }
+
+  .logo-minimum dt {
+    color: var(--text-muted);
+    font-size: var(--fs-caption);
+  }
+
+  .logo-minimum dd {
+    margin: 0.15rem 0 0;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+
+  .logo-minimum > p:last-child {
+    max-width: 30rem;
+    margin-top: 0.8rem;
+    color: var(--text-muted);
+    font-size: var(--fs-body-sm);
+    line-height: 1.5;
+  }
+
+  /* The wordmark file is 617.8 x 148.1 and its capital P is 73.7 high, so
+     X is 0.1193 of the rendered width. */
+  .logo-clearspace {
+    --mark-width: min(100%, 26rem);
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    background: var(--p-paper-50, #FBF8F2);
+    border: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .logo-clearspace__zone {
+    --x: calc(var(--mark-width) * 0.1193);
+    position: relative;
+    width: calc(var(--mark-width) + 2 * var(--x));
+    max-width: 100%;
+    padding: var(--x);
+    outline: 1px dashed var(--text-accent);
+    outline-offset: 0;
+    background:
+      linear-gradient(color-mix(in srgb, var(--text-accent) 9%, transparent), color-mix(in srgb, var(--text-accent) 9%, transparent));
+  }
+
+  .logo-clearspace__mark {
+    position: relative;
+    background: var(--p-paper-50, #FBF8F2);
+    outline: 1px solid color-mix(in srgb, var(--text-accent) 45%, transparent);
+  }
+
+  .logo-clearspace__mark img { display: block; width: 100%; height: auto; }
+
+  .logo-clearspace__x {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    color: var(--text-accent);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .logo-clearspace__x--top { inset: 0 0 auto; height: var(--x); }
+  .logo-clearspace__x--start { inset: 0 auto 0 0; width: var(--x); }
+
+  .logo-clearspace figcaption {
+    color: var(--text-muted);
+    font-size: var(--fs-caption);
+  }
+
+  /* The one ink band: colour. */
+  .logo-colour { border-bottom: 0; }
+
+  .logo-swatches {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    border-top: var(--p-border-hairline) solid var(--border-inverse);
+    list-style: none;
+  }
+
+  .logo-swatches li {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1.3rem 1.3rem 0;
+    border-inline-end: var(--p-border-hairline) solid var(--border-inverse);
+  }
+
+  .logo-swatches li:first-child { padding-inline-start: 0; }
+  .logo-swatches li:last-child { border-inline-end: 0; }
+
+  .logo-swatch {
+    display: block;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 0.7rem;
+    border: 1px solid rgba(246, 241, 232, 0.22);
+  }
+
+  .logo-swatches strong {
+    color: var(--text-inverse);
+    font-size: var(--fs-label);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .logo-swatches code {
+    color: var(--text-inverse-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  /* Do and don't. */
+  .logo-usage {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 2.2fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .logo-verdict {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: var(--fs-label);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .logo-verdict::before {
+    content: '';
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+  }
+
+  .logo-verdict--do { color: var(--imprint-verdant-science); }
+  .logo-verdict--do::before { background: var(--imprint-verdant-science); }
+  .logo-verdict--dont { color: var(--interactive-default); }
+  .logo-verdict--dont::before { background: var(--interactive-default); }
+
+  .logo-dos ul {
+    display: grid;
+    gap: 0.7rem;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .logo-dos li,
+  .logo-misuses p {
+    color: var(--text-secondary);
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .logo-dos li {
+    padding-top: 0.7rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+  }
+
+  .logo-misuses {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .logo-misuses .logo-tile {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* A thin diagonal strike marks each tile as wrong. */
+  .logo-misuses .logo-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top right, transparent calc(50% - 1px), var(--interactive-default) calc(50% - 1px), var(--interactive-default) calc(50% + 1px), transparent calc(50% + 1px));
+    opacity: 0.55;
+  }
+
+  .logo-misuses p { margin-top: 0.7rem; }
+
+  .logo-misuse--stretch img { transform: scale(1.18, 0.62); }
+  .logo-misuse--recolour img { filter: hue-rotate(150deg) saturate(4) brightness(1.4); }
+  .logo-misuse--rotate img { transform: rotate(-14deg); }
+  .logo-misuse--effects img { filter: drop-shadow(4px 5px 3px rgba(28, 28, 28, 0.55)) drop-shadow(0 0 1px #c62); }
+
+  .logo-misuse--busy {
+    background:
+      repeating-linear-gradient(115deg, #355a5b 0 10px, #9f8a63 10px 22px, #2f3a4a 22px 30px, #b5a99a 30px 44px);
+  }
+
+  .logo-misuse__retyped {
+    color: #244344;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.85rem, 1.5vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  /* Imprint logos. */
+  .logo-imprints {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .logo-imprints li {
+    padding-top: 0.9rem;
+    border-top: 2px solid var(--imprint-accent);
+  }
+
+  .logo-imprints h3 { margin: 0 0 0.9rem; font-size: 1.1rem; }
+
+  .logo-imprint__pair {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .logo-imprint__pair .logo-tile { aspect-ratio: 2 / 1; padding: 10%; }
+
+  .logo-imprints .logo-downloads {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  /* Closing. */
+  .logo-closing__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 9vw, 9rem);
+    align-items: start;
+  }
+
+  .logo-terms__label { margin-top: 1.6rem; }
+
+  .logo-terms {
+    max-width: 34rem;
+    margin: 0.6rem 0 0;
+    padding: 0;
+    counter-reset: term;
+    list-style: none;
+  }
+
+  .logo-terms li {
+    display: grid;
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    padding-block: 0.6rem;
+    border-top: var(--p-border-hairline) solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: var(--fs-body-sm);
+    line-height: 1.5;
+    counter-increment: term;
+  }
+
+  .logo-terms li::before {
+    content: counter(term, decimal-leading-zero);
+    color: var(--text-accent);
+    font-family: var(--font-display);
+  }
+
+  .logo-closing__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.6rem;
+  }
+
+  @media (max-width: 1100px) {
+    .logo-imprints { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 2rem; }
+  }
+
+  @media (max-width: 900px) {
+    .logo-section-head,
+    .logo-space,
+    .logo-usage { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .logo-usage { gap: 3rem; }
+    .logo-versions { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+    .logo-swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.5rem; }
+    .logo-swatches li:nth-child(2n) { border-inline-end: 0; }
+    .logo-swatches li:nth-child(2n + 1) { padding-inline-start: 0; }
+  }
+
+  @media (max-width: 639px) {
+    .logo-section h2 { max-width: 12ch; }
+    .logo-misuses { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .logo-imprints { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .logo-closing__inner { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  }
+</style>
