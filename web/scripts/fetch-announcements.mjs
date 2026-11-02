@@ -119,8 +119,12 @@ async function fetchText(url) {
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
   });
   const text = await response.text();
-  if (isChallengePage('', text)) throw new Error('blocked by bot challenge (HTTP ' + response.status + ')');
-  if (!response.ok) throw new Error('HTTP ' + response.status);
+  if (!response.ok) {
+    // Cloudflare embeds its challenge-platform script in ordinary pages too
+    // (including 404s), so only an error status with those markers is a block.
+    const challenged = [403, 429, 503].includes(response.status) && isChallengePage('', text);
+    throw new Error((challenged ? 'blocked by bot challenge (HTTP ' : 'HTTP ') + response.status + (challenged ? ')' : ''));
+  }
   return text;
 }
 
