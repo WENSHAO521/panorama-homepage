@@ -1,8 +1,38 @@
 {
-  "generatedAt": "2026-10-19T07:46:03.981Z",
+  "generatedAt": "2026-11-02T16:19:24.076Z",
   "source": "Journal-specific OAI-PMH feeds (oai_dc)",
   "maxItems": null,
   "articles": [
+    {
+      "id": "10.63802/afs.V2.I2.324",
+      "doi": "10.63802/afs.V2.I2.324",
+      "title": "From AI Adoption to Institutional Preparedness: Governing Enterprises for AGI",
+      "authors": [
+        "Fang Sun"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "afs",
+      "journalUrl": "https://journals.panorama-sg.com/afs",
+      "publishedAt": "2026-10-22",
+      "url": "https://journals.panorama-sg.com/afs/article/view/324",
+      "journalArticleUrl": "https://journals.panorama-sg.com/afs/article/view/324",
+      "summary": "Artificial general intelligence (AGI) is increasingly discussed not merely as a technical frontier but as a social and institutional challenge. Drawing on current generative and agentic AI as diagnostic evidence, this paper examines enterprise institutional preparedness for…"
+    },
+    {
+      "id": "10.63802/afs.V2.I2.364",
+      "doi": "10.63802/afs.V2.I2.364",
+      "title": "When AI Delegation Becomes Dependence: Administrative Judgment at Risk",
+      "authors": [
+        "Chengwen Song"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "afs",
+      "journalUrl": "https://journals.panorama-sg.com/afs",
+      "publishedAt": "2026-10-20",
+      "url": "https://journals.panorama-sg.com/afs/article/view/364",
+      "journalArticleUrl": "https://journals.panorama-sg.com/afs/article/view/364",
+      "summary": "Public organizations can delegate cognitive work to artificial intelligence while losing the capacity to scrutinize or resume that work. When does useful delegation become institutional dependence? This article develops a theory of institutional AI dependence as a…"
+    },
     {
       "id": "10.63802/jesa.V2.2026.351",
       "doi": "10.63802/jesa.V2.2026.351",
