@@ -15,6 +15,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { botHeadersFor, installBotHeader, reportProblem, sameContent } from './lib/site-data-bot.mjs';
 
 const WEB_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const JOURNALS_PATH = path.join(WEB_ROOT, 'src', 'data', 'journals.json');
@@ -112,6 +113,7 @@ async function fetchText(url) {
     headers: {
       'User-Agent': USER_AGENT,
       Accept: 'text/html,application/atom+xml,application/xml;q=0.9,*/*;q=0.8',
+      ...botHeadersFor(url),
     },
     redirect: 'follow',
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
@@ -360,6 +362,12 @@ async function scrapeJournal(page, journal) {
     notes.push('list html: ' + String(error.message || error).slice(0, 60));
   }
 
+  // When plain HTTP already hit the bot challenge, the browser gets the same
+  // challenge; skipping it saves ~25s per journal.
+  if (notes.length === 2 && notes.every((note) => note.includes('blocked by bot challenge'))) {
+    return { items: [], note: notes.join('; ') };
+  }
+
   const browserResult = await scrapeJournalInBrowser(page, journal);
   if (!browserResult.items.length) browserResult.note = notes.concat(browserResult.note).join('; ');
   return browserResult;
@@ -450,6 +458,9 @@ function mergeAndLimit(existing, fetched) {
 }
 
 function logResult(label, result) {
+  if (!result.items.length && /blocked by bot challenge/.test(result.note || '')) {
+    reportProblem('announcements', label, result.note);
+  }
   const line = '[ok] ' + label.padEnd(16) + String(result.items.length).padStart(2) + ' announcements';
   const message = result.note ? line + '  (' + result.note + ')' : line;
   if (result.items.length) console.log(message);
@@ -461,6 +472,7 @@ async function main() {
   const existing = existingPayload.announcements || [];
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ userAgent: USER_AGENT });
+  await installBotHeader(page);
   const fetched = [];
 
   try {
@@ -484,6 +496,7 @@ async function main() {
         fetched.push(...result.items);
       } catch (error) {
         console.warn('[skip] ' + platform.source.padEnd(16) + String(error.message || error).slice(0, 100));
+        reportProblem('announcements', platform.source, error.message || error);
       }
     }
 
@@ -493,6 +506,7 @@ async function main() {
       fetched.push(...result.items);
     } catch (error) {
       console.warn('[skip] books ' + String(error.message || error).slice(0, 100));
+      reportProblem('announcements', 'books', error.message || error);
     }
 
     for (const journal of loadJournals()) {
@@ -502,6 +516,7 @@ async function main() {
         fetched.push(...result.items);
       } catch (error) {
         console.warn('[skip] ' + journal.slug.padEnd(16) + String(error.message || error).slice(0, 100));
+        reportProblem('announcements', journal.slug, error.message || error);
       }
     }
   } finally {
@@ -513,10 +528,17 @@ async function main() {
     return;
   }
 
+  const announcements = mergeAndLimit(existing, fetched);
+  if (sameContent(announcements, existing)) {
+    // Rewriting only generatedAt made every run look like a fresh harvest.
+    console.log('Announcements unchanged (' + announcements.length + ' items); payload left as is.');
+    return;
+  }
+
   const payload = {
     generatedAt: new Date().toISOString(),
     maxItems: MAX_ITEMS,
-    announcements: mergeAndLimit(existing, fetched),
+    announcements,
   };
   writeFileSync(OUTPUT_PATH, JSON.stringify(payload, null, 2) + '\n', 'utf-8');
   console.log('Wrote ' + payload.announcements.length + ' announcements to ' + OUTPUT_PATH);
@@ -524,5 +546,6 @@ async function main() {
 
 main().catch((error) => {
   console.error('Announcement refresh failed; existing payload left untouched:', error);
+  reportProblem('announcements', 'script', error.message || error);
   process.exit(0);
 });

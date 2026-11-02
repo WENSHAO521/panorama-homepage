@@ -15,6 +15,13 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # Lets the harvest past the Cloudflare challenge on panorama-sg.com hosts
+      # (see docs/SITE-DATA-FEEDS.md). Sent only to those hosts.
+      SITE_DATA_BOT_TOKEN: ${{ secrets.SITE_DATA_BOT_TOKEN }}
+      # Each script appends the sources it could not read to this file.
+      SITE_DATA_REPORT: ${{ github.workspace }}/site-data-report.jsonl
     steps:
       - name: Check out the site
         uses: actions/checkout@v4
@@ -54,3 +61,35 @@ jobs:
           git config user.email "action@github.com"
           git commit -m "chore(data): refresh scholarly site feeds"
           git push
+
+      # Runs after the commit so whatever was harvested is still published,
+      # then turns the run red if any source was blocked or failed.
+      - name: Report blocked or failed sources
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Site data harvest"
+            if [ -z "$SITE_DATA_BOT_TOKEN" ]; then
+              echo "- ⚠️ SITE_DATA_BOT_TOKEN secret is not set; requests carry no bot pass header."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ ! -s "$SITE_DATA_REPORT" ]; then
+            echo "- All sources harvested." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          node -e '
+            const fs = require("fs");
+            const rows = fs.readFileSync(process.env.SITE_DATA_REPORT, "utf8").trim().split("\n").map(JSON.parse);
+            const lines = rows.map((r) => "- **" + r.severity + "** " + r.script + " / " + r.source + ": " + r.message);
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+            for (const r of rows) {
+              const kind = r.severity === "error" ? "error" : "warning";
+              console.log("::" + kind + " title=" + r.script + " " + r.source + "::" + r.message.replace(/[\r\n]+/g, " "));
+            }
+            const errors = rows.filter((r) => r.severity === "error").length;
+            if (errors) {
+              console.log(errors + " source(s) could not be harvested; the site keeps their previous data.");
+              process.exit(1);
+            }
+          '
