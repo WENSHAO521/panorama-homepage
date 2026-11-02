@@ -1,7 +1,57 @@
 {
-  "generatedAt": "2026-11-02T09:31:49.172Z",
+  "generatedAt": "2026-11-02T16:19:04.532Z",
   "maxItems": 12,
   "announcements": [
+    {
+      "id": "auto-resonance-122",
+      "source": "journals",
+      "sourceLabel": "Resonance",
+      "type": "Update",
+      "title": "Katherine Meizel Joins Resonance as Academic Advisor",
+      "summary": "Resonance: Journal of Global Music Studies is pleased to announce that Professor Katherine Meizel has joined the journal as an Academic Advisor. Katherine Meizel is Professor (ethnomusicology) in the area of Ethnomusicology at Bowling Green State University…",
+      "date": "2026-11-02",
+      "href": "https://journals.panorama-sg.com/Resonance/announcement/view/122"
+    },
+    {
+      "id": "auto-tts-120",
+      "source": "journals",
+      "sourceLabel": "Three Teachings Studies",
+      "type": "Update",
+      "title": "Notice of Revised Journal Policies and Editorial Guidelines — Effective 1 November 2026",
+      "summary": "Three Teachings Studies: Confucianism, Daoism, and Buddhism announces a comprehensive revision of its author guidelines, peer review procedures, publication ethics, copyright and licensing, open-access policies, and reviewer responsibilities. The revised…",
+      "date": "2026-10-28",
+      "href": "https://journals.panorama-sg.com/tts/announcement/view/120"
+    },
+    {
+      "id": "auto-resonance-121",
+      "source": "journals",
+      "sourceLabel": "Resonance",
+      "type": "Update",
+      "title": "Updated Submission Guidelines and Editorial Policies — Effective 1 November 2026",
+      "summary": "Effective 1 November 2026, Resonance: Journal of Global Music Studies will implement revised submission guidelines, section-specific requirements, editorial review procedures, and publication ethics policies. The updates clarify expectations for research…",
+      "date": "2026-10-28",
+      "href": "https://journals.panorama-sg.com/Resonance/announcement/view/121"
+    },
+    {
+      "id": "auto-posi-posi-fa5b9c763a02",
+      "source": "posi",
+      "sourceLabel": "POSI — Panorama Open Scholarly Index",
+      "type": "Update",
+      "title": "Find, check and cite scholarly journals",
+      "summary": "Panorama Open Scholarly Index",
+      "date": "2026-10-24",
+      "href": "https://posi.panorama-sg.com/announcements/"
+    },
+    {
+      "id": "auto-afs-119",
+      "source": "journals",
+      "sourceLabel": "AI & Future Society",
+      "type": "Update",
+      "title": "Call for Mini Reviews: Full APC Waiver | 20 November 2026–20 November 2027",
+      "summary": "AI & Future Society introduces Mini Review as a peer-reviewed article type. A 100% APC waiver applies automatically to eligible manuscripts first formally submitted from 20 November 2026 through 20 November 2027, inclusive.",
+      "date": "2026-10-22",
+      "href": "https://journals.panorama-sg.com/afs/announcement/view/119"
+    },
     {
       "id": "auto-research-research-b22e24786231",
       "source": "research",
@@ -71,58 +121,6 @@
       "summary": "The journal website has been updated with a refreshed design, improved navigation, and a more consistent reading experience on desktop and mobile devices.",
       "date": "2026-10-08",
       "href": "https://journals.panorama-sg.com/Resonance/announcement/view/118"
-    },
-    {
-      "id": "auto-jdes-114",
-      "source": "journals",
-      "sourceLabel": "Journal of Dance and Embodied Structure",
-      "type": "Call for papers",
-      "title": "Launch Announcement and Call for Papers",
-      "summary": "The Journal of Dance and Embodied Structure (JDES) is now open for submissions. The journal welcomes original and interdisciplinary research on dance, embodiment, movement, choreography, performance, and the structural, cultural, spatial, and technological…",
-      "date": "2026-10-01",
-      "href": "https://journals.panorama-sg.com/jdes/announcement/view/114"
-    },
-    {
-      "id": "dora-signatory-2026",
-      "source": "group",
-      "sourceLabel": "Panorama Scholarly Group",
-      "type": "Announcement",
-      "title": "Panorama Scholarly Group signs DORA",
-      "summary": "Panorama Scholarly Group Ltd has signed the San Francisco Declaration on Research Assessment (DORA), reaffirming its commitment to responsible research assessment and the recognition of diverse scholarly contributions.",
-      "date": "2026-09-19",
-      "href": "/news/dora-signatory-2026/",
-      "fallback": true
-    },
-    {
-      "id": "website-ui-update-2026",
-      "source": "group",
-      "sourceLabel": "Panorama Scholarly Group",
-      "type": "Update",
-      "title": "A renewed digital experience for Panorama Scholarly Group",
-      "summary": "Panorama Scholarly Group completed a comprehensive update to the user interface of its website on 15 September 2026, bringing a more consistent and clearer experience across the Group site and its editorial imprints.",
-      "date": "2026-09-15",
-      "href": "/news/website-ui-update/",
-      "fallback": true
-    },
-    {
-      "id": "auto-hndh-113",
-      "source": "journals",
-      "sourceLabel": "Health Nexus: Digital Health and Medical AI",
-      "type": "Call for papers",
-      "title": "Call for Papers: Health Nexus: Digital Health and Medical AI Is Now Accepting Submissions",
-      "summary": "Health Nexus: Digital Health and Medical AI is now accepting submissions for forthcoming issues. The journal welcomes original and interdisciplinary research across digital health, medical artificial intelligence, clinical informatics, computational medicine,…",
-      "date": "2026-09-08",
-      "href": "https://journals.panorama-sg.com/hndh/announcement/view/113"
-    },
-    {
-      "id": "auto-grhas-112",
-      "source": "journals",
-      "sourceLabel": "Global Review of Humanities, Arts, & Society",
-      "type": "Call for papers",
-      "title": "Call for Papers: GRHAS Vol. 2, No. 5 (October 2026)",
-      "summary": "Global Review of Humanities, Arts, and Society (GRHAS) invites original, interdisciplinary, and critically engaged submissions for Volume 2, Issue 5, scheduled for publication in October 2026. We welcome research and scholarly contributions across the…",
-      "date": "2026-08-30",
-      "href": "https://journals.panorama-sg.com/grhas/announcement/view/112"
     }
   ]
 }
