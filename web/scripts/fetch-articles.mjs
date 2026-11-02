@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { containsRetractionMarker, isRetractedArticle } from '../src/lib/articleFilter.mjs';
 import { normalizeAuthorName } from '../src/lib/authorName.mjs';
+import { botHeadersFor, reportProblem, sameContent } from './lib/site-data-bot.mjs';
 
 const WEB_ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const JOURNALS_PATH = path.join(WEB_ROOT, 'src', 'data', 'journals.json');
@@ -209,12 +210,16 @@ async function fetchOaiRecords(journal) {
       headers: {
         Accept: 'application/xml,text/xml',
         'User-Agent': 'PanoramaSiteDataBot/1.0 (+https://panorama-sg.com)',
+        ...botHeadersFor(endpoint.href),
       },
       signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     });
     const xml = await response.text();
-    if (!response.ok) throw new Error('HTTP ' + response.status);
-    if (/<(?:\\w+:)?error\\b/i.test(xml)) {
+    if (!response.ok) {
+      const challenged = /just a moment|cf-chl|challenge-platform/i.test(xml.slice(0, 5000));
+      throw new Error((challenged ? 'blocked by bot challenge, ' : '') + 'HTTP ' + response.status);
+    }
+    if (/<(?:\w+:)?error\b/i.test(xml)) {
       const code = xml.match(/code=["']([^"']+)["']/i);
       if (code && code[1] === 'noRecordsMatch') return records;
       throw new Error('OAI ' + (code ? code[1] : 'error'));
@@ -244,21 +249,34 @@ function sleep(milliseconds) {
 
 async function main() {
   const existingPayload = existsSync(OUTPUT_PATH) ? readJson(OUTPUT_PATH) : { articles: [] };
+  const existingArticles = Array.isArray(existingPayload.articles) ? existingPayload.articles : [];
   const records = [];
+  let harvestedJournals = 0;
 
   for (const journal of loadJournals()) {
     try {
       const items = await fetchOaiRecords(journal);
       console.log('[ok] ' + journal.slug.padEnd(16) + items.length + ' OAI article records');
       records.push(...items);
+      harvestedJournals += 1;
     } catch (error) {
-      console.warn('[skip] ' + journal.slug.padEnd(16) + String(error.message || error).slice(0, 100));
+      // A journal that could not be read keeps its last known articles rather
+      // than vanishing from the catalogue until the next good run.
+      const kept = existingArticles.filter((article) => article.journalSlug === journal.slug);
+      records.push(...kept);
+      console.warn('[skip] ' + journal.slug.padEnd(16) + String(error.message || error).slice(0, 100)
+        + (kept.length ? '  (kept ' + kept.length + ' previous)' : ''));
+      reportProblem('articles', journal.slug, error.message || error);
     }
     await sleep(REQUEST_DELAY_MS);
   }
 
   const articles = sortAndLimit(records);
-  if (articles.length === 0) {
+  if (harvestedJournals > 0 && sameContent(articles, existingArticles)) {
+    console.log('Articles unchanged (' + articles.length + ' records); payload left as is.');
+    return;
+  }
+  if (harvestedJournals === 0 || articles.length === 0) {
     const fallbackArticles = Array.isArray(existingPayload.articles)
       ? existingPayload.articles
       : [];
@@ -297,5 +315,6 @@ async function main() {
 
 main().catch((error) => {
   console.error('Article refresh failed; existing payload left untouched:', error);
+  reportProblem('articles', 'script', error.message || error);
   process.exit(0);
 });
