@@ -24,10 +24,10 @@ jobs:
       SITE_DATA_REPORT: ${{ github.workspace }}/site-data-report.jsonl
     steps:
       - name: Check out the site
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: web/.node-version
           cache: npm
