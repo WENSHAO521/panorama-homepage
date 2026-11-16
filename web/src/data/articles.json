@@ -1,8 +1,26 @@
 {
-  "generatedAt": "2026-11-02T16:19:24.076Z",
+  "generatedAt": "2026-11-16T09:31:48.056Z",
   "source": "Journal-specific OAI-PMH feeds (oai_dc)",
   "maxItems": null,
   "articles": [
+    {
+      "id": "10.63802/afs.V2.I2.366",
+      "doi": "10.63802/afs.V2.I2.366",
+      "title": "Governing Artificial General Intelligence in Future Healthcare Institutions: Risk-Adaptive Institutional Authorization for Clinical and Operational Authority",
+      "authors": [
+        "Feifei Chen",
+        "Chengwen Song",
+        "Yuexin Lu",
+        "Qilong Wang"
+      ],
+      "journal": "AI & Future Society",
+      "journalSlug": "afs",
+      "journalUrl": "https://journals.panorama-sg.com/afs",
+      "publishedAt": "2026-11-11",
+      "url": "https://journals.panorama-sg.com/afs/article/view/366",
+      "journalArticleUrl": "https://journals.panorama-sg.com/afs/article/view/366",
+      "summary": "Increasingly general and agentic artificial intelligence raises an institutional question of authority: which actions may a system perform, how may it combine them, and who may revise or withdraw permission? For prospective artificial general intelligence (AGI), cross-domain…"
+    },
     {
       "id": "10.63802/afs.V2.I2.324",
       "doi": "10.63802/afs.V2.I2.324",

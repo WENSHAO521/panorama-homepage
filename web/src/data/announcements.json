@@ -1,7 +1,17 @@
 {
-  "generatedAt": "2026-11-02T16:19:04.532Z",
+  "generatedAt": "2026-11-16T09:31:29.339Z",
   "maxItems": 12,
   "announcements": [
+    {
+      "id": "auto-jesa-123",
+      "source": "journals",
+      "sourceLabel": "Journal of Engineering Systems & Applications",
+      "type": "Update",
+      "title": "JESA Announces Revised Submission and Annual Publication Schedule Effective 2027",
+      "summary": "Effective 1 January 2027, JESA will accept manuscripts year-round without a fixed annual submission deadline. 31 May is a recommended, nonbinding submission date for consideration in the same year’s annual issue, scheduled for 25 December.",
+      "date": "2026-11-11",
+      "href": "https://journals.panorama-sg.com/jesa/announcement/view/123"
+    },
     {
       "id": "auto-resonance-122",
       "source": "journals",
@@ -111,16 +121,6 @@
       "summary": "The journal website has been updated with a refreshed design, improved navigation, and a more consistent reading experience on desktop and mobile devices.",
       "date": "2026-10-08",
       "href": "https://journals.panorama-sg.com/tts/announcement/view/115"
-    },
-    {
-      "id": "auto-resonance-118",
-      "source": "journals",
-      "sourceLabel": "Resonance",
-      "type": "Update",
-      "title": "Journal Website Update",
-      "summary": "The journal website has been updated with a refreshed design, improved navigation, and a more consistent reading experience on desktop and mobile devices.",
-      "date": "2026-10-08",
-      "href": "https://journals.panorama-sg.com/Resonance/announcement/view/118"
     }
   ]
 }
