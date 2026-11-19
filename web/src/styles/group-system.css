@@ -185,7 +185,7 @@ body.group-site .group-detail__body a {
   }
 
   body.group-site .group-detail__hero h1 {
-    max-width: 14ch;
+    max-width: 16ch;
     font-size: clamp(2.65rem, 12vw, 4rem);
   }
 }
