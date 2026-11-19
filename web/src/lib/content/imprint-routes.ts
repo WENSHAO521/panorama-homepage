@@ -32,11 +32,11 @@ export const routeSectionContent: Record<RouteImprint, RouteContent> = {
   ridgeline: {
     wallpaper: '/images/publishing/ridgeline-wallpaper-1920.webp',
     research: {
-      title: [['purposeTitleOne', 'Knowledge'], ['purposeTitleTwo', 'across disciplines'], ['purposeTitleThree', 'for real-world progress.']],
+      title: [['purposeTitleOne', 'Knowledge'], ['purposeTitleTwo', 'across disciplines'], ['purposeTitleThree', 'for real-world progress']],
       lede: ['purposeBody', 'Ridgeline publishes rigorous, independent research at the intersection of technology, engineering and society. The challenges we face require more than single-discipline answers.'],
     },
     authors: {
-      title: [['authorsTitleOne', 'Help shape a more'], ['authorsTitleTwo', 'livable tomorrow.']],
+      title: [['authorsTitleOne', 'Help shape a more'], ['authorsTitleTwo', 'livable tomorrow']],
       lede: ['authorsBody', 'We welcome original research, reviews and perspectives from around the world.'],
     },
     areasKicker: ['areasKicker', 'What we publish'],
@@ -55,11 +55,11 @@ export const routeSectionContent: Record<RouteImprint, RouteContent> = {
   'verdant-science': {
     wallpaper: '/images/publishing/verdant-science-wallpaper-1600.webp',
     research: {
-      title: [['researchTitle', 'Research today for a more resilient tomorrow.']],
+      title: [['researchTitle', 'Research today for a more resilient tomorrow']],
       lede: ['researchBody', 'Verdant Science publishes rigorous, solution-oriented research that bridges environmental systems, human communities, and long-term planetary wellbeing.'],
     },
     authors: {
-      title: [['authorsTitle', 'A trusted home for impactful research.']],
+      title: [['authorsTitle', 'A trusted home for impactful research']],
       lede: ['authorsBody', 'We welcome original research, reviews, and perspectives that make complex environmental and life-science questions clearer, more useful, and more open to the communities they affect.'],
     },
     areasKicker: ['section.about.fieldsKicker', 'Fields of inquiry'],
@@ -73,7 +73,7 @@ export const routeSectionContent: Record<RouteImprint, RouteContent> = {
     ],
     exploreKey: 'exploreJournals',
     submitKey: 'submitManuscript',
-    footerTagline: 'Research for a more resilient world.',
+    footerTagline: 'Research for a more resilient world',
   },
 };
 

@@ -3,7 +3,7 @@
   -----------------
   Rules for everything that moves on this site:
     - only `transform` and `opacity` (never layout properties), so CLS stays 0;
-    - 160-700ms, decelerating easing, played once;
+    - 120-560ms, one decelerating easing, played once;
     - gated on `prefers-reduced-motion: no-preference`, so reduced-motion
       visitors get no animation and no hidden initial state;
     - the hidden "before" state of scroll reveals is applied from JS
@@ -16,16 +16,14 @@
   to   { opacity: 1; transform: none; }
 }
 
-/* ── Scroll reveal (below-the-fold sections) ─────────────────────────── */
-.reveal-item {
-  opacity: 0;
-  transform: translateY(1.25rem);
-}
+/* ── Scroll reveal: retired ──────────────────────────────────────────
+   Sections below the fold no longer fade in as they scroll into view; the
+   page has one entrance (the hero copy below) and everything else is simply
+   there. scripts/reveal.ts may still tag items, so the classes stay inert. */
+.reveal-item,
 .reveal-item.is-revealed {
   opacity: 1;
   transform: none;
-  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
-    transform 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -87,6 +85,6 @@
     .verdant-journal-card__cover,
     .verdant-journal-row__cover
   ):focus-visible {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
   }
 }

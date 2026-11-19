@@ -84,7 +84,7 @@ function isExternal(value: string) {
   .home-announcements__item {
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
+    gap: 0.5rem;
     height: 100%;
     color: inherit;
     text-decoration: none;
@@ -103,14 +103,13 @@ function isExternal(value: string) {
     color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
   /* Routine updates carry a quiet text label; only a call for papers, which
      asks readers to act, is set as an accent tag. */
   .home-announcements__type { color: var(--text-muted); letter-spacing: 0.08em; }
   .home-announcements__type--cfp {
-    padding: 0.15rem 0.55rem;
+    padding: 0.25rem 0.5rem;
     color: var(--text-accent);
     background: color-mix(in srgb, var(--text-accent) 9%, transparent);
     border-radius: var(--p-radius-pill);
@@ -155,7 +154,7 @@ function isExternal(value: string) {
     width: fit-content;
     min-height: var(--p-link-min-height);
     margin-top: auto;
-    padding-top: 0.3rem;
+    padding-top: 0.25rem;
     color: var(--text-link);
     font-size: var(--p-link-font-size);
     font-weight: var(--fw-medium);

@@ -112,7 +112,7 @@ const routes = copy.routes.map((route, index) => ({
   .contact-hero__email,
   .contact-details__email {
     display: inline-block;
-    margin-top: 1.7rem;
+    margin-top: 1.75rem;
     border-bottom: var(--p-border-hairline) solid var(--brand-accent);
     color: var(--text-primary);
     font-family: var(--font-display);
@@ -126,7 +126,7 @@ const routes = copy.routes.map((route, index) => ({
   .contact-details__email:focus-visible { color: var(--interactive-default); }
 
   address {
-    margin: 1.3rem 0 0;
+    margin: 1.25rem 0 0;
     color: var(--text-secondary);
     font-size: 0.78rem;
     font-style: normal;
@@ -136,12 +136,12 @@ const routes = copy.routes.map((route, index) => ({
   .contact-office-list {
     display: grid;
     gap: 1rem;
-    margin-top: 1.3rem;
+    margin-top: 1.25rem;
   }
 
   .contact-office {
     border-top: var(--p-border-hairline) solid var(--border-subtle);
-    padding-top: 0.8rem;
+    padding-top: 0.75rem;
   }
 
   .contact-office__label {
@@ -149,12 +149,11 @@ const routes = copy.routes.map((route, index) => ({
     color: var(--text-primary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
 
   .contact-office address {
-    margin-top: 0.45rem;
+    margin-top: 0.5rem;
   }
 
   .row { border-bottom: var(--p-border-hairline) solid var(--border-subtle); }
@@ -175,7 +174,7 @@ const routes = copy.routes.map((route, index) => ({
   .contact-details h2,
   .contact-closing h2 {
     max-width: 20ch;
-    margin-top: 0.7rem;
+    margin-top: 0.75rem;
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: var(--fw-regular);
     letter-spacing: -0.04em;
@@ -202,7 +201,7 @@ const routes = copy.routes.map((route, index) => ({
     grid-template-columns: 3rem minmax(0, 1fr) auto;
     gap: clamp(1rem, 3vw, 3rem);
     align-items: center;
-    padding-block: 1.4rem;
+    padding-block: 1.5rem;
     border-bottom: var(--p-border-hairline) solid var(--border-strong);
     color: inherit;
     text-decoration: none;
@@ -213,7 +212,7 @@ const routes = copy.routes.map((route, index) => ({
   .contact-route:focus-visible {
     background: var(--surface-secondary);
     color: inherit;
-    padding-inline: 0.6rem;
+    padding-inline: 0.5rem;
   }
 
   /* Routes are alternatives, not steps, so a gold mark replaces 01–04. */
@@ -223,7 +222,7 @@ const routes = copy.routes.map((route, index) => ({
     background: var(--brand-accent);
   }
 
-  .contact-route__body { display: grid; gap: 0.3rem; }
+  .contact-route__body { display: grid; gap: 0.25rem; }
 
   .contact-route__body strong {
     color: var(--text-primary);
@@ -245,9 +244,8 @@ const routes = copy.routes.map((route, index) => ({
     color: var(--text-primary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.01em;
     line-height: 1.8;
-    text-transform: uppercase;
   }
 
   .contact-route:hover .contact-route__action,
@@ -271,8 +269,8 @@ const routes = copy.routes.map((route, index) => ({
   .contact-closing__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 1.6rem;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
   }
 
   @media (max-width: 900px) {
@@ -285,7 +283,7 @@ const routes = copy.routes.map((route, index) => ({
     .contact-section-head h2,
     .contact-details h2,
     .contact-closing h2 { max-width: 12ch; font-size: clamp(2rem, 4vw, 2.75rem); }
-    .contact-route { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.8rem 1rem; }
+    .contact-route { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.75rem 1rem; }
     .contact-route__action { grid-column: 2; justify-self: start; }
   }
 </style>

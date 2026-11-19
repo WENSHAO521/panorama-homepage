@@ -96,7 +96,7 @@ const isCurrent = (item: NavItem): boolean =>
     content: '';
     position: absolute;
     inset-inline: var(--p-space-2);
-    bottom: 0.2rem;
+    bottom: 0.25rem;
     height: 2px;
     border-radius: 1px;
     background: var(--brand-primary);
@@ -122,7 +122,7 @@ const isCurrent = (item: NavItem): boolean =>
     /* German labels leave no slack at 1024px; a newer Chromium's text
        metrics tipped the header 2px past the viewport. */
     :global(html:lang(de)) .desktop-nav__link,
-    :global(html:lang(de)) .desktop-nav__trigger { padding-inline: 0.375rem; }
+    :global(html:lang(de)) .desktop-nav__trigger { padding-inline: 0.5rem; }
   }
 
   /* Visibility comes ONLY from the [open] attribute -- never a class --
@@ -138,7 +138,7 @@ const isCurrent = (item: NavItem): boolean =>
     inset-inline-start: 0;
     z-index: var(--p-z-dropdown);
     min-width: 20rem;
-    margin-top: 0.35rem;
+    margin-top: 0.25rem;
     background: var(--surface-raised);
     border: var(--p-border-hairline) solid var(--border-subtle);
     border-radius: var(--p-radius-surface);

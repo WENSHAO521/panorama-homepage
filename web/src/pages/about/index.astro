@@ -209,14 +209,14 @@ const copy = getAboutCopy(locale);
   .about-statement h2,
   .about-closing h2 {
     max-width: 20ch;
-    margin-top: 0.7rem;
+    margin-top: 0.75rem;
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: var(--fw-regular);
     letter-spacing: -0.04em;
     line-height: 1.02;
   }
 
-  .about-statement__copy { padding-top: 0.3rem; }
+  .about-statement__copy { padding-top: 0.25rem; }
 
   .about-statement__copy p,
   .about-closing__copy > p {
@@ -228,7 +228,7 @@ const copy = getAboutCopy(locale);
   }
 
   .about-statement__copy p + p {
-    margin-top: 1.2rem;
+    margin-top: 1.25rem;
     color: var(--text-muted);
     font-size: 0.92rem;
   }
@@ -242,7 +242,7 @@ const copy = getAboutCopy(locale);
 
   .about-section-head h2 {
     max-width: 20ch;
-    margin-top: 0.7rem;
+    margin-top: 0.75rem;
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: var(--fw-regular);
     letter-spacing: -0.04em;
@@ -269,7 +269,7 @@ const copy = getAboutCopy(locale);
     grid-template-columns: 3rem minmax(0, 1.25fr) minmax(11rem, 0.75fr) auto;
     gap: clamp(1rem, 3vw, 3rem);
     align-items: center;
-    padding-block: 1.4rem;
+    padding-block: 1.5rem;
     border-bottom: var(--p-border-hairline) solid var(--border-strong);
   }
 
@@ -300,9 +300,8 @@ const copy = getAboutCopy(locale);
     color: var(--text-primary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.01em;
     text-decoration: none;
-    text-transform: uppercase;
   }
 
   .about-division-list a,
@@ -337,7 +336,7 @@ const copy = getAboutCopy(locale);
 
   .about-commitment-list article {
     min-height: 13rem;
-    padding: 1.2rem 1.3rem 1.3rem;
+    padding: 1.25rem 1.25rem 1.25rem;
     border-inline-end: var(--p-border-hairline) solid var(--border-inverse);
   }
 
@@ -360,7 +359,7 @@ const copy = getAboutCopy(locale);
 
   .about-commitment-list p {
     max-width: 18rem;
-    margin-top: 0.55rem;
+    margin-top: 0.5rem;
     color: var(--text-inverse-muted);
     font-family: var(--font-display);
     font-size: 0.88rem;
@@ -378,9 +377,9 @@ const copy = getAboutCopy(locale);
   .about-connection {
     display: grid;
     grid-template-rows: 7rem minmax(0, 1fr) auto;
-    gap: 1.1rem;
+    gap: 1rem;
     min-height: 20rem;
-    padding: 1.25rem 1.35rem 1.4rem;
+    padding: 1.25rem 1.25rem 1.5rem;
     border-inline-end: var(--p-border-hairline) solid var(--border-strong);
     border-bottom: var(--p-border-hairline) solid var(--border-strong);
   }
@@ -413,7 +412,7 @@ const copy = getAboutCopy(locale);
 
   .about-connection h3 {
     max-width: 18ch;
-    margin-top: 0.45rem;
+    margin-top: 0.5rem;
     font-family: var(--font-display);
     font-size: 1.2rem;
     font-weight: var(--fw-regular);
@@ -421,7 +420,7 @@ const copy = getAboutCopy(locale);
   }
 
   .about-connection__body > p:last-child {
-    margin-top: 0.55rem;
+    margin-top: 0.5rem;
     color: var(--text-secondary);
     font-family: var(--font-display);
     font-size: 0.86rem;
@@ -432,7 +431,7 @@ const copy = getAboutCopy(locale);
 
   .about-connections__note {
     max-width: 42rem;
-    margin-top: 1.2rem;
+    margin-top: 1.25rem;
     color: var(--text-muted);
     font-size: var(--fs-caption);
     line-height: 1.45;
@@ -443,7 +442,7 @@ const copy = getAboutCopy(locale);
   .about-closing__links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem 1.5rem;
+    gap: 0.75rem 1.5rem;
     margin-top: 1.5rem;
   }
 
@@ -469,12 +468,12 @@ const copy = getAboutCopy(locale);
     .about-division-list li,
     .about-division-list li > p,
     .about-division-list li > a { grid-column: auto; grid-row: auto; }
-    .about-division-list li { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.8rem 1rem; }
-    .about-division-list li > a { grid-column: 2; justify-self: start; margin-top: 0.35rem; }
+    .about-division-list li { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.75rem 1rem; }
+    .about-division-list li > a { grid-column: 2; justify-self: start; margin-top: 0.25rem; }
     .about-commitment-list,
     .about-connection-list { grid-template-columns: minmax(0, 1fr); }
     .about-commitment-list article,
-    .about-commitment-list article:first-child { min-height: 0; padding: 1.2rem 0; border-inline-end: 0; border-bottom: var(--p-border-hairline) solid var(--border-inverse); }
+    .about-commitment-list article:first-child { min-height: 0; padding: 1.25rem 0; border-inline-end: 0; border-bottom: var(--p-border-hairline) solid var(--border-inverse); }
     .about-commitment-list article:last-child { border-bottom: 0; }
     .about-commitment-list h3 { margin-top: 1.25rem; }
     .about-connection { min-height: 0; }
