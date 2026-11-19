@@ -65,7 +65,7 @@ const licenseHref = journal.licenseUrl ?? journal.journalUrl;
   .journal-rights-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem 1.15rem;
+    gap: 0.75rem 1.25rem;
     margin: 1.25rem 0 0;
     color: var(--journal-rights-muted);
     font-size: var(--fs-caption);
@@ -77,15 +77,14 @@ const licenseHref = journal.licenseUrl ?? journal.journalUrl;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.25rem 0.45rem;
+    gap: 0.25rem 0.5rem;
     min-width: 0;
     max-width: 100%;
   }
 
   .journal-rights-meta dt {
     color: var(--journal-rights-accent);
-    font-weight: 800;
-    text-transform: uppercase;
+    font-weight: 600;
   }
 
   .journal-rights-meta dd {
@@ -113,6 +112,6 @@ const licenseHref = journal.licenseUrl ?? journal.journalUrl;
   }
 
   @media (max-width: 639px) {
-    .journal-rights-meta { gap: 0.6rem 0.9rem; }
+    .journal-rights-meta { gap: 0.5rem 1rem; }
   }
 </style>

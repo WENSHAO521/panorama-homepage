@@ -147,14 +147,13 @@ function compactDescription(description?: string) {
     color: var(--text-muted);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.16em;
+    letter-spacing: 0.01em;
     line-height: 1.35;
-    text-transform: uppercase;
   }
 
   .journal-directory h1 {
     max-width: 18ch;
-    margin: 1.2rem 0 1.5rem;
+    margin: 1.25rem 0 1.5rem;
     font-family: var(--font-display);
     font-size: clamp(2.4rem, 5.6vw, 3.75rem);
     font-weight: var(--fw-regular);
@@ -173,9 +172,9 @@ function compactDescription(description?: string) {
   .journal-directory__imprint-header {
     display: grid;
     align-items: center;
-    gap: 0.8rem 1.25rem;
+    gap: 0.75rem 1.25rem;
     grid-template-columns: max-content minmax(2rem, 1fr) max-content;
-    padding-block: 0.75rem 1.1rem;
+    padding-block: 0.75rem 1rem;
     border-bottom: var(--p-border-hairline) solid var(--border-subtle);
   }
 
@@ -189,7 +188,7 @@ function compactDescription(description?: string) {
   }
 
   .journal-directory__imprint-name p {
-    margin-top: 0.45rem;
+    margin-top: 0.5rem;
     font-size: var(--fs-caption);
   }
 
@@ -248,7 +247,7 @@ function compactDescription(description?: string) {
 
   .journal-directory__cover-link:hover,
   .journal-directory__cover-link:focus-visible {
-    transform: translateY(-0.25rem);
+    transform: translateY(-0.125rem);
     box-shadow: var(--p-shadow-md);
   }
 
@@ -278,7 +277,7 @@ function compactDescription(description?: string) {
   }
 
   .journal-directory__journal h3 {
-    margin: 0.45rem 0 0;
+    margin: 0.5rem 0 0;
     font-family: var(--font-display);
     font-size: 1.08rem;
     font-weight: var(--fw-regular);
@@ -293,7 +292,7 @@ function compactDescription(description?: string) {
   .journal-directory__description {
     display: -webkit-box;
     overflow: hidden;
-    margin: 0.55rem 0 0;
+    margin: 0.5rem 0 0;
     color: var(--text-secondary);
     font-family: var(--font-display);
     font-size: 0.78rem;
@@ -304,7 +303,7 @@ function compactDescription(description?: string) {
 
   .journal-directory__visit {
     margin-top: auto;
-    padding-top: 0.8rem;
+    padding-top: 0.75rem;
     border-bottom: var(--p-border-hairline) solid color-mix(in srgb, var(--text-link) 60%, transparent);
     line-height: 1.55;
   }
@@ -319,7 +318,7 @@ function compactDescription(description?: string) {
   @media (min-width: 1100px) {
     .journal-directory__journal-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      column-gap: 2.2rem;
+      column-gap: 2.25rem;
     }
   }
 

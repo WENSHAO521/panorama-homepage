@@ -127,7 +127,7 @@ const pins = getOfficeDirectory(locale).map((office) => {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.9rem 1.5rem;
+    gap: 1rem 1.5rem;
     margin-top: 1.5rem;
   }
   .research-infra__actions .action-link { color: var(--text-accent-inverse); }
@@ -191,20 +191,19 @@ const pins = getOfficeDirectory(locale).map((office) => {
   .research-map__label {
     position: absolute;
     transform: translate(-100%, -50%);
-    padding-inline-end: 0.4rem;
+    padding-inline-end: 0.5rem;
     color: var(--text-accent-inverse);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.01em;
     line-height: 1;
-    text-transform: uppercase;
     white-space: nowrap;
   }
 
   @media (min-width: 768px) {
     .research-infra__grid {
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 1.35rem;
+      gap: 1.25rem;
     }
   }
 

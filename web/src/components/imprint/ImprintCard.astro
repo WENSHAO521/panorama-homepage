@@ -46,9 +46,9 @@ const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '
   .imprint-card__link {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
     flex: 1;
-    padding: 1.35rem 1.25rem 0;
+    padding: 1.25rem 1.25rem 0;
     text-decoration: none;
   }
 
@@ -61,7 +61,7 @@ const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '
     height: calc(var(--logo-base) * 1.22);
   }
   .imprint-card__scope { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4; hyphens: auto; overflow-wrap: break-word; }
-  .imprint-card__count { color: var(--text-secondary); font-size: var(--fs-label); font-weight: var(--fw-semibold); letter-spacing: 0.1em; text-transform: uppercase; }
+  .imprint-card__count { color: var(--text-secondary); font-size: var(--fs-label); font-weight: var(--fw-semibold); letter-spacing: 0.01em; }
 
   /* Three covers fanned at the foot of the card, bleeding off its bottom edge. */
   .imprint-card__covers {
@@ -70,7 +70,7 @@ const countJoin = ['zh-hans', 'zh-hant', 'ja', 'ko'].includes(locale) ? '' : ' '
     height: 7.5rem;
     margin-top: auto;
     padding-top: 1rem;
-    padding-inline-start: 0.2rem;
+    padding-inline-start: 0.25rem;
   }
   .imprint-card__covers :global(img) {
     flex: none;

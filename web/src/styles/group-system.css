@@ -165,7 +165,7 @@ body.group-site .group-detail__body ul,
 body.group-site .group-detail__body ol {
   max-width: 68ch;
   margin-block: 1.25rem;
-  padding-inline-start: 1.35rem;
+  padding-inline-start: 1.25rem;
 }
 
 body.group-site .group-detail--announcement .group-detail__body ul,

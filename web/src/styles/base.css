@@ -82,3 +82,10 @@ a:hover {
 [dir='rtl'] {
   text-align: start;
 }
+
+/* Dates, counts and ISSNs line up in columns. */
+time,
+dd,
+td {
+  font-variant-numeric: tabular-nums;
+}

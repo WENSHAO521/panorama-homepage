@@ -71,7 +71,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="ridgeline-shell ridgeline-hero__inner">
           <div class="ridgeline-hero__copy">
             <p class="ridgeline-kicker">{tx('heroKicker', 'Ridgeline / Panorama Scholarly Group')}</p>
-            <h1 id="ridgeline-hero-title"><PhraseText text={tx('heroTitleOne', 'Research for')} /><br /><PhraseText text={tx('heroTitleTwo', 'the systems')} /><br /><PhraseText text={tx('heroTitleThree', 'we are building.')} /></h1>
+            <h1 id="ridgeline-hero-title"><PhraseText text={tx('heroTitleOne', 'Research for')} /><br /><PhraseText text={tx('heroTitleTwo', 'the systems')} /><br /><PhraseText text={tx('heroTitleThree', 'we are building')} /></h1>
             <p class="ridgeline-hero__lede"><PhraseText text={tx('heroLede', 'Technology, engineering and applied AI research for a more human, sustainable and equitable future.')} /></p>
             <div class="ridgeline-actions">
               <a class="ridgeline-button ridgeline-button--primary" data-action="primary" href="#journals">{tx('exploreJournals', 'Explore Ridgeline journals')}</a>
@@ -165,7 +165,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="ridgeline-shell ridgeline-purpose__inner">
           <div>
             <p class="ridgeline-kicker">{tx('purposeKicker', 'Our purpose')}</p>
-            <h2 id="ridgeline-purpose-title">{tx('purposeTitleOne', 'Knowledge')}<br />{tx('purposeTitleTwo', 'across disciplines')}<br /><span class="ridgeline-nowrap">{tx('purposeTitleThree', 'for real-world progress.')}</span></h2>
+            <h2 id="ridgeline-purpose-title">{tx('purposeTitleOne', 'Knowledge')}<br />{tx('purposeTitleTwo', 'across disciplines')}<br /><span class="ridgeline-nowrap">{tx('purposeTitleThree', 'for real-world progress')}</span></h2>
             <span class="ridgeline-rule ridgeline-rule--copper" aria-hidden="true"></span>
           </div>
           <div class="ridgeline-purpose__body">
@@ -196,7 +196,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
         <div class="ridgeline-shell ridgeline-authors__inner">
           <div class="ridgeline-authors__copy">
             <p class="ridgeline-kicker">{tx('authorsKicker', 'For authors & editors')}</p>
-            <h2 id="ridgeline-authors-title">{tx('authorsTitleOne', 'Help shape a more')}<br />{tx('authorsTitleTwo', 'livable tomorrow.')}</h2>
+            <h2 id="ridgeline-authors-title">{tx('authorsTitleOne', 'Help shape a more')}<br />{tx('authorsTitleTwo', 'livable tomorrow')}</h2>
             <p>{tx('authorsBody', 'We welcome original research, reviews and perspectives from around the world.')}</p>
             <div class="ridgeline-authors__actions">
               <a class="ridgeline-button ridgeline-button--primary" data-action="primary" href={localizePath('/publishing/', locale)}>{tx('submitResearch', 'Submit your research')}</a>
@@ -314,10 +314,9 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     margin: 0;
     color: var(--ridge-copper);
     font-size: var(--fs-label);
-    font-weight: 700;
-    letter-spacing: 0.16em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     line-height: 1.4;
-    text-transform: uppercase;
   }
 
   .ridgeline-hero h1 {
@@ -348,11 +347,11 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     flex-wrap: wrap;
     align-items: center;
     gap: var(--p-action-row-gap);
-    margin-top: 2.2rem;
+    margin-top: 2.25rem;
   }
 
-  .ridgeline-hero .ridgeline-actions { margin-top: 1.55rem; }
-  .ridgeline-authors__actions { margin-top: 1.4rem; }
+  .ridgeline-hero .ridgeline-actions { margin-top: 1.5rem; }
+  .ridgeline-authors__actions { margin-top: 1.5rem; }
 
   .ridgeline-button {
     display: inline-flex;
@@ -399,7 +398,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   .ridgeline-hero__cover-link:hover,
-  .ridgeline-hero__cover-link:focus-visible { transform: rotate(0deg) translateY(-0.4rem); }
+  .ridgeline-hero__cover-link:focus-visible { transform: rotate(0deg) translateY(-0.125rem); }
 
   .ridgeline-hero__cover {
     width: 100%;
@@ -411,18 +410,17 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   .ridgeline-hero__side-note {
     position: absolute;
-    inset-block-end: 3.3rem;
+    inset-block-end: 3.25rem;
     inset-inline-start: 0;
     display: grid;
-    gap: 0.28rem;
-    padding-inline-start: 1.05rem;
+    gap: 0.25rem;
+    padding-inline-start: 1rem;
     border-inline-start: 1px solid var(--ridge-copper);
     color: var(--ridge-ink-soft);
     font-size: var(--fs-label);
-    font-weight: 700;
-    letter-spacing: 0.16em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     line-height: 1.4;
-    text-transform: uppercase;
   }
 
   .ridgeline-journals,
@@ -438,7 +436,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    padding-block: 0.8rem 0.75rem;
+    padding-block: 0.75rem 0.75rem;
     border-bottom: 1px solid var(--ridge-line);
   }
 
@@ -447,21 +445,20 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     color: var(--ridge-ink-soft);
     font-size: var(--fs-label);
     font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
 
   .ridgeline-journal-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
-    padding-top: 0.8rem;
+    padding-top: 0.75rem;
   }
 
   .ridgeline-journal-intro,
   .ridgeline-journal-entry {
     min-width: 0;
-    padding: 0 1.45rem 0 1.45rem;
+    padding: 0 1.5rem 0 1.5rem;
   }
 
   .ridgeline-journal-intro {
@@ -508,15 +505,14 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .ridgeline-text-link {
     display: inline-flex;
     align-items: center;
-    margin-top: 1.35rem;
+    margin-top: 1.25rem;
     border-bottom: 1px solid var(--ridge-copper);
     color: var(--ridge-ink);
     font-size: var(--fs-label);
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     line-height: 1.8;
     text-decoration: none;
-    text-transform: uppercase;
     transition: color var(--p-duration-base) var(--p-ease-standard), border-color var(--p-duration-base) var(--p-ease-standard);
   }
 
@@ -537,14 +533,14 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   .ridgeline-journal-entry__cover-link {
     display: block;
     width: min(100%, 9.2rem);
-    margin-bottom: 1.1rem;
+    margin-bottom: 1rem;
     overflow: hidden;
     box-shadow: 0 0.55rem 1rem color-mix(in srgb, var(--ridge-ink) 14%, transparent);
     transition: transform var(--p-duration-base) var(--p-ease-decelerate);
   }
 
   .ridgeline-journal-entry__cover-link:hover,
-  .ridgeline-journal-entry__cover-link:focus-visible { transform: translateY(-0.3rem); }
+  .ridgeline-journal-entry__cover-link:focus-visible { transform: translateY(-0.125rem); }
 
   .ridgeline-journal-entry__cover { width: 100%; height: auto; aspect-ratio: 495 / 700; object-fit: cover; }
 
@@ -563,7 +559,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   .ridgeline-journal-entry > p {
     max-width: 15rem;
-    margin: 0.65rem 0 0;
+    margin: 0.75rem 0 0;
     color: var(--ridge-ink-soft);
     font-family: var(--font-display);
     font-size: var(--fs-caption);
@@ -605,14 +601,14 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     gap: 0;
     align-items: center;
     min-height: clamp(13.5rem, 17.5vw, 20rem);
-    padding-block: clamp(1.4rem, 2.5vw, 3.75rem) 0;
+    padding-block: clamp(1.5rem, 2.5vw, 3.75rem) 0;
   }
 
   .ridgeline-purpose .ridgeline-kicker { color: var(--imprint-accent-light); }
 
   .ridgeline-purpose h2 {
     max-width: 100%;
-    margin: 1.45rem 0 0;
+    margin: 1.5rem 0 0;
     color: var(--ridge-paper);
     font-family: var(--font-display);
     font-size: clamp(2rem, 3.2vw, 2.75rem);
@@ -655,8 +651,8 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
   }
 
   .ridgeline-area {
-    min-height: 5.4rem;
-    padding: 1rem 1.1rem 1rem;
+    min-height: 5.5rem;
+    padding: 1rem 1rem 1rem;
     border-inline-start: 1px solid var(--ridge-line);
   }
 
@@ -674,7 +670,7 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
 
   .ridgeline-area p {
     max-width: 11rem;
-    margin: 0.8rem 0 0;
+    margin: 0.75rem 0 0;
     color: var(--ridge-ink-soft);
     font-family: var(--font-display);
     font-size: var(--fs-caption);
@@ -693,12 +689,12 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(18rem, 1fr);
     gap: 0;
-    padding-block: clamp(1.3rem, 2.5vw, 3.75rem) 1.75rem;
+    padding-block: clamp(1.25rem, 2.5vw, 3.75rem) 1.75rem;
   }
 
   .ridgeline-authors h2 {
     max-width: 24ch;
-    margin: 1.4rem 0 1.25rem;
+    margin: 1.5rem 0 1.25rem;
     color: var(--ridge-ink);
     font-family: var(--font-display);
     font-size: clamp(2rem, 3.6vw, 2.75rem);
@@ -732,16 +728,15 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     line-height: 1.04;
   }
 
-  .ridgeline-authors__quote .ridgeline-rule { margin-block: 1.7rem 1rem; }
+  .ridgeline-authors__quote .ridgeline-rule { margin-block: 1.75rem 1rem; }
 
   .ridgeline-authors__quote p {
     margin: 0;
     color: var(--ridge-ink-soft);
     font-size: var(--fs-label);
-    font-weight: 700;
-    letter-spacing: 0.16em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     line-height: 1.55;
-    text-transform: uppercase;
   }
 
   @media (min-width: 1200px) {
@@ -772,26 +767,26 @@ const footerNav = imprintNav.map(({ label, href }) => ({ label, href }));
     .ridgeline-hero__ridge { inset-inline-end: -33%; width: 118%; height: 55%; opacity: 0.52; }
     .ridgeline-hero__contours { inset-inline-start: -16%; width: 140%; height: 48%; opacity: 0.25; }
     .ridgeline-hero__copy { width: 100%; padding-block: 3.25rem 0; }
-    .ridgeline-hero h1 { max-width: 14ch; margin: 1rem 0 1.35rem; font-size: clamp(2.2rem, 10vw, 3rem); }
+    .ridgeline-hero h1 { max-width: 14ch; margin: 1rem 0 1.25rem; font-size: clamp(2.2rem, 10vw, 3rem); }
     .ridgeline-hero__lede { max-width: 19rem; font-size: 1.05rem; }
-    .ridgeline-actions { margin-top: 1.55rem; }
-    .ridgeline-hero .ridgeline-actions { align-items: flex-start; flex-direction: column; flex-wrap: nowrap; gap: 0.6rem; }
+    .ridgeline-actions { margin-top: 1.5rem; }
+    .ridgeline-hero .ridgeline-actions { align-items: flex-start; flex-direction: column; flex-wrap: nowrap; gap: 0.5rem; }
     .ridgeline-button { min-height: var(--p-action-height); padding-inline: var(--p-action-pad-x); font-size: var(--p-action-font-size); }
-    .ridgeline-hero__cover-link { inset-block-start: auto; inset-block-end: 4.8rem; inset-inline-end: 0; width: 9.8rem; }
-    .ridgeline-hero__side-note { inset-block-end: 1.8rem; font-size: var(--fs-caption); }
-    .ridgeline-section-bar { align-items: flex-start; flex-direction: column; gap: 0.55rem; }
+    .ridgeline-hero__cover-link { inset-block-start: auto; inset-block-end: 4.75rem; inset-inline-end: 0; width: 9.8rem; }
+    .ridgeline-hero__side-note { inset-block-end: 1.75rem; font-size: var(--fs-caption); }
+    .ridgeline-section-bar { align-items: flex-start; flex-direction: column; gap: 0.5rem; }
     .ridgeline-section-bar p:last-child { font-size: var(--fs-caption); }
-    .ridgeline-journal-grid { grid-template-columns: 1fr; gap: 2.8rem; }
+    .ridgeline-journal-grid { grid-template-columns: 1fr; gap: 2.75rem; }
     .ridgeline-journal-intro, .ridgeline-journal-entry { padding-inline: 0; border-inline-start: 0; }
     .ridgeline-journal-intro h2 { max-width: 100%; font-size: clamp(2rem, 8vw, 2.25rem); }
     .ridgeline-journal-entry__cover-link { width: 11.5rem; }
-    .ridgeline-purpose__inner, .ridgeline-authors__inner { grid-template-columns: 1fr; gap: 2.7rem; }
+    .ridgeline-purpose__inner, .ridgeline-authors__inner { grid-template-columns: 1fr; gap: 2.75rem; }
     .ridgeline-purpose__inner { padding-block: 4rem 4.5rem; }
     .ridgeline-purpose h2, .ridgeline-authors h2 { max-width: 9ch; font-size: 2.25rem; }
     .ridgeline-nowrap { white-space: normal; }
-    .ridgeline-purpose__body, .ridgeline-authors__quote { padding-inline-start: 1.2rem; }
+    .ridgeline-purpose__body, .ridgeline-authors__quote { padding-inline-start: 1.25rem; }
     .ridgeline-area-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
-    .ridgeline-area { min-height: 9.5rem; padding: 1.4rem 0.85rem 1.25rem; border-block-start: 1px solid var(--ridge-line); }
+    .ridgeline-area { min-height: 9.5rem; padding: 1.5rem 0.75rem 1.25rem; border-block-start: 1px solid var(--ridge-line); }
     .ridgeline-area:nth-child(odd) { padding-inline-start: 0; border-inline-start: 0; }
     .ridgeline-area:nth-child(-n + 2) { border-block-start: 0; }
     .ridgeline-authors { background-size: 90% auto; }

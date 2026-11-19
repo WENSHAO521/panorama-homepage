@@ -200,7 +200,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-hero__fan li:nth-child(4) { inset-inline-start: 62%; top: 18%; transform: rotate(10deg); z-index: 2; }
 
   @media (prefers-reduced-motion: no-preference) {
-    .publishing-hero__fan li { animation: publishing-fan-in 700ms var(--p-ease-decelerate) backwards; }
+    .publishing-hero__fan li { animation: publishing-fan-in 480ms var(--p-ease-decelerate) backwards; }
     .publishing-hero__fan li:nth-child(2) { animation-delay: 80ms; }
     .publishing-hero__fan li:nth-child(3) { animation-delay: 160ms; }
     .publishing-hero__fan li:nth-child(4) { animation-delay: 240ms; }
@@ -216,7 +216,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     bottom: 4%;
     display: grid;
     justify-items: start;
-    gap: 0.85rem;
+    gap: 0.75rem;
     color: var(--text-secondary);
   }
 
@@ -230,13 +230,12 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     margin: 0;
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.16em;
+    letter-spacing: 0.01em;
     line-height: 1.5;
-    text-transform: uppercase;
   }
 
   /* ── Below the hero: same rhythm as the homepage sections ─────────── */
-  .publishing-section__overline { margin: 0 0 0.9rem; color: var(--text-accent); }
+  .publishing-section__overline { margin: 0 0 1rem; color: var(--text-accent); }
 
   .publishing-pathways { padding-block: clamp(3rem, 6vw, 5rem); }
 
@@ -254,7 +253,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     min-width: 0;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 1.1rem;
+    padding-top: 1rem;
     border-top: var(--p-border-strong) solid var(--text-primary);
   }
 
@@ -267,7 +266,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   .publishing-pathway h3 {
-    margin: 0.7rem 0 0;
+    margin: 0.75rem 0 0;
     font-size: clamp(1.45rem, 2.2vw, 1.85rem);
     font-weight: var(--fw-regular);
     letter-spacing: -0.015em;
@@ -277,7 +276,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
   .publishing-pathway p {
     max-width: 34ch;
-    margin: 0.8rem 0 1.25rem;
+    margin: 0.75rem 0 1.25rem;
     color: var(--text-secondary);
     font-family: var(--font-display);
     font-size: 1rem;
@@ -304,13 +303,12 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   }
 
   .publishing-imprints__table-head {
-    padding-block: 0.8rem;
+    padding-block: 0.75rem;
     color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.16em;
+    letter-spacing: 0.01em;
     line-height: 1.35;
-    text-transform: uppercase;
   }
 
   .publishing-imprint {
@@ -331,12 +329,12 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     display: grid;
     grid-template-columns: 2rem minmax(0, 1fr);
     align-items: start;
-    gap: 0.85rem;
+    gap: 0.75rem;
     min-width: 0;
   }
 
   .publishing-imprint__index {
-    padding-top: 0.2rem;
+    padding-top: 0.25rem;
     color: var(--imprint-accent);
     font-size: var(--fs-caption);
     font-weight: var(--fw-semibold);
@@ -346,7 +344,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-imprint__logo {
     display: block;
     width: min(100%, 12.5rem);
-    height: 3.35rem;
+    height: 3.25rem;
     object-fit: contain;
     object-position: left center;
   }
@@ -357,9 +355,8 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.14em;
+    letter-spacing: 0.01em;
     line-height: 1.45;
-    text-transform: uppercase;
   }
 
   .publishing-imprint__description p {
@@ -374,16 +371,15 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-imprint__description ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem 1rem;
-    margin: 0.9rem 0 0;
+    gap: 0.5rem 1rem;
+    margin: 1rem 0 0;
     padding: 0;
     color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.13em;
+    letter-spacing: 0.01em;
     line-height: 1.35;
     list-style: none;
-    text-transform: uppercase;
   }
 
   .publishing-imprint__description li + li::before {
@@ -395,7 +391,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-imprint__programme {
     display: grid;
     justify-items: start;
-    gap: 0.35rem;
+    gap: 0.25rem;
     padding-inline-start: clamp(0.75rem, 2vw, 1.5rem);
     border-inline-start: var(--p-border-hairline) solid var(--border-subtle);
   }
@@ -411,9 +407,8 @@ const programmeRoutes = copy.routes.map((route, index) => ({
     color: var(--text-secondary);
     font-size: var(--fs-label);
     font-weight: var(--fw-semibold);
-    letter-spacing: 0.15em;
+    letter-spacing: 0.01em;
     line-height: 1.4;
-    text-transform: uppercase;
   }
 
   .publishing-imprints__footer {
@@ -436,7 +431,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
   .publishing-next h2 {
     max-width: 20ch;
-    margin: 0.9rem 0 0;
+    margin: 1rem 0 0;
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     font-weight: var(--fw-regular);
     letter-spacing: -0.015em;
@@ -458,7 +453,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
   .publishing-next__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.7rem;
+    gap: 0.75rem;
     justify-content: flex-start;
   }
 
@@ -501,7 +496,7 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
     .publishing-imprint {
       grid-template-columns: 2rem minmax(0, 1fr);
-      gap: 0.9rem;
+      gap: 1rem;
       padding-block: 1.5rem;
     }
 
@@ -516,14 +511,14 @@ const programmeRoutes = copy.routes.map((route, index) => ({
 
     .publishing-imprint__description {
       grid-column: 2;
-      margin-top: 0.2rem;
+      margin-top: 0.25rem;
     }
 
     .publishing-imprint__programme {
       grid-column: 2;
       justify-items: start;
-      margin-top: 0.7rem;
-      padding-block-start: 0.8rem;
+      margin-top: 0.75rem;
+      padding-block-start: 0.75rem;
       padding-inline-start: 0;
       border-block-start: var(--p-border-hairline) solid var(--border-subtle);
       border-inline-start: 0;

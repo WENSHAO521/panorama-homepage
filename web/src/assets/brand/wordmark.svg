@@ -7,7 +7,7 @@
       .word-primary {
         font-family: "Arial Nova Cond", "Arial Narrow", "Arial", "Helvetica", sans-serif;
         font-size: 300px;
-        font-weight: 700;
+        font-weight: 600;
         letter-spacing: 10px;
         fill: #111111;
       }
