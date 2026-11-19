@@ -218,7 +218,7 @@ p + p {
 :root .imprints-directory :is(h1, h2, h3, h4) {
   letter-spacing: var(--ls-normal);
   line-height: 1.08;
-  hyphens: auto;
+  hyphens: var(--heading-hyphens);
   text-wrap: balance;
 }
 
@@ -271,8 +271,9 @@ p + p {
 /* Give every localized page a legible heading rhythm and language-aware wraps. */
 :root[lang] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4) {
   letter-spacing: 0;
-  hyphens: auto;
+  hyphens: var(--heading-hyphens);
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 :root[lang] body:is(.group-site, .standalone-site) h1 { line-height: 1.14; }
@@ -284,7 +285,13 @@ p + p {
   letter-spacing: normal;
   line-height: var(--lh-body);
   hyphens: auto;
+  text-wrap: pretty;
 }
+
+/* Headlines break between words, never inside one. German keeps automatic
+   hyphenation: its compounds outgrow narrow heading columns. */
+:root { --heading-hyphens: manual; }
+:root[lang='de'] { --heading-hyphens: auto; }
 
 :root[lang^='zh'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4),
 :root[lang^='ja'] body:is(.group-site, .standalone-site) :is(h1, h2, h3, h4),

@@ -89,3 +89,9 @@ dd,
 td {
   font-variant-numeric: tabular-nums;
 }
+
+/* Bold in running text stays inside the type weight range (400–600). */
+strong,
+b {
+  font-weight: 600;
+}
