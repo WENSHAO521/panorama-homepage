@@ -22,14 +22,14 @@
     "@fontsource/noto-serif-kr": "^5.3.1",
     "@fontsource/noto-serif-sc": "^5.3.1",
     "@fontsource/noto-serif-tc": "^5.3.1",
-    "astro": "^7.4.2",
-    "d3-geo": "^3.1.1",
+    "astro": "^7.4.13",
+    "d3-geo": "^3.1.2",
     "topojson-client": "^3.1.0",
     "world-atlas": "^2.0.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
-    "playwright": "^1.64.1",
+    "playwright": "^1.65.1",
     "typescript": "^6.0.3"
   }
 }
